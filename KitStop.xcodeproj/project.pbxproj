@@ -77,6 +77,7 @@
 		FA4528561DF802F900B2AA03 /* KitStop */ = {
 			isa = PBXGroup;
 			children = (
+				FA4528771DF80BB100B2AA03 /* Modules */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA4528591DF802F900B2AA03 /* ViewController.swift */,
 				FA45285B1DF802F900B2AA03 /* Main.storyboard */,
@@ -94,6 +95,13 @@
 				FA45286E1DF802F900B2AA03 /* Info.plist */,
 			);
 			path = KitStopTests;
+			sourceTree = "<group>";
+		};
+		FA4528771DF80BB100B2AA03 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
