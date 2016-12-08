@@ -1,0 +1,27 @@
+### Headers settings
+company: MoziDev
+
+### Xcode project settings
+project_name: KitStop
+xcodeproj_path: KitStop.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: KitStop
+
+# The file path for new modules
+project_file_path: /KitStop/Modules/
+
+# The Xcode group path to new modules
+project_group_path: /KitStop/Modules/
+
+### Dependencies settings section
+podfile_path: Podfile
+cartfile_path: Cartfile
+
+### Templates
+templates:
+#- {name: local_template_name, local: 'absolute/file/path'}
+#- {name: remote_template_name, git: 'https://github.com/igrekde/remote_template'}
+#- {name: catalog_template_name}
+- {name: venomancer}
