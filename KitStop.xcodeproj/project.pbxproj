@@ -35,6 +35,7 @@
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+		956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KitStop.entitlements; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +114,7 @@
 		FA4528561DF802F900B2AA03 /* KitStop */ = {
 			isa = PBXGroup;
 			children = (
-				FA4528771DF80BB100B2AA03 /* Modules */,
+				956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA4528591DF802F900B2AA03 /* ViewController.swift */,
 				FA45285B1DF802F900B2AA03 /* Main.storyboard */,
@@ -131,13 +132,6 @@
 				FA45286E1DF802F900B2AA03 /* Info.plist */,
 			);
 			path = KitStopTests;
-			sourceTree = "<group>";
-		};
-		FA4528771DF80BB100B2AA03 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +190,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 729WFR3HVU;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					FA4528671DF802F900B2AA03 = {
 						CreatedOnToolsVersion = 8.1;
@@ -452,6 +451,7 @@
 			baseConfigurationReference = C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,6 +471,7 @@
 			baseConfigurationReference = 0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
