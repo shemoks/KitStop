@@ -1,0 +1,3 @@
+github "steipete/Aspects" "1.4.2"
+github "thoughtbot/Perform" "aa71482dd9dfdc5ce3e8baf91ba08b751a8a04f9"
+git "https://bitbucket.org/alextov/chamomile.git" "fe470c83b2a0e23786ad0f22abe8644df87e4ed8"
