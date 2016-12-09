@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03AACFA3B0916D6B9DD0AA3D /* SignUpAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56952386EAB11E9D422E8C34 /* SignUpAssember.swift */; };
+		11584609349F41FC750B6E6B /* SignUpRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F2D3D42B38CB87CC867BD /* SignUpRouterInterface.swift */; };
+		486868D15B355C499763BBB7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF39D35B0BCC9B0944DCDF /* SignUpViewController.swift */; };
+		677766DDEE78F99C5A9C5350 /* SignUpViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266F2CA10D129F892EB3E7A /* SignUpViewInterface.swift */; };
 		745891994723DED5E13B76F6 /* Pods_KitStop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB6090BFED7E8DF04618427 /* Pods_KitStop.framework */; };
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
@@ -46,6 +50,11 @@
 		9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */; };
 		9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */; };
 		9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */; };
+		9AF44812BA68DC2321C732D9 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948EAA624428CA74A5263D0D /* SignUpInteractor.swift */; };
+		C1B173886D2383763DF544FF /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED64EAF80467C990CC74AF6 /* SignUpRouter.swift */; };
+		CF2F1924EC7E1214EB3017B4 /* SignUpInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC910FB966072AF6F0E15EE /* SignUpInteractorInterface.swift */; };
+		D4ED07520159962E6C0D5CB8 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FCAE04F2ADE02A0DDC7FCD /* SignUpPresenter.swift */; };
+		DEDF2A97DC19E178392C2EC8 /* SignUpPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F3B8B5710C9F0B642993 /* SignUpPresenterInterface.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
 		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
@@ -66,10 +75,16 @@
 
 /* Begin PBXFileReference section */
 		0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.release.xcconfig"; sourceTree = "<group>"; };
+		3EC910FB966072AF6F0E15EE /* SignUpInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpInteractorInterface.swift; sourceTree = "<group>"; };
+		56952386EAB11E9D422E8C34 /* SignUpAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpAssember.swift; sourceTree = "<group>"; };
+		65FCAE04F2ADE02A0DDC7FCD /* SignUpPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		6DB6090BFED7E8DF04618427 /* Pods_KitStop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitStop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ED64EAF80467C990CC74AF6 /* SignUpRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		948EAA624428CA74A5263D0D /* SignUpInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+		956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KitStop.entitlements; sourceTree = "<group>"; };
 		9A8E870F1DF96F8C00780ED1 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		9A8E87131DF971E200780ED1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		9A8E87171DF9A90500780ED1 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
@@ -105,7 +120,11 @@
 		9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewInterface.swift; path = KitStop/Modules/Root/View/RootViewInterface.swift; sourceTree = SOURCE_ROOT; };
 		9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractorInterface.swift; sourceTree = "<group>"; };
+		B3FF39D35B0BCC9B0944DCDF /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C266F2CA10D129F892EB3E7A /* SignUpViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewInterface.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
+		C40F2D3D42B38CB87CC867BD /* SignUpRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpRouterInterface.swift; sourceTree = "<group>"; };
+		EEE0F3B8B5710C9F0B642993 /* SignUpPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterInterface.swift; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA4528591DF802F900B2AA03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,12 +170,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0DE32D3D8C7473F68924AD79 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3EC910FB966072AF6F0E15EE /* SignUpInteractorInterface.swift */,
+				948EAA624428CA74A5263D0D /* SignUpInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		16653766AB31FDF1077CD5C4 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
 				9A8E87521DFAC16B00780ED1 /* RootAssember.swift */,
 			);
 			path = Assembler;
+			sourceTree = "<group>";
+		};
+		1A535C56157CD5D92CA28B81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C266F2CA10D129F892EB3E7A /* SignUpViewInterface.swift */,
+				B3FF39D35B0BCC9B0944DCDF /* SignUpViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2ACC02CD870D5EA7E5E14067 /* Root */ = {
@@ -187,6 +224,35 @@
 				9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6DB09BEC7CA53E975C98EA59 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EEE0F3B8B5710C9F0B642993 /* SignUpPresenterInterface.swift */,
+				65FCAE04F2ADE02A0DDC7FCD /* SignUpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		85CC7A2B7AD2C8E3653AC45E /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				93DB7CE7D3DECB3C29A7E7D4 /* Assembler */,
+				1A535C56157CD5D92CA28B81 /* View */,
+				0DE32D3D8C7473F68924AD79 /* Interactor */,
+				6DB09BEC7CA53E975C98EA59 /* Presenter */,
+				E59347744F0CB35E4252D7B7 /* Router */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		93DB7CE7D3DECB3C29A7E7D4 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				56952386EAB11E9D422E8C34 /* SignUpAssember.swift */,
+			);
+			path = Assembler;
 			sourceTree = "<group>";
 		};
 		963E49F089DD187159FC01CF /* View */ = {
@@ -291,11 +357,28 @@
 			path = KitStop/Modules/Root/Interactor;
 			sourceTree = SOURCE_ROOT;
 		};
+		ABCE35B8F4F7E6E28003C0CE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				85CC7A2B7AD2C8E3653AC45E /* SignUp */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		B28E4677BCA5B871746CD964 /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				9A8E87611DFAC26600780ED1 /* RootRouter.swift */,
 				9A8E87621DFAC26600780ED1 /* RootRouterInterface.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E59347744F0CB35E4252D7B7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C40F2D3D42B38CB87CC867BD /* SignUpRouterInterface.swift */,
+				7ED64EAF80467C990CC74AF6 /* SignUpRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -325,6 +408,8 @@
 			children = (
 				9A8E87111DF9719500780ED1 /* Common */,
 				FA4528771DF80BB100B2AA03 /* Modules */,
+				ABCE35B8F4F7E6E28003C0CE /* Modules */,
+				956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA4528591DF802F900B2AA03 /* ViewController.swift */,
 				FA45285B1DF802F900B2AA03 /* Main.storyboard */,
@@ -409,6 +494,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 729WFR3HVU;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					FA4528671DF802F900B2AA03 = {
 						CreatedOnToolsVersion = 8.1;
@@ -563,6 +653,15 @@
 				9A8E87511DFAB94C00780ED1 /* AuthService.swift in Sources */,
 				9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */,
 				9A8E87531DFAC16B00780ED1 /* RootAssember.swift in Sources */,
+				03AACFA3B0916D6B9DD0AA3D /* SignUpAssember.swift in Sources */,
+				677766DDEE78F99C5A9C5350 /* SignUpViewInterface.swift in Sources */,
+				486868D15B355C499763BBB7 /* SignUpViewController.swift in Sources */,
+				CF2F1924EC7E1214EB3017B4 /* SignUpInteractorInterface.swift in Sources */,
+				9AF44812BA68DC2321C732D9 /* SignUpInteractor.swift in Sources */,
+				DEDF2A97DC19E178392C2EC8 /* SignUpPresenterInterface.swift in Sources */,
+				D4ED07520159962E6C0D5CB8 /* SignUpPresenter.swift in Sources */,
+				11584609349F41FC750B6E6B /* SignUpRouterInterface.swift in Sources */,
+				C1B173886D2383763DF544FF /* SignUpRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +799,7 @@
 			baseConfigurationReference = C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -719,6 +819,7 @@
 			baseConfigurationReference = 0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
