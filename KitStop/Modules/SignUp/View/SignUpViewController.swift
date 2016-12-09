@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import FBSDKLoginKit
 
 // MARK: - SignUpViewController
 
@@ -22,4 +23,18 @@ final class SignUpViewController: UIViewController, FlowController {
 
 extension SignUpViewController: SignUpViewInput {
 
+}
+
+extension SignUpViewController: FBSDKLoginButtonDelegate {
+    
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        print("done")
+        print()
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+    }
+    
 }

@@ -196,6 +196,7 @@
 		FA4528561DF802F900B2AA03 /* KitStop */ = {
 			isa = PBXGroup;
 			children = (
+				ABCE35B8F4F7E6E28003C0CE /* Modules */,
 				956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA4528591DF802F900B2AA03 /* ViewController.swift */,
@@ -203,7 +204,6 @@
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
 				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
-				ABCE35B8F4F7E6E28003C0CE /* Modules */,
 			);
 			path = KitStop;
 			sourceTree = "<group>";
