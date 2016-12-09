@@ -21,8 +21,7 @@
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
-		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
-		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
+		FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Login.storyboard */; };
 		FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA45285E1DF802F900B2AA03 /* Assets.xcassets */; };
 		FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */; };
 		FA45286D1DF802F900B2AA03 /* KitStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45286C1DF802F900B2AA03 /* KitStopTests.swift */; };
@@ -56,8 +55,7 @@
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA4528591DF802F900B2AA03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA45285C1DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA45285C1DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		FA45285E1DF802F900B2AA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA4528611DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA4528631DF802F900B2AA03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -197,8 +195,7 @@
 			children = (
 				259C5DEE1DF9B35B001E3CCC /* Modules */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
-				FA4528591DF802F900B2AA03 /* ViewController.swift */,
-				FA45285B1DF802F900B2AA03 /* Main.storyboard */,
+				FA45285B1DF802F900B2AA03 /* Login.storyboard */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
 				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
@@ -306,7 +303,7 @@
 			files = (
 				FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
-				FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */,
+				FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +386,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */,
-				FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */,
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
@@ -421,12 +417,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FA45285B1DF802F900B2AA03 /* Main.storyboard */ = {
+		FA45285B1DF802F900B2AA03 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA45285C1DF802F900B2AA03 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */ = {
@@ -535,7 +531,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,7 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
