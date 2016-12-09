@@ -36,6 +36,16 @@
 		9A8E87431DF9A90500780ED1 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E872C1DF9A90500780ED1 /* SF-UI-Text-SemiboldItalic.otf */; };
 		9A8E87441DF9A90500780ED1 /* SF-UI-Text-Ultrathin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E872D1DF9A90500780ED1 /* SF-UI-Text-Ultrathin.otf */; };
 		9A8E87451DF9A90500780ED1 /* SF-UI-Text-UltrathinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E872E1DF9A90500780ED1 /* SF-UI-Text-UltrathinItalic.otf */; };
+		9A8E87511DFAB94C00780ED1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87501DFAB94C00780ED1 /* AuthService.swift */; };
+		9A8E87531DFAC16B00780ED1 /* RootAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87521DFAC16B00780ED1 /* RootAssember.swift */; };
+		9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */; };
+		9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */; };
+		9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87611DFAC26600780ED1 /* RootRouter.swift */; };
+		9A8E87641DFAC26600780ED1 /* RootRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87621DFAC26600780ED1 /* RootRouterInterface.swift */; };
+		9A8E87671DFAC2F700780ED1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87651DFAC2F700780ED1 /* RootViewController.swift */; };
+		9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */; };
+		9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */; };
+		9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
 		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
@@ -85,6 +95,16 @@
 		9A8E872C1DF9A90500780ED1 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		9A8E872D1DF9A90500780ED1 /* SF-UI-Text-Ultrathin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Ultrathin.otf"; sourceTree = "<group>"; };
 		9A8E872E1DF9A90500780ED1 /* SF-UI-Text-UltrathinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-UltrathinItalic.otf"; sourceTree = "<group>"; };
+		9A8E87501DFAB94C00780ED1 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9A8E87521DFAC16B00780ED1 /* RootAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootAssember.swift; path = KitStop/Modules/Root/Assembler/RootAssember.swift; sourceTree = SOURCE_ROOT; };
+		9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenter.swift; path = KitStop/Modules/Root/Presenter/RootPresenter.swift; sourceTree = SOURCE_ROOT; };
+		9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenterInterface.swift; path = KitStop/Modules/Root/Presenter/RootPresenterInterface.swift; sourceTree = SOURCE_ROOT; };
+		9A8E87611DFAC26600780ED1 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootRouter.swift; path = KitStop/Modules/Root/Router/RootRouter.swift; sourceTree = SOURCE_ROOT; };
+		9A8E87621DFAC26600780ED1 /* RootRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootRouterInterface.swift; path = KitStop/Modules/Root/Router/RootRouterInterface.swift; sourceTree = SOURCE_ROOT; };
+		9A8E87651DFAC2F700780ED1 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = KitStop/Modules/Root/View/RootViewController.swift; sourceTree = SOURCE_ROOT; };
+		9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewInterface.swift; path = KitStop/Modules/Root/View/RootViewInterface.swift; sourceTree = SOURCE_ROOT; };
+		9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+		9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractorInterface.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +151,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		16653766AB31FDF1077CD5C4 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87521DFAC16B00780ED1 /* RootAssember.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		2ACC02CD870D5EA7E5E14067 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87581DFAC1DC00780ED1 /* Interactor */,
+				16653766AB31FDF1077CD5C4 /* Assembler */,
+				963E49F089DD187159FC01CF /* View */,
+				4CE40F1741BA905FD68AB6C1 /* Presenter */,
+				B28E4677BCA5B871746CD964 /* Router */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		3F696275292FF627EE00B701 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,9 +180,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4CE40F1741BA905FD68AB6C1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */,
+				9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		963E49F089DD187159FC01CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87651DFAC2F700780ED1 /* RootViewController.swift */,
+				9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9A8E87111DF9719500780ED1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9A8E874F1DFAB92C00780ED1 /* AuthService */,
 				9A8E87151DF9A8BF00780ED1 /* Fonts */,
 				9A8E87121DF971A600780ED1 /* Views */,
 			);
@@ -214,6 +273,33 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		9A8E874F1DFAB92C00780ED1 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87501DFAB94C00780ED1 /* AuthService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		9A8E87581DFAC1DC00780ED1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */,
+				9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */,
+			);
+			name = Interactor;
+			path = KitStop/Modules/Root/Interactor;
+			sourceTree = SOURCE_ROOT;
+		};
+		B28E4677BCA5B871746CD964 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87611DFAC26600780ED1 /* RootRouter.swift */,
+				9A8E87621DFAC26600780ED1 /* RootRouterInterface.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		FA45284B1DF802F900B2AA03 = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +348,7 @@
 		FA4528771DF80BB100B2AA03 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2ACC02CD870D5EA7E5E14067 /* Root */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -464,8 +551,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */,
+				9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */,
+				9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */,
+				9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */,
+				9A8E87671DFAC2F700780ED1 /* RootViewController.swift in Sources */,
+				9A8E87641DFAC26600780ED1 /* RootRouterInterface.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
+				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
+				9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */,
 				9A8E87141DF971E200780ED1 /* CustomButton.swift in Sources */,
+				9A8E87511DFAB94C00780ED1 /* AuthService.swift in Sources */,
+				9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */,
+				9A8E87531DFAC16B00780ED1 /* RootAssember.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
