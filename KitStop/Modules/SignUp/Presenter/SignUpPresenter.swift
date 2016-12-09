@@ -25,6 +25,10 @@ final class SignUpPresenter {
 
 extension SignUpPresenter: SignUpViewOutput {
 
+    func emailLogin() {
+        router.openLoginModule()
+    }
+
 }
 
 // MARK: - SignUpInteractorOutput

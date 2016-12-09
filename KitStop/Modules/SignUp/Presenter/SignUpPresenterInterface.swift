@@ -12,6 +12,8 @@ import Chamomile
 
 protocol SignUpViewOutput: class {
 
+    func emailLogin()
+
 }
 
 // MARK: - SignUpInteractorOutput

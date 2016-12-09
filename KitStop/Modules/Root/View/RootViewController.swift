@@ -17,6 +17,7 @@ final class RootViewController: UIViewController, FlowController {
     var presenter: RootViewOutput!
 
     override func viewDidLoad() {
+        navigationController?.isNavigationBarHidden = true
         presenter.handleViewDidload()
     }
 

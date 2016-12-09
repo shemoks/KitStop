@@ -23,10 +23,11 @@ final class RootInteractor {
 extension RootInteractor: RootInteractorInput {
 
     func verifyAutorization() {
-        if AuthService().verifyAutorization() == true {
+       print(KeychainService().tokenExists())
+        if !KeychainService().tokenExists() {
             presenter.changeModuleSignUp()
         }
         presenter.changeModuleMain()
     }
-    
+
 }

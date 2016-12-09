@@ -9,6 +9,8 @@
 // MARK: - RootRouterInput
 
 protocol RootRouterInput: class {
+
     func changeModuleSignUp()
     func changeModuleMain()
+    
 }

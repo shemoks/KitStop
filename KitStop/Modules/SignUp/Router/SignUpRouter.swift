@@ -22,4 +22,18 @@ final class SignUpRouter {
 
 extension SignUpRouter: SignUpRouterInput {
 
+    func openLoginModule() {
+//        flowController.openModule(using: .openLogIn) {
+//            guard let _ = $0 as? LogInModuleInput else { fatalError() }
+//            return nil
+//        }
+    }
+
 }
+
+//extension Segue {
+//
+//    static var openSignUp: Segue<LogInViewController> {
+//        return .init(identifier: "LogIn")
+//    }
+//}

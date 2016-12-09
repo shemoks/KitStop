@@ -17,6 +17,9 @@ final class SignUpViewController: UIViewController, FlowController {
 
     var presenter: SignUpViewOutput!
 
+    @IBAction func loginEmailButtonTap(_ sender: AnyObject) {
+        presenter.emailLogin()
+    }
 }
 
 // MARK: - SignUpViewInput

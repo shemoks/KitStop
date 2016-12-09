@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P1V-Pz-2gg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wkH-Lk-Bn6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,10 +10,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--View-->
         <scene sceneID="5g4-Fq-hRD">
             <objects>
-                <viewController id="wkH-Lk-Bn6" customClass="ViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bkt-59-oES"/>
                         <viewControllerLayoutGuide type="bottom" id="zll-Qt-2q6"/>
@@ -61,6 +61,9 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginEmailButtonTap:" destination="wkH-Lk-Bn6" eventType="touchUpInside" id="YPH-wj-fXY"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91D-8p-fkL">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -113,28 +116,26 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2LK-jH-ucy"/>
+                    <connections>
+                        <segue destination="gDb-Q7-fcC" kind="show" identifier="LogIn" id="jdw-bh-Cft"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTt-QS-vdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1037.5999999999999" y="109.29535232383809"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="BAd-Nm-P6C">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="P1V-Pz-2gg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYq-yg-uIb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <customObject id="Itx-4U-9jI" customClass="SignUpAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
-                        <segue destination="wkH-Lk-Bn6" kind="relationship" relationship="rootViewController" id="CH5-yb-7l5"/>
+                        <outlet property="view" destination="wkH-Lk-Bn6" id="Snu-pq-Umq"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O9m-w8-hRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="96.799999999999997" y="108.39580209895054"/>
+            <point key="canvasLocation" x="111" y="26"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="ZmU-FT-2E1">
+            <objects>
+                <viewControllerPlaceholder id="gDb-Q7-fcC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCl-vP-unD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="-93"/>
         </scene>
     </scenes>
     <resources>

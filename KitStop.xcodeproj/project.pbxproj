@@ -40,7 +40,6 @@
 		9A8E87431DF9A90500780ED1 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E872C1DF9A90500780ED1 /* SF-UI-Text-SemiboldItalic.otf */; };
 		9A8E87441DF9A90500780ED1 /* SF-UI-Text-Ultrathin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E872D1DF9A90500780ED1 /* SF-UI-Text-Ultrathin.otf */; };
 		9A8E87451DF9A90500780ED1 /* SF-UI-Text-UltrathinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E872E1DF9A90500780ED1 /* SF-UI-Text-UltrathinItalic.otf */; };
-		9A8E87511DFAB94C00780ED1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87501DFAB94C00780ED1 /* AuthService.swift */; };
 		9A8E87531DFAC16B00780ED1 /* RootAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87521DFAC16B00780ED1 /* RootAssember.swift */; };
 		9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */; };
 		9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */; };
@@ -50,6 +49,7 @@
 		9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */; };
 		9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */; };
 		9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */; };
+		9A8E876F1DFAFE7600780ED1 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E876E1DFAFE7600780ED1 /* KeychainService.swift */; };
 		9AF44812BA68DC2321C732D9 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948EAA624428CA74A5263D0D /* SignUpInteractor.swift */; };
 		C1B173886D2383763DF544FF /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED64EAF80467C990CC74AF6 /* SignUpRouter.swift */; };
 		CF2F1924EC7E1214EB3017B4 /* SignUpInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC910FB966072AF6F0E15EE /* SignUpInteractorInterface.swift */; };
@@ -110,7 +110,6 @@
 		9A8E872C1DF9A90500780ED1 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		9A8E872D1DF9A90500780ED1 /* SF-UI-Text-Ultrathin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Ultrathin.otf"; sourceTree = "<group>"; };
 		9A8E872E1DF9A90500780ED1 /* SF-UI-Text-UltrathinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-UltrathinItalic.otf"; sourceTree = "<group>"; };
-		9A8E87501DFAB94C00780ED1 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9A8E87521DFAC16B00780ED1 /* RootAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootAssember.swift; path = KitStop/Modules/Root/Assembler/RootAssember.swift; sourceTree = SOURCE_ROOT; };
 		9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenter.swift; path = KitStop/Modules/Root/Presenter/RootPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenterInterface.swift; path = KitStop/Modules/Root/Presenter/RootPresenterInterface.swift; sourceTree = SOURCE_ROOT; };
@@ -120,6 +119,7 @@
 		9A8E87661DFAC2F700780ED1 /* RootViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewInterface.swift; path = KitStop/Modules/Root/View/RootViewInterface.swift; sourceTree = SOURCE_ROOT; };
 		9A8E87691DFAC37F00780ED1 /* RootInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		9A8E876A1DFAC37F00780ED1 /* RootInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInteractorInterface.swift; sourceTree = "<group>"; };
+		9A8E876E1DFAFE7600780ED1 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		B3FF39D35B0BCC9B0944DCDF /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C266F2CA10D129F892EB3E7A /* SignUpViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewInterface.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,7 +244,8 @@
 				6DB09BEC7CA53E975C98EA59 /* Presenter */,
 				E59347744F0CB35E4252D7B7 /* Router */,
 			);
-			path = SignUp;
+			name = SignUp;
+			path = Modules/SignUp;
 			sourceTree = "<group>";
 		};
 		93DB7CE7D3DECB3C29A7E7D4 /* Assembler */ = {
@@ -267,7 +268,7 @@
 		9A8E87111DF9719500780ED1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9A8E874F1DFAB92C00780ED1 /* AuthService */,
+				9A8E876D1DFAFE7600780ED1 /* Services */,
 				9A8E87151DF9A8BF00780ED1 /* Fonts */,
 				9A8E87121DF971A600780ED1 /* Views */,
 			);
@@ -339,14 +340,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		9A8E874F1DFAB92C00780ED1 /* AuthService */ = {
-			isa = PBXGroup;
-			children = (
-				9A8E87501DFAB94C00780ED1 /* AuthService.swift */,
-			);
-			path = AuthService;
-			sourceTree = "<group>";
-		};
 		9A8E87581DFAC1DC00780ED1 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,12 +350,12 @@
 			path = KitStop/Modules/Root/Interactor;
 			sourceTree = SOURCE_ROOT;
 		};
-		ABCE35B8F4F7E6E28003C0CE /* Modules */ = {
+		9A8E876D1DFAFE7600780ED1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				85CC7A2B7AD2C8E3653AC45E /* SignUp */,
+				9A8E876E1DFAFE7600780ED1 /* KeychainService.swift */,
 			);
-			path = Modules;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B28E4677BCA5B871746CD964 /* Router */ = {
@@ -408,7 +401,6 @@
 			children = (
 				9A8E87111DF9719500780ED1 /* Common */,
 				FA4528771DF80BB100B2AA03 /* Modules */,
-				ABCE35B8F4F7E6E28003C0CE /* Modules */,
 				956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA4528591DF802F900B2AA03 /* ViewController.swift */,
@@ -434,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				2ACC02CD870D5EA7E5E14067 /* Root */,
+				85CC7A2B7AD2C8E3653AC45E /* SignUp */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -451,7 +444,7 @@
 				FA4528521DF802F900B2AA03 /* Resources */,
 				557B64B595784B9710D04ED6 /* [CP] Embed Pods Frameworks */,
 				5CC46302B370845B522969D9 /* [CP] Copy Pods Resources */,
-				951B39731DF967E3001765C3 /* ShellScript */,
+				951B39731DF967E3001765C3 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -617,7 +610,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		951B39731DF967E3001765C3 /* ShellScript */ = {
+		951B39731DF967E3001765C3 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -627,6 +620,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Perform.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chamomile.framework",
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,12 +644,12 @@
 				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
 				9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */,
 				9A8E87141DF971E200780ED1 /* CustomButton.swift in Sources */,
-				9A8E87511DFAB94C00780ED1 /* AuthService.swift in Sources */,
 				9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */,
 				9A8E87531DFAC16B00780ED1 /* RootAssember.swift in Sources */,
 				03AACFA3B0916D6B9DD0AA3D /* SignUpAssember.swift in Sources */,
 				677766DDEE78F99C5A9C5350 /* SignUpViewInterface.swift in Sources */,
 				486868D15B355C499763BBB7 /* SignUpViewController.swift in Sources */,
+				9A8E876F1DFAFE7600780ED1 /* KeychainService.swift in Sources */,
 				CF2F1924EC7E1214EB3017B4 /* SignUpInteractorInterface.swift in Sources */,
 				9AF44812BA68DC2321C732D9 /* SignUpInteractor.swift in Sources */,
 				DEDF2A97DC19E178392C2EC8 /* SignUpPresenterInterface.swift in Sources */,

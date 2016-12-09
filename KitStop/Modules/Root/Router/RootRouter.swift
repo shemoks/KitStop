@@ -24,25 +24,27 @@ final class RootRouter {
 extension RootRouter: RootRouterInput {
 
     func changeModuleSignUp() {
-//        flowController.openModule(using: .openSignUp) {
-//            guard let moduleInput = $0 as? SecondModuleInput else { fatalError()}
-//            moduleInput.getSum(number: number)
-//            return secondModuleOutput
-//        }
+        flowController.openModule(using: .openSignUp) {
+            guard let _ = $0 as? SignUpModuleInput else { fatalError() }
+            return nil
+        }
     }
 
     func changeModuleMain() {
-
+//        flowController.openModule(using: .openMain) {
+//            guard ($0 as? MainModuleInput) != nil else { fatalError()}
+//            return nil
+//        }
     }
 }
 
 extension Segue {
 
-//    static var openSignUp: Segue<SignUpViewController> {
-//        return .init(identifier: "SignUp")
-//    }
+    static var openSignUp: Segue<SignUpViewController> {
+        return .init(identifier: "Registration")
+    }
 
-//    static var openMain: Segue<MainViewController> {
+//    static var openMain: Segue<ViewController> {
 //        return .init(identifier: "Main")
 //    }
 

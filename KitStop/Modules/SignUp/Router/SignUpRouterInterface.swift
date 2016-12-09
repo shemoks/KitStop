@@ -10,4 +10,6 @@
 
 protocol SignUpRouterInput: class {
 
+    func openLoginModule()
+    
 }

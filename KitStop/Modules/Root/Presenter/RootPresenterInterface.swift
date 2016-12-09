@@ -11,14 +11,18 @@ import Chamomile
 // MARK: - RootViewOutput
 
 protocol RootViewOutput: class {
+
     func handleViewDidload()
+
 }
 
 // MARK: - RootInteractorOutput
 
 protocol RootInteractorOutput: class {
+
     func changeModuleSignUp()
     func changeModuleMain()
+    
 }
 
 // MARK: - RootModuleInput
