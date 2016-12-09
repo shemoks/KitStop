@@ -17,14 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgx-T3-hFl"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hgx-T3-hFl"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ncM-6K-m4d">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="39y-uC-veN"/>
+                                    <constraint firstAttribute="width" constant="79" id="JXu-lK-3iy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hgx-T3-hFl" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CwL-YT-mWV"/>
+                            <constraint firstItem="hgx-T3-hFl" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Fao-lo-8x3"/>
                             <constraint firstItem="hgx-T3-hFl" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="PS5-TH-tyy"/>
+                            <constraint firstItem="ncM-6K-m4d" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Yi0-4E-kTt"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="hgx-T3-hFl" secondAttribute="bottom" id="fHQ-8U-Eaa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="hgx-T3-hFl" secondAttribute="bottom" id="mkR-Mz-7lw"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ncM-6K-m4d" secondAttribute="bottom" constant="70" id="pXm-Uy-4fi"/>
+                            <constraint firstAttribute="trailing" secondItem="hgx-T3-hFl" secondAttribute="trailing" id="rlA-lp-Q6q"/>
                             <constraint firstAttribute="trailing" secondItem="hgx-T3-hFl" secondAttribute="trailing" id="vrl-sW-2lD"/>
+                            <constraint firstItem="hgx-T3-hFl" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="wCe-tV-sVb"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -33,4 +45,8 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="376" height="669"/>
+        <image name="kitstop-logo" width="159" height="135"/>
+    </resources>
 </document>

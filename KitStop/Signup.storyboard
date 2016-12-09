@@ -19,10 +19,10 @@
                         <viewControllerLayoutGuide type="bottom" id="zll-Qt-2q6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bzC-V6-TG1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pKM-If-yU7"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pKM-If-yU7"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-rq-mjd">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cT-sA-d14">
@@ -103,10 +103,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pKM-If-yU7" firstAttribute="leading" secondItem="bzC-V6-TG1" secondAttribute="leading" id="IUt-nm-6Tt"/>
+                            <constraint firstItem="OkW-rq-mjd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bkt-59-oES" secondAttribute="bottom" priority="750" constant="232" id="L0W-Ts-r9u"/>
                             <constraint firstAttribute="trailing" secondItem="pKM-If-yU7" secondAttribute="trailing" id="T0o-Wy-mVv"/>
                             <constraint firstItem="zll-Qt-2q6" firstAttribute="top" secondItem="pKM-If-yU7" secondAttribute="bottom" id="Va6-vA-OLT"/>
                             <constraint firstItem="pKM-If-yU7" firstAttribute="top" secondItem="bzC-V6-TG1" secondAttribute="top" id="eFw-z0-kzV"/>
-                            <constraint firstItem="zll-Qt-2q6" firstAttribute="top" secondItem="OkW-rq-mjd" secondAttribute="bottom" constant="70" id="gxf-j6-jZn"/>
+                            <constraint firstItem="zll-Qt-2q6" firstAttribute="top" secondItem="OkW-rq-mjd" secondAttribute="bottom" priority="250" constant="70" id="gxf-j6-jZn"/>
                             <constraint firstItem="OkW-rq-mjd" firstAttribute="centerX" secondItem="bzC-V6-TG1" secondAttribute="centerX" id="ySL-iw-pMP"/>
                         </constraints>
                     </view>
@@ -121,7 +122,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="P1V-Pz-2gg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xYq-yg-uIb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYq-yg-uIb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -136,7 +137,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="752" height="1339"/>
+        <image name="background" width="376" height="669"/>
         <image name="email-icon" width="502" height="88"/>
         <image name="kitstop-logo-white" width="159" height="135"/>
     </resources>
