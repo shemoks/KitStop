@@ -34,8 +34,14 @@ extension RegistrationTakePhotoPresenter: RegistrationTakePhotoViewOutput {
     }
 
     func returnPhoto(photo: UIImage) {
-        let RegistrationTakePhotoModuleOutput = moduleOutput as! RegistrationTakePhotoModuleOutput
-        router.returnPhoto(photo: photo, moduleOutput: RegistrationTakePhotoModuleOutput)
+        let moduleOutput = self.moduleOutput as! RegistrationTakePhotoModuleOutput
+//        router.returnPhoto(photo: photo, moduleOutput: RegistrationTakePhotoModuleOutput)
+        moduleOutput.setImage(photo: photo)
+        router.openRegistration()
+    }
+
+    func goBack() {
+        router.openRegistration()
     }
 
 }

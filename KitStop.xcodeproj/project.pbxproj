@@ -21,8 +21,7 @@
 		9A0587621DFFFE8E0041C442 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587591DFFFE8E0041C442 /* RegistrationViewController.swift */; };
 		9A0587631DFFFE8E0041C442 /* RegistrationViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A05875A1DFFFE8E0041C442 /* RegistrationViewInterface.swift */; };
 		9A0587651DFFFEC90041C442 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0587641DFFFEC90041C442 /* Registration.storyboard */; };
-		9A0587671E0001AB0041C442 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587661E0001AB0041C442 /* CustomImage.swift */; };
-		9A8E87711DFEAA4C00780ED1 /* RegistrationTakePhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E87701DFEAA4C00780ED1 /* RegistrationTakePhoto.storyboard */; };
+		9A47E4E31E00337C005EED88 /* RegistrationTakePhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */; };
 		9A8E87741DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87731DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift */; };
 		9A8E87811DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87761DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift */; };
 		9A8E87821DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87771DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift */; };
@@ -32,6 +31,7 @@
 		9A8E87861DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E877D1DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift */; };
 		9A8E87871DFED82600780ED1 /* RegistrationTakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E877F1DFED82600780ED1 /* RegistrationTakePhotoViewController.swift */; };
 		9A8E87881DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87801DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift */; };
+		9A97A5221E001ABA00D5141F /* CustomAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A5211E001ABA00D5141F /* CustomAvatar.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
 		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
@@ -66,8 +66,7 @@
 		9A0587591DFFFE8E0041C442 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9A05875A1DFFFE8E0041C442 /* RegistrationViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewInterface.swift; sourceTree = "<group>"; };
 		9A0587641DFFFEC90041C442 /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Registration.storyboard; path = ../Registration.storyboard; sourceTree = "<group>"; };
-		9A0587661E0001AB0041C442 /* CustomImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
-		9A8E87701DFEAA4C00780ED1 /* RegistrationTakePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegistrationTakePhoto.storyboard; path = ../RegistrationTakePhoto.storyboard; sourceTree = "<group>"; };
+		9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationTakePhoto.storyboard; sourceTree = "<group>"; };
 		9A8E87731DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoAssember.swift; sourceTree = "<group>"; };
 		9A8E87761DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoInteractor.swift; sourceTree = "<group>"; };
 		9A8E87771DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoInteractorInterface.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		9A8E877D1DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoRouterInterface.swift; sourceTree = "<group>"; };
 		9A8E877F1DFED82600780ED1 /* RegistrationTakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewController.swift; sourceTree = "<group>"; };
 		9A8E87801DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewInterface.swift; sourceTree = "<group>"; };
+		9A97A5211E001ABA00D5141F /* CustomAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAvatar.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -281,12 +281,12 @@
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA4528591DF802F900B2AA03 /* ViewController.swift */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
+				9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */,
 				FA45285B1DF802F900B2AA03 /* Main.storyboard */,
 				9A0587641DFFFEC90041C442 /* Registration.storyboard */,
 				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
-				9A8E87701DFEAA4C00780ED1 /* RegistrationTakePhoto.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
-				9A0587661E0001AB0041C442 /* CustomImage.swift */,
+				9A97A5211E001ABA00D5141F /* CustomAvatar.swift */,
 			);
 			path = KitStop;
 			sourceTree = "<group>";
@@ -401,8 +401,8 @@
 				9A0587651DFFFEC90041C442 /* Registration.storyboard in Resources */,
 				FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
-				9A8E87711DFEAA4C00780ED1 /* RegistrationTakePhoto.storyboard in Resources */,
 				FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */,
+				9A47E4E31E00337C005EED88 /* RegistrationTakePhoto.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +498,7 @@
 				9A05875B1DFFFE8E0041C442 /* RegistrationAssember.swift in Sources */,
 				9A0587611DFFFE8E0041C442 /* RegistrationRouterInterface.swift in Sources */,
 				9A05875D1DFFFE8E0041C442 /* RegistrationInteractorInterface.swift in Sources */,
-				9A0587671E0001AB0041C442 /* CustomImage.swift in Sources */,
+				9A97A5221E001ABA00D5141F /* CustomAvatar.swift in Sources */,
 				9A8E87831DFED82600780ED1 /* RegistrationTakePhotoPresenter.swift in Sources */,
 				9A0587631DFFFE8E0041C442 /* RegistrationViewInterface.swift in Sources */,
 				9A05875C1DFFFE8E0041C442 /* RegistrationInteractor.swift in Sources */,

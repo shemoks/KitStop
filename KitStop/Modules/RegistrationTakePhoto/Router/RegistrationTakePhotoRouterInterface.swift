@@ -11,6 +11,6 @@ import UIKit
 
 protocol RegistrationTakePhotoRouterInput: class {
 
-    func returnPhoto(photo: UIImage, moduleOutput: RegistrationTakePhotoModuleOutput)
+    func openRegistration()
     
 }

@@ -11,7 +11,7 @@
         <!--View-->
         <scene sceneID="yOc-d2-hCl">
             <objects>
-                <viewController id="TF2-eu-5Ru" customClass="RegistrationViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="TF2-eu-5Ru" customClass="RegistrationViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ui-2q-GVj"/>
                         <viewControllerLayoutGuide type="bottom" id="RB3-LF-7Oo"/>
@@ -20,20 +20,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HR9-zU-Kpg" customClass="CircularImageView" customModule="KitStop" customModuleProvider="target">
-                                <rect key="frame" x="127" y="64" width="120" height="120"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HR9-zU-Kpg" customClass="CustomAvatar" customModule="KitStop" customModuleProvider="target">
+                                <rect key="frame" x="87" y="64" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="C1a-Ln-TcK"/>
-                                    <constraint firstAttribute="width" constant="120" id="eh4-w6-WiU"/>
+                                    <constraint firstAttribute="height" constant="200" id="C1a-Ln-TcK"/>
+                                    <constraint firstAttribute="width" constant="200" id="eh4-w6-WiU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="kitstop-logo"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="background"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -45,6 +44,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m8X-Sx-1og"/>
+                    <connections>
+                        <outlet property="imageView" destination="HR9-zU-Kpg" id="RqS-TV-4fZ"/>
+                        <segue destination="bFY-Uc-fSy" kind="show" identifier="ShowTakePhoto" id="mLV-lL-Kp8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuO-eO-WnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="05X-Wd-oUO" customClass="RegistrationAssembler" customModule="KitStop" customModuleProvider="target">
@@ -54,6 +57,14 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1098.4000000000001" y="94.002998500749626"/>
+        </scene>
+        <!--RegistrationTakePhotoViewController-->
+        <scene sceneID="Rjm-w4-RH6">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RegistrationTakePhotoViewController" storyboardName="RegistrationTakePhoto" referencedIdentifier="RegistrationTakePhotoViewController" id="bFY-Uc-fSy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FG1-2x-wg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769" y="-94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WY1-La-7JK">
@@ -75,6 +86,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="kitstop-logo" width="159" height="135"/>
+        <image name="background" width="752" height="1339"/>
     </resources>
 </document>

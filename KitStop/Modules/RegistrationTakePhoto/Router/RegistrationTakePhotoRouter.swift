@@ -6,7 +6,9 @@
 //  Copyright © 2016 MoziDev. All rights reserved.
 //
 
+import Perform
 import Chamomile
+import UIKit
 
 // MARK: - RegistrationTakePhotoRouter
 
@@ -22,8 +24,10 @@ final class RegistrationTakePhotoRouter {
 
 extension RegistrationTakePhotoRouter: RegistrationTakePhotoRouterInput {
 
-    func returnPhoto(photo: UIImage, moduleOutput: RegistrationTakePhotoModuleOutput) {
-        moduleOutput.setImage(photo: photo)
+    func openRegistration() {
+
+        flowController.closeModule(animated: true)
+
     }
-    
+
 }

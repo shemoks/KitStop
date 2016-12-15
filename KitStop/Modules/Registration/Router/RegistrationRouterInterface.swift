@@ -10,4 +10,6 @@
 
 protocol RegistrationRouterInput: class {
 
+    func openModuleTakePhoto(RegistrationTakePhotoModuleOutput: RegistrationTakePhotoModuleOutput)
+
 }

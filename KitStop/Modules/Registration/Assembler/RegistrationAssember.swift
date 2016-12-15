@@ -29,5 +29,5 @@ final class RegistrationAssembler: NSObject {
         presenter.router = router
         router.flowController = view
     }
-
+    
 }

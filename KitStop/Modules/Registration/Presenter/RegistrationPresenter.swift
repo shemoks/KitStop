@@ -25,6 +25,10 @@ final class RegistrationPresenter {
 
 extension RegistrationPresenter: RegistrationViewOutput {
 
+    func takePhoto() {
+        router.openModuleTakePhoto(RegistrationTakePhotoModuleOutput: self)
+    }
+
 }
 
 // MARK: - RegistrationInteractorOutput
@@ -36,5 +40,13 @@ extension RegistrationPresenter: RegistrationInteractorOutput {
 // MARK: - RegistrationModuleInput
 
 extension RegistrationPresenter: RegistrationModuleInput {
+
+}
+
+extension RegistrationPresenter: RegistrationTakePhotoModuleOutput {
+
+    func setImage(photo: UIImage) {
+        view.getPhoto(photo: photo)
+    }
 
 }

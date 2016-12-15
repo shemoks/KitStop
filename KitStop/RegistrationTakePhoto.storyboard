@@ -77,6 +77,9 @@
                                         <state key="normal" title="Skip this for now">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="skipButtonTap:" destination="Wf3-jR-BeI" eventType="touchUpInside" id="ybp-Ho-H47"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="kzl-Oz-JIn">
                                         <rect key="frame" x="85.666666666666657" y="233" width="79" height="67"/>
@@ -124,10 +127,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="4we-uz-49i"/>
                     <connections>
-                        <segue destination="foE-rP-lkm" kind="show" identifier="showLogin" id="2kW-Ac-dPk"/>
+                        <segue destination="0sU-6E-ptL" kind="unwind" identifier="showRegistration" unwindAction="unwindFromImagePisker:" id="ZXq-Ks-0ZZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vK9-CA-s4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0sU-6E-ptL" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="t7I-jR-pq1" customClass="RegistrationTakePhotoAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
                         <outlet property="view" destination="Wf3-jR-BeI" id="KCc-VX-uSp"/>
@@ -135,24 +139,6 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="903.20000000000005" y="64.31784107946028"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="bgB-zD-B5d">
-            <objects>
-                <viewController id="foE-rP-lkm" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QNB-mx-eZZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="b5m-PC-2ow"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NuT-hh-tic">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TNi-v2-sVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1863" y="56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wwd-9k-Zdk">

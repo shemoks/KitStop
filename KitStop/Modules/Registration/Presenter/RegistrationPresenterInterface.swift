@@ -12,6 +12,8 @@ import Chamomile
 
 protocol RegistrationViewOutput: class {
 
+    func takePhoto()
+
 }
 
 // MARK: - RegistrationInteractorOutput

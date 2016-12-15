@@ -23,11 +23,16 @@ final class RegistrationTakePhotoViewController: UIViewController, FlowControlle
     @IBAction func choosePhotoTap(_ sender: AnyObject) {
         presenter.openCamera()
     }
+
+    @IBAction func skipButtonTap(_ sender: Any) {
+        presenter.goBack()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //  output.\viewIsReady()
+        navigationController?.navigationBar.isHidden = false
         imagePicker.delegate = self
-
     }
 
 }
@@ -54,6 +59,7 @@ extension RegistrationTakePhotoViewController: RegistrationTakePhotoViewInput {
             noCamera()
         }
     }
+
     func noCamera(){
         let alertVC = UIAlertController(
             title: "No Camera",
@@ -73,12 +79,10 @@ extension RegistrationTakePhotoViewController: RegistrationTakePhotoViewInput {
 extension RegistrationTakePhotoViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true, completion: nil)
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             presenter.returnPhoto(photo: pickedImage)
-            self.performSegue(withIdentifier: "showLogin", sender: nil)
         }
-
-        dismiss(animated: true, completion: nil)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
