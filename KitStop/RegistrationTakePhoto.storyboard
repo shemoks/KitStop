@@ -145,9 +145,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fX7-MZ-6pK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ibs-RY-4rD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ibs-RY-4rD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

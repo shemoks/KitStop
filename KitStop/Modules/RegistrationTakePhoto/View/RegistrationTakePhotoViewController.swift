@@ -31,7 +31,8 @@ final class RegistrationTakePhotoViewController: UIViewController, FlowControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         //  output.\viewIsReady()
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
+        imagePicker.navigationBar.tintColor = .black
         imagePicker.delegate = self
     }
 
