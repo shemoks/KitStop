@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsQ-xV-XNS">
                                 <rect key="frame" x="0.0" y="265" width="320" height="283"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPasswordTF" customModule="KitStop" customModuleProvider="target">
                                         <rect key="frame" x="35" y="37" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="1bN-G1-7Ri"/>
@@ -42,6 +42,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tapOnLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U1S-Hc-YWE"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="uyu-hj-8WM">
                                         <rect key="frame" x="120" y="215" width="80" height="68"/>
@@ -59,6 +62,9 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tapOnForgetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cBy-Kk-JzE"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDL-6k-YKL">
                                         <rect key="frame" x="35" y="-17" width="250" height="45"/>
@@ -105,12 +111,17 @@
                     <navigationItem key="navigationItem" title="Login" id="GAG-WC-Jej"/>
                     <connections>
                         <outlet property="emailTF" destination="VDL-6k-YKL" id="8pS-gn-4QZ"/>
-                        <outlet property="passwordTF" destination="wI6-gk-xum" id="t5t-JO-2tN"/>
+                        <outlet property="passwordTF" destination="wI6-gk-xum" id="ivN-wL-Uvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="nuU-Vh-Tpc" customClass="LogInAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="BYZ-38-t0r" id="37q-XQ-U1u"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2071.875" y="138.38028169014083"/>
         </scene>
     </scenes>
     <resources>

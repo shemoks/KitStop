@@ -21,5 +21,7 @@ final class LogInInteractor {
 // MARK: - LogInInteractorInput
 
 extension LogInInteractor: LogInInteractorInput {
-
+    func fetchUserData(userDataModel: LogInUserModel) {
+        DataManager.sharedInstance.fetchUserInServer(email: userDataModel.login, password: userDataModel.password)
+    }
 }

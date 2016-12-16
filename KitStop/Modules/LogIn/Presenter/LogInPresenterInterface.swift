@@ -11,7 +11,8 @@ import Chamomile
 // MARK: - LogInViewOutput
 
 protocol LogInViewOutput: class {
-
+    func handleUserData(userData: Dictionary<String, String>)
+    func openForgetPasswordModule()
 }
 
 // MARK: - LogInInteractorOutput

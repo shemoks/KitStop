@@ -9,5 +9,5 @@
 // MARK: - LogInInteractorInput
 
 protocol LogInInteractorInput: class {
-
+    func fetchUserData(userDataModel: LogInUserModel)
 }

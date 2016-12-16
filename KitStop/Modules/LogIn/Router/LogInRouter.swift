@@ -7,7 +7,8 @@
 //
 
 import Chamomile
-
+import UIKit
+import Perform
 // MARK: - LogInRouter
 
 final class LogInRouter {
@@ -21,5 +22,20 @@ final class LogInRouter {
 // MARK: - LogInRouterInput
 
 extension LogInRouter: LogInRouterInput {
+    // You need to reference Forget Password Output Protocol
+    
+//    func openNextModule(secondModule: 'Some Module') {
+//        flowController.openModule(using: .openSecond) {
+//            return secondModuleOutput
+//        }
+//    }
+}
 
+extension Segue {
+    
+    // You need to reference Forget Password VC and identifier
+    
+//    static var openSecond: Segue<> {
+//        return .init(identifier: "someIdentifier")
+//    }
 }

@@ -25,6 +25,14 @@ final class LogInPresenter {
 
 extension LogInPresenter: LogInViewOutput {
 
+    func handleUserData(userData: Dictionary<String, String>) {
+        let userModel = LogInUserModel.init(login: userData["login"]!, password: userData["password"]!)
+        interactor.fetchUserData(userDataModel: userModel)
+    }
+    
+    func openForgetPasswordModule() {
+        // call router method
+    }
 }
 
 // MARK: - LogInInteractorOutput
