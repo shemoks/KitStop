@@ -7,15 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */; };
+		088F7A9EFF889F150A71D4B0 /* SignUpEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05F7443E51DE385A5020FA5 /* SignUpEmailPresenter.swift */; };
+		08F24368B9629C0549057164 /* SignUpEmailPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */; };
+		25432DCA1E03FAB700BB7B8F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25432DC91E03FAB700BB7B8F /* DataManager.swift */; };
+		254F42E21DFE9D8F00CDD074 /* CustomPasswordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */; };
+		254F42E41DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */; };
+		254F42E71DFEB6A700CDD074 /* LogInUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E61DFEB6A700CDD074 /* LogInUserModel.swift */; };
+		254F42EA1DFEF6D500CDD074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */; };
+		259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */; };
+		259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */; };
+		259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF41DF9B35B001E3CCC /* LogInInteractorInterface.swift */; };
+		259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF61DF9B35B001E3CCC /* LogInPresenter.swift */; };
+		259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF71DF9B35B001E3CCC /* LogInPresenterInterface.swift */; };
+		259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF91DF9B35B001E3CCC /* LogInRouter.swift */; };
+		259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DFA1DF9B35B001E3CCC /* LogInRouterInterface.swift */; };
+		259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DFC1DF9B35B001E3CCC /* LogInViewController.swift */; };
+		259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DFD1DF9B35B001E3CCC /* LogInViewInterface.swift */; };
+		25AB73831E02CB9100BAA278 /* SignUpEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AB73821E02CB9100BAA278 /* SignUpEmail.storyboard */; };
+		2DEF3C2BDA8D8016EE3A4A5A /* SignUpEmailAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C36B83FB7D99E400EA934C /* SignUpEmailAssember.swift */; };
+		522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */; };
 		745891994723DED5E13B76F6 /* Pods_KitStop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB6090BFED7E8DF04618427 /* Pods_KitStop.framework */; };
+		8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D4A098F44E1566EB9CCC0 /* SignUpEmailInteractorInterface.swift */; };
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
+		A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */; };
+		E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CA5CAA1384B4AC6DB7010 /* SignUpEmailRouterInterface.swift */; };
+		F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
-		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
-		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
+		FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Login.storyboard */; };
 		FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA45285E1DF802F900B2AA03 /* Assets.xcassets */; };
-		FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */; };
 		FA45286D1DF802F900B2AA03 /* KitStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45286C1DF802F900B2AA03 /* KitStopTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,18 +52,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailRouter.swift; sourceTree = "<group>"; };
 		0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.release.xcconfig"; sourceTree = "<group>"; };
+		25432DC91E03FAB700BB7B8F /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordTF.swift; sourceTree = "<group>"; };
+		254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordTFDelegate.swift; sourceTree = "<group>"; };
+		254F42E61DFEB6A700CDD074 /* LogInUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInUserModel.swift; sourceTree = "<group>"; };
+		254F42E91DFEF6D500CDD074 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInAssember.swift; sourceTree = "<group>"; };
+		259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
+		259C5DF41DF9B35B001E3CCC /* LogInInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInInteractorInterface.swift; sourceTree = "<group>"; };
+		259C5DF61DF9B35B001E3CCC /* LogInPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
+		259C5DF71DF9B35B001E3CCC /* LogInPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInPresenterInterface.swift; sourceTree = "<group>"; };
+		259C5DF91DF9B35B001E3CCC /* LogInRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
+		259C5DFA1DF9B35B001E3CCC /* LogInRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInRouterInterface.swift; sourceTree = "<group>"; };
+		259C5DFC1DF9B35B001E3CCC /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		259C5DFD1DF9B35B001E3CCC /* LogInViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewInterface.swift; sourceTree = "<group>"; };
+		25AB73821E02CB9100BAA278 /* SignUpEmail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpEmail.storyboard; sourceTree = "<group>"; };
+		5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailInteractor.swift; sourceTree = "<group>"; };
 		6DB6090BFED7E8DF04618427 /* Pods_KitStop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitStop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9CA5CAA1384B4AC6DB7010 /* SignUpEmailRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailRouterInterface.swift; sourceTree = "<group>"; };
+		83C36B83FB7D99E400EA934C /* SignUpEmailAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailAssember.swift; sourceTree = "<group>"; };
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
+		A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailPresenterInterface.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
+		D05F7443E51DE385A5020FA5 /* SignUpEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailPresenter.swift; sourceTree = "<group>"; };
+		E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
+		EF0D4A098F44E1566EB9CCC0 /* SignUpEmailInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailInteractorInterface.swift; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA4528591DF802F900B2AA03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA45285C1DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA45285C1DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		FA45285E1DF802F900B2AA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA4528611DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA4528631DF802F900B2AA03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA4528681DF802F900B2AA03 /* KitStopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KitStopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA45286C1DF802F900B2AA03 /* KitStopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitStopTests.swift; sourceTree = "<group>"; };
@@ -81,6 +125,107 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		25432DC81E03FA9300BB7B8F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				25432DC91E03FAB700BB7B8F /* DataManager.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		254F42DF1DFE9CD900CDD074 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				25432DC81E03FA9300BB7B8F /* Service */,
+				254F42E51DFEB68300CDD074 /* Models */,
+				254F42E01DFE9CE900CDD074 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		254F42E01DFE9CE900CDD074 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */,
+				254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		254F42E51DFEB68300CDD074 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				254F42E61DFEB6A700CDD074 /* LogInUserModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		259C5DEE1DF9B35B001E3CCC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				259C5DEF1DF9B35B001E3CCC /* LogIn */,
+				AD935A14E91DFA6B19EC1286 /* SignUpEmail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		259C5DEF1DF9B35B001E3CCC /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				259C5DF01DF9B35B001E3CCC /* Assembler */,
+				259C5DF21DF9B35B001E3CCC /* Interactor */,
+				259C5DF51DF9B35B001E3CCC /* Presenter */,
+				259C5DF81DF9B35B001E3CCC /* Router */,
+				259C5DFB1DF9B35B001E3CCC /* View */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		259C5DF01DF9B35B001E3CCC /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		259C5DF21DF9B35B001E3CCC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */,
+				259C5DF41DF9B35B001E3CCC /* LogInInteractorInterface.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		259C5DF51DF9B35B001E3CCC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				259C5DF61DF9B35B001E3CCC /* LogInPresenter.swift */,
+				259C5DF71DF9B35B001E3CCC /* LogInPresenterInterface.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		259C5DF81DF9B35B001E3CCC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				259C5DF91DF9B35B001E3CCC /* LogInRouter.swift */,
+				259C5DFA1DF9B35B001E3CCC /* LogInRouterInterface.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		259C5DFB1DF9B35B001E3CCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA45285B1DF802F900B2AA03 /* Login.storyboard */,
+				259C5DFC1DF9B35B001E3CCC /* LogInViewController.swift */,
+				259C5DFD1DF9B35B001E3CCC /* LogInViewInterface.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3F696275292FF627EE00B701 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +233,54 @@
 				0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4512E3CD3C67732ADEB52C55 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				83C36B83FB7D99E400EA934C /* SignUpEmailAssember.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		83D0DB6422E7F913DF3B284C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7E9CA5CAA1384B4AC6DB7010 /* SignUpEmailRouterInterface.swift */,
+				0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AD935A14E91DFA6B19EC1286 /* SignUpEmail */ = {
+			isa = PBXGroup;
+			children = (
+				4512E3CD3C67732ADEB52C55 /* Assembler */,
+				B83522C0284717A5987196AD /* View */,
+				E507F5999BA126EE9D68BF17 /* Interactor */,
+				FBED02AF535605D655625360 /* Presenter */,
+				83D0DB6422E7F913DF3B284C /* Router */,
+			);
+			path = SignUpEmail;
+			sourceTree = "<group>";
+		};
+		B83522C0284717A5987196AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */,
+				E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */,
+				25AB73821E02CB9100BAA278 /* SignUpEmail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E507F5999BA126EE9D68BF17 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				EF0D4A098F44E1566EB9CCC0 /* SignUpEmailInteractorInterface.swift */,
+				5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		FA45284B1DF802F900B2AA03 = {
@@ -113,12 +306,11 @@
 		FA4528561DF802F900B2AA03 /* KitStop */ = {
 			isa = PBXGroup;
 			children = (
-				FA4528771DF80BB100B2AA03 /* Modules */,
+				254F42DF1DFE9CD900CDD074 /* Common */,
+				259C5DEE1DF9B35B001E3CCC /* Modules */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
-				FA4528591DF802F900B2AA03 /* ViewController.swift */,
-				FA45285B1DF802F900B2AA03 /* Main.storyboard */,
+				254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
-				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
 			);
 			path = KitStop;
@@ -133,11 +325,13 @@
 			path = KitStopTests;
 			sourceTree = "<group>";
 		};
-		FA4528771DF80BB100B2AA03 /* Modules */ = {
+		FBED02AF535605D655625360 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */,
+				D05F7443E51DE385A5020FA5 /* SignUpEmailPresenter.swift */,
 			);
-			name = Modules;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +423,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */,
+				254F42EA1DFEF6D500CDD074 /* LaunchScreen.storyboard in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
-				FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */,
+				FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */,
+				25AB73831E02CB9100BAA278 /* SignUpEmail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,8 +508,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */,
+				259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */,
+				254F42E21DFE9D8F00CDD074 /* CustomPasswordTF.swift in Sources */,
+				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
+				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
+				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
+				259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */,
+				259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */,
+				254F42E41DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift in Sources */,
+				259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */,
+				259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */,
+				259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */,
+				254F42E71DFEB6A700CDD074 /* LogInUserModel.swift in Sources */,
+				2DEF3C2BDA8D8016EE3A4A5A /* SignUpEmailAssember.swift in Sources */,
+				085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */,
+				A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */,
+				8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */,
+				F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */,
+				08F24368B9629C0549057164 /* SignUpEmailPresenterInterface.swift in Sources */,
+				25432DCA1E03FAB700BB7B8F /* DataManager.swift in Sources */,
+				088F7A9EFF889F150A71D4B0 /* SignUpEmailPresenter.swift in Sources */,
+				E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */,
+				522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,20 +553,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FA45285B1DF802F900B2AA03 /* Main.storyboard */ = {
+		254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				254F42E91DFEF6D500CDD074 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FA45285B1DF802F900B2AA03 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA45285C1DF802F900B2AA03 /* Base */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA4528611DF802F900B2AA03 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = Login.storyboard;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -451,7 +668,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,7 +687,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
