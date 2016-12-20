@@ -43,4 +43,11 @@ extension FiltersInteractor: FiltersInteractorInput {
         }
         filter.getFilters()
     }
+
+    func isTypesExist(types: [FilterItems]) -> Bool {
+        if types.count != 0 {
+            return true
+        }
+        return false
+    }
 }

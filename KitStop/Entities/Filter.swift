@@ -12,8 +12,8 @@ enum FiltersType {
 
 struct Price {
 
-    var minValue: Double = 0
-    var maxValue: Double = 0
+    var minValue: Int = 0
+    var maxValue: Int = 100
 
 }
 
@@ -21,7 +21,7 @@ class Filter {
 
     var typeFilter: [FilterItems] = []
     var brandFilter: [FilterItems] = []
-    var priceFilter = Price(minValue: 0, maxValue: 0)
+    var priceFilter = Price(minValue: 0, maxValue: 100)
 
 }
 

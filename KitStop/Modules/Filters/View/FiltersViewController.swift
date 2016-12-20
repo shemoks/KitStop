@@ -31,7 +31,7 @@ final class FiltersViewController: UIViewController, FlowController {
     }
 
     @IBAction func applyButtonTap(_ sender: Any) {
-        presenter.handleApplyTap(price: Price(minValue: rangeSlider.lowerValue, maxValue: rangeSlider.upperValue))
+        presenter.handleApplyTap(price: Price(minValue: Int(rangeSlider.lowerValue), maxValue: Int(rangeSlider.upperValue)))
     }
 
     override func viewDidLoad() {
@@ -39,10 +39,10 @@ final class FiltersViewController: UIViewController, FlowController {
         tableView.register(UINib(nibName: "TypeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
         presenter.handleViewDidLoad()
-        rangeSlider.lowerValue = presenter.priceList().minValue
-        rangeSlider.upperValue = presenter.priceList().maxValue
-        minValueLabel.text = String(presenter.priceList().minValue)
-        maxValueLabel.text = String(presenter.priceList().maxValue)
+        rangeSlider.lowerValue = Double(presenter.priceList().minValue)
+        rangeSlider.upperValue = Double(presenter.priceList().maxValue)
+        minValueLabel.text = "$" + String(presenter.priceList().minValue)
+        maxValueLabel.text = "$" + String(presenter.priceList().maxValue)
         reloadData()
     }
 
@@ -95,6 +95,7 @@ extension FiltersViewController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TypeCell
             cell?.configure(filter: presenter.brandsList())
+            cell?.isUserInteractionEnabled = false
             return cell!
         }
     }
@@ -109,9 +110,10 @@ extension FiltersViewController: UITableViewDataSource {
     }
 
     func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
-        self.minValueLabel.text = String(rangeSlider.lowerValue)
-        self.maxValueLabel.text = String(rangeSlider.upperValue)
+        self.minValueLabel.text = "$" + String(Int(rangeSlider.lowerValue))
+        self.maxValueLabel.text = "$" + String(Int(rangeSlider.upperValue))
     }
+
 }
 
 // MARK: - UITableViewDelegate
@@ -147,6 +149,15 @@ extension FiltersViewController: UITableViewDelegate {
 
         }
 
+    }
+
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let bool = presenter.isTypesExist()
+        if bool && indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
     }
 
 }

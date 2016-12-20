@@ -95,7 +95,7 @@ class RangeSlider: UIControl {
         }
     }
 
-    @IBInspectable var maximumValue: Double = 1.0 {
+    @IBInspectable var maximumValue: Double = 100.0 {
         willSet(newValue) {
             assert(newValue > minimumValue, "RangeSlider: maximumValue should be greater than minimumValue")
         }

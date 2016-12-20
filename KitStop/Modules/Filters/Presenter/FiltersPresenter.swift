@@ -20,7 +20,7 @@ final class FiltersPresenter {
     var router: FiltersRouterInput!
     var types = [FilterItems]()
     var brands = [FilterItems]()
-    var price = Price(minValue: 0, maxValue: 1)
+    var price = Price(minValue: 0, maxValue: 100)
 
 }
 
@@ -59,7 +59,7 @@ extension FiltersPresenter: FiltersViewOutput {
     }
 
     func handleBrandTap() {
-
+    
     }
 
     func handleTypeTap() {
@@ -68,6 +68,10 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleViewDidLoad() {
         interactor.getFilters()
+    }
+
+    func isTypesExist() -> Bool {
+        return interactor.isTypesExist(types: self.types)
     }
 
 }

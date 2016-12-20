@@ -21,6 +21,7 @@ protocol FiltersViewOutput: class {
     func handleBrandTap()
     func handleTypeTap()
     func handleViewDidLoad()
+    func isTypesExist() -> Bool
 
 }
 
