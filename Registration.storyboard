@@ -46,7 +46,6 @@
                     <navigationItem key="navigationItem" id="m8X-Sx-1og"/>
                     <connections>
                         <outlet property="imageView" destination="HR9-zU-Kpg" id="RqS-TV-4fZ"/>
-                        <segue destination="bFY-Uc-fSy" kind="show" identifier="ShowTakePhoto" id="mLV-lL-Kp8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuO-eO-WnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,14 +56,6 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1098.4000000000001" y="94.002998500749626"/>
-        </scene>
-        <!--RegistrationTakePhotoViewController-->
-        <scene sceneID="Rjm-w4-RH6">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="RegistrationTakePhotoViewController" storyboardName="RegistrationTakePhoto" referencedIdentifier="RegistrationTakePhotoViewController" id="bFY-Uc-fSy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FG1-2x-wg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1769" y="-94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WY1-La-7JK">
@@ -86,6 +77,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="752" height="1339"/>
+        <image name="background" width="376" height="669"/>
     </resources>
 </document>

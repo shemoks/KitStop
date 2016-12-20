@@ -36,6 +36,11 @@ final class RegistrationTakePhotoViewController: UIViewController, FlowControlle
         imagePicker.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        navigationController?.navigationBar.isHidden = true
+    }
+
 }
 
 // MARK: - RegistrationTakePhotoViewInput
