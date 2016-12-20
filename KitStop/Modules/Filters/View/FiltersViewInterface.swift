@@ -10,4 +10,6 @@
 
 protocol FiltersViewInput: class {
 
+    func showError(title: String, message: String)
+
 }

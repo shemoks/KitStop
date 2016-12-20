@@ -30,6 +30,8 @@
 		9A47E51D1E03E35A005EED88 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E51C1E03E35A005EED88 /* RangeSlider.swift */; };
 		9A47E5211E04324A005EED88 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E5201E04324A005EED88 /* Filter.swift */; };
 		9A47E5231E0435A5005EED88 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E5221E0435A5005EED88 /* Product.swift */; };
+		9AAD2C221E08267E00F3BD42 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD2C211E08267E00F3BD42 /* Reachability.swift */; };
+		9AAD2C241E08346C00F3BD42 /* FilterParametersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD2C231E08346C00F3BD42 /* FilterParametersService.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
 		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		9A47E51C1E03E35A005EED88 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RangeSlider.swift; path = ../RangeSlider.swift; sourceTree = "<group>"; };
 		9A47E5201E04324A005EED88 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		9A47E5221E0435A5005EED88 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		9AAD2C211E08267E00F3BD42 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		9AAD2C231E08346C00F3BD42 /* FilterParametersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterParametersService.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
 				9A47E4FB1E02A9AE005EED88 /* Filters.storyboard */,
+				9AAD2C211E08267E00F3BD42 /* Reachability.swift */,
+				9AAD2C231E08346C00F3BD42 /* FilterParametersService.swift */,
 			);
 			path = KitStop;
 			sourceTree = "<group>";
@@ -451,12 +457,14 @@
 				9A47E5231E0435A5005EED88 /* Product.swift in Sources */,
 				9A47E4F21E02A974005EED88 /* FiltersAssember.swift in Sources */,
 				9A47E4F51E02A974005EED88 /* FiltersPresenter.swift in Sources */,
+				9AAD2C241E08346C00F3BD42 /* FilterParametersService.swift in Sources */,
 				9A47E4F91E02A974005EED88 /* FiltersViewController.swift in Sources */,
 				9A47E4F71E02A974005EED88 /* FiltersRouter.swift in Sources */,
 				9A47E5061E02BA4B005EED88 /* TypeCell.swift in Sources */,
 				9A47E4F41E02A974005EED88 /* FiltersInteractorInterface.swift in Sources */,
 				9A47E4F61E02A974005EED88 /* FiltersPresenterInterface.swift in Sources */,
 				9A47E4F31E02A974005EED88 /* FiltersInteractor.swift in Sources */,
+				9AAD2C221E08267E00F3BD42 /* Reachability.swift in Sources */,
 				9A47E5211E04324A005EED88 /* Filter.swift in Sources */,
 				9A47E4FA1E02A974005EED88 /* FiltersViewInterface.swift in Sources */,
 				9A47E50A1E02BDFC005EED88 /* HeaderView.swift in Sources */,

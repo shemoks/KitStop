@@ -23,18 +23,24 @@ final class FiltersInteractor {
 extension FiltersInteractor: FiltersInteractorInput {
 
     func getBrands(currentFilter: Filter) {
-        //request to server
         presenter.setBrands(brands: [])
     }
 
     func getTypes(currentFilter: Filter) {
-        //request to server
         presenter.setTypes(types: [])
     }
 
-    func getPrice() {
-        //request to server
-        presenter.setPrice(price: Price(minValue: 0, maxValue: 0))
+    func getFilters() {
+        let filter = FilterParametersService()
+        filter.filterResult = {obj in
+            if obj.error == nil {
+                self.presenter.setBrands(brands: obj.filter.brandFilter)
+                self.presenter.setTypes(types: obj.filter.typeFilter)
+                self.presenter.setPrice(price: obj.filter.priceFilter)
+            } else {
+                self.presenter.showError(title: "No Internet Connection", message: "Make sure your device is connected to the internet.")
+            }
+        }
+        filter.getFilters()
     }
-
 }

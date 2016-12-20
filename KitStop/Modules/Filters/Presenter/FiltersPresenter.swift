@@ -28,12 +28,13 @@ final class FiltersPresenter {
 
 extension FiltersPresenter: FiltersViewOutput {
 
-    func handleViewDidLoad(filter: Filter) {
-
-        interactor.getBrands(currentFilter: filter)
-        interactor.getTypes(currentFilter: filter)
-        interactor.getPrice()
-
+    func handleApplyTap(price: Price) {
+        let filter = Filter()
+        filter.brandFilter = self.brands
+        filter.typeFilter = self.types
+        self.price = price
+        filter.priceFilter = price
+       // interactor.getProducts(filter: Filter)
     }
 
     func typesList() -> [FilterItems] {
@@ -46,6 +47,27 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func priceList() -> Price {
         return self.price
+    }
+
+    func handleCancelTap() {
+        router.closeModule()
+    }
+
+    func handleClearAllTap() {
+        interactor.getBrands(currentFilter: Filter())
+        interactor.getTypes(currentFilter: Filter())
+    }
+
+    func handleBrandTap() {
+
+    }
+
+    func handleTypeTap() {
+        
+    }
+
+    func handleViewDidLoad() {
+        interactor.getFilters()
     }
 
 }
@@ -64,6 +86,18 @@ extension FiltersPresenter: FiltersInteractorOutput {
     
     func setPrice(price: Price) {
         self.price = price
+    }
+
+    func openBrandModule() {
+        router.openBrandModule()
+    }
+
+    func showError(title: String, message: String) {
+        view.showError(title: title, message: message)
+    }
+
+    func openTypeModule() {
+        router.openTypeModule()
     }
 
 }

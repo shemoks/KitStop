@@ -22,24 +22,23 @@ final class FiltersViewController: UIViewController, FlowController {
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func cancelButtonTap(_ sender: Any) {
-
+        presenter.handleCancelTap()
     }
 
     @IBAction func clearAllButtonTap(_ sender: Any) {
-
+        presenter.handleClearAllTap()
+        reloadData()
     }
 
     @IBAction func applyButtonTap(_ sender: Any) {
-//        var filter = Filter()
-//        filter.brandFilter = []
-//        (typeFilter: [], brandFilter: [], priceFilter: Price(minValue: 0, maxValue: 0))
-//        presenter.handelViewDidLoad(filter: filter)
+        presenter.handleApplyTap(price: Price(minValue: rangeSlider.lowerValue, maxValue: rangeSlider.upperValue))
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TypeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
+        presenter.handleViewDidLoad()
         rangeSlider.lowerValue = presenter.priceList().minValue
         rangeSlider.upperValue = presenter.priceList().maxValue
         minValueLabel.text = String(presenter.priceList().minValue)
@@ -56,6 +55,11 @@ final class FiltersViewController: UIViewController, FlowController {
 // MARK: - FiltersViewInput
 
 extension FiltersViewController: FiltersViewInput {
+
+    func showError(title: String, message: String) {
+        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
+    }
 
 }
 
@@ -107,7 +111,6 @@ extension FiltersViewController: UITableViewDataSource {
     func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
         self.minValueLabel.text = String(rangeSlider.lowerValue)
         self.maxValueLabel.text = String(rangeSlider.upperValue)
-        print("Range slider value changed: (\(rangeSlider.lowerValue) , \(rangeSlider.upperValue))")
     }
 }
 
@@ -133,5 +136,17 @@ extension FiltersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 54
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        switch indexPath.section {
+        case 0:
+            presenter.handleTypeTap()
+        default:
+            presenter.handleBrandTap()
+
+        }
+
+    }
+
 }

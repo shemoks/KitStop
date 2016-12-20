@@ -10,4 +10,8 @@
 
 protocol FiltersRouterInput: class {
 
+    func closeModule()
+    func openBrandModule()
+    func openTypeModule()
+
 }

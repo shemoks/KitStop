@@ -13,12 +13,19 @@ class TypeCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 
     func configure(filter: [FilterItems]) {
-        var labelText = "Select filter"
+        let clearFilter = "Select filter"
+        var labelText = ""
         if !filter.isEmpty {
-        for item in filter {
-            labelText = labelText + item.title + "  "
+            for item in filter {
+                if item.isSelected == true {
+                    labelText = labelText + item.title + "  "
+                }
+            }
         }
+        if labelText == "" {
+            titleLabel.text = clearFilter
+        } else {
+            titleLabel.text = labelText
         }
-        titleLabel.text = labelText
     }
 }

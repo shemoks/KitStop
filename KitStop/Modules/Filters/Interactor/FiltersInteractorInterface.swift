@@ -12,6 +12,9 @@ protocol FiltersInteractorInput: class {
 
     func getBrands(currentFilter: Filter)
     func getTypes(currentFilter: Filter)
-    func getPrice()
+//    func getPrice()
+//    func tryToOpenTypeModule()
+//    func tryToOpenBrandModule()
+    func getFilters()
 
 }

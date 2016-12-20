@@ -29,5 +29,6 @@ class FilterItems {
 
     var id: Int = 0
     var title: String = ""
+    var isSelected: Bool = false
     
 }
