@@ -31,7 +31,6 @@
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
-		9A0587651DFFFEC90041C442 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0587641DFFFEC90041C442 /* Registration.storyboard */; };
 		9A47E4E31E00337C005EED88 /* RegistrationTakePhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */; };
 		9A97A5221E001ABA00D5141F /* CustomAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A5211E001ABA00D5141F /* CustomAvatar.swift */; };
 		9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C181E094D68004E95FF /* RegistrationTakePhotoAssember.swift */; };
@@ -88,7 +87,6 @@
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
-		9A0587641DFFFEC90041C442 /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Registration.storyboard; path = ../Registration.storyboard; sourceTree = "<group>"; };
 		9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegistrationTakePhoto.storyboard; path = ../../../RegistrationTakePhoto.storyboard; sourceTree = "<group>"; };
 		9A97A5211E001ABA00D5141F /* CustomAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAvatar.swift; path = ../CustomAvatar.swift; sourceTree = "<group>"; };
 		9AB17C181E094D68004E95FF /* RegistrationTakePhotoAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoAssember.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
-				9A0587641DFFFEC90041C442 /* Registration.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
 			);
 			path = KitStop;
@@ -506,7 +503,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0587651DFFFEC90041C442 /* Registration.storyboard in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
 				9A47E4E31E00337C005EED88 /* RegistrationTakePhoto.storyboard in Resources */,
 				FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */,

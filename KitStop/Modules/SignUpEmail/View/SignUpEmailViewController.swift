@@ -22,18 +22,12 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
         let tapImageView = UITapGestureRecognizer(target: self, action: #selector(takePhoto))
         tapImageView.delegate = self
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapImageView)
         passwordTF.passwordDelegate = self
         repeatPasswordTF.passwordDelegate = self
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
-        navigationController?.navigationBar.isHidden = false
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {
