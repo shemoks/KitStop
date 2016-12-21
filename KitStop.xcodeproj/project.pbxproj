@@ -12,8 +12,8 @@
 		08F24368B9629C0549057164 /* SignUpEmailPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */; };
 		17C560A2DC2A71E3F5959151 /* RestorePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A22944030AA2633B9301FE6 /* RestorePasswordRouter.swift */; };
 		25432DCA1E03FAB700BB7B8F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25432DC91E03FAB700BB7B8F /* DataManager.swift */; };
-		254F42E21DFE9D8F00CDD074 /* CustomPasswordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */; };
-		254F42E41DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */; };
+		254F42E21DFE9D8F00CDD074 /* CustomPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E11DFE9D8F00CDD074 /* CustomPassword.swift */; };
+		254F42E41DFEAAA300CDD074 /* CustomPasswordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E31DFEAAA300CDD074 /* CustomPasswordDelegate.swift */; };
 		254F42E71DFEB6A700CDD074 /* LogInUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E61DFEB6A700CDD074 /* LogInUserModel.swift */; };
 		254F42EA1DFEF6D500CDD074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */; };
 		259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */; };
@@ -67,8 +67,8 @@
 		0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailRouter.swift; sourceTree = "<group>"; };
 		0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.release.xcconfig"; sourceTree = "<group>"; };
 		25432DC91E03FAB700BB7B8F /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordTF.swift; sourceTree = "<group>"; };
-		254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordTFDelegate.swift; sourceTree = "<group>"; };
+		254F42E11DFE9D8F00CDD074 /* CustomPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPassword.swift; sourceTree = "<group>"; };
+		254F42E31DFEAAA300CDD074 /* CustomPasswordDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordDelegate.swift; sourceTree = "<group>"; };
 		254F42E61DFEB6A700CDD074 /* LogInUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInUserModel.swift; sourceTree = "<group>"; };
 		254F42E91DFEF6D500CDD074 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInAssember.swift; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 		254F42E01DFE9CE900CDD074 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */,
-				254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */,
+				254F42E11DFE9D8F00CDD074 /* CustomPassword.swift */,
+				254F42E31DFEAAA300CDD074 /* CustomPasswordDelegate.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -602,14 +602,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */,
-				254F42E21DFE9D8F00CDD074 /* CustomPasswordTF.swift in Sources */,
+				254F42E21DFE9D8F00CDD074 /* CustomPassword.swift in Sources */,
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
 				259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */,
 				259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */,
-				254F42E41DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift in Sources */,
+				254F42E41DFEAAA300CDD074 /* CustomPasswordDelegate.swift in Sources */,
 				259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */,
 				259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */,
 				259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */,

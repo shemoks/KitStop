@@ -1,5 +1,5 @@
 //
-//  CustomPasswordTF.swift
+//  CustomPassword.swift
 //  KitStop
 //
 //  Created by sasha ataman on 12.12.16.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CustomPasswordTF: UITextField, UITextFieldDelegate {
+class CustomPassword: UITextField, UITextFieldDelegate {
     
-    weak var passwordDelegate: CustomPasswordTFDelegate?
+    weak var passwordDelegate: CustomPasswordDelegate?
     
     fileprivate let eyeView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 25, height: 25))
     fileprivate var tapCounter = false

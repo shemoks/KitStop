@@ -11,12 +11,12 @@ import UIKit
 
 // MARK: - LogInViewController
 
-final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordTFDelegate {
+final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordDelegate {
 
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
-    @IBOutlet weak var passwordTF: CustomPasswordTF!
+    @IBOutlet weak var passwordTF: CustomPassword!
     @IBOutlet weak var emailTF: UITextField!
     override func viewDidLoad() {
         emailTF.delegate = self

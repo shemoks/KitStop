@@ -10,12 +10,12 @@ import Chamomile
 
 // MARK: - SignUpEmailViewController
 
-final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordTFDelegate {
+final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegate {
 
     // MARK: - VIPER stack
 
-    @IBOutlet weak var passwordTF: CustomPasswordTF!
-    @IBOutlet weak var repeatPasswordTF: CustomPasswordTF!
+    @IBOutlet weak var passwordTF: CustomPassword!
+    @IBOutlet weak var repeatPasswordTF: CustomPassword!
     
     var presenter: SignUpEmailViewOutput!
     
