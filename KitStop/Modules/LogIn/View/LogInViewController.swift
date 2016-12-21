@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - LogInViewController
 
-final class LogInViewController: UIViewController, FlowController, CustomPasswordTFDelegate {
+final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordTFDelegate {
 
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
