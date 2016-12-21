@@ -25,6 +25,10 @@ final class SignUpEmailPresenter {
 
 extension SignUpEmailPresenter: SignUpEmailViewOutput {
 
+    func takePhoto() {
+        router.openModuleTakePhoto(RegistrationTakePhotoModuleOutput: self)
+    }
+
 }
 
 // MARK: - SignUpEmailInteractorOutput
@@ -37,4 +41,12 @@ extension SignUpEmailPresenter: SignUpEmailInteractorOutput {
 
 extension SignUpEmailPresenter: SignUpEmailModuleInput {
 
+}
+
+extension SignUpEmailPresenter: RegistrationTakePhotoModuleOutput {
+
+    func setImage(photo: UIImage) {
+        view.getPhoto(photo: photo)
+    }
+    
 }

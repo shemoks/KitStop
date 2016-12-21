@@ -14,6 +14,7 @@
 		254F42E21DFE9D8F00CDD074 /* CustomPasswordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */; };
 		254F42E41DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */; };
 		254F42E71DFEB6A700CDD074 /* LogInUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254F42E61DFEB6A700CDD074 /* LogInUserModel.swift */; };
+		254F42EA1DFEF6D500CDD074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */; };
 		259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */; };
 		259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */; };
 		259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF41DF9B35B001E3CCC /* LogInInteractorInterface.swift */; };
@@ -31,22 +32,36 @@
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
+<<<<<<< .merge_file_aUZjf8
+		9A05875B1DFFFE8E0041C442 /* RegistrationAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A05874E1DFFFE8E0041C442 /* RegistrationAssember.swift */; };
+		9A05875C1DFFFE8E0041C442 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587501DFFFE8E0041C442 /* RegistrationInteractor.swift */; };
+		9A05875D1DFFFE8E0041C442 /* RegistrationInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587511DFFFE8E0041C442 /* RegistrationInteractorInterface.swift */; };
+		9A05875E1DFFFE8E0041C442 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587531DFFFE8E0041C442 /* RegistrationPresenter.swift */; };
+		9A05875F1DFFFE8E0041C442 /* RegistrationPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587541DFFFE8E0041C442 /* RegistrationPresenterInterface.swift */; };
+		9A0587601DFFFE8E0041C442 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587561DFFFE8E0041C442 /* RegistrationRouter.swift */; };
+		9A0587611DFFFE8E0041C442 /* RegistrationRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587571DFFFE8E0041C442 /* RegistrationRouterInterface.swift */; };
+		9A0587621DFFFE8E0041C442 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0587591DFFFE8E0041C442 /* RegistrationViewController.swift */; };
+		9A0587631DFFFE8E0041C442 /* RegistrationViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A05875A1DFFFE8E0041C442 /* RegistrationViewInterface.swift */; };
+		9A0587651DFFFEC90041C442 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0587641DFFFEC90041C442 /* Registration.storyboard */; };
 		9A47E4E31E00337C005EED88 /* RegistrationTakePhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */; };
+		9A8E87741DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87731DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift */; };
+		9A8E87811DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87761DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift */; };
+		9A8E87821DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87771DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift */; };
+		9A8E87831DFED82600780ED1 /* RegistrationTakePhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87791DFED82600780ED1 /* RegistrationTakePhotoPresenter.swift */; };
+		9A8E87841DFED82600780ED1 /* RegistrationTakePhotoPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E877A1DFED82600780ED1 /* RegistrationTakePhotoPresenterInterface.swift */; };
+		9A8E87851DFED82600780ED1 /* RegistrationTakePhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E877C1DFED82600780ED1 /* RegistrationTakePhotoRouter.swift */; };
+		9A8E87861DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E877D1DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift */; };
+		9A8E87871DFED82600780ED1 /* RegistrationTakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E877F1DFED82600780ED1 /* RegistrationTakePhotoViewController.swift */; };
+		9A8E87881DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87801DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift */; };
 		9A97A5221E001ABA00D5141F /* CustomAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A5211E001ABA00D5141F /* CustomAvatar.swift */; };
-		9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C181E094D68004E95FF /* RegistrationTakePhotoAssember.swift */; };
-		9AB17C261E094D68004E95FF /* RegistrationTakePhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C1A1E094D68004E95FF /* RegistrationTakePhotoInteractor.swift */; };
-		9AB17C271E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C1B1E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift */; };
-		9AB17C281E094D68004E95FF /* RegistrationTakePhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C1D1E094D68004E95FF /* RegistrationTakePhotoPresenter.swift */; };
-		9AB17C291E094D68004E95FF /* RegistrationTakePhotoPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C1E1E094D68004E95FF /* RegistrationTakePhotoPresenterInterface.swift */; };
-		9AB17C2A1E094D68004E95FF /* RegistrationTakePhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C201E094D68004E95FF /* RegistrationTakePhotoRouter.swift */; };
-		9AB17C2B1E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C211E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift */; };
-		9AB17C2C1E094D68004E95FF /* RegistrationTakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C231E094D68004E95FF /* RegistrationTakePhotoViewController.swift */; };
-		9AB17C2D1E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C241E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift */; };
+		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
+=======
 		A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */; };
 		E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CA5CAA1384B4AC6DB7010 /* SignUpEmailRouterInterface.swift */; };
 		F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Login.storyboard */; };
+>>>>>>> .merge_file_fFVOYq
 		FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA45285E1DF802F900B2AA03 /* Assets.xcassets */; };
 		FA45286D1DF802F900B2AA03 /* KitStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45286C1DF802F900B2AA03 /* KitStopTests.swift */; };
 /* End PBXBuildFile section */
@@ -86,26 +101,42 @@
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+<<<<<<< .merge_file_aUZjf8
+		9A05874E1DFFFE8E0041C442 /* RegistrationAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationAssember.swift; sourceTree = "<group>"; };
+		9A0587501DFFFE8E0041C442 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
+		9A0587511DFFFE8E0041C442 /* RegistrationInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationInteractorInterface.swift; sourceTree = "<group>"; };
+		9A0587531DFFFE8E0041C442 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		9A0587541DFFFE8E0041C442 /* RegistrationPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterInterface.swift; sourceTree = "<group>"; };
+		9A0587561DFFFE8E0041C442 /* RegistrationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		9A0587571DFFFE8E0041C442 /* RegistrationRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationRouterInterface.swift; sourceTree = "<group>"; };
+		9A0587591DFFFE8E0041C442 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		9A05875A1DFFFE8E0041C442 /* RegistrationViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewInterface.swift; sourceTree = "<group>"; };
+		9A0587641DFFFEC90041C442 /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Registration.storyboard; path = ../Registration.storyboard; sourceTree = "<group>"; };
+		9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationTakePhoto.storyboard; sourceTree = "<group>"; };
+		9A8E87731DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoAssember.swift; sourceTree = "<group>"; };
+		9A8E87761DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoInteractor.swift; sourceTree = "<group>"; };
+		9A8E87771DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoInteractorInterface.swift; sourceTree = "<group>"; };
+		9A8E87791DFED82600780ED1 /* RegistrationTakePhotoPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoPresenter.swift; sourceTree = "<group>"; };
+		9A8E877A1DFED82600780ED1 /* RegistrationTakePhotoPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoPresenterInterface.swift; sourceTree = "<group>"; };
+		9A8E877C1DFED82600780ED1 /* RegistrationTakePhotoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoRouter.swift; sourceTree = "<group>"; };
+		9A8E877D1DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoRouterInterface.swift; sourceTree = "<group>"; };
+		9A8E877F1DFED82600780ED1 /* RegistrationTakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewController.swift; sourceTree = "<group>"; };
+		9A8E87801DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewInterface.swift; sourceTree = "<group>"; };
+		9A97A5211E001ABA00D5141F /* CustomAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAvatar.swift; sourceTree = "<group>"; };
+=======
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
-		9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegistrationTakePhoto.storyboard; path = ../../../RegistrationTakePhoto.storyboard; sourceTree = "<group>"; };
-		9A97A5211E001ABA00D5141F /* CustomAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAvatar.swift; path = ../CustomAvatar.swift; sourceTree = "<group>"; };
-		9AB17C181E094D68004E95FF /* RegistrationTakePhotoAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoAssember.swift; sourceTree = "<group>"; };
-		9AB17C1A1E094D68004E95FF /* RegistrationTakePhotoInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoInteractor.swift; sourceTree = "<group>"; };
-		9AB17C1B1E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoInteractorInterface.swift; sourceTree = "<group>"; };
-		9AB17C1D1E094D68004E95FF /* RegistrationTakePhotoPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoPresenter.swift; sourceTree = "<group>"; };
-		9AB17C1E1E094D68004E95FF /* RegistrationTakePhotoPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoPresenterInterface.swift; sourceTree = "<group>"; };
-		9AB17C201E094D68004E95FF /* RegistrationTakePhotoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoRouter.swift; sourceTree = "<group>"; };
-		9AB17C211E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoRouterInterface.swift; sourceTree = "<group>"; };
-		9AB17C231E094D68004E95FF /* RegistrationTakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewController.swift; sourceTree = "<group>"; };
-		9AB17C241E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewInterface.swift; sourceTree = "<group>"; };
 		A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailPresenterInterface.swift; sourceTree = "<group>"; };
+>>>>>>> .merge_file_fFVOYq
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		D05F7443E51DE385A5020FA5 /* SignUpEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailPresenter.swift; sourceTree = "<group>"; };
 		E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		EF0D4A098F44E1566EB9CCC0 /* SignUpEmailInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailInteractorInterface.swift; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+<<<<<<< .merge_file_aUZjf8
+=======
 		FA45285C1DF802F900B2AA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+>>>>>>> .merge_file_fFVOYq
 		FA45285E1DF802F900B2AA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA4528631DF802F900B2AA03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA4528681DF802F900B2AA03 /* KitStopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KitStopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				254F42E11DFE9D8F00CDD074 /* CustomPasswordTF.swift */,
-				9A97A5211E001ABA00D5141F /* CustomAvatar.swift */,
 				254F42E31DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift */,
 			);
 			name = Views;
@@ -185,7 +215,6 @@
 		259C5DEE1DF9B35B001E3CCC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9AB17C161E094D68004E95FF /* RegistrationTakePhoto */,
 				259C5DEF1DF9B35B001E3CCC /* LogIn */,
 				AD935A14E91DFA6B19EC1286 /* SignUpEmail */,
 			);
@@ -258,6 +287,129 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+<<<<<<< .merge_file_aUZjf8
+		470BBE67240F7A7A01D2D1BC /* RegistrationTakePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87751DFED82600780ED1 /* Interactor */,
+				9A8E87781DFED82600780ED1 /* Presenter */,
+				9A8E877B1DFED82600780ED1 /* Router */,
+				9A8E877E1DFED82600780ED1 /* View */,
+				9A8E87721DFED7FA00780ED1 /* Assembler */,
+			);
+			path = RegistrationTakePhoto;
+			sourceTree = "<group>";
+		};
+		694EDED4847C8983FF0E619C /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				9A05874D1DFFFE8E0041C442 /* Assembler */,
+				9A05874F1DFFFE8E0041C442 /* Interactor */,
+				9A0587521DFFFE8E0041C442 /* Presenter */,
+				9A0587551DFFFE8E0041C442 /* Router */,
+				9A0587581DFFFE8E0041C442 /* View */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		9A05874D1DFFFE8E0041C442 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				9A05874E1DFFFE8E0041C442 /* RegistrationAssember.swift */,
+			);
+			name = Assembler;
+			path = KitStop/Modules/Registration/Assembler;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A05874F1DFFFE8E0041C442 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9A0587501DFFFE8E0041C442 /* RegistrationInteractor.swift */,
+				9A0587511DFFFE8E0041C442 /* RegistrationInteractorInterface.swift */,
+			);
+			name = Interactor;
+			path = KitStop/Modules/Registration/Interactor;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A0587521DFFFE8E0041C442 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A0587531DFFFE8E0041C442 /* RegistrationPresenter.swift */,
+				9A0587541DFFFE8E0041C442 /* RegistrationPresenterInterface.swift */,
+			);
+			name = Presenter;
+			path = KitStop/Modules/Registration/Presenter;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A0587551DFFFE8E0041C442 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9A0587561DFFFE8E0041C442 /* RegistrationRouter.swift */,
+				9A0587571DFFFE8E0041C442 /* RegistrationRouterInterface.swift */,
+			);
+			name = Router;
+			path = KitStop/Modules/Registration/Router;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A0587581DFFFE8E0041C442 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A0587591DFFFE8E0041C442 /* RegistrationViewController.swift */,
+				9A05875A1DFFFE8E0041C442 /* RegistrationViewInterface.swift */,
+			);
+			name = View;
+			path = KitStop/Modules/Registration/View;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A8E87721DFED7FA00780ED1 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87731DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift */,
+			);
+			name = Assembler;
+			path = KitStop/Modules/RegistrationTakePhoto/Assembler;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A8E87751DFED82600780ED1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87761DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift */,
+				9A8E87771DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift */,
+			);
+			name = Interactor;
+			path = KitStop/Modules/RegistrationTakePhoto/Interactor;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A8E87781DFED82600780ED1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E87791DFED82600780ED1 /* RegistrationTakePhotoPresenter.swift */,
+				9A8E877A1DFED82600780ED1 /* RegistrationTakePhotoPresenterInterface.swift */,
+			);
+			name = Presenter;
+			path = KitStop/Modules/RegistrationTakePhoto/Presenter;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A8E877B1DFED82600780ED1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E877C1DFED82600780ED1 /* RegistrationTakePhotoRouter.swift */,
+				9A8E877D1DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift */,
+			);
+			name = Router;
+			path = KitStop/Modules/RegistrationTakePhoto/Router;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A8E877E1DFED82600780ED1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E877F1DFED82600780ED1 /* RegistrationTakePhotoViewController.swift */,
+				9A8E87801DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift */,
+			);
+			name = View;
+			path = KitStop/Modules/RegistrationTakePhoto/View;
+			sourceTree = SOURCE_ROOT;
+=======
 		4512E3CD3C67732ADEB52C55 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,63 +425,6 @@
 				0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		9AB17C161E094D68004E95FF /* RegistrationTakePhoto */ = {
-			isa = PBXGroup;
-			children = (
-				9AB17C171E094D68004E95FF /* Assembler */,
-				9AB17C191E094D68004E95FF /* Interactor */,
-				9AB17C1C1E094D68004E95FF /* Presenter */,
-				9AB17C1F1E094D68004E95FF /* Router */,
-				9AB17C221E094D68004E95FF /* View */,
-			);
-			path = RegistrationTakePhoto;
-			sourceTree = "<group>";
-		};
-		9AB17C171E094D68004E95FF /* Assembler */ = {
-			isa = PBXGroup;
-			children = (
-				9AB17C181E094D68004E95FF /* RegistrationTakePhotoAssember.swift */,
-			);
-			path = Assembler;
-			sourceTree = "<group>";
-		};
-		9AB17C191E094D68004E95FF /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				9AB17C1A1E094D68004E95FF /* RegistrationTakePhotoInteractor.swift */,
-				9AB17C1B1E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		9AB17C1C1E094D68004E95FF /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				9AB17C1D1E094D68004E95FF /* RegistrationTakePhotoPresenter.swift */,
-				9AB17C1E1E094D68004E95FF /* RegistrationTakePhotoPresenterInterface.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		9AB17C1F1E094D68004E95FF /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				9AB17C201E094D68004E95FF /* RegistrationTakePhotoRouter.swift */,
-				9AB17C211E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		9AB17C221E094D68004E95FF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */,
-				9AB17C231E094D68004E95FF /* RegistrationTakePhotoViewController.swift */,
-				9AB17C241E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		AD935A14E91DFA6B19EC1286 /* SignUpEmail */ = {
@@ -362,6 +457,7 @@
 			);
 			path = Interactor;
 			sourceTree = "<group>";
+>>>>>>> .merge_file_fFVOYq
 		};
 		FA45284B1DF802F900B2AA03 = {
 			isa = PBXGroup;
@@ -389,9 +485,17 @@
 				254F42DF1DFE9CD900CDD074 /* Common */,
 				259C5DEE1DF9B35B001E3CCC /* Modules */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
+<<<<<<< .merge_file_aUZjf8
+				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
+				9A47E4E21E00337C005EED88 /* RegistrationTakePhoto.storyboard */,
+				9A0587641DFFFEC90041C442 /* Registration.storyboard */,
+				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
+=======
 				254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
+>>>>>>> .merge_file_fFVOYq
 				FA4528631DF802F900B2AA03 /* Info.plist */,
+				9A97A5211E001ABA00D5141F /* CustomAvatar.swift */,
 			);
 			path = KitStop;
 			sourceTree = "<group>";
@@ -408,8 +512,13 @@
 		FBED02AF535605D655625360 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< .merge_file_aUZjf8
+				470BBE67240F7A7A01D2D1BC /* RegistrationTakePhoto */,
+				694EDED4847C8983FF0E619C /* Registration */,
+=======
 				A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */,
 				D05F7443E51DE385A5020FA5 /* SignUpEmailPresenter.swift */,
+>>>>>>> .merge_file_fFVOYq
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -503,10 +612,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< .merge_file_aUZjf8
+				9A0587651DFFFEC90041C442 /* Registration.storyboard in Resources */,
+				FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
 				9A47E4E31E00337C005EED88 /* RegistrationTakePhoto.storyboard in Resources */,
+=======
+				254F42EA1DFEF6D500CDD074 /* LaunchScreen.storyboard in Resources */,
+				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
 				FA45285D1DF802F900B2AA03 /* Login.storyboard in Resources */,
 				25AB73831E02CB9100BAA278 /* SignUpEmail.storyboard in Resources */,
+>>>>>>> .merge_file_fFVOYq
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,19 +704,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< .merge_file_aUZjf8
+				9A8E87861DFED82600780ED1 /* RegistrationTakePhotoRouterInterface.swift in Sources */,
+				9A05875E1DFFFE8E0041C442 /* RegistrationPresenter.swift in Sources */,
+				9A8E87841DFED82600780ED1 /* RegistrationTakePhotoPresenterInterface.swift in Sources */,
+				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
+				9A0587601DFFFE8E0041C442 /* RegistrationRouter.swift in Sources */,
+				9A8E87851DFED82600780ED1 /* RegistrationTakePhotoRouter.swift in Sources */,
+				9A8E87741DFED7FA00780ED1 /* RegistrationTakePhotoAssember.swift in Sources */,
+				9A8E87881DFED82600780ED1 /* RegistrationTakePhotoViewInterface.swift in Sources */,
+				9A8E87821DFED82600780ED1 /* RegistrationTakePhotoInteractorInterface.swift in Sources */,
+				9A8E87811DFED82600780ED1 /* RegistrationTakePhotoInteractor.swift in Sources */,
+				9A05875B1DFFFE8E0041C442 /* RegistrationAssember.swift in Sources */,
+				9A0587611DFFFE8E0041C442 /* RegistrationRouterInterface.swift in Sources */,
+				9A05875D1DFFFE8E0041C442 /* RegistrationInteractorInterface.swift in Sources */,
+				9A97A5221E001ABA00D5141F /* CustomAvatar.swift in Sources */,
+				9A8E87831DFED82600780ED1 /* RegistrationTakePhotoPresenter.swift in Sources */,
+				9A0587631DFFFE8E0041C442 /* RegistrationViewInterface.swift in Sources */,
+				9A05875C1DFFFE8E0041C442 /* RegistrationInteractor.swift in Sources */,
+				9A8E87871DFED82600780ED1 /* RegistrationTakePhotoViewController.swift in Sources */,
+				9A0587621DFFFE8E0041C442 /* RegistrationViewController.swift in Sources */,
+				9A05875F1DFFFE8E0041C442 /* RegistrationPresenterInterface.swift in Sources */,
+=======
 				259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */,
 				254F42E21DFE9D8F00CDD074 /* CustomPasswordTF.swift in Sources */,
-				9AB17C2A1E094D68004E95FF /* RegistrationTakePhotoRouter.swift in Sources */,
-				9AB17C2D1E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift in Sources */,
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
-				9AB17C2B1E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift in Sources */,
-				9A97A5221E001ABA00D5141F /* CustomAvatar.swift in Sources */,
-				9AB17C281E094D68004E95FF /* RegistrationTakePhotoPresenter.swift in Sources */,
-				9AB17C261E094D68004E95FF /* RegistrationTakePhotoInteractor.swift in Sources */,
-				9AB17C291E094D68004E95FF /* RegistrationTakePhotoPresenterInterface.swift in Sources */,
 				259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */,
 				259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */,
 				254F42E41DFEAAA300CDD074 /* CustomPasswordTFDelegate.swift in Sources */,
@@ -609,18 +740,16 @@
 				259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */,
 				254F42E71DFEB6A700CDD074 /* LogInUserModel.swift in Sources */,
 				2DEF3C2BDA8D8016EE3A4A5A /* SignUpEmailAssember.swift in Sources */,
-				9AB17C271E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift in Sources */,
 				085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */,
 				A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */,
 				8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */,
 				F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */,
-				9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */,
 				08F24368B9629C0549057164 /* SignUpEmailPresenterInterface.swift in Sources */,
 				25432DCA1E03FAB700BB7B8F /* DataManager.swift in Sources */,
 				088F7A9EFF889F150A71D4B0 /* SignUpEmailPresenter.swift in Sources */,
 				E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */,
 				522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */,
-				9AB17C2C1E094D68004E95FF /* RegistrationTakePhotoViewController.swift in Sources */,
+>>>>>>> .merge_file_fFVOYq
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +772,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+<<<<<<< .merge_file_aUZjf8
+		FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */ = {
+=======
 		254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -652,6 +784,7 @@
 			sourceTree = "<group>";
 		};
 		FA45285B1DF802F900B2AA03 /* Login.storyboard */ = {
+>>>>>>> .merge_file_fFVOYq
 			isa = PBXVariantGroup;
 			children = (
 				FA45285C1DF802F900B2AA03 /* Base */,
@@ -760,10 +893,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */;
 			buildSettings = {
+<<<<<<< .merge_file_aUZjf8
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+>>>>>>> .merge_file_fFVOYq
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -784,11 +920,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */;
 			buildSettings = {
+<<<<<<< .merge_file_aUZjf8
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+=======
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 729WFR3HVU;
+>>>>>>> .merge_file_fFVOYq
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

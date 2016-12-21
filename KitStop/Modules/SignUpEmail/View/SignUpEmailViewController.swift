@@ -10,31 +10,43 @@ import Chamomile
 
 // MARK: - SignUpEmailViewController
 
-final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordTFDelegate {
+final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordTFDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - VIPER stack
 
-    @IBOutlet weak var passwordTF: CustomPasswordTF!
-    @IBOutlet weak var repeatPasswordTF: CustomPasswordTF!
+    @IBAction func avatarTap(_ sender: UITapGestureRecognizer) {
+        presenter.takePhoto()
+    }
+    @IBOutlet weak var avatar: CustomAvatar!
+    @IBOutlet weak var password: CustomPassword!
+    @IBOutlet weak var repeatPassword: CustomPassword!
     
+
     var presenter: SignUpEmailViewOutput!
     
     override func viewDidLoad() {
-        passwordTF.passwordDelegate = self
-        repeatPasswordTF.passwordDelegate = self
+        super.viewDidLoad()
+        password.passwordDelegate = self
+        repeatPassword.passwordDelegate = self
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
 
+
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
 
     }
+
 }
 
 // MARK: - SignUpEmailViewInput
 
 extension SignUpEmailViewController: SignUpEmailViewInput {
+
+    func getPhoto(photo: UIImage) {
+        avatar.image = photo
+    }
 
 }

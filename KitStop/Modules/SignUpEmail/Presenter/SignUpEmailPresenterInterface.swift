@@ -12,6 +12,8 @@ import Chamomile
 
 protocol SignUpEmailViewOutput: class {
 
+    func takePhoto()
+    
 }
 
 // MARK: - SignUpEmailInteractorOutput
