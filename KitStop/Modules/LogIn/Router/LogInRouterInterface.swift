@@ -9,5 +9,5 @@
 // MARK: - LogInRouterInput
 
 protocol LogInRouterInput: class {
-  //  func openForgotPasswordModule(forgotPassword: 'FrogotPasswordOutput')
+    func openForgotPasswordModule()
 }
