@@ -21,6 +21,7 @@ final class FiltersPresenter {
     var types = [FilterItems]()
     var brands = [FilterItems]()
     var price = Price(minValue: 0, maxValue: 100)
+    var brandsInCategory = [FilterItems]()
 
 }
 
@@ -34,7 +35,7 @@ extension FiltersPresenter: FiltersViewOutput {
         filter.typeFilter = self.types
         self.price = price
         filter.priceFilter = price
-       // interactor.getProducts(filter: Filter)
+        // interactor.getProducts(filter: Filter)
     }
 
     func typesList() -> [FilterItems] {
@@ -54,16 +55,17 @@ extension FiltersPresenter: FiltersViewOutput {
     }
 
     func handleClearAllTap() {
-        interactor.getBrands(currentFilter: Filter())
-        interactor.getTypes(currentFilter: Filter())
+        interactor.clearAll(types: self.types, brands: self.brands)
     }
 
     func handleBrandTap() {
-    
+        interactor.getBrandsInCategory(category: "Cameras")
+       // interactor.getBrandsInCategory(category: (self.types.first?.title)!)
+        router.openBrandModule(brands: self.brandsInCategory, filterBrandModuleOutput: self)
     }
 
     func handleTypeTap() {
-        
+        router.openTypeModule(types: self.types)
     }
 
     func handleViewDidLoad() {
@@ -72,6 +74,14 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func isTypesExist() -> Bool {
         return interactor.isTypesExist(types: self.types)
+    }
+
+    func changeBrands(brands: [FilterItems]) {
+        self.brands = brands
+    }
+
+    func changePrice(price: Price) {
+        self.price = price
     }
 
 }
@@ -87,21 +97,17 @@ extension FiltersPresenter: FiltersInteractorOutput {
     func setTypes(types: [FilterItems]) {
         self.types = types
     }
-    
+
     func setPrice(price: Price) {
         self.price = price
-    }
-
-    func openBrandModule() {
-        router.openBrandModule()
     }
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
     }
 
-    func openTypeModule() {
-        router.openTypeModule()
+    func setBrandsInCategory(brands: [FilterItems]) {
+        self.brandsInCategory = brands
     }
 
 }
@@ -110,4 +116,11 @@ extension FiltersPresenter: FiltersInteractorOutput {
 
 extension FiltersPresenter: FiltersModuleInput {
 
+}
+
+extension FiltersPresenter: FilterBrandModuleOutput {
+
+    func selectedBrands(brands: [FilterItems]) {
+        view.setBrandsInCategory(brands: brands)
+    }
 }

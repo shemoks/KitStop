@@ -30,5 +30,7 @@ class FilterItems {
     var id: Int = 0
     var title: String = ""
     var isSelected: Bool = false
+    var type: FiltersType = .type
+    var brands = [FilterItems]()
     
 }

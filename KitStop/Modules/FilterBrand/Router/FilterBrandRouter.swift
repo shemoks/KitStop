@@ -22,4 +22,9 @@ final class FilterBrandRouter {
 
 extension FilterBrandRouter: FilterBrandRouterInput {
 
+    func returnToFilters() {
+
+        flowController.closeModule(animated: true)
+
+    }
 }

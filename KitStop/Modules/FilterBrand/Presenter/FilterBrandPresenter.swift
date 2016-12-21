@@ -18,6 +18,7 @@ final class FilterBrandPresenter {
     weak var view: FilterBrandViewInput!
     var interactor: FilterBrandInteractorInput!
     var router: FilterBrandRouterInput!
+    var brands = [FilterItems]()
 
 }
 
@@ -25,7 +26,22 @@ final class FilterBrandPresenter {
 
 extension FilterBrandPresenter: FilterBrandViewOutput {
 
+    func brandList() -> [FilterItems] {
+        return self.brands
+    }
+
+    func selectedBrands(brands: [FilterItems]) {
+        let filterBrandModuleOutput = moduleOutput as! FilterBrandModuleOutput
+        filterBrandModuleOutput.selectedBrands(brands: brands)
+        router.returnToFilters()
+    }
+
+//    func handleViewDidLoad(brands: [FilterItems]) {
+//        view.getBrands(brands: self.brands)
+//    }
+
 }
+
 
 // MARK: - FilterBrandInteractorOutput
 
@@ -37,4 +53,7 @@ extension FilterBrandPresenter: FilterBrandInteractorOutput {
 
 extension FilterBrandPresenter: FilterBrandModuleInput {
 
+    func setBrands(brands: [FilterItems]) {
+        self.brands = brands
+    }
 }

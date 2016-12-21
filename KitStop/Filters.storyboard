@@ -147,6 +147,7 @@
                         <outlet property="minValueLabel" destination="JRG-Tn-7vl" id="Axm-La-tQI"/>
                         <outlet property="rangeSlider" destination="5h5-k7-lnI" id="eY5-Va-lRA"/>
                         <outlet property="tableView" destination="EjM-Ji-7FL" id="nWC-t0-qbN"/>
+                        <segue destination="Saf-h1-gPK" kind="show" identifier="FilterBrandViewController" id="KCA-gl-dc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAA-PU-UXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,6 +158,14 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="704.79999999999995" y="134.48275862068968"/>
+        </scene>
+        <!--FilterBrandViewController-->
+        <scene sceneID="IgS-Nq-J05">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FilterBrand" referencedIdentifier="FilterBrandViewController" id="Saf-h1-gPK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cY6-DE-nBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9rc-OO-LNU">

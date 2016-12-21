@@ -10,4 +10,6 @@
 
 protocol FilterBrandRouterInput: class {
 
+    func returnToFilters()
+
 }

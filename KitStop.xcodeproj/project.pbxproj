@@ -50,6 +50,8 @@
 		9AB17C131E09345F004E95FF /* FilterBrandRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C091E09345F004E95FF /* FilterBrandRouterInterface.swift */; };
 		9AB17C141E09345F004E95FF /* FilterBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C0B1E09345F004E95FF /* FilterBrandViewController.swift */; };
 		9AB17C151E09345F004E95FF /* FilterBrandViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C0C1E09345F004E95FF /* FilterBrandViewInterface.swift */; };
+		9AB17C2F1E096FD9004E95FF /* FilterCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17C2E1E096FD9004E95FF /* FilterCategory.storyboard */; };
+		9AB17C311E096FF8004E95FF /* FilterBrand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17C301E096FF8004E95FF /* FilterBrand.storyboard */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285A1DF802F900B2AA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528591DF802F900B2AA03 /* ViewController.swift */; };
 		FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45285B1DF802F900B2AA03 /* Main.storyboard */; };
@@ -83,7 +85,7 @@
 		9A47E4EE1E02A974005EED88 /* FiltersRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersRouterInterface.swift; sourceTree = "<group>"; };
 		9A47E4F01E02A974005EED88 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		9A47E4F11E02A974005EED88 /* FiltersViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewInterface.swift; sourceTree = "<group>"; };
-		9A47E4FB1E02A9AE005EED88 /* Filters.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filters.storyboard; sourceTree = "<group>"; };
+		9A47E4FB1E02A9AE005EED88 /* Filters.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filters.storyboard; path = ../../../Filters.storyboard; sourceTree = "<group>"; };
 		9A47E4FF1E02B9B6005EED88 /* TypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeCell.xib; sourceTree = "<group>"; };
 		9A47E5051E02BA4B005EED88 /* TypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCell.swift; sourceTree = "<group>"; };
 		9A47E5071E02BDCF005EED88 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 		9AB17C091E09345F004E95FF /* FilterBrandRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterBrandRouterInterface.swift; sourceTree = "<group>"; };
 		9AB17C0B1E09345F004E95FF /* FilterBrandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterBrandViewController.swift; sourceTree = "<group>"; };
 		9AB17C0C1E09345F004E95FF /* FilterBrandViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterBrandViewInterface.swift; sourceTree = "<group>"; };
+		9AB17C2E1E096FD9004E95FF /* FilterCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FilterCategory.storyboard; sourceTree = "<group>"; };
+		9AB17C301E096FF8004E95FF /* FilterBrand.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FilterBrand.storyboard; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4528571DF802F900B2AA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				9A47E4FE1E02B98C005EED88 /* Cells */,
 				9A47E4F01E02A974005EED88 /* FiltersViewController.swift */,
 				9A47E4F11E02A974005EED88 /* FiltersViewInterface.swift */,
+				9A47E4FB1E02A9AE005EED88 /* Filters.storyboard */,
 			);
 			name = View;
 			path = KitStop/Modules/Filters/View;
@@ -285,6 +290,7 @@
 			children = (
 				9AB1789D1E0925F7004E95FF /* FilterTypeViewController.swift */,
 				9AB1789E1E0925F7004E95FF /* FilterTypeViewInterface.swift */,
+				9AB17C2E1E096FD9004E95FF /* FilterCategory.storyboard */,
 			);
 			name = View;
 			path = KitStop/Modules/FilterType/View;
@@ -334,6 +340,7 @@
 			children = (
 				9AB17C0B1E09345F004E95FF /* FilterBrandViewController.swift */,
 				9AB17C0C1E09345F004E95FF /* FilterBrandViewInterface.swift */,
+				9AB17C301E096FF8004E95FF /* FilterBrand.storyboard */,
 			);
 			name = View;
 			path = KitStop/Modules/FilterBrand/View;
@@ -406,7 +413,6 @@
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
 				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
-				9A47E4FB1E02A9AE005EED88 /* Filters.storyboard */,
 				9AAD2C211E08267E00F3BD42 /* Reachability.swift */,
 				9AAD2C231E08346C00F3BD42 /* FilterParametersService.swift */,
 			);
@@ -521,10 +527,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB17C311E096FF8004E95FF /* FilterBrand.storyboard in Resources */,
 				FA4528621DF802F900B2AA03 /* LaunchScreen.storyboard in Resources */,
 				9A47E5001E02B9B6005EED88 /* TypeCell.xib in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
 				9A47E5081E02BDCF005EED88 /* HeaderView.xib in Resources */,
+				9AB17C2F1E096FD9004E95FF /* FilterCategory.storyboard in Resources */,
 				9A47E4FC1E02A9AE005EED88 /* Filters.storyboard in Resources */,
 				9A47E5101E02FFBA005EED88 /* PriceCell.xib in Resources */,
 				FA45285D1DF802F900B2AA03 /* Main.storyboard in Resources */,

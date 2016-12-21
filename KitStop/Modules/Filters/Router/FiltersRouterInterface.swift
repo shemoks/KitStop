@@ -11,7 +11,7 @@
 protocol FiltersRouterInput: class {
 
     func closeModule()
-    func openBrandModule()
-    func openTypeModule()
+    func openBrandModule(brands: [FilterItems], filterBrandModuleOutput: FilterBrandModuleOutput)
+    func openTypeModule(types: [FilterItems])
 
 }

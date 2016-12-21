@@ -33,4 +33,9 @@ class FilterParametersService {
         var result = FilterObject(filter: Filter(), error: nil)
         return result
     }
+
+    func getBrands(category: String) {
+        let object = FilterObject(filter: Filter(), error: nil)
+        filterResult?(object)
+    }
 }

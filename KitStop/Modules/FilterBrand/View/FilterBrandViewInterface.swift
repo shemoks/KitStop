@@ -10,4 +10,5 @@
 
 protocol FilterBrandViewInput: class {
 
+    
 }

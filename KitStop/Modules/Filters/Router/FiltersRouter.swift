@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import Perform
 
 // MARK: - FiltersRouter
 
@@ -26,12 +27,23 @@ extension FiltersRouter: FiltersRouterInput {
         flowController.closeModule(animated: true)
     }
 
-    func openBrandModule() {
-        
+    func openBrandModule(brands: [FilterItems], filterBrandModuleOutput: FilterBrandModuleOutput) {
+        flowController.openModule(using: .openSecond) {
+            guard let moduleInput = $0 as? FilterBrandModuleInput else { fatalError() }
+            moduleInput.setBrands(brands: brands)
+            return filterBrandModuleOutput
+        }
     }
 
-    func openTypeModule() {
+    func openTypeModule(types: [FilterItems]) {
 
     }
 
+}
+
+extension Segue {
+
+    static var openSecond: Segue<FilterBrandViewController> {
+        return .init(identifier: "FilterBrandViewController")
+    }
 }

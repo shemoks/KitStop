@@ -22,6 +22,8 @@ protocol FiltersViewOutput: class {
     func handleTypeTap()
     func handleViewDidLoad()
     func isTypesExist() -> Bool
+    func changeBrands(brands: [FilterItems])
+    func changePrice(price: Price)
 
 }
 
@@ -32,9 +34,8 @@ protocol FiltersInteractorOutput: class {
     func setBrands(brands: [FilterItems])
     func setTypes(types: [FilterItems])
     func setPrice(price: Price)
-    func openBrandModule()
-    func openTypeModule()
     func showError(title: String, message: String)
+    func setBrandsInCategory(brands: [FilterItems])
     
 }
 

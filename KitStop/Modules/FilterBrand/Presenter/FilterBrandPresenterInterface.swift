@@ -12,6 +12,10 @@ import Chamomile
 
 protocol FilterBrandViewOutput: class {
 
+    func brandList() -> [FilterItems]
+    func selectedBrands(brands: [FilterItems])
+  //  func handleViewDidLoad(brands: [FilterItems])
+    
 }
 
 // MARK: - FilterBrandInteractorOutput
@@ -24,10 +28,14 @@ protocol FilterBrandInteractorOutput: class {
 
 protocol FilterBrandModuleInput: ModuleInput {
 
+    func setBrands(brands: [FilterItems])
+
 }
 
 // MARK: - FilterBrandModuleOutput
 
 protocol FilterBrandModuleOutput: ModuleOutput {
+
+    func selectedBrands(brands: [FilterItems])
 
 }

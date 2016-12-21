@@ -61,6 +61,12 @@ extension FiltersViewController: FiltersViewInput {
         alert.show()
     }
 
+    func setBrandsInCategory(brands: [FilterItems]) {
+         presenter.changeBrands(brands: brands)
+    //     presenter.changePrice(price: price)
+         reloadData()
+    }
+
 }
 
 // MARK: - UITableViewDataSource
@@ -95,7 +101,6 @@ extension FiltersViewController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TypeCell
             cell?.configure(filter: presenter.brandsList())
-            cell?.isUserInteractionEnabled = false
             return cell!
         }
     }
@@ -124,7 +129,7 @@ extension FiltersViewController: UITableViewDelegate {
         let view = HeaderView()
         switch section {
         case 0:
-            view.headLabel.text = "TYPE"
+            view.headLabel.text = "CATEGORY"
             return view
         case 1:
             view.headLabel.text = "BRAND"
