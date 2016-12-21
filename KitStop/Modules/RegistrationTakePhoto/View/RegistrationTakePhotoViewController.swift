@@ -24,10 +24,6 @@ final class RegistrationTakePhotoViewController: UIViewController, FlowControlle
         presenter.openCamera()
     }
 
-//    @IBAction func skipButtonTap(_ sender: Any) {
-//        presenter.goBack()
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.navigationBar.tintColor = .black

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomPasswordTF: UITextField, UITextFieldDelegate {
+class CustomPassword: UITextField, UITextFieldDelegate {
     
     weak var passwordDelegate: CustomPasswordTFDelegate?
     

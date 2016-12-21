@@ -21,6 +21,6 @@ final class RegistrationTakePhotoInteractor {
 // MARK: - RegistrationTakePhotoInteractorInput
 
 extension RegistrationTakePhotoInteractor: RegistrationTakePhotoInteractorInput {
-
-
+    
+    
 }

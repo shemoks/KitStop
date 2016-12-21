@@ -42,7 +42,6 @@
 		9AB17C2B1E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C211E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift */; };
 		9AB17C2C1E094D68004E95FF /* RegistrationTakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C231E094D68004E95FF /* RegistrationTakePhotoViewController.swift */; };
 		9AB17C2D1E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C241E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift */; };
-		9AB17C331E0AB22F004E95FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C321E0AB22F004E95FF /* ViewController.swift */; };
 		A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */; };
 		E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CA5CAA1384B4AC6DB7010 /* SignUpEmailRouterInterface.swift */; };
 		F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */; };
@@ -99,7 +98,6 @@
 		9AB17C211E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoRouterInterface.swift; sourceTree = "<group>"; };
 		9AB17C231E094D68004E95FF /* RegistrationTakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewController.swift; sourceTree = "<group>"; };
 		9AB17C241E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTakePhotoViewInterface.swift; sourceTree = "<group>"; };
-		9AB17C321E0AB22F004E95FF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0AFCD02EE46C35DFF9A0661 /* SignUpEmailPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailPresenterInterface.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		D05F7443E51DE385A5020FA5 /* SignUpEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailPresenter.swift; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 				254F42E81DFEF6D500CDD074 /* LaunchScreen.storyboard */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
-				9AB17C321E0AB22F004E95FF /* ViewController.swift */,
 			);
 			path = KitStop;
 			sourceTree = "<group>";
@@ -617,7 +614,6 @@
 				A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */,
 				8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */,
 				F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */,
-				9AB17C331E0AB22F004E95FF /* ViewController.swift in Sources */,
 				9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */,
 				08F24368B9629C0549057164 /* SignUpEmailPresenterInterface.swift in Sources */,
 				25432DCA1E03FAB700BB7B8F /* DataManager.swift in Sources */,

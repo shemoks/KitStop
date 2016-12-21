@@ -35,12 +35,7 @@ extension RegistrationTakePhotoPresenter: RegistrationTakePhotoViewOutput {
 
     func returnPhoto(photo: UIImage) {
         let moduleOutput = self.moduleOutput as! RegistrationTakePhotoModuleOutput
-//        router.returnPhoto(photo: photo, moduleOutput: RegistrationTakePhotoModuleOutput)
         moduleOutput.setImage(photo: photo)
-        router.openRegistration()
-    }
-
-    func goBack() {
         router.openRegistration()
     }
 
@@ -55,5 +50,5 @@ extension RegistrationTakePhotoPresenter: RegistrationTakePhotoInteractorOutput 
 // MARK: - RegistrationTakePhotoModuleInput
 
 extension RegistrationTakePhotoPresenter: RegistrationTakePhotoModuleInput {
-
+    
 }

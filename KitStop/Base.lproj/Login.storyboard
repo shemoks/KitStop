@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsQ-xV-XNS">
                                 <rect key="frame" x="0.0" y="265" width="320" height="283"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPasswordTF" customModule="KitStop" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
                                         <rect key="frame" x="35" y="37" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="1bN-G1-7Ri"/>
@@ -110,7 +110,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="GAG-WC-Jej"/>
                     <connections>
+                        <outlet property="email" destination="VDL-6k-YKL" id="Cmd-9L-zLI"/>
                         <outlet property="emailTF" destination="VDL-6k-YKL" id="8pS-gn-4QZ"/>
+                        <outlet property="password" destination="wI6-gk-xum" id="3ee-3f-dhh"/>
                         <outlet property="passwordTF" destination="wI6-gk-xum" id="ivN-wL-Uvk"/>
                     </connections>
                 </viewController>

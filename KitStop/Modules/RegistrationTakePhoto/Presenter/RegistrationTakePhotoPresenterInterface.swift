@@ -15,8 +15,7 @@ protocol RegistrationTakePhotoViewOutput: class {
     func openGallery()
     func openCamera()
     func returnPhoto(photo: UIImage)
-    func goBack()
-    
+
 }
 
 // MARK: - RegistrationTakePhotoInteractorOutput

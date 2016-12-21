@@ -14,29 +14,26 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
 
     // MARK: - VIPER stack
 
-    @IBOutlet weak var imageView: CustomAvatar!
-    @IBOutlet weak var passwordTF: CustomPasswordTF!
-    @IBOutlet weak var repeatPasswordTF: CustomPasswordTF!
+    @IBAction func avatarTap(_ sender: UITapGestureRecognizer) {
+        presenter.takePhoto()
+    }
+    @IBOutlet weak var avatar: CustomAvatar!
+    @IBOutlet weak var password: CustomPassword!
+    @IBOutlet weak var repeatPassword: CustomPassword!
     
+
     var presenter: SignUpEmailViewOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapImageView = UITapGestureRecognizer(target: self, action: #selector(takePhoto))
-        tapImageView.delegate = self
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(tapImageView)
-        passwordTF.passwordDelegate = self
-        repeatPasswordTF.passwordDelegate = self
+        password.passwordDelegate = self
+        repeatPassword.passwordDelegate = self
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
 
-    func takePhoto(_ gestureRecognizer: UITapGestureRecognizer) {
-        presenter.takePhoto()
-    }
 
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
 
@@ -49,7 +46,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
 extension SignUpEmailViewController: SignUpEmailViewInput {
 
     func getPhoto(photo: UIImage) {
-        imageView.image = photo
+        avatar.image = photo
     }
 
 }
