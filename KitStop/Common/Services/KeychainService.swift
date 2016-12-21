@@ -7,18 +7,29 @@
 //
 
 import Foundation
-import KeychainSwift
+import KeychainAccess
 
 class KeychainService {
 
     func tokenExists() -> Bool {
-        let keychain = KeychainSwift()
-        return keychain.get("api_token") != nil ? true : false
-    }
-    
-    func saveToken(token: String) {
-        let keychain = KeychainSwift()
-        keychain.set(token, forKey: "api_token")
+        let keychain = Keychain(service: "com.mozidev.KitStop").accessibility(.alwaysThisDeviceOnly)
+            .synchronizable(false)
+
+        do {
+            let token = try keychain.getString("api_token")
+            if token != nil {
+                return true
+            }
+        } catch is Error {
+            print("no token")
+        }
+
+        return false
     }
 
+    func saveToken(token: String) {
+        let keychain = Keychain(service: "com.mozidev.KitStop")
+        keychain["api_token"] = token
+    }
+    
 }

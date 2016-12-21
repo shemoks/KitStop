@@ -3,7 +3,7 @@ use_frameworks!
 
 target 'KitStop' do
   pod 'Alamofire'
-  pod 'KeychainSwift'
+  pod 'KeychainAccess'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'

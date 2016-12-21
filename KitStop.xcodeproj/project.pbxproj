@@ -85,7 +85,7 @@
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
 		956C81EE1DF96F6C00D3B2AF /* KitStop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KitStop.entitlements; sourceTree = "<group>"; };
-		9A8E870F1DF96F8C00780ED1 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		9A8E870F1DF96F8C00780ED1 /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signup.storyboard; path = ../../../Signup.storyboard; sourceTree = "<group>"; };
 		9A8E87131DF971E200780ED1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		9A8E87171DF9A90500780ED1 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		9A8E87181DF9A90500780ED1 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -190,6 +190,7 @@
 		1A535C56157CD5D92CA28B81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A8E870F1DF96F8C00780ED1 /* Signup.storyboard */,
 				C266F2CA10D129F892EB3E7A /* SignUpViewInterface.swift */,
 				B3FF39D35B0BCC9B0944DCDF /* SignUpViewController.swift */,
 			);
@@ -408,7 +409,6 @@
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
 				FA4528601DF802F900B2AA03 /* LaunchScreen.storyboard */,
 				FA4528631DF802F900B2AA03 /* Info.plist */,
-				9A8E870F1DF96F8C00780ED1 /* Signup.storyboard */,
 			);
 			path = KitStop;
 			sourceTree = "<group>";

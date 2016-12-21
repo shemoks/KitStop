@@ -25,14 +25,14 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.18.0):
     - FBSDKCoreKit
-  - KeychainSwift (7.0.0)
+  - KeychainAccess (3.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - FacebookCore
   - FacebookLogin
   - FacebookShare
-  - KeychainSwift
+  - KeychainAccess
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -43,8 +43,8 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
-  KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
 
-PODFILE CHECKSUM: 7d92478aeaa5da4b0d285f64dbd337a48f036725
+PODFILE CHECKSUM: 2679b93618f1d5b44a1d567a4577a87bb3a1ad3b
 
 COCOAPODS: 1.1.0.rc.3
