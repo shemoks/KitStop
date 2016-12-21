@@ -41,6 +41,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
 
     }
+
 }
 
 // MARK: - SignUpEmailViewInput

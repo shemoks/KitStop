@@ -26,7 +26,7 @@ extension RegistrationTakePhotoRouter: RegistrationTakePhotoRouterInput {
 
     func openRegistration() {
 
-        flowController.closeModule(animated: true)
+        flowController.closeModule(animated: false)
 
     }
 

@@ -66,21 +66,6 @@
                                             <action selector="choosePhotoTap:" destination="Wf3-jR-BeI" eventType="touchUpInside" id="qca-A4-dVI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsu-EF-g3n">
-                                        <rect key="frame" x="0.0" y="123" width="250" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="JnZ-Xp-rdP"/>
-                                            <constraint firstAttribute="height" constant="45" id="tfE-I1-7bb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Skip this for now">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="skipButtonTap:" destination="Wf3-jR-BeI" eventType="touchUpInside" id="ybp-Ho-H47"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="kzl-Oz-JIn">
                                         <rect key="frame" x="85.666666666666657" y="233" width="79" height="67"/>
                                         <constraints>
@@ -93,10 +78,7 @@
                                 <constraints>
                                     <constraint firstItem="TYW-Ky-qDa" firstAttribute="centerX" secondItem="Fd7-Bc-f57" secondAttribute="centerX" id="0l1-yM-did"/>
                                     <constraint firstItem="WL5-nn-a3b" firstAttribute="leading" secondItem="Fd7-Bc-f57" secondAttribute="leading" id="3Ao-9N-2cu"/>
-                                    <constraint firstItem="Lsu-EF-g3n" firstAttribute="leading" secondItem="Fd7-Bc-f57" secondAttribute="leading" id="7Ng-9u-53I"/>
                                     <constraint firstItem="0mn-np-9Zl" firstAttribute="top" secondItem="WL5-nn-a3b" secondAttribute="bottom" id="F9U-6u-hNr"/>
-                                    <constraint firstAttribute="trailing" secondItem="Lsu-EF-g3n" secondAttribute="trailing" id="HEY-af-rxC"/>
-                                    <constraint firstItem="Lsu-EF-g3n" firstAttribute="top" secondItem="0mn-np-9Zl" secondAttribute="bottom" constant="8" id="IdG-C8-f1M"/>
                                     <constraint firstAttribute="width" constant="250" id="J7K-gg-gdk"/>
                                     <constraint firstItem="TYW-Ky-qDa" firstAttribute="leading" secondItem="Fd7-Bc-f57" secondAttribute="leading" id="LbF-HX-ISV"/>
                                     <constraint firstItem="kzl-Oz-JIn" firstAttribute="centerX" secondItem="Fd7-Bc-f57" secondAttribute="centerX" id="MfA-r4-Pw3"/>
@@ -138,7 +120,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="903.20000000000005" y="64.31784107946028"/>
+            <point key="canvasLocation" x="901" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wwd-9k-Zdk">
