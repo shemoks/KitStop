@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yC4-4c-7Mb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yC4-4c-7Mb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,11 +17,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="D3K-u5-Onz"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="D3K-u5-Onz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="5KB-bx-Nfo">
+                                <rect key="frame" x="148" y="530" width="79" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="RSn-lJ-8n7"/>
                                     <constraint firstAttribute="width" constant="79" id="hUR-Tj-gbw"/>
@@ -37,7 +43,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="PFc-TI-eIQ"/>
                     <connections>
-                        <segue destination="xbK-1b-P5a" kind="show" identifier="Main" animates="NO" id="qfg-Bp-OIU"/>
                         <segue destination="XkI-86-IGM" kind="show" identifier="Registration" animates="NO" id="zsj-rE-G6H"/>
                     </connections>
                 </viewController>
@@ -58,24 +63,6 @@
             </objects>
             <point key="canvasLocation" x="1320" y="-319"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="jUc-IP-Kta">
-            <objects>
-                <viewController storyboardIdentifier="Main" id="xbK-1b-P5a" customClass="ViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="onF-Tv-bBp"/>
-                        <viewControllerLayoutGuide type="bottom" id="GW2-i3-xes"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JnN-ng-Gsk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fuv-cH-2zA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1544.9275362318842" y="134.5108695652174"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bbV-Xc-gno">
             <objects>
@@ -84,6 +71,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jXj-1b-03Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

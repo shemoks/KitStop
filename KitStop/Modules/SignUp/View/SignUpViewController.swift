@@ -20,6 +20,19 @@ final class SignUpViewController: UIViewController, FlowController {
     @IBAction func loginEmailButtonTap(_ sender: AnyObject) {
         presenter.emailLogin()
     }
+
+    @IBAction func signUpButtonTap(_ sender: Any) {
+        presenter.signUp()
+    }
+
+    override func viewDidLoad() {
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+
 }
 
 // MARK: - SignUpViewInput
@@ -29,13 +42,13 @@ extension SignUpViewController: SignUpViewInput {
 }
 
 extension SignUpViewController: FBSDKLoginButtonDelegate {
-    
-    
+
+
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("done")
         print()
     }
-    
+
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
     }

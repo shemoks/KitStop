@@ -29,6 +29,10 @@ extension SignUpPresenter: SignUpViewOutput {
         router.openLoginModule()
     }
 
+    func signUp() {
+        router.openRegistrationModule()
+    }
+
 }
 
 // MARK: - SignUpInteractorOutput

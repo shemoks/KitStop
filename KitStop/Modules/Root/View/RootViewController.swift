@@ -22,7 +22,6 @@ final class RootViewController: UIViewController, FlowController {
     }
 
 }
-
 // MARK: - RootViewInput
 
 extension RootViewController: RootViewInput {

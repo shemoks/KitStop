@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import Perform
 
 // MARK: - SignUpRouter
 
@@ -23,17 +24,27 @@ final class SignUpRouter {
 extension SignUpRouter: SignUpRouterInput {
 
     func openLoginModule() {
-//        flowController.openModule(using: .openLogIn) {
-//            guard let _ = $0 as? LogInModuleInput else { fatalError() }
-//            return nil
-//        }
+        flowController.openModule(using: .openLogIn) {
+        guard let _ = $0 as? LogInModuleInput else { fatalError() }
+        return nil
+    }
+}
+    func openRegistrationModule() {
+        flowController.openModule(using: .openRegistration) {
+            guard let _ = $0 as? SignUpEmailModuleInput else { fatalError() }
+            return nil
+    }
     }
 
 }
 
-//extension Segue {
-//
-//    static var openSignUp: Segue<LogInViewController> {
-//        return .init(identifier: "LogIn")
-//    }
-//}
+extension Segue {
+
+    static var openLogIn: Segue<LogInViewController> {
+    return .init(identifier: "LogIn")
+ }
+    static var openRegistration: Segue<SignUpEmailViewController> {
+        return .init(identifier: "Registration")
+    }
+}
+

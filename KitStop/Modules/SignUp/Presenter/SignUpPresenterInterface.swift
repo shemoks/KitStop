@@ -13,6 +13,7 @@ import Chamomile
 protocol SignUpViewOutput: class {
 
     func emailLogin()
+    func signUp()
 
 }
 

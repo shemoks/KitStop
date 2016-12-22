@@ -54,6 +54,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.41960784313725491" green="0.43137254901960786" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonTap:" destination="wkH-Lk-Bn6" eventType="touchUpInside" id="aZ9-kE-3HH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn7-Pw-P1M" customClass="CustomButton" customModule="KitStop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="51" width="250" height="45"/>
@@ -129,6 +132,7 @@
                     <navigationItem key="navigationItem" id="2LK-jH-ucy"/>
                     <connections>
                         <segue destination="gDb-Q7-fcC" kind="show" identifier="LogIn" id="jdw-bh-Cft"/>
+                        <segue destination="k8b-gC-yRH" kind="show" identifier="Registration" id="fs7-JL-BmD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTt-QS-vdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,20 +142,28 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="111" y="26"/>
+            <point key="canvasLocation" x="1048.8" y="25.637181409295355"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--LogInViewController-->
         <scene sceneID="ZmU-FT-2E1">
             <objects>
-                <viewControllerPlaceholder id="gDb-Q7-fcC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="LogInViewController" id="gDb-Q7-fcC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCl-vP-unD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704" y="-93"/>
+            <point key="canvasLocation" x="1642.4000000000001" y="-93.553223388305852"/>
+        </scene>
+        <!--SignUpEmail-->
+        <scene sceneID="XbY-Oy-Blk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUpEmail" id="k8b-gC-yRH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WI6-91-jfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1617" y="156"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="376" height="669"/>
         <image name="email-icon" width="502" height="88"/>
-        <image name="kitstop-logo-white" width="159" height="135"/>
+        <image name="kitstop-logo-white" width="79" height="67"/>
     </resources>
 </document>
