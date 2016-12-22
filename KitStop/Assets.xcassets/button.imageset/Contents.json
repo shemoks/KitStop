@@ -5,6 +5,17 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 468
+        },
+        "cap-insets" : {
+          "right" : 19,
+          "left" : 15
+        }
+      },
       "idiom" : "universal",
       "filename" : "button-1.png",
       "scale" : "2x"
