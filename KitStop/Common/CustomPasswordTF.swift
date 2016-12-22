@@ -50,10 +50,11 @@ class CustomPasswordTF: UITextField, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var text = string
-        if string.range(of: " ") != nil {
-            text = string.substring(to: string.index(before: string.endIndex))
-            
+        let text = string
+        if string.range(of: "\n") != nil {
+            textField.nextField?.becomeFirstResponder()
+            return true
+           // text = string.substring(to: string.index(before: string.endIndex))
         }
         if let start: UITextPosition = self.position(from: textField.beginningOfDocument, offset: range.location),
             let end: UITextPosition = self.position(from: start, offset: range.length),

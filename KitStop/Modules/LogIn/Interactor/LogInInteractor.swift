@@ -9,12 +9,19 @@
 // MARK: - LogInInteractor
 
 final class LogInInteractor {
-
     // MARK: - VIPER stack
 
     weak var presenter: LogInInteractorOutput!
-
+    fileprivate let dataManager: DataManagerProtocol
     // MARK: -
+    
+    init(dataManager: DataManagerProtocol) {
+        self.dataManager = dataManager
+    }
+    
+    convenience init() {
+        self.init(dataManager: DataManager())
+    }
 
 }
 
@@ -22,6 +29,6 @@ final class LogInInteractor {
 
 extension LogInInteractor: LogInInteractorInput {
     func fetchUserData(userDataModel: LogInUserModel) {
-        DataManager.sharedInstance.fetchUserInServer(email: userDataModel.login, password: userDataModel.password)
+        dataManager.fetchUserInServer(email: userDataModel.login, password: userDataModel.password)
     }
 }

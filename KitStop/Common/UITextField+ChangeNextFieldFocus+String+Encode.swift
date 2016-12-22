@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 private var kAssociationKeyNextField: UInt8 = 0
 
@@ -31,4 +32,3 @@ extension String: ParameterEncoding {
     }
     
 }
-

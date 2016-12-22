@@ -10,4 +10,9 @@ import UIKit
 
 class MainKitsCell: UICollectionViewCell {
     
+
+    
+    override func awakeFromNib() {
+        
+    }
 }

@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol DataManagerProtocol {
+    func fetchUserInServer(email: String, password: String)
+}

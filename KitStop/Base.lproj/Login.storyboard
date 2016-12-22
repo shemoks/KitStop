@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsQ-xV-XNS">
                                 <rect key="frame" x="0.0" y="265" width="320" height="283"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPasswordTF" customModule="KitStop" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPasswordTF" customModule="KitStop" customModuleProvider="target">
                                         <rect key="frame" x="35" y="37" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="1bN-G1-7Ri"/>
@@ -66,7 +66,7 @@
                                             <action selector="tapOnForgetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cBy-Kk-JzE"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDL-6k-YKL">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="VDL-6k-YKL">
                                         <rect key="frame" x="35" y="-17" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="rDe-8X-8bK"/>
@@ -126,6 +126,7 @@
     </scenes>
     <resources>
         <image name="background" width="376" height="669"/>
+        <image name="input" width="251" height="44"/>
         <image name="kitstop-logo-white" width="79" height="67"/>
     </resources>
 </document>
