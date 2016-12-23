@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1NS-NU-HqI">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1NS-NU-HqI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View-->
         <scene sceneID="Ogw-kJ-mpv">
@@ -17,72 +19,65 @@
                         <viewControllerLayoutGuide type="bottom" id="tei-Ja-mZK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nf5-G9-7Ml">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9o-NA-NBd">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgD-Mi-CJN">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="500"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="rpF-Is-B9J">
-                                                <rect key="frame" x="35" y="110" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="fFO-aO-sVf"/>
                                                     <constraint firstAttribute="height" constant="45" id="oYu-8N-R2P"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="93g-a5-W5G">
-                                                <rect key="frame" x="35" y="164" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="lmC-kT-0LU"/>
                                                     <constraint firstAttribute="height" constant="45" id="nTK-Eo-RI5"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="O2b-XY-oAz">
-                                                <rect key="frame" x="35" y="218" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="I2f-FM-ia7"/>
                                                     <constraint firstAttribute="width" constant="250" id="xb7-Iy-9no"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="heH-1l-Aaj" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="272" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="abq-T1-su7"/>
                                                     <constraint firstAttribute="width" constant="250" id="wUo-ur-GaC"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="ISf-0U-A3q" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="326" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="T9h-i8-k6C"/>
                                                     <constraint firstAttribute="height" constant="45" id="axD-eQ-aH0"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCl-xA-ord">
-                                                <rect key="frame" x="35" y="386" width="250" height="45"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCl-xA-ord" customClass="CustomButton" customModule="KitStop" customModuleProvider="target">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Ch9-Rp-bbH"/>
                                                     <constraint firstAttribute="width" constant="250" id="iuC-ig-EyW"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <state key="normal" title="Sign Up">
                                                     <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -90,8 +85,7 @@
                                                     <action selector="tapOnSignUpButtonAction:" destination="1NS-NU-HqI" eventType="touchUpInside" id="rUS-2x-SlJ"/>
                                                 </connections>
                                             </button>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile photo" translatesAutoresizingMaskIntoConstraints="NO" id="8Pr-rd-2KX" customClass="CustomAvatar" customModule="KitStop" customModuleProvider="target">
-                                                <rect key="frame" x="110" y="0.0" width="100" height="100"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_photo" translatesAutoresizingMaskIntoConstraints="NO" id="8Pr-rd-2KX" customClass="CustomAvatar" customModule="KitStop" customModuleProvider="target">
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="1Dx-cm-pgt"/>
@@ -173,6 +167,6 @@
     </scenes>
     <resources>
         <image name="input" width="251" height="44"/>
-        <image name="profile photo" width="110" height="110"/>
+        <image name="profile_photo" width="110" height="110"/>
     </resources>
 </document>

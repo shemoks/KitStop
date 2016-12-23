@@ -11,17 +11,22 @@ import UIKit
 
 // MARK: - LogInViewController
 
-final class LogInViewController: UIViewController, FlowController, CustomPasswordTFDelegate {
+final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordDelegate {
 
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
-    @IBOutlet weak var password: CustomPassword!
-    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var passwordTF: CustomPassword!
+    @IBOutlet weak var emailTF: UITextField!
+    
+    // MARK: - Life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
-        email.delegate = self
-        password.passwordDelegate = self
-        navigationController?.isNavigationBarHidden = false
+        emailTF.delegate = self
+        passwordTF.passwordDelegate = self
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {
@@ -30,8 +35,8 @@ final class LogInViewController: UIViewController, FlowController, CustomPasswor
 
     @IBAction func tapOnLoginButton(_ sender: Any) {
         var userData: Dictionary = [String : String]() as Dictionary
-        userData["login"] = email.text
-        userData["password"] = password.text
+        userData["login"] = emailTF.text
+        userData["password"] = passwordTF.text
         presenter.handleUserData(userData: userData)
     }
     
@@ -43,7 +48,7 @@ final class LogInViewController: UIViewController, FlowController, CustomPasswor
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        password.becomeFirstResponder()
+        passwordTF.becomeFirstResponder()
         return false
     }
 }

@@ -31,7 +31,7 @@ extension LogInPresenter: LogInViewOutput {
     }
     
     func openForgetPasswordModule() {
-        // call router method
+        router.openForgotPasswordModule()
     }
 }
 

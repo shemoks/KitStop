@@ -1,5 +1,5 @@
 //
-//  CustomPasswordTFDelegate.swift
+//  CustomPasswordDelegate.swift
 //  KitStop
 //
 //  Created by sasha ataman on 12.12.16.
@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-@objc protocol CustomPasswordTFDelegate {
+@objc protocol CustomPasswordDelegate {
     func tapOnPasswordImageSuccess(textField: UITextField)
 }
