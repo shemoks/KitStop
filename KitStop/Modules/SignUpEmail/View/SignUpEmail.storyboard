@@ -1,27 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="meC-bV-zqW">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1NS-NU-HqI">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View-->
         <scene sceneID="Ogw-kJ-mpv">
             <objects>
-                <viewController id="1NS-NU-HqI" customClass="SignUpEmailViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpEmailViewController" id="1NS-NU-HqI" customClass="SignUpEmailViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Wv-oJ-7jH"/>
                         <viewControllerLayoutGuide type="bottom" id="tei-Ja-mZK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nf5-G9-7Ml">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9o-NA-NBd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgD-Mi-CJN">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="500"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="rpF-Is-B9J">
+                                                <rect key="frame" x="35" y="110" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="fFO-aO-sVf"/>
                                                     <constraint firstAttribute="height" constant="45" id="oYu-8N-R2P"/>
@@ -31,6 +37,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="93g-a5-W5G">
+                                                <rect key="frame" x="35" y="164" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="lmC-kT-0LU"/>
                                                     <constraint firstAttribute="height" constant="45" id="nTK-Eo-RI5"/>
@@ -40,6 +47,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="O2b-XY-oAz">
+                                                <rect key="frame" x="35" y="218" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="I2f-FM-ia7"/>
                                                     <constraint firstAttribute="width" constant="250" id="xb7-Iy-9no"/>
@@ -49,6 +57,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="heH-1l-Aaj" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="272" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="abq-T1-su7"/>
                                                     <constraint firstAttribute="width" constant="250" id="wUo-ur-GaC"/>
@@ -58,6 +67,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="ISf-0U-A3q" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="326" width="250" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="T9h-i8-k6C"/>
                                                     <constraint firstAttribute="height" constant="45" id="axD-eQ-aH0"/>
@@ -67,6 +77,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCl-xA-ord">
+                                                <rect key="frame" x="35" y="386" width="250" height="45"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Ch9-Rp-bbH"/>
@@ -79,11 +90,16 @@
                                                     <action selector="tapOnSignUpButtonAction:" destination="1NS-NU-HqI" eventType="touchUpInside" id="rUS-2x-SlJ"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile photo" translatesAutoresizingMaskIntoConstraints="NO" id="8Pr-rd-2KX">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile photo" translatesAutoresizingMaskIntoConstraints="NO" id="8Pr-rd-2KX" customClass="CustomAvatar" customModule="KitStop" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="100" height="100"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="1Dx-cm-pgt"/>
                                                     <constraint firstAttribute="width" constant="100" id="5Bo-I1-6eZ"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Hod-bt-ayT" appends="YES" id="5rm-GM-Mfb"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,6 +131,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="m9o-NA-NBd" firstAttribute="top" secondItem="9Wv-oJ-7jH" secondAttribute="bottom" id="NHu-8I-VUr"/>
                             <constraint firstItem="tei-Ja-mZK" firstAttribute="top" secondItem="m9o-NA-NBd" secondAttribute="bottom" id="OJI-mG-rtp"/>
@@ -122,10 +139,12 @@
                             <constraint firstItem="m9o-NA-NBd" firstAttribute="leading" secondItem="nf5-G9-7Ml" secondAttribute="leading" id="q2c-Tc-wnd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="m6O-nE-WIX"/>
+                    <navigationItem key="navigationItem" title="Signup" id="m6O-nE-WIX"/>
                     <connections>
-                        <outlet property="passwordTF" destination="heH-1l-Aaj" id="6Ku-c6-72L"/>
-                        <outlet property="repeatPasswordTF" destination="ISf-0U-A3q" id="vQI-5b-qhs"/>
+                        <outlet property="avatar" destination="8Pr-rd-2KX" id="9Ox-k9-u94"/>
+                        <outlet property="password" destination="heH-1l-Aaj" id="N4I-eH-qNg"/>
+                        <outlet property="repeatPassword" destination="ISf-0U-A3q" id="k9V-E4-TDB"/>
+                        <segue destination="M94-W3-ega" kind="show" identifier="ShowTakePhoto" id="DgJ-DJ-E8E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVI-u4-JGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,64 +153,22 @@
                         <outlet property="view" destination="1NS-NU-HqI" id="mJP-gY-o4P"/>
                     </connections>
                 </customObject>
-            </objects>
-            <point key="canvasLocation" x="2111.25" y="143.66197183098592"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="bOk-9g-Ah8">
-            <objects>
-                <viewController id="RjE-Mq-Ywx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u5i-QJ-6cg"/>
-                        <viewControllerLayoutGuide type="bottom" id="kp7-iS-zTD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GNP-jD-Glt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="6bj-8u-oJQ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EUZ-ur-M8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="167" y="274"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="BBa-te-Nmz">
-            <objects>
-                <viewController id="Avv-zl-eVr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1dp-Th-KFE"/>
-                        <viewControllerLayoutGuide type="bottom" id="PCb-wd-Hug"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HdV-Lz-aim">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="kAS-Xs-OUF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gKP-IO-3Rq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="167" y="-380"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ANb-gI-kr1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="meC-bV-zqW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="piA-Fd-ffT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <tapGestureRecognizer id="Hod-bt-ayT">
                     <connections>
-                        <segue destination="1NS-NU-HqI" kind="relationship" relationship="rootViewController" id="dqX-yR-LgS"/>
+                        <action selector="avatarTap:" destination="1NS-NU-HqI" id="jLZ-6z-FtJ"/>
+                        <outlet property="delegate" destination="1NS-NU-HqI" id="T86-4o-wIb"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h9v-8F-w8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1113.75" y="143.66197183098592"/>
+            <point key="canvasLocation" x="4106.25" y="143.66197183098592"/>
+        </scene>
+        <!--RegistrationTakePhotoViewController-->
+        <scene sceneID="zBS-EQ-vln">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RegistrationTakePhoto" referencedIdentifier="RegistrationTakePhotoViewController" id="M94-W3-ega" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySO-Yh-gyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4863" y="-50"/>
         </scene>
     </scenes>
     <resources>

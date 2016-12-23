@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fX7-MZ-6pK">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View-->
+        <scene sceneID="eSE-IF-OAj">
+            <objects>
+                <viewController storyboardIdentifier="RegistrationTakePhotoViewController" id="Wf3-jR-BeI" customClass="RegistrationTakePhotoViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tTk-58-6SS"/>
+                        <viewControllerLayoutGuide type="bottom" id="GUg-w8-rhQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IVz-1P-OgB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="oyQ-PK-noI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fd7-Bc-f57">
+                                <rect key="frame" x="82" y="366" width="250" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYW-Ky-qDa">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="QEo-u1-eRe"/>
+                                            <constraint firstAttribute="width" constant="250" id="jxl-z2-ux0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Take Photo" backgroundImage="take-photo">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePhotoTap:" destination="Wf3-jR-BeI" eventType="touchUpInside" id="8Et-kM-ovY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-nn-a3b">
+                                        <rect key="frame" x="0.0" y="45" width="250" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="S0o-ug-GSQ"/>
+                                            <constraint firstAttribute="height" constant="25" id="rQq-bs-hQS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mn-np-9Zl">
+                                        <rect key="frame" x="0.0" y="70" width="250" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="77f-pL-eGJ"/>
+                                            <constraint firstAttribute="width" constant="250" id="lIF-jm-Yma"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Choose Photo" backgroundImage="choose-photo">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choosePhotoTap:" destination="Wf3-jR-BeI" eventType="touchUpInside" id="qca-A4-dVI"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="kzl-Oz-JIn">
+                                        <rect key="frame" x="85.666666666666657" y="233" width="79" height="67"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="79" id="Nkm-hA-hYP"/>
+                                            <constraint firstAttribute="height" constant="67" id="eVl-L8-b38"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="TYW-Ky-qDa" firstAttribute="centerX" secondItem="Fd7-Bc-f57" secondAttribute="centerX" id="0l1-yM-did"/>
+                                    <constraint firstItem="WL5-nn-a3b" firstAttribute="leading" secondItem="Fd7-Bc-f57" secondAttribute="leading" id="3Ao-9N-2cu"/>
+                                    <constraint firstItem="0mn-np-9Zl" firstAttribute="top" secondItem="WL5-nn-a3b" secondAttribute="bottom" id="F9U-6u-hNr"/>
+                                    <constraint firstAttribute="width" constant="250" id="J7K-gg-gdk"/>
+                                    <constraint firstItem="TYW-Ky-qDa" firstAttribute="leading" secondItem="Fd7-Bc-f57" secondAttribute="leading" id="LbF-HX-ISV"/>
+                                    <constraint firstItem="kzl-Oz-JIn" firstAttribute="centerX" secondItem="Fd7-Bc-f57" secondAttribute="centerX" id="MfA-r4-Pw3"/>
+                                    <constraint firstItem="0mn-np-9Zl" firstAttribute="leading" secondItem="Fd7-Bc-f57" secondAttribute="leading" id="Mwd-LH-s4k"/>
+                                    <constraint firstAttribute="trailing" secondItem="TYW-Ky-qDa" secondAttribute="trailing" id="Sc6-2a-EpC"/>
+                                    <constraint firstItem="TYW-Ky-qDa" firstAttribute="top" secondItem="Fd7-Bc-f57" secondAttribute="top" id="aYb-NF-dde"/>
+                                    <constraint firstAttribute="trailing" secondItem="0mn-np-9Zl" secondAttribute="trailing" id="c20-lZ-CjS"/>
+                                    <constraint firstAttribute="bottom" secondItem="kzl-Oz-JIn" secondAttribute="bottom" id="fVP-Tc-rGz"/>
+                                    <constraint firstItem="kzl-Oz-JIn" firstAttribute="centerX" secondItem="Fd7-Bc-f57" secondAttribute="centerX" id="lgx-0f-PJI"/>
+                                    <constraint firstAttribute="height" constant="300" id="pWk-br-Q99"/>
+                                    <constraint firstItem="WL5-nn-a3b" firstAttribute="top" secondItem="TYW-Ky-qDa" secondAttribute="bottom" id="xJh-JT-BAB"/>
+                                    <constraint firstItem="0mn-np-9Zl" firstAttribute="centerX" secondItem="Fd7-Bc-f57" secondAttribute="centerX" id="y5c-bS-IFe"/>
+                                    <constraint firstAttribute="trailing" secondItem="WL5-nn-a3b" secondAttribute="trailing" id="zDR-BU-kLV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fd7-Bc-f57" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tTk-58-6SS" secondAttribute="bottom" priority="750" constant="232" id="6my-T3-4vf"/>
+                            <constraint firstAttribute="trailing" secondItem="oyQ-PK-noI" secondAttribute="trailing" id="D0F-7h-7B1"/>
+                            <constraint firstItem="GUg-w8-rhQ" firstAttribute="top" secondItem="Fd7-Bc-f57" secondAttribute="bottom" priority="250" constant="70" id="E33-eB-aT9"/>
+                            <constraint firstItem="oyQ-PK-noI" firstAttribute="top" secondItem="IVz-1P-OgB" secondAttribute="top" id="Knc-wQ-acv"/>
+                            <constraint firstItem="GUg-w8-rhQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fd7-Bc-f57" secondAttribute="bottom" constant="20" id="dKh-mI-cUI"/>
+                            <constraint firstItem="GUg-w8-rhQ" firstAttribute="top" secondItem="oyQ-PK-noI" secondAttribute="bottom" id="eRf-ce-Xzp"/>
+                            <constraint firstItem="oyQ-PK-noI" firstAttribute="leading" secondItem="IVz-1P-OgB" secondAttribute="leading" id="khm-Jy-qYe"/>
+                            <constraint firstItem="Fd7-Bc-f57" firstAttribute="centerX" secondItem="IVz-1P-OgB" secondAttribute="centerX" id="wLc-yz-Fnj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4we-uz-49i"/>
+                    <connections>
+                        <segue destination="0sU-6E-ptL" kind="unwind" identifier="showRegistration" unwindAction="unwindFromImagePisker:" id="ZXq-Ks-0ZZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vK9-CA-s4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0sU-6E-ptL" userLabel="Exit" sceneMemberID="exit"/>
+                <customObject id="t7I-jR-pq1" customClass="RegistrationTakePhotoAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="Wf3-jR-BeI" id="KCc-VX-uSp"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="901" y="92"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wwd-9k-Zdk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fX7-MZ-6pK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ibs-RY-4rD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wf3-jR-BeI" kind="relationship" relationship="rootViewController" id="sRE-bL-yDg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGi-Hz-Bh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="92.203898050974516"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="376" height="669"/>
+        <image name="choose-photo" width="505" height="91"/>
+        <image name="kitstop-logo" width="159" height="135"/>
+        <image name="take-photo" width="505" height="91"/>
+    </resources>
+</document>

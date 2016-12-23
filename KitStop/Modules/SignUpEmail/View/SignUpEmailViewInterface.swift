@@ -7,7 +7,10 @@
 //
 
 // MARK: - SignUpEmailViewInput
+import UIKit
 
 protocol SignUpEmailViewInput: class {
+
+    func getPhoto(photo: UIImage)
 
 }
