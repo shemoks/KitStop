@@ -4,6 +4,7 @@ use_frameworks!
 target 'KitStop' do
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift', '~> 4.0'
+  pod 'SwiftyJSON', '~> 3.1'
 end
 
 post_install do |installer|

@@ -9,23 +9,23 @@
 import Foundation
 
 enum ApiResult<Value> {
-    case Success(value: Value)
-    case Failure(error: NSError)
+    case success(value: Value)
+    case failure(error: NSError)
     
     init(_ f: () throws -> Value) {
         do {
             let value = try f()
-            self = .Success(value: value)
+            self = .success(value: value)
         } catch let error as NSError {
-            self = .Failure(error: error)
+            self = .failure(error: error)
         }
     }
     
     func unwrap() throws -> Value {
         switch self {
-        case .Success(let value):
+        case .success(let value):
             return value
-        case .Failure(let error):
+        case .failure(let error):
             throw error
         }
     }

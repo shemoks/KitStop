@@ -19,7 +19,7 @@ class DataManager: NSObject , DataManagerProtocol{
     }
     
     func fetchUserInServer(email: String, password: String) {
-        let _ = manager.apiRequest(.login(email: "test@mail.ru", password: "1111", clients: "111")).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.login(), parameters: ["email" : "test@mail.ru" as AnyObject, "password" : "1111" as AnyObject, "clients" : "111" as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result{
             case .success(let json):
@@ -28,6 +28,5 @@ class DataManager: NSObject , DataManagerProtocol{
                 print(error)
             }
         })
-        
     }
 }

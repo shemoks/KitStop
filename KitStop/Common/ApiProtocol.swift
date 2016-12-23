@@ -40,8 +40,7 @@ extension SessionManager: ApiManagerProtocol {
         if let headers = headers {
             commonHeaders += headers
         }
-        
-        return request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: endpoint.body ?? JSONEncoding.default, headers: commonHeaders)
+        return request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: URLEncoding.default, headers: commonHeaders)
     }
 }
 

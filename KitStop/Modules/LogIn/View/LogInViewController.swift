@@ -11,16 +11,15 @@ import UIKit
 
 // MARK: - LogInViewController
 
-final class LogInViewController: UIViewController, FlowController, CustomPasswordTFDelegate {
+final class LogInViewController: UIViewController, FlowController, CustomPasswordDelegate {
 
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
-    @IBOutlet weak var passwordTF: CustomPasswordTF!
-    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var password: CustomPassword!
+    @IBOutlet weak var email: UITextField!
     override func viewDidLoad() {
-        emailTF.delegate = self
-        passwordTF.passwordDelegate = self
+        password.passwordDelegate = self
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {
@@ -29,8 +28,8 @@ final class LogInViewController: UIViewController, FlowController, CustomPasswor
 
     @IBAction func tapOnLoginButton(_ sender: Any) {
         var userData: Dictionary = [String : String]() as Dictionary
-        userData["login"] = emailTF.text
-        userData["password"] = passwordTF.text
+        userData["login"] = email.text
+        userData["password"] = password.text
         presenter.handleUserData(userData: userData)
     }
     
@@ -42,8 +41,8 @@ final class LogInViewController: UIViewController, FlowController, CustomPasswor
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        passwordTF.becomeFirstResponder()
-        return false
+        textField.nextField?.becomeFirstResponder()
+        return true
     }
 }
 

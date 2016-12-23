@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsQ-xV-XNS">
                                 <rect key="frame" x="0.0" y="265" width="320" height="283"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPasswordTF" customModule="KitStop" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-gk-xum" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
                                         <rect key="frame" x="35" y="37" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="1bN-G1-7Ri"/>
@@ -75,6 +75,10 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="SEg-vl-j2S"/>
+                                            <outlet property="nextField" destination="wI6-gk-xum" id="aBW-YN-j8T"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -110,8 +114,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="GAG-WC-Jej"/>
                     <connections>
-                        <outlet property="emailTF" destination="VDL-6k-YKL" id="8pS-gn-4QZ"/>
-                        <outlet property="passwordTF" destination="wI6-gk-xum" id="ivN-wL-Uvk"/>
+                        <outlet property="email" destination="VDL-6k-YKL" id="SLN-pi-hg3"/>
+                        <outlet property="password" destination="wI6-gk-xum" id="nKO-Ie-Lwl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -28,7 +28,6 @@ extension MainPresenter: MainViewOutput {
     
     func setupAlert() {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertController.view.tintColor = UIColor.gray
         let listForSaleAction = UIAlertAction.init(title: "List for Sale", style: .default, handler: {
             result in
                 print("list for sale")
@@ -41,7 +40,7 @@ extension MainPresenter: MainViewOutput {
                 // you must reference Module Output
                 // router.openSecondModule(secondModule: 'Second Module')
         })
-        let postWorkAction = UIAlertAction.init(title: "Post yor work", style: .default, handler: {
+        let postWorkAction = UIAlertAction.init(title: "Post your work", style: .default, handler: {
             result in
                 // you must reference Module Output
                 // router.openSecondModule(secondModule: 'Second Module')

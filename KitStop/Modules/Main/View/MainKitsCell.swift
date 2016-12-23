@@ -10,9 +10,11 @@ import UIKit
 
 class MainKitsCell: UICollectionViewCell {
     
-
     
-    override func awakeFromNib() {
-        
+    @IBOutlet weak var camera: UIImageView!
+    @IBOutlet weak var cameraDescription: UILabel!
+    @IBOutlet weak var price: UILabel!
+    
+    func setupCell(row: Int) {
     }
 }

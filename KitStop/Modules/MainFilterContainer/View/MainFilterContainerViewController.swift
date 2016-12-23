@@ -15,7 +15,12 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     // MARK: - VIPER stack
 
     @IBOutlet weak var kitSegmentControl: UISegmentedControl!
+    
     var presenter: MainFilterContainerViewOutput!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     @IBAction func tapOnFilterButton(_ sender: Any) {
         presenter.openFilterModule()
@@ -26,10 +31,8 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     }
     
     @IBAction func changeKitsElement(_ sender: Any) {
-        
+        presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex)
     }
-    
-
 }
 
 // MARK: - MainFilterContainerViewInput

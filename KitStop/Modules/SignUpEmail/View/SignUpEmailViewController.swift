@@ -10,19 +10,20 @@ import Chamomile
 
 // MARK: - SignUpEmailViewController
 
-final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordTFDelegate {
+final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegate {
 
     // MARK: - VIPER stack
 
-    @IBOutlet weak var passwordTF: CustomPasswordTF!
-    @IBOutlet weak var repeatPasswordTF: CustomPasswordTF!
+    @IBOutlet weak var password: CustomPassword!
+    @IBOutlet weak var repeatPassword: CustomPassword!
     
     var presenter: SignUpEmailViewOutput!
     
     override func viewDidLoad() {
-        passwordTF.passwordDelegate = self
-        repeatPasswordTF.passwordDelegate = self
+        password.passwordDelegate = self
+        repeatPassword.passwordDelegate = self
     }
+
     
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
@@ -37,4 +38,11 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
 
 extension SignUpEmailViewController: SignUpEmailViewInput {
 
+}
+
+extension SignUpEmailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.nextField?.becomeFirstResponder()
+        return true
+    }
 }

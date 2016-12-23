@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-@objc protocol CustomPasswordTFDelegate {
+@objc protocol CustomPasswordDelegate {
     func tapOnPasswordImageSuccess(textField: UITextField)
 }

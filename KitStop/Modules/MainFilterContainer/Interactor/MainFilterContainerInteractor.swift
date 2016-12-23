@@ -22,4 +22,21 @@ final class MainFilterContainerInteractor {
 
 extension MainFilterContainerInteractor: MainFilterContainerInteractorInput {
 
+    func fetchKitsForCategory(category: Int) {
+        //api call
+        print(pathFromCategory(category: category))
+    }
+    
+    func pathFromCategory(category: Int) -> String {
+        switch category {
+        case 0:
+            return "kits-for-sale"
+        case 1:
+            return "kits"
+        case 2:
+            return "kit-folio"
+        default:
+            return "error"
+        }
+    }
 }

@@ -26,7 +26,6 @@ final class MainViewController: UIViewController, FlowController {
         collectionView.dataSource = self
         addSectionInset()
         addNavigationBarItems()
-        
     }
     
     func addTap() {
@@ -36,7 +35,9 @@ final class MainViewController: UIViewController, FlowController {
     func addNavigationBarItems() {
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "navigation_logo"))
         self.navigationController?.navigationBar.tintColor = UIColor.orange
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "add_icon"), style: .plain, target: self, action: #selector(addTap))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "add_icon"), style: .done, target: self, action: #selector(addTap))
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "navigation_bar"), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage.init(named: "navigation_bar")
     }
     
     func addSectionInset() {
@@ -52,14 +53,11 @@ extension MainViewController: MainViewInput {
     
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true, completion: nil)
+        alertController.view.tintColor = UIColor.gray
     }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2.0
@@ -75,6 +73,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainKitsCell
+        cell.setupCell(row: indexPath.row)
         return cell
     }
     

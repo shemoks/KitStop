@@ -34,12 +34,16 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
         // you must reference search module
         // router.openNextModule(secondModuleProtocol: 'Search Module Output')
     }
+    
+    func handleKitsForCategory(category: Int) {
+        interactor.fetchKitsForCategory(category: category)
+    }
 }
 
 // MARK: - MainFilterContainerInteractorOutput
 
 extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
-
+    
 }
 
 // MARK: - MainFilterContainerModuleInput

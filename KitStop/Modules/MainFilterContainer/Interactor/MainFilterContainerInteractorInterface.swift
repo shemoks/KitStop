@@ -9,5 +9,5 @@
 // MARK: - MainFilterContainerInteractorInput
 
 protocol MainFilterContainerInteractorInput: class {
-
+    func fetchKitsForCategory(category: Int)
 }
