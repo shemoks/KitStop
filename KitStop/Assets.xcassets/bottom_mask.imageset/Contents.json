@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "stretch",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 168,
+          "top" : 44,
+          "right" : 17,
+          "left" : 63
+        }
+      },
       "idiom" : "universal",
       "filename" : "bottom_mask.png",
       "scale" : "2x"
