@@ -18,6 +18,12 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     
     @IBOutlet weak var passwordTF: CustomPassword!
     @IBOutlet weak var emailTF: UITextField!
+    
+    // MARK: - Life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         emailTF.delegate = self
         passwordTF.passwordDelegate = self

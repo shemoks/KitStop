@@ -4,11 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LogInViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,11 +31,12 @@
                                             <constraint firstAttribute="height" constant="45" id="3Zk-nS-dP7"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a85-J1-XuC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a85-J1-XuC" customClass="CustomButton" customModule="KitStop" customModuleProvider="target">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -44,10 +50,8 @@
                                             <constraint firstAttribute="width" constant="80" id="eIT-eX-p2s"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-eZ-sFD">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="143" id="Zc8-F5-YDN"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-eZ-sFD">
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,7 +66,7 @@
                                             <constraint firstAttribute="width" constant="250" id="wUL-Lv-GQO"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
@@ -74,6 +78,7 @@
                                     <constraint firstItem="wI6-gk-xum" firstAttribute="centerX" secondItem="tsQ-xV-XNS" secondAttribute="centerX" id="NEc-6Y-dtq"/>
                                     <constraint firstItem="VDL-6k-YKL" firstAttribute="centerX" secondItem="tsQ-xV-XNS" secondAttribute="centerX" id="WFC-er-716"/>
                                     <constraint firstItem="a85-J1-XuC" firstAttribute="width" secondItem="wI6-gk-xum" secondAttribute="width" id="eJJ-P0-wWV"/>
+                                    <constraint firstItem="eSA-eZ-sFD" firstAttribute="leading" secondItem="wI6-gk-xum" secondAttribute="leading" id="l1W-8A-35J"/>
                                     <constraint firstItem="eSA-eZ-sFD" firstAttribute="trailing" secondItem="wI6-gk-xum" secondAttribute="trailing" id="lM5-ZH-dZc"/>
                                     <constraint firstItem="wI6-gk-xum" firstAttribute="height" secondItem="VDL-6k-YKL" secondAttribute="height" id="ndZ-iS-oM1"/>
                                     <constraint firstItem="a85-J1-XuC" firstAttribute="top" secondItem="eSA-eZ-sFD" secondAttribute="bottom" constant="25" id="tEW-WN-fKy"/>

@@ -10,7 +10,7 @@ import Chamomile
 
 // MARK: - SignUpEmailViewController
 
-final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordTFDelegate, UIGestureRecognizerDelegate {
+final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - VIPER stack
 
