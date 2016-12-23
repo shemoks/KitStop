@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kOZ-3k-ljZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1NS-NU-HqI">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <!--View-->
         <scene sceneID="Ogw-kJ-mpv">
             <objects>
-                <viewController id="1NS-NU-HqI" customClass="SignUpEmailViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpEmailViewController" id="1NS-NU-HqI" customClass="SignUpEmailViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Wv-oJ-7jH"/>
                         <viewControllerLayoutGuide type="bottom" id="tei-Ja-mZK"/>
@@ -139,7 +139,7 @@
                             <constraint firstItem="m9o-NA-NBd" firstAttribute="leading" secondItem="nf5-G9-7Ml" secondAttribute="leading" id="q2c-Tc-wnd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="m6O-nE-WIX"/>
+                    <navigationItem key="navigationItem" title="Signup" id="m6O-nE-WIX"/>
                     <connections>
                         <outlet property="avatar" destination="8Pr-rd-2KX" id="9Ox-k9-u94"/>
                         <outlet property="password" destination="heH-1l-Aaj" id="N4I-eH-qNg"/>
@@ -169,25 +169,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySO-Yh-gyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4863" y="-50"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qfP-13-8MU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kOZ-3k-ljZ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pKH-3v-XOS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1NS-NU-HqI" kind="relationship" relationship="rootViewController" id="h8Y-6x-WSM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VBp-HM-bH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3108.75" y="143.66197183098592"/>
         </scene>
     </scenes>
     <resources>

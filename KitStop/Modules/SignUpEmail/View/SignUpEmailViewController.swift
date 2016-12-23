@@ -28,8 +28,13 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         super.viewDidLoad()
         password.passwordDelegate = self
         repeatPassword.passwordDelegate = self
+        navigationController?.isNavigationBarHidden = false
     }
-    
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.isNavigationBarHidden = false
+//    }
+
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }

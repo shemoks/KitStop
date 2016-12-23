@@ -21,6 +21,7 @@ final class LogInViewController: UIViewController, FlowController, CustomPasswor
     override func viewDidLoad() {
         email.delegate = self
         password.passwordDelegate = self
+        navigationController?.isNavigationBarHidden = false
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {

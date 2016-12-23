@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="KMA-eo-3Es">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="iEC-cP-H3b">
+                                <rect key="frame" x="148" y="530" width="79" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="HWq-xV-WUn"/>
+                                    <constraint firstAttribute="height" constant="67" id="IIM-1E-8FP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iEC-cP-H3b" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0YI-gw-wD5"/>
+                            <constraint firstAttribute="trailing" secondItem="KMA-eo-3Es" secondAttribute="trailing" id="5bu-GB-GPS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="iEC-cP-H3b" secondAttribute="bottom" constant="70" id="CTy-bo-1jO"/>
+                            <constraint firstItem="KMA-eo-3Es" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fgI-VT-rfl"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="KMA-eo-3Es" secondAttribute="bottom" id="u8e-NZ-fYO"/>
+                            <constraint firstItem="KMA-eo-3Es" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="yCb-Bq-Mab"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="376" height="669"/>
+        <image name="kitstop-logo" width="159" height="135"/>
+    </resources>
+</document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -18,9 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
         IQKeyboardManager.sharedManager().enable = true
-        return true
+        // Override point for customization after application launch.
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
-
-
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            open: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
+    
 }
 
