@@ -5,10 +5,6 @@
 //  Created by Mac on 12/16/16.
 //  Copyright © 2016 MOZI Development. All rights reserved.
 //
-enum FiltersType {
-    case type
-    case brand
-}
 
 struct Price {
 
@@ -19,9 +15,9 @@ struct Price {
 
 class Filter {
 
-    var typeFilter: [FilterItems] = []
-    var brandFilter: [FilterItems] = []
-    var priceFilter = Price(minValue: 0, maxValue: 100)
+    var idCategory: Int = 0
+    var minPrice: Int = 0
+    var maxPrice: Int = 100
 
 }
 
@@ -30,7 +26,5 @@ class FilterItems {
     var id: Int = 0
     var title: String = ""
     var isSelected: Bool = false
-    var type: FiltersType = .type
-    var brands = [FilterItems]()
     
 }

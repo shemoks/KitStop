@@ -9,33 +9,29 @@
 import Foundation
 
 struct FilterObject {
-    var filter: Filter
+    var categories: Filter
     var error: Error?
+}
+
+struct Categories {
+    var categories: [Category]
+    var error: NSError?
 }
 
 class FilterParametersService {
 
-    var filterResult: ((FilterObject)->())?
-    func getFilters() {
-        var filterObject = FilterObject(filter: Filter(), error: nil)
+    var filterResult: ((Categories)->())?
+    func getCategories() {
+        var resultRequest = Categories(categories: [Category](), error: nil)
         if Reachability.isConnectedToNetwork() == true {
             //request to server
-            filterObject = FilterObject(filter: Filter(), error: nil)
-            filterResult?(filterObject)
+            resultRequest = Categories(categories: [Category](), error: nil)
+            filterResult?(resultRequest)
         } else {
-            filterObject = FilterObject(filter: Filter(), error: NSError())
-            filterResult?(filterObject)
+            resultRequest = Categories(categories: [Category](), error: NSError())
+            filterResult?(resultRequest)
         }
     }
 
-    func getFilterObject (obj: AnyObject) -> FilterObject {
-        let filter = Filter()
-        var result = FilterObject(filter: Filter(), error: nil)
-        return result
-    }
 
-    func getBrands(category: String) {
-        let object = FilterObject(filter: Filter(), error: nil)
-        filterResult?(object)
-    }
 }

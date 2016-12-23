@@ -23,3 +23,37 @@ final class FilterTypeViewController: UIViewController, FlowController {
 extension FilterTypeViewController: FilterTypeViewInput {
 
 }
+
+extension FilterTypeViewController: UITableViewDataSource {
+
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.categoryList().count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TypeCell
+        cell?.configure(filter: presenter.categoryList())
+        cell?.accessoryType = .checkmark
+        return cell!
+    }
+
+}
+
+// MARK: - UITableViewDelegate
+
+extension FilterTypeViewController: UITableViewDelegate {
+
+   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+    }
+    
+}

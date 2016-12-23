@@ -9,8 +9,9 @@
 import Foundation
 
 class Product {
+
     var id: Int = 0
-    var name: FiltersType = .brand
     var title: String = ""
     var price: Double = 0
+
 }

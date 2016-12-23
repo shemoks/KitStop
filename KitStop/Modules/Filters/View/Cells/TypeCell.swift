@@ -18,7 +18,7 @@ class TypeCell: UITableViewCell {
         if !filter.isEmpty {
             for item in filter {
                 if item.isSelected == true {
-                    labelText = labelText + item.title + "  "
+                    labelText = labelText + item.title
                 }
             }
         }

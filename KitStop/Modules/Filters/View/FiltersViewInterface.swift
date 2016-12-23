@@ -11,6 +11,6 @@
 protocol FiltersViewInput: class {
 
     func showError(title: String, message: String)
-    func setBrandsInCategory(brands: [FilterItems])
+   
 
 }

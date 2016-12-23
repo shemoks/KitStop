@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u1a-Hb-ss7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View-->
         <scene sceneID="E9u-j2-FMy">
             <objects>
-                <viewController id="nYM-Zt-dBo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterTypeViewController" id="nYM-Zt-dBo" customClass="FilterTypeViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NAs-Fg-NmB"/>
                         <viewControllerLayoutGuide type="bottom" id="fRo-zk-INX"/>
@@ -19,11 +19,65 @@
                     <view key="view" contentMode="scaleToFill" id="Lp6-2l-BRP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ipd-m2-kSo">
+                                <rect key="frame" x="0.0" y="537" width="375" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-Ve-SeT">
+                                        <rect key="frame" x="0.0" y="57" width="375" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="0Lr-Dm-73n"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="3yK-vB-jcX"/>
+                                    <constraint firstItem="6jL-Ve-SeT" firstAttribute="leading" secondItem="Ipd-m2-kSo" secondAttribute="leading" id="LRk-TJ-pmT"/>
+                                    <constraint firstAttribute="trailing" secondItem="6jL-Ve-SeT" secondAttribute="trailing" id="VFz-C1-uZz"/>
+                                    <constraint firstAttribute="bottom" secondItem="6jL-Ve-SeT" secondAttribute="bottom" constant="25" id="dRc-V9-eQJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDe-U6-dRF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="LZb-mB-jL3"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j2C-Ec-7B4">
+                                <rect key="frame" x="0.0" y="118" width="375" height="419"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nYM-Zt-dBo" id="Fuo-ih-Ikp"/>
+                                    <outlet property="delegate" destination="nYM-Zt-dBo" id="3pg-JE-kuL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ipd-m2-kSo" secondAttribute="trailing" id="50p-it-Xsg"/>
+                            <constraint firstItem="fRo-zk-INX" firstAttribute="top" secondItem="Ipd-m2-kSo" secondAttribute="bottom" id="HTj-2j-Iik"/>
+                            <constraint firstAttribute="trailing" secondItem="bDe-U6-dRF" secondAttribute="trailing" id="OC7-e6-y2a"/>
+                            <constraint firstItem="j2C-Ec-7B4" firstAttribute="top" secondItem="bDe-U6-dRF" secondAttribute="bottom" id="R1u-qX-LaT"/>
+                            <constraint firstItem="bDe-U6-dRF" firstAttribute="leading" secondItem="Lp6-2l-BRP" secondAttribute="leading" id="UPz-eS-bXL"/>
+                            <constraint firstItem="Ipd-m2-kSo" firstAttribute="top" secondItem="j2C-Ec-7B4" secondAttribute="bottom" id="c5h-lX-Tfp"/>
+                            <constraint firstItem="j2C-Ec-7B4" firstAttribute="leading" secondItem="Lp6-2l-BRP" secondAttribute="leading" id="oWT-62-nt2"/>
+                            <constraint firstItem="bDe-U6-dRF" firstAttribute="top" secondItem="NAs-Fg-NmB" secondAttribute="bottom" id="wjU-cQ-LPV"/>
+                            <constraint firstItem="Ipd-m2-kSo" firstAttribute="leading" secondItem="Lp6-2l-BRP" secondAttribute="leading" id="zCE-LZ-AYz"/>
+                            <constraint firstAttribute="trailing" secondItem="j2C-Ec-7B4" secondAttribute="trailing" id="zIY-2p-gnv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8xs-Pm-EE5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7iI-h2-825" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="O6e-uN-QnP" customClass="FilterTypeAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="nYM-Zt-dBo" id="lin-V2-O30"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1108" y="135.38230884557723"/>
         </scene>

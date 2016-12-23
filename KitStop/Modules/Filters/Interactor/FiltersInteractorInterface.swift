@@ -11,8 +11,6 @@
 protocol FiltersInteractorInput: class {
 
     func getFilters()
-    func isTypesExist(types: [FilterItems]) -> Bool
-    func clearAll(types: [FilterItems], brands: [FilterItems])
-    func getBrandsInCategory(category: String)
+    func clearAll(types: [FilterItems])
 
 }

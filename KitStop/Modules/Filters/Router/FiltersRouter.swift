@@ -27,23 +27,19 @@ extension FiltersRouter: FiltersRouterInput {
         flowController.closeModule(animated: true)
     }
 
-    func openBrandModule(brands: [FilterItems], filterBrandModuleOutput: FilterBrandModuleOutput) {
-        flowController.openModule(using: .openSecond) {
-            guard let moduleInput = $0 as? FilterBrandModuleInput else { fatalError() }
-            moduleInput.setBrands(brands: brands)
-            return filterBrandModuleOutput
+    func openTypeModule(types: [FilterItems], filterTypeModuleOutput: FilterTypeModuleOutput) {
+        flowController.openModule(using: .openFilterCategory) {
+            guard let moduleInput = $0 as? FilterTypeModuleInput else { fatalError() }
+            moduleInput.setCategories(categories: types)
+            return filterTypeModuleOutput
         }
     }
-
-    func openTypeModule(types: [FilterItems]) {
-
-    }
-
 }
 
 extension Segue {
 
-    static var openSecond: Segue<FilterBrandViewController> {
-        return .init(identifier: "FilterBrandViewController")
+    static var openFilterCategory: Segue<FilterTypeViewController> {
+        return .init(identifier: "FilterCategories")
     }
+    
 }
