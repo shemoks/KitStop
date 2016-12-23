@@ -25,15 +25,16 @@ extension SignUpRouter: SignUpRouterInput {
 
     func openLoginModule() {
         flowController.openModule(using: .openLogIn) {
-        guard let _ = $0 as? LogInModuleInput else { fatalError() }
-        return nil
+            guard let _ = $0 as? LogInModuleInput else { fatalError() }
+            return nil
+        }
     }
-}
+
     func openRegistrationModule() {
         flowController.openModule(using: .openRegistration) {
             guard let _ = $0 as? SignUpEmailModuleInput else { fatalError() }
             return nil
-    }
+        }
     }
 
 }
@@ -41,10 +42,11 @@ extension SignUpRouter: SignUpRouterInput {
 extension Segue {
 
     static var openLogIn: Segue<LogInViewController> {
-    return .init(identifier: "LogIn")
- }
+        return .init(identifier: "LogIn")
+    }
     static var openRegistration: Segue<SignUpEmailViewController> {
         return .init(identifier: "Registration")
     }
+
 }
 

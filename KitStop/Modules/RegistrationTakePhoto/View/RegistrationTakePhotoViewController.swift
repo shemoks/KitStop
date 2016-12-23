@@ -17,11 +17,11 @@ final class RegistrationTakePhotoViewController: UIViewController, FlowControlle
     var presenter: RegistrationTakePhotoViewOutput!
 
     @IBAction func takePhotoTap(_ sender: AnyObject) {
-        presenter.openGallery()
+        presenter.openCamera()
     }
 
     @IBAction func choosePhotoTap(_ sender: AnyObject) {
-        presenter.openCamera()
+        presenter.openGallery()
     }
 
     override func viewDidLoad() {
