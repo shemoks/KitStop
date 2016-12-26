@@ -24,18 +24,32 @@ final class LogInRouter {
 extension LogInRouter: LogInRouterInput {
     // You need to reference Forget Password Output Protocol
     
-//    func openNextModule(secondModule: 'Some Module') {
-//        flowController.openModule(using: .openSecond) {
-//            return secondModuleOutput
-//        }
-//    }
+    func openForgotPasswordModule() {
+        flowController.openModule(using: .openForgotPassword) {
+            guard ($0 as? RestorePasswordModuleInput) != nil else {fatalError()}
+            
+            return nil
+        }
+    }
+    
+    func openMainModule() {
+        flowController.openModule(using: .openMainModule) {
+            guard ($0 as? MainModuleInput) != nil else {fatalError()}
+            
+            return nil
+        }
+    }
 }
 
 extension Segue {
     
     // You need to reference Forget Password VC and identifier
     
-//    static var openSecond: Segue<> {
-//        return .init(identifier: "someIdentifier")
-//    }
+    static var openForgotPassword: Segue<RestorePasswordViewController> {
+        return .init(identifier:"transitionToRestorePassword")
+    }
+    
+    static var openMainModule: Segue<MainViewController> {
+        return .init(identifier:"transitionToMain")
+    }
 }

@@ -11,13 +11,19 @@ import UIKit
 
 // MARK: - LogInViewController
 
-final class LogInViewController: UIViewController, FlowController, CustomPasswordDelegate {
+final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordDelegateTextField {
 
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
-    @IBOutlet weak var password: CustomPassword!
+    @IBOutlet weak var password: CustomPasswordTextField!
     @IBOutlet weak var email: UITextField!
+    
+    // MARK: - Life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         password.passwordDelegate = self
     }
@@ -49,5 +55,8 @@ extension LogInViewController: UITextFieldDelegate {
 // MARK: - LogInViewInput
 
 extension LogInViewController: LogInViewInput {
-
+    
+    func showAlert(title: String, massage: String) {
+        showAlertWithTitle(title, message: massage)
+    }
 }

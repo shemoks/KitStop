@@ -7,6 +7,8 @@
 //
 
 import Chamomile
+import Perform
+import UIKit
 
 // MARK: - SignUpEmailRouter
 
@@ -22,4 +24,18 @@ final class SignUpEmailRouter {
 
 extension SignUpEmailRouter: SignUpEmailRouterInput {
 
+    func openModuleTakePhoto(RegistrationTakePhotoModuleOutput: RegistrationTakePhotoModuleOutput) {
+        flowController.openModule(using: .openSecond) {
+            guard ($0 as? RegistrationTakePhotoModuleInput) != nil else { fatalError() }
+            return RegistrationTakePhotoModuleOutput
+        }
+    }
+}
+
+extension Segue {
+
+    static var openSecond: Segue<RegistrationTakePhotoViewController> {
+        return .init(identifier: "ShowTakePhoto")
+    }
+    
 }

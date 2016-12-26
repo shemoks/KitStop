@@ -18,7 +18,8 @@ protocol LogInViewOutput: class {
 // MARK: - LogInInteractorOutput
 
 protocol LogInInteractorOutput: class {
-
+    func openMainModule()
+    func showAlert(title: String, massage: String)
 }
 
 // MARK: - LogInModuleInput

@@ -31,14 +31,22 @@ extension LogInPresenter: LogInViewOutput {
     }
     
     func openForgetPasswordModule() {
-        // call router method
+        router.openForgotPasswordModule()
     }
+    
 }
 
 // MARK: - LogInInteractorOutput
 
 extension LogInPresenter: LogInInteractorOutput {
-
+    
+    func openMainModule() {
+        router.openMainModule()
+    }
+    
+    func showAlert(title: String, massage: String) {
+        view.showAlert(title: title, massage: massage)
+    }
 }
 
 // MARK: - LogInModuleInput

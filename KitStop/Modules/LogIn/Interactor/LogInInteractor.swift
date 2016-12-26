@@ -12,15 +12,15 @@ final class LogInInteractor {
     // MARK: - VIPER stack
 
     weak var presenter: LogInInteractorOutput!
-    fileprivate let dataManager: DataManagerProtocol
+    fileprivate let dataManager: LogInServiceProtocol
     // MARK: -
     
-    init(dataManager: DataManagerProtocol) {
+    init(dataManager: LogInServiceProtocol) {
         self.dataManager = dataManager
     }
     
     convenience init() {
-        self.init(dataManager: DataManager())
+        self.init(dataManager: LogInService())
     }
 
 }
@@ -29,6 +29,13 @@ final class LogInInteractor {
 
 extension LogInInteractor: LogInInteractorInput {
     func fetchUserData(userDataModel: LogInUserModel) {
-        dataManager.fetchUserInServer(email: userDataModel.login, password: userDataModel.password)
+        dataManager.fetchUser(email: userDataModel.login, password: userDataModel.password, result: {
+            res in
+            if res {
+                self.presenter.openMainModule()
+            } else {
+                self.presenter.showAlert(title: "Error", massage: "Internet isn`t connecting")
+            }
+        })
     }
 }

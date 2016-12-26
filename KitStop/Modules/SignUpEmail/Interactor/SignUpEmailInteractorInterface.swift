@@ -9,5 +9,5 @@
 // MARK: - SignUpEmailInteractorInput
 
 protocol SignUpEmailInteractorInput: class {
-
+    func addUser(user: SignUpUserModel)
 }

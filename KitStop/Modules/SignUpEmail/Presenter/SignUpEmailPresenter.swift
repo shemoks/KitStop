@@ -25,6 +25,24 @@ final class SignUpEmailPresenter {
 
 extension SignUpEmailPresenter: SignUpEmailViewOutput {
 
+    func takePhoto() {
+        router.openModuleTakePhoto(RegistrationTakePhotoModuleOutput: self)
+    }
+    
+    func comparePassword(password: String, repeatPassword: String) -> Bool {
+        if password == repeatPassword && password != "" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func registrationNewUser(userData: [String : String]) {
+        let user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, photoUrl: nil)
+        interactor.addUser(user: user)
+        
+    }
+
 }
 
 // MARK: - SignUpEmailInteractorOutput
@@ -37,4 +55,12 @@ extension SignUpEmailPresenter: SignUpEmailInteractorOutput {
 
 extension SignUpEmailPresenter: SignUpEmailModuleInput {
 
+}
+
+extension SignUpEmailPresenter: RegistrationTakePhotoModuleOutput {
+
+    func setImage(photo: UIImage) {
+        view.getPhoto(photo: photo)
+    }
+    
 }

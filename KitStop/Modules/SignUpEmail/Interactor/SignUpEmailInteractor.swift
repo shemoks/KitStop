@@ -14,12 +14,24 @@ final class SignUpEmailInteractor {
 
     weak var presenter: SignUpEmailInteractorOutput!
 
+    fileprivate let dataManager: SignUpServiceProtocol
     // MARK: -
+    
+    init(dataManager: SignUpServiceProtocol) {
+        self.dataManager = dataManager
+    }
+    
+    convenience init() {
+        self.init(dataManager: SignUpService())
+    }
+
 
 }
 
 // MARK: - SignUpEmailInteractorInput
 
 extension SignUpEmailInteractor: SignUpEmailInteractorInput {
-    
+    func addUser(user: SignUpUserModel) {
+        dataManager.addNewUser(email: user.email, password: user.password, photoUrl: user.photoUrl)
+    }
 }

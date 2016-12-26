@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yC4-4c-7Mb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="D3K-u5-Onz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo" translatesAutoresizingMaskIntoConstraints="NO" id="5KB-bx-Nfo">
+                                <rect key="frame" x="148" y="530" width="79" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="RSn-lJ-8n7"/>
+                                    <constraint firstAttribute="width" constant="79" id="hUR-Tj-gbw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="D3K-u5-Onz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3rN-ua-YS1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5KB-bx-Nfo" secondAttribute="bottom" constant="70" id="9gX-zJ-Tci"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D3K-u5-Onz" secondAttribute="bottom" id="G8n-Dy-hfj"/>
+                            <constraint firstItem="5KB-bx-Nfo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XBY-61-9Wy"/>
+                            <constraint firstAttribute="trailing" secondItem="D3K-u5-Onz" secondAttribute="trailing" id="cvg-YC-TAp"/>
+                            <constraint firstItem="D3K-u5-Onz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qt5-ma-7va"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PFc-TI-eIQ"/>
+                    <connections>
+                        <segue destination="XkI-86-IGM" kind="show" identifier="Registration" animates="NO" id="zsj-rE-G6H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="LXh-5x-pnb" customClass="RootAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="BYZ-38-t0r" id="af9-kc-eIQ"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="753.62318840579712" y="134.5108695652174"/>
+        </scene>
+        <!--SignUp-->
+        <scene sceneID="2aR-fe-sAI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Signup" referencedIdentifier="SignUp" id="XkI-86-IGM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9A-9t-kGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="-319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bbV-Xc-gno">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yC4-4c-7Mb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jXj-1b-03Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rSc-aU-DBF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aX1-ZT-hvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-153.62318840579712" y="134.5108695652174"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="376" height="669"/>
+        <image name="kitstop-logo" width="159" height="135"/>
+    </resources>
+</document>

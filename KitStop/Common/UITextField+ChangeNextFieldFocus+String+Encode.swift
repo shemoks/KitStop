@@ -31,4 +31,8 @@ extension String: ParameterEncoding {
         return request
     }
     
+    public func getUUID() -> String {
+        return (UIDevice.current.identifierForVendor?.uuidString)!
+    }
+    
 }

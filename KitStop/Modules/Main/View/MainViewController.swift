@@ -36,8 +36,10 @@ final class MainViewController: UIViewController, FlowController {
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "navigation_logo"))
         self.navigationController?.navigationBar.tintColor = UIColor.orange
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "add_icon"), style: .done, target: self, action: #selector(addTap))
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "navigation_bar"), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage.init(named: "navigation_bar")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(patternImage: UIImage.init(named: "filter_container_background")!)
     }
     
     func addSectionInset() {

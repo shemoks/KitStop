@@ -10,4 +10,6 @@
 
 protocol SignUpEmailRouterInput: class {
 
+    func openModuleTakePhoto(RegistrationTakePhotoModuleOutput: RegistrationTakePhotoModuleOutput)
+
 }

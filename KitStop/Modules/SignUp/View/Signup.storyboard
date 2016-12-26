@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wkH-Lk-Bn6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View-->
+        <scene sceneID="5g4-Fq-hRD">
+            <objects>
+                <viewController storyboardIdentifier="SignUp" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bkt-59-oES"/>
+                        <viewControllerLayoutGuide type="bottom" id="zll-Qt-2q6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bzC-V6-TG1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pKM-If-yU7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-rq-mjd">
+                                <rect key="frame" x="62.5" y="307" width="250" height="290"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cT-sA-d14" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="45"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="MRi-Cu-Tsn"/>
+                                            <constraint firstAttribute="height" constant="45" id="Mko-CB-DT6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Facebook">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPA-EL-M43" customClass="CustomButton" customModule="KitStop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="155" width="250" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="5rD-uo-bLa"/>
+                                            <constraint firstAttribute="height" constant="45" id="nah-9W-XpH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="0.41960784313725491" green="0.43137254901960786" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpButtonTap:" destination="wkH-Lk-Bn6" eventType="touchUpInside" id="aZ9-kE-3HH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn7-Pw-P1M" customClass="CustomButton" customModule="KitStop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="51" width="250" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="CU8-gg-9nu"/>
+                                            <constraint firstAttribute="height" constant="45" id="fC0-1H-F2I"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <state key="normal" title="Log In with Email" backgroundImage="email-icon">
+                                            <color key="titleColor" red="0.41960784313725491" green="0.43137254901960786" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backGroundColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginEmailButtonTap:" destination="wkH-Lk-Bn6" eventType="touchUpInside" id="YPH-wj-fXY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91D-8p-fkL">
+                                        <rect key="frame" x="0.0" y="102" width="250" height="53"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="7cD-ub-iKs"/>
+                                            <constraint firstAttribute="height" constant="53" id="WLq-oK-wdL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitstop-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="VF1-eM-tD0">
+                                        <rect key="frame" x="85.5" y="223" width="79" height="67"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="67" id="asj-Zl-Go7"/>
+                                            <constraint firstAttribute="width" constant="79" id="p5F-Pf-lHk"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7cT-sA-d14" firstAttribute="leading" secondItem="OkW-rq-mjd" secondAttribute="leading" id="0kj-Vh-G9g"/>
+                                    <constraint firstAttribute="trailing" secondItem="LPA-EL-M43" secondAttribute="trailing" id="3FJ-Fa-TiA"/>
+                                    <constraint firstItem="VF1-eM-tD0" firstAttribute="centerX" secondItem="OkW-rq-mjd" secondAttribute="centerX" id="3pD-sf-iYf"/>
+                                    <constraint firstItem="kn7-Pw-P1M" firstAttribute="top" secondItem="7cT-sA-d14" secondAttribute="bottom" constant="6" id="84f-aX-ksa"/>
+                                    <constraint firstAttribute="bottom" secondItem="VF1-eM-tD0" secondAttribute="bottom" id="A9y-ft-bHU"/>
+                                    <constraint firstAttribute="trailing" secondItem="kn7-Pw-P1M" secondAttribute="trailing" id="FXc-k3-KTe"/>
+                                    <constraint firstAttribute="height" constant="290" id="Hy2-sQ-Fn3"/>
+                                    <constraint firstItem="LPA-EL-M43" firstAttribute="leading" secondItem="OkW-rq-mjd" secondAttribute="leading" id="LMF-fs-dcB"/>
+                                    <constraint firstItem="91D-8p-fkL" firstAttribute="top" secondItem="kn7-Pw-P1M" secondAttribute="bottom" constant="6" id="MZn-Ga-mfP"/>
+                                    <constraint firstAttribute="trailing" secondItem="91D-8p-fkL" secondAttribute="trailing" id="VPK-cz-kz9"/>
+                                    <constraint firstAttribute="trailing" secondItem="7cT-sA-d14" secondAttribute="trailing" id="VSk-Ku-j2A"/>
+                                    <constraint firstItem="91D-8p-fkL" firstAttribute="leading" secondItem="OkW-rq-mjd" secondAttribute="leading" id="Z2Q-xC-BCP"/>
+                                    <constraint firstItem="LPA-EL-M43" firstAttribute="top" secondItem="91D-8p-fkL" secondAttribute="bottom" id="aRI-DR-rNU"/>
+                                    <constraint firstItem="7cT-sA-d14" firstAttribute="top" secondItem="OkW-rq-mjd" secondAttribute="top" id="dy4-la-WbQ"/>
+                                    <constraint firstItem="kn7-Pw-P1M" firstAttribute="leading" secondItem="OkW-rq-mjd" secondAttribute="leading" id="t1A-07-Y8w"/>
+                                    <constraint firstAttribute="width" constant="250" id="xav-tk-fYd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pKM-If-yU7" firstAttribute="leading" secondItem="bzC-V6-TG1" secondAttribute="leading" id="IUt-nm-6Tt"/>
+                            <constraint firstItem="OkW-rq-mjd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bkt-59-oES" secondAttribute="bottom" priority="750" constant="232" id="L0W-Ts-r9u"/>
+                            <constraint firstAttribute="trailing" secondItem="pKM-If-yU7" secondAttribute="trailing" id="T0o-Wy-mVv"/>
+                            <constraint firstItem="zll-Qt-2q6" firstAttribute="top" secondItem="pKM-If-yU7" secondAttribute="bottom" id="Va6-vA-OLT"/>
+                            <constraint firstItem="pKM-If-yU7" firstAttribute="top" secondItem="bzC-V6-TG1" secondAttribute="top" id="eFw-z0-kzV"/>
+                            <constraint firstItem="zll-Qt-2q6" firstAttribute="top" secondItem="OkW-rq-mjd" secondAttribute="bottom" priority="250" constant="70" id="gxf-j6-jZn"/>
+                            <constraint firstItem="zll-Qt-2q6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OkW-rq-mjd" secondAttribute="bottom" constant="20" id="tas-2k-5aY"/>
+                            <constraint firstItem="OkW-rq-mjd" firstAttribute="centerX" secondItem="bzC-V6-TG1" secondAttribute="centerX" id="ySL-iw-pMP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2LK-jH-ucy"/>
+                    <connections>
+                        <segue destination="gDb-Q7-fcC" kind="show" identifier="LogIn" id="jdw-bh-Cft"/>
+                        <segue destination="k8b-gC-yRH" kind="show" identifier="Registration" id="fs7-JL-BmD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OTt-QS-vdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Itx-4U-9jI" customClass="SignUpAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="wkH-Lk-Bn6" id="Snu-pq-Umq"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1048.8" y="25.637181409295355"/>
+        </scene>
+        <!--LogInViewController-->
+        <scene sceneID="ZmU-FT-2E1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="LogInViewController" id="gDb-Q7-fcC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCl-vP-unD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642.4000000000001" y="-93.553223388305852"/>
+        </scene>
+        <!--SignUpEmailViewController-->
+        <scene sceneID="XbY-Oy-Blk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUpEmail" referencedIdentifier="SignUpEmailViewController" id="k8b-gC-yRH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WI6-91-jfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1617" y="156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="376" height="669"/>
+        <image name="email-icon" width="502" height="88"/>
+        <image name="kitstop-logo-white" width="79" height="67"/>
+    </resources>
+</document>

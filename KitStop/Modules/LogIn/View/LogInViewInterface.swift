@@ -9,5 +9,5 @@
 // MARK: - LogInViewInput
 
 protocol LogInViewInput: class {
-
+    func showAlert(title: String, massage: String)
 }
