@@ -132,7 +132,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eIm-g5-65T">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="cancelButtonTap:" destination="QJd-ZO-nP3" id="6av-kb-FSq"/>
+                                <action selector="cancelButtonTap:" destination="QJd-ZO-nP3" id="dOZ-gr-ZZb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Clear All" id="Lfq-QA-17R">

@@ -18,7 +18,7 @@ final class FilterTypePresenter {
     weak var view: FilterTypeViewInput!
     var interactor: FilterTypeInteractorInput!
     var router: FilterTypeRouterInput!
-    var categories = [FilterItems]()
+    var categories = [Category]()
 
 }
 
@@ -26,8 +26,20 @@ final class FilterTypePresenter {
 
 extension FilterTypePresenter: FilterTypeViewOutput {
 
-    func categoryList() -> [FilterItems] {
-        return self.categories
+    func category(for indexPath: IndexPath) -> Category {
+
+            return categories[indexPath.row]
+    }
+
+    func numberOfCategories() -> Int {
+        return categories.count
+    }
+
+    func returnCategory (category: Category) {
+        let filterTypeModuleOutput = moduleOutput as! FilterTypeModuleOutput
+        self.categories = interactor.changeCategories(categories: self.categories, category: category)
+        filterTypeModuleOutput.currentCategory(categories: categories, currentCategory: category)
+        router.closeTypeCategoryModule()
     }
 
 }
@@ -42,7 +54,7 @@ extension FilterTypePresenter: FilterTypeInteractorOutput {
 
 extension FilterTypePresenter: FilterTypeModuleInput {
 
-    func setCategories(categories: [FilterItems]) {
+    func setCategories(categories: [Category]) {
         self.categories = categories
     }
 

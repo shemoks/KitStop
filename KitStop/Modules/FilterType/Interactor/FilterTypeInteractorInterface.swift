@@ -6,8 +6,10 @@
 //  Copyright © 2016 MoziDev. All rights reserved.
 //
 
+
 // MARK: - FilterTypeInteractorInput
 
 protocol FilterTypeInteractorInput: class {
-
+    
+    func changeCategories(categories: [Category], category: Category) -> [Category]
 }

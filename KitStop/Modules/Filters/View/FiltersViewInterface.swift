@@ -11,6 +11,8 @@
 protocol FiltersViewInput: class {
 
     func showError(title: String, message: String)
+    func reloadData()
+    func reloadPrice()
+    func priceVisible(visible: Bool)
    
-
 }

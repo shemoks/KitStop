@@ -18,8 +18,10 @@ final class FiltersPresenter {
     weak var view: FiltersViewInput!
     var interactor: FiltersInteractorInput!
     var router: FiltersRouterInput!
-    var types = [FilterItems]()
+    var types = [Category]()
     var price = Price(minValue: 0, maxValue: 100)
+    var filter = Filter(idCategory: 0, title: "", minPrice: 0, maxPrice: 100)
+    var priceVisible: Bool = true
 
 }
 
@@ -28,14 +30,14 @@ final class FiltersPresenter {
 extension FiltersPresenter: FiltersViewOutput {
 
     func handleApplyTap(price: Price) {
-//        let filter = Filter()
-//        filter.typeFilter = self.types
-//        self.price = price
-//        filter.priceFilter = price
+        //        let filter = Filter()
+        //        filter.typeFilter = self.types
+        //        self.price = price
+        //        filter.priceFilter = price
         // interactor.getProducts(filter: Filter)
     }
 
-    func typesList() -> [FilterItems] {
+    func typesList() -> [Category] {
         return self.types
     }
 
@@ -49,8 +51,10 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleClearAllTap() {
         interactor.clearAll(types: self.types)
-    }
+        view.reloadData()
+        view.reloadPrice()
 
+    }
 
     func handleTypeTap() {
         router.openTypeModule(types: self.types, filterTypeModuleOutput: self)
@@ -58,10 +62,17 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleViewDidLoad() {
         interactor.getFilters()
+        view.reloadData()
+        view.priceVisible(visible: self.priceVisible)
+        view.reloadPrice()
     }
 
     func changePrice(price: Price) {
         self.price = price
+    }
+
+    func visible() -> Bool {
+        return self.priceVisible
     }
 
 }
@@ -71,18 +82,19 @@ extension FiltersPresenter: FiltersViewOutput {
 extension FiltersPresenter: FiltersInteractorOutput {
 
 
-    func setTypes(types: [FilterItems]) {
+    func setTypes(types: [Category]) {
         self.types = types
+        view.reloadData()
     }
 
     func setPrice(price: Price) {
         self.price = price
+        view.reloadPrice()
     }
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
     }
-
 
 }
 
@@ -90,14 +102,26 @@ extension FiltersPresenter: FiltersInteractorOutput {
 
 extension FiltersPresenter: FiltersModuleInput {
 
+    func priceVisible(visible: Bool) {
+
+        self.priceVisible = false
+
+    }
+
 }
 
 extension FiltersPresenter: FilterTypeModuleOutput {
 
-    func currentCategory(category: FilterItems) {
+    func currentCategory(categories: [Category], currentCategory: Category) {
+
+        self.types = categories
+        view.reloadData()
+        interactor.getPrice(category: currentCategory)
+        view.reloadPrice()
+//        self.filter = Filter(idCategory: category.number, title: category.title, minPrice: self.price.minValue, maxPrice: self.price.maxValue)
 
     }
-
+    
 }
 
 

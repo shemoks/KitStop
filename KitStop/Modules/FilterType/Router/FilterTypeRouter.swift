@@ -21,5 +21,7 @@ final class FilterTypeRouter {
 // MARK: - FilterTypeRouterInput
 
 extension FilterTypeRouter: FilterTypeRouterInput {
-
+    func closeTypeCategoryModule() {
+        flowController.closeModule(animated: true)
+    }
 }

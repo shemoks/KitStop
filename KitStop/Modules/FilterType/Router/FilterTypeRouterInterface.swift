@@ -10,4 +10,6 @@
 
 protocol FilterTypeRouterInput: class {
 
+    func closeTypeCategoryModule()
+
 }

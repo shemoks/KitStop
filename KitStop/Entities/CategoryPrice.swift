@@ -1,21 +1,20 @@
 //
-//  Category.swift
+//  CategoryPrice.swift
 //  KitStop
 //
-//  Created by Mac on 12/22/16.
+//  Created by Mac on 12/27/16.
 //  Copyright © 2016 MOZI Development. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class Category: Object {
+class CategoryPrice: Object {
 
     dynamic var number: String = ""
-    dynamic var title: String = ""
-    dynamic var isSelected = false
+    var categoryPrice = Price(minValue: 0, maxValue: 100)
     override static func primaryKey() -> String? {
         return "number"
     }
-    
+
 }

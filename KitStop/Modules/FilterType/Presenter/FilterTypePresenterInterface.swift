@@ -12,7 +12,9 @@ import Chamomile
 
 protocol FilterTypeViewOutput: class {
 
-    func categoryList() -> [FilterItems]
+    func category(for indexPath: IndexPath) -> Category
+    func numberOfCategories() -> Int
+    func returnCategory(category: Category)
 
 }
 
@@ -26,7 +28,7 @@ protocol FilterTypeInteractorOutput: class {
 
 protocol FilterTypeModuleInput: ModuleInput {
 
-    func setCategories(categories: [FilterItems])
+    func setCategories(categories: [Category])
 
 }
 
@@ -34,6 +36,6 @@ protocol FilterTypeModuleInput: ModuleInput {
 
 protocol FilterTypeModuleOutput: ModuleOutput {
 
-    func currentCategory(category: FilterItems)
+    func currentCategory(categories: [Category], currentCategory: Category)
 
 }

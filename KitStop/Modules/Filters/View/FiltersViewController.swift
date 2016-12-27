@@ -38,20 +38,9 @@ final class FiltersViewController: UIViewController, FlowController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TypeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
+        navigationController?.navigationBar.tintColor = .black
         presenter.handleViewDidLoad()
-        settings()
-        reloadData()
-    }
 
-    func reloadData() {
-        tableView?.reloadData()
-    }
-
-    func settings() {
-        rangeSlider.lowerValue = Double(presenter.priceList().minValue)
-        rangeSlider.upperValue = Double(presenter.priceList().maxValue)
-        minValueLabel.text = "$" + String(presenter.priceList().minValue)
-        maxValueLabel.text = "$" + String(presenter.priceList().maxValue)
     }
 
 }
@@ -65,6 +54,22 @@ extension FiltersViewController: FiltersViewInput {
         alert.show()
     }
 
+    func reloadPrice() {
+        rangeSlider.lowerValue = Double(presenter.priceList().minValue)
+        rangeSlider.upperValue = Double(presenter.priceList().maxValue)
+        minValueLabel.text = "$" + String(presenter.priceList().minValue)
+        maxValueLabel.text = "$" + String(presenter.priceList().maxValue)
+    }
+
+    func reloadData() {
+        tableView?.reloadData()
+    }
+
+    func priceVisible(visible: Bool) {
+        rangeSlider.isHidden = visible
+        minValueLabel.isHidden = visible
+        maxValueLabel.isHidden = visible
+    }
 
 }
 
@@ -89,9 +94,9 @@ extension FiltersViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TypeCell
-            cell?.configure(filter: presenter.typesList())
-            return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TypeCell
+        cell?.configure(filter: presenter.typesList())
+        return cell!
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -104,7 +109,6 @@ extension FiltersViewController: UITableViewDataSource {
     }
 
     func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
-
         presenter.changePrice(price: Price(minValue: Int(rangeSlider.lowerValue), maxValue: Int(rangeSlider.upperValue)))
         self.minValueLabel.text = "$" + String(presenter.priceList().minValue)
         self.maxValueLabel.text = "$" + String(presenter.priceList().maxValue)
@@ -124,6 +128,7 @@ extension FiltersViewController: UITableViewDelegate {
             return view
         default:
             view.headLabel.text = "PRICE"
+            view.headLabel.isHidden = presenter.visible()
             return view
         }
     }
@@ -133,10 +138,9 @@ extension FiltersViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-            presenter.handleTypeTap()
-
+        tableView.deselectRow(at: indexPath, animated: true)
+        presenter.handleTypeTap()
     }
-
-
+    
+    
 }

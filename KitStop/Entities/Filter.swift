@@ -6,6 +6,7 @@
 //  Copyright © 2016 MOZI Development. All rights reserved.
 //
 
+
 struct Price {
 
     var minValue: Int = 0
@@ -13,18 +14,30 @@ struct Price {
 
 }
 
-class Filter {
+struct Filter {
 
     var idCategory: Int = 0
+    var title: String = ""
     var minPrice: Int = 0
     var maxPrice: Int = 100
 
 }
 
-class FilterItems {
 
-    var id: Int = 0
+enum NetworkResult {
+    case Category(value: [Category])
+    case CategoryPrice(value: [CategoryPrice])
+    case Error(error: Error)
+}
+
+struct NetworkObject {
+    var data: NetworkResult
+    var error: NetworkResult
+}
+
+struct product {
+    var id: String = ""
     var title: String = ""
-    var isSelected: Bool = false
-    
+    var price: String = ""
+    var image: String = ""
 }

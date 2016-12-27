@@ -14,49 +14,42 @@ final class FiltersInteractor {
 
     weak var presenter: FiltersInteractorOutput!
 
+    fileprivate let dataManager: CategoryManagerProtocol
     // MARK: -
+
+    init(dataManager: CategoryManagerProtocol) {
+        self.dataManager = dataManager
+    }
+
+    convenience init() {
+        self.init(dataManager: CategoryManager())
+    }
+
 
 }
 
-// MARK: - FiltersInteractorInput
+    // MARK: - FiltersInteractorInput
 
 extension FiltersInteractor: FiltersInteractorInput {
 
     func getFilters() {
-        let filter = FilterParametersService()
-        filter.filterResult = {obj in
-            if obj.error == nil {
-//                for category in obj.filter {
-//                    
-//                }
-//                let category1 = FilterItems()
-//                category1.id = 1
-//                category1.title = "Cameras"
-//                category1.isSelected = true
-//                let category2 = FilterItems()
-//                category2.id = 2
-//                category2.title = "accessory"
-//                self.presenter.setTypes(types: [category1, category2])
-//                self.presenter.setPrice(price: obj.filter.priceFilter)
-//
-//                self.presenter.setBrands(brands: obj.filter.brandFilter)
-//                self.presenter.setTypes(types: obj.filter.typeFilter)
-//                self.presenter.setPrice(price: obj.filter.priceFilter)
-            } else {
-                self.presenter.showError(title: "No Internet Connection", message: "Make sure your device is connected to the internet.")
-            }
+        dataManager.categoryFromServer() {object in
+            self.presenter.setTypes(types: object)
         }
-//        filter.getFilters()
     }
 
-    func clearAll(types: [FilterItems]) {
-        var category = [FilterItems]()
-        for filter in types {
-            filter.isSelected = false
-            category.append(filter)
-        }
-        presenter.setTypes(types: category)
+    func clearAll(types: [Category]) {
+        let newCategories = CategoryManager().clearAll(categories: types)
+        presenter.setTypes(types: newCategories)
         presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
+    }
+
+
+    func getPrice(category: Category) {
+        dataManager.getPrice(category: category) {object in
+            self.presenter.setPrice(price: object.categoryPrice)
+        }
+
     }
 
 }

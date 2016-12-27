@@ -27,7 +27,7 @@ extension FiltersRouter: FiltersRouterInput {
         flowController.closeModule(animated: true)
     }
 
-    func openTypeModule(types: [FilterItems], filterTypeModuleOutput: FilterTypeModuleOutput) {
+    func openTypeModule(types: [Category], filterTypeModuleOutput: FilterTypeModuleOutput) {
         flowController.openModule(using: .openFilterCategory) {
             guard let moduleInput = $0 as? FilterTypeModuleInput else { fatalError() }
             moduleInput.setCategories(categories: types)
