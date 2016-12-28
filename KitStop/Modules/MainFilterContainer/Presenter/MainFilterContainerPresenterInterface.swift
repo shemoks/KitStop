@@ -13,7 +13,7 @@ import Chamomile
 protocol MainFilterContainerViewOutput: class {
     func openFilterModule()
     func openSearchModule()
-    func handleKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?)
+    func handleKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton)
 }
 
 // MARK: - MainFilterContainerInteractorOutput

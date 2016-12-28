@@ -23,18 +23,18 @@ final class MainFilterContainerRouter {
 // MARK: - MainFilterContainerRouterInput
 
 extension MainFilterContainerRouter: MainFilterContainerRouterInput {
-//    func openSecondModule(secondModuleOutput: 'SecondModuleOutput') {
-//        flowController.openModule(using: .openSecond) {
-//            guard let moduleInput = $0 as? 'SecondModuleInput' else { fatalError() }
-//            return nil
-//        }
-//    }
+    
+    func openFilterModule(filterModuleOutput: FiltersModuleOutput) {
+        flowController.openModule(using: .openFilterModule) {
+            guard ($0 as? FiltersModuleInput) != nil else { fatalError() }
+            return filterModuleOutput
+        }
+    }
 }
 
 extension Segue {
     
-//    you must reference second controller and identity
-//    static var openSecond: Segue<SecondViewController> {
-//        return .init(identifier: "transitionToNext")
-//    }
+    static var openFilterModule: Segue<FiltersViewController> {
+        return .init(identifier: "transitionToFilter")
+    }
 }

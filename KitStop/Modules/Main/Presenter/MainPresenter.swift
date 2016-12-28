@@ -63,7 +63,7 @@ extension MainPresenter: MainViewOutput {
 // MARK: - MainInteractorOutput
 
 extension MainPresenter: MainInteractorOutput {
-    func updateKits(kits: [KitsModel]) {
+    func updateKits(kits: [Product]) {
         view.updateData(kits: kits)
     }
 }

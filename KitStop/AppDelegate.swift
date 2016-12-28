@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import IQKeyboardManagerSwift
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -20,7 +20,9 @@ enum Endpoint {
     case getKitFolio()
     case getKits()
     case getKitsForSale()
-    case test()
+    case categories()
+    case filter()
+    case price()
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -29,7 +31,7 @@ enum Endpoint {
             return .post
         case .signUp:
             return .post
-        case .createKitFolio():
+        case .createKitFolio:
             return .post
         default:
             return .get
@@ -44,12 +46,16 @@ enum Endpoint {
             return "/forgot"
         case .signUp:
             return "/sign-up"
-        case .createKitFolio(), .getKitFolio():
+        case .createKitFolio, .getKitFolio:
             return "/kit-folio"
-        case .getKits():
+        case .getKits:
             return "/kits"
-        case .getKitsForSale():
+        case .getKitsForSale, .filter:
             return "/kits-for-sale"
+        case .categories:
+            return "/category"
+        case .price:
+            return "/filters"
         default:
             return ""
         }

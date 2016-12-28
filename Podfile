@@ -10,6 +10,7 @@ target 'KitStop' do
   pod 'IQKeyboardManagerSwift', '~> 4.0'
   pod 'SwiftyJSON', '~> 3.1'
   pod 'SDWebImage'
+  pod 'RealmSwift'
 end
 
 post_install do |installer|

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MainFilterContainerTransferDataProtocol {
-    func kitItems(transferData: [KitsModel])
+    func kitItems(transferData: [Product])
 }

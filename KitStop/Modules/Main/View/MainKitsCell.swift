@@ -17,11 +17,11 @@ class MainKitsCell: UICollectionViewCell {
     @IBOutlet weak var cameraDescription: UILabel!
     @IBOutlet weak var price: UILabel!
     
-    func setupCell(row: Int, kit: KitsModel) {
+    func setupCell(row: Int, kit: Product) {
         camera.sd_setImage(with: URL.init(string: kit.mainImage))
         cameraDescription.text = kit.title
-        if let price = kit.price {
-            self.price.text = "\(price)"
+        if let price = kit.salesDetails?.price {
+            self.price.text = Double().checkNumberAfterDot(number: price)
             priceContainer.isHidden = false
         } else { priceContainer.isHidden = true }
     }

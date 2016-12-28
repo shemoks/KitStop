@@ -7,7 +7,8 @@
 //
 
 // MARK: - MainFilterContainerInteractorInput
+import UIKit
 
 protocol MainFilterContainerInteractorInput: class {
-    func fetchKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?)
+    func fetchKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton)
 }

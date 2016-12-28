@@ -21,7 +21,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     var presenter: MainViewOutput!
     fileprivate var refreshControl = UIRefreshControl()
-    fileprivate var kits: [KitsModel] = []
+    fileprivate var kits: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         collectionView.collectionViewLayout = layout
     }
     
-    func updateData(kits: [KitsModel]) {
+    func updateData(kits: [Product]) {
         self.kits = kits
         self.collectionView.reloadData()
     }
@@ -82,7 +82,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         container?.transferData = self
     }
     
-    func kitItems(transferData: [KitsModel]) {
+    func kitItems(transferData: [Product]) {
         self.kits = transferData
         collectionView.reloadData()
     }

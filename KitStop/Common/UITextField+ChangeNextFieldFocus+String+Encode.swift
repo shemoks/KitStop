@@ -36,3 +36,14 @@ extension String: ParameterEncoding {
     }
     
 }
+
+extension Double {
+    public func checkNumberAfterDot(number: Double) -> String {
+        let beforeDot = "\(number)".components(separatedBy: ".")[0]
+        let afterDot = "\(number)".components(separatedBy: ".")[1]
+        if afterDot == "0" {
+            return beforeDot
+        }
+        return "\(number)"
+    }
+}

@@ -18,7 +18,7 @@ protocol MainViewOutput: class {
 // MARK: - MainInteractorOutput
 
 protocol MainInteractorOutput: class {
-    func updateKits(kits: [KitsModel])
+    func updateKits(kits: [Product])
 }
 
 // MARK: - MainModuleInput

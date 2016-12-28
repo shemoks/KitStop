@@ -26,8 +26,7 @@ final class MainFilterContainerPresenter {
 extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     
     func openFilterModule() {
-        // you must reference filter module 
-        // router.openNextModule(secondModuleProtocol: 'Filter Module Output')
+        router.openFilterModule(filterModuleOutput: self)
     }
     
     func openSearchModule() {
@@ -35,8 +34,8 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
         // router.openNextModule(secondModuleProtocol: 'Search Module Output')
     }
     
-    func handleKitsForCategory(category: Int, transferData trasferData: MainFilterContainerTransferDataProtocol?) {
-        interactor.fetchKitsForCategory(category: category, transferData: trasferData)
+    func handleKitsForCategory(category: Int, transferData trasferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton) {
+        interactor.fetchKitsForCategory(category: category, transferData: trasferData, filterButton: filterButton)
     }
 }
 
@@ -49,4 +48,10 @@ extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
 // MARK: - MainFilterContainerModuleInput
 
 extension MainFilterContainerPresenter: MainFilterContainerModuleInput {
+}
+
+extension MainFilterContainerPresenter: FiltersModuleOutput{
+    func kitsWithFilters(kits: [Product]) {
+        print("Uraaa")
+    }
 }

@@ -218,7 +218,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filter" destination="lGg-VM-eHK" id="kks-fC-uNZ"/>
                         <outlet property="kitSegmentControl" destination="WDY-fy-vVW" id="pXI-Ze-fd3"/>
+                        <segue destination="HZE-Nl-UvL" kind="show" identifier="transitionToFilter" id="T6d-BL-xOY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo1-7M-Jxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,6 +231,14 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="3060" y="-337.33133433283359"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="a3Y-LW-hap">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Filters" storyboardName="Filters" id="HZE-Nl-UvL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbh-yj-6EV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3644" y="-352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B25-29-4EM">

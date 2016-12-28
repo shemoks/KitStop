@@ -11,5 +11,5 @@ import UIKit
 
 protocol MainViewInput: class {
     func presentAlert(alertController: UIAlertController)
-    func updateData(kits: [KitsModel])
+    func updateData(kits: [Product])
 }
