@@ -14,7 +14,7 @@ protocol FiltersViewOutput: class {
 
     func handleApplyTap(price: Price)
     func typesList() -> [Category]
-    func priceList() -> Price
+    func priceList() -> PriceString
     func handleCancelTap()
     func handleClearAllTap()
     func handleTypeTap()

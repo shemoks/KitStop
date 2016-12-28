@@ -37,7 +37,7 @@ extension SessionManager: ApiManagerProtocol {
     func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]? = nil, headers: [String : String]? = nil) -> ApiRequestProtocol {
         // Insert your common headers here, for example, authorization token or accept.
         var commonHeaders = ["Accept" : "application/json"]
-        commonHeaders += ["x-api-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODU3YzYxMTk0ZjNiYjYwNDBhYjBkM2QiLCJpYXQiOjE0ODI3NjM1NjcsImV4cCI6MTQ4Mjg0OTk2N30.vA0ZqMOmRO-cEoV151zZqiz5tFHUmtX3ePuoaMSOwr0"]
+        commonHeaders += ["x-api-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODYyNmNhZDFkMzI5MjNmMzQ2YzVlODkiLCJpYXQiOjE0ODI4NTEyNDEsImV4cCI6MTQ4MjkzNzY0MX0.usNDZ2qqtc06n0efDAmDHyqcudhN_n-bqZ0tQNNE3Rk"]
         if let headers = headers {
             commonHeaders += headers
         }

@@ -20,6 +20,7 @@ enum Endpoint {
     case categories()
     case filter()
     case price()
+    
 
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -44,7 +45,7 @@ enum Endpoint {
         case .categories:
             return "/category"
         case .filter:
-            return "kits-for-sale"
+            return "/kits-for-sale"
         case .price:
             return "/filters"
         default:

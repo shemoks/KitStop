@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol CategoryManagerProtocol {
+protocol FilterManagerProtocol {
 
     func categoryFromServer(arrayOfCategories: @escaping (([Category]) -> ()))
-    func getProducts(filter: Filter)
+    func getProducts(filter: Filter, result: @escaping ((FilterResult) -> ()))
     func getPrice(category: Category, result: @escaping ((CategoryPrice) -> ()))
 
 }

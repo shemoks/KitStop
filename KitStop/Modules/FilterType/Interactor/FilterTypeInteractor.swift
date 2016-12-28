@@ -24,7 +24,7 @@ final class FilterTypeInteractor {
 extension FilterTypeInteractor: FilterTypeInteractorInput {
 
     func changeCategories(categories: [Category], category: Category) -> [Category] {
-        let newCategories = CategoryManager().changeCategories(categories: categories, category: category)
+        let newCategories = FilterManager().changeCategories(categories: categories, category: category)
         return newCategories
     }
 

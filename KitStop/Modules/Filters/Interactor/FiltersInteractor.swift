@@ -14,21 +14,21 @@ final class FiltersInteractor {
 
     weak var presenter: FiltersInteractorOutput!
 
-    fileprivate let dataManager: CategoryManagerProtocol
+    fileprivate let dataManager: FilterManagerProtocol
     // MARK: -
 
-    init(dataManager: CategoryManagerProtocol) {
+    init(dataManager: FilterManagerProtocol) {
         self.dataManager = dataManager
     }
 
     convenience init() {
-        self.init(dataManager: CategoryManager())
+        self.init(dataManager: FilterManager())
     }
 
 
 }
 
-    // MARK: - FiltersInteractorInput
+// MARK: - FiltersInteractorInput
 
 extension FiltersInteractor: FiltersInteractorInput {
 
@@ -39,17 +39,28 @@ extension FiltersInteractor: FiltersInteractorInput {
     }
 
     func clearAll(types: [Category]) {
-        let newCategories = CategoryManager().clearAll(categories: types)
+        let newCategories = FilterManager().clearAll(categories: types)
         presenter.setTypes(types: newCategories)
         presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
     }
 
-
     func getPrice(category: Category) {
         dataManager.getPrice(category: category) {object in
+            print(object)
+            if object.categoryPrice.maxValue != object.categoryPrice.minValue {
             self.presenter.setPrice(price: object.categoryPrice)
+            } else {
+                self.presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
+            }
         }
+    }
 
+    func getProducts(category: Category, price: Price, type: Bool) {
+        let filter = Filter(idCategory: category.number, title: category.title, minPrice: price.minValue, maxPrice: price.maxValue, type: type)
+        dataManager.getProducts(filter: filter) { object in
+            print(object)
+      //return object in main
+        }
     }
 
 }

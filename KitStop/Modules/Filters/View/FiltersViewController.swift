@@ -27,7 +27,6 @@ final class FiltersViewController: UIViewController, FlowController {
 
     @IBAction func clearAllButtonTap(_ sender: Any) {
         presenter.handleClearAllTap()
-        reloadData()
     }
 
     @IBAction func applyButtonTap(_ sender: Any) {
@@ -55,10 +54,12 @@ extension FiltersViewController: FiltersViewInput {
     }
 
     func reloadPrice() {
-        rangeSlider.lowerValue = Double(presenter.priceList().minValue)
-        rangeSlider.upperValue = Double(presenter.priceList().maxValue)
-        minValueLabel.text = "$" + String(presenter.priceList().minValue)
-        maxValueLabel.text = "$" + String(presenter.priceList().maxValue)
+        rangeSlider.minimumValue = Double(presenter.priceList().price.minValue)
+        rangeSlider.maximumValue = Double(presenter.priceList().price.maxValue)
+        rangeSlider.lowerValue = Double(presenter.priceList().price.minValue)
+        rangeSlider.upperValue = Double(presenter.priceList().price.maxValue)
+        minValueLabel.text = presenter.priceList().minValue
+        maxValueLabel.text = presenter.priceList().maxValue
     }
 
     func reloadData() {
@@ -66,7 +67,7 @@ extension FiltersViewController: FiltersViewInput {
     }
 
     func priceVisible(visible: Bool) {
-        rangeSlider.isHidden = visible
+        rangeSlider.isHidden = visible 
         minValueLabel.isHidden = visible
         maxValueLabel.isHidden = visible
     }
@@ -110,8 +111,8 @@ extension FiltersViewController: UITableViewDataSource {
 
     func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
         presenter.changePrice(price: Price(minValue: Int(rangeSlider.lowerValue), maxValue: Int(rangeSlider.upperValue)))
-        self.minValueLabel.text = "$" + String(presenter.priceList().minValue)
-        self.maxValueLabel.text = "$" + String(presenter.priceList().maxValue)
+        self.minValueLabel.text = presenter.priceList().minValue
+        self.maxValueLabel.text = presenter.priceList().maxValue
     }
 
 }

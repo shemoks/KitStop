@@ -10,19 +10,25 @@
 struct Price {
 
     var minValue: Int = 0
-    var maxValue: Int = 100
+    var maxValue: Int = 1000000
 
+}
+
+struct PriceString {
+    var price: Price
+    var minValue: String = ""
+    var maxValue: String = ""
 }
 
 struct Filter {
 
-    var idCategory: Int = 0
+    var idCategory: String
     var title: String = ""
     var minPrice: Int = 0
-    var maxPrice: Int = 100
+    var maxPrice: Int = 1000000
+    var type: Bool = true
 
 }
-
 
 enum NetworkResult {
     case Category(value: [Category])
@@ -35,9 +41,21 @@ struct NetworkObject {
     var error: NetworkResult
 }
 
-struct product {
+struct SalesDetails {
+    var price: Double
+    var id: String
+}
+
+struct Product {
     var id: String = ""
     var title: String = ""
-    var price: String = ""
+    var salesDetails: SalesDetails?
     var image: String = ""
+}
+
+struct FilterResult {
+    var products: [Product]
+    var total: Int = 0
+    var pages: Int = 0
+    var limit: Int = 10
 }

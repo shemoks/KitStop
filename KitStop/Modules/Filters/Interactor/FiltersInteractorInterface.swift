@@ -13,5 +13,6 @@ protocol FiltersInteractorInput: class {
     func getFilters()
     func clearAll(types: [Category])
     func getPrice(category: Category)
+    func getProducts(category: Category, price: Price, type: Bool)
 
 }

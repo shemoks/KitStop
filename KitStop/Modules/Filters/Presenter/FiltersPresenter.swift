@@ -20,8 +20,9 @@ final class FiltersPresenter {
     var router: FiltersRouterInput!
     var types = [Category]()
     var price = Price(minValue: 0, maxValue: 100)
-    var filter = Filter(idCategory: 0, title: "", minPrice: 0, maxPrice: 100)
-    var priceVisible: Bool = true
+    var currentCategory: Category?
+ //   var filter = Filter(idCategory: 0, title: "", minPrice: 0, maxPrice: 100)
+    var priceVisible: Bool = false
 
 }
 
@@ -30,19 +31,22 @@ final class FiltersPresenter {
 extension FiltersPresenter: FiltersViewOutput {
 
     func handleApplyTap(price: Price) {
-        //        let filter = Filter()
-        //        filter.typeFilter = self.types
-        //        self.price = price
-        //        filter.priceFilter = price
-        // interactor.getProducts(filter: Filter)
+        if self.currentCategory != nil {
+        interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
+        interactor.clearAll(types: self.types)
+            view.reloadData()
+            self.price = Price(minValue: 0, maxValue: 100)
+            view.reloadPrice()
+        }
     }
 
     func typesList() -> [Category] {
         return self.types
     }
 
-    func priceList() -> Price {
-        return self.price
+    func priceList() -> PriceString {
+        let priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue))
+        return priceString
     }
 
     func handleCancelTap() {
@@ -104,7 +108,7 @@ extension FiltersPresenter: FiltersModuleInput {
 
     func priceVisible(visible: Bool) {
 
-        self.priceVisible = false
+        self.priceVisible = visible
 
     }
 
@@ -116,6 +120,7 @@ extension FiltersPresenter: FilterTypeModuleOutput {
 
         self.types = categories
         view.reloadData()
+        self.currentCategory = currentCategory
         interactor.getPrice(category: currentCategory)
         view.reloadPrice()
 //        self.filter = Filter(idCategory: category.number, title: category.title, minPrice: self.price.minValue, maxPrice: self.price.maxValue)
