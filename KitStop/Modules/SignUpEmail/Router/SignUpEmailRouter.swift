@@ -30,6 +30,14 @@ extension SignUpEmailRouter: SignUpEmailRouterInput {
             return RegistrationTakePhotoModuleOutput
         }
     }
+    
+    func openMainModule() {
+        flowController.openModule(using: .openMainModule) {
+            guard ($0 as? MainModuleInput) != nil else {fatalError()}
+            
+            return nil
+        }
+    }
 }
 
 extension Segue {
@@ -37,5 +45,4 @@ extension Segue {
     static var openSecond: Segue<RegistrationTakePhotoViewController> {
         return .init(identifier: "ShowTakePhoto")
     }
-    
 }

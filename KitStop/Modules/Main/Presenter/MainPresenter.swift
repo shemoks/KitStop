@@ -19,7 +19,6 @@ final class MainPresenter {
     weak var view: MainViewInput!
     var interactor: MainInteractorInput!
     var router: MainRouterInput!
-
 }
 
 // MARK: - MainViewOutput
@@ -55,17 +54,25 @@ extension MainPresenter: MainViewOutput {
         
         view.presentAlert(alertController: alertController)
     }
-
+    
+    func handleKitForSale() {
+        interactor.handleKitsForSale()
+    }
 }
 
 // MARK: - MainInteractorOutput
 
 extension MainPresenter: MainInteractorOutput {
-
+    func updateKits(kits: [KitsModel]) {
+        view.updateData(kits: kits)
+    }
 }
 
 // MARK: - MainModuleInput
 
 extension MainPresenter: MainModuleInput {
+}
 
+extension MainPresenter: MainModuleOutput {
+    
 }

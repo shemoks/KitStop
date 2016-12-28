@@ -31,10 +31,10 @@ extension RootRouter: RootRouterInput {
     }
 
     func changeModuleMain() {
-//        flowController.openModule(using: .openMain) {
-//            guard ($0 as? MainModuleInput) != nil else { fatalError()}
-//            return nil
-//        }
+        flowController.openModule(using: .openMain) {
+            guard ($0 as? MainModuleInput) != nil else { fatalError()}
+            return nil
+        }
     }
 }
 
@@ -44,8 +44,8 @@ extension Segue {
         return .init(identifier: "Registration")
     }
 
-//    static var openMain: Segue<ViewController> {
-//        return .init(identifier: "Main")
-//    }
+    static var openMain: Segue<MainViewController> {
+        return .init(identifier: "transitionToMain")
+    }
 
 }

@@ -37,5 +37,4 @@ extension Segue {
 //    static var openSecond: Segue<SecondViewController> {
 //        return .init(identifier: "transitionToNext")
 //    }
-    
 }

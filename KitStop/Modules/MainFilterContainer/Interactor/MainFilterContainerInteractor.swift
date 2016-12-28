@@ -14,7 +14,16 @@ final class MainFilterContainerInteractor {
 
     weak var presenter: MainFilterContainerInteractorOutput!
 
+    fileprivate let dataManager: MainServiceProtocol
     // MARK: -
+    
+    init(dataManager: MainServiceProtocol) {
+        self.dataManager = dataManager
+    }
+    
+    convenience init() {
+        self.init(dataManager: MainService())
+    }
 
 }
 
@@ -22,21 +31,29 @@ final class MainFilterContainerInteractor {
 
 extension MainFilterContainerInteractor: MainFilterContainerInteractorInput {
 
-    func fetchKitsForCategory(category: Int) {
-        //api call
-        print(pathFromCategory(category: category))
+    func fetchKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?) {
+        apiCallFromCategory(category: category, transferData: transferData)
     }
     
-    func pathFromCategory(category: Int) -> String {
+    func apiCallFromCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?) {
         switch category {
         case 0:
-            return "kits-for-sale"
+            dataManager.fetchAllKitsForSale(page: 1, completionBlock: {
+                kitsForSale in
+                transferData?.kitItems(transferData: kitsForSale)
+            })
         case 1:
-            return "kits"
+            dataManager.fetchAllKits(page: 1, completionBlock: {
+                kits in
+                transferData?.kitItems(transferData: kits)
+            })
         case 2:
-            return "kit-folio"
+            dataManager.fetchAllKitFolio(page: 1, completionBlock: {
+                kitFolio in
+                transferData?.kitItems(transferData: kitFolio)
+            })
         default:
-            return "error"
+            print("error")
         }
     }
 }

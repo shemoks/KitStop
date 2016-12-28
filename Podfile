@@ -9,6 +9,7 @@ target 'KitStop' do
   pod 'FacebookShare'
   pod 'IQKeyboardManagerSwift', '~> 4.0'
   pod 'SwiftyJSON', '~> 3.1'
+  pod 'SDWebImage'
 end
 
 post_install do |installer|

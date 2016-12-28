@@ -10,4 +10,5 @@
 
 protocol LogInViewInput: class {
     func showAlert(title: String, massage: String)
+    func clearTextFields()
 }

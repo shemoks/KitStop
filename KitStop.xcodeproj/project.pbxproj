@@ -11,6 +11,11 @@
 		085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */; };
 		17C560A2DC2A71E3F5959151 /* RestorePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A22944030AA2633B9301FE6 /* RestorePasswordRouter.swift */; };
 		2503BF291E0AA47400AD3BAC /* MainKitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503BF281E0AA47400AD3BAC /* MainKitsCell.swift */; };
+		253300981E1287C100A0C80F /* MainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253300971E1287C100A0C80F /* MainServiceProtocol.swift */; };
+		2533009A1E12893A00A0C80F /* KitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253300991E12893A00A0C80F /* KitsModel.swift */; };
+		2533009C1E129BD100A0C80F /* SaleDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2533009B1E129BD100A0C80F /* SaleDetailsModel.swift */; };
+		2533009E1E12A4C900A0C80F /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2533009D1E12A4C900A0C80F /* MainService.swift */; };
+		25365CE11E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25365CE01E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift */; };
 		253FF5921E095344009685CE /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FF5911E095344009685CE /* ApiProtocol.swift */; };
 		253FF5941E0957C9009685CE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FF5931E0957C9009685CE /* Endpoint.swift */; };
 		253FF5961E09724A009685CE /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FF5951E09724A009685CE /* ApiResult.swift */; };
@@ -153,6 +158,11 @@
 		0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.release.xcconfig"; sourceTree = "<group>"; };
 		201B30E564E95D3AD8879937 /* MainViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2503BF281E0AA47400AD3BAC /* MainKitsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainKitsCell.swift; sourceTree = "<group>"; };
+		253300971E1287C100A0C80F /* MainServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainServiceProtocol.swift; sourceTree = "<group>"; };
+		253300991E12893A00A0C80F /* KitsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitsModel.swift; sourceTree = "<group>"; };
+		2533009B1E129BD100A0C80F /* SaleDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDetailsModel.swift; sourceTree = "<group>"; };
+		2533009D1E12A4C900A0C80F /* MainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		25365CE01E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFilterContainerTransferDataProtocol.swift; sourceTree = "<group>"; };
 		253FF5911E095344009685CE /* ApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
 		253FF5931E0957C9009685CE /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		253FF5951E09724A009685CE /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
@@ -353,6 +363,7 @@
 				9AB17CC11E0BD54D004E95FF /* LogInService.swift */,
 				25D8A14F1E0F0E1D007FC431 /* SignUpService.swift */,
 				9AB17CB11E0BD059004E95FF /* KeychainService.swift */,
+				2533009D1E12A4C900A0C80F /* MainService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -396,6 +407,8 @@
 			children = (
 				9AB17CB51E0BD29F004E95FF /* LogInUserModel.swift */,
 				25D8A14D1E0F0BBB007FC431 /* SignUpUserModel.swift */,
+				253300991E12893A00A0C80F /* KitsModel.swift */,
+				2533009B1E129BD100A0C80F /* SaleDetailsModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -484,6 +497,7 @@
 			children = (
 				25D8A1461E0EC052007FC431 /* LogInServiceProtocol.swift */,
 				25D8A1511E0F0E41007FC431 /* SignUpServiceProtocol.swift */,
+				253300971E1287C100A0C80F /* MainServiceProtocol.swift */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -585,6 +599,7 @@
 			children = (
 				563EBA0C54D3013B2FCD7E3C /* MainFilterContainerViewInterface.swift */,
 				3DB1A20CA68040F7577463AE /* MainFilterContainerViewController.swift */,
+				25365CE01E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1204,6 +1219,7 @@
 				9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */,
 				9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */,
 				9A8E87671DFAC2F700780ED1 /* RootViewController.swift in Sources */,
+				253300981E1287C100A0C80F /* MainServiceProtocol.swift in Sources */,
 				9A8E87641DFAC26600780ED1 /* RootRouterInterface.swift in Sources */,
 				9AB17CA81E0BCEAF004E95FF /* SignUpRouter.swift in Sources */,
 				9AB17CAA1E0BCEAF004E95FF /* SignUpViewController.swift in Sources */,
@@ -1216,6 +1232,8 @@
 				9AB17CA71E0BCEAF004E95FF /* SignUpPresenterInterface.swift in Sources */,
 				9AB17C2D1E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift in Sources */,
 				9AB17CBA1E0BD2B2004E95FF /* CustomAvatar.swift in Sources */,
+				2533009C1E129BD100A0C80F /* SaleDetailsModel.swift in Sources */,
+				2533009A1E12893A00A0C80F /* KitsModel.swift in Sources */,
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				25D8A14E1E0F0BBB007FC431 /* SignUpUserModel.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
@@ -1223,6 +1241,7 @@
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
 				9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */,
 				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
+				2533009E1E12A4C900A0C80F /* MainService.swift in Sources */,
 				9AB17CA91E0BCEAF004E95FF /* SignUpRouterInterface.swift in Sources */,
 				9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */,
 				9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */,
@@ -1235,6 +1254,7 @@
 				9AB17C281E094D68004E95FF /* RegistrationTakePhotoPresenter.swift in Sources */,
 				9AB17C261E094D68004E95FF /* RegistrationTakePhotoInteractor.swift in Sources */,
 				9AB17C291E094D68004E95FF /* RegistrationTakePhotoPresenterInterface.swift in Sources */,
+				25365CE11E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift in Sources */,
 				259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */,
 				259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */,
 				25D8A1471E0EC052007FC431 /* LogInServiceProtocol.swift in Sources */,

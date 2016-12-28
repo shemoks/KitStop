@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import KeychainAccess
 
 protocol ApiManagerProtocol {
     func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]?, headers: [String : String]?) -> ApiRequestProtocol
@@ -37,8 +38,14 @@ extension SessionManager: ApiManagerProtocol {
     func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]? = nil, headers: [String : String]? = nil) -> ApiRequestProtocol {
         // Insert your common headers here, for example, authorization token or accept.
         var commonHeaders = ["Accept" : "application/json"]
-        if let headers = headers {
-            commonHeaders += headers
+        let tokenService = Keychain()
+        do {
+            let token = try tokenService.getString("api_token")
+            if let token = token {
+                commonHeaders += ["x-api-token" : token]
+            }
+        } catch is Error {
+            print("no token")
         }
         return request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: URLEncoding.default, headers: commonHeaders)
     }

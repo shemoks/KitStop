@@ -9,5 +9,5 @@
 // MARK: - MainInteractorInput
 
 protocol MainInteractorInput: class {
-
+    func handleKitsForSale()
 }

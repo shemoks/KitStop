@@ -23,10 +23,15 @@ class LogInService: NSObject , LogInServiceProtocol{
             response in
             switch response.result{
             case .success(let json):
-                if json["success"] == "true" {
+                print(json["success"])
+                if json["success"].boolValue {
+                    let token = KeychainService()
                     // parse and save data
+                    token.saveToken(token: json["data"]["user"]["token"].stringValue)
+                    print("success \(json)")
                     result(true)
                 } else {
+                    print("error \(json)")
                     result(false)
                 }
             case .failure(let error):

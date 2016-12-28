@@ -20,7 +20,7 @@ protocol SignUpEmailViewOutput: class {
 // MARK: - SignUpEmailInteractorOutput
 
 protocol SignUpEmailInteractorOutput: class {
-
+    func openMainModule()
 }
 
 // MARK: - SignUpEmailModuleInput

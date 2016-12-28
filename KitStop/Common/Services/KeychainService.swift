@@ -32,4 +32,9 @@ class KeychainService {
         keychain["api_token"] = token
     }
     
+    func clearToken() {
+        let keychain = Keychain(service: "com.mozidev.KitStop")
+        keychain["api_token"] = nil
+    }
+    
 }

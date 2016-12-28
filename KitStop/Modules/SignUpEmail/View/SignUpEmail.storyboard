@@ -168,6 +168,7 @@
                         <outlet property="password" destination="heH-1l-Aaj" id="N4I-eH-qNg"/>
                         <outlet property="repeatPassword" destination="ISf-0U-A3q" id="k9V-E4-TDB"/>
                         <segue destination="M94-W3-ega" kind="show" identifier="ShowTakePhoto" id="DgJ-DJ-E8E"/>
+                        <segue destination="xAU-sL-jGQ" kind="show" identifier="transitionToMain" id="oMa-cl-aUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVI-u4-JGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,6 +193,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySO-Yh-gyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4863" y="-50"/>
+        </scene>
+        <!--MainViewController-->
+        <scene sceneID="APl-gw-vg2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MainViewController" id="xAU-sL-jGQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6I-s2-9fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4830" y="222"/>
         </scene>
     </scenes>
     <resources>

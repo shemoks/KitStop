@@ -18,7 +18,7 @@ final class MainFilterContainerPresenter {
     weak var view: MainFilterContainerViewInput!
     var interactor: MainFilterContainerInteractorInput!
     var router: MainFilterContainerRouterInput!
-
+    
 }
 
 // MARK: - MainFilterContainerViewOutput
@@ -35,8 +35,8 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
         // router.openNextModule(secondModuleProtocol: 'Search Module Output')
     }
     
-    func handleKitsForCategory(category: Int) {
-        interactor.fetchKitsForCategory(category: category)
+    func handleKitsForCategory(category: Int, transferData trasferData: MainFilterContainerTransferDataProtocol?) {
+        interactor.fetchKitsForCategory(category: category, transferData: trasferData)
     }
 }
 
@@ -49,5 +49,4 @@ extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
 // MARK: - MainFilterContainerModuleInput
 
 extension MainFilterContainerPresenter: MainFilterContainerModuleInput {
-
 }

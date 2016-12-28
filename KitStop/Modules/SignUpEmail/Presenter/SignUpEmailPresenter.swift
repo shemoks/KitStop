@@ -48,7 +48,9 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
 // MARK: - SignUpEmailInteractorOutput
 
 extension SignUpEmailPresenter: SignUpEmailInteractorOutput {
-
+    func openMainModule() {
+        router.openMainModule()
+    }
 }
 
 // MARK: - SignUpEmailModuleInput

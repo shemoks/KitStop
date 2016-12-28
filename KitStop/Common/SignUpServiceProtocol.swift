@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SignUpServiceProtocol {
-    func addNewUser(email: String, password: String, photoUrl: String?)
+    func addNewUser(email: String, password: String, photoUrl: String?, completionBlock: @escaping (Bool) -> ())
 }

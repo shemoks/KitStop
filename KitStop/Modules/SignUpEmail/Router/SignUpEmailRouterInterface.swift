@@ -11,5 +11,5 @@
 protocol SignUpEmailRouterInput: class {
 
     func openModuleTakePhoto(RegistrationTakePhotoModuleOutput: RegistrationTakePhotoModuleOutput)
-
+    func openMainModule()
 }

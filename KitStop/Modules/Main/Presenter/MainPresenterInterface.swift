@@ -12,22 +12,21 @@ import Chamomile
 
 protocol MainViewOutput: class {
     func setupAlert()
+    func handleKitForSale()
 }
 
 // MARK: - MainInteractorOutput
 
 protocol MainInteractorOutput: class {
-
+    func updateKits(kits: [KitsModel])
 }
 
 // MARK: - MainModuleInput
 
 protocol MainModuleInput: ModuleInput {
-
 }
 
 // MARK: - MainModuleOutput
 
 protocol MainModuleOutput: ModuleOutput {
-
 }

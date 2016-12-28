@@ -16,6 +16,10 @@ enum Endpoint {
     case login()
     case signUp()
     case forgot()
+    case createKitFolio()
+    case getKitFolio()
+    case getKits()
+    case getKitsForSale()
     case test()
     
     // MARK: - Public Properties
@@ -24,6 +28,8 @@ enum Endpoint {
         case .login:
             return .post
         case .signUp:
+            return .post
+        case .createKitFolio():
             return .post
         default:
             return .get
@@ -38,6 +44,12 @@ enum Endpoint {
             return "/forgot"
         case .signUp:
             return "/sign-up"
+        case .createKitFolio(), .getKitFolio():
+            return "/kit-folio"
+        case .getKits():
+            return "/kits"
+        case .getKitsForSale():
+            return "/kits-for-sale"
         default:
             return ""
         }
@@ -46,15 +58,6 @@ enum Endpoint {
     
     var url: URL {
         let baseUrl = Endpoint.baseURL
-        switch self {
-        case .login:
-            return baseUrl.appendingPathComponent(path)
-        case .signUp:
-            return baseUrl.appendingPathComponent(path)
-        case .forgot:
-            return baseUrl.appendingPathComponent(path)
-        default:
-            return baseUrl
-        }
+        return baseUrl.appendingPathComponent(path)
     }
 }

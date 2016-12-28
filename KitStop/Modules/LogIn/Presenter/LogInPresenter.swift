@@ -47,6 +47,10 @@ extension LogInPresenter: LogInInteractorOutput {
     func showAlert(title: String, massage: String) {
         view.showAlert(title: title, massage: massage)
     }
+    
+    func clearTextFields() {
+        view.clearTextFields()
+    }
 }
 
 // MARK: - LogInModuleInput

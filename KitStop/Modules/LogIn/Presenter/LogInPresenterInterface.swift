@@ -13,6 +13,7 @@ import Chamomile
 protocol LogInViewOutput: class {
     func handleUserData(userData: Dictionary<String, String>)
     func openForgetPasswordModule()
+    func clearTextFields()
 }
 
 // MARK: - LogInInteractorOutput

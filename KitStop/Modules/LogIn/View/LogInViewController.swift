@@ -21,11 +21,17 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     
     // MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        presenter.clearTextFields()
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidLoad() {
         password.passwordDelegate = self
+    }
+    
+    func clearTextFields() {
+        self.password.text = ""
+        self.email.text = ""
     }
     
     func tapOnPasswordImageSuccess(textField: UITextField) {

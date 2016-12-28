@@ -13,8 +13,24 @@ final class MainInteractor {
     // MARK: - VIPER stack
 
     weak var presenter: MainInteractorOutput!
-
+    fileprivate let dataManager: MainServiceProtocol
     // MARK: -
+    
+    init(dataManager: MainServiceProtocol) {
+        self.dataManager = dataManager
+    }
+    
+    convenience init() {
+        self.init(dataManager: MainService())
+    }
+
+    
+    func handleKitsForSale() {
+        dataManager.fetchAllKitsForSale(page: 1, completionBlock: {
+            kitsForSale in
+            self.presenter.updateKits(kits: kitsForSale)
+        })
+    }
 
 }
 

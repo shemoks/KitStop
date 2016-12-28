@@ -15,6 +15,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     // MARK: - VIPER stack
 
     @IBOutlet weak var kitSegmentControl: UISegmentedControl!
+    var transferData: MainFilterContainerTransferDataProtocol?
     
     var presenter: MainFilterContainerViewOutput!
     
@@ -31,7 +32,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     }
     
     @IBAction func changeKitsElement(_ sender: Any) {
-        presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex)
+        presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData)
     }
 }
 

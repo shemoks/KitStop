@@ -7,11 +7,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View-->
         <scene sceneID="Jl6-pD-fdb">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7pL-Tk-IjC" customClass="MainViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7pL-Tk-IjC" customClass="MainViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Eb-kk-nfu"/>
                         <viewControllerLayoutGuide type="bottom" id="2K1-YL-4YO"/>
@@ -48,7 +53,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nu-Vc-SiV">
                                                             <rect key="frame" x="2" y="2" width="173" height="36"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -71,7 +76,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-oc-4Td">
                                                             <rect key="frame" x="14" y="4" width="31" height="15"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </label>
@@ -110,18 +115,19 @@
                                             <outlet property="camera" destination="XMg-TB-sDx" id="6Y7-KV-vEX"/>
                                             <outlet property="cameraDescription" destination="1Nu-Vc-SiV" id="b05-R0-WcY"/>
                                             <outlet property="price" destination="3j3-oc-4Td" id="FNA-Kj-pyw"/>
+                                            <outlet property="priceContainer" destination="CDf-fI-a7p" id="n7N-zW-wjU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Az0-3O-3Tc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="38"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="2hi-dN-aXp"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="bfy-vK-Y4v" kind="embed" id="tfZ-9t-cGG"/>
+                                    <segue destination="bfy-vK-Y4v" kind="embed" identifier="container" id="tfZ-9t-cGG"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -149,7 +155,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1282" y="-161"/>
+            <point key="canvasLocation" x="2329" y="-154"/>
         </scene>
         <!--View-->
         <scene sceneID="bKe-45-LWD">
@@ -182,14 +188,14 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGg-VM-eHK">
-                                <rect key="frame" x="8" y="8" width="19" height="22"/>
+                                <rect key="frame" x="14" y="8" width="19" height="22"/>
                                 <state key="normal" image="filter_icon"/>
                                 <connections>
                                     <action selector="tapOnFilterButton:" destination="bfy-vK-Y4v" eventType="touchUpInside" id="FUG-Jx-xTu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prg-Sh-Yxd">
-                                <rect key="frame" x="349" y="8" width="18" height="22"/>
+                                <rect key="frame" x="343" y="8" width="18" height="22"/>
                                 <state key="normal" image="search_icon">
                                     <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -202,8 +208,8 @@
                             <constraint firstItem="prg-Sh-Yxd" firstAttribute="centerY" secondItem="S4c-q3-R1x" secondAttribute="centerY" id="2Y4-fh-CAc"/>
                             <constraint firstItem="WDY-fy-vVW" firstAttribute="centerY" secondItem="S4c-q3-R1x" secondAttribute="centerY" id="Ay8-Kf-yUp"/>
                             <constraint firstItem="d1l-0z-3zT" firstAttribute="top" secondItem="wMd-NY-oTY" secondAttribute="bottom" id="J21-zo-zD3"/>
-                            <constraint firstItem="lGg-VM-eHK" firstAttribute="leading" secondItem="S4c-q3-R1x" secondAttribute="leading" constant="8" id="Qzf-cS-2XP"/>
-                            <constraint firstAttribute="trailing" secondItem="prg-Sh-Yxd" secondAttribute="trailing" constant="8" id="aad-W3-CR6"/>
+                            <constraint firstItem="lGg-VM-eHK" firstAttribute="leading" secondItem="S4c-q3-R1x" secondAttribute="leading" constant="14" id="Qzf-cS-2XP"/>
+                            <constraint firstAttribute="trailing" secondItem="prg-Sh-Yxd" secondAttribute="trailing" constant="14" id="aad-W3-CR6"/>
                             <constraint firstItem="WDY-fy-vVW" firstAttribute="centerX" secondItem="S4c-q3-R1x" secondAttribute="centerX" id="bMs-Xt-032"/>
                             <constraint firstItem="4aC-dz-i1b" firstAttribute="top" secondItem="d1l-0z-3zT" secondAttribute="bottom" id="ji9-TF-f3s"/>
                             <constraint firstItem="lGg-VM-eHK" firstAttribute="centerY" secondItem="S4c-q3-R1x" secondAttribute="centerY" id="jy6-nC-0XF"/>
@@ -218,11 +224,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo1-7M-Jxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Xb1-eo-v9r" customClass="MainFilterContainerAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
-                        <outlet property="view" destination="bfy-vK-Y4v" id="O1F-lr-Cbq"/>
+                        <outlet property="view" destination="bfy-vK-Y4v" id="Ubt-q0-xDT"/>
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2120.8000000000002" y="-337.33133433283359"/>
+            <point key="canvasLocation" x="3060" y="-337.33133433283359"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B25-29-4EM">
+            <objects>
+                <navigationController storyboardIdentifier="MainViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jRK-Rw-uKN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fPy-Eq-pzs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7pL-Tk-IjC" kind="relationship" relationship="rootViewController" id="bTe-EX-9RH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8m-58-S1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280.8" y="-161.46926536731635"/>
         </scene>
     </scenes>
     <resources>

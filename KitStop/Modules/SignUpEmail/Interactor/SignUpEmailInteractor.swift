@@ -32,6 +32,11 @@ final class SignUpEmailInteractor {
 
 extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     func addUser(user: SignUpUserModel) {
-        dataManager.addNewUser(email: user.email, password: user.password, photoUrl: user.photoUrl)
+        dataManager.addNewUser(email: user.email, password: user.password, photoUrl: user.photoUrl, completionBlock: {
+            result in
+            if result {
+                self.presenter.openMainModule()
+            }
+        })
     }
 }
