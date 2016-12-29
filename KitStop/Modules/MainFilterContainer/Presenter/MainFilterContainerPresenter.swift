@@ -25,8 +25,8 @@ final class MainFilterContainerPresenter {
 
 extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     
-    func openFilterModule() {
-        router.openFilterModule(filterModuleOutput: self)
+    func openFilterModule(selectedIndex: Int) {
+        router.openFilterModule(selectedIndex: selectedIndex ,filterModuleOutput: self)
     }
     
     func openSearchModule() {
@@ -52,6 +52,6 @@ extension MainFilterContainerPresenter: MainFilterContainerModuleInput {
 
 extension MainFilterContainerPresenter: FiltersModuleOutput{
     func kitsWithFilters(kits: [Product]) {
-        print("Uraaa")
+        view.transferKits(kits: kits)
     }
 }

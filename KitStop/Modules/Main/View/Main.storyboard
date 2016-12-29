@@ -235,7 +235,7 @@
         <!--Filters-->
         <scene sceneID="a3Y-LW-hap">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Filters" storyboardName="Filters" id="HZE-Nl-UvL" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Filters" storyboardName="Filters" referencedIdentifier="Filters" id="HZE-Nl-UvL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbh-yj-6EV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3644" y="-352"/>

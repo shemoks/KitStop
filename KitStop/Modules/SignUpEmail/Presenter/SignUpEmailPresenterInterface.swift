@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import UIKit
 
 // MARK: - SignUpEmailViewOutput
 
@@ -14,7 +15,7 @@ protocol SignUpEmailViewOutput: class {
 
     func takePhoto()
     func comparePassword(password: String, repeatPassword: String) -> Bool
-    func registrationNewUser(userData: [String : String])
+    func registrationNewUser(userData: [String : String], userImage: UIImage)
 }
 
 // MARK: - SignUpEmailInteractorOutput

@@ -35,6 +35,10 @@ extension String: ParameterEncoding {
         return (UIDevice.current.identifierForVendor?.uuidString)!
     }
     
+    public func getUniqueName() -> String {
+        return NSUUID().uuidString
+    }
+    
 }
 
 extension Double {

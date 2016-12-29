@@ -37,8 +37,8 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         }
     }
     
-    func registrationNewUser(userData: [String : String]) {
-        let user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, photoUrl: nil)
+    func registrationNewUser(userData: [String : String], userImage: UIImage) {
+        let user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage)
         interactor.addUser(user: user)
         
     }

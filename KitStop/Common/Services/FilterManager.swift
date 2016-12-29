@@ -52,7 +52,7 @@ class FilterManager: NSObject, FilterManagerProtocol {
 
     func getProducts(filter: Filter, result: @escaping ((FilterResult) -> ())) {
         if !filter.type {
-            let _ = manager.apiRequest(.filter(), parameters: ["from": filter.minPrice as AnyObject, "to": filter.maxPrice as AnyObject, "category": filter.idCategory as AnyObject], headers: nil).apiResponse(completionHandler: {
+            let _ = manager.apiRequest(.forSaleFilter(), parameters: ["from": filter.minPrice as AnyObject, "to": filter.maxPrice as AnyObject, "category": filter.idCategory as AnyObject], headers: nil).apiResponse(completionHandler: {
                 response in
                 switch response.result{
                 case .success(let json):
@@ -80,7 +80,7 @@ class FilterManager: NSObject, FilterManagerProtocol {
                 }
             })
         } else {
-            let _ = manager.apiRequest(.filter(), parameters: ["category": filter.idCategory as AnyObject], headers: nil).apiResponse(completionHandler: {
+            let _ = manager.apiRequest(.kitsFilter(), parameters: ["category": filter.idCategory as AnyObject], headers: nil).apiResponse(completionHandler: {
                 response in
                 switch response.result{
                 case .success(let json):

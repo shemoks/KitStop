@@ -36,6 +36,11 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "log out", style: .done, target: self, action: #selector(logOut))
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.tintColor = .orange
+    }
+    
     func addRefreshControl() {
         refreshControl.bounds = CGRect.init(x: refreshControl.bounds.origin.x, y: 25, width: refreshControl.bounds.size.width, height: refreshControl.bounds.size.height)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)

@@ -11,6 +11,9 @@
 		085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */; };
 		17C560A2DC2A71E3F5959151 /* RestorePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A22944030AA2633B9301FE6 /* RestorePasswordRouter.swift */; };
 		2503BF291E0AA47400AD3BAC /* MainKitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503BF281E0AA47400AD3BAC /* MainKitsCell.swift */; };
+		25301FA71E155CE50028C811 /* AWS3UploadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25301FA61E155CE50028C811 /* AWS3UploadImageService.swift */; };
+		25301FA91E155D080028C811 /* AWS3UploadImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25301FA81E155D080028C811 /* AWS3UploadImageProtocol.swift */; };
+		25301FAB1E15639E0028C811 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25301FAA1E15639E0028C811 /* Constant.swift */; };
 		253300981E1287C100A0C80F /* MainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253300971E1287C100A0C80F /* MainServiceProtocol.swift */; };
 		25365CE11E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25365CE01E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift */; };
 		25365CE31E14147C005A92DA /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25365CE21E14147C005A92DA /* SignUpService.swift */; };
@@ -191,6 +194,9 @@
 		0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.release.xcconfig"; sourceTree = "<group>"; };
 		201B30E564E95D3AD8879937 /* MainViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2503BF281E0AA47400AD3BAC /* MainKitsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainKitsCell.swift; sourceTree = "<group>"; };
+		25301FA61E155CE50028C811 /* AWS3UploadImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWS3UploadImageService.swift; sourceTree = "<group>"; };
+		25301FA81E155D080028C811 /* AWS3UploadImageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWS3UploadImageProtocol.swift; sourceTree = "<group>"; };
+		25301FAA1E15639E0028C811 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		253300971E1287C100A0C80F /* MainServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainServiceProtocol.swift; sourceTree = "<group>"; };
 		25365CE01E13EBD9005A92DA /* MainFilterContainerTransferDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFilterContainerTransferDataProtocol.swift; sourceTree = "<group>"; };
 		25365CE21E14147C005A92DA /* SignUpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpService.swift; path = Services/SignUpService.swift; sourceTree = "<group>"; };
@@ -424,6 +430,7 @@
 				25365CE61E14149E005A92DA /* FilterManager.swift */,
 				9AB17CB11E0BD059004E95FF /* KeychainService.swift */,
 				25365CE41E14148F005A92DA /* MainService.swift */,
+				25301FA61E155CE50028C811 /* AWS3UploadImageService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -482,6 +489,8 @@
 		259C5DEE1DF9B35B001E3CCC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EA0723FD1C24B368E93DADAB /* Filters */,
+				F9AA50F9D00EB7DCEEC2E957 /* FilterType */,
 				2ACC02CD870D5EA7E5E14067 /* Root */,
 				85CC7A2B7AD2C8E3653AC45E /* SignUp */,
 				9AB17C161E094D68004E95FF /* RegistrationTakePhoto */,
@@ -557,6 +566,7 @@
 				25D8A1461E0EC052007FC431 /* LogInServiceProtocol.swift */,
 				25D8A1511E0F0E41007FC431 /* SignUpServiceProtocol.swift */,
 				253300971E1287C100A0C80F /* MainServiceProtocol.swift */,
+				25301FA81E155D080028C811 /* AWS3UploadImageProtocol.swift */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -717,6 +727,7 @@
 			children = (
 				95A638821E0A6DBC0055DB6D /* CustomError.swift */,
 				95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */,
+				25301FAA1E15639E0028C811 /* Constant.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1136,7 +1147,7 @@
 				9A47E4EF1E02A974005EED88 /* View */,
 			);
 			name = Filters;
-			path = Modules/RestorePassword/Assembler/Filters;
+			path = RestorePassword/Assembler/Filters;
 			sourceTree = "<group>";
 		};
 		F1019FBA3A8812BA4AC14420 /* Presenter */ = {
@@ -1158,7 +1169,7 @@
 				9AB1789C1E0925F7004E95FF /* View */,
 			);
 			name = FilterType;
-			path = Modules/RestorePassword/Assembler/FilterType;
+			path = RestorePassword/Assembler/FilterType;
 			sourceTree = "<group>";
 		};
 		FA45284B1DF802F900B2AA03 = {
@@ -1186,8 +1197,6 @@
 			children = (
 				254F42DF1DFE9CD900CDD074 /* Common */,
 				259C5DEE1DF9B35B001E3CCC /* Modules */,
-				EA0723FD1C24B368E93DADAB /* Filters */,
-				F9AA50F9D00EB7DCEEC2E957 /* FilterType */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
 				FA5184331E0D35AA007B546B /* Launch Screen.storyboard */,
 				FA45285E1DF802F900B2AA03 /* Assets.xcassets */,
@@ -1513,8 +1522,10 @@
 				522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */,
 				25D8A14B1E0EC13D007FC431 /* CustomPasswordDelegateTextField.swift in Sources */,
 				EA0B1DCCD738450D73D6D03D /* MainAssember.swift in Sources */,
+				25301FA91E155D080028C811 /* AWS3UploadImageProtocol.swift in Sources */,
 				ED851F6B42A2FA658CA9F8A3 /* MainViewInterface.swift in Sources */,
 				62E8C61ADC306FD70F42236E /* MainViewController.swift in Sources */,
+				25301FA71E155CE50028C811 /* AWS3UploadImageService.swift in Sources */,
 				25432DCF1E043D8200BB7B8F /* UITextField+ChangeNextFieldFocus+String+Encode.swift in Sources */,
 				5422121C48C6DB533B151788 /* MainInteractorInterface.swift in Sources */,
 				B13676A491A33B0774E7DC73 /* MainInteractor.swift in Sources */,
@@ -1562,6 +1573,7 @@
 				9A47E50A1E02BDFC005EED88 /* HeaderView.swift in Sources */,
 				9AB178A71E0925F7004E95FF /* FilterTypeViewInterface.swift in Sources */,
 				9AB178A61E0925F7004E95FF /* FilterTypeViewController.swift in Sources */,
+				25301FAB1E15639E0028C811 /* Constant.swift in Sources */,
 				9AB178A21E0925F7004E95FF /* FilterTypePresenter.swift in Sources */,
 				9AB178A51E0925F7004E95FF /* FilterTypeRouterInterface.swift in Sources */,
 				9AB178A01E0925F7004E95FF /* FilterTypeInteractor.swift in Sources */,

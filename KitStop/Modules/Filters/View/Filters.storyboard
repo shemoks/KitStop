@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gmd-Pm-BWe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <!--View-->
         <scene sceneID="TUv-zy-7cX">
             <objects>
-                <viewController id="QJd-ZO-nP3" customClass="FiltersViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Filters" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QJd-ZO-nP3" customClass="FiltersViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hu3-L4-3NI"/>
                         <viewControllerLayoutGuide type="bottom" id="yet-uh-d7t"/>
@@ -20,10 +20,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-lC-EEl">
-                                <rect key="frame" x="0.0" y="319" width="375" height="349"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-Ji-7FL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="154"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="154" id="xS8-Jw-jMt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="QJd-ZO-nP3" id="Ryg-Yb-jSx"/>
+                                    <outlet property="delegate" destination="QJd-ZO-nP3" id="fbJ-j2-9jx"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEy-bN-zwM">
                                 <rect key="frame" x="0.0" y="218" width="375" height="55"/>
                                 <subviews>
@@ -87,46 +94,49 @@
                                     <constraint firstAttribute="height" constant="55" id="vzw-xd-KJg"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-Ji-7FL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="154"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-lC-EEl">
+                                <rect key="frame" x="0.0" y="273" width="375" height="394"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-Wr-Ukc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="4ot-TQ-Ctl"/>
+                                        </constraints>
+                                        <state key="normal" title="Apply" backgroundImage="button">
+                                            <color key="titleColor" red="1" green="0.36392692539999999" blue="0.25220766579999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="applyButtonTap:" destination="QJd-ZO-nP3" eventType="touchUpInside" id="sqA-eC-D6e"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="xS8-Jw-jMt"/>
+                                    <constraint firstAttribute="trailing" secondItem="qNI-Wr-Ukc" secondAttribute="trailing" id="CQ9-ho-UIJ"/>
+                                    <constraint firstItem="qNI-Wr-Ukc" firstAttribute="leading" secondItem="dUL-lC-EEl" secondAttribute="leading" id="z4M-g5-cb8"/>
+                                    <constraint firstItem="qNI-Wr-Ukc" firstAttribute="top" secondItem="dUL-lC-EEl" secondAttribute="top" id="zD9-gu-f79"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="QJd-ZO-nP3" id="Ryg-Yb-jSx"/>
-                                    <outlet property="delegate" destination="QJd-ZO-nP3" id="fbJ-j2-9jx"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-Wr-Ukc">
-                                <rect key="frame" x="0.0" y="273" width="375" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="4ot-TQ-Ctl"/>
-                                </constraints>
-                                <state key="normal" title="Apply">
-                                    <color key="titleColor" red="1" green="0.36392692539999999" blue="0.25220766579999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="applyButtonTap:" destination="QJd-ZO-nP3" eventType="touchUpInside" id="sqA-eC-D6e"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lEy-bN-zwM" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="4Hg-dC-aep"/>
-                            <constraint firstAttribute="bottom" secondItem="dUL-lC-EEl" secondAttribute="bottom" constant="-1" id="BFP-Rv-3mN"/>
+                            <constraint firstItem="dUL-lC-EEl" firstAttribute="top" secondItem="lEy-bN-zwM" secondAttribute="bottom" id="8x7-Zs-b8R"/>
+                            <constraint firstItem="lEy-bN-zwM" firstAttribute="top" secondItem="EjM-Ji-7FL" secondAttribute="bottom" id="9dK-C0-fEf"/>
+                            <constraint firstAttribute="trailing" secondItem="lEy-bN-zwM" secondAttribute="trailing" id="CPR-i1-bu8"/>
                             <constraint firstItem="EjM-Ji-7FL" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="KBa-EK-zIj"/>
-                            <constraint firstItem="dUL-lC-EEl" firstAttribute="top" secondItem="qNI-Wr-Ukc" secondAttribute="bottom" id="KBx-I7-elR"/>
                             <constraint firstItem="EjM-Ji-7FL" firstAttribute="top" secondItem="Hu3-L4-3NI" secondAttribute="bottom" id="LfD-fV-PP4"/>
-                            <constraint firstItem="qNI-Wr-Ukc" firstAttribute="top" secondItem="lEy-bN-zwM" secondAttribute="bottom" id="Sa1-te-O0x"/>
-                            <constraint firstItem="qNI-Wr-Ukc" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="UYZ-Xm-y9P"/>
-                            <constraint firstAttribute="trailing" secondItem="lEy-bN-zwM" secondAttribute="trailing" id="bCA-s1-jfa"/>
+                            <constraint firstAttribute="bottom" secondItem="dUL-lC-EEl" secondAttribute="bottom" id="STW-Qv-Dmz"/>
                             <constraint firstItem="dUL-lC-EEl" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="fNv-WS-cDk"/>
+                            <constraint firstItem="dUL-lC-EEl" firstAttribute="top" secondItem="EjM-Ji-7FL" secondAttribute="bottom" id="jxQ-7D-z5d"/>
                             <constraint firstAttribute="trailing" secondItem="dUL-lC-EEl" secondAttribute="trailing" id="kO2-6u-2Se"/>
-                            <constraint firstAttribute="trailing" secondItem="qNI-Wr-Ukc" secondAttribute="trailing" id="r4e-h6-TCN"/>
-                            <constraint firstItem="lEy-bN-zwM" firstAttribute="top" secondItem="EjM-Ji-7FL" secondAttribute="bottom" id="uDo-Qa-qB7"/>
+                            <constraint firstItem="lEy-bN-zwM" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="nzx-eO-S8G"/>
                             <constraint firstAttribute="trailing" secondItem="EjM-Ji-7FL" secondAttribute="trailing" id="wiX-Cb-smR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jxQ-7D-z5d"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Filter Items" id="1zS-6z-fhS">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eIm-g5-65T">
@@ -170,9 +180,9 @@
         <!--Navigation Controller-->
         <scene sceneID="9rc-OO-LNU">
             <objects>
-                <navigationController storyboardIdentifier="Filters" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gmd-Pm-BWe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gmd-Pm-BWe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvz-cU-NzD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pvz-cU-NzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -189,4 +199,7 @@
             <point key="canvasLocation" x="-79" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button" width="251" height="44"/>
+    </resources>
 </document>

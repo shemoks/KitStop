@@ -15,14 +15,16 @@ final class SignUpEmailInteractor {
     weak var presenter: SignUpEmailInteractorOutput!
 
     fileprivate let dataManager: SignUpServiceProtocol
+    fileprivate let awsManager: AWS3UploadImageProtocol
     // MARK: -
     
-    init(dataManager: SignUpServiceProtocol) {
+    init(dataManager: SignUpServiceProtocol, awsManager: AWS3UploadImageProtocol) {
         self.dataManager = dataManager
+        self.awsManager = awsManager
     }
     
     convenience init() {
-        self.init(dataManager: SignUpService())
+        self.init(dataManager: SignUpService(), awsManager: AWS3UploadImageService())
     }
 
 
@@ -32,11 +34,14 @@ final class SignUpEmailInteractor {
 
 extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     func addUser(user: SignUpUserModel) {
-        dataManager.addNewUser(email: user.email, password: user.password, photoUrl: user.photoUrl, completionBlock: {
+        awsManager.uploadImage(userImage: user.userImage, successBlock: {
             result in
-            if result {
-                self.presenter.openMainModule()
-            }
+            self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result!, completionBlock: {
+                result in
+                if result {
+                    self.presenter.openMainModule()
+                }
+            })
         })
     }
 }

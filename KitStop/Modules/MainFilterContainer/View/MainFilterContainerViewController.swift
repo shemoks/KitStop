@@ -25,7 +25,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     }
     
     @IBAction func tapOnFilterButton(_ sender: Any) {
-        presenter.openFilterModule()
+        presenter.openFilterModule(selectedIndex: kitSegmentControl.selectedSegmentIndex)
     }
     
     @IBAction func tapOnSearchButton(_ sender: Any) {
@@ -40,5 +40,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
 // MARK: - MainFilterContainerViewInput
 
 extension MainFilterContainerViewController: MainFilterContainerViewInput {
-
+    func transferKits(kits: [Product]) {
+        transferData?.kitItems(transferData: kits)
+    }
 }

@@ -9,5 +9,5 @@
 // MARK: - MainFilterContainerViewInput
 
 protocol MainFilterContainerViewInput: class {
-
+    func transferKits(kits: [Product])
 }

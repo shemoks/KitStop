@@ -24,9 +24,14 @@ final class MainFilterContainerRouter {
 
 extension MainFilterContainerRouter: MainFilterContainerRouterInput {
     
-    func openFilterModule(filterModuleOutput: FiltersModuleOutput) {
+    func openFilterModule(selectedIndex: Int ,filterModuleOutput: FiltersModuleOutput) {
         flowController.openModule(using: .openFilterModule) {
-            guard ($0 as? FiltersModuleInput) != nil else { fatalError() }
+            guard let moduleInput = $0 as? FiltersModuleInput else { fatalError() }
+            if selectedIndex == 0 {
+                moduleInput.priceVisible(visible: false)
+            } else {
+                moduleInput.priceVisible(visible: true)
+            }
             return filterModuleOutput
         }
     }

@@ -20,6 +20,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     @IBOutlet weak var email: UITextField!
 
     var presenter: SignUpEmailViewOutput!
+    fileprivate var upload = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         if presenter.comparePassword(password: password.text!, repeatPassword: repeatPassword.text!) {
             let userData = ["email" : email.text!,
                             "password" : password.text!]
-            presenter.registrationNewUser(userData: userData)
+            presenter.registrationNewUser(userData: userData, userImage: avatar.image!)
         }
     }
     
@@ -53,6 +54,7 @@ extension SignUpEmailViewController: SignUpEmailViewInput {
 
     func getPhoto(photo: UIImage) {
         avatar.image = photo
+        upload = true
     }
 
 }

@@ -11,6 +11,7 @@ target 'KitStop' do
   pod 'SwiftyJSON', '~> 3.1'
   pod 'SDWebImage'
   pod 'RealmSwift'
+  pod 'AWSS3'
 end
 
 post_install do |installer|

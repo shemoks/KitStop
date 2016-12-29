@@ -21,7 +21,8 @@ enum Endpoint {
     case getKits()
     case getKitsForSale()
     case categories()
-    case filter()
+    case forSaleFilter()
+    case kitsFilter()
     case price()
     
     // MARK: - Public Properties
@@ -48,16 +49,14 @@ enum Endpoint {
             return "/sign-up"
         case .createKitFolio, .getKitFolio:
             return "/kit-folio"
-        case .getKits:
+        case .getKits, .kitsFilter():
             return "/kits"
-        case .getKitsForSale, .filter:
+        case .getKitsForSale, .forSaleFilter():
             return "/kits-for-sale"
         case .categories:
             return "/category"
         case .price:
             return "/filters"
-        default:
-            return ""
         }
     }
 
