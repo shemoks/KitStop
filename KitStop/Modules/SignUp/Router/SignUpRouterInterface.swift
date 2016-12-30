@@ -12,5 +12,6 @@ protocol SignUpRouterInput: class {
 
     func openLoginModule()
     func openRegistrationModule()
+    func openMainModule()
     
 }

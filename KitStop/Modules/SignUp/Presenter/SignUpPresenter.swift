@@ -32,13 +32,19 @@ extension SignUpPresenter: SignUpViewOutput {
     func signUp() {
         router.openRegistrationModule()
     }
+    
+    func handleFacebookLoginTap() {
+         interactor.signUpWithFacebook()
+    }
 
 }
 
 // MARK: - SignUpInteractorOutput
 
 extension SignUpPresenter: SignUpInteractorOutput {
-
+    func openMainModule() {
+        router.openMainModule()
+    }
 }
 
 // MARK: - SignUpModuleInput

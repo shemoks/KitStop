@@ -51,17 +51,6 @@ enum Endpoint {
     
     var url: URL {
         let baseUrl = Endpoint.baseURL
-        switch self {
-        case .login:
-            return baseUrl.appendingPathComponent(path)
-        case .signUp:
-            return baseUrl.appendingPathComponent(path)
-        case .forgot:
-            return baseUrl.appendingPathComponent(path)
-        case .fbAuthenticate:
-            return baseUrl.appendingPathComponent(path)
-        default:
-            return baseUrl
-        }
+        return baseUrl.appendingPathComponent(path)
     }
 }

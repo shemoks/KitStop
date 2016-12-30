@@ -36,6 +36,10 @@ extension SignUpRouter: SignUpRouterInput {
             return nil
         }
     }
+    
+    func openMainModule() {
+        
+    }
 
 }
 

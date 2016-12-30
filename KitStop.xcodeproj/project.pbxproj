@@ -37,8 +37,9 @@
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
 		95F2EBBA1E16426100A84B7F /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB61E16426100A84B7F /* ApiProtocol.swift */; };
 		95F2EBBB1E16426100A84B7F /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB71E16426100A84B7F /* ApiResult.swift */; };
-		95F2EBBC1E16426100A84B7F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB81E16426100A84B7F /* DataManager.swift */; };
 		95F2EBBD1E16426100A84B7F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB91E16426100A84B7F /* Endpoint.swift */; };
+		95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */; };
+		95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC31E16579200A84B7F /* FacebookService.swift */; };
 		9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */; };
 		9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */; };
 		9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */; };
@@ -153,8 +154,9 @@
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
 		95F2EBB61E16426100A84B7F /* ApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
 		95F2EBB71E16426100A84B7F /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
-		95F2EBB81E16426100A84B7F /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		95F2EBB91E16426100A84B7F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		95F2EBC31E16579200A84B7F /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = SOURCE_ROOT; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
 		9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenter.swift; path = KitStop/Modules/Root/Presenter/RootPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenterInterface.swift; path = KitStop/Modules/Root/Presenter/RootPresenterInterface.swift; sourceTree = SOURCE_ROOT; };
@@ -282,10 +284,8 @@
 		25432DC81E03FA9300BB7B8F /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				95F2EBB61E16426100A84B7F /* ApiProtocol.swift */,
-				95F2EBB71E16426100A84B7F /* ApiResult.swift */,
-				95F2EBB81E16426100A84B7F /* DataManager.swift */,
-				95F2EBB91E16426100A84B7F /* Endpoint.swift */,
+				95F2EBC01E16564400A84B7F /* ServiceProtocol */,
+				95F2EBC31E16579200A84B7F /* FacebookService.swift */,
 				9AB17CB11E0BD059004E95FF /* KeychainService.swift */,
 			);
 			name = Service;
@@ -294,6 +294,7 @@
 		254F42DF1DFE9CD900CDD074 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				95F2EBBE1E1655F800A84B7F /* HTTP Client */,
 				95BFD6701E0A87B90081793B /* Helpers */,
 				9AB17CC31E0BD5AE004E95FF /* Fonts */,
 				25432DC81E03FA9300BB7B8F /* Service */,
@@ -470,6 +471,25 @@
 				95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		95F2EBBE1E1655F800A84B7F /* HTTP Client */ = {
+			isa = PBXGroup;
+			children = (
+				95F2EBB61E16426100A84B7F /* ApiProtocol.swift */,
+				95F2EBB71E16426100A84B7F /* ApiResult.swift */,
+				95F2EBB91E16426100A84B7F /* Endpoint.swift */,
+			);
+			name = "HTTP Client";
+			sourceTree = "<group>";
+		};
+		95F2EBC01E16564400A84B7F /* ServiceProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */,
+			);
+			name = ServiceProtocol;
+			path = ../Modules/SignUpEmail/Presenter/Modules/SignUp;
 			sourceTree = "<group>";
 		};
 		963E49F089DD187159FC01CF /* View */ = {
@@ -1006,7 +1026,6 @@
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
-				95F2EBBC1E16426100A84B7F /* DataManager.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
 				9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */,
 				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
@@ -1026,6 +1045,8 @@
 				259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */,
 				259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */,
 				254F42E41DFEAAA300CDD074 /* CustomPasswordDelegate.swift in Sources */,
+				95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */,
+				95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */,
 				259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */,
 				9AB17CA31E0BCEAF004E95FF /* SignUpAssember.swift in Sources */,
 				259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */,
