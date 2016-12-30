@@ -45,6 +45,7 @@ extension SignUpViewController: FBSDKLoginButtonDelegate {
 
 
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

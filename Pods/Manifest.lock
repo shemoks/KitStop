@@ -27,6 +27,7 @@ PODS:
     - FBSDKCoreKit
   - IQKeyboardManagerSwift (4.0.7)
   - KeychainAccess (3.0.1)
+  - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - FacebookShare
   - IQKeyboardManagerSwift (~> 4.0)
   - KeychainAccess
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -47,7 +49,8 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 687f0bde5415ac7876643389d50d949952060e87
+PODFILE CHECKSUM: 7eea7da3ef55e94d7d26aa2c8986788bd61e403b
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.0.1

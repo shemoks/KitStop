@@ -35,6 +35,10 @@
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
 		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
+		95F2EBBA1E16426100A84B7F /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB61E16426100A84B7F /* ApiProtocol.swift */; };
+		95F2EBBB1E16426100A84B7F /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB71E16426100A84B7F /* ApiResult.swift */; };
+		95F2EBBC1E16426100A84B7F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB81E16426100A84B7F /* DataManager.swift */; };
+		95F2EBBD1E16426100A84B7F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBB91E16426100A84B7F /* Endpoint.swift */; };
 		9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */; };
 		9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */; };
 		9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */; };
@@ -72,7 +76,6 @@
 		9AB17CBA1E0BD2B2004E95FF /* CustomAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB71E0BD2B2004E95FF /* CustomAvatar.swift */; };
 		9AB17CBE1E0BD2DA004E95FF /* RegistrationTakePhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CBD1E0BD2DA004E95FF /* RegistrationTakePhoto.storyboard */; };
 		9AB17CC01E0BD2FE004E95FF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CBF1E0BD2FE004E95FF /* Login.storyboard */; };
-		9AB17CC21E0BD54D004E95FF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CC11E0BD54D004E95FF /* DataManager.swift */; };
 		9AB17CDD1E0BD5AE004E95FF /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CC51E0BD5AE004E95FF /* SF-UI-Display-Black.otf */; };
 		9AB17CDE1E0BD5AE004E95FF /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CC61E0BD5AE004E95FF /* SF-UI-Display-Bold.otf */; };
 		9AB17CDF1E0BD5AE004E95FF /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CC71E0BD5AE004E95FF /* SF-UI-Display-Heavy.otf */; };
@@ -148,6 +151,10 @@
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
+		95F2EBB61E16426100A84B7F /* ApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
+		95F2EBB71E16426100A84B7F /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
+		95F2EBB81E16426100A84B7F /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		95F2EBB91E16426100A84B7F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
 		9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenter.swift; path = KitStop/Modules/Root/Presenter/RootPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenterInterface.swift; path = KitStop/Modules/Root/Presenter/RootPresenterInterface.swift; sourceTree = SOURCE_ROOT; };
@@ -185,7 +192,6 @@
 		9AB17CB71E0BD2B2004E95FF /* CustomAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAvatar.swift; path = Views/CustomAvatar.swift; sourceTree = "<group>"; };
 		9AB17CBD1E0BD2DA004E95FF /* RegistrationTakePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationTakePhoto.storyboard; sourceTree = "<group>"; };
 		9AB17CBF1E0BD2FE004E95FF /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		9AB17CC11E0BD54D004E95FF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Services/DataManager.swift; sourceTree = "<group>"; };
 		9AB17CC51E0BD5AE004E95FF /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		9AB17CC61E0BD5AE004E95FF /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
 		9AB17CC71E0BD5AE004E95FF /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -276,7 +282,10 @@
 		25432DC81E03FA9300BB7B8F /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9AB17CC11E0BD54D004E95FF /* DataManager.swift */,
+				95F2EBB61E16426100A84B7F /* ApiProtocol.swift */,
+				95F2EBB71E16426100A84B7F /* ApiResult.swift */,
+				95F2EBB81E16426100A84B7F /* DataManager.swift */,
+				95F2EBB91E16426100A84B7F /* Endpoint.swift */,
 				9AB17CB11E0BD059004E95FF /* KeychainService.swift */,
 			);
 			name = Service;
@@ -951,7 +960,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		951B39731DF967E3001765C3 /* Run Script */ = {
@@ -980,12 +989,12 @@
 			files = (
 				9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */,
 				9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */,
+				95F2EBBB1E16426100A84B7F /* ApiResult.swift in Sources */,
 				9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */,
 				9A8E87671DFAC2F700780ED1 /* RootViewController.swift in Sources */,
 				9A8E87641DFAC26600780ED1 /* RootRouterInterface.swift in Sources */,
 				9AB17CA81E0BCEAF004E95FF /* SignUpRouter.swift in Sources */,
 				9AB17CAA1E0BCEAF004E95FF /* SignUpViewController.swift in Sources */,
-				9AB17CC21E0BD54D004E95FF /* DataManager.swift in Sources */,
 				259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */,
 				254F42E21DFE9D8F00CDD074 /* CustomPassword.swift in Sources */,
 				9AB17CA61E0BCEAF004E95FF /* SignUpPresenter.swift in Sources */,
@@ -997,12 +1006,14 @@
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
+				95F2EBBC1E16426100A84B7F /* DataManager.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
 				9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */,
 				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
 				9AB17CA91E0BCEAF004E95FF /* SignUpRouterInterface.swift in Sources */,
 				9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */,
 				9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */,
+				95F2EBBA1E16426100A84B7F /* ApiProtocol.swift in Sources */,
 				9AB17CB61E0BD29F004E95FF /* LogInUserModel.swift in Sources */,
 				9AB17CA51E0BCEAF004E95FF /* SignUpInteractorInterface.swift in Sources */,
 				9AB17CB21E0BD059004E95FF /* KeychainService.swift in Sources */,
@@ -1041,6 +1052,7 @@
 				D57B2C9E88487CF5E6D4AE4B /* RestorePasswordPresenter.swift in Sources */,
 				7499FEEE035E67001BC1F3A8 /* RestorePasswordRouterInterface.swift in Sources */,
 				17C560A2DC2A71E3F5959151 /* RestorePasswordRouter.swift in Sources */,
+				95F2EBBD1E16426100A84B7F /* Endpoint.swift in Sources */,
 				9AB17C2C1E094D68004E95FF /* RegistrationTakePhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
