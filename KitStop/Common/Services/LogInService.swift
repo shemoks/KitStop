@@ -18,7 +18,7 @@ class LogInService: NSObject , LogInServiceProtocol{
         self.manager = manager
     }
     
-    func fetchUser(email: String, password: String, result: @escaping (Bool) -> ()) {
+    func fetchUser(email: String, password: String, result: @escaping (Bool, _ error: Int?) -> ()) {
         let _ = manager.apiRequest(.login(), parameters: ["email" : email as AnyObject, "password" : password as AnyObject, "clients" : String().getUUID() as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result{
@@ -29,14 +29,14 @@ class LogInService: NSObject , LogInServiceProtocol{
                     // parse and save data
                     token.saveToken(token: json["data"]["user"]["token"].stringValue)
                     print("success \(json)")
-                    result(true)
+                    result(true, nil)
                 } else {
                     print("error \(json)")
-                    result(false)
+                    result(false, response.response?.statusCode)
                 }
             case .failure(let error):
                 print(error)
-                result(false)
+                result(false, (error as NSError).code)
             }
         })
     }

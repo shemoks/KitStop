@@ -45,10 +45,13 @@ extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     }
     
     func addUser(result: String?, user: SignUpUserModel) {
-        self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result, completionBlock: {
-            result in
+        self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result == nil ? nil : result!, name: user.name, surname: user.surname, completionBlock: {
+            result, error in
             if result {
                 self.presenter.openMainModule()
+            } else {
+                let errorMassage = CustomError(code: error!).description
+                self.presenter.showAlert(title: "Error", massage: errorMassage)
             }
         })
     }

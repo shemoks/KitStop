@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LogInServiceProtocol {
-    func fetchUser(email: String, password: String, result: @escaping (Bool) -> ())
+    func fetchUser(email: String, password: String, result: @escaping (Bool, _ error: Int?) -> ())
 }

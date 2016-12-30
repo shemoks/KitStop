@@ -10,10 +10,12 @@ import Chamomile
 
 // MARK: - SignUpEmailViewController
 
-final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegateTextField {
+final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegateTextField, Alertable {
 
     // MARK: - VIPER stack
     
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var surname: UITextField!
     @IBOutlet weak var avatar: CustomAvatar!
     @IBOutlet weak var password: CustomPasswordTextField!
     @IBOutlet weak var repeatPassword: CustomPasswordTextField!
@@ -36,7 +38,9 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
         if presenter.comparePassword(password: password.text!, repeatPassword: repeatPassword.text!) {
             let userData = ["email" : email.text!,
-                            "password" : password.text!]
+                            "password" : password.text!,
+                            "name" : name.text!,
+                            "surname" : surname.text!]
             presenter.registrationNewUser(userData: userData, userImage: avatar.image!)
             
         }
@@ -54,6 +58,10 @@ extension SignUpEmailViewController: SignUpEmailViewInput {
 
     func getPhoto(photo: UIImage) {
         avatar.image = photo
+    }
+    
+    func showAlert(title: String, massage: String) {
+        showAlertWithTitle(title, message: massage)
     }
 
 }

@@ -40,13 +40,23 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
     
     func registrationNewUser(userData: [String : String], userImage: UIImage) {
         let user: SignUpUserModel?
+        let name = checkUserName(name: userData["name"]!)
+        let surname = userData["surname"]!
         if !upload {
-            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: nil)
+            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: nil, name: name, surname: surname)
         } else {
-            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage)
+            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage, name: name, surname: surname)
         }
         interactor.addUser(user: user!)
         
+    }
+    
+    func checkUserName(name: String?) -> String? {
+        if name == "" {
+            return nil
+        } else {
+            return name!
+        }
     }
 
 }
@@ -56,6 +66,10 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
 extension SignUpEmailPresenter: SignUpEmailInteractorOutput {
     func openMainModule() {
         router.openMainModule()
+    }
+    
+    func showAlert(title: String, massage: String) {
+        view.showAlert(title: title, massage: massage)
     }
 }
 

@@ -11,9 +11,11 @@ import UIKit
 final class SignUpUserModel: NSObject {
     dynamic var email: String
     dynamic var password: String
+    dynamic var name: String?
+    dynamic var surname: String?
     dynamic var userImage: UIImage?
     
-    init(email: String, password: String, userImage: UIImage?) {
+    init(email: String, password: String, userImage: UIImage?, name: String?, surname: String?) {
         self.email = email
         self.password = password
         self.userImage = userImage

@@ -30,11 +30,12 @@ final class LogInInteractor {
 extension LogInInteractor: LogInInteractorInput {
     func fetchUserData(userDataModel: LogInUserModel) {
         dataManager.fetchUser(email: userDataModel.login, password: userDataModel.password, result: {
-            res in
-            if res {
+            res, error in
+            if res && error == nil {
                 self.presenter.openMainModule()
             } else {
-                self.presenter.showAlert(title: "Error", massage: "Internet isn`t connecting")
+                let errorMassage = CustomError(code: error!).description
+                self.presenter.showAlert(title: "Error", massage: errorMassage)
             }
         })
     }

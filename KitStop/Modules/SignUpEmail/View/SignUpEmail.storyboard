@@ -165,8 +165,10 @@
                     <connections>
                         <outlet property="avatar" destination="8Pr-rd-2KX" id="9Ox-k9-u94"/>
                         <outlet property="email" destination="O2b-XY-oAz" id="aNl-fa-yrC"/>
+                        <outlet property="name" destination="rpF-Is-B9J" id="v2U-R3-6XO"/>
                         <outlet property="password" destination="heH-1l-Aaj" id="N4I-eH-qNg"/>
                         <outlet property="repeatPassword" destination="ISf-0U-A3q" id="k9V-E4-TDB"/>
+                        <outlet property="surname" destination="93g-a5-W5G" id="Vsh-bN-1cl"/>
                         <segue destination="M94-W3-ega" kind="show" identifier="ShowTakePhoto" id="DgJ-DJ-E8E"/>
                         <segue destination="xAU-sL-jGQ" kind="show" identifier="transitionToMain" id="oMa-cl-aUt"/>
                     </connections>

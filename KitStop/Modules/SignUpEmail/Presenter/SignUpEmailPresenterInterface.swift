@@ -22,6 +22,7 @@ protocol SignUpEmailViewOutput: class {
 
 protocol SignUpEmailInteractorOutput: class {
     func openMainModule()
+    func showAlert(title: String, massage: String)
 }
 
 // MARK: - SignUpEmailModuleInput
