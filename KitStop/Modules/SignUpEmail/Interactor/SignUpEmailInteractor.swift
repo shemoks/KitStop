@@ -47,6 +47,7 @@ extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     func addUser(result: String?, user: SignUpUserModel) {
         self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result == nil ? nil : result!, name: user.name, surname: user.surname, completionBlock: {
             result, error in
+            LoadingIndicatorView.hide()
             if result {
                 self.presenter.openMainModule()
             } else {

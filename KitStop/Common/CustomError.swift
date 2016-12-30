@@ -44,3 +44,4 @@ extension CustomError: RawRepresentable, CustomStringConvertible {
         }
     }
 }
+

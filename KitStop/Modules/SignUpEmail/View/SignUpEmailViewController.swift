@@ -34,9 +34,9 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
 
-
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
         if presenter.comparePassword(password: password.text!, repeatPassword: repeatPassword.text!) {
+            LoadingIndicatorView.show(self.view)
             let userData = ["email" : email.text!,
                             "password" : password.text!,
                             "name" : name.text!,
