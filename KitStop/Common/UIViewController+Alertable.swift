@@ -27,7 +27,7 @@ extension Alertable where Self: UIViewController {
     
     func showAlertWithTitle(_ title: String?, message: String?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "ok", style: .default) {_ in
+        let action = UIAlertAction(title: "Ok", style: .default) {_ in
             alertController.dismiss(animated: true, completion: nil)
         }
         

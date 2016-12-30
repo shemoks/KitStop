@@ -65,9 +65,9 @@ extension FiltersPresenter: FiltersViewOutput {
     }
 
     func handleViewDidLoad() {
+        view.priceVisible(visible: self.priceVisible)
         interactor.getFilters()
         view.reloadData()
-        view.priceVisible(visible: self.priceVisible)
         view.reloadPrice()
     }
 
@@ -128,7 +128,6 @@ extension FiltersPresenter: FilterTypeModuleOutput {
         self.currentCategory = currentCategory
         interactor.getPrice(category: currentCategory)
         view.reloadPrice()
-//        self.filter = Filter(idCategory: category.number, title: category.title, minPrice: self.price.minValue, maxPrice: self.price.maxValue)
 
     }
     

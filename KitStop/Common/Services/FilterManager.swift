@@ -22,12 +22,11 @@ class FilterManager: NSObject, FilterManagerProtocol {
         self.manager = manager
     }
 
-    func categoryFromServer(arrayOfCategories: @escaping (([Category]) -> ())) {
+    func categoryFromServer(arrayOfCategories: @escaping (([Category], _ errorCode: Int?) -> ())) {
         let _ = manager.apiRequest(.categories(), parameters: [:], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result{
             case .success(let json):
-            //    print(json)
                 if json["success"] == true {
                     let categories = json["data"]
                     for category in categories {
@@ -36,21 +35,18 @@ class FilterManager: NSObject, FilterManagerProtocol {
                         newCategory.isSelected = false
                         newCategory.title = category.1["title"].stringValue
                         self.saveInRealm(category: newCategory)
-                        arrayOfCategories(self.getCategories())
+                        arrayOfCategories(self.getCategories(), nil)
                     }
                 } else {
-                    print(json["data"]["message"])
-                    arrayOfCategories(self.getCategories())
+                    arrayOfCategories(self.getCategories(), response.response?.statusCode)
                 }
             case .failure(let error):
-                arrayOfCategories(self.getCategories())
-                print(error.localizedDescription)
-
+                arrayOfCategories(self.getCategories(), (error as NSError).code)
             }
         })
     }
 
-    func getProducts(filter: Filter, result: @escaping ((FilterResult) -> ())) {
+    func getProducts(filter: Filter, result: @escaping ((FilterResult, _ errorCode: Int?) -> ())) {
         if !filter.type {
             let _ = manager.apiRequest(.forSaleFilter(), parameters: ["from": filter.minPrice as AnyObject, "to": filter.maxPrice as AnyObject, "category": filter.idCategory as AnyObject], headers: nil).apiResponse(completionHandler: {
                 response in
@@ -62,21 +58,21 @@ class FilterManager: NSObject, FilterManagerProtocol {
                         let products = json["data"]["docs"]
                         for product in products {
                             let newProduct = Product(id: product.1["_id"].stringValue, title: product.1["title"].stringValue, salesDetails: SalesDetails(price: product.1["salesDetails"]["price"].doubleValue, id: product.1["salesDetails"]["_id"].stringValue
-                                ), mainImage: product.1["mainImage"].stringValue)
-                           arrProducts.append(newProduct)
+                            ), mainImage: product.1["mainImage"].stringValue)
+                            arrProducts.append(newProduct)
                         }
                         let total = json["data"]["total"].intValue
                         let pages = json["data"]["pages"].intValue
                         let limit = json["data"]["limit"].intValue
                         let filterResult = FilterResult(products: arrProducts, total: total, pages: pages, limit: limit)
-                        result(filterResult)
+                        result(filterResult, nil)
 
                     } else {
-
+                        result(FilterResult(products: [Product](), total: 0, pages: 0, limit: 0), response.response?.statusCode)
                     }
 
                 case .failure(let error):
-                    print(error)
+                    result(FilterResult(products: [Product](), total: 0, pages: 0, limit: 0), (error as NSError).code)
                 }
             })
         } else {
@@ -96,10 +92,12 @@ class FilterManager: NSObject, FilterManagerProtocol {
                         let pages = json["data"]["pages"].intValue
                         let limit = json["data"]["limit"].intValue
                         let filterResult = FilterResult(products: arrProducts, total: total, pages: pages, limit: limit)
-                        result(filterResult)
+                        result(filterResult, nil)
+                    } else {
+                        result(FilterResult(products: [Product](), total: 0, pages: 0, limit: 0), response.response?.statusCode)
                     }
                 case .failure(let error):
-                    print(error)
+                    result(FilterResult(products: [Product](), total: 0, pages: 0, limit: 0), (error as NSError).code)
                 }
             })
         }
@@ -142,7 +140,7 @@ class FilterManager: NSObject, FilterManagerProtocol {
         return newCategories
     }
 
-    func getPrice(category: Category, result: @escaping ((CategoryPrice) -> ())) {
+    func getPrice(category: Category, result: @escaping ((CategoryPrice, _ errorCode: Int?) -> ())) {
         let _ = manager.apiRequest(.price(), parameters: ["category": category.number as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result{
@@ -156,15 +154,16 @@ class FilterManager: NSObject, FilterManagerProtocol {
                     let price = Price(minValue: priceMinValue, maxValue: priceMaxValue)
                     newPrice.categoryPrice = price
                     self.savePrice(price: newPrice)
-                    result(newPrice)
+                    result(newPrice, nil)
                 } else {
+                     result(CategoryPrice(), response.response?.statusCode)
                 }
             case .failure(let error):
-                print(error)
+                result(CategoryPrice(), (error as NSError).code)
             }
         })
     }
-    
+
     func savePrice(price: CategoryPrice) {
         try! realm.write {
             realm.add(price, update: true)

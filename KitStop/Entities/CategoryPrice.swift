@@ -12,7 +12,7 @@ import RealmSwift
 class CategoryPrice: Object {
 
     dynamic var number: String = ""
-    var categoryPrice = Price(minValue: 0, maxValue: 1000000)
+    var categoryPrice = Price(minValue: 0, maxValue: 100)
     override static func primaryKey() -> String? {
         return "number"
     }

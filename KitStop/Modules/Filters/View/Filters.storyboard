@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -100,7 +100,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-Wr-Ukc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="4ot-TQ-Ctl"/>
+                                            <constraint firstAttribute="height" constant="46" id="tOt-qp-0d7"/>
                                         </constraints>
                                         <state key="normal" title="Apply" backgroundImage="button">
                                             <color key="titleColor" red="1" green="0.36392692539999999" blue="0.25220766579999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -112,9 +112,9 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qNI-Wr-Ukc" secondAttribute="trailing" id="CQ9-ho-UIJ"/>
-                                    <constraint firstItem="qNI-Wr-Ukc" firstAttribute="leading" secondItem="dUL-lC-EEl" secondAttribute="leading" id="z4M-g5-cb8"/>
-                                    <constraint firstItem="qNI-Wr-Ukc" firstAttribute="top" secondItem="dUL-lC-EEl" secondAttribute="top" id="zD9-gu-f79"/>
+                                    <constraint firstItem="qNI-Wr-Ukc" firstAttribute="top" secondItem="dUL-lC-EEl" secondAttribute="top" id="2Xe-UA-63K"/>
+                                    <constraint firstAttribute="trailing" secondItem="qNI-Wr-Ukc" secondAttribute="trailing" id="gL0-3W-wcm"/>
+                                    <constraint firstItem="qNI-Wr-Ukc" firstAttribute="leading" secondItem="dUL-lC-EEl" secondAttribute="leading" id="yU3-mR-eAq"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -153,9 +153,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="maxValueLabel" destination="KU0-8L-Cfr" id="fkV-c3-4P4"/>
-                        <outlet property="minValueLabel" destination="JRG-Tn-7vl" id="Axm-La-tQI"/>
+                        <outlet property="applyConstraintForKits" destination="jxQ-7D-z5d" id="3DT-NH-l4z"/>
+                        <outlet property="applyConstraintForSale" destination="8x7-Zs-b8R" id="jdS-RA-TXk"/>
+                        <outlet property="maxValue" destination="KU0-8L-Cfr" id="4fY-MH-arA"/>
+                        <outlet property="minValue" destination="JRG-Tn-7vl" id="cGg-9l-Yl1"/>
                         <outlet property="rangeSlider" destination="5h5-k7-lnI" id="eY5-Va-lRA"/>
+                        <outlet property="rangeSliderView" destination="lEy-bN-zwM" id="giq-CR-JDq"/>
                         <outlet property="tableView" destination="EjM-Ji-7FL" id="nWC-t0-qbN"/>
                         <segue destination="Saf-h1-gPK" kind="show" identifier="FilterCategories" id="KCA-gl-dc6"/>
                     </connections>
@@ -182,7 +185,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gmd-Pm-BWe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pvz-cU-NzD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvz-cU-NzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

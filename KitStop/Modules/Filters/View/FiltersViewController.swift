@@ -10,16 +10,19 @@ import Chamomile
 
 // MARK: - FiltersViewController
 
-final class FiltersViewController: UIViewController, FlowController {
+final class FiltersViewController: UIViewController, FlowController, Alertable {
 
     // MARK: - VIPER stack
 
-    @IBOutlet weak var minValueLabel: UILabel!
+    @IBOutlet weak var minValue: UILabel!
     var presenter: FiltersViewOutput!
 
-    @IBOutlet weak var maxValueLabel: UILabel!
+    @IBOutlet weak var applyConstraintForSale: NSLayoutConstraint!
+    @IBOutlet weak var maxValue: UILabel!
+    @IBOutlet weak var applyConstraintForKits: NSLayoutConstraint!
     @IBOutlet weak var rangeSlider: RangeSlider!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rangeSliderView: UIView!
 
     @IBAction func cancelButtonTap(_ sender: Any) {
         presenter.handleCancelTap()
@@ -39,7 +42,6 @@ final class FiltersViewController: UIViewController, FlowController {
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
         navigationController?.navigationBar.tintColor = .black
         presenter.handleViewDidLoad()
-
     }
 
 }
@@ -49,8 +51,7 @@ final class FiltersViewController: UIViewController, FlowController {
 extension FiltersViewController: FiltersViewInput {
 
     func showError(title: String, message: String) {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        self.showAlertWithTitle(title, message: message)
     }
 
     func reloadPrice() {
@@ -58,8 +59,8 @@ extension FiltersViewController: FiltersViewInput {
         rangeSlider.maximumValue = Double(presenter.priceList().price.maxValue)
         rangeSlider.lowerValue = Double(presenter.priceList().price.minValue)
         rangeSlider.upperValue = Double(presenter.priceList().price.maxValue)
-        minValueLabel.text = presenter.priceList().minValue
-        maxValueLabel.text = presenter.priceList().maxValue
+        minValue.text = presenter.priceList().minValue
+        maxValue.text = presenter.priceList().maxValue
     }
 
     func reloadData() {
@@ -67,9 +68,18 @@ extension FiltersViewController: FiltersViewInput {
     }
 
     func priceVisible(visible: Bool) {
-        rangeSlider.isHidden = visible 
-        minValueLabel.isHidden = visible
-        maxValueLabel.isHidden = visible
+        rangeSliderView.isHidden = visible
+        if visible {
+        NSLayoutConstraint.deactivate([applyConstraintForKits])
+        NSLayoutConstraint.activate([applyConstraintForSale])
+             self.view.layoutIfNeeded()
+
+        } else {
+            NSLayoutConstraint.deactivate([applyConstraintForSale])
+            NSLayoutConstraint.activate([applyConstraintForKits])
+             self.view.layoutIfNeeded()
+
+        }
     }
 
 }
@@ -111,8 +121,8 @@ extension FiltersViewController: UITableViewDataSource {
 
     func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
         presenter.changePrice(price: Price(minValue: Int(rangeSlider.lowerValue), maxValue: Int(rangeSlider.upperValue)))
-        self.minValueLabel.text = presenter.priceList().minValue
-        self.maxValueLabel.text = presenter.priceList().maxValue
+        self.minValue.text = presenter.priceList().minValue
+        self.maxValue.text = presenter.priceList().maxValue
     }
 
 }
