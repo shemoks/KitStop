@@ -24,13 +24,34 @@ final class RestorePasswordPresenter {
 // MARK: - RestorePasswordViewOutput
 
 extension RestorePasswordPresenter: RestorePasswordViewOutput {
-
+    func handleSubmitTap(email: String) {
+        interactor.restorePassword(email: email)
+    }
+    
+    func handleEditing(isEmpty: Bool) {
+        if isEmpty {
+            view.changeSubmitStatus(status: false)
+        } else {
+            view.changeSubmitStatus(status: true)
+        }
+        
+    }
+    
+    func dismissModule() {
+        router.dismissModule()
+    }
 }
 
 // MARK: - RestorePasswordInteractorOutput
 
 extension RestorePasswordPresenter: RestorePasswordInteractorOutput {
-
+    func showAlert(message: String, shouldTransition: Bool) {
+        if shouldTransition {
+            view.dismissAfterAlert(message: message)
+        } else {
+            view.showAlert(message: message)
+        }
+    }
 }
 
 // MARK: - RestorePasswordModuleInput

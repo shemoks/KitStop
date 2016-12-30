@@ -9,5 +9,5 @@
 // MARK: - RestorePasswordRouterInput
 
 protocol RestorePasswordRouterInput: class {
-
+    func dismissModule()
 }
