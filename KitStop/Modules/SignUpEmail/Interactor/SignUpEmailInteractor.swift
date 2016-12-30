@@ -9,11 +9,11 @@
 // MARK: - SignUpEmailInteractor
 
 final class SignUpEmailInteractor {
-
+    
     // MARK: - VIPER stack
-
+    
     weak var presenter: SignUpEmailInteractorOutput!
-
+    
     fileprivate let dataManager: SignUpServiceProtocol
     fileprivate let awsManager: AWS3UploadImageProtocol
     // MARK: -
@@ -26,22 +26,30 @@ final class SignUpEmailInteractor {
     convenience init() {
         self.init(dataManager: SignUpService(), awsManager: AWS3UploadImageService())
     }
-
-
+    
+    
 }
 
 // MARK: - SignUpEmailInteractorInput
 
 extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     func addUser(user: SignUpUserModel) {
-        awsManager.uploadImage(userImage: user.userImage, successBlock: {
-            result in
-            self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result!, completionBlock: {
+        if user.userImage == nil {
+            addUser(result: nil, user: user)
+        } else {
+            awsManager.uploadImage(userImage: user.userImage, successBlock: {
                 result in
-                if result {
-                    self.presenter.openMainModule()
-                }
+                self.addUser(result: result!, user: user)
             })
+        }
+    }
+    
+    func addUser(result: String?, user: SignUpUserModel) {
+        self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result, completionBlock: {
+            result in
+            if result {
+                self.presenter.openMainModule()
+            }
         })
     }
 }

@@ -18,6 +18,7 @@ final class SignUpEmailPresenter {
     weak var view: SignUpEmailViewInput!
     var interactor: SignUpEmailInteractorInput!
     var router: SignUpEmailRouterInput!
+    fileprivate var upload = false
 
 }
 
@@ -38,8 +39,13 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
     }
     
     func registrationNewUser(userData: [String : String], userImage: UIImage) {
-        let user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage)
-        interactor.addUser(user: user)
+        let user: SignUpUserModel?
+        if !upload {
+            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: nil)
+        } else {
+            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage)
+        }
+        interactor.addUser(user: user!)
         
     }
 
@@ -63,6 +69,7 @@ extension SignUpEmailPresenter: RegistrationTakePhotoModuleOutput {
 
     func setImage(photo: UIImage) {
         view.getPhoto(photo: photo)
+        upload = true
     }
     
 }
