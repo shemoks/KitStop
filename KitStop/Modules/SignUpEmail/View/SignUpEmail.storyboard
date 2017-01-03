@@ -53,7 +53,7 @@
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="heH-1l-Aaj" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="heH-1l-Aaj" customClass="CustomPasswordTextField" customModule="KitStop" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="abq-T1-su7"/>
                                                     <constraint firstAttribute="width" constant="250" id="wUo-ur-GaC"/>
@@ -62,7 +62,7 @@
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="ISf-0U-A3q" customClass="CustomPassword" customModule="KitStop" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" background="input" translatesAutoresizingMaskIntoConstraints="NO" id="ISf-0U-A3q" customClass="CustomPasswordTextField" customModule="KitStop" customModuleProvider="target">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="T9h-i8-k6C"/>
                                                     <constraint firstAttribute="height" constant="45" id="axD-eQ-aH0"/>

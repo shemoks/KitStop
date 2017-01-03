@@ -10,7 +10,7 @@ import Chamomile
 
 // MARK: - SignUpEmailViewController
 
-final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegate, UIGestureRecognizerDelegate {
+final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordTextFieldDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - VIPER stack
 
@@ -18,8 +18,8 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         presenter.takePhoto()
     }
     @IBOutlet weak var avatar: CustomAvatar!
-    @IBOutlet weak var password: CustomPassword!
-    @IBOutlet weak var repeatPassword: CustomPassword!
+    @IBOutlet weak var password: CustomPasswordTextField!
+    @IBOutlet weak var repeatPassword: CustomPasswordTextField!
     
 
     var presenter: SignUpEmailViewOutput!

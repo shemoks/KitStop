@@ -11,12 +11,12 @@ import UIKit
 
 // MARK: - LogInViewController
 
-final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordDelegate {
+final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordTextFieldDelegate {
 
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
-    @IBOutlet weak var passwordTF: CustomPassword!
+    @IBOutlet weak var passwordTF: CustomPasswordTextField!
     @IBOutlet weak var emailTF: UITextField!
     
     // MARK: - Life cycle

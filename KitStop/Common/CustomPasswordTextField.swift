@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CustomPassword: UITextField, UITextFieldDelegate {
+class CustomPasswordTextField: UITextField, UITextFieldDelegate {
     
-    weak var passwordDelegate: CustomPasswordDelegate?
+    weak var passwordDelegate: CustomPasswordTextFieldDelegate?
     
     fileprivate let eyeView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 25, height: 25))
     fileprivate var tapCounter = false
