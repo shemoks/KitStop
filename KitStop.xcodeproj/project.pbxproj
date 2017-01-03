@@ -60,7 +60,6 @@
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
-		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
 		9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */; };
 		9A47E4F21E02A974005EED88 /* FiltersAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E4E51E02A974005EED88 /* FiltersAssember.swift */; };
@@ -119,7 +118,6 @@
 		9AB17CA91E0BCEAF004E95FF /* SignUpRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C9F1E0BCEAF004E95FF /* SignUpRouterInterface.swift */; };
 		9AB17CAA1E0BCEAF004E95FF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CA11E0BCEAF004E95FF /* SignUpViewController.swift */; };
 		9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CA21E0BCEAF004E95FF /* SignUpViewInterface.swift */; };
-		9AB17CAD1E0BCEFB004E95FF /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CAC1E0BCEFB004E95FF /* Signup.storyboard */; };
 		9AB17CB21E0BD059004E95FF /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB11E0BD059004E95FF /* KeychainService.swift */; };
 		9AB17CB41E0BD06D004E95FF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB31E0BD06D004E95FF /* CustomButton.swift */; };
 		9AB17CB61E0BD29F004E95FF /* LogInUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB51E0BD29F004E95FF /* LogInUserModel.swift */; };
@@ -246,7 +244,6 @@
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
-		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
 		9918C383B8084AF970FABD27 /* MainFilterContainerRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerRouterInterface.swift; sourceTree = "<group>"; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
@@ -306,7 +303,6 @@
 		9AB17C9F1E0BCEAF004E95FF /* SignUpRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRouterInterface.swift; sourceTree = "<group>"; };
 		9AB17CA11E0BCEAF004E95FF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9AB17CA21E0BCEAF004E95FF /* SignUpViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewInterface.swift; sourceTree = "<group>"; };
-		9AB17CAC1E0BCEFB004E95FF /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		9AB17CB11E0BD059004E95FF /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainService.swift; path = Services/KeychainService.swift; sourceTree = "<group>"; };
 		9AB17CB31E0BD06D004E95FF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Views/CustomButton.swift; sourceTree = "<group>"; };
 		9AB17CB51E0BD29F004E95FF /* LogInUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogInUserModel.swift; path = Models/LogInUserModel.swift; sourceTree = "<group>"; };
@@ -728,7 +724,6 @@
 		95BFD6701E0A87B90081793B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				95A638821E0A6DBC0055DB6D /* CustomError.swift */,
 				95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */,
 				25301FAA1E15639E0028C811 /* Constant.swift */,
 			);
@@ -990,7 +985,6 @@
 		9AB17CA01E0BCEAF004E95FF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9AB17CAC1E0BCEFB004E95FF /* Signup.storyboard */,
 				9AB17CA11E0BCEAF004E95FF /* SignUpViewController.swift */,
 				9AB17CA21E0BCEAF004E95FF /* SignUpViewInterface.swift */,
 			);
@@ -1346,7 +1340,6 @@
 				9AB17CED1E0BD5AE004E95FF /* SF-UI-Text-MediumItalic.otf in Resources */,
 				9AB17CE21E0BD5AE004E95FF /* SF-UI-Display-Regular.otf in Resources */,
 				9AB17CE31E0BD5AE004E95FF /* SF-UI-Display-Semibold.otf in Resources */,
-				9AB17CAD1E0BCEFB004E95FF /* Signup.storyboard in Resources */,
 				9AB17CEE1E0BD5AE004E95FF /* SF-UI-Text-Regular.otf in Resources */,
 				9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */,
 				9AB17D191E0D72A7004E95FF /* ApplyCell.xib in Resources */,
@@ -1512,7 +1505,6 @@
 				95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */,
 				9AB17C271E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift in Sources */,
 				085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */,
-				95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */,
 				A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */,
 				8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */,
 				F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */,
