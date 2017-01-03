@@ -10,7 +10,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View-->
+        <!--Delegate-->
         <scene sceneID="5g4-Fq-hRD">
             <objects>
                 <viewController storyboardIdentifier="SignUp" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,6 +35,9 @@
                                         <state key="normal" title="Facebook">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <outlet property="delegate" destination="wkH-Lk-Bn6" id="omW-Iv-tao"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPA-EL-M43" customClass="CustomButton" customModule="KitStop" customModuleProvider="target">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

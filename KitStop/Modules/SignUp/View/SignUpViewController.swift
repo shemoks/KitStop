@@ -43,8 +43,10 @@ extension SignUpViewController: SignUpViewInput {
 
 extension SignUpViewController: FBSDKLoginButtonDelegate {
 
-
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        print("\n-----------------------------------------------LOGGED IN")
+        print("\(FBSDKAccessToken.current().tokenString!)")
+        presenter.handleFacebookLoginTap()
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
