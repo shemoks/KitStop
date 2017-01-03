@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CategoryServiceProtocol{
-    func fetchCategory(result: @escaping ([CategoryList]) -> ())
+    func fetchCategory(result: @escaping ([CategoryList]?, _ error: Int?) -> ())
 }

@@ -23,7 +23,7 @@ final class MainRouter {
 // MARK: - MainRouterInput
 
 extension MainRouter: MainRouterInput {
-        func openSecondModule(secondModuleOutput: SelectCategoryModuleOutput) {
+        func openCategoryModule(secondModuleOutput: SelectCategoryModuleOutput) {
             flowController.openModule(using: .openCategoryList) {
                 guard ($0 as? SelectCategoryModuleInput) != nil else { fatalError() }
                 return nil

@@ -37,6 +37,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     }
     
     func fetchKits() {
+        filter.setImage(UIImage.init(named: "filter_icon"), for: .normal)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
 }
@@ -45,6 +46,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
 
 extension MainFilterContainerViewController: MainFilterContainerViewInput {
     func transferKits(kits: [Product]) {
+        filter.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
         transferData?.kitItems(transferData: kits)
     }
 }

@@ -9,5 +9,6 @@
 // MARK: - SelectCategoryViewInput
 
 protocol SelectCategoryViewInput: class {
-
+    func updateData(categoryList: [CategoryList])
+    func showAlert(errorMassage: String)
 }

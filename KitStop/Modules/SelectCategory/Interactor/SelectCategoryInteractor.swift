@@ -13,13 +13,32 @@ final class SelectCategoryInteractor {
     // MARK: - VIPER stack
 
     weak var presenter: SelectCategoryInteractorOutput!
-
+    fileprivate let dataManager: CategoryServiceProtocol
     // MARK: -
+    
+    init(dataManager: CategoryServiceProtocol) {
+        self.dataManager = dataManager
+    }
+    
+    convenience init() {
+        self.init(dataManager: CategoryService())
+    }
+
 
 }
 
 // MARK: - SelectCategoryInteractorInput
 
 extension SelectCategoryInteractor: SelectCategoryInteractorInput {
-
+    func fetchCategory() {
+        dataManager.fetchCategory(result: {
+            result, error in
+            if error == nil {
+                self.presenter.updateView(categoryList: result!)
+            } else {
+                let errorMassage = CustomError(code: error!).description
+                self.presenter.showAlert(error: errorMassage)
+            }
+        })
+    }
 }

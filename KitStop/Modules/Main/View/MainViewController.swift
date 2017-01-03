@@ -36,8 +36,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "log out", style: .done, target: self, action: #selector(logOut))
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.tintColor = .orange
     }
     

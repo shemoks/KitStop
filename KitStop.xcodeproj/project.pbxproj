@@ -29,6 +29,7 @@
 		25432DCC1E042E3D00BB7B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25432DCB1E042E3D00BB7B8F /* Main.storyboard */; };
 		25432DCF1E043D8200BB7B8F /* UITextField+ChangeNextFieldFocus+String+Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25432DCE1E043D8200BB7B8F /* UITextField+ChangeNextFieldFocus+String+Encode.swift */; };
 		2572A0E21E1BDCE8004FA904 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2572A0E11E1BDCE8004FA904 /* CategoryService.swift */; };
+		2572A0E41E1BE55D004FA904 /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2572A0E31E1BE55D004FA904 /* SelectCategoryCell.swift */; };
 		259C5DFE1DF9B35B001E3CCC /* LogInAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */; };
 		259C5DFF1DF9B35B001E3CCC /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */; };
 		259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5DF41DF9B35B001E3CCC /* LogInInteractorInterface.swift */; };
@@ -227,6 +228,7 @@
 		25432DCB1E042E3D00BB7B8F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		25432DCE1E043D8200BB7B8F /* UITextField+ChangeNextFieldFocus+String+Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ChangeNextFieldFocus+String+Encode.swift"; sourceTree = "<group>"; };
 		2572A0E11E1BDCE8004FA904 /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		2572A0E31E1BE55D004FA904 /* SelectCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCategoryCell.swift; sourceTree = "<group>"; };
 		259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInAssember.swift; sourceTree = "<group>"; };
 		259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
 		259C5DF41DF9B35B001E3CCC /* LogInInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,7 @@
 				35753E8F65DF90B4CC2C4EB0 /* SelectCategoryViewInterface.swift */,
 				7A300E4A0464A6C640A90263 /* SelectCategoryViewController.swift */,
 				2532204E1E1BD30700BF96C1 /* SelectCategory.storyboard */,
+				2572A0E31E1BE55D004FA904 /* SelectCategoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1574,6 +1577,7 @@
 				9A47E5121E0300AE005EED88 /* PriceCell.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
 				9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */,
+				2572A0E41E1BE55D004FA904 /* SelectCategoryCell.swift in Sources */,
 				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
 				9AB17CA91E0BCEAF004E95FF /* SignUpRouterInterface.swift in Sources */,
 				9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */,

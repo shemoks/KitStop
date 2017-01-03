@@ -9,6 +9,6 @@
 import UIKit
 
 struct CategoryList {
-    var id: Int = 0
+    var id: String = ""
     var title: String = ""
 }

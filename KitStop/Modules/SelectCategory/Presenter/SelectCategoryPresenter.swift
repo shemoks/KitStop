@@ -24,13 +24,21 @@ final class SelectCategoryPresenter {
 // MARK: - SelectCategoryViewOutput
 
 extension SelectCategoryPresenter: SelectCategoryViewOutput {
-
+    func fetchCategory() {
+        interactor.fetchCategory()
+    }
 }
 
 // MARK: - SelectCategoryInteractorOutput
 
 extension SelectCategoryPresenter: SelectCategoryInteractorOutput {
-
+    func updateView(categoryList: [CategoryList]) {
+        view.updateData(categoryList: categoryList)
+    }
+    
+    func showAlert(error: String) {
+        view.showAlert(errorMassage: error)
+    }
 }
 
 // MARK: - SelectCategoryModuleInput

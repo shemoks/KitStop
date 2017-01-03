@@ -29,15 +29,12 @@ extension MainPresenter: MainViewOutput {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let listForSaleAction = UIAlertAction.init(title: "List for Sale", style: .default, handler: {
             result in
-                print("list for sale")
-                // you must reference Module Output
-                // router.openSecondModule(secondModule: 'Second Module')
+                 self.router.openCategoryModule(secondModuleOutput: self)
         })
         
         let addKitAction = UIAlertAction.init(title: "Add to Kit", style: .default, handler: {
             result in
-                // you must reference Module Output
-                // router.openSecondModule(secondModule: 'Second Module')
+                self.router.openCategoryModule(secondModuleOutput: self)
         })
         let postWorkAction = UIAlertAction.init(title: "Post your work", style: .default, handler: {
             result in
@@ -75,5 +72,9 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainModuleOutput {
+    
+}
+
+extension MainPresenter: SelectCategoryModuleOutput {
     
 }

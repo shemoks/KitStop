@@ -11,13 +11,14 @@ import Chamomile
 // MARK: - SelectCategoryViewOutput
 
 protocol SelectCategoryViewOutput: class {
-
+    func fetchCategory()
 }
 
 // MARK: - SelectCategoryInteractorOutput
 
 protocol SelectCategoryInteractorOutput: class {
-
+    func updateView(categoryList: [CategoryList])
+    func showAlert(error: String)
 }
 
 // MARK: - SelectCategoryModuleInput
