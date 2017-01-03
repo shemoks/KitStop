@@ -30,7 +30,7 @@ extension CustomError: RawRepresentable, CustomStringConvertible {
         case .facebookFailed:
             return "Login with Facebook failed. Please Try again"
         case .notFound:
-            return "notFound"
+            return "User not found"
         case .userAlreadyExists:
             return "User with such email is already registered"
         case .kitFolioValidationFailed:

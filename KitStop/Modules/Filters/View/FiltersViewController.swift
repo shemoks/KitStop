@@ -68,17 +68,10 @@ extension FiltersViewController: FiltersViewInput {
     }
 
     func priceVisible(visible: Bool) {
-        rangeSliderView.isHidden = visible
         if visible {
-        NSLayoutConstraint.deactivate([applyConstraintForKits])
-        NSLayoutConstraint.activate([applyConstraintForSale])
-             self.view.layoutIfNeeded()
-
-        } else {
-            NSLayoutConstraint.deactivate([applyConstraintForSale])
-            NSLayoutConstraint.activate([applyConstraintForKits])
-             self.view.layoutIfNeeded()
-
+            rangeSliderView.isHidden = visible
+            applyConstraintForSale.constant -= 55
+            self.view.layoutIfNeeded()
         }
     }
 

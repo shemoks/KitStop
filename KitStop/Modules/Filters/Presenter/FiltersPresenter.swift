@@ -37,6 +37,9 @@ extension FiltersPresenter: FiltersViewOutput {
             view.reloadData()
             self.price = Price(minValue: 0, maxValue: 100)
             view.reloadPrice()
+        } else {
+            interactor.clearAll(types: self.types)
+            router.closeModule()
         }
     }
 
@@ -101,8 +104,13 @@ extension FiltersPresenter: FiltersInteractorOutput {
     }
     
     func handleViewWillDisappear(kits: [Product]) {
+        if currentCategory != nil {
         let mainModuleOutput = moduleOutput as! FiltersModuleOutput
         router.returnToMainModule(kits: kits, moduleOutput: mainModuleOutput)
+        } else {
+            let mainModuleOutput = moduleOutput as! FiltersModuleOutput
+            router.returnToMainModule(kits: [], moduleOutput: mainModuleOutput)
+        }
     }
 
 }
