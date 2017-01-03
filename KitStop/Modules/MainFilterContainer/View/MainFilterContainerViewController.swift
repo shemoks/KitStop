@@ -33,6 +33,10 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     }
     
     @IBAction func changeKitsElement(_ sender: Any) {
+        fetchKits()
+    }
+    
+    func fetchKits() {
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
 }

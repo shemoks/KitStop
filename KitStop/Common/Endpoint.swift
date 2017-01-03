@@ -24,6 +24,7 @@ enum Endpoint {
     case forSaleFilter()
     case kitsFilter()
     case price()
+    case getCategory()
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -57,6 +58,8 @@ enum Endpoint {
             return "/category"
         case .price:
             return "/filters"
+        case .getCategory():
+            return "/category"
         }
     }
 

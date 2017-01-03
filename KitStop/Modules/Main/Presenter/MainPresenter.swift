@@ -58,6 +58,7 @@ extension MainPresenter: MainViewOutput {
     func handleKitForSale() {
         interactor.handleKitsForSale()
     }
+    
 }
 
 // MARK: - MainInteractorOutput

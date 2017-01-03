@@ -23,19 +23,18 @@ final class MainRouter {
 // MARK: - MainRouterInput
 
 extension MainRouter: MainRouterInput {
-    //    func openSecondModule(secondModuleOutput: 'SecondModuleOutput') {
-    //        flowController.openModule(using: .openSecond) {
-    //            guard let moduleInput = $0 as? 'SecondModuleInput' else { fatalError() }
-    //            return nil
-    //        }
-    //    }
+        func openSecondModule(secondModuleOutput: SelectCategoryModuleOutput) {
+            flowController.openModule(using: .openCategoryList) {
+                guard ($0 as? SelectCategoryModuleInput) != nil else { fatalError() }
+                return nil
+            }
+        }
 }
 
 extension Segue {
     
-    //    you must reference second controller and identity
-    //    static var openSecond: Segue<SecondViewController> {
-    //        return .init(identifier: "transitionToNext")
-    //    }
+        static var openCategoryList: Segue<SelectCategoryViewController> {
+            return .init(identifier: "transitionToCategoryList")
+        }
     
 }
