@@ -14,13 +14,14 @@ protocol SignUpViewOutput: class {
 
     func emailLogin()
     func signUp()
+    func handleFacebookLoginTap()
 
 }
 
 // MARK: - SignUpInteractorOutput
 
 protocol SignUpInteractorOutput: class {
-
+    func openMainModule()
 }
 
 // MARK: - SignUpModuleInput

@@ -60,7 +60,12 @@
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
+		957542E31E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */; };
+		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
+		95D8C2001E1673D10017C1AD /* RestorePasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */; };
+		95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */; };
+		95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC31E16579200A84B7F /* FacebookService.swift */; };
 		9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */; };
 		9A47E4F21E02A974005EED88 /* FiltersAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E4E51E02A974005EED88 /* FiltersAssember.swift */; };
 		9A47E4F31E02A974005EED88 /* FiltersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E4E71E02A974005EED88 /* FiltersInteractor.swift */; };
@@ -118,6 +123,7 @@
 		9AB17CA91E0BCEAF004E95FF /* SignUpRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17C9F1E0BCEAF004E95FF /* SignUpRouterInterface.swift */; };
 		9AB17CAA1E0BCEAF004E95FF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CA11E0BCEAF004E95FF /* SignUpViewController.swift */; };
 		9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CA21E0BCEAF004E95FF /* SignUpViewInterface.swift */; };
+		9AB17CAD1E0BCEFB004E95FF /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17CAC1E0BCEFB004E95FF /* Signup.storyboard */; };
 		9AB17CB21E0BD059004E95FF /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB11E0BD059004E95FF /* KeychainService.swift */; };
 		9AB17CB41E0BD06D004E95FF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB31E0BD06D004E95FF /* CustomButton.swift */; };
 		9AB17CB61E0BD29F004E95FF /* LogInUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17CB51E0BD29F004E95FF /* LogInUserModel.swift */; };
@@ -244,8 +250,13 @@
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+		957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordServiceProtocol.swift; path = KitStop/Common/RestorePasswordServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
 		9918C383B8084AF970FABD27 /* MainFilterContainerRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerRouterInterface.swift; sourceTree = "<group>"; };
+		95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePasswordService.swift; sourceTree = "<group>"; };
+		95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		95F2EBC31E16579200A84B7F /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = SOURCE_ROOT; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
 		9A47E4E51E02A974005EED88 /* FiltersAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersAssember.swift; sourceTree = "<group>"; };
 		9A47E4E71E02A974005EED88 /* FiltersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersInteractor.swift; sourceTree = "<group>"; };
@@ -303,6 +314,7 @@
 		9AB17C9F1E0BCEAF004E95FF /* SignUpRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRouterInterface.swift; sourceTree = "<group>"; };
 		9AB17CA11E0BCEAF004E95FF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9AB17CA21E0BCEAF004E95FF /* SignUpViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewInterface.swift; sourceTree = "<group>"; };
+		9AB17CAC1E0BCEFB004E95FF /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		9AB17CB11E0BD059004E95FF /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainService.swift; path = Services/KeychainService.swift; sourceTree = "<group>"; };
 		9AB17CB31E0BD06D004E95FF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Views/CustomButton.swift; sourceTree = "<group>"; };
 		9AB17CB51E0BD29F004E95FF /* LogInUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogInUserModel.swift; path = Models/LogInUserModel.swift; sourceTree = "<group>"; };
@@ -426,9 +438,12 @@
 				9AB17CC11E0BD54D004E95FF /* LogInService.swift */,
 				25365CE21E14147C005A92DA /* SignUpService.swift */,
 				25365CE61E14149E005A92DA /* FilterManager.swift */,
+				95F2EBC01E16564400A84B7F /* ServiceProtocol */,
+				95F2EBC31E16579200A84B7F /* FacebookService.swift */,
 				9AB17CB11E0BD059004E95FF /* KeychainService.swift */,
 				25365CE41E14148F005A92DA /* MainService.swift */,
 				25301FA61E155CE50028C811 /* AWS3UploadImageService.swift */,
+				95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -497,6 +512,7 @@
 				259C5DEF1DF9B35B001E3CCC /* LogIn */,
 				AD935A14E91DFA6B19EC1286 /* SignUpEmail */,
 				72A0936D6A16483205C49EAB /* Main */,
+				1921CD164CC8879949A69FB5 /* RestorePassword */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -724,10 +740,21 @@
 		95BFD6701E0A87B90081793B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				95A638821E0A6DBC0055DB6D /* CustomError.swift */,
 				95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */,
 				25301FAA1E15639E0028C811 /* Constant.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		95F2EBC01E16564400A84B7F /* ServiceProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */,
+				957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */,
+			);
+			name = ServiceProtocol;
+			path = ../Modules/SignUpEmail/Presenter/Modules/SignUp;
 			sourceTree = "<group>";
 		};
 		963E49F089DD187159FC01CF /* View */ = {
@@ -985,6 +1012,7 @@
 		9AB17CA01E0BCEAF004E95FF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9AB17CAC1E0BCEFB004E95FF /* Signup.storyboard */,
 				9AB17CA11E0BCEAF004E95FF /* SignUpViewController.swift */,
 				9AB17CA21E0BCEAF004E95FF /* SignUpViewInterface.swift */,
 			);
@@ -1340,6 +1368,7 @@
 				9AB17CED1E0BD5AE004E95FF /* SF-UI-Text-MediumItalic.otf in Resources */,
 				9AB17CE21E0BD5AE004E95FF /* SF-UI-Display-Regular.otf in Resources */,
 				9AB17CE31E0BD5AE004E95FF /* SF-UI-Display-Semibold.otf in Resources */,
+				9AB17CAD1E0BCEFB004E95FF /* Signup.storyboard in Resources */,
 				9AB17CEE1E0BD5AE004E95FF /* SF-UI-Text-Regular.otf in Resources */,
 				9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */,
 				9AB17D191E0D72A7004E95FF /* ApplyCell.xib in Resources */,
@@ -1423,7 +1452,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		951B39731DF967E3001765C3 /* Run Script */ = {
@@ -1487,6 +1516,7 @@
 				9AB17CB21E0BD059004E95FF /* KeychainService.swift in Sources */,
 				9AB17C2B1E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift in Sources */,
 				9AB17CB41E0BD06D004E95FF /* CustomButton.swift in Sources */,
+				957542E31E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift in Sources */,
 				9AB17C8F1E0BCDA3004E95FF /* SignUpEmailPresenterInterface.swift in Sources */,
 				9AB17C281E094D68004E95FF /* RegistrationTakePhotoPresenter.swift in Sources */,
 				9AB17C261E094D68004E95FF /* RegistrationTakePhotoInteractor.swift in Sources */,
@@ -1497,6 +1527,9 @@
 				259C5E061DF9B35B001E3CCC /* LogInViewInterface.swift in Sources */,
 				25D8A1471E0EC052007FC431 /* LogInServiceProtocol.swift in Sources */,
 				253FF5961E09724A009685CE /* ApiResult.swift in Sources */,
+				254F42E41DFEAAA300CDD074 /* CustomPasswordTextFieldDelegate.swift in Sources */,
+				95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */,
+				95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */,
 				259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */,
 				9AB17CA31E0BCEAF004E95FF /* SignUpAssember.swift in Sources */,
 				259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */,
@@ -1505,6 +1538,7 @@
 				95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */,
 				9AB17C271E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift in Sources */,
 				085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */,
+				95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */,
 				A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */,
 				8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */,
 				F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */,
@@ -1513,6 +1547,7 @@
 				9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */,
 				9AB17C8E1E0BCDA3004E95FF /* SignUpEmailPresenter.swift in Sources */,
 				9AB17C941E0BCE62004E95FF /* RootAssember.swift in Sources */,
+				95D8C2001E1673D10017C1AD /* RestorePasswordService.swift in Sources */,
 				E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */,
 				522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */,
 				25D8A14B1E0EC13D007FC431 /* CustomPasswordDelegateTextField.swift in Sources */,

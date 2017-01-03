@@ -21,5 +21,7 @@ final class RestorePasswordRouter {
 // MARK: - RestorePasswordRouterInput
 
 extension RestorePasswordRouter: RestorePasswordRouterInput {
-
+    func dismissModule() {
+        flowController.closeModule(animated: true)
+    }
 }

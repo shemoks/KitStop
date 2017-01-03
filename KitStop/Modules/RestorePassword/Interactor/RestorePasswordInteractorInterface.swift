@@ -9,5 +9,5 @@
 // MARK: - RestorePasswordInteractorInput
 
 protocol RestorePasswordInteractorInput: class {
-
+    func restorePassword(email: String)
 }
