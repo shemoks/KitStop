@@ -32,6 +32,7 @@ protocol FiltersInteractorOutput: class {
     func setPrice(price: Price)
     func showError(title: String, message: String)
     func handleViewWillDisappear(kits: [Product])
+    func setCurrentCategory(category: Category?)
     
 }
 
@@ -46,5 +47,5 @@ protocol FiltersModuleInput: ModuleInput {
 // MARK: - FiltersModuleOutput
 
 protocol FiltersModuleOutput: ModuleOutput {
-    func kitsWithFilters(kits: [Product])
+    func kitsWithFilters(kits: [Product], filter: Bool)
 }

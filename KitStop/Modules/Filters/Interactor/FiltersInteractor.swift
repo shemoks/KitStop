@@ -48,6 +48,7 @@ extension FiltersInteractor: FiltersInteractorInput {
         let newCategories = FilterManager().clearAll(categories: types)
         presenter.setTypes(types: newCategories)
         presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
+        presenter.setCurrentCategory(category: nil)
     }
 
     func getPrice(category: Category) {

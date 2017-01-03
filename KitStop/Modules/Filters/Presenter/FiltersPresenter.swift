@@ -33,12 +33,12 @@ extension FiltersPresenter: FiltersViewOutput {
     func handleApplyTap(price: Price) {
         if self.currentCategory != nil {
         interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
-        interactor.clearAll(types: self.types)
+       // interactor.clearAll(types: self.types)
             view.reloadData()
             self.price = Price(minValue: 0, maxValue: 100)
             view.reloadPrice()
         } else {
-            interactor.clearAll(types: self.types)
+      //      interactor.clearAll(types: self.types)
             router.closeModule()
         }
     }
@@ -106,11 +106,15 @@ extension FiltersPresenter: FiltersInteractorOutput {
     func handleViewWillDisappear(kits: [Product]) {
         if currentCategory != nil {
         let mainModuleOutput = moduleOutput as! FiltersModuleOutput
-        router.returnToMainModule(kits: kits, moduleOutput: mainModuleOutput)
+            router.returnToMainModule(kits: kits, filter: true, moduleOutput: mainModuleOutput)
         } else {
             let mainModuleOutput = moduleOutput as! FiltersModuleOutput
-            router.returnToMainModule(kits: [], moduleOutput: mainModuleOutput)
+            router.returnToMainModule(kits: [], filter: false,  moduleOutput: mainModuleOutput)
         }
+    }
+
+    func setCurrentCategory(category: Category?) {
+        self.currentCategory = category
     }
 
 }
@@ -130,13 +134,11 @@ extension FiltersPresenter: FiltersModuleInput {
 extension FiltersPresenter: FilterTypeModuleOutput {
 
     func currentCategory(categories: [Category], currentCategory: Category) {
-
         self.types = categories
         view.reloadData()
-        self.currentCategory = currentCategory
+        self.setCurrentCategory(category: currentCategory)
         interactor.getPrice(category: currentCategory)
         view.reloadPrice()
-
     }
     
 }

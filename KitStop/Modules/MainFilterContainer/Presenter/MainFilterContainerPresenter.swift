@@ -51,7 +51,7 @@ extension MainFilterContainerPresenter: MainFilterContainerModuleInput {
 }
 
 extension MainFilterContainerPresenter: FiltersModuleOutput{
-    func kitsWithFilters(kits: [Product]) {
+    func kitsWithFilters(kits: [Product], filter: Bool) {
         view.transferKits(kits: kits)
     }
 }

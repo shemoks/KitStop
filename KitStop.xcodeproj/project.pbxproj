@@ -767,8 +767,8 @@
 		9A47E4E91E02A974005EED88 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				9A47E4EA1E02A974005EED88 /* FiltersPresenter.swift */,
 				9A47E4EB1E02A974005EED88 /* FiltersPresenterInterface.swift */,
+				9A47E4EA1E02A974005EED88 /* FiltersPresenter.swift */,
 			);
 			name = Presenter;
 			path = KitStop/Modules/Filters/Presenter;
