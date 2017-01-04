@@ -20,12 +20,12 @@ class FacebookService {
 
 extension FacebookService: FacebookServiceProtocol {
     func authenticateUser(token: String, completion: @escaping (Bool) -> ()) {
-        let _ = manager.apiRequest(.fbAuthenticate(), parameters: ["fb_token" : "\(token)" as AnyObject, "clients" : "111" as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.fbAuthenticate(), parameters: ["fb_token" : "\(token)" as AnyObject, "clients" : String().getUUID() as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result{
             case .success(let json):
                 print(json)
-                if let token = json["data"]["token"].string{
+                if let token = json["data"]["user"]["token"].string{
                     KeychainService().saveToken(token: token)
                 }
                 completion(true)

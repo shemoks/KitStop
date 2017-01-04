@@ -38,7 +38,10 @@ extension SignUpRouter: SignUpRouterInput {
     }
     
     func openMainModule() {
-        
+        flowController.openModule(using: .openMain) {
+            guard let _ = $0 as? MainModuleInput else { fatalError() }
+            return nil
+        }
     }
 
 }
@@ -51,6 +54,7 @@ extension Segue {
     static var openRegistration: Segue<SignUpEmailViewController> {
         return .init(identifier: "Registration")
     }
+    
 
 }
 

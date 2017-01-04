@@ -102,7 +102,7 @@ extension FiltersViewController: UITableViewDataSource {
         cell?.configure(filter: presenter.typesList())
         return cell!
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 1:
