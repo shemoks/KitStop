@@ -35,11 +35,23 @@ extension MainFilterContainerRouter: MainFilterContainerRouterInput {
             return filterModuleOutput
         }
     }
+    
+    func openMainSearchModule(selectedSegment: Int) {
+        flowController.openModule(using: .openMainSearch) {
+            guard let moduleInput = $0 as? MainSearchModuleInput else { fatalError() }
+            moduleInput.setSegment(selectedSegment: selectedSegment)
+            return nil
+        }
+    }
 }
 
 extension Segue {
     
     static var openFilterModule: Segue<FiltersViewController> {
         return .init(identifier: "transitionToFilter")
+    }
+    
+    static var openMainSearch: Segue<MainSearchViewController> {
+        return .init(identifier: "transitionToMainSearch")
     }
 }

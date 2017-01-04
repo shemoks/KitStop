@@ -15,6 +15,7 @@ protocol SignUpViewOutput: class {
     func emailLogin()
     func signUp()
     func handleFacebookLoginTap()
+    func showButton()
 
 }
 

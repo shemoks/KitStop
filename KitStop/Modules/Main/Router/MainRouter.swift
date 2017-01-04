@@ -29,13 +29,12 @@ extension MainRouter: MainRouterInput {
     //            return nil
     //        }
     //    }
+ 
+    
 }
 
 extension Segue {
     
-    //    you must reference second controller and identity
-    //    static var openSecond: Segue<SecondViewController> {
-    //        return .init(identifier: "transitionToNext")
-    //    }
+  
     
 }

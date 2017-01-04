@@ -54,6 +54,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func logOut() {
         KeychainService().clearToken()
+        presenter.logoutFromFacebook()
         self.dismiss(animated: true, completion: nil)
     }
     

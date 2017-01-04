@@ -13,6 +13,7 @@ import Chamomile
 protocol MainViewOutput: class {
     func setupAlert()
     func handleKitForSale()
+    func logoutFromFacebook()
 }
 
 // MARK: - MainInteractorOutput

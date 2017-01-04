@@ -40,4 +40,12 @@ extension SignUpInteractor: SignUpInteractorInput {
             }
         })
     }
+    
+    func userIsLoggedInWithFacebook() -> Bool {
+        if FBSDKAccessToken.current() != nil {
+            return true
+        } else {
+            return false
+        }
+    }
 }

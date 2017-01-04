@@ -29,7 +29,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     }
     
     @IBAction func tapOnSearchButton(_ sender: Any) {
-        presenter.openSearchModule()
+        presenter.openSearchModule(selectedSegment: kitSegmentControl.selectedSegmentIndex)
     }
     
     @IBAction func changeKitsElement(_ sender: Any) {

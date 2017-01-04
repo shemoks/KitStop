@@ -36,6 +36,12 @@ extension SignUpPresenter: SignUpViewOutput {
     func handleFacebookLoginTap() {
          interactor.signUpWithFacebook()
     }
+    
+    func showButton() {
+        if !interactor.userIsLoggedInWithFacebook() {
+            view.setFacebookButtonVisible()
+        }
+    }
 
 }
 
