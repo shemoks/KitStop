@@ -12,6 +12,7 @@ import Chamomile
 
 protocol SelectCategoryViewOutput: class {
     func fetchCategory()
+    func openAddItemModule(categoryID: String)
 }
 
 // MARK: - SelectCategoryInteractorOutput

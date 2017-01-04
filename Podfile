@@ -12,6 +12,7 @@ target 'KitStop' do
   pod 'SDWebImage'
   pod 'RealmSwift'
   pod 'AWSS3'
+  pod 'Cosmos'
 end
 
 post_install do |installer|

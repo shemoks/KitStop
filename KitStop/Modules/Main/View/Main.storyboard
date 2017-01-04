@@ -75,7 +75,7 @@
                                                     <rect key="frame" x="119" y="9" width="58" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-oc-4Td">
-                                                            <rect key="frame" x="14" y="4" width="31" height="15"/>
+                                                            <rect key="frame" x="14.5" y="4.5" width="31" height="14"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,6 +147,7 @@
                         <outlet property="collectionView" destination="KSw-tq-O9G" id="sNN-07-Y1W"/>
                         <outlet property="container" destination="Az0-3O-3Tc" id="AjL-7N-MNM"/>
                         <segue destination="KmF-0a-aZv" kind="show" identifier="transitionToCategoryList" id="JaU-F6-bGP"/>
+                        <segue destination="cv7-rN-JE2" kind="show" identifier="transitionToKitFolioCreate" id="vih-ro-J8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ftg-eJ-H48" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,6 +241,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vmo-mt-zTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2932" y="-124"/>
+        </scene>
+        <!--KitFolioCreate-->
+        <scene sceneID="b5P-Q7-wOL">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="KitFolioCreate" storyboardName="KitFolioCreate" referencedIdentifier="KitFolioCreate" id="cv7-rN-JE2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCZ-ab-b8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2948" y="-10"/>
         </scene>
         <!--Filters-->
         <scene sceneID="a3Y-LW-hap">

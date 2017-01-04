@@ -58,4 +58,8 @@ extension SelectCategoryViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return category.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.openAddItemModule(categoryID: category[indexPath.row].id)
+    }
 }

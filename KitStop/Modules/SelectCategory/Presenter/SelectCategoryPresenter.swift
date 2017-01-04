@@ -39,6 +39,10 @@ extension SelectCategoryPresenter: SelectCategoryInteractorOutput {
     func showAlert(error: String) {
         view.showAlert(errorMassage: error)
     }
+    
+    func openAddItemModule(categoryID: String) {
+        // router.openSomeModule
+    }
 }
 
 // MARK: - SelectCategoryModuleInput

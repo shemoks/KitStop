@@ -38,8 +38,7 @@ extension MainPresenter: MainViewOutput {
         })
         let postWorkAction = UIAlertAction.init(title: "Post your work", style: .default, handler: {
             result in
-                // you must reference Module Output
-                // router.openSecondModule(secondModule: 'Second Module')
+                self.router.openKitFolioCreateModule(secondModuleOutput: self)
         })
         let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
         
@@ -76,5 +75,9 @@ extension MainPresenter: MainModuleOutput {
 }
 
 extension MainPresenter: SelectCategoryModuleOutput {
+    
+}
+
+extension MainPresenter: KitFolioCreateModuleOutput {
     
 }

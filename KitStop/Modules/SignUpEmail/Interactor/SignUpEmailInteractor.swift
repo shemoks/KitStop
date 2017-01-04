@@ -37,7 +37,7 @@ extension SignUpEmailInteractor: SignUpEmailInteractorInput {
         if user.userImage == nil {
             addUser(result: nil, user: user)
         } else {
-            awsManager.uploadImage(userImage: user.userImage, successBlock: {
+            awsManager.uploadImage(userImage: user.userImage, path: "UserPhoto",successBlock: {
                 result in
                 self.addUser(result: result!, user: user)
             })

@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import Perform
 
 // MARK: - SelectCategoryRouter
 
@@ -22,4 +23,9 @@ final class SelectCategoryRouter {
 
 extension SelectCategoryRouter: SelectCategoryRouterInput {
 
+    // flowController.openModule
+}
+
+extension Segue {
+    // openSomeModule
 }
