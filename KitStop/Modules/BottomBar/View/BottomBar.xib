@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TH-FW-YqR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                    <items>
+                        <tabBarItem title="Activity" image="Activity" id="C9i-iK-Tj8"/>
+                        <tabBarItem title="Conv" image="Conv" id="uRO-dt-N9m"/>
+                        <tabBarItem title="Home" image="kitstop logo" id="bHN-Gh-oEH"/>
+                        <tabBarItem title="Favs" image="favs" id="9UJ-Z3-j47"/>
+                        <tabBarItem title="Profile" image="Account" id="QSF-6k-KIg"/>
+                    </items>
+                </tabBar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="4TH-FW-YqR" secondAttribute="bottom" id="3JL-RO-lol"/>
+                <constraint firstItem="4TH-FW-YqR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CO5-gg-Qma"/>
+                <constraint firstAttribute="trailing" secondItem="4TH-FW-YqR" secondAttribute="trailing" id="dmu-aU-POH"/>
+                <constraint firstItem="4TH-FW-YqR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="s5P-z5-T5c"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="103" y="-88"/>
+        </view>
+        <tabBarController id="3hS-41-ZT1">
+            <tabBar key="tabBar" contentMode="scaleToFill" id="Nvt-Px-xMc">
+                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </tabBar>
+            <viewControllers>
+                <viewController id="xmd-ed-9dO">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fd3-FA-xXD"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Hs-6v-Osm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="75r-Q2-BUO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="sEd-Qh-Fsv"/>
+                </viewController>
+                <viewController id="N4U-fl-5KN">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CvG-bG-Wzx"/>
+                        <viewControllerLayoutGuide type="bottom" id="yRr-m2-u1x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="riZ-Na-e77">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="csY-wT-9Te"/>
+                </viewController>
+            </viewControllers>
+            <point key="canvasLocation" x="98" y="-278"/>
+        </tabBarController>
+        <tabBarController id="Hf1-GB-27s">
+            <tabBar key="tabBar" contentMode="scaleToFill" id="lYs-e5-29r">
+                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </tabBar>
+            <viewControllers>
+                <viewController id="tZ8-MV-dMQ">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CfA-68-FdE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xsf-iq-15y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="ZbX-2r-T02">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="Wzl-Gh-qne"/>
+                </viewController>
+                <viewController id="BPo-yb-7uJ">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fFz-65-44V"/>
+                        <viewControllerLayoutGuide type="bottom" id="ya7-86-c0O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dxx-v2-l2n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="rwB-7j-0o6"/>
+                </viewController>
+            </viewControllers>
+            <point key="canvasLocation" x="180" y="-180"/>
+        </tabBarController>
+    </objects>
+    <resources>
+        <image name="Account" width="25" height="25"/>
+        <image name="Activity" width="22" height="24"/>
+        <image name="Conv" width="26" height="23"/>
+        <image name="favs" width="26" height="22"/>
+        <image name="kitstop logo" width="24" height="24"/>
+    </resources>
+</document>

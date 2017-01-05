@@ -18,6 +18,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var toolbarContainer: UIView!
     
     var presenter: MainViewOutput!
     fileprivate var refreshControl = UIRefreshControl()
@@ -30,6 +31,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         addSectionInset()
         addNavigationBarItems()
         addRefreshControl()
+        addToolbar()
         presenter.handleKitForSale()
         
         //test hardcode
@@ -92,6 +94,16 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         self.kits = transferData
         collectionView.reloadData()
     }
+    
+    func addToolbar() {
+        let toolBar = UIView.loadFromNibNamed(nibNamed: "BottomBar")
+  
+        toolBar?.frame = CGRect(x: 0, y: 0, width: toolbarContainer.frame.width, height: toolbarContainer.frame.height)
+        
+        (toolBar as? BottomBarViewController)?.tappedItem = self
+        toolbarContainer.addSubview(toolBar!)
+        
+    }
 }
 
 // MARK: - MainViewInput
@@ -101,6 +113,13 @@ extension MainViewController: MainViewInput {
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = UIColor.gray
+
+    }
+}
+
+extension MainViewController: BottomBarTransitionProtocol {
+    func openModule(identifier: Int) {
+        presenter.openModule(identifier: identifier)
     }
 }
 

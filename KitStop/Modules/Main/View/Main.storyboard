@@ -75,7 +75,7 @@
                                                     <rect key="frame" x="119" y="9" width="58" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-oc-4Td">
-                                                            <rect key="frame" x="14" y="4" width="31" height="15"/>
+                                                            <rect key="frame" x="14" y="4.666666666666667" width="31" height="14"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,15 +130,25 @@
                                     <segue destination="bfy-vK-Y4v" kind="embed" identifier="container" id="tfZ-9t-cGG"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iE-iN-79O">
+                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Rro-cJ-wOz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Az0-3O-3Tc" firstAttribute="top" secondItem="0Eb-kk-nfu" secondAttribute="bottom" id="088-GZ-M71"/>
+                            <constraint firstAttribute="trailing" secondItem="9iE-iN-79O" secondAttribute="trailing" id="5nY-TO-XoG"/>
+                            <constraint firstItem="2K1-YL-4YO" firstAttribute="top" secondItem="9iE-iN-79O" secondAttribute="bottom" id="APH-xW-euC"/>
                             <constraint firstItem="Az0-3O-3Tc" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="J8d-10-pBT"/>
                             <constraint firstAttribute="bottom" secondItem="KSw-tq-O9G" secondAttribute="bottom" id="OKs-6F-8tQ"/>
                             <constraint firstItem="KSw-tq-O9G" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="YiD-6Y-oBy"/>
                             <constraint firstItem="KSw-tq-O9G" firstAttribute="top" secondItem="jya-JH-ARH" secondAttribute="top" id="m1i-9U-mmP"/>
                             <constraint firstAttribute="trailing" secondItem="KSw-tq-O9G" secondAttribute="trailing" id="xjc-pg-rVU"/>
+                            <constraint firstItem="9iE-iN-79O" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="yOG-8K-5Gk"/>
                             <constraint firstAttribute="trailing" secondItem="Az0-3O-3Tc" secondAttribute="trailing" id="zIi-sY-gYU"/>
                         </constraints>
                     </view>
@@ -146,6 +156,7 @@
                     <connections>
                         <outlet property="collectionView" destination="KSw-tq-O9G" id="sNN-07-Y1W"/>
                         <outlet property="container" destination="Az0-3O-3Tc" id="AjL-7N-MNM"/>
+                        <outlet property="toolbarContainer" destination="9iE-iN-79O" id="6VY-Zv-bn5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ftg-eJ-H48" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,7 +166,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2329" y="-154"/>
+            <point key="canvasLocation" x="2328.985507246377" y="-154.07608695652175"/>
         </scene>
         <!--View-->
         <scene sceneID="bKe-45-LWD">

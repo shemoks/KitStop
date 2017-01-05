@@ -9,4 +9,5 @@
 // MARK: - MainRouterInput
 
 protocol MainRouterInput: class {
+    func openModule(identifier: Int)
 }

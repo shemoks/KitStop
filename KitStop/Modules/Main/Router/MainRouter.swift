@@ -29,8 +29,20 @@ extension MainRouter: MainRouterInput {
     //            return nil
     //        }
     //    }
- 
-    
+    func openModule(identifier: Int) {
+        switch identifier {
+            case 0:
+                print("Activity")
+            case 1:
+                print("Conv")
+            case 3:
+                print("Favs")
+            case 5:
+                print("Profile")
+            default:
+                print("Nothing")
+        }
+    }
 }
 
 extension Segue {
