@@ -25,6 +25,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x61-9y-4I8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="H6M-K2-unr"/>
+                                </constraints>
+                            </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uIo-Vy-5k8" customClass="CustomSearchBar" customModule="KitStop" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="352" height="44"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,12 +154,15 @@
                             <constraint firstItem="6Y0-Xb-Uer" firstAttribute="leading" secondItem="uIo-Vy-5k8" secondAttribute="trailing" id="22i-Ub-Mf3"/>
                             <constraint firstItem="Nfi-S1-Wgm" firstAttribute="leading" secondItem="iuG-1n-dPS" secondAttribute="leading" id="6vX-sN-uej"/>
                             <constraint firstAttribute="trailing" secondItem="Nfi-S1-Wgm" secondAttribute="trailing" id="BJL-eQ-scD"/>
-                            <constraint firstItem="uIo-Vy-5k8" firstAttribute="top" secondItem="iuG-1n-dPS" secondAttribute="top" constant="20" id="Cas-rg-JMS"/>
-                            <constraint firstItem="6Y0-Xb-Uer" firstAttribute="top" secondItem="iuG-1n-dPS" secondAttribute="top" constant="20" id="J9g-Sa-w67"/>
+                            <constraint firstItem="6Y0-Xb-Uer" firstAttribute="top" secondItem="Fma-fh-ygv" secondAttribute="bottom" id="FfF-Oj-W76"/>
+                            <constraint firstItem="x61-9y-4I8" firstAttribute="top" secondItem="iuG-1n-dPS" secondAttribute="top" id="LHy-hq-BrO"/>
                             <constraint firstItem="wue-qH-eZO" firstAttribute="top" secondItem="Nfi-S1-Wgm" secondAttribute="bottom" id="MaD-Dr-Ubx"/>
                             <constraint firstItem="uIo-Vy-5k8" firstAttribute="leading" secondItem="iuG-1n-dPS" secondAttribute="leading" id="SFa-Fd-bNB"/>
+                            <constraint firstAttribute="trailing" secondItem="x61-9y-4I8" secondAttribute="trailing" id="dTN-11-QgR"/>
                             <constraint firstAttribute="trailing" secondItem="6Y0-Xb-Uer" secondAttribute="trailing" id="hmF-r6-Lbq"/>
                             <constraint firstItem="wue-qH-eZO" firstAttribute="top" secondItem="Nfi-S1-Wgm" secondAttribute="bottom" id="kVS-ZL-8sz"/>
+                            <constraint firstItem="x61-9y-4I8" firstAttribute="leading" secondItem="iuG-1n-dPS" secondAttribute="leading" id="qcR-V5-bgB"/>
+                            <constraint firstItem="uIo-Vy-5k8" firstAttribute="top" secondItem="Fma-fh-ygv" secondAttribute="bottom" id="qnb-q4-RQE"/>
                             <constraint firstItem="Nfi-S1-Wgm" firstAttribute="top" secondItem="6Y0-Xb-Uer" secondAttribute="bottom" constant="6" id="rEM-e7-GXc"/>
                         </constraints>
                     </view>
@@ -168,7 +178,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="242.0289855072464" y="-19.565217391304348"/>
+            <point key="canvasLocation" x="-233.33333333333334" y="15.489130434782609"/>
         </scene>
     </scenes>
     <resources>
