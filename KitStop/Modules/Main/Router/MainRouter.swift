@@ -31,22 +31,28 @@ extension MainRouter: MainRouterInput {
     //    }
     func openModule(identifier: Int) {
         switch identifier {
-            case 0:
-                print("Activity")
-            case 1:
-                print("Conv")
-            case 3:
-                print("Favs")
-            case 5:
-                print("Profile")
+//            case 0:
+//                print("Activity")
+//            case 1:
+//                print("Conv")
+//            case 3:
+//                print("Favs")
+//            case 5:
+//                print("Profile")
             default:
-                print("Nothing")
+                flowController.openModule(using: .openUnderConstruction) {
+                    guard ($0 as? UnderConstructionModuleInput) != nil else {fatalError()}
+                    return nil
+                }
         }
     }
 }
 
 extension Segue {
     
+    static var openUnderConstruction: Segue<UnderConstructionViewController> {
+        return .init(identifier:"transitionToUnderConstruction")
+    }
   
     
 }
