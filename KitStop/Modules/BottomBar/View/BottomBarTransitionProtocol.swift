@@ -9,5 +9,5 @@
 import Foundation
 
 protocol BottomBarTransitionProtocol {
-    
+    func openModule(identifier: Int)
 }
