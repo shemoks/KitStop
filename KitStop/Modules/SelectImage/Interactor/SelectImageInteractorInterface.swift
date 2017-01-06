@@ -10,5 +10,4 @@
 import UIKit
 
 protocol SelectImageInteractorInput: class {
-    func saveImageTo(_ path: String ,image: UIImage)
 }

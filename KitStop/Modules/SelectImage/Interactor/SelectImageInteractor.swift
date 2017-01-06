@@ -16,27 +16,10 @@ final class SelectImageInteractor {
 
     weak var presenter: SelectImageInteractorOutput!
 
-    fileprivate let awsManager: AWS3UploadImageProtocol
-    // MARK: -
-    
-    init(awsManager: AWS3UploadImageProtocol) {
-        self.awsManager = awsManager
-    }
-    
-    convenience init() {
-        self.init(awsManager: AWS3UploadImageService())
-    }
-
 }
 
 // MARK: - SelectImageInteractorInput
 
 extension SelectImageInteractor: SelectImageInteractorInput {
-    
-    func saveImageTo(_ path: String, image: UIImage) {
-        awsManager.uploadImage(userImage: image, path: path, successBlock: {
-            result in
-            print(result!)
-        })
-    }
+
 }

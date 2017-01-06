@@ -33,7 +33,7 @@ extension MainRouter: MainRouterInput {
     func openKitFolioCreateModule(secondModuleOutput: KitFolioCreateModuleOutput) {
         flowController.openModule(using: .openKitFolioCreate) {
             guard ($0 as? KitFolioCreateModuleInput) != nil else { fatalError() }
-            return nil
+            return secondModuleOutput
         }
     }
 }

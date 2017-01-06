@@ -7,7 +7,8 @@
 //
 
 // MARK: - KitFolioCreateInteractorInput
+import UIKit
 
 protocol KitFolioCreateInteractorInput: class {
-
+    func save(postTitle: String, postDescription: String, smallImage: UIImage?, bigImage: UIImage?)
 }

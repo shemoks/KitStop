@@ -12,15 +12,17 @@ final class LogInInteractor {
     // MARK: - VIPER stack
 
     weak var presenter: LogInInteractorOutput!
-    fileprivate let dataManager: LogInServiceProtocol
+    fileprivate let service: LogInServiceProtocol
+    fileprivate let dataManager: LogInDataManagerProtocol
     // MARK: -
     
-    init(dataManager: LogInServiceProtocol) {
+    init(service: LogInServiceProtocol, dataManager: LogInDataManagerProtocol) {
+        self.service = service
         self.dataManager = dataManager
     }
     
     convenience init() {
-        self.init(dataManager: LogInService())
+        self.init(service: LogInService(), dataManager: LogInDataManager())
     }
 
 }
@@ -29,13 +31,14 @@ final class LogInInteractor {
 
 extension LogInInteractor: LogInInteractorInput {
     func fetchUserData(userDataModel: LogInUserModel) {
-        dataManager.fetchUser(email: userDataModel.login, password: userDataModel.password, result: {
-            res, error in
-            if res && error == nil {
+        service.fetchUser(email: userDataModel.login, password: userDataModel.password, result: {
+            res, error , json in
+            if res && (error == nil) {
+                self.dataManager.saveUserData(json: json!)
                 self.presenter.openMainModule()
             } else {
-                let errorMassage = CustomError(code: error!).description
-                self.presenter.showAlert(title: "Error", massage: errorMassage)
+                let errorMessage = CustomError(code: error!).description
+                self.presenter.showAlert(title: "Error", massage: errorMessage)
             }
         })
     }

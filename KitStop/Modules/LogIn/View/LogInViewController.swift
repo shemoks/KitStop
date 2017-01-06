@@ -39,14 +39,22 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     }
 
     @IBAction func tapOnLoginButton(_ sender: Any) {
+        presenter.handleUserData(userData: getUserData())
+    }
+    
+    func getUserData() -> Dictionary<String, String> {
         var userData: Dictionary = [String : String]() as Dictionary
         userData["login"] = email.text
         userData["password"] = password.text
-        presenter.handleUserData(userData: userData)
+        return userData
     }
     
     @IBAction func tapOnForgetButton(_ sender: Any) {
         presenter.openForgetPasswordModule()
+    }
+    
+    func openNextModule() {
+        presenter.handleUserData(userData: getUserData())
     }
 }
 

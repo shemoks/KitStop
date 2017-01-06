@@ -19,7 +19,7 @@ protocol MainFilterContainerViewOutput: class {
 // MARK: - MainFilterContainerInteractorOutput
 
 protocol MainFilterContainerInteractorOutput: class {
-
+    func showAlert(title: String, message: String)
 }
 
 // MARK: - MainFilterContainerModuleInput

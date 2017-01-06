@@ -9,5 +9,5 @@
 // MARK: - KitFolioCreateRouterInput
 
 protocol KitFolioCreateRouterInput: class {
-
+    func returnToMainModule(moduleOutput: MainModuleOutput)
 }

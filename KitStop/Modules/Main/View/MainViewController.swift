@@ -9,10 +9,11 @@
 import Chamomile
 import UIKit
 import KeychainAccess
+import RealmSwift
 
 // MARK: - MainViewController
 
-final class MainViewController: UIViewController, FlowController, MainFilterContainerTransferDataProtocol {
+final class MainViewController: UIViewController, FlowController, MainFilterContainerTransferDataProtocol, Alertable {
 
     // MARK: - VIPER stack
     
@@ -22,6 +23,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     var presenter: MainViewOutput!
     fileprivate var refreshControl = UIRefreshControl()
     fileprivate var kits: [Product] = []
+    var delegate: MainViewPassDataProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +50,15 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func refresh() {
         print("refresh")
-     //   refreshControl.endRefreshing()
+        refreshControl.endRefreshing()
     }
     
+    //test hardcode
     func logOut() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.objects(User.self).filter("online = %s", true).first?.online = false
+        }
         KeychainService().clearToken()
         self.dismiss(animated: true, completion: nil)
     }
@@ -90,6 +97,10 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         self.kits = transferData
         collectionView.reloadData()
     }
+    
+    func passDataToSubmodule() {
+        delegate?.passData(selectedItem: 2)
+    }
 }
 
 // MARK: - MainViewInput
@@ -99,6 +110,10 @@ extension MainViewController: MainViewInput {
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = UIColor.gray
+    }
+    
+    func showAlert(title: String, message: String) {
+        showAlertWithTitle(title, message: message)
     }
 }
 

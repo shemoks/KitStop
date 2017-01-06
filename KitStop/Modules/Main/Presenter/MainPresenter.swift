@@ -71,7 +71,13 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainModuleOutput {
+    func updateKitFolioItems() {
+        view.passDataToSubmodule()
+    }
     
+    func showAlert(title: String, message: String) {
+        view.showAlert(title: title, message: message)
+    }
 }
 
 extension MainPresenter: SelectCategoryModuleOutput {

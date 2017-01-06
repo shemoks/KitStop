@@ -35,9 +35,10 @@ extension SelectImagePresenter: SelectImageViewOutput {
         view.openGallary()
     }
     
-    func cropImage(image: UIImage, buttons: [UIButton]) -> UIImageView{
+    func cropImage(image: UIImage, buttons: [UIButton], delegate: SelectImageContainerProtocol?) -> UIImageView{
         self.smallImage = image.cropToSmall()
         self.bigImage = image.cropToBig()
+        delegate?.passImage(small: self.smallImage!, big: self.bigImage!)
 //        interactor.saveImageTo("KitFolio/Small", image: smallImage!)
 //        interactor.saveImageTo("KitFolio/Big", image: bigImage!)
         for button in buttons {

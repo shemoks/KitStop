@@ -12,5 +12,5 @@ import UIKit
 protocol SignUpEmailViewInput: class {
     func showAlert(title: String, massage: String)
     func getPhoto(photo: UIImage)
-
+    func registrationNewUser()
 }

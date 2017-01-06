@@ -32,17 +32,13 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleApplyTap(price: Price) {
         if self.currentCategory != nil {
-        interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
-       // interactor.clearAll(types: self.types)
-            view.reloadData()
-            self.price = Price(minValue: 0, maxValue: 100)
-            view.reloadPrice()
+            interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
         } else {
-      //      interactor.clearAll(types: self.types)
+            self.handleViewWillDisappear(kits: [])
             router.closeModule()
         }
     }
-
+    
     func typesList() -> [Category] {
         return self.types
     }

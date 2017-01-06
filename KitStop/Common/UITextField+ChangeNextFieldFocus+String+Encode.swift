@@ -54,10 +54,15 @@ extension Double {
 
 extension UIView {
     class func loadFromNibNamed(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
-        return UINib(
+        for view in UINib(
             nibName: nibNamed,
             bundle: bundle
-            ).instantiate(withOwner: nil, options: nil)[0] as? UIView
+            ).instantiate(withOwner: nil, options: nil){
+                if let xib = (view as? UIView) {
+                    return xib
+                }
+        }
+        return nil
     }
 }
 

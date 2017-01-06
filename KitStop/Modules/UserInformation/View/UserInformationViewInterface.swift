@@ -9,5 +9,5 @@
 // MARK: - UserInformationViewInput
 
 protocol UserInformationViewInput: class {
-
+    func showUser(user: [String : String])
 }

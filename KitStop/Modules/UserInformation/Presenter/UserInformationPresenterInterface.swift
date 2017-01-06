@@ -11,13 +11,13 @@ import Chamomile
 // MARK: - UserInformationViewOutput
 
 protocol UserInformationViewOutput: class {
-
+    func getUserInfo()
 }
 
 // MARK: - UserInformationInteractorOutput
 
 protocol UserInformationInteractorOutput: class {
-
+    func showUser(user: [String : String])
 }
 
 // MARK: - UserInformationModuleInput

@@ -11,19 +11,20 @@ import Chamomile
 // MARK: - KitFolioCreateViewOutput
 
 protocol KitFolioCreateViewOutput: class {
-
+    func checkXib(view: UIView?)
+    func saveKitFolio(postTitle: String, postDescription: String, smallImage: UIImage?, bigImage: UIImage?)
 }
 
 // MARK: - KitFolioCreateInteractorOutput
 
 protocol KitFolioCreateInteractorOutput: class {
-
+    func showAlertWith(title: String, message: String)
+    func handleViewWillDisappear()
 }
 
 // MARK: - KitFolioCreateModuleInput
 
 protocol KitFolioCreateModuleInput: ModuleInput {
-
 }
 
 // MARK: - KitFolioCreateModuleOutput

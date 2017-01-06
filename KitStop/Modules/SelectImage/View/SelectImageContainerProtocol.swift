@@ -11,4 +11,5 @@ import UIKit
 
 protocol SelectImageContainerProtocol {
     func changeContainer(_ height: CGFloat)
+    func passImage(small: UIImage, big: UIImage)
 }

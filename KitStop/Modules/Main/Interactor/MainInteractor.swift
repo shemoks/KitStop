@@ -9,9 +9,9 @@
 // MARK: - MainInteractor
 
 final class MainInteractor {
-
+    
     // MARK: - VIPER stack
-
+    
     weak var presenter: MainInteractorOutput!
     fileprivate let dataManager: MainServiceProtocol
     // MARK: -
@@ -23,19 +23,24 @@ final class MainInteractor {
     convenience init() {
         self.init(dataManager: MainService())
     }
-
+    
     
     func handleKitsForSale() {
         dataManager.fetchAllKitsForSale(page: 1, completionBlock: {
-            kitsForSale in
-            self.presenter.updateKits(kits: kitsForSale)
+            kitsForSale, error in
+            if error == nil {
+                self.presenter.updateKits(kits: kitsForSale!)
+            } else {
+                let message = CustomError.init(code: error!).description
+                self.presenter.showAlert(title: "Error", message: message)
+            }
         })
     }
-
+    
 }
 
 // MARK: - MainInteractorInput
 
 extension MainInteractor: MainInteractorInput {
-
+    
 }

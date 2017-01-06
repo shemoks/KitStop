@@ -19,5 +19,7 @@ final class SignUpUserModel: NSObject {
         self.email = email
         self.password = password
         self.userImage = userImage
+        self.name = name
+        self.surname = surname
     }
 }

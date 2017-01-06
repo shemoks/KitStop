@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol LogInServiceProtocol {
-    func fetchUser(email: String, password: String, result: @escaping (Bool, _ error: Int?) -> ())
+    func fetchUser(email: String, password: String, result: @escaping (Bool, _ error: Int?, _ json: JSON?) -> ())
 }

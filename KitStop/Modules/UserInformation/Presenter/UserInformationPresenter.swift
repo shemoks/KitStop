@@ -24,13 +24,17 @@ final class UserInformationPresenter {
 // MARK: - UserInformationViewOutput
 
 extension UserInformationPresenter: UserInformationViewOutput {
-
+    func getUserInfo() {
+        interactor.fetchUser()
+    }
 }
 
 // MARK: - UserInformationInteractorOutput
 
 extension UserInformationPresenter: UserInformationInteractorOutput {
-
+    func showUser(user: [String : String]) {
+        view.showUser(user: user)
+    }
 }
 
 // MARK: - UserInformationModuleInput

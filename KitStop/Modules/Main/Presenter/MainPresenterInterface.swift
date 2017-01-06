@@ -19,6 +19,7 @@ protocol MainViewOutput: class {
 
 protocol MainInteractorOutput: class {
     func updateKits(kits: [Product])
+    func showAlert(title: String, message: String)
 }
 
 // MARK: - MainModuleInput
@@ -29,4 +30,5 @@ protocol MainModuleInput: ModuleInput {
 // MARK: - MainModuleOutput
 
 protocol MainModuleOutput: ModuleOutput {
+    func updateKitFolioItems()
 }

@@ -42,7 +42,9 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
 // MARK: - MainFilterContainerInteractorOutput
 
 extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
-    
+    func showAlert(title: String, message: String) {
+        view.showAlert(title: title, message: message)
+    }
 }
 
 // MARK: - MainFilterContainerModuleInput

@@ -13,7 +13,7 @@ import Chamomile
 protocol SelectImageViewOutput: class {
     func openCamera()
     func openGallary()
-    func cropImage(image: UIImage, buttons: [UIButton]) -> UIImageView
+    func cropImage(image: UIImage, buttons: [UIButton], delegate: SelectImageContainerProtocol?) -> UIImageView
 }
 
 // MARK: - SelectImageInteractorOutput

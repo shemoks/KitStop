@@ -10,7 +10,7 @@ import Chamomile
 
 // MARK: - MainFilterContainerViewController
 
-final class MainFilterContainerViewController: UIViewController, FlowController {
+final class MainFilterContainerViewController: UIViewController, FlowController, MainViewPassDataProtocol, Alertable {
 
     // MARK: - VIPER stack
 
@@ -22,6 +22,11 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let main = (self.parent as! MainViewController)
+        main.delegate = self
     }
     
     @IBAction func tapOnFilterButton(_ sender: Any) {
@@ -39,6 +44,15 @@ final class MainFilterContainerViewController: UIViewController, FlowController 
     func fetchKits() {
         filter.setImage(UIImage.init(named: "filter_icon"), for: .normal)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
+    }
+    
+    func passData(selectedItem: Int) {
+        kitSegmentControl.selectedSegmentIndex = selectedItem
+        fetchKits()
+    }
+    
+    func showAlert(title: String, message: String) {
+        showAlertWithTitle(title, message: message)
     }
 }
 

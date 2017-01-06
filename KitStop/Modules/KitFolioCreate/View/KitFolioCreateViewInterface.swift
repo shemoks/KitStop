@@ -7,7 +7,10 @@
 //
 
 // MARK: - KitFolioCreateViewInput
+import UIKit
 
 protocol KitFolioCreateViewInput: class {
-
+    func addXibOnView(view: UIView)
+    func showAlert(title: String, message: String)
+    func showAlert(title: String, message: String, action: [UIAlertAction])
 }

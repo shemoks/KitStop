@@ -11,4 +11,5 @@
 protocol MainFilterContainerViewInput: class {
     func transferKits(kits: [Product])
     func fetchKits()
+    func showAlert(title: String, message: String)
 }

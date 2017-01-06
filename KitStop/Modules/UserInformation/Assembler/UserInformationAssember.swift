@@ -22,12 +22,12 @@ final class UserInformationAssembler: NSObject {
         let router = UserInformationRouter()
 
         view.presenter = presenter
-        view.moduleInput = presenter
+  //      view.moduleInput = presenter
         interactor.presenter = presenter
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
-        router.flowController = view
+    //    router.flowController = view
     }
 
 }

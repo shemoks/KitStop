@@ -21,5 +21,8 @@ final class KitFolioCreateRouter {
 // MARK: - KitFolioCreateRouterInput
 
 extension KitFolioCreateRouter: KitFolioCreateRouterInput {
-
+    func returnToMainModule(moduleOutput: MainModuleOutput) {
+        moduleOutput.updateKitFolioItems()
+        flowController.closeModule(animated: true)
+    }
 }

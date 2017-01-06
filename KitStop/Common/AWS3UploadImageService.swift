@@ -21,10 +21,10 @@ class AWS3UploadImageService: AWS3UploadImageProtocol {
             // Do something to wake up user :)
         } else {
             let image = userImage
-            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(String().getUniqueName()).jpeg")
+            let awsPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(String().getUniqueName()).jpeg")
             let imageData = UIImageJPEGRepresentation(image!, 0.99)
-            fileManager.createFile(atPath: path as String, contents: imageData, attributes: nil)
-            fileUrl = NSURL(fileURLWithPath: path)
+            fileManager.createFile(atPath: awsPath as String, contents: imageData, attributes: nil)
+            fileUrl = NSURL(fileURLWithPath: awsPath)
             
             
             let accessKey = AWS3.accessKey
@@ -59,13 +59,15 @@ class AWS3UploadImageService: AWS3UploadImageProtocol {
                 if task.error != nil {
                     // Error.
                     self.removeItem()
-                    print("error")
+                    print("error \(task.error)")
                     successBlock(nil)
                 } else {
-                    self.removeItem()
-                    let url = AWS3.url.appending((self.uploadRequest?.key)!)
-                    print(url)
-                    successBlock(url)
+                    DispatchQueue.main.async {
+                        self.removeItem()
+                        let url = AWS3.url.appending((self.uploadRequest?.key)!)
+                        print(url)
+                        successBlock(url)
+                    }
                 }
                 return nil
             })
