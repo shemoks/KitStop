@@ -14,6 +14,7 @@ final class FiltersViewController: UIViewController, FlowController, Alertable {
 
     // MARK: - VIPER stack
 
+    @IBOutlet weak var clearAll: UIBarButtonItem!
     @IBOutlet weak var minValue: UILabel!
     var presenter: FiltersViewOutput!
 
@@ -73,6 +74,10 @@ extension FiltersViewController: FiltersViewInput {
             applyConstraintForSale.constant -= 55
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func activeClearAll(isActive: Bool) {
+       clearAll.isEnabled = isActive
     }
 
 }

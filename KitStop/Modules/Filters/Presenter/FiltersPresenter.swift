@@ -21,8 +21,8 @@ final class FiltersPresenter {
     var types = [Category]()
     var price = Price(minValue: 0, maxValue: 100)
     var currentCategory: Category?
- //   var filter = Filter(idCategory: 0, title: "", minPrice: 0, maxPrice: 100)
     var priceVisible: Bool = false
+    var activeClearAll: Bool = false
 
 }
 
@@ -32,13 +32,9 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleApplyTap(price: Price) {
         if self.currentCategory != nil {
-        interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
-       // interactor.clearAll(types: self.types)
-            view.reloadData()
-            self.price = Price(minValue: 0, maxValue: 100)
-            view.reloadPrice()
+            interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
         } else {
-      //      interactor.clearAll(types: self.types)
+            self.handleViewWillDisappear(kits: [])
             router.closeModule()
         }
     }
@@ -69,6 +65,7 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleViewDidLoad() {
         view.priceVisible(visible: self.priceVisible)
+        view.activeClearAll(isActive: self.activeClearAll)
         interactor.getFilters()
         view.reloadData()
         view.reloadPrice()
@@ -102,10 +99,10 @@ extension FiltersPresenter: FiltersInteractorOutput {
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
     }
-    
+
     func handleViewWillDisappear(kits: [Product]) {
         if currentCategory != nil {
-        let mainModuleOutput = moduleOutput as! FiltersModuleOutput
+            let mainModuleOutput = moduleOutput as! FiltersModuleOutput
             router.returnToMainModule(kits: kits, filter: true, moduleOutput: mainModuleOutput)
         } else {
             let mainModuleOutput = moduleOutput as! FiltersModuleOutput
@@ -115,6 +112,7 @@ extension FiltersPresenter: FiltersInteractorOutput {
 
     func setCurrentCategory(category: Category?) {
         self.currentCategory = category
+        self.activeClearAll = true
     }
 
 }
@@ -134,6 +132,7 @@ extension FiltersPresenter: FiltersModuleInput {
 extension FiltersPresenter: FilterTypeModuleOutput {
 
     func currentCategory(categories: [Category], currentCategory: Category) {
+        view.activeClearAll(isActive: true)
         self.types = categories
         view.reloadData()
         self.setCurrentCategory(category: currentCategory)

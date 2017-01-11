@@ -75,10 +75,16 @@ extension RegistrationTakePhotoViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            presenter.returnPhoto(photo: pickedImage)
-        }
-    }
+        var originalImage:UIImage?, editedImage:UIImage?, imageToSave:UIImage?
+        editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
+            originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
+            if ( editedImage != nil ) {
+                imageToSave = editedImage
+            } else {
+                imageToSave = originalImage
+            }
+            presenter.returnPhoto(photo: imageToSave!)
+ }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)

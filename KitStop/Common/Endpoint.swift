@@ -25,6 +25,7 @@ enum Endpoint {
     case kitsFilter()
     case price()
     case getCategory()
+    case getStructureOfCategory(id: String)
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -60,6 +61,8 @@ enum Endpoint {
             return "/filters"
         case .getCategory():
             return "/category"
+        case .getStructureOfCategory(let id):
+            return ("/category/" + id)
         }
     }
 
