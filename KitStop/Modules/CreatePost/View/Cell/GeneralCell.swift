@@ -17,9 +17,9 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
     var result: Product!
     func configure(property: Property) {
         if property.isValidate == false {
-            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (93/255.0), blue: (64/255.0), alpha: 1.0).cgColor
+            self.layer.backgroundColor = UIColor(red: (253/255.0), green: (169/255.0), blue: (131/255.0), alpha: 1.0).cgColor
         } else {
-            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/200.0), alpha: 1.0).cgColor
+            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
         }
         title.text = property.title
         if  property.placeholder != nil {

@@ -31,9 +31,11 @@ protocol CreatePostViewOutput: class {
 // MARK: - CreatePostInteractorOutput
 
 protocol CreatePostInteractorOutput: class {
+    
     func setStructure(post: Post)
     func showError(title: String, message: String)
     func selectMistakes(post: Post)
+    func setPost(post: Post)
 
 }
 
@@ -49,5 +51,7 @@ protocol CreatePostModuleInput: ModuleInput {
 // MARK: - CreatePostModuleOutput
 
 protocol CreatePostModuleOutput: ModuleOutput {
+    
+   func  setPost(post: Post)
 
 }

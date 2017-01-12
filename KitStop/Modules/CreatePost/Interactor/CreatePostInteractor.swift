@@ -25,7 +25,7 @@ final class CreatePostInteractor {
     convenience init() {
         self.init(dataManager: CreatePostService())
     }
-    
+
 
 
     // MARK: -
@@ -49,16 +49,30 @@ extension CreatePostInteractor: CreatePostInteractorInput {
     }
 
     func getObject(post: Post) {
-        let validarionResult = ValidationPost().validationBeforeNext(post: post)
-        if !validarionResult {
-            if post.images.contains(UIImage.init(named: "required")!) {
-                presenter.showError(title: "Error", message: "add one photo!")
-            } else {
-            presenter.showError(title: "Error", message: "missing required fields")
-            presenter.selectMistakes(post: post)
-            }
+        if post.images.contains(UIImage.init(named: "required")!) {
+            presenter.showError(title: "Error", message: "add one photo!")
         } else {
-            //goto router
+            let validarionResult = ValidationPost().validationBeforeNext(post: post)
+            if !validarionResult {
+                presenter.showError(title: "Error", message: "missing complite required fields")
+                presenter.selectMistakes(post: post)
+            } else {
+                var i = 0
+                for data in post.additionalProperty {
+                    if data.metadata {
+                        post.additionalProperty.remove(at: i)
+                        i += 1
+                    }
+                }
+                i = 0
+                for data in post.generalProperty {
+                    if data.metadata {
+                        post.additionalProperty.remove(at: i)
+                        i += 1
+                    }
+                }
+                presenter.setPost(post: post)
+            }
         }
     }
 

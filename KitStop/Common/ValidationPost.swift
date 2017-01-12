@@ -31,9 +31,9 @@ class ValidationPost {
                 property.isValidate = true
             }
         }
-        if post.images.contains(UIImage.init(named: "required")!) {
-            result = false
-        }
+//        if post.images.contains(UIImage.init(named: "required")!) {
+//            result = false
+//        }
         return result
     }
 }

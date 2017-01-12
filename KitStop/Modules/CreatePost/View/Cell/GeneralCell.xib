@@ -24,13 +24,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWI-u3-FXY">
-                        <rect key="frame" x="20" y="10" width="31" height="14.5"/>
+                        <rect key="frame" x="20" y="10" width="459" height="14"/>
                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                         <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zef-aL-HWW">
-                        <rect key="frame" x="19" y="28.5" width="460" height="21"/>
+                        <rect key="frame" x="19" y="28" width="460" height="32.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
@@ -40,8 +40,10 @@
                     <constraint firstItem="Zef-aL-HWW" firstAttribute="top" secondItem="oWI-u3-FXY" secondAttribute="bottom" constant="4" id="FV5-Tf-YIL"/>
                     <constraint firstItem="oWI-u3-FXY" firstAttribute="leading" secondItem="FK6-ZU-w7i" secondAttribute="leading" constant="20" id="Sc9-UR-6ZB"/>
                     <constraint firstItem="oWI-u3-FXY" firstAttribute="top" secondItem="FK6-ZU-w7i" secondAttribute="top" constant="10" id="Taq-O7-G3b"/>
+                    <constraint firstAttribute="bottom" secondItem="Zef-aL-HWW" secondAttribute="bottom" constant="2" id="WH1-Po-Lbf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Zef-aL-HWW" secondAttribute="trailing" constant="10" id="aBU-62-WOE"/>
                     <constraint firstItem="Zef-aL-HWW" firstAttribute="leading" secondItem="FK6-ZU-w7i" secondAttribute="leadingMargin" constant="11" id="dCo-pr-Qyg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="oWI-u3-FXY" secondAttribute="trailing" constant="10" id="qGF-ev-gC6"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

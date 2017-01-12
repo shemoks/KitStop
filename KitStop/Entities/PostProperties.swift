@@ -37,10 +37,13 @@ class Property {
     var limit: Int? = nil
     var textValue: String = ""
     var isValidate: Bool = true
+    var metadata: Bool = false
+    var salesDetails: Bool = false
 }
 
 class Post {
 
+    var metadata = [Property]()
     var generalProperty = [Property]()
     var additionalProperty = [Property]()
     var description = Property()
@@ -48,6 +51,7 @@ class Post {
     var categoryTitle: String = ""
     var categoryId: String = ""
     var images = [UIImage]()
-    
+    var salesDetails = [Property]()
+
 }
 

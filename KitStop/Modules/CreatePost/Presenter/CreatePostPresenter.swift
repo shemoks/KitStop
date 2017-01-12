@@ -24,6 +24,7 @@ final class CreatePostPresenter {
     var newImages = [UIImage]()
     var currentData: String?
     var screenTitle: String = "ForSale / "
+    var postForPrice = Post()
 
 }
 
@@ -97,9 +98,9 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func handleNextTap() {
-        print(self.post)
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
+        router.openPriceModule(post: self.postForPrice)
     }
 
 }
@@ -107,7 +108,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
 // MARK: - CreatePostInteractorOutput
 
 extension CreatePostPresenter: CreatePostInteractorOutput {
-    
+
     func setStructure(post: Post) {
         self.post = post
         view.reloadData()
@@ -118,8 +119,12 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
     }
 
     func selectMistakes(post: Post) {
-        self.post = post
+        //   self.post = post
         view.reloadData()
+    }
+
+    func setPost(post: Post) {
+        self.postForPrice = post
     }
 
 

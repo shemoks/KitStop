@@ -10,7 +10,7 @@ import Chamomile
 
 // MARK: - CreatePostViewController
 
-final class CreatePostViewController: UIViewController, FlowController, UINavigationControllerDelegate, Alertable {
+final class CreatePostViewController: UIViewController, FlowController, UINavigationControllerDelegate, Alertable, ResizeTextViewDelegate {
 
 
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +21,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
     var presenter: CreatePostViewOutput!
     let imagePicker = UIImagePickerController()
     let headerView = HeaderTableView()
+    var cell = DescriptionCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         headerView.collectionView.dataSource = self
         tableView.tableHeaderView = headerView
         presenter.handleViewDidLoad()
+        self.tableView.estimatedRowHeight = 50.0
     }
 
     override func viewDidLayoutSubviews() {
@@ -60,7 +62,6 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
 
     func sizeHeaderToFit() {
         let headerView = tableView.tableHeaderView!
-
         headerView.setNeedsLayout()
         headerView.layoutIfNeeded()
         var frame = headerView.frame
@@ -69,6 +70,16 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         tableView.tableHeaderView = headerView
     }
 
+    func resizeTextView(textView: UITextView) {
+        let startHeight = textView.frame.size.height
+        let calcHeight = textView.sizeThatFits(textView.frame.size).height
+        if startHeight != calcHeight {
+            UIView.setAnimationsEnabled(false)
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
+        }
+    }
 }
 
 // MARK: - CreatePostViewInput
@@ -127,24 +138,19 @@ extension CreatePostViewController:UITableViewDataSource {
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell") as? DescriptionCell
             cell?.configure(property: presenter.descriptions(for: indexPath))
+            cell?.delegate = self
             return cell!
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell") as? DescriptionCell
             cell?.configure(property: presenter.notes(for: indexPath))
+            cell?.delegate = self
             return cell!
         }
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0,1:
-            return 50
-        case 2,3:
-            return 134
-        default:
-            return 134
-        }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
 }
@@ -153,11 +159,30 @@ extension CreatePostViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderViewCreatePost()
-        return view
+        switch section {
+        case 0:
+            if presenter.numberOfGeneralProperties(inSection: section) > 0 {
+                return view
+            } else {
+                return nil
+            }
+        case 1:
+            if presenter.numberOfAdditionalProperties(inSection: section) > 0 {
+                return view
+            } else {
+                return nil
+            }
+        default:
+            return view
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 
@@ -203,12 +228,15 @@ extension CreatePostViewController: UIImagePickerControllerDelegate {
         }
         presenter.setPhoto(photo: imageToSave!)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
+
+
+
+
 
 
 

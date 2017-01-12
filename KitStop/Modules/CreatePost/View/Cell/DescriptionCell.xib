@@ -23,11 +23,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K6y-Gw-Z1I">
-                        <rect key="frame" x="20" y="27" width="376" height="60"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="K6y-Gw-Z1I">
+                        <rect key="frame" x="20" y="30" width="376" height="64"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="xeh-IU-d2n"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="70" id="x1c-GL-MEz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -36,9 +36,10 @@
                 <constraints>
                     <constraint firstItem="x6u-U1-w5e" firstAttribute="leading" secondItem="Mdh-za-v0T" secondAttribute="leading" constant="20" id="6C8-bm-V51"/>
                     <constraint firstItem="K6y-Gw-Z1I" firstAttribute="leading" secondItem="Mdh-za-v0T" secondAttribute="leading" constant="20" id="PYh-Wo-Zi0"/>
-                    <constraint firstItem="K6y-Gw-Z1I" firstAttribute="top" secondItem="x6u-U1-w5e" secondAttribute="bottom" constant="1" id="VCF-SH-z6w"/>
+                    <constraint firstItem="K6y-Gw-Z1I" firstAttribute="top" secondItem="x6u-U1-w5e" secondAttribute="bottom" constant="4" id="VCF-SH-z6w"/>
                     <constraint firstAttribute="trailing" secondItem="x6u-U1-w5e" secondAttribute="trailing" constant="20" id="XkG-jq-8QA"/>
                     <constraint firstAttribute="trailing" secondItem="K6y-Gw-Z1I" secondAttribute="trailing" constant="20" id="b84-rM-7WM"/>
+                    <constraint firstAttribute="bottom" secondItem="K6y-Gw-Z1I" secondAttribute="bottom" id="i7D-wi-cqZ"/>
                     <constraint firstItem="x6u-U1-w5e" firstAttribute="top" secondItem="Mdh-za-v0T" secondAttribute="top" constant="8" id="xUi-Mz-b4B"/>
                 </constraints>
             </tableViewCellContentView>

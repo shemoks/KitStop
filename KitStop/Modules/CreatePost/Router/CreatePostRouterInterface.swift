@@ -10,4 +10,6 @@
 
 protocol CreatePostRouterInput: class {
 
+    func openPriceModule(post: Post)
+
 }

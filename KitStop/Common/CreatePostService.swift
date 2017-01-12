@@ -45,7 +45,6 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                     additionalProperty.append(resultValue.property)
                                 case 3:
                                     arrProducts.description = resultValue.property
-
                                 default:
                                     arrProducts.notes = resultValue.property
                                 }
@@ -58,8 +57,12 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                 switch resultValue.section {
                                 case 1:
                                     generalProperty.append(resultValue.property)
+                                    resultValue.property.metadata = true
+                                    arrProducts.metadata.append(resultValue.property)
                                 case 2:
+                                    resultValue.property.metadata = true
                                     additionalProperty.append(resultValue.property)
+                                    arrProducts.metadata.append(resultValue.property)
                                 case 3:
                                     arrProducts.description = resultValue.property
 
@@ -68,6 +71,12 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                 }
 
                             }
+                        }
+                        let salesDetails = json["data"]["structure"]["salesDetails"]
+                        for product in salesDetails {
+                            let resultValue = self.createObject(product: product.1)
+                            resultValue.property.salesDetails = true
+                            arrProducts.salesDetails.append(resultValue.property)
                         }
                         arrProducts.generalProperty = generalProperty
                         arrProducts.additionalProperty = additionalProperty
@@ -116,8 +125,12 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                 let resultValue = self.createObject(product: product.1)
                                 switch resultValue.section {
                                 case 1:
+                                    resultValue.property.metadata = true
+                                    arrProducts.metadata.append(resultValue.property)
                                     generalProperty.append(resultValue.property)
                                 case 2:
+                                    resultValue.property.metadata = true
+                                    arrProducts.metadata.append(resultValue.property)
                                     additionalProperty.append(resultValue.property)
                                 case 3:
                                     arrProducts.description = resultValue.property
@@ -127,7 +140,12 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                 }
                             }
                         }
-
+                        let salesDetails = json["data"]["structure"]["salesDetails"]
+                        for product in salesDetails {
+                            let resultValue = self.createObject(product: product.1)
+                            resultValue.property.salesDetails = true
+                            arrProducts.salesDetails.append(resultValue.property)
+                        }
                         arrProducts.generalProperty = generalProperty
                         arrProducts.additionalProperty = additionalProperty
                         categoryStructure(arrProducts, nil)
@@ -149,21 +167,25 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
 
     func createObject(product: JSON) -> ResultJson {
         var newElement: Property
-        let section = product["group"].intValue
+            let section = product["group"].intValue
         switch section {
         case 1:
             newElement = element(product: product, section: 1)
             return ResultJson(property: newElement, section: 1)
         case 2:
-            newElement = element(product: product, section: 1)
+            newElement = element(product: product, section: 2)
             return ResultJson(property: newElement, section: 2)
         case 3:
-            newElement = element(product: product, section: 1)
+            newElement = element(product: product, section: 3)
             return ResultJson(property: newElement, section: 3)
 
-        default:
-            newElement = element(product: product, section: 1)
+        case 4:
+            newElement = element(product: product, section: 4)
             return ResultJson(property: newElement, section: 4)
+
+        default:
+            newElement = element(product: product, section: 0)
+            return ResultJson(property: newElement, section: 0)
         }
     }
 
@@ -189,7 +211,8 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
             newElement.placeholder = product["placeholder"].stringValue
         }
         newElement.limit = product["limit"].intValue
-         return newElement
+        newElement.units = product["units"].stringValue
+        return newElement
     }
 
 }
