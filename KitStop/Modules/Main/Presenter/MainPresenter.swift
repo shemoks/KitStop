@@ -25,6 +25,10 @@ final class MainPresenter {
 
 extension MainPresenter: MainViewOutput {
     
+    func openModule(identifier: Int) {
+        router.openModule(identifier: identifier)
+    }
+    
     func setupAlert() {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let listForSaleAction = UIAlertAction.init(title: "List for Sale", style: .default, handler: {
@@ -55,6 +59,9 @@ extension MainPresenter: MainViewOutput {
         interactor.handleKitsForSale()
     }
     
+    func logoutFromFacebook() {
+        interactor.logoutFromFacebook()
+    }
 }
 
 // MARK: - MainInteractorOutput

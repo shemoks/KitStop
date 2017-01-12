@@ -9,5 +9,7 @@
 // MARK: - RestorePasswordViewInput
 
 protocol RestorePasswordViewInput: class {
-
+    func showAlert(message: String)
+    func changeSubmitStatus(status: Bool)
+    func dismissAfterAlert(message: String)
 }

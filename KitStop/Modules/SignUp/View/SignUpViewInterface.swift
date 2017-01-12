@@ -9,5 +9,5 @@
 // MARK: - SignUpViewInput
 
 protocol SignUpViewInput: class {
-
+    func setFacebookButtonVisible()
 }

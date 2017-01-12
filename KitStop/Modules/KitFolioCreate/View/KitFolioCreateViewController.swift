@@ -56,6 +56,7 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     
     
     @IBAction func save(_ sender: Any) {
+        view.endEditing(true)
         presenter.saveKitFolio(postTitle: postTitle.text!, postDescription: postDescription.text!, smallImage: self.small, bigImage: self.big)
     }
     

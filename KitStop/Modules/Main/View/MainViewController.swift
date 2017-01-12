@@ -19,6 +19,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var toolbarContainer: UIView!
     
     var presenter: MainViewOutput!
     fileprivate var refreshControl = UIRefreshControl()
@@ -32,6 +33,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         addSectionInset()
         addNavigationBarItems()
         addRefreshControl()
+        addToolbar()
         presenter.handleKitForSale()
         
         //test hardcode
@@ -60,6 +62,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
             realm.objects(User.self).filter("online = %s", true).first?.online = false
         }
         KeychainService().clearToken()
+        presenter.logoutFromFacebook()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -101,6 +104,16 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     func passDataToSubmodule() {
         delegate?.passData(selectedItem: 2)
     }
+    
+    func addToolbar() {
+        let toolBar = UIView.loadFromNibNamed(nibNamed: "BottomBar")
+  
+        toolBar?.frame = CGRect(x: 0, y: 0, width: toolbarContainer.frame.width, height: toolbarContainer.frame.height)
+        
+        (toolBar as? BottomBarViewController)?.tappedItem = self
+        toolbarContainer.addSubview(toolBar!)
+        
+    }
 }
 
 // MARK: - MainViewInput
@@ -110,10 +123,17 @@ extension MainViewController: MainViewInput {
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = UIColor.gray
+
     }
     
     func showAlert(title: String, message: String) {
         showAlertWithTitle(title, message: message)
+    }
+}
+
+extension MainViewController: BottomBarTransitionProtocol {
+    func openModule(identifier: Int) {
+        presenter.openModule(identifier: identifier)
     }
 }
 

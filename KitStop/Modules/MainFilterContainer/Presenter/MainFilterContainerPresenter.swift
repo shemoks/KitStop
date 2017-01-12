@@ -29,9 +29,8 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
         router.openFilterModule(selectedIndex: selectedIndex ,filterModuleOutput: self)
     }
     
-    func openSearchModule() {
-        // you must reference search module
-        // router.openNextModule(secondModuleProtocol: 'Search Module Output')
+    func openSearchModule(selectedSegment: Int) {
+        router.openMainSearchModule(selectedSegment: selectedSegment)
     }
     
     func handleKitsForCategory(category: Int, transferData trasferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton) {

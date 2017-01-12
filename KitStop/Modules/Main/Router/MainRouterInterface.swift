@@ -11,4 +11,5 @@
 protocol MainRouterInput: class {
     func openCategoryModule(secondModuleOutput: SelectCategoryModuleOutput)
     func openKitFolioCreateModule(secondModuleOutput: KitFolioCreateModuleOutput)
+    func openModule(identifier: Int)
 }

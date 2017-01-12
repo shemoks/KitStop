@@ -155,6 +155,7 @@
                     <connections>
                         <outlet property="applyConstraintForKits" destination="jxQ-7D-z5d" id="3DT-NH-l4z"/>
                         <outlet property="applyConstraintForSale" destination="8x7-Zs-b8R" id="jdS-RA-TXk"/>
+                        <outlet property="clearAll" destination="Lfq-QA-17R" id="LD0-Lv-92W"/>
                         <outlet property="maxValue" destination="KU0-8L-Cfr" id="4fY-MH-arA"/>
                         <outlet property="minValue" destination="JRG-Tn-7vl" id="cGg-9l-Yl1"/>
                         <outlet property="rangeSlider" destination="5h5-k7-lnI" id="eY5-Va-lRA"/>

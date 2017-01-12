@@ -163,6 +163,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Signup" id="m6O-nE-WIX"/>
                     <connections>
+                        <outlet property="IQLayoutGuideConstraint" destination="NHu-8I-VUr" id="kBc-1Z-JXI"/>
                         <outlet property="avatar" destination="8Pr-rd-2KX" id="9Ox-k9-u94"/>
                         <outlet property="email" destination="O2b-XY-oAz" id="aNl-fa-yrC"/>
                         <outlet property="name" destination="rpF-Is-B9J" id="v2U-R3-6XO"/>

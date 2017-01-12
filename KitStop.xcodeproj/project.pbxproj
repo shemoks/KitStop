@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		038F533ED9C65095DCEC976D /* MainFilterContainerViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563EBA0C54D3013B2FCD7E3C /* MainFilterContainerViewInterface.swift */; };
+		084807CBF23CA6FF4B1A4091 /* UnderConstructionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D70086D9C53CF87903292 /* UnderConstructionRouter.swift */; };
 		085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */; };
 		0B88DA742DA3178C8BEAD5B8 /* SelectImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89160196EBA69DD304CA110 /* SelectImageRouter.swift */; };
+		14CB328104E0A5242ACE2533 /* BottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004C1CEB0799C70502B19DF /* BottomBarViewController.swift */; };
 		179DE9F6069704F46DD6A554 /* KitFolioCreateAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B385BE8787B060A1FA5FAB /* KitFolioCreateAssember.swift */; };
 		17C560A2DC2A71E3F5959151 /* RestorePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A22944030AA2633B9301FE6 /* RestorePasswordRouter.swift */; };
 		1EFBEE5771A7BF6C9B03EAE8 /* UserInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C25A4B243B4B02874BF4F /* UserInformationPresenter.swift */; };
+		24F46143E77F24E759A6F4EE /* MainSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404591C75CA6987355BDCA30 /* MainSearchPresenter.swift */; };
 		2503BF291E0AA47400AD3BAC /* MainKitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503BF281E0AA47400AD3BAC /* MainKitsCell.swift */; };
+		25211E8E1E1F934200630200 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E8D1E1F934200630200 /* RangeSlider.swift */; };
+		25211E921E1F97D200630200 /* BottomBarAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E911E1F97D200630200 /* BottomBarAssember.swift */; };
+		25211E951E1F97E500630200 /* BottomBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E931E1F97E500630200 /* BottomBarInteractor.swift */; };
+		25211E961E1F97E500630200 /* BottomBarInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E941E1F97E500630200 /* BottomBarInteractorInterface.swift */; };
+		25211E991E1F97F800630200 /* BottomBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E971E1F97F800630200 /* BottomBarPresenter.swift */; };
+		25211E9A1E1F97F800630200 /* BottomBarPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E981E1F97F800630200 /* BottomBarPresenterInterface.swift */; };
+		25211E9D1E1F980D00630200 /* BottomBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E9B1E1F980D00630200 /* BottomBarRouter.swift */; };
+		25211E9E1E1F980D00630200 /* BottomBarRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E9C1E1F980D00630200 /* BottomBarRouterInterface.swift */; };
 		2523D1411E1CE2370053BFD6 /* KitFolioCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2523D1401E1CE2370053BFD6 /* KitFolioCreate.storyboard */; };
 		2523D1441E1CF5B80053BFD6 /* UserInformation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2523D1431E1CF5B80053BFD6 /* UserInformation.xib */; };
 		2523D1461E1D50270053BFD6 /* SelectImageContainerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2523D1451E1D50270053BFD6 /* SelectImageContainerProtocol.swift */; };
@@ -58,13 +69,20 @@
 		25D8A14E1E0F0BBB007FC431 /* SignUpUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8A14D1E0F0BBB007FC431 /* SignUpUserModel.swift */; };
 		25D8A1521E0F0E41007FC431 /* SignUpServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8A1511E0F0E41007FC431 /* SignUpServiceProtocol.swift */; };
 		25FBAC471E16945900A956CE /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBAC461E16945900A956CE /* LoadingIndicatorView.swift */; };
+		29230E2D7697EA79FCE1F7C5 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE3B1C9CAA66994EA7211C /* MainSearchViewController.swift */; };
+		294F16FBF210B90F04316F13 /* UnderConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47B5297D29887CCE379EE /* UnderConstructionViewController.swift */; };
 		2DEF3C2BDA8D8016EE3A4A5A /* SignUpEmailAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C36B83FB7D99E400EA934C /* SignUpEmailAssember.swift */; };
 		2FF177D47944ABC381D80543 /* UserInformationPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D96896C1028FECFFB7F7AEB /* UserInformationPresenterInterface.swift */; };
+		317C102149CE1EDA09D36A56 /* MainSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3189217493CC125554A2B9A /* MainSearchInteractor.swift */; };
 		34C1A10708ABA0DCF9E3C882 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5954E87B9BF2ABD40747E65 /* MainRouter.swift */; };
 		376BCC662338A75E312060C9 /* RestorePasswordViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53AF563EBDE4B97221BF96 /* RestorePasswordViewInterface.swift */; };
 		3A20C62FB960376D504D6B49 /* KitFolioCreateViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B987B245AFE973EB7A544E0 /* KitFolioCreateViewInterface.swift */; };
+		3DE8A3128C1E57854525EDDA /* UnderConstructionViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B7679960C336CBC5A73A5A /* UnderConstructionViewInterface.swift */; };
 		3EE943D61BE758CB409DCCFC /* KitFolioCreateRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DCBB07C734FDDE6DCE41F2 /* KitFolioCreateRouterInterface.swift */; };
+		4115AFA1FAD48B2DC7F58A3A /* UnderConstructionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF022A48C76548122EDB93FD /* UnderConstructionInteractor.swift */; };
+		47B1AE0B46FA94CD206FFBA2 /* UnderConstructionPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C45CD1D9063ACAD5E20AC3 /* UnderConstructionPresenterInterface.swift */; };
 		4888A7F4999966C78512FC8E /* SelectCategoryInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E129C2F8AA6C549FC22C436A /* SelectCategoryInteractorInterface.swift */; };
+		4DC31B64D529D94AF60728DA /* BottomBarViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D64E86103870B6A61537C3 /* BottomBarViewInterface.swift */; };
 		522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */; };
 		5422121C48C6DB533B151788 /* MainInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33F9BAC1940DA63FCFD008 /* MainInteractorInterface.swift */; };
 		581FCB62C7F7DF6F0955D2B2 /* SelectCategoryViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35753E8F65DF90B4CC2C4EB0 /* SelectCategoryViewInterface.swift */; };
@@ -75,24 +93,39 @@
 		62CD331FAB140A4596144D24 /* MainRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DD9B57D041C3733585D4B /* MainRouterInterface.swift */; };
 		62E8C61ADC306FD70F42236E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201B30E564E95D3AD8879937 /* MainViewController.swift */; };
 		6689DC6B72E8F8841207CB5A /* MainFilterContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A07CC664CE14972641EE608 /* MainFilterContainerInteractor.swift */; };
+		6963F9951DB6ADAEF4FFD84B /* MainSearchInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207915E1A976D43EB4DBE19 /* MainSearchInteractorInterface.swift */; };
 		6CF527608E8A152DCBC78759 /* MainFilterContainerPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADFF012C0D27FA8B1D5433 /* MainFilterContainerPresenterInterface.swift */; };
 		6DC30243207AA33EF9C0C624 /* RestorePasswordInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31F9FC8D8E99CDE47D53FC9 /* RestorePasswordInteractorInterface.swift */; };
+		702C10088F5B170D96F37281 /* MainSearchAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670714C1E110B2459AFEE78 /* MainSearchAssember.swift */; };
 		7278197330AB540222D571EF /* KitFolioCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BDA816997A54793FE2997 /* KitFolioCreateInteractor.swift */; };
 		74131620DDAF3D6899049E84 /* KitFolioCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1491A2976534DC7D2F947 /* KitFolioCreateRouter.swift */; };
 		745891994723DED5E13B76F6 /* Pods_KitStop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB6090BFED7E8DF04618427 /* Pods_KitStop.framework */; };
 		7499FEEE035E67001BC1F3A8 /* RestorePasswordRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96E32C3B0EB127D935F62A /* RestorePasswordRouterInterface.swift */; };
 		787496B14627D29E82319FB6 /* SelectCategoryPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683CE000BF7F0E12C730A6A /* SelectCategoryPresenterInterface.swift */; };
+		78BAA069150CF9591CF10143 /* UnderConstructionInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE4EC7B46B7E239BE3252C /* UnderConstructionInteractorInterface.swift */; };
+		7A5F2056AA0E1F239BC9C70C /* MainSearchViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4D98C1B8EC7F3A3C8F80D /* MainSearchViewInterface.swift */; };
+		7C9659C46613A87E95A00295 /* UnderConstructionAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00AB8ADD3688996332AE236 /* UnderConstructionAssember.swift */; };
 		83D0F79C735C8E660FB3B3E1 /* RestorePasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBA9D7C2865D806FF138DA /* RestorePasswordInteractor.swift */; };
 		88762FACF17AB769A1417042 /* SelectCategoryAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAB3B3804E0BEAC7B9282D /* SelectCategoryAssember.swift */; };
 		89814BCB6AC036468D30258C /* UserInformationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58655DCC36B726CA795132F /* UserInformationRouter.swift */; };
 		8BCBCF791FAB67757FBB942E /* SelectCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9147ABFFD8521E5E4A4AB289 /* SelectCategoryRouter.swift */; };
 		8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D4A098F44E1566EB9CCC0 /* SignUpEmailInteractorInterface.swift */; };
 		9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9502CD811E0832D9007AD6EA /* RestorePassword.storyboard */; };
+		9511346E1E1CE24400175EE2 /* MainSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9511346D1E1CE24400175EE2 /* MainSearch.storyboard */; };
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
+		9527A3901E1D05C300DAE96C /* SearchServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9527A38F1E1D05C300DAE96C /* SearchServiceProtocol.swift */; };
+		9527A3921E1D0A7500DAE96C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9527A3911E1D0A7500DAE96C /* SearchService.swift */; };
+		953129A71E1E4D280009760F /* BottomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953129A61E1E4D280009760F /* BottomBar.xib */; };
+		953129A91E1E662F0009760F /* BottomBarTransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953129A81E1E662F0009760F /* BottomBarTransitionProtocol.swift */; };
+		953FD41D1E1EA7DA0000086E /* UnderConstruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */; };
+		957542E31E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */; };
 		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
+		95D8C2001E1673D10017C1AD /* RestorePasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */; };
+		95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */; };
+		95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC31E16579200A84B7F /* FacebookService.swift */; };
 		9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */; };
 		9A47E4F21E02A974005EED88 /* FiltersAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E4E51E02A974005EED88 /* FiltersAssember.swift */; };
 		9A47E4F31E02A974005EED88 /* FiltersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E4E71E02A974005EED88 /* FiltersInteractor.swift */; };
@@ -109,7 +142,6 @@
 		9A47E50A1E02BDFC005EED88 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E5091E02BDFC005EED88 /* HeaderView.swift */; };
 		9A47E5101E02FFBA005EED88 /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E50F1E02FFBA005EED88 /* PriceCell.xib */; };
 		9A47E5121E0300AE005EED88 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E5111E0300AE005EED88 /* PriceCell.swift */; };
-		9A47E51D1E03E35A005EED88 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E51C1E03E35A005EED88 /* RangeSlider.swift */; };
 		9A47E5211E04324A005EED88 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E5201E04324A005EED88 /* Filter.swift */; };
 		9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */; };
 		9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */; };
@@ -188,12 +220,15 @@
 		9AB17D191E0D72A7004E95FF /* ApplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17D181E0D72A7004E95FF /* ApplyCell.xib */; };
 		9AB17D1B1E0D7331004E95FF /* ApplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17D1A1E0D7331004E95FF /* ApplyCell.swift */; };
 		9AB17D2B1E12693F004E95FF /* CategoryPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17D2A1E12693F004E95FF /* CategoryPrice.swift */; };
+		9AED802BE338B9AD9BB0A3C4 /* MainSearchPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22C7A349BE4EA8BD25DF5B3 /* MainSearchPresenterInterface.swift */; };
 		9B63F8E7001D7023C3AE1137 /* SelectCategoryRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A610CF1E9E83AC061F993F /* SelectCategoryRouterInterface.swift */; };
 		9F3921472D76DF0A6BC59523 /* SelectImageRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326321A21813BDD10941FB6 /* SelectImageRouterInterface.swift */; };
 		9F9A8272BA515E28450302A2 /* KitFolioCreatePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569356AB0FFB05102B14F1B /* KitFolioCreatePresenterInterface.swift */; };
 		A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */; };
 		A8E10A38F960FDB693073882 /* MainFilterContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549E6D75D861F2271823A4C3 /* MainFilterContainerRouter.swift */; };
+		A8FD8493176463A13AF24933 /* MainSearchRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462AE2B944D8BF231B2ECAE /* MainSearchRouterInterface.swift */; };
 		AA60A61A7825B03909639327 /* MainFilterContainerRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9918C383B8084AF970FABD27 /* MainFilterContainerRouterInterface.swift */; };
+		AB7F9B4F1DFE54EDA45ED368 /* UnderConstructionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84917782AB5ED653EB9A79B9 /* UnderConstructionPresenter.swift */; };
 		ACBB37194E532B954AB76930 /* SelectCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A17BC5584F1D7CC13C0535 /* SelectCategoryPresenter.swift */; };
 		B13676A491A33B0774E7DC73 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD81887816DA9CBA8B795BC /* MainInteractor.swift */; };
 		B3703B720F69CA6D2F9E1E8D /* UserInformationRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268861DD6E662FAF404A9F2 /* UserInformationRouterInterface.swift */; };
@@ -220,12 +255,14 @@
 		EBB81D18624C6E97C73D0FDF /* KitFolioCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A71D0DF993ED280F763449 /* KitFolioCreateViewController.swift */; };
 		ED851F6B42A2FA658CA9F8A3 /* MainViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F3E44B9044B4FE5AED7220 /* MainViewInterface.swift */; };
 		F3A3D613DB1711F718AEC528 /* SelectImageAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035322A081E647B61BD9EC96 /* SelectImageAssember.swift */; };
+		F5649A00AC8584F8D4548C00 /* MainSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18750479ED98F06FDF3D644 /* MainSearchRouter.swift */; };
 		F7120D8F5E722D8B7BE7929C /* SignUpEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */; };
 		FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4528571DF802F900B2AA03 /* AppDelegate.swift */; };
 		FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA45285E1DF802F900B2AA03 /* Assets.xcassets */; };
 		FA45286D1DF802F900B2AA03 /* KitStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45286C1DF802F900B2AA03 /* KitStopTests.swift */; };
 		FA5184341E0D35AA007B546B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5184331E0D35AA007B546B /* Launch Screen.storyboard */; };
 		FCA49B0925D63977728A6BED /* SelectImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEC2967BF4472AE9E514F2 /* SelectImagePresenter.swift */; };
+		FF7EFF6D3DE1A79A493C3403 /* UnderConstructionRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E687003550CC80383F66D0CD /* UnderConstructionRouterInterface.swift */; };
 		FFEEFBEA8DE34F6F10E2AF26 /* MainFilterContainerAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4D88D47278C0B35F8F3A7 /* MainFilterContainerAssember.swift */; };
 /* End PBXBuildFile section */
 
@@ -246,13 +283,25 @@
 		06DCBB07C734FDDE6DCE41F2 /* KitFolioCreateRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateRouterInterface.swift; sourceTree = "<group>"; };
 		0B3EF84AC97A065C823E72C1 /* SignUpEmailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailRouter.swift; sourceTree = "<group>"; };
 		0C901CA56AA02B1C85F8F08C /* Pods-KitStop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.release.xcconfig"; sourceTree = "<group>"; };
+		1004C1CEB0799C70502B19DF /* BottomBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BottomBarViewController.swift; sourceTree = "<group>"; };
 		12A71D0DF993ED280F763449 /* KitFolioCreateViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateViewController.swift; sourceTree = "<group>"; };
+		19B7679960C336CBC5A73A5A /* UnderConstructionViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionViewInterface.swift; sourceTree = "<group>"; };
 		1C83513A72902572DFF8392B /* UserInformationAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationAssember.swift; sourceTree = "<group>"; };
 		201B30E564E95D3AD8879937 /* MainViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		20AE821DF08FFE36A183C8D6 /* SelectImagePresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImagePresenterInterface.swift; sourceTree = "<group>"; };
+		20C45CD1D9063ACAD5E20AC3 /* UnderConstructionPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionPresenterInterface.swift; sourceTree = "<group>"; };
 		217DA22C1418F82776C91DA6 /* KitFolioCreateInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateInteractorInterface.swift; sourceTree = "<group>"; };
 		232BDA816997A54793FE2997 /* KitFolioCreateInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateInteractor.swift; sourceTree = "<group>"; };
 		2503BF281E0AA47400AD3BAC /* MainKitsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainKitsCell.swift; sourceTree = "<group>"; };
+		25211E8D1E1F934200630200 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		25211E911E1F97D200630200 /* BottomBarAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarAssember.swift; sourceTree = "<group>"; };
+		25211E931E1F97E500630200 /* BottomBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarInteractor.swift; sourceTree = "<group>"; };
+		25211E941E1F97E500630200 /* BottomBarInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarInteractorInterface.swift; sourceTree = "<group>"; };
+		25211E971E1F97F800630200 /* BottomBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarPresenter.swift; sourceTree = "<group>"; };
+		25211E981E1F97F800630200 /* BottomBarPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarPresenterInterface.swift; sourceTree = "<group>"; };
+		25211E9B1E1F980D00630200 /* BottomBarRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarRouter.swift; sourceTree = "<group>"; };
+		25211E9C1E1F980D00630200 /* BottomBarRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarRouterInterface.swift; sourceTree = "<group>"; };
+		25211E9F1E1FA68D00630200 /* KitStop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KitStop.entitlements; sourceTree = "<group>"; };
 		2523D1401E1CE2370053BFD6 /* KitFolioCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KitFolioCreate.storyboard; sourceTree = "<group>"; };
 		2523D1431E1CF5B80053BFD6 /* UserInformation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInformation.xib; sourceTree = "<group>"; };
 		2523D1451E1D50270053BFD6 /* SelectImageContainerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageContainerProtocol.swift; sourceTree = "<group>"; };
@@ -301,11 +350,13 @@
 		275C25A4B243B4B02874BF4F /* UserInformationPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationPresenter.swift; sourceTree = "<group>"; };
 		2A07CC664CE14972641EE608 /* MainFilterContainerInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerInteractor.swift; sourceTree = "<group>"; };
 		2D9FE187018449C27E167A69 /* KitFolioCreatePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreatePresenter.swift; sourceTree = "<group>"; };
+		3207915E1A976D43EB4DBE19 /* MainSearchInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchInteractorInterface.swift; sourceTree = "<group>"; };
 		35753E8F65DF90B4CC2C4EB0 /* SelectCategoryViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewInterface.swift; sourceTree = "<group>"; };
 		3A461A7E5ABBE0353756450D /* UserInformationInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationInteractor.swift; sourceTree = "<group>"; };
 		3BDDBF2DD9A469AC36CE97DD /* RestorePasswordAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestorePasswordAssember.swift; sourceTree = "<group>"; };
 		3CE0E48291AD527A23890139 /* SelectImageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImageInteractor.swift; sourceTree = "<group>"; };
 		3DB1A20CA68040F7577463AE /* MainFilterContainerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerViewController.swift; sourceTree = "<group>"; };
+		404591C75CA6987355BDCA30 /* MainSearchPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchPresenter.swift; sourceTree = "<group>"; };
 		437DD9B57D041C3733585D4B /* MainRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainRouterInterface.swift; sourceTree = "<group>"; };
 		45A610CF1E9E83AC061F993F /* SelectCategoryRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCategoryRouterInterface.swift; sourceTree = "<group>"; };
 		4CADFF012C0D27FA8B1D5433 /* MainFilterContainerPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerPresenterInterface.swift; sourceTree = "<group>"; };
@@ -324,17 +375,32 @@
 		7CB1491A2976534DC7D2F947 /* KitFolioCreateRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateRouter.swift; sourceTree = "<group>"; };
 		7E9CA5CAA1384B4AC6DB7010 /* SignUpEmailRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailRouterInterface.swift; sourceTree = "<group>"; };
 		7FD049F80F7A9EB7C880F81E /* RestorePasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestorePasswordPresenter.swift; sourceTree = "<group>"; };
+		82D64E86103870B6A61537C3 /* BottomBarViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BottomBarViewInterface.swift; sourceTree = "<group>"; };
 		83C36B83FB7D99E400EA934C /* SignUpEmailAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailAssember.swift; sourceTree = "<group>"; };
+		8462AE2B944D8BF231B2ECAE /* MainSearchRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchRouterInterface.swift; sourceTree = "<group>"; };
+		84917782AB5ED653EB9A79B9 /* UnderConstructionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionPresenter.swift; sourceTree = "<group>"; };
 		8B987B245AFE973EB7A544E0 /* KitFolioCreateViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateViewInterface.swift; sourceTree = "<group>"; };
 		8F450669EB4510E8470AB426 /* SelectCategoryInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCategoryInteractor.swift; sourceTree = "<group>"; };
+		8FFE4EC7B46B7E239BE3252C /* UnderConstructionInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionInteractorInterface.swift; sourceTree = "<group>"; };
 		90B385BE8787B060A1FA5FAB /* KitFolioCreateAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreateAssember.swift; sourceTree = "<group>"; };
 		9147ABFFD8521E5E4A4AB289 /* SelectCategoryRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCategoryRouter.swift; sourceTree = "<group>"; };
 		9502CD811E0832D9007AD6EA /* RestorePassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestorePassword.storyboard; sourceTree = "<group>"; };
+		9511346D1E1CE24400175EE2 /* MainSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainSearch.storyboard; sourceTree = "<group>"; };
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+		9527A38F1E1D05C300DAE96C /* SearchServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceProtocol.swift; sourceTree = "<group>"; };
+		9527A3911E1D0A7500DAE96C /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		953129A61E1E4D280009760F /* BottomBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomBar.xib; sourceTree = "<group>"; };
+		953129A81E1E662F0009760F /* BottomBarTransitionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarTransitionProtocol.swift; sourceTree = "<group>"; };
+		953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UnderConstruction.storyboard; sourceTree = "<group>"; };
+		957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordServiceProtocol.swift; path = KitStop/Common/RestorePasswordServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
+		95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePasswordService.swift; sourceTree = "<group>"; };
+		95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		95F2EBC31E16579200A84B7F /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = SOURCE_ROOT; };
+		9670714C1E110B2459AFEE78 /* MainSearchAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchAssember.swift; sourceTree = "<group>"; };
 		981B129FD09D318777BD2B26 /* SelectImageViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImageViewInterface.swift; sourceTree = "<group>"; };
 		9918C383B8084AF970FABD27 /* MainFilterContainerRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerRouterInterface.swift; sourceTree = "<group>"; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
@@ -353,7 +419,6 @@
 		9A47E5091E02BDFC005EED88 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9A47E50F1E02FFBA005EED88 /* PriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceCell.xib; sourceTree = "<group>"; };
 		9A47E5111E0300AE005EED88 /* PriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
-		9A47E51C1E03E35A005EED88 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RangeSlider.swift; path = ../RangeSlider.swift; sourceTree = "<group>"; };
 		9A47E5201E04324A005EED88 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenter.swift; path = KitStop/Modules/Root/Presenter/RootPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenterInterface.swift; path = KitStop/Modules/Root/Presenter/RootPresenterInterface.swift; sourceTree = SOURCE_ROOT; };
@@ -433,16 +498,21 @@
 		9AB17D1A1E0D7331004E95FF /* ApplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyCell.swift; sourceTree = "<group>"; };
 		9AB17D2A1E12693F004E95FF /* CategoryPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPrice.swift; sourceTree = "<group>"; };
 		9E33F9BAC1940DA63FCFD008 /* MainInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainInteractorInterface.swift; sourceTree = "<group>"; };
+		A18750479ED98F06FDF3D644 /* MainSearchRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchRouter.swift; sourceTree = "<group>"; };
 		A5C20824AF711F197D651CB5 /* UserInformationInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationInteractorInterface.swift; sourceTree = "<group>"; };
 		A9DBA9D7C2865D806FF138DA /* RestorePasswordInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestorePasswordInteractor.swift; sourceTree = "<group>"; };
 		ABD81887816DA9CBA8B795BC /* MainInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		AC2E4A43D2E5B624294EC7CC /* SelectImageInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImageInteractorInterface.swift; sourceTree = "<group>"; };
+		B8C47B5297D29887CCE379EE /* UnderConstructionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionViewController.swift; sourceTree = "<group>"; };
 		BD729487A904DDCAC94D5D51 /* MainFilterContainerPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerPresenter.swift; sourceTree = "<group>"; };
 		BE7D81A26D32498B6A880095 /* UserInformationViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationViewInterface.swift; sourceTree = "<group>"; };
+		C3189217493CC125554A2B9A /* MainSearchInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchInteractor.swift; sourceTree = "<group>"; };
 		C34CE9C6505C5A1F920FF878 /* Pods-KitStop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitStop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitStop/Pods-KitStop.debug.xcconfig"; sourceTree = "<group>"; };
 		C5954E87B9BF2ABD40747E65 /* MainRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		C94D70086D9C53CF87903292 /* UnderConstructionRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionRouter.swift; sourceTree = "<group>"; };
 		C9B17B9DD5F018853F062CB0 /* MainFilterContainerInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerInteractorInterface.swift; sourceTree = "<group>"; };
 		CA83804CDF8B267C029A30C7 /* RestorePasswordPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestorePasswordPresenterInterface.swift; sourceTree = "<group>"; };
+		D0BE3B1C9CAA66994EA7211C /* MainSearchViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		D268861DD6E662FAF404A9F2 /* UserInformationRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationRouterInterface.swift; sourceTree = "<group>"; };
 		D3EEC2967BF4472AE9E514F2 /* SelectImagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImagePresenter.swift; sourceTree = "<group>"; };
 		D89160196EBA69DD304CA110 /* SelectImageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImageRouter.swift; sourceTree = "<group>"; };
@@ -453,9 +523,13 @@
 		E3FC4709A380EBE9A003F906 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		E569356AB0FFB05102B14F1B /* KitFolioCreatePresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KitFolioCreatePresenterInterface.swift; sourceTree = "<group>"; };
 		E58655DCC36B726CA795132F /* UserInformationRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationRouter.swift; sourceTree = "<group>"; };
+		E687003550CC80383F66D0CD /* UnderConstructionRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionRouterInterface.swift; sourceTree = "<group>"; };
 		E6DE8510DFC4EB12613E7B5C /* MainPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainPresenterInterface.swift; sourceTree = "<group>"; };
 		EEFAB3B3804E0BEAC7B9282D /* SelectCategoryAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCategoryAssember.swift; sourceTree = "<group>"; };
+		EF022A48C76548122EDB93FD /* UnderConstructionInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionInteractor.swift; sourceTree = "<group>"; };
 		EF0D4A098F44E1566EB9CCC0 /* SignUpEmailInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailInteractorInterface.swift; sourceTree = "<group>"; };
+		F00AB8ADD3688996332AE236 /* UnderConstructionAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionAssember.swift; sourceTree = "<group>"; };
+		F22C7A349BE4EA8BD25DF5B3 /* MainSearchPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchPresenterInterface.swift; sourceTree = "<group>"; };
 		F31F9FC8D8E99CDE47D53FC9 /* RestorePasswordInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestorePasswordInteractorInterface.swift; sourceTree = "<group>"; };
 		F9A17BC5584F1D7CC13C0535 /* SelectCategoryPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCategoryPresenter.swift; sourceTree = "<group>"; };
 		FA4528541DF802F900B2AA03 /* KitStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,6 +540,7 @@
 		FA45286C1DF802F900B2AA03 /* KitStopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitStopTests.swift; sourceTree = "<group>"; };
 		FA45286E1DF802F900B2AA03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5184331E0D35AA007B546B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		FAA4D98C1B8EC7F3A3C8F80D /* MainSearchViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchViewInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +581,15 @@
 			children = (
 				06DCBB07C734FDDE6DCE41F2 /* KitFolioCreateRouterInterface.swift */,
 				7CB1491A2976534DC7D2F947 /* KitFolioCreateRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		13EC18C71337878D0486DFD4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				25211E9B1E1F980D00630200 /* BottomBarRouter.swift */,
+				25211E9C1E1F980D00630200 /* BottomBarRouterInterface.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -556,11 +640,14 @@
 				9AB17CC11E0BD54D004E95FF /* LogInService.swift */,
 				25365CE21E14147C005A92DA /* SignUpService.swift */,
 				25365CE61E14149E005A92DA /* FilterManager.swift */,
+				95F2EBC31E16579200A84B7F /* FacebookService.swift */,
 				9AB17CB11E0BD059004E95FF /* KeychainService.swift */,
 				25365CE41E14148F005A92DA /* MainService.swift */,
 				25301FA61E155CE50028C811 /* AWS3UploadImageService.swift */,
 				2572A0E11E1BDCE8004FA904 /* CategoryService.swift */,
 				254187051E1EB3E500589C61 /* CreateKitFolioService.swift */,
+				95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */,
+				9527A3911E1D0A7500DAE96C /* SearchService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -627,12 +714,15 @@
 				2ACC02CD870D5EA7E5E14067 /* Root */,
 				85CC7A2B7AD2C8E3653AC45E /* SignUp */,
 				9AB17C161E094D68004E95FF /* RegistrationTakePhoto */,
-				1921CD164CC8879949A69FB5 /* RestorePassword */,
 				259C5DEF1DF9B35B001E3CCC /* LogIn */,
 				AD935A14E91DFA6B19EC1286 /* SignUpEmail */,
 				72A0936D6A16483205C49EAB /* Main */,
 				F92C5853934C5380F3E7509A /* SelectCategory */,
 				B9E265CCF5905644EF9268B9 /* KitFolioCreate */,
+				1921CD164CC8879949A69FB5 /* RestorePassword */,
+				8D7D4BFF915B10F60323A46F /* MainSearch */,
+				32CEE8ECEB301B4898AD78BD /* BottomBar */,
+				FE64B01E57500BA04DA4BFEE /* UnderConstruction */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -721,6 +811,9 @@
 				25301FA81E155D080028C811 /* AWS3UploadImageProtocol.swift */,
 				253220501E1BDB7100BF96C1 /* CategoryServiceProtocol.swift */,
 				254187071E1EB41600589C61 /* CreateKitFolioServiceProtocol.swift */,
+				95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */,
+				957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */,
+				9527A38F1E1D05C300DAE96C /* SearchServiceProtocol.swift */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -745,6 +838,18 @@
 				E58655DCC36B726CA795132F /* UserInformationRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		32CEE8ECEB301B4898AD78BD /* BottomBar */ = {
+			isa = PBXGroup;
+			children = (
+				DD8B590167B05D0FADCAEEC6 /* Assembler */,
+				E7741769AA27E547D9EE6B7D /* View */,
+				73D9E790B66B8C8B2576B9ED /* Interactor */,
+				7973ACB7B2741A3D434041B9 /* Presenter */,
+				13EC18C71337878D0486DFD4 /* Router */,
+			);
+			path = BottomBar;
 			sourceTree = "<group>";
 		};
 		3F696275292FF627EE00B701 /* Pods */ = {
@@ -827,6 +932,15 @@
 			path = KitStop/Modules/MainFilterContainer;
 			sourceTree = SOURCE_ROOT;
 		};
+		5C8D4250F176A31786D77B19 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8462AE2B944D8BF231B2ECAE /* MainSearchRouterInterface.swift */,
+				A18750479ED98F06FDF3D644 /* MainSearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		5C9FFD5BA253DEB1B78B6D4D /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +948,14 @@
 				D89160196EBA69DD304CA110 /* SelectImageRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		5E0048712C9B600CACA60F42 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				9670714C1E110B2459AFEE78 /* MainSearchAssember.swift */,
+			);
+			path = Assembler;
 			sourceTree = "<group>";
 		};
 		61304C1BD58490DDDF33DD4B /* Assembler */ = {
@@ -875,6 +997,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		73D9E790B66B8C8B2576B9ED /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				25211E931E1F97E500630200 /* BottomBarInteractor.swift */,
+				25211E941E1F97E500630200 /* BottomBarInteractorInterface.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		7964B2F053EA697C7A4B2381 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +1014,15 @@
 				6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7973ACB7B2741A3D434041B9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				25211E971E1F97F800630200 /* BottomBarPresenter.swift */,
+				25211E981E1F97F800630200 /* BottomBarPresenterInterface.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		7AD4183F388698C3941ADF30 /* Interactor */ = {
@@ -942,6 +1082,18 @@
 				3A461A7E5ABBE0353756450D /* UserInformationInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8D7D4BFF915B10F60323A46F /* MainSearch */ = {
+			isa = PBXGroup;
+			children = (
+				5E0048712C9B600CACA60F42 /* Assembler */,
+				CFF9835B6FCC7370CAE4F56B /* View */,
+				D9B342E45F1585FCFCE77EA4 /* Interactor */,
+				FD5D5C8EE863C5671A54DF5F /* Presenter */,
+				5C8D4250F176A31786D77B19 /* Router */,
+			);
+			path = MainSearch;
 			sourceTree = "<group>";
 		};
 		9228007B51BA60152939D0DA /* Presenter */ = {
@@ -1066,7 +1218,7 @@
 		9A47E51F1E043213005EED88 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9A47E51C1E03E35A005EED88 /* RangeSlider.swift */,
+				25211E8D1E1F934200630200 /* RangeSlider.swift */,
 				9A47E5201E04324A005EED88 /* Filter.swift */,
 				9AB17CFA1E0C07A6004E95FF /* Category.swift */,
 				9AB17D2A1E12693F004E95FF /* CategoryPrice.swift */,
@@ -1319,6 +1471,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AD7B39C5AB56DCCE3474D40F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				20C45CD1D9063ACAD5E20AC3 /* UnderConstructionPresenterInterface.swift */,
+				84917782AB5ED653EB9A79B9 /* UnderConstructionPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		AD935A14E91DFA6B19EC1286 /* SignUpEmail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1368,6 +1529,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B3227C7B82337D0244B85AAA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E687003550CC80383F66D0CD /* UnderConstructionRouterInterface.swift */,
+				C94D70086D9C53CF87903292 /* UnderConstructionRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B34DA5582B276FD4A956D73F /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				F00AB8ADD3688996332AE236 /* UnderConstructionAssember.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		B51122D135C705A06D8CA472 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
@@ -1409,6 +1587,15 @@
 			path = KitFolioCreate;
 			sourceTree = "<group>";
 		};
+		CDDF69A23B7839F5C2D72DC6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8FFE4EC7B46B7E239BE3252C /* UnderConstructionInteractorInterface.swift */,
+				EF022A48C76548122EDB93FD /* UnderConstructionInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		CE43C23C6A90B7DD7334F0B9 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1430,11 +1617,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CFF9835B6FCC7370CAE4F56B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4D98C1B8EC7F3A3C8F80D /* MainSearchViewInterface.swift */,
+				D0BE3B1C9CAA66994EA7211C /* MainSearchViewController.swift */,
+				9511346D1E1CE24400175EE2 /* MainSearch.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D2353ADAA61C7B8BAFC41996 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
 				F31F9FC8D8E99CDE47D53FC9 /* RestorePasswordInteractorInterface.swift */,
 				A9DBA9D7C2865D806FF138DA /* RestorePasswordInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D9B342E45F1585FCFCE77EA4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3207915E1A976D43EB4DBE19 /* MainSearchInteractorInterface.swift */,
+				C3189217493CC125554A2B9A /* MainSearchInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1446,6 +1652,14 @@
 				7A22944030AA2633B9301FE6 /* RestorePasswordRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DD8B590167B05D0FADCAEEC6 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				25211E911E1F97D200630200 /* BottomBarAssember.swift */,
+			);
+			path = Assembler;
 			sourceTree = "<group>";
 		};
 		DE5BABC921363B4843B5912B /* Presenter */ = {
@@ -1477,6 +1691,27 @@
 				5B3900BFCE0CA1391D7B3D54 /* SignUpEmailInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E511587964C0E118505B758A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19B7679960C336CBC5A73A5A /* UnderConstructionViewInterface.swift */,
+				B8C47B5297D29887CCE379EE /* UnderConstructionViewController.swift */,
+				953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7741769AA27E547D9EE6B7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82D64E86103870B6A61537C3 /* BottomBarViewInterface.swift */,
+				1004C1CEB0799C70502B19DF /* BottomBarViewController.swift */,
+				953129A61E1E4D280009760F /* BottomBar.xib */,
+				953129A81E1E662F0009760F /* BottomBarTransitionProtocol.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E85707A2391C9B6B799ED182 /* Assembler */ = {
@@ -1566,6 +1801,7 @@
 		FA4528561DF802F900B2AA03 /* KitStop */ = {
 			isa = PBXGroup;
 			children = (
+				25211E9F1E1FA68D00630200 /* KitStop.entitlements */,
 				254F42DF1DFE9CD900CDD074 /* Common */,
 				259C5DEE1DF9B35B001E3CCC /* Modules */,
 				FA4528571DF802F900B2AA03 /* AppDelegate.swift */,
@@ -1609,6 +1845,27 @@
 				7FD049F80F7A9EB7C880F81E /* RestorePasswordPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FD5D5C8EE863C5671A54DF5F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F22C7A349BE4EA8BD25DF5B3 /* MainSearchPresenterInterface.swift */,
+				404591C75CA6987355BDCA30 /* MainSearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FE64B01E57500BA04DA4BFEE /* UnderConstruction */ = {
+			isa = PBXGroup;
+			children = (
+				B34DA5582B276FD4A956D73F /* Assembler */,
+				E511587964C0E118505B758A /* View */,
+				CDDF69A23B7839F5C2D72DC6 /* Interactor */,
+				AD7B39C5AB56DCCE3474D40F /* Presenter */,
+				B3227C7B82337D0244B85AAA /* Router */,
+			);
+			path = UnderConstruction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1665,8 +1922,8 @@
 				TargetAttributes = {
 					FA4528531DF802F900B2AA03 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 729WFR3HVU;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = UAKSUWEB24;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1708,6 +1965,7 @@
 				25432DCC1E042E3D00BB7B8F /* Main.storyboard in Resources */,
 				9AB17CF01E0BD5AE004E95FF /* SF-UI-Text-Semibold.otf in Resources */,
 				9AB17CE11E0BD5AE004E95FF /* SF-UI-Display-Medium.otf in Resources */,
+				9511346E1E1CE24400175EE2 /* MainSearch.storyboard in Resources */,
 				9AB17CF21E0BD5AE004E95FF /* SF-UI-Text-Ultrathin.otf in Resources */,
 				9AB17CE01E0BD5AE004E95FF /* SF-UI-Display-Light.otf in Resources */,
 				9AB17CE51E0BD5AE004E95FF /* SF-UI-Display-Ultralight.otf in Resources */,
@@ -1741,7 +1999,9 @@
 				9AB17CE91E0BD5AE004E95FF /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				25AB73831E02CB9100BAA278 /* SignUpEmail.storyboard in Resources */,
 				9AB17CDF1E0BD5AE004E95FF /* SF-UI-Display-Heavy.otf in Resources */,
+				953FD41D1E1EA7DA0000086E /* UnderConstruction.storyboard in Resources */,
 				9A47E5081E02BDCF005EED88 /* HeaderView.xib in Resources */,
+				953129A71E1E4D280009760F /* BottomBar.xib in Resources */,
 				9AB17C2F1E096FD9004E95FF /* FilterCategory.storyboard in Resources */,
 				2523D1411E1CE2370053BFD6 /* KitFolioCreate.storyboard in Resources */,
 				9A47E5101E02FFBA005EED88 /* PriceCell.xib in Resources */,
@@ -1849,16 +2109,18 @@
 				9AB17CA71E0BCEAF004E95FF /* SignUpPresenterInterface.swift in Sources */,
 				9AB17C2D1E094D68004E95FF /* RegistrationTakePhotoViewInterface.swift in Sources */,
 				9AB17CBA1E0BD2B2004E95FF /* CustomAvatar.swift in Sources */,
+				25211E9E1E1F980D00630200 /* BottomBarRouterInterface.swift in Sources */,
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				25D8A14E1E0F0BBB007FC431 /* SignUpUserModel.swift in Sources */,
+				25211E9A1E1F97F800630200 /* BottomBarPresenterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
-				9A47E51D1E03E35A005EED88 /* RangeSlider.swift in Sources */,
 				9AB178A31E0925F7004E95FF /* FilterTypePresenterInterface.swift in Sources */,
 				9A47E5121E0300AE005EED88 /* PriceCell.swift in Sources */,
 				FA4528581DF802F900B2AA03 /* AppDelegate.swift in Sources */,
 				9AB17CAB1E0BCEAF004E95FF /* SignUpViewInterface.swift in Sources */,
 				2572A0E41E1BE55D004FA904 /* SelectCategoryCell.swift in Sources */,
+				25211E921E1F97D200630200 /* BottomBarAssember.swift in Sources */,
 				9A8E876B1DFAC37F00780ED1 /* RootInteractor.swift in Sources */,
 				9AB17CA91E0BCEAF004E95FF /* SignUpRouterInterface.swift in Sources */,
 				9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */,
@@ -1870,7 +2132,10 @@
 				9AB17CB21E0BD059004E95FF /* KeychainService.swift in Sources */,
 				9AB17C2B1E094D68004E95FF /* RegistrationTakePhotoRouterInterface.swift in Sources */,
 				9AB17CB41E0BD06D004E95FF /* CustomButton.swift in Sources */,
+				957542E31E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift in Sources */,
+				953129A91E1E662F0009760F /* BottomBarTransitionProtocol.swift in Sources */,
 				9AB17C8F1E0BCDA3004E95FF /* SignUpEmailPresenterInterface.swift in Sources */,
+				25211E8E1E1F934200630200 /* RangeSlider.swift in Sources */,
 				9AB17C281E094D68004E95FF /* RegistrationTakePhotoPresenter.swift in Sources */,
 				9AB17C261E094D68004E95FF /* RegistrationTakePhotoInteractor.swift in Sources */,
 				25365CE91E1414AE005A92DA /* FilterManagerProtocol.swift in Sources */,
@@ -1881,14 +2146,18 @@
 				25D8A1471E0EC052007FC431 /* LogInServiceProtocol.swift in Sources */,
 				25D8273E1E1E67280007E522 /* LogInDataManagerProtocol.swift in Sources */,
 				253FF5961E09724A009685CE /* ApiResult.swift in Sources */,
+				95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */,
+				95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */,
 				259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */,
 				9AB17CA31E0BCEAF004E95FF /* SignUpAssember.swift in Sources */,
 				259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */,
+				9527A3921E1D0A7500DAE96C /* SearchService.swift in Sources */,
 				259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */,
 				2DEF3C2BDA8D8016EE3A4A5A /* SignUpEmailAssember.swift in Sources */,
 				95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */,
 				9AB17C271E094D68004E95FF /* RegistrationTakePhotoInteractorInterface.swift in Sources */,
 				085198F3AA9D3690D82CB1EF /* SignUpEmailViewInterface.swift in Sources */,
+				25211E9D1E1F980D00630200 /* BottomBarRouter.swift in Sources */,
 				95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */,
 				A1D1FFF065C5DBEBE19BB20E /* SignUpEmailViewController.swift in Sources */,
 				8FF3995F7F688E1E6E806AC1 /* SignUpEmailInteractorInterface.swift in Sources */,
@@ -1898,6 +2167,7 @@
 				9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */,
 				9AB17C8E1E0BCDA3004E95FF /* SignUpEmailPresenter.swift in Sources */,
 				9AB17C941E0BCE62004E95FF /* RootAssember.swift in Sources */,
+				95D8C2001E1673D10017C1AD /* RestorePasswordService.swift in Sources */,
 				E7B6CE11364097A75A034902 /* SignUpEmailRouterInterface.swift in Sources */,
 				522BE2C3B326749FDACAF117 /* SignUpEmailRouter.swift in Sources */,
 				25D8A14B1E0EC13D007FC431 /* CustomPasswordDelegateTextField.swift in Sources */,
@@ -1911,6 +2181,7 @@
 				5422121C48C6DB533B151788 /* MainInteractorInterface.swift in Sources */,
 				B13676A491A33B0774E7DC73 /* MainInteractor.swift in Sources */,
 				D7800EBB04867C40C7414861 /* MainPresenterInterface.swift in Sources */,
+				25211E991E1F97F800630200 /* BottomBarPresenter.swift in Sources */,
 				6061E731A508DA580752129A /* MainPresenter.swift in Sources */,
 				62CD331FAB140A4596144D24 /* MainRouterInterface.swift in Sources */,
 				2523D1461E1D50270053BFD6 /* SelectImageContainerProtocol.swift in Sources */,
@@ -1926,6 +2197,7 @@
 				6689DC6B72E8F8841207CB5A /* MainFilterContainerInteractor.swift in Sources */,
 				6CF527608E8A152DCBC78759 /* MainFilterContainerPresenterInterface.swift in Sources */,
 				254187061E1EB3E500589C61 /* CreateKitFolioService.swift in Sources */,
+				25211E951E1F97E500630200 /* BottomBarInteractor.swift in Sources */,
 				DBB6557FF095D419D973B89E /* MainFilterContainerPresenter.swift in Sources */,
 				AA60A61A7825B03909639327 /* MainFilterContainerRouterInterface.swift in Sources */,
 				A8E10A38F960FDB693073882 /* MainFilterContainerRouter.swift in Sources */,
@@ -1958,6 +2230,7 @@
 				9A47E50A1E02BDFC005EED88 /* HeaderView.swift in Sources */,
 				9AB178A71E0925F7004E95FF /* FilterTypeViewInterface.swift in Sources */,
 				9AB178A61E0925F7004E95FF /* FilterTypeViewController.swift in Sources */,
+				9527A3901E1D05C300DAE96C /* SearchServiceProtocol.swift in Sources */,
 				25301FAB1E15639E0028C811 /* Constant.swift in Sources */,
 				9AB178A21E0925F7004E95FF /* FilterTypePresenter.swift in Sources */,
 				9AB178A51E0925F7004E95FF /* FilterTypeRouterInterface.swift in Sources */,
@@ -2002,6 +2275,27 @@
 				FCA49B0925D63977728A6BED /* SelectImagePresenter.swift in Sources */,
 				9F3921472D76DF0A6BC59523 /* SelectImageRouterInterface.swift in Sources */,
 				0B88DA742DA3178C8BEAD5B8 /* SelectImageRouter.swift in Sources */,
+				702C10088F5B170D96F37281 /* MainSearchAssember.swift in Sources */,
+				7A5F2056AA0E1F239BC9C70C /* MainSearchViewInterface.swift in Sources */,
+				29230E2D7697EA79FCE1F7C5 /* MainSearchViewController.swift in Sources */,
+				6963F9951DB6ADAEF4FFD84B /* MainSearchInteractorInterface.swift in Sources */,
+				317C102149CE1EDA09D36A56 /* MainSearchInteractor.swift in Sources */,
+				9AED802BE338B9AD9BB0A3C4 /* MainSearchPresenterInterface.swift in Sources */,
+				24F46143E77F24E759A6F4EE /* MainSearchPresenter.swift in Sources */,
+				A8FD8493176463A13AF24933 /* MainSearchRouterInterface.swift in Sources */,
+				F5649A00AC8584F8D4548C00 /* MainSearchRouter.swift in Sources */,
+				4DC31B64D529D94AF60728DA /* BottomBarViewInterface.swift in Sources */,
+				14CB328104E0A5242ACE2533 /* BottomBarViewController.swift in Sources */,
+				7C9659C46613A87E95A00295 /* UnderConstructionAssember.swift in Sources */,
+				25211E961E1F97E500630200 /* BottomBarInteractorInterface.swift in Sources */,
+				3DE8A3128C1E57854525EDDA /* UnderConstructionViewInterface.swift in Sources */,
+				294F16FBF210B90F04316F13 /* UnderConstructionViewController.swift in Sources */,
+				78BAA069150CF9591CF10143 /* UnderConstructionInteractorInterface.swift in Sources */,
+				4115AFA1FAD48B2DC7F58A3A /* UnderConstructionInteractor.swift in Sources */,
+				47B1AE0B46FA94CD206FFBA2 /* UnderConstructionPresenterInterface.swift in Sources */,
+				AB7F9B4F1DFE54EDA45ED368 /* UnderConstructionPresenter.swift in Sources */,
+				FF7EFF6D3DE1A79A493C3403 /* UnderConstructionRouterInterface.swift in Sources */,
+				084807CBF23CA6FF4B1A4091 /* UnderConstructionRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2125,7 +2419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 729WFR3HVU;
+				DEVELOPMENT_TEAM = UAKSUWEB24;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2142,8 +2436,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -2155,8 +2449,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 729WFR3HVU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UAKSUWEB24;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2173,8 +2467,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

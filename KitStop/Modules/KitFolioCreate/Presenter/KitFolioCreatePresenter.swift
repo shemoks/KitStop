@@ -35,7 +35,7 @@ extension KitFolioCreatePresenter: KitFolioCreateViewOutput {
             LoadingIndicatorView.show()
             interactor.save(postTitle: postTitle, postDescription: postDescription, smallImage: smallImage, bigImage: bigImage)
         } else {
-            view.showAlert(title: "Error", message: "Must be filled all fields")
+            view.showAlert(title: "Error", message: "Please fill all the fields")
         }
     }
 }

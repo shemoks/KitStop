@@ -36,6 +36,23 @@ extension MainRouter: MainRouterInput {
             return secondModuleOutput
         }
     }
+    func openModule(identifier: Int) {
+        switch identifier {
+//            case 0:
+//                print("Activity")
+//            case 1:
+//                print("Conv")
+//            case 3:
+//                print("Favs")
+//            case 5:
+//                print("Profile")
+            default:
+                flowController.openModule(using: .openUnderConstruction) {
+                    guard ($0 as? UnderConstructionModuleInput) != nil else {fatalError()}
+                    return nil
+                }
+        }
+    }
 }
 
 extension Segue {
@@ -43,6 +60,10 @@ extension Segue {
     static var openCategoryList: Segue<SelectCategoryViewController> {
         return .init(identifier: "transitionToCategoryList")
     }
+    static var openUnderConstruction: Segue<UnderConstructionViewController> {
+        return .init(identifier:"transitionToUnderConstruction")
+    }
+  
     
     static var openKitFolioCreate: Segue<KitFolioCreateViewController> {
         return .init(identifier: "transitionToKitFolioCreate")

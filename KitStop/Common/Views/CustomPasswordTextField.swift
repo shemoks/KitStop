@@ -53,7 +53,9 @@ class CustomPasswordTextField: UITextField, UITextFieldDelegate {
         let text = string
         if string.range(of: "\n") != nil {
             textField.nextField?.becomeFirstResponder()
-            passwordDelegate?.openNextModule()
+            if textField.returnKeyType == .done {
+                passwordDelegate?.openNextModule()
+            }
             return true
            // text = string.substring(to: string.index(before: string.endIndex))
         }

@@ -9,5 +9,6 @@
 // MARK: - SignUpInteractorInput
 
 protocol SignUpInteractorInput: class {
-
+    func signUpWithFacebook()
+    func userIsLoggedInWithFacebook() -> Bool 
 }
