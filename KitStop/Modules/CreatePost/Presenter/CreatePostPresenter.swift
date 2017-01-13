@@ -22,7 +22,7 @@ final class CreatePostPresenter {
     var images = [UIImage.init(named: "required"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1")]
     var currentIndex = -1
     var newImages = [UIImage]()
-    var currentData: String?
+    var currentData: Property?
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
 
@@ -103,6 +103,23 @@ extension CreatePostPresenter: CreatePostViewOutput {
         router.openPriceModule(post: self.postForPrice)
     }
 
+    func  isSelectedCell(inSection: Int, for indexPath: IndexPath) {
+        switch inSection {
+        case 0:
+            if  let object = self.generalProperty(for: indexPath).list {
+                self.currentData = self.generalProperty(for: indexPath)
+                router.openList(list: object, customListModuleOutput: self)
+            }
+        case 1:
+            if  let object = self.additionalProperty(for: indexPath).list {
+                self.currentData = self.additionalProperty(for: indexPath)
+                router.openList(list: object, customListModuleOutput: self)
+            }
+        default:
+            let object = [Other]()
+        }
+    }
+
 }
 
 // MARK: - CreatePostInteractorOutput
@@ -127,16 +144,12 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
         self.postForPrice = post
     }
 
-
 }
 
 // MARK: - CreatePostModuleInput
 
 extension CreatePostPresenter: CreatePostModuleInput {
 
-    func currentData(data: String) {
-        self.currentData = data
-    }
 
     func valuesFromCategoryList(forSale: Bool, idCategory: String) {
         if forSale {
@@ -147,4 +160,13 @@ extension CreatePostPresenter: CreatePostModuleInput {
         interactor.getStructure(forSale: true, idCategory: idCategory)
     }
     
+}
+
+extension CreatePostPresenter: CustomListModuleOutput {
+    
+    func getData(data: Other) {
+        self.currentData?.currentData = data.name
+        self.currentData?.textValue = data.name
+        view.reloadData()
+    }
 }

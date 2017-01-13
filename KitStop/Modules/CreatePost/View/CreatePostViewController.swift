@@ -183,6 +183,15 @@ extension CreatePostViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            presenter.isSelectedCell(inSection: 0, for: indexPath)
+        case 1:
+            presenter.isSelectedCell(inSection: 1, for: indexPath)
+        default:
+            presenter.isSelectedCell(inSection: 2, for: indexPath)
+        }
+
     }
 
 

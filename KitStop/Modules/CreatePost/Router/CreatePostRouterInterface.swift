@@ -11,5 +11,6 @@
 protocol CreatePostRouterInput: class {
 
     func openPriceModule(post: Post)
+    func openList(list: [Other], customListModuleOutput: CustomListModuleOutput)
 
 }

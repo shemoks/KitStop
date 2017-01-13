@@ -12,21 +12,29 @@ enum Type {
     case onlyForKits
     case onlyForSale
 }
+enum dataType {
+    case string
+    case array
+    case int
+}
 
 struct Description {
     var title: String = ""
     var text: String = ""
 }
 
-struct Other {
-    var name: String = ""
+class Other {
     var data: String  = ""
+    var title: String = ""
+    var placeholder: String? = nil
+    var name: String = ""
     var limit: Int? = nil
+
 }
 
 class Property {
+
     dynamic  var title: String = ""
-    var data = [Other]()
     dynamic var isSelect: Bool = false
     dynamic var currentData: String?
     dynamic var isOptional: Bool = false
@@ -39,6 +47,10 @@ class Property {
     var isValidate: Bool = true
     var metadata: Bool = false
     var salesDetails: Bool = false
+    var list: [Other]?
+    var typeOfData: dataType = .string
+    var numberValue: Int? = nil
+
 }
 
 class Post {

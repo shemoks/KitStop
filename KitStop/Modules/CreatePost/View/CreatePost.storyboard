@@ -47,6 +47,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YVE-8W-r3O" id="Wk1-Oa-X6I"/>
+                        <segue destination="3WE-8T-KpH" kind="show" identifier="TrunsitionToCustomList" id="dVn-5U-5ZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdT-1Z-b4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,12 +59,20 @@
             </objects>
             <point key="canvasLocation" x="1396" y="-230.73463268365819"/>
         </scene>
+        <!--CustomListViewController-->
+        <scene sceneID="2aT-um-CYo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CustomList" referencedIdentifier="CustomListViewController" id="3WE-8T-KpH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hg4-lG-W3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2122" y="-327"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="odM-wi-nzE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OMW-fE-Bx9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ozd-Z4-DkY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ozd-Z4-DkY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

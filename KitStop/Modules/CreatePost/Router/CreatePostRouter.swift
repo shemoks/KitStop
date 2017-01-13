@@ -24,17 +24,30 @@ final class CreatePostRouter {
 extension CreatePostRouter: CreatePostRouterInput {
 
     func openPriceModule(post: Post) {
-//        flowController.openModule(using: .openSecond) {
+//        flowController.openModule(using: .openSaleConfirm) {
 //            guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
 //            moduleInput.setPost(post: post)
 //            return nil
 //        }
     }
+
+    func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {
+        flowController.openModule(using: .openList) {
+            guard let moduleInput = $0 as? CustomListModuleInput else { fatalError() }
+            moduleInput.setElements(list: list)
+            return customListModuleOutput
+        }
+    }
 }
+
 extension Segue {
 
-//    static var openSecond: Segue<CreateSaleConfirmViewController> {
-//        return .init(identifier: "TransitionToSaleConfirm")
-//    }
+    static var openList: Segue<CustomListViewController> {
+        return .init(identifier: "TrunsitionToCustomList")
+    }
 
+//  static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
+        //        return .init(identifier: "TransitionToSaleConfirm")
+        //    
+//}
 }

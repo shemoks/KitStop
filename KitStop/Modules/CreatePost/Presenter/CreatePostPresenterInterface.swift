@@ -25,6 +25,7 @@ protocol CreatePostViewOutput: class {
     func setPhoto(photo: UIImage)
     func getTittle() -> String
     func handleNextTap()
+    func isSelectedCell(inSection: Int, for: IndexPath)
 
 }
 
@@ -43,7 +44,6 @@ protocol CreatePostInteractorOutput: class {
 
 protocol CreatePostModuleInput: ModuleInput {
     
-    func currentData(data: String)
     func valuesFromCategoryList(forSale: Bool, idCategory: String)
 
 }

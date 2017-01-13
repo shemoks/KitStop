@@ -167,7 +167,7 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
 
     func createObject(product: JSON) -> ResultJson {
         var newElement: Property
-            let section = product["group"].intValue
+        let section = product["group"].intValue
         switch section {
         case 1:
             newElement = element(product: product, section: 1)
@@ -195,24 +195,52 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
         newElement.isOptional = product["mandatory"].boolValue
         newElement.title = product["name"].stringValue
         var arrDate = [Other]()
-        let data = product["data"].arrayValue
-        if data != [] {
-        for value in data {
-            let newData = Other(name: value["name"].stringValue, data: value["data"].stringValue, limit: value["limit"].intValue)
-            arrDate.append(newData)
-        }
-        newElement.data = arrDate
-        if arrDate.count > 1 {
+        let data = product["data"]
+        if let array = data.arrayObject {
             newElement.isSelect = true
+            newElement.typeOfData = .array
+            for value in array {
+                if let element = value as? String {
+                    let newData = Other()
+                    newData.name = element
+                    newData.limit = 0
+                    newData.placeholder = ""
+                    newData.title = ""
+                    arrDate.append(newData)
+                }
+                if let element = value as? NSDictionary {
+                    let newData = Other()
+                    newData.data =  element.value(forKey: "data") as! String
+                    if  element.value(forKey: "limit") != nil {
+                         newData.limit = element.value(forKey: "limit") as? Int
+                    }
+                    newData.name = element.value(forKey: "name") as! String
+                    if element.value(forKey: "placeholder") != nil {
+                         newData.placeholder = element.value(forKey: "placeholder") as? String
+                    }
+                    if element.value(forKey: "title") != nil {
+                        newData.title = (element.value(forKey: "title") as? String)!
+                    }
+                    arrDate.append(newData)
+                }
+            }
+            newElement.list = arrDate
         }
-        } else {
-            let textValue = product["data"].stringValue
-            newElement.textValue = textValue
+//            let textValue = product["data"].intValue
+//            newElement.textValue = textValue
+            if data.string != nil {
+            newElement.typeOfData = .string
+            newElement.placeholder = product["placeholder"].stringValue
+            }
+
+        if data.int != nil {
+            newElement.typeOfData = .int
+            newElement.numberValue = data.intValue
             newElement.placeholder = product["placeholder"].stringValue
         }
         newElement.limit = product["limit"].intValue
         newElement.units = product["units"].stringValue
         return newElement
     }
-
+    
 }

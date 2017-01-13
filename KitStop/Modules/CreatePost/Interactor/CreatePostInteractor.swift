@@ -57,23 +57,31 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 presenter.showError(title: "Error", message: "missing complite required fields")
                 presenter.selectMistakes(post: post)
             } else {
-                var i = 0
+                let newPost = Post()
+                var newAdditionalProperty = [Property]()
+                var newGeneralProperty = [Property]()
                 for data in post.additionalProperty {
-                    if data.metadata {
-                        post.additionalProperty.remove(at: i)
-                        i += 1
+                    if !data.metadata {
+                        newAdditionalProperty.append(data)
                     }
                 }
-                i = 0
+                newPost.additionalProperty = newAdditionalProperty
                 for data in post.generalProperty {
-                    if data.metadata {
-                        post.additionalProperty.remove(at: i)
-                        i += 1
+                    if !data.metadata {
+                        newGeneralProperty.append(data)
                     }
                 }
-                presenter.setPost(post: post)
+                newPost.generalProperty = newGeneralProperty
+                newPost.categoryId = post.categoryId
+                newPost.categoryTitle = post.categoryTitle
+                newPost.description = post.description
+                newPost.images = post.images
+                newPost.metadata = post.metadata
+                newPost.notes = post.notes
+                newPost.salesDetails = post.salesDetails
+                presenter.setPost(post: newPost)
             }
         }
     }
-
+    
 }
