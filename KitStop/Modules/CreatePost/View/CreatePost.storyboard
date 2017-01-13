@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OMW-fE-Bx9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View-->
+        <scene sceneID="mKL-gc-NbP">
+            <objects>
+                <viewController id="Hd3-YF-VkB" customClass="CreatePostViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WOx-sW-f8i"/>
+                        <viewControllerLayoutGuide type="bottom" id="WGJ-9E-oYS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6JQ-U0-JMp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YVE-8W-r3O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hd3-YF-VkB" id="5Lp-cy-En9"/>
+                                    <outlet property="delegate" destination="Hd3-YF-VkB" id="MLP-oc-BPc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YVE-8W-r3O" firstAttribute="top" secondItem="6JQ-U0-JMp" secondAttribute="top" id="03C-gy-07O"/>
+                            <constraint firstItem="WGJ-9E-oYS" firstAttribute="top" secondItem="YVE-8W-r3O" secondAttribute="bottom" id="0Wg-rw-W51"/>
+                            <constraint firstItem="YVE-8W-r3O" firstAttribute="leading" secondItem="6JQ-U0-JMp" secondAttribute="leading" id="3Gr-Cc-k2W"/>
+                            <constraint firstAttribute="trailing" secondItem="YVE-8W-r3O" secondAttribute="trailing" id="KMr-TJ-QsS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ib4-j1-lbI">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Gu2-GU-o8G">
+                            <color key="tintColor" red="1" green="0.53333333329999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="NextTap:" destination="Hd3-YF-VkB" id="K3m-V7-mei"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="YVE-8W-r3O" id="Wk1-Oa-X6I"/>
+                        <segue destination="3WE-8T-KpH" kind="show" identifier="TrunsitionToCustomList" id="dVn-5U-5ZR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdT-1Z-b4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="0zo-OP-QDb" customClass="CreatePostAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="Hd3-YF-VkB" id="Zvn-De-jaF"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1396" y="-230.73463268365819"/>
+        </scene>
+        <!--CustomListViewController-->
+        <scene sceneID="2aT-um-CYo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CustomList" referencedIdentifier="CustomListViewController" id="3WE-8T-KpH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hg4-lG-W3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2122" y="-327"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="odM-wi-nzE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OMW-fE-Bx9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ozd-Z4-DkY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hd3-YF-VkB" kind="relationship" relationship="rootViewController" id="yX4-ds-Jj0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dh4-PY-I1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.80000000000001" y="-231.63418290854574"/>
+        </scene>
+    </scenes>
+</document>

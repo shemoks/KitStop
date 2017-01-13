@@ -1,0 +1,85 @@
+//
+//  Endpoint.swift
+//  KitStop
+//
+//  Created by sasha ataman on 20.12.16.
+//  Copyright © 2016 MOZI Development. All rights reserved.
+//
+
+import Foundation
+import Alamofire
+
+enum Endpoint {
+    
+    static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+    
+    case login()
+    case signUp()
+    case forgot()
+    case createKitFolio()
+    case getKitFolio()
+    case getKits()
+    case getKitsForSale()
+    case categories()
+    case forSaleFilter()
+    case kitsFilter()
+    case price()
+    case getCategory()
+<<<<<<< HEAD
+    case fbAuthenticate()
+=======
+    case getStructureOfCategory(id: String)
+>>>>>>> 4a898e3a9eaf6490785237167d0700847ede712f
+    
+    // MARK: - Public Properties
+    var httpMethod: Alamofire.HTTPMethod{
+        switch self {
+        case .login:
+            return .post
+        case .signUp:
+            return .post
+        case .createKitFolio:
+            return .post
+        case .fbAuthenticate():
+            return .post
+        default:
+            return .get
+        }
+    }
+    
+    fileprivate var path: String {
+        switch self {
+        case .login:
+            return "/authenticate"
+        case .forgot:
+            return "/forgot"
+        case .signUp:
+            return "/sign-up"
+        case .createKitFolio, .getKitFolio:
+            return "/kit-folio"
+        case .getKits, .kitsFilter():
+            return "/kits"
+        case .getKitsForSale, .forSaleFilter():
+            return "/kits-for-sale"
+        case .categories:
+            return "/category"
+        case .price:
+            return "/filters"
+        case .getCategory():
+            return "/category"
+<<<<<<< HEAD
+        case .fbAuthenticate:
+            return "/fb-authenticate"
+=======
+        case .getStructureOfCategory(let id):
+            return ("/category/" + id)
+>>>>>>> 4a898e3a9eaf6490785237167d0700847ede712f
+        }
+    }
+
+    
+    var url: URL {
+        let baseUrl = Endpoint.baseURL
+        return baseUrl.appendingPathComponent(path)
+    }
+}
