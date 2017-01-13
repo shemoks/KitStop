@@ -24,7 +24,7 @@ class SignUpService: NSObject, SignUpServiceProtocol {
                 print(json)
                 if json["success"].boolValue {
                     let token = KeychainService()
-                    token.saveToken(token: json["data"]["user"]["token"].stringValue)
+                    token.saveToken(token: json["data"]["token"].stringValue)
                     completionBlock(true, nil)
                 } else {
                     completionBlock(false, response.response?.statusCode)

@@ -25,7 +25,7 @@ extension FacebookService: FacebookServiceProtocol {
             switch response.result{
             case .success(let json):
                 print(json)
-                if let token = json["data"]["user"]["token"].string{
+                if let token = json["data"]["token"].string{
                     KeychainService().saveToken(token: token)
                 }
                 completion(true)
