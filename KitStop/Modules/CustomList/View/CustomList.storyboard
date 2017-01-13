@@ -56,14 +56,14 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="616.79999999999995" y="21.139430284857571"/>
+            <point key="canvasLocation" x="842" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Fa-XI-Yi7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QUQ-Lg-bDa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G22-8I-q8n">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="G22-8I-q8n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
