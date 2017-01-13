@@ -48,12 +48,12 @@ extension SignUpViewController: SignUpViewInput {
 extension SignUpViewController: FBSDKLoginButtonDelegate {
 
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        presenter.handleFacebookLoginTap()
         if (error != nil) {
             print(error)
         } else if result.isCancelled{
             
         } else {
+            presenter.handleFacebookLoginTap()
             facebook.isHidden = true
         }
     }
