@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WTq-qW-dft">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="057-VK-qv9">
+            <objects>
+                <navigationController id="jUY-Ob-WfO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cOg-5E-V9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WTq-qW-dft" kind="relationship" relationship="rootViewController" id="0oX-hL-2Zr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cgR-LB-1GW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458" y="-74"/>
+        </scene>
+        <!--View-->
+        <scene sceneID="9ZR-cK-35F">
+            <objects>
+                <viewController id="WTq-qW-dft" customClass="CreateSaleConfirmViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8lL-7l-D2U"/>
+                        <viewControllerLayoutGuide type="bottom" id="CVt-B4-92g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7b5-k2-oWe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhu-ue-9ft">
+                                <rect key="frame" x="0.0" y="104" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="S1t-4w-YLu"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94084018469999997" green="0.93776899579999995" blue="0.9616951346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xhu-ue-9ft" firstAttribute="leading" secondItem="7b5-k2-oWe" secondAttribute="leading" id="Yrc-da-Q0k"/>
+                            <constraint firstAttribute="trailing" secondItem="Xhu-ue-9ft" secondAttribute="trailing" id="aMF-yC-Pdp"/>
+                            <constraint firstItem="Xhu-ue-9ft" firstAttribute="top" secondItem="8lL-7l-D2U" secondAttribute="bottom" constant="40" id="iXe-S5-qiU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QR4-Oo-Dfz"/>
+                    <connections>
+                        <outlet property="tableView" destination="Xhu-ue-9ft" id="P9P-D7-ULk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4RN-cx-CmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="KSe-4M-xvi" customClass="CreateSaleConfirmAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="WTq-qW-dft" id="cpf-2C-xqS"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="399" y="-74"/>
+        </scene>
+    </scenes>
+</document>
