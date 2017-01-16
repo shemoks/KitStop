@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import Foundation
+import SwiftyJSON
+import KeychainAccess
 
 class LogInService: NSObject , LogInServiceProtocol{
     
@@ -18,7 +20,7 @@ class LogInService: NSObject , LogInServiceProtocol{
         self.manager = manager
     }
     
-    func fetchUser(email: String, password: String, result: @escaping (Bool, _ error: Int?) -> ()) {
+    func fetchUser(email: String, password: String, result: @escaping (Bool, _ error: Int?,_ json: JSON?) -> ()) {
         let _ = manager.apiRequest(.login(), parameters: ["email" : email as AnyObject, "password" : password as AnyObject, "clients" : String().getUUID() as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result{
@@ -29,14 +31,14 @@ class LogInService: NSObject , LogInServiceProtocol{
                     // parse and save data
                     token.saveToken(token: json["data"]["token"].stringValue)
                     print("success \(json)")
-                    result(true, nil)
+                    result(true, nil, json)
                 } else {
                     print("error \(json)")
-                    result(false, response.response?.statusCode)
+                    result(false, response.response?.statusCode, nil)
                 }
             case .failure(let error):
                 print(error)
-                result(false, (error as NSError).code)
+                result(false, (error as NSError).code, nil)
             }
         })
     }

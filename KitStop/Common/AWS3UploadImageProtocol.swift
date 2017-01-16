@@ -9,5 +9,5 @@ import UIKit
 import Foundation
 
 protocol AWS3UploadImageProtocol {
-    func uploadImage(userImage: UIImage?, successBlock: @escaping (_ url: String?) -> ())
+    func uploadImage(userImage: UIImage?, path: String , successBlock: @escaping (_ url: String?) -> ())
 }

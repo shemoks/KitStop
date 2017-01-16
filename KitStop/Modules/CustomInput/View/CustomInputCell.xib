@@ -14,21 +14,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4mP-h5-ggz" id="6iM-mU-M3C">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="39"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hG-ge-cr7">
-                        <rect key="frame" x="10" y="9" width="355" height="30"/>
+                        <rect key="frame" x="20" y="9" width="335" height="30"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="3hG-ge-cr7" firstAttribute="leading" secondItem="6iM-mU-M3C" secondAttribute="leading" constant="10" id="MTE-Qt-SiE"/>
+                    <constraint firstItem="3hG-ge-cr7" firstAttribute="leading" secondItem="6iM-mU-M3C" secondAttribute="leading" constant="20" id="MTE-Qt-SiE"/>
                     <constraint firstAttribute="bottom" secondItem="3hG-ge-cr7" secondAttribute="bottom" id="Sim-2e-w3r"/>
                     <constraint firstItem="3hG-ge-cr7" firstAttribute="top" secondItem="6iM-mU-M3C" secondAttribute="top" constant="9" id="U20-UF-kQq"/>
-                    <constraint firstAttribute="trailing" secondItem="3hG-ge-cr7" secondAttribute="trailing" constant="10" id="mSb-TT-bHZ"/>
+                    <constraint firstAttribute="trailing" secondItem="3hG-ge-cr7" secondAttribute="trailing" constant="20" id="mSb-TT-bHZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

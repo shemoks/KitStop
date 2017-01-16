@@ -7,6 +7,8 @@
 //
 
 // MARK: - SignUpInteractor
+import FBSDKLoginKit
+import KeychainAccess
 
 final class SignUpInteractor {
 
@@ -14,12 +16,36 @@ final class SignUpInteractor {
 
     weak var presenter: SignUpInteractorOutput!
 
-    // MARK: -
+    // MARK: - Networking stack
+    fileprivate let dataManager: FacebookServiceProtocol!
+    
+    init(dataManager: FacebookServiceProtocol) {
+        self.dataManager = dataManager
+    }
+    
+    convenience init() {
+        self.init(dataManager: FacebookService())
+    }
 
 }
 
 // MARK: - SignUpInteractorInput
 
 extension SignUpInteractor: SignUpInteractorInput {
-
+    func signUpWithFacebook() {
+        dataManager.authenticateUser(token: FBSDKAccessToken.current().tokenString!, completion: {
+            result in
+            if result {
+                self.presenter.openMainModule()
+            }
+        })
+    }
+    
+    func userIsLoggedInWithFacebook() -> Bool {
+        if FBSDKAccessToken.current() != nil {
+            return true
+        } else {
+            return false
+        }
+    }
 }

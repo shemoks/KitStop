@@ -30,11 +30,12 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         router.openModuleTakePhoto(RegistrationTakePhotoModuleOutput: self)
     }
     
-    func comparePassword(password: String, repeatPassword: String) -> Bool {
+    func comparePassword(password: String, repeatPassword: String) {
         if password == repeatPassword && password != "" {
-            return true
+            view.registrationNewUser()
         } else {
-            return false
+            let errorMassage = CustomError.init(code: 10002).description
+            view.showAlert(title: "Error", massage: errorMassage)
         }
     }
     

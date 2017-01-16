@@ -34,6 +34,8 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
                     data.isEnabled = true
                     self.data.text = property.currentData
                     data.isEnabled = false
+                    self.object?.isValidate = true
+                    self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
                 }
         self.object = property
         data.delegate = self
@@ -41,10 +43,12 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.object?.textValue = textField.text!
-        if !validation(data: (self.object?.textValue)!) {
+        if validation(data: (self.object?.textValue)!) {
 //            textField.attributedPlaceholder = NSAttributedString(string: "*", attributes: [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1) ])
 //            textField.layer.borderWidth = 2
-//            textField.layer.borderColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1).cgColor
+            self.object?.isValidate = true
+            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
+
         }
 
     }

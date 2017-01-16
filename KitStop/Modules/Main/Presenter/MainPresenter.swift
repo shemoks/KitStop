@@ -25,24 +25,24 @@ final class MainPresenter {
 
 extension MainPresenter: MainViewOutput {
     
+    func openModule(identifier: Int) {
+        router.openModule(identifier: identifier)
+    }
+    
     func setupAlert() {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let listForSaleAction = UIAlertAction.init(title: "List for Sale", style: .default, handler: {
             result in
-                print("list for sale")
-                // you must reference Module Output
-                // router.openSecondModule(secondModule: 'Second Module')
+                 self.router.openCategoryModule(secondModuleOutput: self)
         })
         
         let addKitAction = UIAlertAction.init(title: "Add to Kit", style: .default, handler: {
             result in
-                // you must reference Module Output
-                // router.openSecondModule(secondModule: 'Second Module')
+                self.router.openCategoryModule(secondModuleOutput: self)
         })
         let postWorkAction = UIAlertAction.init(title: "Post your work", style: .default, handler: {
             result in
-                // you must reference Module Output
-                // router.openSecondModule(secondModule: 'Second Module')
+                self.router.openKitFolioCreateModule(secondModuleOutput: self)
         })
         let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
         
@@ -59,6 +59,9 @@ extension MainPresenter: MainViewOutput {
         interactor.handleKitsForSale()
     }
     
+    func logoutFromFacebook() {
+        interactor.logoutFromFacebook()
+    }
 }
 
 // MARK: - MainInteractorOutput
@@ -75,5 +78,19 @@ extension MainPresenter: MainModuleInput {
 }
 
 extension MainPresenter: MainModuleOutput {
+    func updateKitFolioItems() {
+        view.passDataToSubmodule()
+    }
+    
+    func showAlert(title: String, message: String) {
+        view.showAlert(title: title, message: message)
+    }
+}
+
+extension MainPresenter: SelectCategoryModuleOutput {
+    
+}
+
+extension MainPresenter: KitFolioCreateModuleOutput {
     
 }

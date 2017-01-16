@@ -11,4 +11,5 @@ import UIKit
 
 @objc protocol CustomPasswordDelegateTextField {
     func tapOnPasswordImageSuccess(textField: UITextField)
+    func openNextModule()
 }

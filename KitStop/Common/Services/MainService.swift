@@ -17,68 +17,86 @@ class MainService: NSObject, MainServiceProtocol {
         self.manager = manager
     }
     
-    func fetchAllKits(page: Int, completionBlock: @escaping ([Product]) -> ()) {
+    func fetchAllKits(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
         let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
-                var kits = [Product]()
-                for kit in json["data"]["docs"] {
-                    var kitModel = Product()
-                    kitModel.mainImage = kit.1["mainImage"].stringValue
-                    kitModel.title = kit.1["title"].stringValue
-                    kits.append(kitModel)
+                if json["success"].boolValue {
+                    var kits = [Product]()
+                    for kit in json["data"]["docs"] {
+                        var kitModel = Product()
+                        kitModel.mainImage = kit.1["mainImage"].stringValue
+                        kitModel.title = kit.1["title"].stringValue
+                        kits.append(kitModel)
+                    }
+                    kits.reverse()
+                    completionBlock(kits, nil)
+                } else {
+                    completionBlock(nil, response.response?.statusCode)
                 }
-                completionBlock(kits)
                 print(json)
             case .failure(let error):
                 print(error)
+                completionBlock(nil, (error as NSError).code)
             }
         })
-
+        
     }
     
-    func fetchAllKitFolio(page: Int, completionBlock: @escaping ([Product]) -> ()) {
+    func fetchAllKitFolio(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
         let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
-                var kits = [Product]()
-                for kit in json["data"]["docs"] {
-                    var kitModel = Product()
-                    kitModel.mainImage = kit.1["mainImage"].stringValue
-                    kitModel.title = kit.1["title"].stringValue
-                    kits.append(kitModel)
+                if json["success"].boolValue {
+                    var kits = [Product]()
+                    for kit in json["data"]["docs"] {
+                        var kitModel = Product()
+                        kitModel.mainImage = kit.1["mainImage"].stringValue
+                        kitModel.title = kit.1["title"].stringValue
+                        kits.append(kitModel)
+                    }
+                    kits.reverse()
+                    completionBlock(kits, nil)
+                } else {
+                    completionBlock(nil, response.response?.statusCode)
                 }
-                completionBlock(kits)
                 print(json)
             case .failure(let error):
                 print(error)
+                completionBlock(nil, (error as NSError).code)
             }
         })
     }
     
-    func fetchAllKitsForSale(page: Int,completionBlock: @escaping ([Product]) -> ()) {
+    func fetchAllKitsForSale(page: Int,completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
         let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
-                var kits = [Product]()
-                for kit in json["data"]["docs"] {
-                    var kitModel = Product()
-                    var saleDetails = SalesDetails()
-                    kitModel.mainImage = kit.1["mainImage"].stringValue
-                    kitModel.title = kit.1["title"].stringValue
-                    if let price = kit.1["salesDetails"]["price"].double {
-                        saleDetails.price = price
-                        kitModel.salesDetails = saleDetails
+                if json["success"].boolValue {
+                    var kits = [Product]()
+                    for kit in json["data"]["docs"] {
+                        var kitModel = Product()
+                        var saleDetails = SalesDetails()
+                        kitModel.mainImage = kit.1["mainImage"].stringValue
+                        kitModel.title = kit.1["title"].stringValue
+                        if let price = kit.1["salesDetails"]["price"].double {
+                            saleDetails.price = price
+                            kitModel.salesDetails = saleDetails
+                        }
+                        kits.append(kitModel)
                     }
-                    kits.append(kitModel)
+                    kits.reverse()
+                    completionBlock(kits, nil)
+                } else {
+                    completionBlock(nil, response.response?.statusCode)
                 }
-                completionBlock(kits)
                 print(json)
             case .failure(let error):
                 print(error)
+                completionBlock(nil, (error as NSError).code)
             }
         })
     }

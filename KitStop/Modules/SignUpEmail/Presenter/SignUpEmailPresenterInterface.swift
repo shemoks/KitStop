@@ -14,7 +14,7 @@ import UIKit
 protocol SignUpEmailViewOutput: class {
 
     func takePhoto()
-    func comparePassword(password: String, repeatPassword: String) -> Bool
+    func comparePassword(password: String, repeatPassword: String)
     func registrationNewUser(userData: [String : String], userImage: UIImage)
 }
 

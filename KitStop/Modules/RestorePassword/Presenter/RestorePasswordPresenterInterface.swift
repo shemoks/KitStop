@@ -11,13 +11,15 @@ import Chamomile
 // MARK: - RestorePasswordViewOutput
 
 protocol RestorePasswordViewOutput: class {
-
+    func handleSubmitTap(email: String)
+    func handleEditing(isEmpty: Bool)
+    func dismissModule()
 }
 
 // MARK: - RestorePasswordInteractorOutput
 
 protocol RestorePasswordInteractorOutput: class {
-
+    func showAlert(message: String, shouldTransition: Bool)
 }
 
 // MARK: - RestorePasswordModuleInput

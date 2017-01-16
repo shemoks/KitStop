@@ -16,15 +16,15 @@ class AWS3UploadImageService: AWS3UploadImageProtocol {
     fileprivate var fileUrl = NSURL()
     fileprivate let uploadRequest = AWSS3TransferManagerUploadRequest()
     
-    func uploadImage(userImage: UIImage?, successBlock: @escaping (_ url: String?) -> ()) {
+    func uploadImage(userImage: UIImage?, path: String ,successBlock: @escaping (_ url: String?) -> ()) {
         if userImage == nil {
             // Do something to wake up user :)
         } else {
             let image = userImage
-            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(String().getUniqueName()).jpeg")
+            let awsPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(String().getUniqueName()).jpeg")
             let imageData = UIImageJPEGRepresentation(image!, 0.99)
-            fileManager.createFile(atPath: path as String, contents: imageData, attributes: nil)
-            fileUrl = NSURL(fileURLWithPath: path)
+            fileManager.createFile(atPath: awsPath as String, contents: imageData, attributes: nil)
+            fileUrl = NSURL(fileURLWithPath: awsPath)
             
             
             let accessKey = AWS3.accessKey
@@ -39,7 +39,7 @@ class AWS3UploadImageService: AWS3UploadImageProtocol {
             let remoteName = fileUrl.absoluteString?.components(separatedBy: "Documents/")[1]
             
             
-            uploadRequest?.key = "UserPhoto/\(remoteName!)"
+            uploadRequest?.key = "\(path)/\(remoteName!)"
             uploadRequest?.bucket = S3BucketName
             uploadRequest?.contentType = "image/jpeg"
             uploadRequest?.acl = .publicRead
@@ -59,13 +59,15 @@ class AWS3UploadImageService: AWS3UploadImageProtocol {
                 if task.error != nil {
                     // Error.
                     self.removeItem()
-                    print("error")
+                    print("error \(task.error)")
                     successBlock(nil)
                 } else {
-                    self.removeItem()
-                    let url = AWS3.url.appending((self.uploadRequest?.key)!)
-                    print(url)
-                    successBlock(url)
+                    DispatchQueue.main.async {
+                        self.removeItem()
+                        let url = AWS3.url.appending((self.uploadRequest?.key)!)
+                        print(url)
+                        successBlock(url)
+                    }
                 }
                 return nil
             })

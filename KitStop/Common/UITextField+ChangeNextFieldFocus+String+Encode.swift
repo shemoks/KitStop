@@ -51,3 +51,59 @@ extension Double {
         return "\(number)"
     }
 }
+
+extension UIView {
+    class func loadFromNibNamed(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
+        for view in UINib(
+            nibName: nibNamed,
+            bundle: bundle
+            ).instantiate(withOwner: nil, options: nil){
+                if let xib = (view as? UIView) {
+                    return xib
+                }
+        }
+        return nil
+    }
+}
+
+extension UIImage {
+    
+    public func heightWithOrientation(contentHeight: CGFloat) -> CGFloat {
+        if size.width == size.height {
+            return contentHeight * 2
+        } else if size.height > size.width {
+            return contentHeight * 2
+        } else {
+            return contentHeight
+        }
+    }
+    
+    public func cropToSmall() -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: 500, height: 500))
+        self.draw(in: CGRect(x: 0, y: 0, width: 500, height: 500))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+    public func cropToBig() -> UIImage {
+        let newWidth: CGFloat = 1080
+        var newHeight: CGFloat?
+        if size.width == size.height {
+            newHeight = newWidth
+        } else if size.height > size.width {
+            newHeight = 1350
+        } else {
+            newHeight = 566
+        }
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight!))
+        self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight!))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+}
+
+

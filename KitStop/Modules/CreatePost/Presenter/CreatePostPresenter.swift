@@ -120,10 +120,11 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func updateData() {
-        if currentData?.list?.last?.data != "" {
-            self.currentData?.currentData = currentData?.list?.last?.data
-            view.reloadData()
+        if self.currentData?.list?.last?.data != "" {
+            self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
+            self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
         }
+        view.reloadData()
 
     }
 
@@ -171,10 +172,9 @@ extension CreatePostPresenter: CreatePostModuleInput {
 extension CreatePostPresenter: CustomListModuleOutput {
 
     func getData(data: Other) {
-        
+        self.currentData?.list?.last?.data = ""
         self.currentData?.currentData = data.name
         self.currentData?.textValue = data.name
-        
         view.reloadData()
     }
 }

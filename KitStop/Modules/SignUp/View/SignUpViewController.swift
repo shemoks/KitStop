@@ -15,6 +15,7 @@ final class SignUpViewController: UIViewController, FlowController {
 
     // MARK: - VIPER stack
 
+    @IBOutlet weak var facebook: FBSDKLoginButton!
     var presenter: SignUpViewOutput!
 
     @IBAction func loginEmailButtonTap(_ sender: AnyObject) {
@@ -31,6 +32,7 @@ final class SignUpViewController: UIViewController, FlowController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        presenter.showButton()
     }
 
 }
@@ -38,13 +40,22 @@ final class SignUpViewController: UIViewController, FlowController {
 // MARK: - SignUpViewInput
 
 extension SignUpViewController: SignUpViewInput {
-
+    func setFacebookButtonVisible() {
+        facebook.isHidden = false
+    }
 }
 
 extension SignUpViewController: FBSDKLoginButtonDelegate {
 
-
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if (error != nil) {
+            print(error)
+        } else if result.isCancelled{
+            
+        } else {
+            presenter.handleFacebookLoginTap()
+            facebook.isHidden = true
+        }
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

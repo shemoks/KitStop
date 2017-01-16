@@ -1,3 +1,11 @@
+//
+//  ErrorHandler.swift
+//  KitStop
+//
+//  Created by Dmitriy Melnichenko on 12/21/16.
+//  Copyright © 2016 MOZI Development. All rights reserved.
+//
+
 import Foundation
 
 public enum CustomError: Int, Error {
@@ -8,6 +16,7 @@ public enum CustomError: Int, Error {
     case kitFolioValidationFailed = 409
     case passwordIsNotProvided = 412
     case userAlreadyExists = 422
+    case passwordConfirmationFailed = 10002
     case facebookFailed = 10000
     case unexpectedError = 10001
 }
@@ -39,9 +48,10 @@ extension CustomError: RawRepresentable, CustomStringConvertible {
             return "Invalid email or password"
         case .valueIsNotProvided:
             return "Invalid email or password"
+        case .passwordConfirmationFailed:
+            return "Password does not match the confirm password."
         case .unexpectedError:
             return "Unexpected error has occured"
         }
     }
 }
-

@@ -11,9 +11,9 @@ import Chamomile
 // MARK: - FiltersPresenter
 
 final class FiltersPresenter {
-
+    
     // MARK: - VIPER stack
-
+    
     weak var moduleOutput: ModuleOutput?
     weak var view: FiltersViewInput!
     var interactor: FiltersInteractorInput!
@@ -23,13 +23,13 @@ final class FiltersPresenter {
     var currentCategory: Category?
     var priceVisible: Bool = false
     var activeClearAll: Bool = false
-
+    
 }
 
 // MARK: - FiltersViewOutput
 
 extension FiltersPresenter: FiltersViewOutput {
-
+    
     func handleApplyTap(price: Price) {
         if self.currentCategory != nil {
             interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
@@ -38,31 +38,31 @@ extension FiltersPresenter: FiltersViewOutput {
             router.closeModule()
         }
     }
-
+    
     func typesList() -> [Category] {
         return self.types
     }
-
+    
     func priceList() -> PriceString {
         let priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue))
         return priceString
     }
-
+    
     func handleCancelTap() {
         router.closeModule()
     }
-
+    
     func handleClearAllTap() {
         interactor.clearAll(types: self.types)
         view.reloadData()
         view.reloadPrice()
-
+        
     }
-
+    
     func handleTypeTap() {
         router.openTypeModule(types: self.types, filterTypeModuleOutput: self)
     }
-
+    
     func handleViewDidLoad() {
         view.priceVisible(visible: self.priceVisible)
         view.activeClearAll(isActive: self.activeClearAll)
@@ -70,32 +70,32 @@ extension FiltersPresenter: FiltersViewOutput {
         view.reloadData()
         view.reloadPrice()
     }
-
+    
     func changePrice(price: Price) {
         self.price = price
     }
-
+    
     func visible() -> Bool {
         return self.priceVisible
     }
-
+    
 }
 
 // MARK: - FiltersInteractorOutput
 
 extension FiltersPresenter: FiltersInteractorOutput {
-
-
+    
+    
     func setTypes(types: [Category]) {
         self.types = types
         view.reloadData()
     }
-
+    
     func setPrice(price: Price) {
         self.price = price
         view.reloadPrice()
     }
-
+    
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
     }
@@ -109,28 +109,28 @@ extension FiltersPresenter: FiltersInteractorOutput {
             router.returnToMainModule(kits: [], filter: false,  moduleOutput: mainModuleOutput)
         }
     }
-
+    
     func setCurrentCategory(category: Category?) {
         self.currentCategory = category
         self.activeClearAll = true
     }
-
+    
 }
 
 // MARK: - FiltersModuleInput
 
 extension FiltersPresenter: FiltersModuleInput {
-
+    
     func priceVisible(visible: Bool) {
-
+        
         self.priceVisible = visible
-
+        
     }
-
+    
 }
 
 extension FiltersPresenter: FilterTypeModuleOutput {
-
+    
     func currentCategory(categories: [Category], currentCategory: Category) {
         view.activeClearAll(isActive: true)
         self.types = categories

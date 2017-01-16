@@ -12,14 +12,14 @@ import Chamomile
 
 protocol MainFilterContainerViewOutput: class {
     func openFilterModule(selectedIndex: Int)
-    func openSearchModule()
+    func openSearchModule(selectedSegment: Int)
     func handleKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton)
 }
 
 // MARK: - MainFilterContainerInteractorOutput
 
 protocol MainFilterContainerInteractorOutput: class {
-
+    func showAlert(title: String, message: String)
 }
 
 // MARK: - MainFilterContainerModuleInput

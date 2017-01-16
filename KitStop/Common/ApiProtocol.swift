@@ -38,7 +38,8 @@ extension SessionManager: ApiManagerProtocol {
     func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]? = nil, headers: [String : String]? = nil) -> ApiRequestProtocol {
         // Insert your common headers here, for example, authorization token or accept.
         var commonHeaders = ["Accept" : "application/json"]
-        let tokenService = Keychain()
+        let tokenService = Keychain(service: "com.mozidev.KitStop").accessibility(.alwaysThisDeviceOnly)
+            .synchronizable(false)
         do {
             let token = try tokenService.getString("api_token")
             if let token = token {
