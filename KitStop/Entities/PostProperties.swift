@@ -64,6 +64,7 @@ class Post {
     var categoryId: String = ""
     var images = [UIImage]()
     var salesDetails = [Property]()
+    var otherProperty = [Property]()
 
 }
 

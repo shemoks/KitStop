@@ -32,6 +32,7 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                         let arrProducts = Post()
                         var generalProperty = [Property]()
                         var additionalProperty = [Property]()
+                        var otherProperty = [Property]()
                         arrProducts.categoryId = json["data"]["category"]["_id"].stringValue
                         arrProducts.categoryTitle = json["data"]["category"]["title"].stringValue
                         let products = json["data"]["structure"]
@@ -45,6 +46,8 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                     additionalProperty.append(resultValue.property)
                                 case 3:
                                     arrProducts.description = resultValue.property
+                                case 0:
+                                    otherProperty.append(resultValue.property)
                                 default:
                                     arrProducts.notes = resultValue.property
                                 }
@@ -80,6 +83,7 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                         }
                         arrProducts.generalProperty = generalProperty
                         arrProducts.additionalProperty = additionalProperty
+                        arrProducts.otherProperty = otherProperty
                         categoryStructure(arrProducts, nil)
                     } else {
 
@@ -100,6 +104,7 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                         let arrProducts = Post()
                         var generalProperty = [Property]()
                         var additionalProperty = [Property]()
+                        var otherProperty = [Property]()
                         arrProducts.categoryId = json["data"]["category"]["_id"].stringValue
                         arrProducts.categoryTitle = json["data"]["category"]["title"].stringValue
                         let products = json["data"]["structure"]
@@ -113,7 +118,8 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                                     additionalProperty.append(resultValue.property)
                                 case 3:
                                     arrProducts.description = resultValue.property
-
+                                case 0:
+                                    otherProperty.append(resultValue.property)
                                 default:
                                     arrProducts.notes = resultValue.property
                                 }
@@ -148,6 +154,7 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                         }
                         arrProducts.generalProperty = generalProperty
                         arrProducts.additionalProperty = additionalProperty
+                        arrProducts.otherProperty = otherProperty
                         categoryStructure(arrProducts, nil)
                     } else {
 

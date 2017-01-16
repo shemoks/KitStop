@@ -26,6 +26,7 @@ protocol CreatePostViewOutput: class {
     func getTittle() -> String
     func handleNextTap()
     func isSelectedCell(inSection: Int, for: IndexPath)
+    func updateData()
 
 }
 

@@ -38,6 +38,14 @@ extension CreatePostRouter: CreatePostRouterInput {
             return customListModuleOutput
         }
     }
+
+//    func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput) {
+//        flowController.openModule(using: .openViewPhoto) {
+//            guard let moduleInput = $0 as? ViewPhotoModuleInput else { fatalError() }
+//            moduleInput.setPhoto(images: images)
+//            return viewPhotoModuleOutput
+//        }
+//    }
 }
 
 extension Segue {
@@ -50,4 +58,8 @@ extension Segue {
         //        return .init(identifier: "TransitionToSaleConfirm")
         //    
 //}
+
+//    static var openViewPhoto: Segue<ViewPhotoViewController> {
+//        return .init(identifier: "TrunsitionToViewPhoto")
+//    }
 }

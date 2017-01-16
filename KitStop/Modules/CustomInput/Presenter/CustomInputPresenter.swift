@@ -18,12 +18,37 @@ final class CustomInputPresenter {
     weak var view: CustomInputViewInput!
     var interactor: CustomInputInteractorInput!
     var router: CustomInputRouterInput!
+    var data: Other?
 
 }
 
 // MARK: - CustomInputViewOutput
 
 extension CustomInputPresenter: CustomInputViewOutput {
+
+    func inputData(for indexPath: IndexPath) -> Other {
+
+      return self.data!
+
+    }
+
+    func getTitle() -> String {
+        return (self.data?.title)!
+    }
+
+    func handleViewDidLoad() {
+        view.reloadData()
+    }
+
+    func returnOther(dataText: String) {
+         let customInputModuleOutput = moduleOutput as! CustomInputModuleOutput
+        print(self.data?.data)
+        router.closeModule(data: self.data!, moduleOutput: customInputModuleOutput)
+    }
+
+    func getText() -> String {
+        return (data?.data)!
+    }
 
 }
 
@@ -37,4 +62,9 @@ extension CustomInputPresenter: CustomInputInteractorOutput {
 
 extension CustomInputPresenter: CustomInputModuleInput {
 
+    func setInput(data: Other) {
+        self.data = data
+    }
+
 }
+

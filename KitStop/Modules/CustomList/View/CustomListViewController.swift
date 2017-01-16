@@ -60,6 +60,14 @@ extension CustomListViewController: UITableViewDelegate {
         presenter.handleCellTap(for: indexPath)
 
     }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = HeaderViewCreatePost()
+        return view
+    }
     
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+
 }

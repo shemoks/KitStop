@@ -21,5 +21,10 @@ final class CustomInputRouter {
 // MARK: - CustomInputRouterInput
 
 extension CustomInputRouter: CustomInputRouterInput {
+    
+    func closeModule(data: Other, moduleOutput: CustomInputModuleOutput) {
+        moduleOutput.setOther(data: data)
+        flowController.closeModule(animated: false)
+    }
 
 }

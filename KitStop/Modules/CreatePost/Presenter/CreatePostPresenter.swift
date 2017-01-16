@@ -21,7 +21,6 @@ final class CreatePostPresenter {
     var post = Post()
     var images = [UIImage.init(named: "required"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1")]
     var currentIndex = -1
-    var newImages = [UIImage]()
     var currentData: Property?
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
@@ -62,7 +61,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func handleViewDidLoad() {
-        interactor.getStructure(forSale: true, idCategory: "5862607de9502e38a059613d")
+        interactor.getStructure(forSale: false, idCategory: "5862607de9502e38a059613d")
         view.reloadData()
     }
 
@@ -78,7 +77,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
         if indexPath.row > currentIndex {
             view.openGallery()
         } else {
-            //go to edit
+          // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
         }
     }
 
@@ -116,8 +115,16 @@ extension CreatePostPresenter: CreatePostViewOutput {
                 router.openList(list: object, customListModuleOutput: self)
             }
         default:
-            let object = [Other]()
+            _ = [Other]()
         }
+    }
+
+    func updateData() {
+        if currentData?.list?.last?.data != "" {
+            self.currentData?.currentData = currentData?.list?.last?.data
+            view.reloadData()
+        }
+
     }
 
 }
@@ -136,7 +143,6 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
     }
 
     func selectMistakes(post: Post) {
-        //   self.post = post
         view.reloadData()
     }
 
@@ -159,14 +165,27 @@ extension CreatePostPresenter: CreatePostModuleInput {
         }
         interactor.getStructure(forSale: true, idCategory: idCategory)
     }
-    
+
 }
 
 extension CreatePostPresenter: CustomListModuleOutput {
-    
+
     func getData(data: Other) {
+        
         self.currentData?.currentData = data.name
         self.currentData?.textValue = data.name
+        
         view.reloadData()
     }
 }
+
+//extension CreatePostPresenter: ViewPhotoModuleOutput {
+//
+//    func setNewPhoto(images: [UIImage]) {
+//        self.images = images
+//    }
+//
+//}
+
+
+

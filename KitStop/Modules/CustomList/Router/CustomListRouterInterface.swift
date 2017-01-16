@@ -11,5 +11,6 @@
 protocol CustomListRouterInput: class {
 
     func closeModule()
+    func openCustomInputModule(data: Other, customInputModuleOutput: CustomInputModuleOutput)
 
 }
