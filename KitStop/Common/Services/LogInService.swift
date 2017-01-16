@@ -28,10 +28,6 @@ class LogInService: NSObject , LogInServiceProtocol{
                 print(json["success"])
                 if json["success"].boolValue {
                     let token = KeychainService()
-                    token.saveToken(token: "123")
-                    print(token.tokenExists())
-                    let tokenServ = Keychain()
-                    print(try! tokenServ.get("api_token")!)
                     // parse and save data
                     token.saveToken(token: json["data"]["token"].stringValue)
                     print("success \(json)")

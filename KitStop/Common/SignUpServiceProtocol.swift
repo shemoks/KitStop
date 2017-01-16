@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol SignUpServiceProtocol {
-    func addNewUser(email: String, password: String, photoUrl: String?, name: String?, surname: String?, completionBlock: @escaping (Bool, _ error: Int?) -> ())
+    func addNewUser(email: String, password: String, photoUrl: String?, name: String?, surname: String?, completionBlock: @escaping (Bool, _ error: Int?, _ json: JSON?) -> ())
 }

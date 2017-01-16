@@ -35,6 +35,8 @@ extension UserInformationViewController: UserInformationViewInput {
         name.text = "\(user["name"]!) \(user["surname"]!)"
         country.text = user["country"]!
         let url = URL.init(string: user["avatar"]!)
-        avatar.sd_setImage(with: url!)
+        if let url = url {
+            avatar.sd_setImage(with: url)
+        }
     }
 }

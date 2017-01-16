@@ -14,17 +14,19 @@ final class SignUpEmailInteractor {
     
     weak var presenter: SignUpEmailInteractorOutput!
     
-    fileprivate let dataManager: SignUpServiceProtocol
+    fileprivate let service: SignUpServiceProtocol
     fileprivate let awsManager: AWS3UploadImageProtocol
+    fileprivate let dataManager: LogInDataManagerProtocol
     // MARK: -
     
-    init(dataManager: SignUpServiceProtocol, awsManager: AWS3UploadImageProtocol) {
-        self.dataManager = dataManager
+    init(service: SignUpServiceProtocol, awsManager: AWS3UploadImageProtocol, dataManager: LogInDataManagerProtocol) {
+        self.service = service
         self.awsManager = awsManager
+        self.dataManager = dataManager
     }
     
     convenience init() {
-        self.init(dataManager: SignUpService(), awsManager: AWS3UploadImageService())
+        self.init(service: SignUpService(), awsManager: AWS3UploadImageService(), dataManager: LogInDataManager())
     }
     
     
@@ -45,11 +47,14 @@ extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     }
     
     func addUser(result: String?, user: SignUpUserModel) {
-        self.dataManager.addNewUser(email: user.email, password: user.password, photoUrl: result == nil ? nil : result!, name: user.name, surname: user.surname, completionBlock: {
-            result, error in
+        self.service.addNewUser(email: user.email, password: user.password, photoUrl: result == nil ? nil : result!, name: user.name, surname: user.surname, completionBlock: {
+            result, error, json in
             LoadingIndicatorView.hide()
             if result {
                 self.presenter.openMainModule()
+                if let json = json {
+                    self.dataManager.saveUserData(json: json)
+                }
             } else {
                 let errorMassage = CustomError(code: error!).description
                 self.presenter.showAlert(title: "Error", massage: errorMassage)
