@@ -131,6 +131,12 @@
 		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
 		95D8C2001E1673D10017C1AD /* RestorePasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */; };
+		95E453251E2CB081002ABF74 /* KitAdditionalInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E453241E2CB081002ABF74 /* KitAdditionalInfoCell.xib */; };
+		95E453271E2CB2EC002ABF74 /* KitAdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E453261E2CB2EC002ABF74 /* KitAdditionalInfoCell.swift */; };
+		95E453291E2CB37E002ABF74 /* KitDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E453281E2CB37E002ABF74 /* KitDetailsModel.swift */; };
+		95E4532B1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4532A1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift */; };
+		95E4532D1E2CC8BA002ABF74 /* CreateKitsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4532C1E2CC8BA002ABF74 /* CreateKitsServiceProtocol.swift */; };
+		95E4532F1E2CC93C002ABF74 /* CreateKitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4532E1E2CC93C002ABF74 /* CreateKitsService.swift */; };
 		95F2EBC21E16567400A84B7F /* FacebookServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */; };
 		95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F2EBC31E16579200A84B7F /* FacebookService.swift */; };
 		9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96E82101CF0CC6DCD9DA7D /* RestorePasswordViewController.swift */; };
@@ -411,6 +417,12 @@
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
 		95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePasswordService.swift; sourceTree = "<group>"; };
+		95E453241E2CB081002ABF74 /* KitAdditionalInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitAdditionalInfoCell.xib; sourceTree = "<group>"; };
+		95E453261E2CB2EC002ABF74 /* KitAdditionalInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitAdditionalInfoCell.swift; sourceTree = "<group>"; };
+		95E453281E2CB37E002ABF74 /* KitDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitDetailsModel.swift; sourceTree = "<group>"; };
+		95E4532A1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKitsRequestBody.swift; sourceTree = "<group>"; };
+		95E4532C1E2CC8BA002ABF74 /* CreateKitsServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKitsServiceProtocol.swift; sourceTree = "<group>"; };
+		95E4532E1E2CC93C002ABF74 /* CreateKitsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKitsService.swift; sourceTree = "<group>"; };
 		95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
 		95F2EBC31E16579200A84B7F /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = SOURCE_ROOT; };
 		9670714C1E110B2459AFEE78 /* MainSearchAssember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchAssember.swift; sourceTree = "<group>"; };
@@ -668,6 +680,7 @@
 				254187051E1EB3E500589C61 /* CreateKitFolioService.swift */,
 				95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */,
 				9527A3911E1D0A7500DAE96C /* SearchService.swift */,
+				95E4532E1E2CC93C002ABF74 /* CreateKitsService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -714,6 +727,8 @@
 				9AB17CB51E0BD29F004E95FF /* LogInUserModel.swift */,
 				25D8A14D1E0F0BBB007FC431 /* SignUpUserModel.swift */,
 				253220521E1BDBCB00BF96C1 /* Category(Add New Item).swift */,
+				95E453281E2CB37E002ABF74 /* KitDetailsModel.swift */,
+				95E4532A1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -835,6 +850,7 @@
 				95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */,
 				957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */,
 				9527A38F1E1D05C300DAE96C /* SearchServiceProtocol.swift */,
+				95E4532C1E2CC8BA002ABF74 /* CreateKitsServiceProtocol.swift */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -1644,6 +1660,8 @@
 				A079DDC8E1DC155FBCE27E15 /* CreateKitSaveViewInterface.swift */,
 				D6FD3FDDEBFFEDF5612234BA /* CreateKitSaveViewController.swift */,
 				9548C40A1E2931B3009F345B /* CreateKitSave.storyboard */,
+				95E453241E2CB081002ABF74 /* KitAdditionalInfoCell.xib */,
+				95E453261E2CB2EC002ABF74 /* KitAdditionalInfoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2057,6 +2075,7 @@
 				9AB17D191E0D72A7004E95FF /* ApplyCell.xib in Resources */,
 				9A47E5001E02B9B6005EED88 /* TypeCell.xib in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
+				95E453251E2CB081002ABF74 /* KitAdditionalInfoCell.xib in Resources */,
 				9AB17CE81E0BD5AE004E95FF /* SF-UI-Text-Heavy.otf in Resources */,
 				9AB17CE71E0BD5AE004E95FF /* SF-UI-Text-BoldItalic.otf in Resources */,
 				9AB17CEA1E0BD5AE004E95FF /* SF-UI-Text-Light.otf in Resources */,
@@ -2171,6 +2190,7 @@
 				9A8E87681DFAC2F700780ED1 /* RootViewInterface.swift in Sources */,
 				253B5EB21E1EFD5600F33505 /* MainViewPassDataProtocol.swift in Sources */,
 				9A8E876C1DFAC37F00780ED1 /* RootInteractorInterface.swift in Sources */,
+				95E4532B1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift in Sources */,
 				9A8E87671DFAC2F700780ED1 /* RootViewController.swift in Sources */,
 				253300981E1287C100A0C80F /* MainServiceProtocol.swift in Sources */,
 				25365CE71E14149E005A92DA /* FilterManager.swift in Sources */,
@@ -2244,6 +2264,7 @@
 				2503BF291E0AA47400AD3BAC /* MainKitsCell.swift in Sources */,
 				253FF5921E095344009685CE /* ApiProtocol.swift in Sources */,
 				9AB17C251E094D68004E95FF /* RegistrationTakePhotoAssember.swift in Sources */,
+				95E4532F1E2CC93C002ABF74 /* CreateKitsService.swift in Sources */,
 				9AB17C8E1E0BCDA3004E95FF /* SignUpEmailPresenter.swift in Sources */,
 				9AB17C941E0BCE62004E95FF /* RootAssember.swift in Sources */,
 				95D8C2001E1673D10017C1AD /* RestorePasswordService.swift in Sources */,
@@ -2308,11 +2329,13 @@
 				9AB17D2B1E12693F004E95FF /* CategoryPrice.swift in Sources */,
 				9A47E50A1E02BDFC005EED88 /* HeaderView.swift in Sources */,
 				9AB178A71E0925F7004E95FF /* FilterTypeViewInterface.swift in Sources */,
+				95E453271E2CB2EC002ABF74 /* KitAdditionalInfoCell.swift in Sources */,
 				9AB178A61E0925F7004E95FF /* FilterTypeViewController.swift in Sources */,
 				9527A3901E1D05C300DAE96C /* SearchServiceProtocol.swift in Sources */,
 				25301FAB1E15639E0028C811 /* Constant.swift in Sources */,
 				9AB178A21E0925F7004E95FF /* FilterTypePresenter.swift in Sources */,
 				9AB178A51E0925F7004E95FF /* FilterTypeRouterInterface.swift in Sources */,
+				95E453291E2CB37E002ABF74 /* KitDetailsModel.swift in Sources */,
 				9AB178A01E0925F7004E95FF /* FilterTypeInteractor.swift in Sources */,
 				9AB17D1B1E0D7331004E95FF /* ApplyCell.swift in Sources */,
 				9AB17CFB1E0C07A6004E95FF /* Category.swift in Sources */,
@@ -2354,6 +2377,7 @@
 				FCA49B0925D63977728A6BED /* SelectImagePresenter.swift in Sources */,
 				9F3921472D76DF0A6BC59523 /* SelectImageRouterInterface.swift in Sources */,
 				0B88DA742DA3178C8BEAD5B8 /* SelectImageRouter.swift in Sources */,
+				95E4532D1E2CC8BA002ABF74 /* CreateKitsServiceProtocol.swift in Sources */,
 				702C10088F5B170D96F37281 /* MainSearchAssember.swift in Sources */,
 				7A5F2056AA0E1F239BC9C70C /* MainSearchViewInterface.swift in Sources */,
 				29230E2D7697EA79FCE1F7C5 /* MainSearchViewController.swift in Sources */,

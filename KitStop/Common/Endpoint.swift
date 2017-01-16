@@ -26,6 +26,7 @@ enum Endpoint {
     case price()
     case getCategory()
     case fbAuthenticate()
+    case createKit()
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -37,6 +38,8 @@ enum Endpoint {
         case .createKitFolio:
             return .post
         case .fbAuthenticate():
+            return .post
+        case .createKit:
             return .post
         default:
             return .get
@@ -65,7 +68,10 @@ enum Endpoint {
             return "/category"
         case .fbAuthenticate:
             return "/fb-authenticate"
+        case .createKit:
+            return "/kits"
         }
+       
     }
 
     

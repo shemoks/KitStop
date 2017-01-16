@@ -9,5 +9,5 @@
 // MARK: - CreateKitSaveInteractorInput
 
 protocol CreateKitSaveInteractorInput: class {
-
+    func saveKit(kit: CreateKitsRequestBody)    
 }

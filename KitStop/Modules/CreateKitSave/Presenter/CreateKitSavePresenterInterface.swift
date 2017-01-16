@@ -7,11 +7,16 @@
 //
 
 import Chamomile
+import UIKit
 
 // MARK: - CreateKitSaveViewOutput
 
 protocol CreateKitSaveViewOutput: class {
-
+    func detail(for indexPath: IndexPath) -> KitDetailsModel
+    func handleSaveTap()
+    func setPrice(value: String)
+    func setDate(date: TimeInterval)
+    func setDetails()
 }
 
 // MARK: - CreateKitSaveInteractorOutput

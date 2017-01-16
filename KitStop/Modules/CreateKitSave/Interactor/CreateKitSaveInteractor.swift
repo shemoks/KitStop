@@ -21,5 +21,7 @@ final class CreateKitSaveInteractor {
 // MARK: - CreateKitSaveInteractorInput
 
 extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
-
+    func saveKit(kit: CreateKitsRequestBody) {
+        
+    }
 }
