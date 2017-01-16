@@ -9,7 +9,7 @@
 // MARK: - MainRouterInput
 
 protocol MainRouterInput: class {
-    func openCategoryModule(secondModuleOutput: SelectCategoryModuleOutput)
+    func openCategoryModule(secondModuleOutput: SelectCategoryModuleOutput, category: Bool)
     func openKitFolioCreateModule(secondModuleOutput: KitFolioCreateModuleOutput)
     func openModule(identifier: Int)
 }

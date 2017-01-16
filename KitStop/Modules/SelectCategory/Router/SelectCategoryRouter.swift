@@ -23,9 +23,13 @@ final class SelectCategoryRouter {
 
 extension SelectCategoryRouter: SelectCategoryRouterInput {
 
-    // flowController.openModule
+    func openAddKitModule(categoryID: String, category: Bool) {
+        // flowController.openModule
+    }
 }
 
 extension Segue {
-    // openSomeModule
+//    static var openAddKitModule: Segue<> {
+//        return .init(identifier: "transitionToAddKitModule")
+//    }
 }
