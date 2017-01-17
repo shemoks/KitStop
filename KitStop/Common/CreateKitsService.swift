@@ -43,7 +43,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let isPrivate = kit.isPrivate as AnyObject
         let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brandName" : brandName,
                                                               "model":model, "serialNumber": serialNumber,
-                                                              "manufacturerCountry": manufacturerDescription,
+                                                              "manufacturerCountry": manufacturerCountry,
                                                               "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
                                                               "buyingPlace": buyingPlace, "category": category,
                                                               "userDescription": userDescription,
