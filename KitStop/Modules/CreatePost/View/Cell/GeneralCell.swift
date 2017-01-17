@@ -16,6 +16,12 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
     var object: Property?
     var result: Product!
     func configure(property: Property) {
+
+        self.accessoryType = .none
+        data.isEnabled = true
+
+        self.object = property
+
         if property.isValidate == false {
             self.layer.backgroundColor = UIColor(red: (253/255.0), green: (169/255.0), blue: (131/255.0), alpha: 1.0).cgColor
         } else {
@@ -25,27 +31,33 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
         if  property.placeholder != nil {
             data.placeholder = property.placeholder!
         }
+
         if  property.isSelect && property.currentData == nil {
             self.accessoryType = .disclosureIndicator
+            data.isEnabled = true
+            if  property.placeholder != nil {
+                data.placeholder = property.placeholder!
+            }
             data.isEnabled = false
         }
-                if  property.isSelect && property.currentData != nil {
-                    self.accessoryType = .disclosureIndicator
-                    data.isEnabled = true
-                    self.data.text = property.currentData
-                    data.isEnabled = false
-                    self.object?.isValidate = true
-                    self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
-                }
-        self.object = property
+
+        if  property.isSelect && (property.currentData != nil || self.object?.textValue == "") {
+            self.accessoryType = .disclosureIndicator
+            data.isEnabled = true
+            if  property.placeholder != nil {
+                data.placeholder = property.placeholder!
+            }
+            self.data.text = property.currentData
+            data.isEnabled = false
+            self.object?.isValidate = true
+            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
+        }
         data.delegate = self
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.object?.textValue = textField.text!
         if validation(data: (self.object?.textValue)!) {
-//            textField.attributedPlaceholder = NSAttributedString(string: "*", attributes: [NSForegroundColorAttributeName: UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1) ])
-//            textField.layer.borderWidth = 2
             self.object?.isValidate = true
             self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
 

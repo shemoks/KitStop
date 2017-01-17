@@ -37,10 +37,6 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         presenter.handleViewDidLoad()
         self.tableView.estimatedRowHeight = 50.0
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter.updateData()
-    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

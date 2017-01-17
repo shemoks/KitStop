@@ -63,7 +63,9 @@ extension CustomListPresenter: CustomListModuleInput {
 
 extension CustomListPresenter: CustomInputModuleOutput {
     func setOther(data: Other) {
-   //  self.setElements(list: self.list)
+        let customListModuleOutput = moduleOutput as! CustomListModuleOutput
+        customListModuleOutput.getDataWithInput(data: self.list.last!)
         router.closeModule()
+
     }
 }

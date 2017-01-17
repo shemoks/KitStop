@@ -21,6 +21,7 @@ final class CreatePostPresenter {
     var post = Post()
     var images = [UIImage.init(named: "required"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1")]
     var currentIndex = -1
+    var isForSale: Bool = true
     var currentData: Property?
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
@@ -99,7 +100,11 @@ extension CreatePostPresenter: CreatePostViewOutput {
     func handleNextTap() {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
-        router.openPriceModule(post: self.postForPrice)
+        if isForSale {
+            router.openSaveForSaleModule(post: self.postForPrice)
+        } else {
+            router.openSaveKitModule(post: self.postForPrice)
+        }
     }
 
     func  isSelectedCell(inSection: Int, for indexPath: IndexPath) {
@@ -117,15 +122,6 @@ extension CreatePostPresenter: CreatePostViewOutput {
         default:
             _ = [Other]()
         }
-    }
-
-    func updateData() {
-        if self.currentData?.list?.last?.data != "" {
-            self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
-            self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
-        }
-        view.reloadData()
-
     }
 
 }
@@ -160,8 +156,10 @@ extension CreatePostPresenter: CreatePostModuleInput {
 
     func valuesFromCategoryList(forSale: Bool, idCategory: String) {
         if forSale {
+            self.isForSale = true
             self.screenTitle = "ForSale / "
         } else {
+            self.isForSale = false
             self.screenTitle = "Kits / "
         }
         interactor.getStructure(forSale: true, idCategory: idCategory)
@@ -175,6 +173,12 @@ extension CreatePostPresenter: CustomListModuleOutput {
         self.currentData?.list?.last?.data = ""
         self.currentData?.currentData = data.name
         self.currentData?.textValue = data.name
+        view.reloadData()
+    }
+
+    func getDataWithInput(data: Other) {
+        self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
+        self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
         view.reloadData()
     }
 }

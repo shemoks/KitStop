@@ -45,7 +45,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.tintColor = .orange
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
     }
     
     func addRefreshControl() {
