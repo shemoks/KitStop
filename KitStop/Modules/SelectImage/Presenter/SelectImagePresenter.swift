@@ -39,8 +39,6 @@ extension SelectImagePresenter: SelectImageViewOutput {
         self.smallImage = image.cropToSmall()
         self.bigImage = image.cropToBig()
         delegate?.passImage(small: self.smallImage!, big: self.bigImage!)
-//        interactor.saveImageTo("KitFolio/Small", image: smallImage!)
-//        interactor.saveImageTo("KitFolio/Big", image: bigImage!)
         for button in buttons {
             view.removeButton(button: button)
         }
@@ -53,7 +51,7 @@ extension SelectImagePresenter: SelectImageViewOutput {
 // MARK: - SelectImageInteractorOutput
 
 extension SelectImagePresenter: SelectImageInteractorOutput {
-
+    
 }
 
 // MARK: - SelectImageModuleInput

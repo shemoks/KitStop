@@ -12,6 +12,12 @@ import Chamomile
 
 protocol CustomInputViewOutput: class {
 
+    func inputData(for: IndexPath) -> Other
+    func getTitle() -> String
+    func handleViewDidLoad()
+    func returnOther(dataText: String)
+    func getText() -> String
+
 }
 
 // MARK: - CustomInputInteractorOutput
@@ -24,10 +30,14 @@ protocol CustomInputInteractorOutput: class {
 
 protocol CustomInputModuleInput: ModuleInput {
 
+    func setInput(data: Other)
+
 }
 
 // MARK: - CustomInputModuleOutput
 
 protocol CustomInputModuleOutput: ModuleOutput {
+    
+    func setOther(data: Other)
 
 }

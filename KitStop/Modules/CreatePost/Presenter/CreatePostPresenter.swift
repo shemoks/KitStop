@@ -21,7 +21,7 @@ final class CreatePostPresenter {
     var post = Post()
     var images = [UIImage.init(named: "required"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1")]
     var currentIndex = -1
-    var newImages = [UIImage]()
+    var isForSale: Bool = true
     var currentData: Property?
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
@@ -62,7 +62,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func handleViewDidLoad() {
-        interactor.getStructure(forSale: true, idCategory: "5862607de9502e38a059613d")
+        interactor.getStructure(forSale: false, idCategory: "5862607de9502e38a059613d")
         view.reloadData()
     }
 
@@ -78,7 +78,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
         if indexPath.row > currentIndex {
             view.openGallery()
         } else {
-            //go to edit
+          // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
         }
     }
 
@@ -100,7 +100,11 @@ extension CreatePostPresenter: CreatePostViewOutput {
     func handleNextTap() {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
-        router.openPriceModule(post: self.postForPrice)
+        if isForSale {
+            router.openSaveForSaleModule(post: self.postForPrice)
+        } else {
+            router.openSaveKitModule(post: self.postForPrice)
+        }
     }
 
     func  isSelectedCell(inSection: Int, for indexPath: IndexPath) {
@@ -116,7 +120,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
                 router.openList(list: object, customListModuleOutput: self)
             }
         default:
-            let object = [Other]()
+            _ = [Other]()
         }
     }
 
@@ -136,7 +140,6 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
     }
 
     func selectMistakes(post: Post) {
-        //   self.post = post
         view.reloadData()
     }
 
@@ -153,20 +156,40 @@ extension CreatePostPresenter: CreatePostModuleInput {
 
     func valuesFromCategoryList(forSale: Bool, idCategory: String) {
         if forSale {
+            self.isForSale = true
             self.screenTitle = "ForSale / "
         } else {
+            self.isForSale = false
             self.screenTitle = "Kits / "
         }
         interactor.getStructure(forSale: true, idCategory: idCategory)
     }
-    
+
 }
 
 extension CreatePostPresenter: CustomListModuleOutput {
-    
+
     func getData(data: Other) {
+        self.currentData?.list?.last?.data = ""
         self.currentData?.currentData = data.name
         self.currentData?.textValue = data.name
         view.reloadData()
     }
+
+    func getDataWithInput(data: Other) {
+        self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
+        self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
+        view.reloadData()
+    }
 }
+
+//extension CreatePostPresenter: ViewPhotoModuleOutput {
+//
+//    func setNewPhoto(images: [UIImage]) {
+//        self.images = images
+//    }
+//
+//}
+
+
+

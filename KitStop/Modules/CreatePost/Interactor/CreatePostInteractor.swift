@@ -60,6 +60,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 let newPost = Post()
                 var newAdditionalProperty = [Property]()
                 var newGeneralProperty = [Property]()
+                var newImages = [UIImage]()
                 for data in post.additionalProperty {
                     if !data.metadata {
                         newAdditionalProperty.append(data)
@@ -75,6 +76,11 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.categoryId = post.categoryId
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description
+                for image in post.images {
+                    if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "camera") {
+                        newImages.append(image)
+                    }
+                }
                 newPost.images = post.images
                 newPost.metadata = post.metadata
                 newPost.notes = post.notes

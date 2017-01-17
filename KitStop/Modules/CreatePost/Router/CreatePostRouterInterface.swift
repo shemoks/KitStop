@@ -7,10 +7,13 @@
 //
 
 // MARK: - CreatePostRouterInput
+import UIKit
 
 protocol CreatePostRouterInput: class {
 
-    func openPriceModule(post: Post)
+    func openSaveForSaleModule(post: Post)
+    func openSaveKitModule(post: Post)
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput)
+//  func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput)
 
 }

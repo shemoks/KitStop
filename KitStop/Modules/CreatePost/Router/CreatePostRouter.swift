@@ -23,12 +23,20 @@ final class CreatePostRouter {
 
 extension CreatePostRouter: CreatePostRouterInput {
 
-    func openPriceModule(post: Post) {
+    func openSaveForSaleModule(post: Post) {
 //        flowController.openModule(using: .openSaleConfirm) {
 //            guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
 //            moduleInput.setPost(post: post)
 //            return nil
 //        }
+    }
+
+    func openSaveKitModule(post: Post) {
+//        flowController.openModule(using: .openKitConfirm) {
+            //            guard let moduleInput = $0 as? CreateKitConfirmModuleInput else { fatalError() }
+            //            moduleInput.setPost(post: post)
+            //            return nil
+            //        }
     }
 
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {
@@ -38,6 +46,14 @@ extension CreatePostRouter: CreatePostRouterInput {
             return customListModuleOutput
         }
     }
+
+//    func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput) {
+//        flowController.openModule(using: .openViewPhoto) {
+//            guard let moduleInput = $0 as? ViewPhotoModuleInput else { fatalError() }
+//            moduleInput.setPhoto(images: images)
+//            return viewPhotoModuleOutput
+//        }
+//    }
 }
 
 extension Segue {
@@ -50,4 +66,14 @@ extension Segue {
         //        return .init(identifier: "TransitionToSaleConfirm")
         //    
 //}
+
+//    static var openViewPhoto: Segue<ViewPhotoViewController> {
+//        return .init(identifier: "TrunsitionToViewPhoto")
+//    }
+
+//    static var openKitConfirm: Segue<CreateKitViewController> {
+        //        return .init(identifier: "TransitionToSaleConfirm")
+        //
+        //
+//    }
 }

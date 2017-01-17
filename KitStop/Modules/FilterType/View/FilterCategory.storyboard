@@ -20,12 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipd-m2-kSo">
-                                <rect key="frame" x="0.0" y="537" width="375" height="130"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="j2C-Ec-7B4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="473"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="j2C-Ec-7B4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="YNi-RL-Nsg" customClass="CategoryCell" customModule="KitStop" customModuleProvider="target">
@@ -45,17 +41,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="j2C-Ec-7B4" firstAttribute="leading" secondItem="Lp6-2l-BRP" secondAttribute="leading" id="JhC-wJ-UXq"/>
                             <constraint firstAttribute="trailing" secondItem="j2C-Ec-7B4" secondAttribute="trailing" id="LZ8-4r-cdI"/>
+                            <constraint firstItem="j2C-Ec-7B4" firstAttribute="top" secondItem="NAs-Fg-NmB" secondAttribute="bottom" id="OhE-Eb-GRO"/>
+                            <constraint firstAttribute="trailing" secondItem="j2C-Ec-7B4" secondAttribute="trailing" id="fa7-ND-Q53"/>
                             <constraint firstItem="j2C-Ec-7B4" firstAttribute="leading" secondItem="Lp6-2l-BRP" secondAttribute="leading" id="gYo-xl-UhF"/>
-                            <constraint firstItem="Ipd-m2-kSo" firstAttribute="top" secondItem="j2C-Ec-7B4" secondAttribute="bottom" id="pBk-M2-Jfb"/>
-                            <constraint firstItem="Ipd-m2-kSo" firstAttribute="top" secondItem="j2C-Ec-7B4" secondAttribute="bottom" id="pR9-2w-hHi"/>
-                            <constraint firstAttribute="trailing" secondItem="Ipd-m2-kSo" secondAttribute="trailing" id="rF8-ae-djW"/>
-                            <constraint firstItem="Ipd-m2-kSo" firstAttribute="leading" secondItem="Lp6-2l-BRP" secondAttribute="leading" id="rfi-vm-C7H"/>
                             <constraint firstItem="j2C-Ec-7B4" firstAttribute="top" secondItem="NAs-Fg-NmB" secondAttribute="bottom" id="sBM-2Y-rnV"/>
-                            <constraint firstItem="fRo-zk-INX" firstAttribute="top" secondItem="Ipd-m2-kSo" secondAttribute="bottom" id="zYi-Wk-PzL"/>
+                            <constraint firstItem="fRo-zk-INX" firstAttribute="top" secondItem="j2C-Ec-7B4" secondAttribute="bottom" id="zDB-YQ-c7G"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Categories" id="8xs-Pm-EE5"/>
+                    <navigationItem key="navigationItem" title="Category" id="8xs-Pm-EE5"/>
                     <connections>
                         <outlet property="tableView" destination="j2C-Ec-7B4" id="wd4-OK-1vI"/>
                     </connections>
@@ -67,7 +62,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="961" y="130"/>
+            <point key="canvasLocation" x="960.79999999999995" y="129.98500749625188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KPs-fR-o7x">

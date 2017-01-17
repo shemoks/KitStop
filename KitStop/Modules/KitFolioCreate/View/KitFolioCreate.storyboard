@@ -77,23 +77,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oE-r6-dBK">
                                         <rect key="frame" x="0.0" y="277" width="375" height="176"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Tell the community about this photograph" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SwI-Sb-ae2">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="176" id="9Lh-Vh-u3N"/>
+                                                    <constraint firstAttribute="height" constant="176" id="tVS-Ej-enA"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="SwI-Sb-ae2" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" id="Gh2-NP-oTf"/>
+                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="2oE-r6-dBK" secondAttribute="top" id="9d0-VW-bpS"/>
+                                            <constraint firstAttribute="trailing" secondItem="6vx-yE-NEG" secondAttribute="trailing" id="EMT-hR-j1U"/>
+                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" id="Lgm-M7-aKT"/>
                                             <constraint firstAttribute="height" constant="176" id="eKG-Bu-wbB"/>
-                                            <constraint firstAttribute="trailing" secondItem="SwI-Sb-ae2" secondAttribute="trailing" id="goP-jH-zNO"/>
-                                            <constraint firstAttribute="bottom" secondItem="SwI-Sb-ae2" secondAttribute="bottom" id="jSh-lW-uVh"/>
-                                            <constraint firstItem="SwI-Sb-ae2" firstAttribute="top" secondItem="2oE-r6-dBK" secondAttribute="top" id="l3q-Tn-Jo3"/>
+                                            <constraint firstAttribute="bottom" secondItem="6vx-yE-NEG" secondAttribute="bottom" id="rQm-WH-S7u"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -139,7 +139,7 @@
                     <connections>
                         <outlet property="container" destination="X8h-rI-XzM" id="YPH-p2-jfe"/>
                         <outlet property="containerHeight" destination="Beg-Us-kfH" id="y2B-wr-FOe"/>
-                        <outlet property="postDescription" destination="SwI-Sb-ae2" id="oJ3-JA-ci6"/>
+                        <outlet property="postDescription" destination="6vx-yE-NEG" id="ZTG-BO-AIo"/>
                         <outlet property="postTitle" destination="gDf-I2-5Ra" id="hWz-ru-eWS"/>
                         <outlet property="scroll" destination="E5u-sy-6GZ" id="gU0-ed-gZK"/>
                         <outlet property="userInformation" destination="SBg-2U-8l7" id="ItB-7P-MaY"/>

@@ -18,6 +18,8 @@ final class SelectCategoryPresenter {
     weak var view: SelectCategoryViewInput!
     var interactor: SelectCategoryInteractorInput!
     var router: SelectCategoryRouterInput!
+    
+    fileprivate var category: Bool?
 
 }
 
@@ -41,12 +43,14 @@ extension SelectCategoryPresenter: SelectCategoryInteractorOutput {
     }
     
     func openAddItemModule(categoryID: String) {
-        // router.openSomeModule
+        router.openAddKitModule(categoryID: categoryID, category: category!)
     }
 }
 
 // MARK: - SelectCategoryModuleInput
 
 extension SelectCategoryPresenter: SelectCategoryModuleInput {
-
+    func handleCategory(category: Bool) {
+        self.category = category
+    }
 }

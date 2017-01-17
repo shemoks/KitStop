@@ -37,5 +37,6 @@ protocol CustomListModuleInput: ModuleInput {
 protocol CustomListModuleOutput: ModuleOutput {
 
     func getData(data: Other)
+    func getDataWithInput(data: Other)
 
 }

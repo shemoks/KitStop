@@ -74,6 +74,8 @@ extension SelectImageViewController: UIImagePickerControllerDelegate, UINavigati
             let newHeight = pickedImage.heightWithOrientation(contentHeight: self.view.frame.size.height)
             delegate?.changeContainer(newHeight)
             image.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: newHeight)
+            image.contentMode = .scaleAspectFill
+            image.clipsToBounds = true
             self.view.addSubview(image)
         }
         dismiss(animated: true, completion: nil)

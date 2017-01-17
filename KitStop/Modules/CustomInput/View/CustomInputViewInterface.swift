@@ -10,4 +10,6 @@
 
 protocol CustomInputViewInput: class {
 
+    func reloadData()
+
 }

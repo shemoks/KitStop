@@ -15,7 +15,7 @@ class LogInDataManager: NSObject, LogInDataManagerProtocol {
     let realm = try! Realm()
     
     func saveUserData(json: JSON) {
-        let userJson = json["data"]["user"]
+        let userJson = json["data"]
         let user = User()
         user.id = userJson["_id"].stringValue
         user.name = userJson["name"].stringValue

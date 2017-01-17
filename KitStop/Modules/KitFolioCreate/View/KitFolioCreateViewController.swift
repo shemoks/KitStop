@@ -14,7 +14,7 @@ import Chamomile
 final class KitFolioCreateViewController: UIViewController, FlowController, SelectImageContainerProtocol, Alertable {
     
     @IBOutlet weak var postTitle: UITextField!
-    @IBOutlet weak var postDescription: UITextField!
+    @IBOutlet weak var postDescription: UITextView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var scroll: UIScrollView!
@@ -85,16 +85,17 @@ extension KitFolioCreateViewController: KitFolioCreateViewInput {
     }
 }
 
-extension KitFolioCreateViewController : UITextFieldDelegate {
+extension KitFolioCreateViewController : UITextFieldDelegate, UITextViewDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var limitLength = 0
-        if textField.tag == 100 {
-            limitLength = 100
-        } else {
-            limitLength = 500
-        }
+        let limitLength = 100
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let text = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = text.characters.count
+        return numberOfChars < 500;
     }
 }

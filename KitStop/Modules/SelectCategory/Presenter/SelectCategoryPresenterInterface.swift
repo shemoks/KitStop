@@ -25,7 +25,7 @@ protocol SelectCategoryInteractorOutput: class {
 // MARK: - SelectCategoryModuleInput
 
 protocol SelectCategoryModuleInput: ModuleInput {
-
+    func handleCategory(category: Bool)
 }
 
 // MARK: - SelectCategoryModuleOutput

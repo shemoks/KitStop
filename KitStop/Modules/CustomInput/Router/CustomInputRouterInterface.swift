@@ -10,4 +10,6 @@
 
 protocol CustomInputRouterInput: class {
 
+    func closeModule(data: Other, moduleOutput: CustomInputModuleOutput)
+
 }
