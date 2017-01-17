@@ -41,7 +41,7 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
             data.isEnabled = false
         }
 
-        if  property.isSelect && (property.currentData != nil || self.object?.textValue == "") {
+        if  property.isSelect && (property.currentData != nil) {
             self.accessoryType = .disclosureIndicator
             data.isEnabled = true
             if  property.placeholder != nil {

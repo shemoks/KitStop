@@ -232,6 +232,7 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                 }
             }
             newElement.list = arrDate
+            newElement.placeholder = product["placeholder"].stringValue
         }
 //            let textValue = product["data"].intValue
 //            newElement.textValue = textValue
