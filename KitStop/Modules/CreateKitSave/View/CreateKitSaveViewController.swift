@@ -30,6 +30,10 @@ final class CreateKitSaveViewController: UIViewController, FlowController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(colorLiteralRed: 255/255.0, green: 136/255.0, blue: 48/255.0, alpha: 1.0)
     }
+    
+    func tapOnSave() {
+        
+    }
 
 }
 
@@ -57,6 +61,11 @@ extension CreateKitSaveViewController: UITableViewDelegate {
 extension CreateKitSaveViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "KitAdditionalInfoCell", for indexPath) as?
+        let cell = tableView.dequeueReusableCell(withIdentifier: "KitAdditionalInfoCell", for: indexPath) as! KitAdditionalInfoCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
 }

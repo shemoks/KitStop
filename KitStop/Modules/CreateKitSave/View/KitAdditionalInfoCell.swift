@@ -10,5 +10,7 @@ import UIKit
 
 class KitAdditionalInfoCell: UITableViewCell {
     
-    func configure(detail)
+    func configure(detail: KitDetailsModel) {
+        
+    }
 }

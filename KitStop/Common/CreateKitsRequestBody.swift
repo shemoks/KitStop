@@ -27,5 +27,5 @@ struct CreateKitsRequestBody {
     var tags: [String]?
     var metaData: [AnyObject]?
     var salesDetails: [AnyObject] = []
-    var isPrivate: Boolean = false
+    var isPrivate: Bool = false
 }
