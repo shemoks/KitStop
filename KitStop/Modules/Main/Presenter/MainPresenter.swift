@@ -33,12 +33,12 @@ extension MainPresenter: MainViewOutput {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let listForSaleAction = UIAlertAction.init(title: "List for Sale", style: .default, handler: {
             result in
-                 self.router.openCategoryModule(secondModuleOutput: self)
+            self.router.openCategoryModule(secondModuleOutput: self, category:  true)
         })
         
         let addKitAction = UIAlertAction.init(title: "Add to Kit", style: .default, handler: {
             result in
-                self.router.openCategoryModule(secondModuleOutput: self)
+                self.router.openCategoryModule(secondModuleOutput: self, category:  false)
         })
         let postWorkAction = UIAlertAction.init(title: "Post your work", style: .default, handler: {
             result in
