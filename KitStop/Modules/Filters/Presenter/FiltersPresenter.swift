@@ -99,7 +99,7 @@ extension FiltersPresenter: FiltersInteractorOutput {
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
     }
-    
+
     func handleViewWillDisappear(kits: [Product]) {
         if currentCategory != nil {
             let mainModuleOutput = moduleOutput as! FiltersModuleOutput

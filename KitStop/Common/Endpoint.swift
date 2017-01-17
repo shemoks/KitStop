@@ -25,6 +25,7 @@ enum Endpoint {
     case kitsFilter()
     case price()
     case getCategory()
+    case getStructureOfCategory(id: String)
     case fbAuthenticate()
     
     // MARK: - Public Properties
@@ -63,6 +64,8 @@ enum Endpoint {
             return "/filters"
         case .getCategory():
             return "/category"
+        case .getStructureOfCategory(let id):
+            return ("/category/" + id)
         case .fbAuthenticate:
             return "/fb-authenticate"
         }
