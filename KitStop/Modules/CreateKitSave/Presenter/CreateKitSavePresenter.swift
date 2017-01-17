@@ -20,6 +20,7 @@ final class CreateKitSavePresenter {
     var router: CreateKitSaveRouterInput!
     var details: [KitDetailsModel] = []
     var kit: CreateKitsRequestBody?
+    var post: Post?
 
 }
 
@@ -57,5 +58,7 @@ extension CreateKitSavePresenter: CreateKitSaveInteractorOutput {
 // MARK: - CreateKitSaveModuleInput
 
 extension CreateKitSavePresenter: CreateKitSaveModuleInput {
-
+    func setPost(post: Post) {
+        self.post = post
+    }
 }

@@ -32,11 +32,11 @@ extension CreatePostRouter: CreatePostRouterInput {
     }
 
     func openSaveKitModule(post: Post) {
-//        flowController.openModule(using: .openKitConfirm) {
-            //            guard let moduleInput = $0 as? CreateKitConfirmModuleInput else { fatalError() }
-            //            moduleInput.setPost(post: post)
-            //            return nil
-            //        }
+        flowController.openModule(using: .openKitConfirm) {
+                        guard let moduleInput = $0 as? CreateKitConfirmModuleInput else { fatalError() }
+                        moduleInput.setPost(post: post)
+                        return nil
+                    }
     }
 
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {

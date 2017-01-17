@@ -34,5 +34,5 @@ protocol CreateKitSaveModuleInput: ModuleInput {
 // MARK: - CreateKitSaveModuleOutput
 
 protocol CreateKitSaveModuleOutput: ModuleOutput {
-
+    func setPost(post: Post)
 }
