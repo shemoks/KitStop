@@ -20,15 +20,20 @@ class CustomInputCell: UITableViewCell, UITextFieldDelegate {
         data.text = property.data
         self.object = property
         data.delegate = self
+
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        data.addTarget(self, action: #selector(didChangeText(textField:)), for: .editingChanged)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.object?.data = textField.text!
-
+      //  self.object?.data = textField.text!
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.object?.data = textField.text!
         let currentCharacterCount = textField.text?.characters.count ?? 0
         if (range.length + range.location > currentCharacterCount){
             return false
@@ -39,7 +44,13 @@ class CustomInputCell: UITableViewCell, UITextFieldDelegate {
         } else {
             return newLength <= 255
         }
+
     }
-    
+
+    func didChangeText(textField: UITextField) {
+        if let textInField = data.text {
+            object?.data = textInField
+        }
+    }
 
 }

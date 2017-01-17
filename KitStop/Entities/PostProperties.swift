@@ -16,6 +16,7 @@ enum dataType {
     case string
     case array
     case int
+    case double
 }
 
 struct Description {
@@ -29,6 +30,7 @@ class Other {
     var placeholder: String? = nil
     var name: String = ""
     var limit: Int? = nil
+    var type: dataType = .string
 
 }
 
@@ -66,5 +68,25 @@ class Post {
     var salesDetails = [Property]()
     var otherProperty = [Property]()
 
+}
+
+class ViewPost {
+    var title: String = ""
+    var mainImage: String = ""
+    var metaData = [ViewProperty]()
+    var generalProperty = [ViewProperty]()
+    var images = [String]()
+    var saleData = [ViewProperty]()
+    var description: String = ""
+    var notes: String = ""
+    var isPrivate: Bool = false
+    var tags = [String]()
+    var owner: String = ""
+    var id: String = ""
+}
+
+class ViewProperty {
+    var title: String = ""
+    var text: String = ""
 }
 

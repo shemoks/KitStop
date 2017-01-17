@@ -35,7 +35,7 @@ protocol CreatePostInteractorOutput: class {
     
     func setStructure(post: Post)
     func showError(title: String, message: String)
-    func selectMistakes(post: Post)
+    func selectMistakes()
     func setPost(post: Post)
 
 }
