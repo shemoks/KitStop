@@ -7,6 +7,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View-->
         <scene sceneID="TUv-zy-7cX">
@@ -97,13 +102,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-lC-EEl">
                                 <rect key="frame" x="0.0" y="273" width="375" height="394"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-Wr-Ukc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-Wr-Ukc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="tOt-qp-0d7"/>
                                         </constraints>
-                                        <state key="normal" title="Apply" backgroundImage="button">
-                                            <color key="titleColor" red="1" green="0.53333333333333333" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <state key="normal" title="Apply">
+                                            <color key="titleColor" red="1" green="0.53333333329999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="applyButtonTap:" destination="QJd-ZO-nP3" eventType="touchUpInside" id="sqA-eC-D6e"/>
@@ -186,7 +193,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gmd-Pm-BWe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvz-cU-NzD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pvz-cU-NzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -203,7 +210,4 @@
             <point key="canvasLocation" x="-79" y="135"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="button" width="251" height="44"/>
-    </resources>
 </document>

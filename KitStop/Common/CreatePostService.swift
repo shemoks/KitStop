@@ -217,13 +217,28 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                 }
                 if let element = value as? NSDictionary {
                     let newData = Other()
-                    newData.data =  element.value(forKey: "data") as! String
-                    if  element.value(forKey: "limit") != nil {
-                         newData.limit = element.value(forKey: "limit") as? Int
+                    if element.value(forKey: "data") != nil {
+                        if let value = element.value(forKey: "data") as? String {
+                            newData.data = value
+                            newData.type = .string
+                            if (element.value(forKey: "data") as? Double) != nil {
+                                newData.data = String(value)
+                                newData.type = .double
+                            }
+                            if let dictionaryValue = element.value(forKey: "data") as? NSDictionary {
+                                newData.data   = ""
+
+                            }
+                        }
                     }
-                    newData.name = element.value(forKey: "name") as! String
+                    if  element.value(forKey: "limit") != nil {
+                        newData.limit = element.value(forKey: "limit") as? Int
+                    }
+                    if element.value(forKey: "name") != nil {
+                        newData.name = element.value(forKey: "name") as! String
+                    }
                     if element.value(forKey: "placeholder") != nil {
-                         newData.placeholder = element.value(forKey: "placeholder") as? String
+                        newData.placeholder = element.value(forKey: "placeholder") as? String
                     }
                     if element.value(forKey: "title") != nil {
                         newData.title = (element.value(forKey: "title") as? String)!
@@ -234,12 +249,12 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
             newElement.list = arrDate
             newElement.placeholder = product["placeholder"].stringValue
         }
-//            let textValue = product["data"].intValue
-//            newElement.textValue = textValue
-            if data.string != nil {
+        //            let textValue = product["data"].intValue
+        //            newElement.textValue = textValue
+        if data.string != nil {
             newElement.typeOfData = .string
             newElement.placeholder = product["placeholder"].stringValue
-            }
+        }
 
         if data.int != nil {
             newElement.typeOfData = .int
