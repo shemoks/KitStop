@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,6 +8,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View-->
         <scene sceneID="TB8-w1-5af">
@@ -18,18 +23,18 @@
                         <viewControllerLayoutGuide type="bottom" id="Qzf-IJ-X63"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="107-6P-bLR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF3-U0-y14">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5u-sy-6GZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-rI-XzM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="Beg-Us-kfH"/>
                                         </constraints>
@@ -38,25 +43,25 @@
                                         </connections>
                                     </containerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBg-2U-8l7">
-                                        <rect key="frame" x="0.0" y="180" width="375" height="46"/>
+                                        <rect key="frame" x="0.0" y="180" width="414" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="KHa-A2-AFI"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8a-Ak-Cc2">
-                                        <rect key="frame" x="0.0" y="234" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="234" width="414" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-8y-0KA">
-                                                <rect key="frame" x="16" y="8" width="72" height="19"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="7.9999999999999964" y="8" width="53.666666666666657" height="14.666666666666686"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nikon 5D" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-I2-5Ra">
-                                                <rect key="frame" x="96" y="9" width="263" height="17"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter short description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-I2-5Ra">
+                                                <rect key="frame" x="8" y="26.666666666666686" width="156" height="17"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="postTitleChange:" destination="nZ0-5w-Sbl" eventType="editingChanged" id="ghO-xg-EN2"/>
@@ -65,23 +70,27 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="centerY" secondItem="Y8a-Ak-Cc2" secondAttribute="centerY" id="21r-cA-W7S"/>
-                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="leading" secondItem="aCl-8y-0KA" secondAttribute="trailing" constant="8" id="Cf6-HI-c7b"/>
-                                            <constraint firstAttribute="height" constant="35" id="DW9-mz-7g3"/>
-                                            <constraint firstItem="aCl-8y-0KA" firstAttribute="centerY" secondItem="Y8a-Ak-Cc2" secondAttribute="centerY" id="K5m-W1-X31"/>
-                                            <constraint firstAttribute="trailing" secondItem="gDf-I2-5Ra" secondAttribute="trailing" constant="16" id="ZzD-vh-Mz0"/>
+                                            <constraint firstAttribute="height" constant="50" id="DW9-mz-7g3"/>
+                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="top" secondItem="aCl-8y-0KA" secondAttribute="bottom" constant="4" id="MWT-2n-L5m"/>
+                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="8" id="Qcg-Yi-rQO"/>
                                             <constraint firstItem="aCl-8y-0KA" firstAttribute="top" secondItem="Y8a-Ak-Cc2" secondAttribute="top" constant="8" id="geR-CZ-OSB"/>
-                                            <constraint firstItem="aCl-8y-0KA" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="16" id="k95-ZB-i5d"/>
+                                            <constraint firstItem="aCl-8y-0KA" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="8" id="k95-ZB-i5d"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oE-r6-dBK">
-                                        <rect key="frame" x="0.0" y="277" width="375" height="176"/>
+                                        <rect key="frame" x="0.0" y="292" width="414" height="176"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnj-n0-VZk">
+                                                <rect key="frame" x="8" y="13.666666666666686" width="65" height="14.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
+                                                <rect key="frame" x="4" y="30" width="410" height="146"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="176" id="tVS-Ej-enA"/>
+                                                    <constraint firstAttribute="height" constant="146" id="tVS-Ej-enA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -89,9 +98,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="2oE-r6-dBK" secondAttribute="top" id="9d0-VW-bpS"/>
+                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="cnj-n0-VZk" secondAttribute="bottom" constant="2" id="6sE-JM-VGY"/>
                                             <constraint firstAttribute="trailing" secondItem="6vx-yE-NEG" secondAttribute="trailing" id="EMT-hR-j1U"/>
-                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" id="Lgm-M7-aKT"/>
+                                            <constraint firstItem="cnj-n0-VZk" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" constant="8" id="HV3-yk-KDQ"/>
+                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" constant="4" id="Lgm-M7-aKT"/>
                                             <constraint firstAttribute="height" constant="176" id="eKG-Bu-wbB"/>
                                             <constraint firstAttribute="bottom" secondItem="6vx-yE-NEG" secondAttribute="bottom" id="rQm-WH-S7u"/>
                                         </constraints>
@@ -163,11 +173,11 @@
                         <viewControllerLayoutGuide type="bottom" id="I35-ZW-ls8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f0L-LR-PJv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQ1-5p-7Pg">
-                                <rect key="frame" x="0.0" y="0.0" width="188" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="207" height="180"/>
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.59999999999999998" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
@@ -175,7 +185,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqr-aC-d7g">
-                                <rect key="frame" x="192" y="0.0" width="183" height="180"/>
+                                <rect key="frame" x="211" y="0.0" width="203" height="180"/>
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.59999999999999998" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="gallery"/>
                                 <connections>
@@ -229,7 +239,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="57" height="48"/>
-        <image name="gallery" width="64" height="63"/>
+        <image name="camera" width="55" height="46"/>
+        <image name="gallery" width="61" height="61"/>
     </resources>
 </document>

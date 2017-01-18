@@ -161,4 +161,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let width = UIScreen.main.bounds.size.width
         return CGSize.init(width: (width/2) - 1, height: (width/2) )
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
+    }
 }

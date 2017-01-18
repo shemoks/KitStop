@@ -26,6 +26,7 @@ class MainService: NSObject, MainServiceProtocol {
                     var kits = [Product]()
                     for kit in json["data"]["docs"] {
                         var kitModel = Product()
+                        kitModel.id = kit.1["_id"].stringValue
                         kitModel.mainImage = kit.1["mainImage"].stringValue
                         kitModel.title = kit.1["title"].stringValue
                         kits.append(kitModel)
@@ -53,8 +54,10 @@ class MainService: NSObject, MainServiceProtocol {
                     var kits = [Product]()
                     for kit in json["data"]["docs"] {
                         var kitModel = Product()
+                        kitModel.id = kit.1["_id"].stringValue
                         kitModel.mainImage = kit.1["mainImage"].stringValue
                         kitModel.title = kit.1["title"].stringValue
+                        kitModel.owner = kit.1["owner"].stringValue
                         kits.append(kitModel)
                     }
                     kits.reverse()
@@ -80,6 +83,7 @@ class MainService: NSObject, MainServiceProtocol {
                     for kit in json["data"]["docs"] {
                         var kitModel = Product()
                         var saleDetails = SalesDetails()
+                        kitModel.id = kit.1["_id"].stringValue
                         kitModel.mainImage = kit.1["mainImage"].stringValue
                         kitModel.title = kit.1["title"].stringValue
                         if let price = kit.1["salesDetails"]["price"].double {

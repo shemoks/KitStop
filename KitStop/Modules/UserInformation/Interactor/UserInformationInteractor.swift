@@ -9,9 +9,9 @@
 // MARK: - UserInformationInteractor
 
 final class UserInformationInteractor {
-
+    
     // MARK: - VIPER stack
-
+    
     weak var presenter: UserInformationInteractorOutput!
     fileprivate var dataManager: LogInDataManagerProtocol?
     // MARK: -
@@ -23,19 +23,36 @@ final class UserInformationInteractor {
     convenience init() {
         self.init(dataManager: LogInDataManager())
     }
-
+    
 }
 
 // MARK: - UserInformationInteractorInput
 
 extension UserInformationInteractor: UserInformationInteractorInput {
     
-    func fetchUser() {
-        if let user = dataManager?.getUserFromRealm() {
-            let userData: [String : String] = ["name" : user.name,
-                            "surname" : user.surname,
-                            "avatar" : user.avatar! == "<null>" ? "https://s3.amazonaws.com/kitstop/UserPhoto/profile_photo.png" : user.avatar!,
-                            "country" : user.country!]
+    func fetchUser(user: User?) {
+        let userModel = dataManager?.getUserFromRealm()
+        if user != nil {
+            if user?.id != userModel?.id {
+                let userData: [String : String] = ["name" : user!.name,
+                                                   "surname" : user!.surname,
+                                                   "avatar" : user!.avatar! == "<null>" ? "" : user!.avatar!,
+                                                   "country" : "USA"]
+                presenter.showUser(user: userData)
+            } else {
+                loadUserFromRealm(userModel: userModel)
+            }
+        } else {
+            loadUserFromRealm(userModel: userModel)
+        }
+    }
+    
+    func loadUserFromRealm(userModel: User?) {
+        if userModel != nil {
+            let userData: [String : String] = ["name" : userModel!.name,
+                                               "surname" : userModel!.surname,
+                                               "avatar" : userModel!.avatar! == "<null>" ? "" : userModel!.avatar!,
+                                               "country" : userModel!.country!]
             presenter.showUser(user: userData)
         }
     }

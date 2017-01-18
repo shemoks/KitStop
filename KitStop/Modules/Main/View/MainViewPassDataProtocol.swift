@@ -10,4 +10,5 @@ import Foundation
 
 protocol MainViewPassDataProtocol {
     func passData(selectedItem: Int)
+    func selectedKits(kitId: String, ownerId: String)
 }

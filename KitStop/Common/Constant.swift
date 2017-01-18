@@ -14,3 +14,11 @@ struct AWS3 {
     static let S3BucketName = "kitstop"
     static let url = "https://kitstop.s3.amazonaws.com/"
 }
+
+struct Color {
+    static let emailInvalidateColor = "f5d0d0"
+}
+
+struct PlaceholderText {
+    static let kitfolioDescriptionText = "Tell the community about this photograph"
+}
