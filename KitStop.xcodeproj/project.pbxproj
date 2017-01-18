@@ -774,8 +774,8 @@
 				9A9D0FAE1E2520C80009274C /* CreatePostService.swift */,
 				254187051E1EB3E500589C61 /* CreateKitFolioService.swift */,
 				95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */,
-				9527A3911E1D0A7500DAE96C /* SearchService.swift */,
 				9AEA5DA81E2E51FF008AEF11 /* ViewPostService.swift */,
+				9527A3911E1D0A7500DAE96C /* SearchService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";

@@ -22,6 +22,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
 
     func getKit(idKit: String, forSale: Bool, postValue: @escaping ((ViewPost, _ errorCode: Int?) -> ())) {
         if !forSale {
+            let general = ["brand", "model", "serial #"]
             let _ = manager.apiRequest(.viewKitByOwner(idKit: idKit), parameters: [:], headers: nil).apiResponse(completionHandler: {
                 response in
                 switch response.result{
@@ -32,6 +33,19 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         var metaData = [ViewProperty]()
                         var saleData = [ViewProperty]()
                         var postImages = [String]()
+                        let generalValues = json["data"].arrayObject
+                        for value in generalValues! {
+                            if let item = value as? NSDictionary {
+                                for (key, data) in item {
+                                    if general.contains(key as! String) {
+                                        let newItem = ViewProperty()
+                                        newItem.title = key as! String
+                                        newItem.text = data as! String
+                                        generalProperty.append(newItem)
+                                    }
+                                }
+                            }
+                        }
                         let images = json["data"]["images"]
                         post.title = json["data"]["title"].stringValue
                         post.isPrivate = json["data"]["isPrivate"].boolValue
@@ -41,8 +55,16 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         }
                         post.images = postImages
                         post.mainImage = postImages.first!
-                        post.description = json["data"]["description"].stringValue
-                        post.notes = json["data"]["notes"].stringValue
+                        if json["data"]["description"] != JSON.null {
+                            post.description = json["data"]["description"].stringValue
+                        } else {
+                            post.description = ""
+                        }
+                        if json["data"]["notes"] != JSON.null {
+                            post.description = json["data"]["notes"].stringValue
+                        } else {
+                            post.notes = ""
+                        }
                         let metaDataArray = json["data"]["metaData"].arrayObject
                         for product in metaDataArray! {
                             let newItem = ViewProperty()
@@ -65,6 +87,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         }
                         post.metaData = metaData
                         post.saleData = saleData
+                        post.generalProperty = generalProperty
                         postValue(post, nil)
                     } else {
                         postValue (ViewPost(), response.response?.statusCode)
