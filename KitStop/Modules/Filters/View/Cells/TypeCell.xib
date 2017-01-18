@@ -15,13 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="369" height="43"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b01-S0-BW9" id="cdk-Ca-ECc">
-                <rect key="frame" x="0.0" y="0.0" width="335" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="336" height="42"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQE-gf-F1Y">
                         <rect key="frame" x="18" y="14.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="0.36392692539999999" blue="0.25220766579999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="0.53333333333333333" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

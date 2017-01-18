@@ -59,6 +59,12 @@ extension String: ParameterEncoding {
         return NSUUID().uuidString
     }
     
+    func date(format: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: self)!
+    }
+    
 }
 
 extension Double {
@@ -140,6 +146,13 @@ extension Date {
         
         return date.joined(separator: " ")
     }
+    
+    func string(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+
     
 }
 

@@ -43,6 +43,8 @@ extension MainRouter: MainRouterInput {
 //                print("Activity")
 //            case 1:
 //                print("Conv")
+            case 2:
+                print("Main")
 //            case 3:
 //                print("Favs")
 //            case 5:

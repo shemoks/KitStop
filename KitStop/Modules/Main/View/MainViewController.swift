@@ -28,6 +28,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingIndicatorView.hide()
         collectionView.delegate = self
         collectionView.dataSource = self
         addSectionInset()
@@ -40,8 +41,12 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "log out", style: .done, target: self, action: #selector(logOut))
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
+    }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.tintColor = .orange
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
     }
     
     func addRefreshControl() {
@@ -72,7 +77,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func addNavigationBarItems() {
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "navigation_logo"))
-        self.navigationController?.navigationBar.tintColor = .orange
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "add_icon"), style: .done, target: self, action: #selector(addTap))
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

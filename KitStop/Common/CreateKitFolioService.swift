@@ -26,7 +26,6 @@ class CreateKitFolioService: NSObject, CreateKitFolioServiceProtocol  {
                 print(json["success"])
                 if json["success"].boolValue {
                     print("success \(json)")
-                    completionBlock(true, nil)
                 } else {
                     print("error \(json)")
                     completionBlock(false, response.response?.statusCode)

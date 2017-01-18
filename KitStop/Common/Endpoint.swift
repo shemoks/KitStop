@@ -25,8 +25,11 @@ enum Endpoint {
     case kitsFilter()
     case price()
     case getCategory()
+    case getStructureOfCategory(id: String)
     case fbAuthenticate()
     case kitFolioDetailed(id: String)
+    case createKit()
+    case viewKitByOwner(idKit: String)
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -38,6 +41,8 @@ enum Endpoint {
         case .createKitFolio:
             return .post
         case .fbAuthenticate():
+            return .post
+        case .createKit:
             return .post
         default:
             return .get
@@ -64,10 +69,16 @@ enum Endpoint {
             return "/filters"
         case .getCategory():
             return "/category"
+        case .getStructureOfCategory(let id):
+            return ("/category/" + id)
         case .fbAuthenticate:
             return "/fb-authenticate"
         case let .kitFolioDetailed(id) :
             return "/kit-folio/\(id)"
+        case .createKit:
+            return "/kits"
+        case .viewKitByOwner(let idKit):
+            return ("/kit/" + idKit)
         }
     }
 
