@@ -16,8 +16,9 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
     @IBOutlet weak var tableView: UITableView!
     // MARK: - VIPER stack
     @IBAction func NextTap(_ sender: Any) {
-        presenter.handleNextTap()
+                presenter.handleNextTap()
     }
+
     var presenter: CreatePostViewOutput!
     let imagePicker = UIImagePickerController()
     let headerView = HeaderTableView()
@@ -95,6 +96,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
             UIView.setAnimationsEnabled(true)
         }
     }
+    
 }
 
 // MARK: - CreatePostViewInput

@@ -32,11 +32,11 @@ extension CreatePostRouter: CreatePostRouterInput {
     }
 
     func openSaveKitModule(post: Post) {
-//        flowController.openModule(using: .openKitConfirm) {
-            //            guard let moduleInput = $0 as? CreateKitConfirmModuleInput else { fatalError() }
-            //            moduleInput.setPost(post: post)
-            //            return nil
-            //        }
+        flowController.openModule(using: .openKitConfirm) {
+                        guard let moduleInput = $0 as? CreateKitSaveModuleInput else { fatalError() }
+                        moduleInput.setPost(post: post)
+                        return nil
+                    }
     }
 
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {
@@ -71,9 +71,7 @@ extension Segue {
 //        return .init(identifier: "TrunsitionToViewPhoto")
 //    }
 
-//    static var openKitConfirm: Segue<CreateKitViewController> {
-        //        return .init(identifier: "TransitionToSaleConfirm")
-        //
-        //
-//    }
+    static var openKitConfirm: Segue<CreateKitSaveViewController> {
+                return .init(identifier: "TransitionToKitConfirm")
+    }
 }

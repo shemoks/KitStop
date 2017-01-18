@@ -106,4 +106,20 @@ extension UIImage {
     }
 }
 
+extension Date {
+    func string(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
+
+extension String {
+    func date(format: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: self)!
+    }
+}
+
 

@@ -32,7 +32,7 @@ final class BottomBarViewController: UIView, UITabBarDelegate {
             }
         }
     }
-    
+
 }
 
 // MARK: - BottomBarViewInput
