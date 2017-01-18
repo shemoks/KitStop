@@ -27,6 +27,7 @@ enum Endpoint {
     case getCategory()
     case getStructureOfCategory(id: String)
     case fbAuthenticate()
+    case kitFolioDetailed(id: String)
     case createKit()
     case viewKitByOwner(idKit: String)
     
@@ -72,6 +73,8 @@ enum Endpoint {
             return ("/category/" + id)
         case .fbAuthenticate:
             return "/fb-authenticate"
+        case let .kitFolioDetailed(id) :
+            return "/kit-folio/\(id)"
         case .createKit:
             return "/kits"
         case .viewKitByOwner(let idKit):

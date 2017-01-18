@@ -27,6 +27,9 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     
     override func viewDidLoad() {
         password.passwordDelegate = self
+        password.email = email
+        email.layer.borderWidth = 2.5
+        email.layer.borderColor = UIColor.white.cgColor
     }
     
     func clearTextFields() {
@@ -63,6 +66,10 @@ extension LogInViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         textField.nextField?.becomeFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UITextField().checkFieldFrom(email: email, textField: textField)
     }
 }
 

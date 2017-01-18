@@ -41,7 +41,7 @@ extension CustomError: RawRepresentable, CustomStringConvertible {
         case .notFound:
             return "User not found"
         case .userAlreadyExists:
-            return "User with such email is already registered"
+            return "Entered e-mail is already taken"
         case .kitFolioValidationFailed:
             return "Please fill out all required fields"
         case .passwordIsNotProvided:
@@ -49,7 +49,7 @@ extension CustomError: RawRepresentable, CustomStringConvertible {
         case .valueIsNotProvided:
             return "Invalid email or password"
         case .passwordConfirmationFailed:
-            return "Password does not match the confirm password."
+            return "Password do not match the confirm password."
         case .unexpectedError:
             return "Unexpected error has occured"
         }

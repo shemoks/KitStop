@@ -27,7 +27,15 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         super.viewDidLoad()
         password.passwordDelegate = self
         repeatPassword.passwordDelegate = self
+        password.email = email
+        repeatPassword.email = email
+        email.layer.borderWidth = 2.5
+        email.layer.borderColor = UIColor.white.cgColor
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     func tapOnPasswordImageSuccess(textField: UITextField) {
@@ -79,5 +87,9 @@ extension SignUpEmailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.nextField?.becomeFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UITextField().checkFieldFrom(email: email, textField: textField)
     }
 }
