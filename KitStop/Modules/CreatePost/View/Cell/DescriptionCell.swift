@@ -33,10 +33,6 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if textView.text == nil {
-            textView.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 1.0)
-            textView.text = (self.object?.placeholder)!
-        }
         let currentCharacterCount = descriptions.text?.characters.count ?? 0
         if (range.length + range.location > currentCharacterCount){
             return false
@@ -52,11 +48,15 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         delegate?.resizeTextView(textView: descriptions)
-
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        self.object?.textValue = textView.text
+        if !validation(data: self.descriptions.text) {
+            textView.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 1.0)
+            textView.text = (self.object?.placeholder)!
+        } else {
+            self.object?.textValue = textView.text
+        }
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -65,5 +65,13 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
         }
         self.descriptions.textColor = UIColor.black
     }
-    
+
+    func validation(data: String) -> Bool {
+        let newData = data.trimmingCharacters(in: .whitespaces)
+        if data.characters.count > 0 && newData.characters.count > 0 {
+            return true
+        }
+        return false
+    }
+
 }

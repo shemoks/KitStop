@@ -62,7 +62,6 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func handleViewDidLoad() {
-        interactor.getStructure(forSale: false, idCategory: "5862607de9502e38a059613d")
         view.reloadData()
     }
 
@@ -78,7 +77,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
         if indexPath.row > currentIndex {
             view.openGallery()
         } else {
-          // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
+            // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
         }
     }
 
@@ -139,7 +138,7 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
         view.showError(title: title, message: message)
     }
 
-    func selectMistakes(post: Post) {
+    func selectMistakes() {
         view.reloadData()
     }
 
@@ -177,9 +176,15 @@ extension CreatePostPresenter: CustomListModuleOutput {
     }
 
     func getDataWithInput(data: Other) {
-        self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
-        self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
-        view.reloadData()
+        if currentData?.list?.last?.data == "" {
+            self.currentData?.currentData = "Other"
+            self.currentData?.textValue = "Other"
+            view.reloadData()
+        } else {
+            self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
+            self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
+            view.reloadData()
+        }
     }
 }
 

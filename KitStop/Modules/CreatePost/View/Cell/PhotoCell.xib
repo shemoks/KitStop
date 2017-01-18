@@ -19,16 +19,16 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fNP-iw-bRN">
                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="110" id="ghq-yH-3jE"/>
-                            <constraint firstAttribute="width" constant="110" id="pL7-DB-Pxc"/>
-                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="fNP-iw-bRN" firstAttribute="centerY" secondItem="mk8-z2-Ckt" secondAttribute="centerY" id="174-CX-IH1"/>
+                <constraint firstAttribute="trailing" secondItem="fNP-iw-bRN" secondAttribute="trailing" id="QfL-JD-nRw"/>
                 <constraint firstItem="fNP-iw-bRN" firstAttribute="centerX" secondItem="mk8-z2-Ckt" secondAttribute="centerX" id="Qi7-Yj-51I"/>
+                <constraint firstItem="fNP-iw-bRN" firstAttribute="leading" secondItem="mk8-z2-Ckt" secondAttribute="leading" id="RmL-uC-Ny1"/>
+                <constraint firstAttribute="bottom" secondItem="fNP-iw-bRN" secondAttribute="bottom" id="dHV-5y-vWM"/>
+                <constraint firstItem="fNP-iw-bRN" firstAttribute="top" secondItem="mk8-z2-Ckt" secondAttribute="top" id="tz5-Xe-Bt8"/>
             </constraints>
             <size key="customSize" width="144" height="136"/>
             <connections>

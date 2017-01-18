@@ -24,12 +24,19 @@ final class SelectCategoryRouter {
 extension SelectCategoryRouter: SelectCategoryRouterInput {
 
     func openAddKitModule(categoryID: String, category: Bool) {
-        // flowController.openModule
+        flowController.openModule(using: .openAddKitModule) {
+            guard let moduleInput = $0 as? CreatePostModuleInput else { fatalError() }
+            moduleInput.valuesFromCategoryList(forSale: category, idCategory: categoryID)
+            return nil
+        }
     }
+
 }
 
 extension Segue {
-//    static var openAddKitModule: Segue<> {
-//        return .init(identifier: "transitionToAddKitModule")
-//    }
+
+        static var openAddKitModule: Segue<CreatePostViewController> {
+            return .init(identifier: "transitionToAddKitModule")
+        }
+
 }

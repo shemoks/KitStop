@@ -41,32 +41,47 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        sizeHeaderToFit()
-        setSizeForCell()
+        let height = setSizeForCell()
+        sizeHeaderToFit(height: height)
+
     }
 
-    func setSizeForCell() {
-        let layout = headerView.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        let width = headerView.frame.width
-        let height = headerView.frame.height
-        let padding: CGFloat = 5
+    //    func setSizeForCell() {
+    //        let layout = headerView.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+    //        let width = headerView.frame.width
+    //        let height = headerView.frame.height
+    //        let padding: CGFloat = 5
+    //        let numberOfItemWidth = 3
+    //        let numberOfItemHeight = 2
+    //        let sizeWidthCell = (width - padding * CGFloat(numberOfItemWidth))/CGFloat(numberOfItemWidth)
+    //        let sizeHeightCell = (height - padding * CGFloat(numberOfItemHeight - 1))/CGFloat(numberOfItemHeight)
+    //        layout?.itemSize.width = sizeWidthCell
+    //        layout?.itemSize.height = sizeHeightCell
+    //        layout?.minimumLineSpacing = padding
+    //        layout?.minimumInteritemSpacing = padding
+    //        layout?.invalidateLayout()
+    //    }
+
+    func setSizeForCell() -> CGFloat {
+        let padding: CGFloat = 10
         let numberOfItemWidth = 3
         let numberOfItemHeight = 2
-        let sizeWidthCell = (width - padding * CGFloat(numberOfItemWidth))/CGFloat(numberOfItemWidth)
-        let sizeHeightCell = (height - padding * CGFloat(numberOfItemHeight - 1))/CGFloat(numberOfItemHeight)
-        layout?.itemSize.width = sizeWidthCell
-        layout?.itemSize.height = sizeHeightCell
-        layout?.minimumLineSpacing = padding
-        layout?.minimumInteritemSpacing = padding
-        layout?.invalidateLayout()
+        let layout = headerView.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        let screenWidth = view.frame.width
+        layout?.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout?.itemSize = CGSize(width: (screenWidth - 4 * padding - 2)/CGFloat(numberOfItemWidth), height: (screenWidth - 4 * padding - 2)/CGFloat(numberOfItemWidth))
+        let headerHeight = (layout?.itemSize.height)! * CGFloat(numberOfItemHeight) + 3 * padding
+        layout?.minimumInteritemSpacing = 10
+        layout?.minimumLineSpacing = (layout?.minimumInteritemSpacing)!
+        return headerHeight
     }
 
-    func sizeHeaderToFit() {
+    func sizeHeaderToFit(height: CGFloat) {
         let headerView = tableView.tableHeaderView!
         headerView.setNeedsLayout()
         headerView.layoutIfNeeded()
         var frame = headerView.frame
-        frame.size.height = 250
+        frame.size.height = height
         headerView.frame = frame
         tableView.tableHeaderView = headerView
     }
@@ -239,7 +254,7 @@ extension CreatePostViewController: UIImagePickerControllerDelegate {
         }
         presenter.setPhoto(photo: imageToSave!)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

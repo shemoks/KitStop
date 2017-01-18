@@ -28,6 +28,7 @@ enum Endpoint {
     case getStructureOfCategory(id: String)
     case fbAuthenticate()
     case createKit()
+    case viewKitByOwner(idKit: String)
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -73,8 +74,9 @@ enum Endpoint {
             return "/fb-authenticate"
         case .createKit:
             return "/kits"
+        case .viewKitByOwner(let idKit):
+            return ("/kit/" + idKit)
         }
-       
     }
 
     

@@ -281,6 +281,8 @@
 		9AB17E1F1E1E597F004E95FF /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17E1E1E1E597F004E95FF /* GeneralCell.swift */; };
 		9AB17E211E1E7DF2004E95FF /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17E201E1E7DF2004E95FF /* PhotoCell.xib */; };
 		9AB17E231E1E83CC004E95FF /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB17E221E1E83CC004E95FF /* PhotoCell.swift */; };
+		9AEA5DA71E2E51AC008AEF11 /* ViewPostServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA5DA61E2E51AC008AEF11 /* ViewPostServiceProtocol.swift */; };
+		9AEA5DA91E2E51FF008AEF11 /* ViewPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA5DA81E2E51FF008AEF11 /* ViewPostService.swift */; };
 		9AED802BE338B9AD9BB0A3C4 /* MainSearchPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22C7A349BE4EA8BD25DF5B3 /* MainSearchPresenterInterface.swift */; };
 		9F3921472D76DF0A6BC59523 /* SelectImageRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326321A21813BDD10941FB6 /* SelectImageRouterInterface.swift */; };
 		9F9A8272BA515E28450302A2 /* KitFolioCreatePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569356AB0FFB05102B14F1B /* KitFolioCreatePresenterInterface.swift */; };
@@ -625,6 +627,8 @@
 		9AB17E1E1E1E597F004E95FF /* GeneralCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
 		9AB17E201E1E7DF2004E95FF /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		9AB17E221E1E83CC004E95FF /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		9AEA5DA61E2E51AC008AEF11 /* ViewPostServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostServiceProtocol.swift; sourceTree = "<group>"; };
+		9AEA5DA81E2E51FF008AEF11 /* ViewPostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostService.swift; sourceTree = "<group>"; };
 		9E33F9BAC1940DA63FCFD008 /* MainInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainInteractorInterface.swift; sourceTree = "<group>"; };
 		A18750479ED98F06FDF3D644 /* MainSearchRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchRouter.swift; sourceTree = "<group>"; };
 		A5C20824AF711F197D651CB5 /* UserInformationInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationInteractorInterface.swift; sourceTree = "<group>"; };
@@ -640,7 +644,7 @@
 		C820AEBE3C1892248582B17A /* CreatePostPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreatePostPresenter.swift; sourceTree = "<group>"; };
 		C94D70086D9C53CF87903292 /* UnderConstructionRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderConstructionRouter.swift; sourceTree = "<group>"; };
 		C9B17B9DD5F018853F062CB0 /* MainFilterContainerInteractorInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerInteractorInterface.swift; sourceTree = "<group>"; };
-		CA757B3A4E19875ECBEA963E /* CustomListPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomListPresenterInterface.swift; sourceTree = "<group>"; };
+		CA757B3A4E19875ECBEA963E /* CustomListPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomListPresenterInterface.swift; path = ../../CustomList/Presenter/CustomListPresenterInterface.swift; sourceTree = "<group>"; };
 		CA83804CDF8B267C029A30C7 /* RestorePasswordPresenterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestorePasswordPresenterInterface.swift; sourceTree = "<group>"; };
 		D0BE3B1C9CAA66994EA7211C /* MainSearchViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		D268861DD6E662FAF404A9F2 /* UserInformationRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInformationRouterInterface.swift; sourceTree = "<group>"; };
@@ -738,6 +742,7 @@
 			children = (
 				03DD19001BC5F3ABA7F27F31 /* CreatePostRouterInterface.swift */,
 				1B4E5ECA58BB9DB25514E4B5 /* CreatePostRouter.swift */,
+				CA757B3A4E19875ECBEA963E /* CustomListPresenterInterface.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -790,6 +795,7 @@
 				95D8C1FF1E1673D10017C1AD /* RestorePasswordService.swift */,
 				9527A3911E1D0A7500DAE96C /* SearchService.swift */,
 				95E4532E1E2CC93C002ABF74 /* CreateKitsService.swift */,
+				9AEA5DA81E2E51FF008AEF11 /* ViewPostService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -963,7 +969,7 @@
 				95F2EBC11E16567400A84B7F /* FacebookServiceProtocol.swift */,
 				957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */,
 				9527A38F1E1D05C300DAE96C /* SearchServiceProtocol.swift */,
-				95E4532C1E2CC8BA002ABF74 /* CreateKitsServiceProtocol.swift */,
+				9AEA5DA61E2E51AC008AEF11 /* ViewPostServiceProtocol.swift */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -2021,7 +2027,6 @@
 		D741B1E6B30F53076E8A6239 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				CA757B3A4E19875ECBEA963E /* CustomListPresenterInterface.swift */,
 				8DA3F6676CB0EC4CAE8DE5CA /* CustomListPresenter.swift */,
 			);
 			path = Presenter;
@@ -2524,6 +2529,7 @@
 				253220511E1BDB7100BF96C1 /* CategoryServiceProtocol.swift in Sources */,
 				95D4F58D1E2E55490073196C /* CustomInputPresenterInterface.swift in Sources */,
 				9A9D0FB31E2521890009274C /* CreatePostServiceProtocol.swift in Sources */,
+				9AEA5DA91E2E51FF008AEF11 /* ViewPostService.swift in Sources */,
 				9AB17CA61E0BCEAF004E95FF /* SignUpPresenter.swift in Sources */,
 				9AB17C2A1E094D68004E95FF /* RegistrationTakePhotoRouter.swift in Sources */,
 				9AB17CA41E0BCEAF004E95FF /* SignUpInteractor.swift in Sources */,
@@ -2536,6 +2542,7 @@
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				25D8A14E1E0F0BBB007FC431 /* SignUpUserModel.swift in Sources */,
 				9AB17E181E1E52EA004E95FF /* PostProperties.swift in Sources */,
+				9AEA5DA71E2E51AC008AEF11 /* ViewPostServiceProtocol.swift in Sources */,
 				25211E9A1E1F97F800630200 /* BottomBarPresenterInterface.swift in Sources */,
 				259C5E021DF9B35B001E3CCC /* LogInPresenterInterface.swift in Sources */,
 				259C5E011DF9B35B001E3CCC /* LogInPresenter.swift in Sources */,
