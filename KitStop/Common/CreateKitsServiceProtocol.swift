@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol CreateKitsServiceProtocol {
-    func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, _ error: Int?) -> ())
+    func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, _ error: Int?, _ id: String?) -> ())
 }
 
 

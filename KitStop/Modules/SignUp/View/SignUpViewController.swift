@@ -27,6 +27,8 @@ final class SignUpViewController: UIViewController, FlowController {
     }
 
     override func viewDidLoad() {
+        facebook.titleLabel?.text = "Log In with Facebook"
+        facebook.titleLabel?.font = UIFont(name: "SFUIText-Regular", size: 17.0)
         navigationController?.isNavigationBarHidden = true
     }
 
@@ -54,7 +56,7 @@ extension SignUpViewController: FBSDKLoginButtonDelegate {
             
         } else {
             presenter.handleFacebookLoginTap()
-            facebook.isHidden = true
+            LoadingIndicatorView.show()
         }
     }
 

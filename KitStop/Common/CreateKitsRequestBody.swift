@@ -22,10 +22,9 @@ struct CreateKitsRequestBody {
     var manufacturerDescription: String?
     var notes: String?
     var mainImage: String = ""
-    var images: [String]?
+    var images: [String?]
     var condition: String?
-    var tags: [String]?
-    var metaData: [AnyObject]?
-    var salesDetails: [AnyObject] = []
+    var tags: [String?]
+    var metaData: [String: AnyObject?]
     var isPrivate: Bool = false
 }

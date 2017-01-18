@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OMW-fE-Bx9">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OMW-fE-Bx9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View-->
         <scene sceneID="mKL-gc-NbP">
             <objects>
-                <viewController id="Hd3-YF-VkB" customClass="CreatePostViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hd3-YF-VkB" customClass="CreatePostViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WOx-sW-f8i"/>
                         <viewControllerLayoutGuide type="bottom" id="WGJ-9E-oYS"/>
@@ -41,13 +41,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Gu2-GU-o8G">
                             <color key="tintColor" red="1" green="0.53333333329999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="NextTap:" destination="Hd3-YF-VkB" id="K3m-V7-mei"/>
+                                <action selector="NextTap:" destination="Hd3-YF-VkB" id="7gC-aD-qLN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YVE-8W-r3O" id="Wk1-Oa-X6I"/>
                         <segue destination="3WE-8T-KpH" kind="show" identifier="TrunsitionToCustomList" id="dVn-5U-5ZR"/>
+                        <segue destination="iq9-S0-H0a" kind="show" identifier="TransitionToKitConfirm" id="L2f-tX-SCL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdT-1Z-b4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -67,12 +68,20 @@
             </objects>
             <point key="canvasLocation" x="2122" y="-327"/>
         </scene>
+        <!--CreateKitSaveViewController-->
+        <scene sceneID="a1R-ZI-CA3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateKitSave" referencedIdentifier="CreateKitSaveViewController" id="iq9-S0-H0a" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w7g-zg-KRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121" y="-154"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="odM-wi-nzE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OMW-fE-Bx9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ozd-Z4-DkY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ozd-Z4-DkY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

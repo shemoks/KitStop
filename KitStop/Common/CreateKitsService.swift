@@ -21,7 +21,7 @@ class CreateKitsService {
 }
 
 extension CreateKitsService: CreateKitsServiceProtocol {
-    func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?) -> ()) {
+    func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
         let title = kit.title as AnyObject
         let brandName = kit.brandName as AnyObject
         let model = kit.model as AnyObject
@@ -39,7 +39,6 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let condition = kit.condition as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
-        let salesDetails = kit.salesDetails as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
         let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brandName" : brandName,
                                                               "model":model, "serialNumber": serialNumber,
@@ -51,19 +50,19 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                               "notes": notes, "mainImage": mainImage,
                                                               "images": images, "condition": condition,
                                                               "tags": tags, "metaData": metaData,
-                                                              "salesDetails": salesDetails, "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
+                                                               "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
                 if json["success"].boolValue {
-                    completion(true, nil)
+                    completion(true, nil, json["data"]["_id"].stringValue)
                 } else {
-                    completion(false, response.response?.statusCode)
+                    completion(false, response.response?.statusCode, nil)
                 }
                 print(json)
             case .failure(let error):
                 print(error)
-                completion(false, (error as NSError).code)
+                completion(false, (error as NSError).code, nil)
             }
         })
     }

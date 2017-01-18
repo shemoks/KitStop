@@ -33,7 +33,7 @@ extension CreatePostRouter: CreatePostRouterInput {
 
     func openSaveKitModule(post: Post) {
         flowController.openModule(using: .openKitConfirm) {
-                        guard let moduleInput = $0 as? CreateKitConfirmModuleInput else { fatalError() }
+                        guard let moduleInput = $0 as? CreateKitSaveModuleInput else { fatalError() }
                         moduleInput.setPost(post: post)
                         return nil
                     }
@@ -71,9 +71,7 @@ extension Segue {
 //        return .init(identifier: "TrunsitionToViewPhoto")
 //    }
 
-//    static var openKitConfirm: Segue<CreateKitViewController> {
-        //        return .init(identifier: "TransitionToSaleConfirm")
-        //
-        //
-//    }
+    static var openKitConfirm: Segue<CreateKitSaveViewController> {
+                return .init(identifier: "TransitionToKitConfirm")
+    }
 }

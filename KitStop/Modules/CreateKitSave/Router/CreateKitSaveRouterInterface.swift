@@ -9,5 +9,5 @@
 // MARK: - CreateKitSaveRouterInput
 
 protocol CreateKitSaveRouterInput: class {
-
+    func openDetailedModule(id:String)
 }

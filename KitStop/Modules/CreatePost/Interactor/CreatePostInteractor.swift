@@ -81,7 +81,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                         newImages.append(image)
                     }
                 }
-                newPost.images = post.images
+                newPost.images = newImages
                 newPost.metadata = post.metadata
                 newPost.notes = post.notes
                 newPost.salesDetails = post.salesDetails

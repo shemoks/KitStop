@@ -15,24 +15,30 @@ protocol CreateKitSaveViewOutput: class {
     func detail(for indexPath: IndexPath) -> KitDetailsModel
     func handleSaveTap()
     func setPrice(value: String)
-    func setDate(date: TimeInterval)
+    func setDate(date: String)
     func setDetails()
+    func setPrivacy(isPrivate:Bool)
+    func hasPrivacySet() -> Bool
+    func priceLimit() -> Int
+    func setLimit()
 }
 
 // MARK: - CreateKitSaveInteractorOutput
 
 protocol CreateKitSaveInteractorOutput: class {
-
+    func showAlertWith(title: String, message: String)
+    func openDetailedModule(id: String)
 }
 
 // MARK: - CreateKitSaveModuleInput
 
 protocol CreateKitSaveModuleInput: ModuleInput {
-
+    func setPost(post: Post)
+    
 }
 
 // MARK: - CreateKitSaveModuleOutput
 
 protocol CreateKitSaveModuleOutput: ModuleOutput {
-    func setPost(post: Post)
+    
 }

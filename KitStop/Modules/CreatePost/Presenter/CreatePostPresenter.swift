@@ -21,7 +21,7 @@ final class CreatePostPresenter {
     var post = Post()
     var images = [UIImage.init(named: "required"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1"), UIImage.init(named: "blank1")]
     var currentIndex = -1
-    var isForSale: Bool = true
+    var isForSale: Bool = false
     var currentData: Property?
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()

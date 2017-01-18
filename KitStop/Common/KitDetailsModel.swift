@@ -12,10 +12,12 @@ class KitDetailsModel {
     
     var header:String?
     var contents:String?
+    var placeholder: String?
     
-    init(header: String?, contents: String?) {
+    init(header: String?, contents: String?, placeholder: String?) {
         self.header = header
         self.contents = contents
+        self.placeholder = placeholder
     }
     
     

@@ -28,6 +28,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingIndicatorView.hide()
         collectionView.delegate = self
         collectionView.dataSource = self
         addSectionInset()

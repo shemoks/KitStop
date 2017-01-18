@@ -8,9 +8,14 @@
 
 import UIKit
 
-class KitAdditionalInfoCell: UITableViewCell {
+class KitInfoCell: UITableViewCell {
+    @IBOutlet weak var header: UILabel!
+    
+    @IBOutlet weak var value: UITextField!
     
     func configure(detail: KitDetailsModel) {
-        
+        header.text = detail.header
+        value.text = detail.contents
+        value.placeholder = detail.placeholder
     }
 }
