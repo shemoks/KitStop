@@ -70,7 +70,7 @@ enum Endpoint {
         case .fbAuthenticate:
             return "/fb-authenticate"
         case .viewKitByOwner(let idKit):
-            return ("/kit/" + idKit)
+            return ("/kits/" + idKit)
         }
     }
 

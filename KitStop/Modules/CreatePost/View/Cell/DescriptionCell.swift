@@ -24,7 +24,7 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
         title.text = property.title
         self.descriptions.textColor = UIColor.black
         if self.descriptions.text == "" || self.descriptions.text == property.placeholder {
-            self.descriptions.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 1.0)
+            self.descriptions.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
             self.descriptions.text = property.placeholder
         }
         //    self.descriptions.text = property.textValue
@@ -52,7 +52,7 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if !validation(data: self.descriptions.text) {
-            textView.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 1.0)
+            textView.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
             textView.text = (self.object?.placeholder)!
         } else {
             self.object?.textValue = textView.text

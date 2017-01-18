@@ -27,23 +27,20 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                 response in
                 switch response.result{
                 case .success(let json):
+                    print(json)
                     if json["success"] == true {
                         let post = ViewPost()
                         var generalProperty = [ViewProperty]()
                         var metaData = [ViewProperty]()
                         var saleData = [ViewProperty]()
                         var postImages = [String]()
-                        let generalValues = json["data"].arrayObject
-                        for value in generalValues! {
-                            if let item = value as? NSDictionary {
-                                for (key, data) in item {
-                                    if general.contains(key as! String) {
-                                        let newItem = ViewProperty()
-                                        newItem.title = key as! String
-                                        newItem.text = data as! String
-                                        generalProperty.append(newItem)
-                                    }
-                                }
+                        let generalValues = json["data"]
+                        for value in generalValues {
+                            if general.contains(value.0) {
+                                let newItem = ViewProperty()
+                                newItem.title = value.0
+                                newItem.text = String(describing: value.1)
+                                generalProperty.append(newItem)
                             }
                         }
                         let images = json["data"]["images"]
@@ -54,39 +51,58 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             postImages.append(value.1.stringValue)
                         }
                         post.images = postImages
-                        post.mainImage = postImages.first!
+                        post.mainImage = json["data"]["mainImage"].stringValue
                         if json["data"]["description"] != JSON.null {
-                            post.description = json["data"]["description"].stringValue
+                            let description = ViewProperty()
+                            description.title = "Description"
+                            description.text = json["data"]["description"].stringValue
+                            post.description = description
                         } else {
-                            post.description = ""
+                            let description = ViewProperty()
+                            description.title = "Description"
+                            description.text = "No Description is entered"
+                            post.description = description
                         }
                         if json["data"]["notes"] != JSON.null {
-                            post.description = json["data"]["notes"].stringValue
+                            let notes = ViewProperty()
+                            notes.title = "Owner notes"
+                            notes.text = json["data"]["description"].stringValue
+                            post.notes = notes
                         } else {
-                            post.notes = ""
+                            let notes = ViewProperty()
+                            notes.title = "Owner notes"
+                            notes.text = "No Owner Notes is entered"
+                            post.notes = notes
                         }
-                        let metaDataArray = json["data"]["metaData"].arrayObject
-                        for product in metaDataArray! {
+                        let metaDataArray = json["data"]["metaData"]
+                        for product in metaDataArray {
                             let newItem = ViewProperty()
-                            if let item = product as? NSDictionary {
-                                newItem.title = (item.allKeys.first as? String)!
-                                newItem.text = item.value(forKey: newItem.title) as! String
-                                metaData.append(newItem)
-                            }
+                            newItem.title = product.0
+                            newItem.text = String(describing: product.1)
+                            metaData.append(newItem)
                         }
-                        if let forSale = json["data"]["forSale"].arrayObject {
+                        if json["data"]["forSale"] != JSON.null {
+                            let forSale = json["data"]["forSale"]
                             for product in forSale {
                                 let newItem = ViewProperty()
-                                if let item = product as? NSDictionary {
-                                    newItem.title = (item.allKeys.first as? String)!
-                                    newItem.text = item.value(forKey: newItem.title) as! String
-                                    saleData.append(newItem)
-                                }
-
+                                newItem.title = product.0
+                                newItem.text = String(describing: product.1)
+                                saleData.append(newItem)
                             }
                         }
+                        var saleDateItems = [ViewProperty]()
+                        let newItemPurchaseDate = ViewProperty()
+                        newItemPurchaseDate.text = json["data"]["purchaseDate"].stringValue
+                        newItemPurchaseDate.title =  "Purchase Date"
+                        saleDateItems.append(newItemPurchaseDate)
+                        let newItemPurchaseDateNext = ViewProperty()
+                        newItemPurchaseDateNext.text = json["data"]["purchasePrice"].stringValue
+                        newItemPurchaseDateNext.title =  "Purchase Price"
+                        saleDateItems.append(newItemPurchaseDateNext)
+                        post.createAt = json["data"]["createdAt"].stringValue
+                        post.owner = json["data"]["owner"].stringValue
                         post.metaData = metaData
-                        post.saleData = saleData
+                        post.saleData = saleDateItems
                         post.generalProperty = generalProperty
                         postValue(post, nil)
                     } else {
