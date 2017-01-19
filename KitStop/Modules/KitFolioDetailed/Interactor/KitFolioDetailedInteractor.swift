@@ -31,9 +31,9 @@ final class KitFolioDetailedInteractor {
 extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
     func fetchKitFrom(id: String?) {
         kitFolioDetailerManager?.fetchKit(id: id!, completitionBlock: {
-            product, user, error in
+            [weak self] product, user, error in
             if error == nil {
-                self.presenter.updateProductData(product: product!, user: user)
+                self?.presenter.updateProductData(product: product!, user: user)
             } else {
                 // show alert
             }

@@ -32,12 +32,12 @@ final class SelectCategoryInteractor {
 extension SelectCategoryInteractor: SelectCategoryInteractorInput {
     func fetchCategory() {
         dataManager.fetchCategory(result: {
-            result, error in
+            [weak self] result, error in
             if error == nil {
-                self.presenter.updateView(categoryList: result!)
+                self?.presenter.updateView(categoryList: result!)
             } else {
                 let errorMassage = CustomError(code: error!).description
-                self.presenter.showAlert(error: errorMassage)
+                self?.presenter.showAlert(error: errorMassage)
             }
         })
     }

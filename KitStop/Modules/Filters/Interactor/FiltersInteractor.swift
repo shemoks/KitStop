@@ -33,13 +33,13 @@ final class FiltersInteractor {
 extension FiltersInteractor: FiltersInteractorInput {
 
     func getFilters() {
-        dataManager.categoryFromServer() {object, error in
+        dataManager.categoryFromServer() { [weak self] object, error in
             if error == nil {
-                self.presenter.setTypes(types: object)
+                self?.presenter.setTypes(types: object)
             } else {
                 let error = CustomError(code: error!).description
-                self.presenter.showError(title: "Error", message: error)
-                self.presenter.setTypes(types: object)
+                self?.presenter.showError(title: "Error", message: error)
+                self?.presenter.setTypes(types: object)
             }
         }
     }
@@ -52,30 +52,30 @@ extension FiltersInteractor: FiltersInteractorInput {
     }
 
     func getPrice(category: Category) {
-        dataManager.getPrice(category: category) {object, error in
+        dataManager.getPrice(category: category) { [weak self] object, error in
             if error == nil {
                 if object.categoryPrice.maxValue != object.categoryPrice.minValue {
-                    self.presenter.setPrice(price: object.categoryPrice)
+                    self?.presenter.setPrice(price: object.categoryPrice)
                 } else {
-                    self.presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
+                    self?.presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
                 }
 
             } else {
                 let error = CustomError(code: error!).description
-                self.presenter.showError(title: "Error", message: error)
-                self.presenter.setPrice(price: object.categoryPrice)
+                self?.presenter.showError(title: "Error", message: error)
+                self?.presenter.setPrice(price: object.categoryPrice)
             }
         }
     }
 
     func getProducts(category: Category, price: Price, type: Bool) {
         let filter = Filter(idCategory: category.number, title: category.title, minPrice: price.minValue, maxPrice: price.maxValue, type: type)
-        dataManager.getProducts(filter: filter) { object, error in
+        dataManager.getProducts(filter: filter) { [weak self] object, error in
             if error == nil {
-                self.presenter.handleViewWillDisappear(kits: object.products)
+                self?.presenter.handleViewWillDisappear(kits: object.products)
             } else {
                 let error = CustomError(code: error!).description
-                self.presenter.showError(title: "Error", message: error)
+                self?.presenter.showError(title: "Error", message: error)
             }
         }
     }

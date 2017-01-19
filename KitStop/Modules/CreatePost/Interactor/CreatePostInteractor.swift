@@ -37,13 +37,13 @@ final class CreatePostInteractor {
 extension CreatePostInteractor: CreatePostInteractorInput {
 
     func getStructure(forSale: Bool, idCategory: String) {
-        dataManager.getStructureOfCategory(onlyForSale: forSale, idCategory: idCategory) {object, error in
+        dataManager.getStructureOfCategory(onlyForSale: forSale, idCategory: idCategory) { [weak self] object, error in
             if error == nil {
-                self.presenter.setStructure(post: object)
+                self?.presenter.setStructure(post: object)
             } else {
                 let error = CustomError(code: error!).description
-                self.presenter.showError(title: "Error", message: error)
-                self.presenter.setStructure(post: Post())
+                self?.presenter.showError(title: "Error", message: error)
+                self?.presenter.setStructure(post: Post())
             }
         }
     }

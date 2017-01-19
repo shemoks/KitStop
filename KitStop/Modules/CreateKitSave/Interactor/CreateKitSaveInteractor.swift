@@ -34,22 +34,22 @@ final class CreateKitSaveInteractor {
 extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     func saveKit(price: String, date: String, isPrivate:Bool, post:Post) {
         self.saveImagesTo("Kits", images: post.images, success: {
-            imageUrls in
+            [weak self] imageUrls in
             if imageUrls.first != nil {
-                let kit = self.requestBody(price: price, date: date, isPrivate: isPrivate, post: post, imageArray: imageUrls)
-                self.createKitService?.createKit(kit: kit, completion: {
+                let kit = self?.requestBody(price: price, date: date, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                self?.createKitService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
                     if result {
                         
                     } else {
                         let errorMessage = CustomError(code: error!).description
-                        self.presenter.showAlertWith(title: "Error", message: errorMessage)
+                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
                     }
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self.presenter.showAlertWith(title: "Error", message: "Image upload fail")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload fail")
             }
         })
     }

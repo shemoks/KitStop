@@ -34,19 +34,19 @@ extension MainSearchInteractor: MainSearchInteractorInput {
     func commenceSearch(with title: String, selectedSegment: Int) {
         switch selectedSegment {
         case 0:
-            dataManager.fetchKitsForSaleSearchResults(page: 1, title: title, completion: { kits in
-                self.presenter.setKits(kits)
-                self.presenter.reloadData()
+            dataManager.fetchKitsForSaleSearchResults(page: 1, title: title, completion: { [weak self] kits in
+                self?.presenter.setKits(kits)
+                self?.presenter.reloadData()
             })
         case 1:
-            dataManager.fetchKitsSearchResults(page: 1, title: title, completion: { kits in
-                self.presenter.setKits(kits)
-                self.presenter.reloadData()
+            dataManager.fetchKitsSearchResults(page: 1, title: title, completion: { [weak self] kits in
+                self?.presenter.setKits(kits)
+                self?.presenter.reloadData()
             })
         default:
-            dataManager.fetchKitFolioSearchResults(page: 1, title: title, completion: { kits in
-                self.presenter.setKits(kits)
-                self.presenter.reloadData()
+            dataManager.fetchKitFolioSearchResults(page: 1, title: title, completion: { [weak self] kits in
+                self?.presenter.setKits(kits)
+                self?.presenter.reloadData()
             })
         }
         

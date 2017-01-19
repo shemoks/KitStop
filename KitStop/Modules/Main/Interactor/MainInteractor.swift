@@ -28,12 +28,12 @@ final class MainInteractor {
     
     func handleKitsForSale() {
         dataManager.fetchAllKitsForSale(page: 1, completionBlock: {
-            kitsForSale, error in
+            [weak self] kitsForSale, error in
             if error == nil {
-                self.presenter.updateKits(kits: kitsForSale!)
+                self?.presenter.updateKits(kits: kitsForSale!)
             } else {
                 let message = CustomError.init(code: error!).description
-                self.presenter.showAlert(title: "Error", message: message)
+                self?.presenter.showAlert(title: "Error", message: message)
             }
         })
     }
