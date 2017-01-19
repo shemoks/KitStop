@@ -7,23 +7,46 @@
 //
 
 import Chamomile
+import RealmSwift
+import FBSDKLoginKit
 
 // MARK: - UnderConstructionViewController
 
 final class UnderConstructionViewController: UIViewController, FlowController {
 
     // MARK: - VIPER stack
-
+    fileprivate var buttonStatus = false
+    @IBOutlet weak var logOut: UIButton!
     var presenter: UnderConstructionViewOutput!
     
     override func viewDidLoad() {
-     
+        if buttonStatus {
+            logOut.isHidden = false
+        }
     }
 
+    @IBAction func moveToRoot(_ sender: Any) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.objects(User.self).filter("online = %s", true).first?.online = false
+        }
+        KeychainService().clearToken()
+        logoutFromFacebook()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func logoutFromFacebook() {
+        if FBSDKAccessToken.current() != nil {
+            FBSDKLoginManager().logOut()
+        }
+    }
+    
 }
 
 // MARK: - UnderConstructionViewInput
 
 extension UnderConstructionViewController: UnderConstructionViewInput {
-
+    func addLogOut() {
+        self.buttonStatus = true
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iYI-wl-Y6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iYI-wl-Y6D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,18 +22,40 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="UNDER CONSTRUCTION" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFA-Mf-p0N">
                                 <rect key="frame" x="0.0" y="269" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="WJh-TB-GVM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="33"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-1U-TO9">
+                                <rect key="frame" x="0.0" y="413" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ddi-Fi-oLT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="moveToRoot:" destination="iYI-wl-Y6D" eventType="touchUpInside" id="oc3-pJ-N5U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81620826567917759" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iQF-i8-pMq" firstAttribute="top" secondItem="IFA-Mf-p0N" secondAttribute="bottom" constant="270" id="1nG-MH-RBi"/>
-                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="leading" secondItem="QaM-mL-Upr" secondAttribute="leading" id="2iV-ix-MGM"/>
-                            <constraint firstAttribute="trailing" secondItem="IFA-Mf-p0N" secondAttribute="trailing" id="AS2-2T-k2x"/>
-                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="top" secondItem="OxN-LT-8fi" secondAttribute="bottom" constant="249" id="JN1-zM-YcX"/>
+                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="centerY" secondItem="QaM-mL-Upr" secondAttribute="centerY" id="AGA-2Z-gq0"/>
+                            <constraint firstAttribute="trailing" secondItem="ajf-1U-TO9" secondAttribute="trailing" id="FJL-4M-DSH"/>
+                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="centerX" secondItem="QaM-mL-Upr" secondAttribute="centerX" id="Lqs-vI-NPJ"/>
+                            <constraint firstAttribute="trailing" secondItem="IFA-Mf-p0N" secondAttribute="trailing" id="Wjz-ye-DbZ"/>
+                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="leading" secondItem="QaM-mL-Upr" secondAttribute="leading" id="g3F-Y8-qdE"/>
+                            <constraint firstItem="ajf-1U-TO9" firstAttribute="leading" secondItem="QaM-mL-Upr" secondAttribute="leading" id="mNL-25-Zb6"/>
+                            <constraint firstItem="ajf-1U-TO9" firstAttribute="top" secondItem="IFA-Mf-p0N" secondAttribute="bottom" constant="16" id="yLY-Gt-j1q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logOut" destination="ajf-1U-TO9" id="RZF-or-4ns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLh-r2-uwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="WDN-xc-uU9" customClass="UnderConstructionAssembler" customModule="KitStop" customModuleProvider="target">

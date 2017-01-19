@@ -36,5 +36,7 @@ extension UnderConstructionPresenter: UnderConstructionInteractorOutput {
 // MARK: - UnderConstructionModuleInput
 
 extension UnderConstructionPresenter: UnderConstructionModuleInput {
-
+    func addLogOut() {
+        view.addLogOut()
+    }
 }

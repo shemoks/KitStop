@@ -23,7 +23,7 @@ protocol UnderConstructionInteractorOutput: class {
 // MARK: - UnderConstructionModuleInput
 
 protocol UnderConstructionModuleInput: ModuleInput {
-
+    func addLogOut()
 }
 
 // MARK: - UnderConstructionModuleOutput

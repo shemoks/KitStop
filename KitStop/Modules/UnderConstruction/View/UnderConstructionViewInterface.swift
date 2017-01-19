@@ -9,5 +9,5 @@
 // MARK: - UnderConstructionViewInput
 
 protocol UnderConstructionViewInput: class {
-
+    func addLogOut()
 }

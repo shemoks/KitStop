@@ -10,5 +10,4 @@
 
 protocol MainInteractorInput: class {
     func handleKitsForSale()
-    func logoutFromFacebook()
 }
