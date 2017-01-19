@@ -43,9 +43,5 @@ final class MainInteractor {
 // MARK: - MainInteractorInput
 
 extension MainInteractor: MainInteractorInput {
-    func logoutFromFacebook() {
-        if FBSDKAccessToken.current() != nil {
-            FBSDKLoginManager().logOut()
-        }
-    }
+
 }

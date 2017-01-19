@@ -36,9 +36,6 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         addRefreshControl()
         addToolbar()
         presenter.handleKitForSale()
-        
-        //test hardcode
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "log out", style: .done, target: self, action: #selector(logOut))
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -58,17 +55,6 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     func refresh() {
         print("refresh")
         refreshControl.endRefreshing()
-    }
-    
-    //test hardcode
-    func logOut() {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.objects(User.self).filter("online = %s", true).first?.online = false
-        }
-        KeychainService().clearToken()
-        presenter.logoutFromFacebook()
-        self.dismiss(animated: true, completion: nil)
     }
     
     func addTap() {
