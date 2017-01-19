@@ -31,8 +31,8 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         tableView.register(UINib(nibName: "KitPrivacyCell", bundle: nil), forCellReuseIdentifier: "KitPrivacyCell")
         
         tableView.register(UINib(nibName: "KitInfoCell", bundle: nil), forCellReuseIdentifier: "KitInfoCell")
-        tableView.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         datePicker.maximumDate = Date()
+        datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: UIControlEvents.valueChanged)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(colorLiteralRed: 255/255.0, green: 136/255.0, blue: 48/255.0, alpha: 1.0)
@@ -47,10 +47,6 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         presenter.handleSaveTap()
     }
     
-    func hideKeyboard() {
-        self.view.endEditing(true)
-    }
-
 }
 
 // MARK: - CreateKitSaveViewInput
@@ -63,6 +59,15 @@ extension CreateKitSaveViewController: CreateKitSaveViewInput {
     func showAlert(title: String, message: String) {
         showAlertWithTitle(title, message: message)
     }
+    
+    func returnToMainModule() {
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller is MainViewController {
+                let _ = self.navigationController?.popToViewController(controller, animated: true)
+                break
+            }
+        }
+    }
 }
 
 extension CreateKitSaveViewController: UITableViewDelegate {
@@ -72,10 +77,10 @@ extension CreateKitSaveViewController: UITableViewDelegate {
     }
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 && indexPath.section == 0 {
-            datePicker.isHidden = false
-        } else {
+        if indexPath.row != 0 || indexPath.section != 0 {
             datePicker.isHidden = true
+        } else {
+            datePicker.isHidden = false
         }
         if indexPath.section == 1 {
             presenter.setPrivacy(isPrivate: !presenter.hasPrivacySet())
@@ -106,25 +111,21 @@ extension CreateKitSaveViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text != nil && !(textField.text?.isEmpty)! {
-            if Int(textField.text!)! < presenter.priceLimit() {
+            if Double(textField.text!)! < Double(presenter.priceLimit()) {
                 textField.superview?.backgroundColor = .white
-                textField.backgroundColor = .white
                 presenter.setPrice(value: textField.text!)
             } else {
                 textField.superview?.backgroundColor = UIColor(colorLiteralRed: 245.0/255.0, green: 208.0/255.0, blue: 208.0/255.0, alpha: 1.0)
-                textField.backgroundColor = UIColor(colorLiteralRed: 245.0/255.0, green: 208.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+                presenter.showAlert()
             }
         }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.isEnabled {
-            guard let text = textField.text else { return true }
-            let newLength = text.characters.count + string.characters.count - range.length
-            return newLength <= 9
-        } else  {
-            return true
-        }
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+    
+        return newLength <= 10
     }
     
 }
@@ -152,9 +153,10 @@ extension CreateKitSaveViewController: UITableViewDataSource {
         } else {
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "KitInfoCell", for: indexPath) as! KitInfoCell
             infoCell.configure(detail: presenter.detail(for: indexPath))
+            infoCell.value.clipsToBounds = true
             if indexPath.row == 1{
                 infoCell.value.isEnabled = true
-                infoCell.value.keyboardType = UIKeyboardType.numberPad
+                infoCell.value.keyboardType = UIKeyboardType.decimalPad
             }
             infoCell.value.delegate = self
             cell = infoCell

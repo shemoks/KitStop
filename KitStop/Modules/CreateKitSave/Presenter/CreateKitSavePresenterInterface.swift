@@ -21,6 +21,7 @@ protocol CreateKitSaveViewOutput: class {
     func hasPrivacySet() -> Bool
     func priceLimit() -> Int
     func setLimit()
+    func showAlert()
 }
 
 // MARK: - CreateKitSaveInteractorOutput
@@ -28,6 +29,7 @@ protocol CreateKitSaveViewOutput: class {
 protocol CreateKitSaveInteractorOutput: class {
     func showAlertWith(title: String, message: String)
     func openDetailedModule(id: String)
+    func returnToMainModule()
 }
 
 // MARK: - CreateKitSaveModuleInput
