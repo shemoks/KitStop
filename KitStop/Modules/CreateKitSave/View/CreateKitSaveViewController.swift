@@ -113,11 +113,9 @@ extension CreateKitSaveViewController: UITextFieldDelegate {
         if textField.text != nil && !(textField.text?.isEmpty)! {
             if Double(textField.text!)! < Double(presenter.priceLimit()) {
                 textField.superview?.backgroundColor = .white
-                textField.backgroundColor = .white
                 presenter.setPrice(value: textField.text!)
             } else {
                 textField.superview?.backgroundColor = UIColor(colorLiteralRed: 245.0/255.0, green: 208.0/255.0, blue: 208.0/255.0, alpha: 1.0)
-                textField.backgroundColor = UIColor(colorLiteralRed: 245.0/255.0, green: 208.0/255.0, blue: 208.0/255.0, alpha: 1.0)
                 presenter.showAlert()
             }
         }
