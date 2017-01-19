@@ -3035,8 +3035,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09cd7530-71a0-425f-8a57-8e5fba0f5117";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development *";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

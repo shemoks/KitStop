@@ -54,7 +54,7 @@ enum Endpoint {
         case .login:
             return "/authenticate"
         case .forgot:
-            return "/forgot"
+            return "/forgot-password"
         case .signUp:
             return "/sign-up"
         case .createKitFolio, .getKitFolio:
