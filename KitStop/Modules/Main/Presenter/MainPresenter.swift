@@ -40,7 +40,7 @@ extension MainPresenter: MainViewOutput {
             result in
                 self.router.openCategoryModule(secondModuleOutput: self, category:  false)
         })
-        let postWorkAction = UIAlertAction.init(title: "Post your work", style: .default, handler: {
+        let postWorkAction = UIAlertAction.init(title: "Post on KitFolio", style: .default, handler: {
             result in
                 self.router.openKitFolioCreateModule(secondModuleOutput: self)
         })

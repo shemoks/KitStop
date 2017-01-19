@@ -32,13 +32,13 @@ final class LogInInteractor {
 extension LogInInteractor: LogInInteractorInput {
     func fetchUserData(userDataModel: LogInUserModel) {
         service.fetchUser(email: userDataModel.login, password: userDataModel.password, result: {
-            res, error , json in
+            [weak self] res, error , json in
             if res && (error == nil) {
-                self.dataManager.saveUserData(json: json!)
-                self.presenter.openMainModule()
+                self?.dataManager.saveUserData(json: json!)
+                self?.presenter.openMainModule()
             } else {
                 let errorMessage = CustomError(code: error!).description
-                self.presenter.showAlert(title: "Error", massage: errorMessage)
+                self?.presenter.showAlert(title: "Error", massage: errorMessage)
             }
         })
     }

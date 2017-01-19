@@ -11,7 +11,7 @@ import Chamomile
 // MARK: - UserInformationViewOutput
 
 protocol UserInformationViewOutput: class {
-    func getUserInfo()
+    func getUserInfo(user: User?)
 }
 
 // MARK: - UserInformationInteractorOutput

@@ -39,13 +39,13 @@ extension KitFolioCreateInteractor: KitFolioCreateInteractorInput {
             smallImageUrl, bigImageUrl in
             if smallImageUrl != nil && bigImageUrl != nil {
                 self.kitFolioService?.createKitFolioItem(postTitle: postTitle, postDescription: postDescription, mainImageUrl: smallImageUrl!, arrayImageUrl: [smallImageUrl!, bigImageUrl!], completionBlock: {
-                    result , error in
+                    [weak self] result , error in
                     LoadingIndicatorView.hide()
                     if result {
-                        self.presenter.handleViewWillDisappear()
+                        self?.presenter.handleViewWillDisappear()
                     } else {
                         let errorMessage = CustomError(code: error!).description
-                        self.presenter.showAlertWith(title: "Error", message: errorMessage)
+                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
                     }
                 })
             } else {
@@ -57,10 +57,10 @@ extension KitFolioCreateInteractor: KitFolioCreateInteractorInput {
     
     func saveImageTo(_ path: [String], images: [UIImage], success: @escaping (_ smallImageUrl: String?, _ bigImageUrl: String?) -> () ) {
             awsManager.uploadImage(userImage: images[0], path: path[0], successBlock: {
-                smallImageUrl in
-                self.awsManager = AWS3UploadImageService()
+                [weak self] smallImageUrl in
+                self?.awsManager = AWS3UploadImageService()
                 DispatchQueue.main.async {
-                    self.awsManager.uploadImage(userImage: images[1], path: path[1], successBlock: {
+                    self?.awsManager.uploadImage(userImage: images[1], path: path[1], successBlock: {
                         bigImageUrl in
                         success(smallImageUrl, bigImageUrl)
                     })

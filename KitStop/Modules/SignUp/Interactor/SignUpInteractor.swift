@@ -34,9 +34,9 @@ final class SignUpInteractor {
 extension SignUpInteractor: SignUpInteractorInput {
     func signUpWithFacebook() {
         dataManager.authenticateUser(token: FBSDKAccessToken.current().tokenString!, completion: {
-            result in
+            [weak self] result in
             if result {
-                self.presenter.openMainModule()
+                self?.presenter.openMainModule()
             }
         })
     }

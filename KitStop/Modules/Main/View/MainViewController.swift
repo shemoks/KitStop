@@ -28,6 +28,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingIndicatorView.hide()
         collectionView.delegate = self
         collectionView.dataSource = self
         addSectionInset()
@@ -164,5 +165,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.size.width
         return CGSize.init(width: (width/2) - 1, height: (width/2) )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
     }
 }

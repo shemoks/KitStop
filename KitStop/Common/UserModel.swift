@@ -20,5 +20,14 @@ class User : Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    func checkUser(id: String) -> Bool {
+        let realm = try! Realm()
+        if realm.objects(User.self).filter("online = %s", true).first?.id == id {
+            return true
+        } else {
+            return false
+        }
+    }
 }
        

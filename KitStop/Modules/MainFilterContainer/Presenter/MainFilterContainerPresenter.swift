@@ -36,6 +36,10 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     func handleKitsForCategory(category: Int, transferData trasferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton) {
         interactor.fetchKitsForCategory(category: category, transferData: trasferData, filterButton: filterButton)
     }
+    
+    func openKitFolioDetailedModule(kitId: String, ownerId: String) {
+        router.openKitFolioDetailedModule(kitId: kitId, ownerId: ownerId)
+    }
 }
 
 // MARK: - MainFilterContainerInteractorOutput

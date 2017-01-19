@@ -12,5 +12,5 @@ protocol MainFilterContainerRouterInput: class {
  //   func openSecondModule(secondModuleOutput: 'Second Module')
     func openFilterModule(selectedIndex: Int ,filterModuleOutput: FiltersModuleOutput)
     func openMainSearchModule(selectedSegment: Int)
-    
+    func openKitFolioDetailedModule(kitId: String, ownerId: String)
 }

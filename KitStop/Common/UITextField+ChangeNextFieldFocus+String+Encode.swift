@@ -21,6 +21,26 @@ extension UITextField {
             objc_setAssociatedObject(self, &kAssociationKeyNextField, newField, .OBJC_ASSOCIATION_RETAIN)
         }
     }
+    
+    public func emailValidation(textField: UITextField) -> Bool {
+        let expression = "^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$"
+        
+        let emailTest: NSPredicate  = NSPredicate(format: "SELF MATCHES[c] %@", expression)
+        
+        let finishResult = emailTest.evaluate(with: textField.text)
+        return finishResult
+    }
+    
+    func checkFieldFrom(email: UITextField, textField: UITextField) {
+        if textField != email && email.text != "" && !UITextField().emailValidation(textField: email) {
+            email.layer.borderColor = UIColor.red.cgColor
+            email.textColor = UIColor.red
+        } else {
+            email.layer.borderColor = UIColor.white.cgColor
+            email.textColor = UIColor.black
+        }
+
+    }
 }
 
 extension String: ParameterEncoding {
@@ -37,6 +57,12 @@ extension String: ParameterEncoding {
     
     public func getUniqueName() -> String {
         return NSUUID().uuidString
+    }
+    
+    func date(format: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: self)!
     }
     
 }
@@ -106,4 +132,52 @@ extension UIImage {
     }
 }
 
+extension Date {
+    
+    public func dateFrom(string: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let format = dateFormatter.date(from: string)
+        dateFormatter.dateFormat = "dd MM yyyy"
+        dateFormatter.dateStyle = .medium
+        var date = dateFormatter.string(from: format!).replacingOccurrences(of: ",", with: "").components(separatedBy: " ")
+        
+        swap(&date[1], &date[0])
+        
+        return date.joined(separator: " ")
+    }
+    
+    func string(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
 
+    
+}
+
+extension UIColor {
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+}
