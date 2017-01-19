@@ -75,7 +75,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
 
     func handleCollectionCellTap(for indexPath: IndexPath) {
         if indexPath.row > currentIndex {
-            view.openGallery()
+            view.setupAlert()
         } else {
             // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
         }

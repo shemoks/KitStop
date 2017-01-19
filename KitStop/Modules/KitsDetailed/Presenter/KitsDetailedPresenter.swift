@@ -81,12 +81,20 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
     func setPost(post: ViewPost) {
         self.post = post
         let urlValue = URL.init(string: self.post.mainImage)
+        if urlValue != nil {
         view.reloadHeader(url: urlValue!)
+        } else {
+            //
+        }
         view.reloadData()
     }
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
+    }
+
+    func isVisibleTable(isVisible: Bool) {
+        view.isVisibleTable(isVisible: isVisible)
     }
 
 }

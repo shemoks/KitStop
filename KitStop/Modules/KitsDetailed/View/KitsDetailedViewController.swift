@@ -62,6 +62,11 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         headerView.imageView.sd_setImage(with: url)
     }
 
+    func isVisibleTable(isVisible: Bool) {
+        tableView.isHidden = isVisible
+
+    }
+
 }
 
 extension KitsDetailedViewController: BottomBarTransitionProtocol {
@@ -142,7 +147,7 @@ extension KitsDetailedViewController: UITableViewDelegate {
                 return nil
             }
         case 2:
-            if presenter.numberOfAdditionalProperties(inSection: section) > 0 {
+            if presenter.numberOfSaleProperties(inSection: section) > 0 {
                 return view
             } else {
                 return nil
@@ -153,7 +158,28 @@ extension KitsDetailedViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        switch section {
+        case 0:
+            if presenter.numberOfGeneralProperties(inSection: section) > 0 {
+             return 10
+            } else {
+                return 0
+            }
+        case 1:
+            if presenter.numberOfAdditionalProperties(inSection: section) > 0 {
+                return 10
+            } else {
+                return 0
+            }
+        case 2:
+            if presenter.numberOfSaleProperties(inSection: section) > 0 {
+                return 10
+            } else {
+                return 0
+            }
+        default:
+             return 10
+        }
     }
     
 }

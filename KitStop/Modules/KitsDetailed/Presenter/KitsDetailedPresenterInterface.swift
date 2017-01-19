@@ -22,7 +22,6 @@ protocol KitsDetailedViewOutput: class {
     func descriptions(for indexPath: IndexPath)-> ViewProperty
     func notes(for indexPath: IndexPath)-> ViewProperty
     func getTittle() -> String
-
 }
 
 // MARK: - KitsDetailedInteractorOutput
@@ -31,6 +30,7 @@ protocol KitsDetailedInteractorOutput: class {
 
     func setPost(post: ViewPost)
     func showError(title: String, message: String)
+    func isVisibleTable(isVisible: Bool)
 
 }
 

@@ -35,13 +35,12 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
 
     func getPost(forSale: Bool, idPost: String) {
         if !forSale {
-        dataManager.getKit(idKit: idPost, forSale: false) {object, error in
+        dataManager.getKit(idKit: idPost, forSale: false) { [weak self] object, error in
             if error == nil {
-                self.presenter.setPost(post: object)
+                self?.presenter.setPost(post: object)
             } else {
                 let error = CustomError(code: error!).description
-                self.presenter.showError(title: "Error", message: error)
-                self.presenter.setPost(post: ViewPost())
+                self?.presenter.showError(title: "Error", message: error)
             }
         }
         } else {
