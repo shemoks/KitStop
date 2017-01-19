@@ -22,8 +22,8 @@ final class CreateKitSavePresenter {
     var kit: CreateKitsRequestBody?
     var post: Post?
     var isPrivate:Bool = false
-    var date = "Not Set"
-    var price = "Not Set"
+    var date = ""
+    var price = ""
     var postId: String?
     var limit:Int?
 
@@ -51,11 +51,9 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setPrice(value: String) {
-        if !value.isEmpty || (value.rangeOfCharacter(from: CharacterSet.whitespaces) == nil) {
             self.price = value
             self.details.last?.contents = "$\(value)"
             view.reloadData()
-        }
     }
     
     func setDate(date: String) {
