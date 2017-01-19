@@ -51,6 +51,12 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
         fetchKits()
     }
     
+    func selectedKits(kitId: String, ownerId: String) {
+        if kitSegmentControl.selectedSegmentIndex == 2 {
+            presenter.openKitFolioDetailedModule(kitId: kitId, ownerId: ownerId)
+        }
+    }
+    
     func showAlert(title: String, message: String) {
         showAlertWithTitle(title, message: message)
     }

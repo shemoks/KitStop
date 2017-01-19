@@ -24,11 +24,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_photo" translatesAutoresizingMaskIntoConstraints="NO" id="9du-PO-Ifc" customClass="CustomAvatar" customModule="KitStop" customModuleProvider="target">
-                    <rect key="frame" x="16" y="3" width="40" height="40"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_photo" translatesAutoresizingMaskIntoConstraints="NO" id="9du-PO-Ifc" customClass="CustomAvatar" customModule="KitStop" customModuleProvider="target">
+                    <rect key="frame" x="12" y="-17" width="60" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="l1m-vF-gLx"/>
-                        <constraint firstAttribute="height" constant="40" id="xhR-85-odE"/>
+                        <constraint firstAttribute="width" constant="60" id="l1m-vF-gLx"/>
+                        <constraint firstAttribute="height" constant="60" id="xhR-85-odE"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUR-hj-LlF" customClass="CosmosView" customModule="Cosmos">
@@ -45,39 +45,43 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-Ci-fbi">
-                    <rect key="frame" x="72" y="3" width="170" height="40"/>
+                    <rect key="frame" x="80" y="0.0" width="108" height="46"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jonh Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-lJ-GMH">
-                            <rect key="frame" x="8" y="0.0" width="79.5" height="18"/>
-                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jonh Smith asasddasdffs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-lJ-GMH">
+                            <rect key="frame" x="8" y="4" width="100" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="Eeg-GO-Qqs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf2-wy-THa">
-                            <rect key="frame" x="8" y="22" width="31" height="18"/>
-                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                            <rect key="frame" x="8" y="22" width="25" height="14"/>
+                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="DBn-lJ-GMH" firstAttribute="top" secondItem="aaB-Ci-fbi" secondAttribute="top" id="C4L-bk-cg6"/>
-                        <constraint firstItem="DBn-lJ-GMH" firstAttribute="leading" secondItem="aaB-Ci-fbi" secondAttribute="leading" constant="8" id="cZB-Q2-Y9Y"/>
-                        <constraint firstItem="Lf2-wy-THa" firstAttribute="leading" secondItem="aaB-Ci-fbi" secondAttribute="leading" constant="8" id="neV-Ec-EDA"/>
-                        <constraint firstItem="Lf2-wy-THa" firstAttribute="top" secondItem="DBn-lJ-GMH" secondAttribute="bottom" constant="4" id="wCm-Pp-dno"/>
+                        <constraint firstItem="DBn-lJ-GMH" firstAttribute="leading" secondItem="aaB-Ci-fbi" secondAttribute="leading" constant="8" id="GAG-2x-xYa"/>
+                        <constraint firstItem="Lf2-wy-THa" firstAttribute="leading" secondItem="aaB-Ci-fbi" secondAttribute="leading" constant="8" id="dan-5k-gFC"/>
+                        <constraint firstAttribute="trailing" secondItem="DBn-lJ-GMH" secondAttribute="trailing" id="sN7-jb-mpZ"/>
+                        <constraint firstItem="Lf2-wy-THa" firstAttribute="top" secondItem="DBn-lJ-GMH" secondAttribute="bottom" constant="4" id="vg3-9d-VpZ"/>
+                        <constraint firstItem="DBn-lJ-GMH" firstAttribute="top" secondItem="aaB-Ci-fbi" secondAttribute="top" constant="4" id="yPg-OE-RaO"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="BUR-hj-LlF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0Ah-u8-IK2"/>
-                <constraint firstItem="9du-PO-Ifc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8py-Ry-y6h"/>
-                <constraint firstItem="aaB-Ci-fbi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IJz-0Z-Vk1"/>
-                <constraint firstItem="9du-PO-Ifc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="SX5-He-QUm"/>
-                <constraint firstItem="BUR-hj-LlF" firstAttribute="leading" secondItem="aaB-Ci-fbi" secondAttribute="trailing" constant="8" id="ToI-TI-3RL"/>
+                <constraint firstItem="9du-PO-Ifc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-10" id="8py-Ry-y6h"/>
+                <constraint firstAttribute="bottom" secondItem="aaB-Ci-fbi" secondAttribute="bottom" id="FUr-Fq-TNX"/>
+                <constraint firstItem="9du-PO-Ifc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="SX5-He-QUm"/>
                 <constraint firstAttribute="trailing" secondItem="BUR-hj-LlF" secondAttribute="trailing" constant="20" id="a06-NK-BGL"/>
-                <constraint firstItem="aaB-Ci-fbi" firstAttribute="leading" secondItem="9du-PO-Ifc" secondAttribute="trailing" constant="16" id="a5Q-V0-EJu"/>
-                <constraint firstItem="aaB-Ci-fbi" firstAttribute="height" secondItem="9du-PO-Ifc" secondAttribute="height" id="htl-P5-sGE"/>
+                <constraint firstItem="aaB-Ci-fbi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hKn-9d-tQ2"/>
+                <constraint firstItem="aaB-Ci-fbi" firstAttribute="leading" secondItem="9du-PO-Ifc" secondAttribute="trailing" constant="8" id="tZh-fg-ON0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -86,7 +90,7 @@
                 <outlet property="name" destination="DBn-lJ-GMH" id="j7a-jt-r40"/>
                 <outlet property="star" destination="BUR-hj-LlF" id="GoR-Q8-xPs"/>
             </connections>
-            <point key="canvasLocation" x="8" y="135"/>
+            <point key="canvasLocation" x="26" y="171"/>
         </view>
     </objects>
     <resources>

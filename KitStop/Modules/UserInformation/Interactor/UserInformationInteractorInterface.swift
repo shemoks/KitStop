@@ -9,5 +9,5 @@
 // MARK: - UserInformationInteractorInput
 
 protocol UserInformationInteractorInput: class {
-    func fetchUser()
+    func fetchUser(user: User?)
 }

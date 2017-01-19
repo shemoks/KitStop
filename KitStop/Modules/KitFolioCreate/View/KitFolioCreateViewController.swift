@@ -25,12 +25,14 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     fileprivate var userInformationXib: UIView?
     fileprivate var small: UIImage?
     fileprivate var big: UIImage?
+    fileprivate let placeholderLabel = UILabel()
 
     override func viewDidLoad() {
         navigationController?.navigationBar.tintColor = .black
         postTitle.delegate = self
         postDescription.delegate = self
         postTitle.tag = 100
+        addPlaceholderFromDescription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +67,13 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         self.big = big
     }
     
+    func addPlaceholderFromDescription() {
+        if postDescription.text == "" || postDescription.text == PlaceholderText.kitfolioDescriptionText {
+            postDescription.textColor = UIColor.init(red: 151/255, green: 153/255, blue: 155/255, alpha: 0.5)
+            postDescription.text = PlaceholderText.kitfolioDescriptionText
+        }
+    }
+    
 }
 
 // MARK: - KitFolioCreateViewInput
@@ -72,6 +81,7 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
 extension KitFolioCreateViewController: KitFolioCreateViewInput {
     func addXibOnView(view: UIView) {
         userInformationXib = view
+        (userInformationXib as! UserInformationViewController).updateUser(user: nil)
         userInformationXib?.frame = CGRect.init(x: 0, y: 0, width: userInformation.frame.width, height: userInformation.frame.height)
         userInformation.addSubview(userInformationXib!)
     }
@@ -97,5 +107,27 @@ extension KitFolioCreateViewController : UITextFieldDelegate, UITextViewDelegate
         let text = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = text.characters.count
         return numberOfChars < 500;
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if !validation(data: postDescription.text) {
+            postDescription.textColor = UIColor.init(red: 151/255, green: 153/255, blue: 155/255, alpha: 0.5)
+            postDescription.text = PlaceholderText.kitfolioDescriptionText
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if postDescription.text == PlaceholderText.kitfolioDescriptionText {
+            postDescription.text = ""
+        }
+        postDescription.textColor = UIColor.black
+    }
+    
+    func validation(data: String) -> Bool {
+        let newData = data.trimmingCharacters(in: .whitespaces)
+        if data.characters.count > 0 && newData.characters.count > 0 {
+            return true
+        }
+        return false
     }
 }

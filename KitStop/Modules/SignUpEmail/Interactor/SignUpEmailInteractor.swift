@@ -48,16 +48,16 @@ extension SignUpEmailInteractor: SignUpEmailInteractorInput {
     
     func addUser(result: String?, user: SignUpUserModel) {
         self.service.addNewUser(email: user.email, password: user.password, photoUrl: result == nil ? nil : result!, name: user.name, surname: user.surname, completionBlock: {
-            result, error, json in
+            [weak self] result, error, json in
             LoadingIndicatorView.hide()
             if result {
-                self.presenter.openMainModule()
+                self?.presenter.openMainModule()
                 if let json = json {
-                    self.dataManager.saveUserData(json: json)
+                    self?.dataManager.saveUserData(json: json)
                 }
             } else {
                 let errorMassage = CustomError(code: error!).description
-                self.presenter.showAlert(title: "Error", massage: errorMassage)
+                self?.presenter.showAlert(title: "Error", massage: errorMassage)
             }
         })
     }

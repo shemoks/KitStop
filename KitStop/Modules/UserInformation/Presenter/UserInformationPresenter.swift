@@ -24,8 +24,8 @@ final class UserInformationPresenter {
 // MARK: - UserInformationViewOutput
 
 extension UserInformationPresenter: UserInformationViewOutput {
-    func getUserInfo() {
-        interactor.fetchUser()
+    func getUserInfo(user: User?) {
+        interactor.fetchUser(user: user)
     }
 }
 

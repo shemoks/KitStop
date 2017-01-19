@@ -51,6 +51,9 @@ struct Product {
     var title: String = ""
     var salesDetails: SalesDetails?
     var mainImage: String = ""
+    var description: String = ""
+    var date: String = ""
+    var owner: String = ""
 }
 
 struct FilterResult {

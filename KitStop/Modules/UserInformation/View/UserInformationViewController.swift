@@ -23,7 +23,6 @@ final class UserInformationViewController: UIView {
     var presenter: UserInformationViewOutput!
 
     override func awakeFromNib() {
-        presenter.getUserInfo()
     }
 }
 
@@ -37,6 +36,12 @@ extension UserInformationViewController: UserInformationViewInput {
         let url = URL.init(string: user["avatar"]!)
         if let url = url {
             avatar.sd_setImage(with: url)
+        } else {
+            avatar.image = UIImage.init(named: "profile_photo")
         }
+    }
+    
+    func updateUser(user: User?) {
+        presenter.getUserInfo(user: user)
     }
 }

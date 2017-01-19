@@ -11,6 +11,7 @@ import UIKit
 class CustomPasswordTextField: UITextField, UITextFieldDelegate {
     
     weak var passwordDelegate: CustomPasswordDelegateTextField?
+    weak var email: UITextField?
     
     fileprivate let eyeView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 25, height: 25))
     fileprivate var tapCounter = false
@@ -65,6 +66,13 @@ class CustomPasswordTextField: UITextField, UITextFieldDelegate {
             self.replace(textRange, withText: text)
         }
         return false
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if let email = self.email {
+            UITextField().checkFieldFrom(email: email, textField: textField)
+        }
+        return true
     }
     
 }

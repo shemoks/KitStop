@@ -32,11 +32,11 @@ final class RestorePasswordInteractor {
 
 extension RestorePasswordInteractor: RestorePasswordInteractorInput {
     func restorePassword(email: String) {
-        dataManager.requestPasswordRecovery(email: email, completion: { result, error in
+        dataManager.requestPasswordRecovery(email: email, completion: { [weak self] result, error in
             if result {
-                self.presenter.showAlert(message: "Your password has been reset. Please check your email", shouldTransition: true)
+                self?.presenter.showAlert(message: "Your password has been reset. Please check your email", shouldTransition: true)
             } else {
-                self.presenter.showAlert(message: CustomError(code: error!).description, shouldTransition: false)
+                self?.presenter.showAlert(message: CustomError(code: error!).description, shouldTransition: false)
             }
         })
     }
