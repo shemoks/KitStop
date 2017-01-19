@@ -92,15 +92,26 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         }
                         var saleDateItems = [ViewProperty]()
                         let newItemPurchaseDate = ViewProperty()
-                        newItemPurchaseDate.text = json["data"]["purchaseDate"].stringValue
+                        let purch = json["data"]["purchaseDate"].doubleValue
+                        newItemPurchaseDate.text = Date(timeIntervalSince1970: TimeInterval(purch)).description
                         newItemPurchaseDate.title =  "Purchase Date"
                         saleDateItems.append(newItemPurchaseDate)
                         let newItemPurchaseDateNext = ViewProperty()
                         newItemPurchaseDateNext.text = json["data"]["purchasePrice"].stringValue
                         newItemPurchaseDateNext.title =  "Purchase Price"
                         saleDateItems.append(newItemPurchaseDateNext)
-                        post.createAt = json["data"]["createdAt"].stringValue
-                        post.owner = json["data"]["owner"].stringValue
+                        post.createAt = json["data"]["updatedAt"].stringValue
+                        let owner = User()
+                        owner.avatar = json["data"]["owner"]["photo_url"].stringValue
+                        if json["data"]["owner"]["country"] != JSON.null {
+                            owner.country = json["data"]["owner"]["country"].stringValue
+                        } else {
+                            owner.country = "USA"
+                        }
+                        owner.name = json["data"]["owner"]["name"].stringValue
+                        owner.surname = json["data"]["owner"]["surname"].stringValue
+                        owner.id = json["data"]["owner"]["_id"].stringValue
+                        post.owner = owner
                         post.metaData = metaData
                         post.saleData = saleDateItems
                         post.generalProperty = generalProperty

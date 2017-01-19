@@ -22,6 +22,8 @@ protocol KitsDetailedViewOutput: class {
     func descriptions(for indexPath: IndexPath)-> ViewProperty
     func notes(for indexPath: IndexPath)-> ViewProperty
     func getTittle() -> String
+    func updateData(xib: UIView) -> Bool
+    func openChat()
 }
 
 // MARK: - KitsDetailedInteractorOutput

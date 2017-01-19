@@ -82,7 +82,7 @@ class ViewPost {
     var notes = ViewProperty()
     var isPrivate: Bool = false
     var tags = [String]()
-    var owner: String = ""
+    var owner = User()
     var id: String = ""
     var createAt: String = ""
     

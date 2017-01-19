@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import Perform
 
 // MARK: - KitsDetailedRouter
 
@@ -40,4 +41,17 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
         }
     }
 
+    func openChatModule() {
+//        flowController.openModule(using: .openUnderConstructionModule) {
+//            guard ($0 as? UnderConstructionModuleInput) != nil else {fatalError()}
+//            return nil
+//        }
+    }
+
+}
+
+extension Segue {
+//    static var openUnderConstructionModule: Segue<UnderConstructionViewController> {
+//        return .init(identifier:"transitionToUnderConstruction")
+//    }
 }

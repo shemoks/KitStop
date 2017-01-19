@@ -15,7 +15,8 @@ class HeaderKitsDetailed: UIView {
     var nibName: String = "HeaderKitsDetailed"
     var xib = UIView()
 
-    @IBOutlet weak var userInfo: UIView!
+    @IBOutlet weak var userInfoContainer: UIView!
+    var actualView: UIView?
     
 
     @IBOutlet weak var imageView: UIImageView!
@@ -42,9 +43,10 @@ class HeaderKitsDetailed: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
         xib = UIView.loadFromNibNamed(nibNamed: "UserInformation")!
-        xib.frame = CGRect.init(x: 0, y: 0, width: userInfo.frame.width, height: userInfo.frame.height)
-        userInfo.addSubview(xib)
+        xib.frame = CGRect.init(x: 0, y: 0, width: userInfoContainer.frame.width, height: userInfoContainer.frame.height)
+        userInfoContainer.addSubview(xib)
 
+        actualView = xib
     }
 
     func loadViewFromNib() -> UIView {

@@ -10,5 +10,6 @@
 
 protocol KitsDetailedRouterInput: class {
     func openModule(identifier: Int)
+    func openChatModule()
 
 }

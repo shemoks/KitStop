@@ -243,7 +243,22 @@ extension CreatePostViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        switch section {
+        case 0:
+            if presenter.numberOfGeneralProperties(inSection: section) > 0 {
+                return 10
+            } else {
+                return 0
+            }
+        case 1:
+            if presenter.numberOfAdditionalProperties(inSection: section) > 0 {
+                return 10
+            } else {
+                return 0
+            }
+        default:
+            return 10
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

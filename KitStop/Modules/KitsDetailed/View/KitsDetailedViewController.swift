@@ -29,6 +29,15 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
     }
 
+    @objc func openChatModule() {
+        presenter.openChat()
+    }
+
+    @objc func sheetsView() {
+
+    }
+
+
     func sizeHeaderToFit(height: CGFloat) {
         let headerView = tableView.tableHeaderView!
         headerView.setNeedsLayout()
@@ -54,12 +63,19 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         self.showAlertWithTitle(title, message: message)
     }
 
-    func reloadHeader(url: URL) {
+    func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
         let headerView = HeaderKitsDetailed()
         tableView.tableHeaderView = headerView
         let height = view.frame.width + 46
         sizeHeaderToFit(height: height)
         headerView.imageView.sd_setImage(with: url)
+        (headerView.actualView as! UserInformationViewController).updateUser(user: userInfo)
+        let footerView = TableFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        footerView.dateUpdate.text = dateUpdate
+        tableView.tableFooterView = footerView
+        self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
+        
+
     }
 
     func isVisibleTable(isVisible: Bool) {

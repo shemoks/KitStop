@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderKitsDetailed">
             <connections>
                 <outlet property="imageView" destination="j5p-qh-L3V" id="RHX-jr-8R9"/>
-                <outlet property="userInfo" destination="59T-jq-RMH" id="3lN-So-02e"/>
+                <outlet property="userInfoContainer" destination="59T-jq-RMH" id="Ekr-tl-I42"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,6 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="447" height="233"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j5p-qh-L3V">
+                    <rect key="frame" x="0.0" y="0.0" width="447" height="187"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59T-jq-RMH">
                     <rect key="frame" x="0.0" y="187" width="447" height="46"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,9 +29,6 @@
                         <constraint firstAttribute="height" constant="46" id="PNu-4y-lNd"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j5p-qh-L3V">
-                    <rect key="frame" x="0.0" y="0.0" width="447" height="187"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
