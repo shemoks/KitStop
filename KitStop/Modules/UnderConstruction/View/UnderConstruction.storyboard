@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iYI-wl-Y6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iYI-wl-Y6D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,16 +22,32 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="UNDER CONSTRUCTION" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFA-Mf-p0N">
                                 <rect key="frame" x="0.0" y="269" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="BcO-3y-C0u"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="33"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYj-vx-mut">
+                                <rect key="frame" x="0.0" y="413" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="P4q-Ho-sxD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81620826567917759" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iQF-i8-pMq" firstAttribute="top" secondItem="IFA-Mf-p0N" secondAttribute="bottom" constant="270" id="1nG-MH-RBi"/>
-                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="leading" secondItem="QaM-mL-Upr" secondAttribute="leading" id="2iV-ix-MGM"/>
-                            <constraint firstAttribute="trailing" secondItem="IFA-Mf-p0N" secondAttribute="trailing" id="AS2-2T-k2x"/>
-                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="top" secondItem="OxN-LT-8fi" secondAttribute="bottom" constant="249" id="JN1-zM-YcX"/>
+                            <constraint firstItem="yYj-vx-mut" firstAttribute="leading" secondItem="QaM-mL-Upr" secondAttribute="leading" id="BcL-kA-0dj"/>
+                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="centerX" secondItem="QaM-mL-Upr" secondAttribute="centerX" id="Jqr-DV-gjq"/>
+                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="leading" secondItem="QaM-mL-Upr" secondAttribute="leading" id="La9-lQ-Yg6"/>
+                            <constraint firstAttribute="trailing" secondItem="IFA-Mf-p0N" secondAttribute="trailing" id="WBL-rc-Ck6"/>
+                            <constraint firstItem="IFA-Mf-p0N" firstAttribute="centerY" secondItem="QaM-mL-Upr" secondAttribute="centerY" id="nZB-ax-XSI"/>
+                            <constraint firstAttribute="trailing" secondItem="yYj-vx-mut" secondAttribute="trailing" id="ngM-83-Vs1"/>
+                            <constraint firstItem="yYj-vx-mut" firstAttribute="top" secondItem="IFA-Mf-p0N" secondAttribute="bottom" constant="16" id="uwq-a6-dXm"/>
                         </constraints>
                     </view>
                 </viewController>
