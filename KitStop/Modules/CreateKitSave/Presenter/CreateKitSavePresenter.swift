@@ -81,6 +81,10 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
         details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: "Enter value"))
         
     }
+    
+    func showAlert() {
+        view.showAlert(title: "Error", message: "Set price exceeds maximum value of 1000000")
+    }
 }
 
 // MARK: - CreateKitSaveInteractorOutput
@@ -88,6 +92,10 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
 extension CreateKitSavePresenter: CreateKitSaveInteractorOutput {
     func showAlertWith(title: String, message: String) {
         view.showAlert(title: title, message: message)
+    }
+    
+    func returnToMainModule() {
+        view.returnToMainModule()
     }
     
     func openDetailedModule(id: String) {

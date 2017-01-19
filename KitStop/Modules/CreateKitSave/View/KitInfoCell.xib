@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9gb-vT-RFz" id="Gsp-Rq-zHG">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYr-u2-rjq">
@@ -33,9 +33,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Not Set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSY-Iu-QqS">
-                        <rect key="frame" x="18" y="30" width="341" height="14"/>
+                        <rect key="frame" x="18" y="0.0" width="341" height="74"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="0kt-t1-4B1"/>
+                            <constraint firstAttribute="height" constant="74" id="0kt-t1-4B1"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
@@ -46,7 +46,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="XSY-Iu-QqS" secondAttribute="trailing" constant="16" id="25P-9B-lar"/>
                     <constraint firstItem="QYr-u2-rjq" firstAttribute="top" secondItem="Gsp-Rq-zHG" secondAttribute="top" constant="8" id="Fk2-lD-j1T"/>
-                    <constraint firstItem="XSY-Iu-QqS" firstAttribute="top" secondItem="QYr-u2-rjq" secondAttribute="bottom" constant="6" id="KiI-DG-RK5"/>
+                    <constraint firstItem="XSY-Iu-QqS" firstAttribute="top" secondItem="QYr-u2-rjq" secondAttribute="bottom" constant="-24" id="KiI-DG-RK5"/>
                     <constraint firstItem="XSY-Iu-QqS" firstAttribute="leading" secondItem="Gsp-Rq-zHG" secondAttribute="leading" constant="18" id="bCb-ct-vS7"/>
                     <constraint firstItem="QYr-u2-rjq" firstAttribute="leading" secondItem="Gsp-Rq-zHG" secondAttribute="leading" constant="18" id="vhk-AR-QPg"/>
                 </constraints>
