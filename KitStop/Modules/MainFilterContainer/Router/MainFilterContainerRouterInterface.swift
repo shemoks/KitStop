@@ -13,4 +13,5 @@ protocol MainFilterContainerRouterInput: class {
     func openFilterModule(selectedIndex: Int ,filterModuleOutput: FiltersModuleOutput)
     func openMainSearchModule(selectedSegment: Int)
     func openKitFolioDetailedModule(kitId: String, ownerId: String)
+    func openKitsModule(segmentedIndex: Bool ,kitId: String, ownerId: String)
 }

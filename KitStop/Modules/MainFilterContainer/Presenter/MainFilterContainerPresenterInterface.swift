@@ -15,6 +15,7 @@ protocol MainFilterContainerViewOutput: class {
     func openSearchModule(selectedSegment: Int)
     func handleKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton)
     func openKitFolioDetailedModule(kitId: String, ownerId: String)
+    func openKitsModule(segmentedIndex: Bool ,kitId: String, ownerId: String)
 }
 
 // MARK: - MainFilterContainerInteractorOutput
