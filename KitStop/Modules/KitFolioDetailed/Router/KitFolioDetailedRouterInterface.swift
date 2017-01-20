@@ -10,4 +10,5 @@
 
 protocol KitFolioDetailedRouterInput: class {
     func openChatModule()
+    func closeModule()
 }

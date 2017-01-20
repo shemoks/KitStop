@@ -29,6 +29,10 @@ extension KitFolioDetailedRouter: KitFolioDetailedRouterInput {
             return nil
         }
     }
+    
+    func closeModule() {
+        self.flowController.closeModule(animated: true)
+    }
 
 }
 

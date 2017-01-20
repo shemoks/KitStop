@@ -30,6 +30,8 @@ enum Endpoint {
     case kitFolioDetailed(id: String)
     case createKit()
     case viewKitByOwner(idKit: String)
+    case deleteKitFolio(id: String)
+    case saveKitFolio(id: String)
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -44,6 +46,10 @@ enum Endpoint {
             return .post
         case .createKit:
             return .post
+        case .deleteKitFolio:
+            return .delete
+        case .saveKitFolio:
+            return .patch
         default:
             return .get
         }
@@ -79,6 +85,10 @@ enum Endpoint {
             return "/kits"
         case .viewKitByOwner(let idKit):
             return ("/kit/" + idKit)
+        case .deleteKitFolio(let id):
+            return "/kit-folio/\(id)"
+        case .saveKitFolio(let id):
+            return "/kit-folio/\(id)"
         }
     }
 
