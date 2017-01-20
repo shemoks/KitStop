@@ -26,6 +26,7 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     fileprivate var small: UIImage?
     fileprivate var big: UIImage?
     fileprivate let placeholderLabel = UILabel()
+    fileprivate let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         navigationController?.navigationBar.tintColor = .black

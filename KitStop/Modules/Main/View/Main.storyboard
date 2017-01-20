@@ -212,7 +212,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGg-VM-eHK">
-                                <rect key="frame" x="7" y="-1" width="40" height="40"/>
+                                <rect key="frame" x="2" y="-1" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="9R3-tO-2XM"/>
                                     <constraint firstAttribute="height" constant="40" id="Xa1-6U-A8W"/>
@@ -223,7 +223,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prg-Sh-Yxd">
-                                <rect key="frame" x="367" y="-1" width="40" height="40"/>
+                                <rect key="frame" x="372" y="-1" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="D7T-v6-4TG"/>
                                     <constraint firstAttribute="width" constant="40" id="lAM-Yd-dtb"/>
@@ -240,8 +240,8 @@
                             <constraint firstItem="prg-Sh-Yxd" firstAttribute="centerY" secondItem="S4c-q3-R1x" secondAttribute="centerY" id="2Y4-fh-CAc"/>
                             <constraint firstItem="WDY-fy-vVW" firstAttribute="centerY" secondItem="S4c-q3-R1x" secondAttribute="centerY" id="Ay8-Kf-yUp"/>
                             <constraint firstItem="d1l-0z-3zT" firstAttribute="top" secondItem="wMd-NY-oTY" secondAttribute="bottom" id="J21-zo-zD3"/>
-                            <constraint firstItem="lGg-VM-eHK" firstAttribute="leading" secondItem="S4c-q3-R1x" secondAttribute="leading" constant="7" id="Qzf-cS-2XP"/>
-                            <constraint firstAttribute="trailing" secondItem="prg-Sh-Yxd" secondAttribute="trailing" constant="7" id="aad-W3-CR6"/>
+                            <constraint firstItem="lGg-VM-eHK" firstAttribute="leading" secondItem="S4c-q3-R1x" secondAttribute="leading" constant="2" id="Qzf-cS-2XP"/>
+                            <constraint firstAttribute="trailing" secondItem="prg-Sh-Yxd" secondAttribute="trailing" constant="2" id="aad-W3-CR6"/>
                             <constraint firstItem="WDY-fy-vVW" firstAttribute="centerX" secondItem="S4c-q3-R1x" secondAttribute="centerX" id="bMs-Xt-032"/>
                             <constraint firstItem="4aC-dz-i1b" firstAttribute="top" secondItem="d1l-0z-3zT" secondAttribute="bottom" id="ji9-TF-f3s"/>
                             <constraint firstItem="lGg-VM-eHK" firstAttribute="centerY" secondItem="S4c-q3-R1x" secondAttribute="centerY" id="jy6-nC-0XF"/>
@@ -312,7 +312,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MainViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jRK-Rw-uKN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fPy-Eq-pzs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fPy-Eq-pzs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
