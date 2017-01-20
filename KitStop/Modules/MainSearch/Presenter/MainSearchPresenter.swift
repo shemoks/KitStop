@@ -35,7 +35,6 @@ extension MainSearchPresenter: MainSearchViewOutput {
         } else {
             return 0
         }
-        
     }
     
     func closeModule() {
@@ -45,6 +44,20 @@ extension MainSearchPresenter: MainSearchViewOutput {
     func kit(for indexPath: IndexPath) -> Product {
         return kits[indexPath.row]
     }
+    
+    func setTitle() -> String {
+        switch selectedSegment {
+        case 0:
+            return "Search in 'For Sale' category"
+        case 1:
+            return "Search in 'Kits' category"
+        case 2:
+            return "Search in 'KitFolio'"
+        default:
+            return "Search"
+        }
+    }
+    
     
     func handleSearchButtonTap(title: String) {
         interactor.commenceSearch(with: title, selectedSegment: selectedSegment)

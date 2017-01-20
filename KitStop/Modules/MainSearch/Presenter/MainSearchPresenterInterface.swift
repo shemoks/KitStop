@@ -15,6 +15,7 @@ protocol MainSearchViewOutput: class {
     func numberOfKits() -> Int
     func handleSearchButtonTap(title: String)
     func closeModule()
+    func setTitle() -> String
     
 }
 
