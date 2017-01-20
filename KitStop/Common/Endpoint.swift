@@ -85,7 +85,6 @@ enum Endpoint {
             return "/kits"
         case .viewKitByOwner(let idKit):
             return ("/kits/" + idKit)
-            return ("/kit/" + idKit)
         case .deleteKitFolio(let id):
             return "/kit-folio/\(id)"
         case .saveKitFolio(let id):

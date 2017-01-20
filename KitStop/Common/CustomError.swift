@@ -45,9 +45,9 @@ extension CustomError: RawRepresentable, CustomStringConvertible {
         case .kitFolioValidationFailed:
             return "Please fill out all required fields"
         case .passwordIsNotProvided:
-            return "Invalid email or password"
+            return "Invalid e-mail or password"
         case .valueIsNotProvided:
-            return "Invalid email or password"
+            return "Invalid e-mail or password"
         case .passwordConfirmationFailed:
             return "Password do not match the confirm password."
         case .unexpectedError:

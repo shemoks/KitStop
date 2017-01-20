@@ -46,6 +46,16 @@ final class MainSearchViewController: UIViewController, FlowController {
         
         let searchField = search.value(forKey: "searchField") as? UITextField
         searchField?.backgroundColor = UIColor(colorLiteralRed: 232/255, green: 232/255, blue: 234/255, alpha: 1.0)
+        
+        search.placeholderText = presenter.setTitle()
+        
+        var searchTextField: UITextField? = search.value(forKey: "searchField") as? UITextField
+        if searchTextField!.responds(to: #selector(getter: UITextField.attributedPlaceholder)) {
+            var color = UIColor.darkText
+            let attributeDict = [NSForegroundColorAttributeName: UIColor.darkText]
+            searchTextField!.attributedPlaceholder = NSAttributedString(string: presenter.setTitle(), attributes: attributeDict)
+        }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

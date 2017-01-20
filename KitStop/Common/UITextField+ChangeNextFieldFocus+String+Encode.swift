@@ -41,6 +41,16 @@ extension UITextField {
         }
 
     }
+    
+    func checkIfEmailIsValid(email: UITextField) {
+       if email.text != "" && !UITextField().emailValidation(textField: email) {
+            email.layer.borderColor = UIColor.red.cgColor
+            email.textColor = UIColor.red
+        } else {
+            email.layer.borderColor = UIColor.white.cgColor
+            email.textColor = UIColor.black
+        }
+    }
 }
 
 extension String: ParameterEncoding {
