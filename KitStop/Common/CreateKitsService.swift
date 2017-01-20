@@ -10,14 +10,14 @@ import Foundation
 import Alamofire
 
 class CreateKitsService {
-    
+
     fileprivate let manager: ApiManagerProtocol
-    
+
     init(manager: ApiManagerProtocol = SessionManager.default) {
         self.manager = manager
     }
-    
- 
+
+
 }
 
 extension CreateKitsService: CreateKitsServiceProtocol {
@@ -50,20 +50,20 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                               "notes": notes, "mainImage": mainImage,
                                                               "images": images, "condition": condition,
                                                               "tags": tags, "metaData": metaData,
-                                                               "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
-            response in
-            switch response.result {
-            case .success(let json):
-                if json["success"].boolValue {
-                    completion(true, nil, json["data"]["_id"].stringValue)
-                } else {
-                    completion(false, response.response?.statusCode, nil)
-                }
-                print(json)
-            case .failure(let error):
-                print(error)
-                completion(false, (error as NSError).code, nil)
-            }
-        })
+                                                              "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
+                                                                response in
+                                                                switch response.result {
+                                                                case .success(let json):
+                                                                    if json["success"].boolValue {
+                                                                        completion(true, nil, json["data"]["_id"].stringValue)
+                                                                    } else {
+                                                                        completion(false, response.response?.statusCode, nil)
+                                                                    }
+                                                                    print(json)
+                                                                case .failure(let error):
+                                                                    print(error)
+                                                                    completion(false, (error as NSError).code, nil)
+                                                                }
+                                                              })
     }
 }

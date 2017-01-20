@@ -21,6 +21,7 @@ final class FilterTypeViewController: UIViewController, FlowController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "ApplyCell", bundle: nil), forCellReuseIdentifier: "ApplyCell")
+        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
 
 }
@@ -54,8 +55,8 @@ extension FilterTypeViewController: UITableViewDataSource {
 
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CategoryCell
-            cell.configure(with: presenter.category(for: indexPath))
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CategoryCellWithImage
+            cell.configureCell(category: presenter.category(for: indexPath))
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ApplyCell", for: indexPath) as! ApplyCell

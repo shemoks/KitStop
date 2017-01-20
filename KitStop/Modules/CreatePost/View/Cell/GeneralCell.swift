@@ -28,30 +28,36 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
             self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
         }
         title.text = property.title
+        data.text = property.textValue
         if  property.placeholder != nil {
             data.placeholder = property.placeholder!
         }
-
-        if  property.isSelect && property.currentData == nil {
+        if property.isSelect == true {
             self.accessoryType = .disclosureIndicator
-            data.isEnabled = true
-            if  property.placeholder != nil {
-                data.placeholder = property.placeholder!
-            }
             data.isEnabled = false
+
         }
 
-        if  property.isSelect && (property.currentData != nil) {
-            self.accessoryType = .disclosureIndicator
-            data.isEnabled = true
-            if  property.placeholder != nil {
-                data.placeholder = property.placeholder!
-            }
-            self.data.text = property.currentData
-            data.isEnabled = false
-            self.object?.isValidate = true
-            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
-        }
+//        if  property.isSelect && property.currentData == nil {
+//            self.accessoryType = .disclosureIndicator
+//            data.isEnabled = true
+//            if  property.placeholder != nil {
+//                data.placeholder = property.placeholder!
+//            }
+//            data.isEnabled = false
+//        }
+//
+//        if  property.isSelect && (property.currentData != nil) {
+//            self.accessoryType = .disclosureIndicator
+//            data.isEnabled = true
+//            if  property.placeholder != nil {
+//                data.placeholder = property.placeholder!
+//            }
+//            self.data.text = property.currentData
+//            data.isEnabled = false
+//            self.object?.isValidate = true
+//            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
+//        }
         data.delegate = self
     }
 

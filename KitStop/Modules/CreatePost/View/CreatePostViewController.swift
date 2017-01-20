@@ -111,6 +111,33 @@ extension CreatePostViewController: CreatePostViewInput {
         present(imagePicker, animated: true, completion: nil)
     }
 
+    func openCamera() {
+        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.cameraCaptureMode = .photo
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            noCamera()
+        }
+    }
+
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(alertVC,
+                animated: true,
+                completion: nil)
+    }
+
+
     func reloadData() {
         navigationItem.title = presenter.getTittle()
         tableView.reloadData()
@@ -119,6 +146,27 @@ extension CreatePostViewController: CreatePostViewInput {
 
     func showError(title: String, message: String) {
         self.showAlertWithTitle(title, message: message)
+    }
+
+    func setupAlert() {
+        let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let openCamera = UIAlertAction.init(title: "Take a Photo", style: .default, handler: {
+            result in
+            self.openCamera()
+        })
+
+        let openGallery = UIAlertAction.init(title: "Choose from Gallery", style: .default, handler: {
+            result in
+            self.openGallery()
+        })
+
+        let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(openCamera)
+        alertController.addAction(openGallery)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
+        alertController.view.tintColor = UIColor.gray
+
     }
 
 }
@@ -195,7 +243,22 @@ extension CreatePostViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        switch section {
+        case 0:
+            if presenter.numberOfGeneralProperties(inSection: section) > 0 {
+                return 10
+            } else {
+                return 0
+            }
+        case 1:
+            if presenter.numberOfAdditionalProperties(inSection: section) > 0 {
+                return 10
+            } else {
+                return 0
+            }
+        default:
+            return 10
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

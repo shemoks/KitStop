@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View-->
+        <scene sceneID="sqd-4f-qc3">
+            <objects>
+                <viewController storyboardIdentifier="KitsDetailedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="emS-ZE-rVp" customClass="KitsDetailedViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ksf-Ol-uX2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3XB-6X-3RF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C1b-wL-caL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="REt-MC-88B">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="emS-ZE-rVp" id="Pll-zg-1AK"/>
+                                    <outlet property="delegate" destination="emS-ZE-rVp" id="dyZ-Mv-Ez2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="REt-MC-88B" firstAttribute="top" secondItem="C1b-wL-caL" secondAttribute="top" id="OHz-bn-f5o"/>
+                            <constraint firstItem="REt-MC-88B" firstAttribute="leading" secondItem="C1b-wL-caL" secondAttribute="leading" id="Vfe-tA-S2q"/>
+                            <constraint firstAttribute="trailing" secondItem="REt-MC-88B" secondAttribute="trailing" id="dXP-Al-KjW"/>
+                            <constraint firstItem="3XB-6X-3RF" firstAttribute="top" secondItem="REt-MC-88B" secondAttribute="bottom" id="gDc-P6-Ng7"/>
+                            <constraint firstItem="REt-MC-88B" firstAttribute="leading" secondItem="C1b-wL-caL" secondAttribute="leading" id="l2H-H0-ljG"/>
+                            <constraint firstAttribute="trailing" secondItem="REt-MC-88B" secondAttribute="trailing" id="rlQ-8k-29u"/>
+                            <constraint firstItem="REt-MC-88B" firstAttribute="top" secondItem="C1b-wL-caL" secondAttribute="top" id="y1Z-nF-jAl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YWe-ih-y6Q"/>
+                    <connections>
+                        <outlet property="tableView" destination="REt-MC-88B" id="ZoR-BM-JX1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6a-PE-oFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="PTn-Ft-qvS" customClass="KitsDetailedAssembler" customModule="KitStop" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="emS-ZE-rVp" id="Xce-tr-3LC"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="860" y="125.4872563718141"/>
+        </scene>
+    </scenes>
+</document>

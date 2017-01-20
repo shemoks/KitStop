@@ -2559,8 +2559,12 @@
 			files = (
 				25432DCC1E042E3D00BB7B8F /* Main.storyboard in Resources */,
 				9AB17CF01E0BD5AE004E95FF /* SF-UI-Text-Semibold.otf in Resources */,
+<<<<<<< HEAD
 				9AEAE2C91E30E31800D6D182 /* CategoryCell.xib in Resources */,
+				95D4F56F1E2E53AE0073196C /* CreateKitSave.storyboard in Resources */,
+=======
 				95F2E8811E3106550025F993 /* CreateKitSave.storyboard in Resources */,
+>>>>>>> fe0f31aca4e74f191d6440bdf0eaaebb8b3f0c15
 				9AB17CE11E0BD5AE004E95FF /* SF-UI-Display-Medium.otf in Resources */,
 				9511346E1E1CE24400175EE2 /* MainSearch.storyboard in Resources */,
 				9AB17CF21E0BD5AE004E95FF /* SF-UI-Text-Ultrathin.otf in Resources */,
@@ -3134,7 +3138,7 @@
 				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
 				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -3167,7 +3171,7 @@
 				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
 				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -75,7 +75,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
 
     func handleCollectionCellTap(for indexPath: IndexPath) {
         if indexPath.row > currentIndex {
-            view.openGallery()
+            view.setupAlert()
         } else {
             // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
         }
@@ -170,18 +170,18 @@ extension CreatePostPresenter: CustomListModuleOutput {
 
     func getData(data: Other) {
         self.currentData?.list?.last?.data = ""
-        self.currentData?.currentData = data.name
+//        self.currentData?.currentData = data.name
         self.currentData?.textValue = data.name
         view.reloadData()
     }
 
     func getDataWithInput(data: Other) {
         if currentData?.list?.last?.data == "" {
-            self.currentData?.currentData = "Other"
+         //   self.currentData?.currentData = "Other"
             self.currentData?.textValue = "Other"
             view.reloadData()
         } else {
-            self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
+      //      self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
             self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
             view.reloadData()
         }
