@@ -9,24 +9,27 @@
 // MARK: - SignUpInteractor
 import FBSDKLoginKit
 import KeychainAccess
+import SwiftyJSON
 
 final class SignUpInteractor {
-
+    
     // MARK: - VIPER stack
-
+    
     weak var presenter: SignUpInteractorOutput!
-
+    
     // MARK: - Networking stack
     fileprivate let dataManager: FacebookServiceProtocol!
+    fileprivate let manager: LogInDataManagerProtocol
     
-    init(dataManager: FacebookServiceProtocol) {
+    init(dataManager: FacebookServiceProtocol, manager: LogInDataManagerProtocol) {
         self.dataManager = dataManager
+        self.manager = manager
     }
     
     convenience init() {
-        self.init(dataManager: FacebookService())
+        self.init(dataManager: FacebookService(), manager: LogInDataManager())
     }
-
+    
 }
 
 // MARK: - SignUpInteractorInput
@@ -34,8 +37,11 @@ final class SignUpInteractor {
 extension SignUpInteractor: SignUpInteractorInput {
     func signUpWithFacebook() {
         dataManager.authenticateUser(token: FBSDKAccessToken.current().tokenString!, completion: {
-            [weak self] result in
+            [weak self] result, json in
             if result {
+                if json != nil {
+                    self?.manager.saveUserData(json: json!)
+                }
                 self?.presenter.openMainModule()
             }
         })

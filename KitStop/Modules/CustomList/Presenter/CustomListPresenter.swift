@@ -36,7 +36,14 @@ extension CustomListPresenter: CustomListViewOutput {
 
     func handleCellTap(for indexPath: IndexPath) {
         if indexPath.row == self.numberOfElements() - 1 {
+            let element = self.list[indexPath.row]
+            if element.name == "Other" {
             router.openCustomInputModule(data: self.list.last!, customInputModuleOutput: self)
+            } else {
+                let customListModuleOutput = moduleOutput as! CustomListModuleOutput
+                customListModuleOutput.getData(data: self.list[indexPath.row])
+                router.closeModule()
+            }
         } else {
             let customListModuleOutput = moduleOutput as! CustomListModuleOutput
             customListModuleOutput.getData(data: self.list[indexPath.row])

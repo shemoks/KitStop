@@ -29,6 +29,7 @@ class MainService: NSObject, MainServiceProtocol {
                         kitModel.id = kit.1["_id"].stringValue
                         kitModel.mainImage = kit.1["mainImage"].stringValue
                         kitModel.title = kit.1["title"].stringValue
+                        kitModel.owner = kit.1["owner"].stringValue
                         kits.append(kitModel)
                     }
                     kits.reverse()
@@ -86,6 +87,7 @@ class MainService: NSObject, MainServiceProtocol {
                         kitModel.id = kit.1["_id"].stringValue
                         kitModel.mainImage = kit.1["mainImage"].stringValue
                         kitModel.title = kit.1["title"].stringValue
+                        kitModel.owner = kit.1["owner"].stringValue
                         if let price = kit.1["salesDetails"]["price"].double {
                             saleDetails.price = price
                             kitModel.salesDetails = saleDetails

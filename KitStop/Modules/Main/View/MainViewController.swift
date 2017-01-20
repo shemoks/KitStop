@@ -25,6 +25,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     fileprivate var refreshControl = UIRefreshControl()
     fileprivate var kits: [Product] = []
     var delegate: MainViewPassDataProtocol?
+    fileprivate var refreshStatus = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,8 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func refresh() {
         print("refresh")
-        refreshControl.endRefreshing()
+        delegate?.refreshKits()
+        refreshStatus = true
     }
     
     func addTap() {
@@ -88,6 +90,9 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     }
     
     func kitItems(transferData: [Product]) {
+        if refreshStatus {
+            refreshControl.endRefreshing()
+        }
         self.kits = transferData
         collectionView.reloadData()
     }

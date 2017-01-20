@@ -11,6 +11,10 @@ import UIKit
 
 protocol KitFolioDetailedViewInput: class {
     func addXibOnView(view: UIView)
-    func addToolBar(toolBar: UIView)
     func updateProduct(product: Product, user: User?)
+    func presentAlert(alert: UIAlertController)
+    func presentPicker()
+    func showAlert(title: String, message: String)
+    func showSuccessAlert(title: String, message: String, action: [UIAlertAction])
+    func refreshDataAfterUpdate()
 }

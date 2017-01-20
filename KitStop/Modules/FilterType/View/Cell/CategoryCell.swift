@@ -9,7 +9,7 @@
 import UIKit
 
 class CategoryCell: UITableViewCell {
-
+    
         func configure(with category: Category) {
             textLabel?.text = category.title
         }

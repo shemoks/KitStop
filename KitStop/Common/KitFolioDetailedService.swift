@@ -44,7 +44,76 @@ class KitFolioDetailedService: NSObject, KitFolioDetailedServiceProtocol {
                 print(error)
                 completitionBlock(nil, nil, (error as NSError).code)
             }
-
+            
+        })
+    }
+    
+    func update(id: String, data: [String : String], mainImage: String, completitionBlock: @escaping (Product?, Int?) -> ()) {
+        let _ = manager.apiRequest( .saveKitFolio(id: id), parameters: ["id" : id as AnyObject, "title" : data["title"] as AnyObject, "description" : data["description"] as AnyObject, "mainImage" : mainImage as AnyObject, "images" : [] as AnyObject], headers: nil).apiResponse(completionHandler: {
+            response in
+            switch response.result{
+            case .success(let json):
+                print(json)
+                if json["success"].boolValue {
+                    var product = Product()
+                    product.id = json["data"]["_id"].stringValue
+                    product.mainImage = json["data"]["mainImage"].stringValue
+                    product.title = json["data"]["title"].stringValue
+                    product.description = json["data"]["description"].stringValue
+                    product.date = Date().dateFrom(string: json["data"]["updatedAt"].stringValue)
+                    completitionBlock(product, nil)
+                } else {
+                    print("error \(json)")
+                    completitionBlock(nil, response.response?.statusCode)
+                }
+            case .failure(let error):
+                completitionBlock(nil, (error as NSError).code)
+            }
+        })
+    }
+    
+    func deleteKitFolio(id: String, completitionBlock: @escaping (Int?) -> ()) {
+        let _ = manager.apiRequest(.deleteKitFolio(id: id)).apiResponse(completionHandler: {
+            response in
+            switch response.result{
+            case .success(let json):
+                print(json["success"])
+                if json["success"].boolValue {
+                    completitionBlock(nil)
+                } else {
+                    print("error \(json)")
+                    completitionBlock(response.response?.statusCode)
+                }
+            case .failure(let error):
+                print(error)
+                completitionBlock((error as NSError).code)
+            }
+            
+        })
+    }
+    
+    func saveKitFolio(id: String, imageArray: [String], data: [String : String], mainImage: String, completitionBlock: @escaping (Product?, _ error: Int?) -> ()) {
+        let _ = manager.apiRequest( .saveKitFolio(id: id), parameters: ["id" : id as AnyObject, "title" : data["title"] as AnyObject, "description" : data["description"] as AnyObject, "mainImage" : mainImage as AnyObject, "images" : imageArray as AnyObject], headers: nil).apiResponse(completionHandler: {
+            response in
+            switch response.result{
+            case .success(let json):
+                print(json)
+                if json["success"].boolValue {
+                    var product = Product()
+                    product.id = json["data"]["_id"].stringValue
+                    product.mainImage = json["data"]["mainImage"].stringValue
+                    product.title = json["data"]["title"].stringValue
+                    product.description = json["data"]["description"].stringValue
+                    product.date = Date().dateFrom(string: json["data"]["updatedAt"].stringValue)
+                    completitionBlock(product, nil)
+                } else {
+                    print("error \(json)")
+                    completitionBlock(nil, response.response?.statusCode)
+                }
+            case .failure(let error):
+                print(error)
+                completitionBlock(nil, (error as NSError).code)
+            }
         })
     }
 }
