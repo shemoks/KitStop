@@ -18,7 +18,7 @@ class SearchService: SearchServiceProtocol {
         self.manager = manager
     }
     
-    func fetchKitFolioSearchResults(page: Int, title: String, completion: @escaping ([Product]) -> ()) {
+    func fetchKitFolioSearchResults(page: Int, title: String, completion: @escaping ([Product], Bool) -> ()) {
         let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "title": title as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
@@ -28,18 +28,24 @@ class SearchService: SearchServiceProtocol {
                     var kitModel = Product()
                     kitModel.mainImage = kit.1["mainImage"].stringValue
                     kitModel.title = kit.1["title"].stringValue
+                    kitModel.id = kit.1["_id"].stringValue
+                    kitModel.owner = kit.1["owner"].stringValue
                     kits.append(kitModel)
                 }
-                completion(kits)
+                if json["data"]["docs"].count == 0 {
+                    completion(kits, false)
+                } else {
+                    completion(kits , true)
+                }
                 print(json)
             case .failure(let error):
                 print(error)
             }
         })
-        
     }
     
-    func fetchKitsSearchResults(page: Int, title: String, completion: @escaping ([Product]) -> ()) {
+    
+    func fetchKitsSearchResults(page: Int, title: String, completion: @escaping ([Product], _ kitsFound: Bool) -> ()) {
         let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "title": title as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
@@ -49,9 +55,15 @@ class SearchService: SearchServiceProtocol {
                     var kitModel = Product()
                     kitModel.mainImage = kit.1["mainImage"].stringValue
                     kitModel.title = kit.1["title"].stringValue
+                    kitModel.id = kit.1["_id"].stringValue
+                    kitModel.owner = kit.1["owner"].stringValue
                     kits.append(kitModel)
                 }
-                completion(kits)
+                if json["data"]["docs"].count == 0 {
+                    completion(kits, false)
+                } else {
+                     completion(kits , true)
+                }
                 print(json)
             case .failure(let error):
                 print(error)
@@ -59,7 +71,7 @@ class SearchService: SearchServiceProtocol {
         })
     }
     
-    func fetchKitsForSaleSearchResults(page: Int, title: String, completion: @escaping ([Product]) -> ()) {
+    func fetchKitsForSaleSearchResults(page: Int, title: String, completion: @escaping ([Product], _ kitsFound: Bool) -> ()) {
         let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "title": title as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
@@ -70,13 +82,19 @@ class SearchService: SearchServiceProtocol {
                     var saleDetails = SalesDetails()
                     kitModel.mainImage = kit.1["mainImage"].stringValue
                     kitModel.title = kit.1["title"].stringValue
+                    kitModel.id = kit.1["_id"].stringValue
+                    kitModel.owner = kit.1["owner"].stringValue
                     if let price = kit.1["salesDetails"]["price"].double {
                         saleDetails.price = price
                         kitModel.salesDetails = saleDetails
                     }
                     kits.append(kitModel)
                 }
-                completion(kits)
+                if json["data"]["docs"].count == 0 {
+                    completion(kits, false)
+                } else {
+                    completion(kits , true)
+                }
                 print(json)
             case .failure(let error):
                 print(error)

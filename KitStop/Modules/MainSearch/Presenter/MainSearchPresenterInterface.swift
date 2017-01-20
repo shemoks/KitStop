@@ -16,6 +16,7 @@ protocol MainSearchViewOutput: class {
     func handleSearchButtonTap(title: String)
     func closeModule()
     func setTitle() -> String
+    func handleItemSelection(for indexPath: IndexPath)
     
 }
 
@@ -24,6 +25,7 @@ protocol MainSearchViewOutput: class {
 protocol MainSearchInteractorOutput: class {
     func setKits(_ kits: [Product])
     func reloadData()
+    func showAlert(message: String)
 }
 
 // MARK: - MainSearchModuleInput

@@ -33,30 +33,25 @@ final class CreateKitSaveInteractor {
 
 extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post) {
-        if (price?.isEmpty)! || (date?.isEmpty)! {
-            LoadingIndicatorView.hide()
-            presenter.showAlertWith(title: "Error", message: "Please fill out required fields")
-        } else {
-            self.saveImagesTo("Kits", images: post.images, success: { [weak self]
-                imageUrls in
-                if imageUrls.first != nil {
-                    let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
-                    self?.createKitService?.createKit(kit: kit!, completion: {
-                        result , error, id in
-                        LoadingIndicatorView.hide()
-                        if result {
-                            self?.presenter.returnToMainModule()
-                        } else {
-                            let errorMessage = CustomError(code: error!).description
-                            self?.presenter.showAlertWith(title: "Error", message: errorMessage)
-                        }
-                    })
-                } else {
+        self.saveImagesTo("Kits", images: post.images, success: { [weak self]
+            imageUrls in
+            if imageUrls.first != nil {
+                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                self?.createKitService?.createKit(kit: kit!, completion: {
+                    result , error, id in
                     LoadingIndicatorView.hide()
-                    self?.presenter.showAlertWith(title: "Error", message: "Image upload fail")
-                }
-            })
-        }
+                    if result {
+                        self?.presenter.returnToMainModule()
+                    } else {
+                        let errorMessage = CustomError(code: error!).description
+                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
+                    }
+                })
+            } else {
+                LoadingIndicatorView.hide()
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+            }
+        })
     }
     
     // Some questionable code here. Should probably take different approach to request body creation.
@@ -65,7 +60,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         var metaData = [String:AnyObject]()
         
         for item in post.metadata {
-            metaData.updateValue(item.currentData! as AnyObject, forKey: item.title)
+            metaData.updateValue(item.textValue as AnyObject, forKey: item.title)
         }
         
         let title = post.generalProperty[2].textValue

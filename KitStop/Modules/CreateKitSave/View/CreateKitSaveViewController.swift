@@ -33,13 +33,8 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         tableView.register(UINib(nibName: "KitInfoCell", bundle: nil), forCellReuseIdentifier: "KitInfoCell")
         datePicker.maximumDate = Date()
         datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(handleDatePicker), for: UIControlEvents.valueChanged)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(colorLiteralRed: 255/255.0, green: 136/255.0, blue: 48/255.0, alpha: 1.0)
-    }
-    
-    func handleDatePicker(sender: UIDatePicker) {
-        presenter.setDate(date: datePicker.date.string(format: "dd/MMM/yyyy"))
     }
     
     func tapOnSave() {
@@ -153,12 +148,16 @@ extension CreateKitSaveViewController: UITableViewDataSource {
         } else {
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "KitInfoCell", for: indexPath) as! KitInfoCell
             infoCell.configure(detail: presenter.detail(for: indexPath))
-            infoCell.value.clipsToBounds = true
+            
+           infoCell.value.clipsToBounds = true
+           
             if indexPath.row == 1{
                 infoCell.value.isEnabled = true
                 infoCell.value.keyboardType = UIKeyboardType.decimalPad
             }
+        
             infoCell.value.delegate = self
+            
             cell = infoCell
         }
         return cell

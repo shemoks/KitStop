@@ -62,6 +62,12 @@ extension MainSearchPresenter: MainSearchViewOutput {
     func handleSearchButtonTap(title: String) {
         interactor.commenceSearch(with: title, selectedSegment: selectedSegment)
     }
+    
+    func handleItemSelection(for indexPath: IndexPath) {
+        let postID = kits[indexPath.row].id
+        let ownerID = kits[indexPath.row].owner
+        router.openDetailedView(postID: postID, ownerID: ownerID, selectedSegment: self.selectedSegment)
+    }
 }
 
 // MARK: - MainSearchInteractorOutput
@@ -73,6 +79,10 @@ extension MainSearchPresenter: MainSearchInteractorOutput {
     
     func reloadData() {
         view.reloadData()
+    }
+    
+    func showAlert(message: String) {
+        view.showAlert(message: message)
     }
 }
 
