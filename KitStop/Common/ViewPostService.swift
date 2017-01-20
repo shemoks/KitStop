@@ -22,7 +22,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
 
     func getKit(idKit: String, forSale: Bool, postValue: @escaping ((ViewPost, _ errorCode: Int?) -> ())) {
         if !forSale {
-            let general = ["Brand", "Model", "Serial #"]
+            let general = ["brand", "model", "serial #"]
             let _ = manager.apiRequest(.viewKitByOwner(idKit: idKit), parameters: [:], headers: nil).apiResponse(completionHandler: {
                 response in
                 switch response.result{
@@ -38,8 +38,8 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         for value in generalValues {
                             if general.contains(value.0) {
                                 let newItem = ViewProperty()
-                                newItem.title = value.0
-                                newItem.text = String(describing: value.1).localizedCapitalized
+                                newItem.title = String(describing: value.0).capitalizingFirstLetter()
+                                newItem.text = value.1.stringValue
                                 generalProperty.append(newItem)
                             }
                         }
