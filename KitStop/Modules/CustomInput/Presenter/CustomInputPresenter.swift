@@ -42,7 +42,6 @@ extension CustomInputPresenter: CustomInputViewOutput {
 
     func returnOther(dataText: String) {
          let customInputModuleOutput = moduleOutput as! CustomInputModuleOutput
-        print(self.data?.data)
         router.closeModule(data: self.data!, moduleOutput: customInputModuleOutput)
     }
 

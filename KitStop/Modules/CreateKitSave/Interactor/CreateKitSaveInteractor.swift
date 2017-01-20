@@ -65,7 +65,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         var metaData = [String:AnyObject]()
         
         for item in post.metadata {
-            metaData.updateValue(item.currentData! as AnyObject, forKey: item.title)
+            metaData.updateValue(item.textValue as AnyObject, forKey: item.title)
         }
         
         let title = post.generalProperty[2].textValue

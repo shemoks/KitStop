@@ -43,6 +43,7 @@
                     <navigationItem key="navigationItem" id="YWe-ih-y6Q"/>
                     <connections>
                         <outlet property="tableView" destination="REt-MC-88B" id="ZoR-BM-JX1"/>
+                        <segue destination="we0-Ac-Rwn" kind="show" identifier="transitionToUnderConstruction" id="aw2-7H-b04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6a-PE-oFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,6 +54,14 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="860" y="125.4872563718141"/>
+        </scene>
+        <!--UnderConstructionViewController-->
+        <scene sceneID="ZnI-8c-fpb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UnderConstruction" referencedIdentifier="UnderConstructionViewController" id="we0-Ac-Rwn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JlC-z8-wqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="-22"/>
         </scene>
     </scenes>
 </document>
