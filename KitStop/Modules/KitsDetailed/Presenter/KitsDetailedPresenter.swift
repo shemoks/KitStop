@@ -20,6 +20,7 @@ final class KitsDetailedPresenter {
     var router: KitsDetailedRouterInput!
     var post = ViewPost()
     var ownerId: String = ""
+    var sectionSale: Bool = true
 
 }
 
@@ -66,9 +67,9 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleViewDidLoad() {
-       // interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
+        // interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
         view.reloadData()
-        
+
     }
 
     func getTittle() -> String {
@@ -89,6 +90,24 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
 
     func openChat() {
         router.openChatModule()
+    }
+
+    func numberOfSections() -> Int {
+        if self.sectionSale {
+            return 4
+        } else {
+            return 5
+        }
+    }
+    func getPrice() -> String {
+        var result = ""
+        let price = post.saleData
+        for saleItem in price {
+            if saleItem.title == "Price" {
+                result = saleItem.text
+            }
+        }
+        return result
     }
 
 }
@@ -119,10 +138,9 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 extension KitsDetailedPresenter: KitsDetailedModuleInput {
 
     func dataForView(forSale: Bool, idPost: String, idOwner: String?) {
-      self.ownerId = idOwner!
-
-      interactor.getPost(forSale: false, idPost: idPost)
-
+        sectionSale = forSale
+        self.ownerId = idOwner!
+        interactor.getPost(forSale: forSale, idPost: idPost)
     }
-
+    
 }

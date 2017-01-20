@@ -190,6 +190,8 @@
 		9A47E5211E04324A005EED88 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47E5201E04324A005EED88 /* Filter.swift */; };
 		9A7B6AD81E31213300806A17 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7B6AD71E31213300806A17 /* View.xib */; };
 		9A7B6ADA1E31241B00806A17 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7B6AD91E31241B00806A17 /* TableFooterView.swift */; };
+		9A7B6ADC1E322BF600806A17 /* HeaderForSale.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7B6ADB1E322BF600806A17 /* HeaderForSale.xib */; };
+		9A7B6ADE1E32329A00806A17 /* HeaderForSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7B6ADD1E32329A00806A17 /* HeaderForSale.swift */; };
 		9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */; };
 		9A8E87601DFAC24C00780ED1 /* RootPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */; };
 		9A8E87631DFAC26600780ED1 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E87611DFAC26600780ED1 /* RootRouter.swift */; };
@@ -572,6 +574,8 @@
 		9A47E5201E04324A005EED88 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		9A7B6AD71E31213300806A17 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9A7B6AD91E31241B00806A17 /* TableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
+		9A7B6ADB1E322BF600806A17 /* HeaderForSale.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderForSale.xib; sourceTree = "<group>"; };
+		9A7B6ADD1E32329A00806A17 /* HeaderForSale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderForSale.swift; sourceTree = "<group>"; };
 		9A8E875D1DFAC24C00780ED1 /* RootPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenter.swift; path = KitStop/Modules/Root/Presenter/RootPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9A8E875E1DFAC24C00780ED1 /* RootPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootPresenterInterface.swift; path = KitStop/Modules/Root/Presenter/RootPresenterInterface.swift; sourceTree = SOURCE_ROOT; };
 		9A8E87611DFAC26600780ED1 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootRouter.swift; path = KitStop/Modules/Root/Router/RootRouter.swift; sourceTree = SOURCE_ROOT; };
@@ -1089,6 +1093,8 @@
 				9AE8DFF31E2F8F0700A78D6C /* DescriptionViewCell.swift */,
 				9A7B6AD71E31213300806A17 /* View.xib */,
 				9A7B6AD91E31241B00806A17 /* TableFooterView.swift */,
+				9A7B6ADB1E322BF600806A17 /* HeaderForSale.xib */,
+				9A7B6ADD1E32329A00806A17 /* HeaderForSale.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2595,6 +2601,7 @@
 				25FFBF4A1E2D0FC700B29A7A /* KitFolioDetailed.storyboard in Resources */,
 				9A9D0FA31E1EBE320009274C /* DescriptionCell.xib in Resources */,
 				9AB17CEF1E0BD5AE004E95FF /* SF-UI-Text-RegularItalic.otf in Resources */,
+				9A7B6ADC1E322BF600806A17 /* HeaderForSale.xib in Resources */,
 				FA5184341E0D35AA007B546B /* Launch Screen.storyboard in Resources */,
 				9AB17CEC1E0BD5AE004E95FF /* SF-UI-Text-Medium.otf in Resources */,
 				9AB17CE61E0BD5AE004E95FF /* SF-UI-Text-Bold.otf in Resources */,
@@ -2738,6 +2745,7 @@
 				9A9D0FA51E1EBE4F0009274C /* DescriptionCell.swift in Sources */,
 				25211E9E1E1F980D00630200 /* BottomBarRouterInterface.swift in Sources */,
 				95F2E8821E3106550025F993 /* CreateKitSaveViewController.swift in Sources */,
+				9A7B6ADE1E32329A00806A17 /* HeaderForSale.swift in Sources */,
 				259C5E041DF9B35B001E3CCC /* LogInRouterInterface.swift in Sources */,
 				25D8A14E1E0F0BBB007FC431 /* SignUpUserModel.swift in Sources */,
 				9AB17E181E1E52EA004E95FF /* PostProperties.swift in Sources */,

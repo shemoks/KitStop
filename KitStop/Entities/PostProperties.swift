@@ -85,6 +85,7 @@ class ViewPost {
     var owner = User()
     var id: String = ""
     var createAt: String = ""
+    var category: String = ""
     
 }
 

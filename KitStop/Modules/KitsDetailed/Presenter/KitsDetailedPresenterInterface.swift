@@ -24,6 +24,9 @@ protocol KitsDetailedViewOutput: class {
     func getTittle() -> String
     func updateData(xib: UIView) -> Bool
     func openChat()
+    func numberOfSections() -> Int
+    func getPrice() -> String
+    
 }
 
 // MARK: - KitsDetailedInteractorOutput

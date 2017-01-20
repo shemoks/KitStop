@@ -9,5 +9,6 @@
 protocol ViewPostServiceProtocol {
 
     func getKit(idKit: String, forSale: Bool, postValue: @escaping ((ViewPost, _ errorCode: Int?) -> ()))
+    func getKitForSale(idKit: String, forSale: Bool, postValue: @escaping ((ViewPost, _ errorCode: Int?) -> ()))
     
 }

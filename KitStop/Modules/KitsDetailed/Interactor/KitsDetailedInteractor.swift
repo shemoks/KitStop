@@ -44,6 +44,14 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
             }
         }
         } else {
+            dataManager.getKitForSale(idKit: idPost, forSale: forSale) { [weak self] object, error in
+                if error == nil {
+                    self?.presenter.setPost(post: object)
+                } else {
+                    let error = CustomError(code: error!).description
+                    self?.presenter.showError(title: "Error", message: error)
+                }
+            }
             
         }
     }

@@ -42,16 +42,11 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
     }
 
     func openChatModule() {
-//        flowController.openModule(using: .openUnderConstructionModule) {
-//            guard ($0 as? UnderConstructionModuleInput) != nil else {fatalError()}
-//            return nil
-//        }
+        flowController.openModule(using: .openUnderConstruction) {
+            guard let moduleInput = $0 as? UnderConstructionModuleInput else {fatalError()}
+            return nil
+        }
+
     }
-
 }
 
-extension Segue {
-//    static var openUnderConstructionModule: Segue<UnderConstructionViewController> {
-//        return .init(identifier:"transitionToUnderConstruction")
-//    }
-}

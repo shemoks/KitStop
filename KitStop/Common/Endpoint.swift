@@ -30,6 +30,7 @@ enum Endpoint {
     case kitFolioDetailed(id: String)
     case createKit()
     case viewKitByOwner(idKit: String)
+    case viewKitForSale(idKit: String)
     case deleteKitFolio(id: String)
     case saveKitFolio(id: String)
     
@@ -89,6 +90,8 @@ enum Endpoint {
             return "/kit-folio/\(id)"
         case .saveKitFolio(let id):
             return "/kit-folio/\(id)"
+        case .viewKitForSale(let idKit):
+            return ("/kits-for-sale/" + idKit)
         }
     }
 
