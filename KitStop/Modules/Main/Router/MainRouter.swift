@@ -47,8 +47,14 @@ extension MainRouter: MainRouterInput {
                 print("Main")
 //            case 3:
 //                print("Favs")
-//            case 5:
-//                print("Profile")
+            case 4:
+                print("Profile")
+                flowController.openModule(using: .openUnderConstruction) {
+                    guard let moduleInput = $0 as? UnderConstructionModuleInput else {fatalError()}
+                    moduleInput.addLogOut()
+                    return nil
+            }
+
             default:
                 flowController.openModule(using: .openUnderConstruction) {
                     guard ($0 as? UnderConstructionModuleInput) != nil else {fatalError()}

@@ -58,10 +58,6 @@ extension MainPresenter: MainViewOutput {
     func handleKitForSale() {
         interactor.handleKitsForSale()
     }
-    
-    func logoutFromFacebook() {
-        interactor.logoutFromFacebook()
-    }
 }
 
 // MARK: - MainInteractorOutput

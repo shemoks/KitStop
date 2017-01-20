@@ -22,8 +22,8 @@ final class CreateKitSavePresenter {
     var kit: CreateKitsRequestBody?
     var post: Post?
     var isPrivate:Bool = false
-    var date = "Not Set"
-    var price = "Not Set"
+    var date = ""
+    var price = ""
     var postId: String?
     var limit:Int?
 
@@ -51,11 +51,9 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setPrice(value: String) {
-        if !value.isEmpty || (value.rangeOfCharacter(from: CharacterSet.whitespaces) == nil) {
             self.price = value
             self.details.last?.contents = "$\(value)"
             view.reloadData()
-        }
     }
     
     func setDate(date: String) {
@@ -81,6 +79,10 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
         details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: "Enter value"))
         
     }
+    
+    func showAlert() {
+        view.showAlert(title: "Error", message: "Set price exceeds maximum value of 1000000")
+    }
 }
 
 // MARK: - CreateKitSaveInteractorOutput
@@ -88,6 +90,10 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
 extension CreateKitSavePresenter: CreateKitSaveInteractorOutput {
     func showAlertWith(title: String, message: String) {
         view.showAlert(title: title, message: message)
+    }
+    
+    func returnToMainModule() {
+        view.returnToMainModule()
     }
     
     func openDetailedModule(id: String) {

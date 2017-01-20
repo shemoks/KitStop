@@ -22,10 +22,12 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
     func configure(property: Property) {
         self.object = property
         title.text = property.title
-        self.descriptions.textColor = UIColor.black
+
         if self.descriptions.text == "" || self.descriptions.text == property.placeholder {
             self.descriptions.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
             self.descriptions.text = property.placeholder
+        } else {
+            self.descriptions.textColor = UIColor.black
         }
         //    self.descriptions.text = property.textValue
         descriptions.delegate = self
@@ -59,6 +61,7 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
         }
     }
 
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         if self.descriptions.text == (self.object?.placeholder)! {
             textView.text = nil
@@ -68,7 +71,7 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
 
     func validation(data: String) -> Bool {
         let newData = data.trimmingCharacters(in: .whitespaces)
-        if data.characters.count > 0 && newData.characters.count > 0 {
+        if data.characters.count > 0 && newData.characters.count > 0 && data != object?.placeholder {
             return true
         }
         return false

@@ -40,6 +40,10 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     func openKitFolioDetailedModule(kitId: String, ownerId: String) {
         router.openKitFolioDetailedModule(kitId: kitId, ownerId: ownerId)
     }
+    
+    func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String) {
+        router.openKitsModule(segmentedIndex: segmentedIndex, kitId: kitId, ownerId: ownerId)
+    }
 }
 
 // MARK: - MainFilterContainerInteractorOutput

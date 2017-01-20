@@ -41,6 +41,10 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
         fetchKits()
     }
     
+    func refreshKits() {
+        presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
+    }
+    
     func fetchKits() {
         filter.setImage(UIImage.init(named: "filter_icon"), for: .normal)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
@@ -52,7 +56,12 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     }
     
     func selectedKits(kitId: String, ownerId: String) {
-        if kitSegmentControl.selectedSegmentIndex == 2 {
+        if kitSegmentControl.selectedSegmentIndex == 0 {
+            presenter.openKitsModule(segmentedIndex: true, kitId: kitId, ownerId: ownerId)
+        } else if kitSegmentControl.selectedSegmentIndex == 1 {
+            presenter.openKitsModule(segmentedIndex: false, kitId: kitId, ownerId: ownerId)
+        }
+        else if kitSegmentControl.selectedSegmentIndex == 2 {
             presenter.openKitFolioDetailedModule(kitId: kitId, ownerId: ownerId)
         }
     }

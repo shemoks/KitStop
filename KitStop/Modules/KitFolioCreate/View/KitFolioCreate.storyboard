@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,16 +53,16 @@
                                         <rect key="frame" x="0.0" y="234" width="414" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-8y-0KA">
-                                                <rect key="frame" x="7.9999999999999964" y="8" width="53.666666666666657" height="14.666666666666686"/>
+                                                <rect key="frame" x="8.0000000000000036" y="8" width="53.333333333333343" height="14"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter short description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-I2-5Ra">
-                                                <rect key="frame" x="8" y="26.666666666666686" width="156" height="17"/>
+                                                <rect key="frame" x="8" y="22" width="406" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
                                                     <action selector="postTitleChange:" destination="nZ0-5w-Sbl" eventType="editingChanged" id="ghO-xg-EN2"/>
                                                 </connections>
@@ -70,8 +70,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="gDf-I2-5Ra" secondAttribute="trailing" id="Byy-gd-lAC"/>
                                             <constraint firstAttribute="height" constant="50" id="DW9-mz-7g3"/>
-                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="top" secondItem="aCl-8y-0KA" secondAttribute="bottom" constant="4" id="MWT-2n-L5m"/>
+                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="top" secondItem="aCl-8y-0KA" secondAttribute="bottom" id="MWT-2n-L5m"/>
                                             <constraint firstItem="gDf-I2-5Ra" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="8" id="Qcg-Yi-rQO"/>
                                             <constraint firstItem="aCl-8y-0KA" firstAttribute="top" secondItem="Y8a-Ak-Cc2" secondAttribute="top" constant="8" id="geR-CZ-OSB"/>
                                             <constraint firstItem="aCl-8y-0KA" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="8" id="k95-ZB-i5d"/>
@@ -81,7 +82,7 @@
                                         <rect key="frame" x="0.0" y="292" width="414" height="176"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnj-n0-VZk">
-                                                <rect key="frame" x="8" y="13.666666666666686" width="65" height="14.333333333333314"/>
+                                                <rect key="frame" x="8" y="14" width="65" height="14"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -224,7 +225,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGt-W5-XF2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ypf-OR-rQE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypf-OR-rQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

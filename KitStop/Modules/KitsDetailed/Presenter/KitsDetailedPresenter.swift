@@ -19,7 +19,7 @@ final class KitsDetailedPresenter {
     var interactor: KitsDetailedInteractorInput!
     var router: KitsDetailedRouterInput!
     var post = ViewPost()
-    var ownerId = "586261da90e61a383f51d9fe"
+    var ownerId: String = ""
 
 }
 
@@ -66,7 +66,9 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleViewDidLoad() {
-        interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
+       // interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
+        view.reloadData()
+        
     }
 
     func getTittle() -> String {
@@ -110,10 +112,6 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
         view.showError(title: title, message: message)
     }
 
-    func isVisibleTable(isVisible: Bool) {
-        view.isVisibleTable(isVisible: isVisible)
-    }
-
 }
 
 // MARK: - KitsDetailedModuleInput
@@ -121,9 +119,9 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 extension KitsDetailedPresenter: KitsDetailedModuleInput {
 
     func dataForView(forSale: Bool, idPost: String, idOwner: String?) {
-    //    self.ownerId = idOwner
+      self.ownerId = idOwner!
 
-   //   interactor.getPost(forSale: false, idPost: idPost)
+      interactor.getPost(forSale: false, idPost: idPost)
 
     }
 

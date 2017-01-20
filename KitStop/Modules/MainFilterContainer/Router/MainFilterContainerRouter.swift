@@ -51,6 +51,14 @@ extension MainFilterContainerRouter: MainFilterContainerRouterInput {
             return nil
         }
     }
+    
+    func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String) {
+        flowController.openModule(using: .openKitsDetailed) {
+            guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
+            moduleInput.dataForView(forSale: segmentedIndex, idPost: kitId, idOwner: ownerId)
+            return nil
+        }
+    }
 }
 
 extension Segue {
@@ -65,5 +73,9 @@ extension Segue {
     
     static var openKitDetailed: Segue<KitFolioDetailedViewController> {
         return .init(identifier: "transitionToKitDetailed")
+    }
+    
+    static var openKitsDetailed: Segue<KitsDetailedViewController> {
+        return .init(identifier: "transitionToKitsDetailed")
     }
 }

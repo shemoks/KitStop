@@ -32,7 +32,6 @@ protocol KitsDetailedInteractorOutput: class {
 
     func setPost(post: ViewPost)
     func showError(title: String, message: String)
-    func isVisibleTable(isVisible: Bool)
 
 }
 
@@ -40,6 +39,7 @@ protocol KitsDetailedInteractorOutput: class {
 
 protocol KitsDetailedModuleInput: ModuleInput {
 
+    func dataForView(forSale: Bool, idPost: String, idOwner: String?)
 
 }
 

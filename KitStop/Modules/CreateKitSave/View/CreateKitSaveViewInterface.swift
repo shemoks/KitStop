@@ -11,4 +11,5 @@
 protocol CreateKitSaveViewInput: class {
     func reloadData()
     func showAlert(title: String, message: String)
+    func returnToMainModule()
 }

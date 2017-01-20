@@ -22,7 +22,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
 
     func getKit(idKit: String, forSale: Bool, postValue: @escaping ((ViewPost, _ errorCode: Int?) -> ())) {
         if !forSale {
-            let general = ["brand", "model", "serial #"]
+            let general = ["Brand", "Model", "Serial #"]
             let _ = manager.apiRequest(.viewKitByOwner(idKit: idKit), parameters: [:], headers: nil).apiResponse(completionHandler: {
                 response in
                 switch response.result{
@@ -39,7 +39,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             if general.contains(value.0) {
                                 let newItem = ViewProperty()
                                 newItem.title = value.0
-                                newItem.text = String(describing: value.1)
+                                newItem.text = String(describing: value.1).localizedCapitalized
                                 generalProperty.append(newItem)
                             }
                         }
@@ -55,7 +55,12 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         if json["data"]["description"] != JSON.null {
                             let description = ViewProperty()
                             description.title = "Description"
-                            description.text = json["data"]["description"].stringValue
+                            if json["data"]["description"].bool != nil {
+                                description.text = json["data"]["description"].stringValue
+                            } else {
+                                description.text = "No Description is entered"
+                            }
+
                             post.description = description
                         } else {
                             let description = ViewProperty()
@@ -66,7 +71,11 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         if json["data"]["notes"] != JSON.null {
                             let notes = ViewProperty()
                             notes.title = "Owner notes"
-                            notes.text = json["data"]["description"].stringValue
+                            if json["data"]["notes"].bool != nil {
+                            notes.text = json["data"]["notes"].stringValue
+                            } else {
+                                 notes.text = "No Owner Notes is entered"
+                            }
                             post.notes = notes
                         } else {
                             let notes = ViewProperty()
@@ -93,11 +102,16 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         var saleDateItems = [ViewProperty]()
                         let newItemPurchaseDate = ViewProperty()
                         let purch = json["data"]["purchaseDate"].doubleValue
-                        newItemPurchaseDate.text = Date(timeIntervalSince1970: TimeInterval(purch)).description
+                        let dateFormatter = DateFormatter()
+                        let dateValue = Date(timeIntervalSince1970: TimeInterval(purch))
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+                        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+                        let timeStamp = dateFormatter.string(from: dateValue)
+                        newItemPurchaseDate.text = timeStamp
                         newItemPurchaseDate.title =  "Purchase Date"
                         saleDateItems.append(newItemPurchaseDate)
                         let newItemPurchaseDateNext = ViewProperty()
-                        newItemPurchaseDateNext.text = json["data"]["purchasePrice"].stringValue
+                        newItemPurchaseDateNext.text = "$" + json["data"]["purchasePrice"].stringValue
                         newItemPurchaseDateNext.title =  "Purchase Price"
                         saleDateItems.append(newItemPurchaseDateNext)
                         post.createAt = json["data"]["updatedAt"].stringValue

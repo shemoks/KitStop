@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol FacebookServiceProtocol {
-    func authenticateUser(token: String, completion: @escaping (Bool) -> ())
+    func authenticateUser(token: String, completion: @escaping (Bool, _ json: JSON?) -> ())
 }

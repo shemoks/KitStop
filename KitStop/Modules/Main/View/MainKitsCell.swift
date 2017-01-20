@@ -25,7 +25,7 @@ class MainKitsCell: UICollectionViewCell {
         camera.sd_setImage(with: URL.init(string: kit.mainImage))
         cameraDescription.text = kit.title
         if let price = kit.salesDetails?.price {
-            self.price.text = Double().checkNumberAfterDot(number: price)
+            self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
             priceContainer.isHidden = false
         } else { priceContainer.isHidden = true }
     }

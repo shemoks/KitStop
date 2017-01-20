@@ -15,6 +15,5 @@ protocol KitsDetailedViewInput: class {
     func reloadData()
     func showError(title: String, message: String)
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String)
-    func isVisibleTable(isVisible: Bool)
 
 }

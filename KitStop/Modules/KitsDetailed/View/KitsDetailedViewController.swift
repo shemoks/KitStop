@@ -73,15 +73,11 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         let footerView = TableFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         footerView.dateUpdate.text = dateUpdate
         tableView.tableFooterView = footerView
-        self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
+        self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "Icons_action_sheet"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
         
 
     }
 
-    func isVisibleTable(isVisible: Bool) {
-        tableView.isHidden = isVisible
-
-    }
 
 }
 
