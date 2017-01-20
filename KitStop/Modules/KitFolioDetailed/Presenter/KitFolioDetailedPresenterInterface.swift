@@ -24,6 +24,7 @@ protocol KitFolioDetailedViewOutput: class {
     func validation(data: [String : String], image: UIImage)
     var product: Product? {get set}
     var imageChange: Bool {get set}
+    var imageDeleteStatus: Bool {get set}
 }
 
 // MARK: - KitFolioDetailedInteractorOutput

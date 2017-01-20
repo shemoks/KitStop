@@ -90,6 +90,8 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         cancelContainer.isHidden = true
         cancelContainer.alpha = 0
         scrollBottom.constant = 0
+        presenter.imageChange = false
+        presenter.imageDeleteStatus = false
         if presenter.product != nil {
             updateData(product: presenter.product!)
         }
