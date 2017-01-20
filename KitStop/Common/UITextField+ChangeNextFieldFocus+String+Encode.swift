@@ -23,7 +23,7 @@ extension UITextField {
     }
     
     public func emailValidation(textField: UITextField) -> Bool {
-        let expression = "^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$"
+        let expression = "^[-\\w.]+@([A-z0-9]+\\.)+[A-z]{2,4}$"
         
         let emailTest: NSPredicate  = NSPredicate(format: "SELF MATCHES[c] %@", expression)
         

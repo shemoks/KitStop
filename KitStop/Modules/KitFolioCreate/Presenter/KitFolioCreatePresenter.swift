@@ -33,7 +33,11 @@ extension KitFolioCreatePresenter: KitFolioCreateViewOutput {
     func saveKitFolio(postTitle: String, postDescription: String, smallImage: UIImage?, bigImage: UIImage?) {
         if postTitle != "" && smallImage != nil && bigImage != nil {
             LoadingIndicatorView.show()
-            interactor.save(postTitle: postTitle, postDescription: postDescription, smallImage: smallImage, bigImage: bigImage)
+            var description = postDescription
+            if description == PlaceholderText.kitfolioDescriptionText {
+                description = ""
+            }
+            interactor.save(postTitle: postTitle, postDescription: description, smallImage: smallImage, bigImage: bigImage)
         } else {
             view.showAlert(title: "Error", message: "Please fill all the fields")
         }
