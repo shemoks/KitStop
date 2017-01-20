@@ -23,7 +23,7 @@ final class KitFolioDetailedPresenter {
     fileprivate var id: String?
     fileprivate var ownerId: String?
     fileprivate var likeStatus = true
-    fileprivate var imageDeleteStatus = false
+    var imageDeleteStatus = false
     fileprivate var picker: UIImagePickerController?
     fileprivate var smallImage: UIImage?
     fileprivate var bigImage: UIImage?
@@ -169,20 +169,24 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
     }
     
     func validation(data: [String : String], image: UIImage) {
-        if data["title"] != product?.title || data["description"] != product?.description || imageChange {
+        if data["title"] != product?.title || data["description"] != product?.description || imageChange || imageDeleteStatus {
             LoadingIndicatorView.show()
             if imageChange {
                 interactor.save(images: [smallImage, bigImage], data: data, id: id!, mainImage: smallImage)
             } else {
-                let small = image.cropToSmall()
-                let big = image.cropToBig()
-                interactor.save(images: [ small, big], data: data, id: id!, mainImage: small)
+                if imageDeleteStatus {
+                    LoadingIndicatorView.hide()
+                    view.showAlert(title: "Error", message: "Please add image")
+                } else {
+                    if let mainImage = product?.mainImage {
+                        interactor.update(data: data, id: id!, mainImage: mainImage)
+                    }
+                }
             }
         } else {
             view.showAlert(title: "Error", message: "You must change your post before updating")
         }
     }
-    
 }
 
 // MARK: - KitFolioDetailedInteractorOutput

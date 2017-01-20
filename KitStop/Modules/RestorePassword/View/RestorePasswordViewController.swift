@@ -10,19 +10,19 @@ import Chamomile
 
 // MARK: - RestorePasswordViewController
 
-final class RestorePasswordViewController: UIViewController, FlowController, UITextFieldDelegate, Alertable {
+final class RestorePasswordViewController: UIViewController, FlowController, Alertable {
+    
+    // MARK: - VIPER stack
+    
+    var presenter: RestorePasswordViewOutput!
     
     //MARK: - Outlets
 
     @IBOutlet weak var email: UITextField!
 
     @IBOutlet weak var submit: CustomButton!
-    // MARK: - VIPER stack
-
-    var presenter: RestorePasswordViewOutput!
     
     // MARK: - Life cycle
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +31,34 @@ final class RestorePasswordViewController: UIViewController, FlowController, UIT
         
         email.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         
+        email.delegate = self
+        
         submit.isEnabled = false
+        
+        email.layer.borderWidth = 2.5
+        email.layer.borderColor = UIColor.white.cgColor
+        
     }
 
     // MARK: - Actions
     
     @IBAction func receiveSubmitTap(_ sender: AnyObject) {
-        presenter.handleSubmitTap(email: email.text!)
+        if UITextField().emailValidation(textField: email) {
+            presenter.handleSubmitTap(email: email.text!)
+        } else {
+            self.showAlertWithTitle("Error", message: "Invalid e-mail")
+        }
     }
     
+}
+
+// MARK: - UITextFieldDelegate
+
+extension RestorePasswordViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UITextField().checkIfEmailIsValid(email: email)
+    }
     
     func textFieldDidChange() {
         presenter.handleEditing(isEmpty: (email.text?.isEmpty)!)

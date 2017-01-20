@@ -10,7 +10,7 @@ import Chamomile
 
 // MARK: - MainSearchViewController
 
-final class MainSearchViewController: UIViewController, FlowController {
+final class MainSearchViewController: UIViewController, FlowController, Alertable {
 
     // MARK: - VIPER stack
 
@@ -46,6 +46,16 @@ final class MainSearchViewController: UIViewController, FlowController {
         
         let searchField = search.value(forKey: "searchField") as? UITextField
         searchField?.backgroundColor = UIColor(colorLiteralRed: 232/255, green: 232/255, blue: 234/255, alpha: 1.0)
+        
+        search.placeholderText = presenter.setTitle()
+        
+        var searchTextField: UITextField? = search.value(forKey: "searchField") as? UITextField
+        if searchTextField!.responds(to: #selector(getter: UITextField.attributedPlaceholder)) {
+            var color = UIColor.darkText
+            let attributeDict = [NSForegroundColorAttributeName: UIColor.darkText]
+            searchTextField!.attributedPlaceholder = NSAttributedString(string: presenter.setTitle(), attributes: attributeDict)
+        }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -67,6 +77,10 @@ extension MainSearchViewController: MainSearchViewInput {
     func reloadData() {
         collectionView.reloadData()
     }
+    
+    func showAlert(message: String) {
+        self.showAlertWithTitle("No Results", message: message)
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -75,7 +89,7 @@ extension MainSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text!)
         presenter.handleSearchButtonTap(title: searchBar.text!)
-        
+        searchBar.resignFirstResponder()
     }
 }
 
@@ -105,6 +119,10 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.size.width
         return CGSize.init(width: (width/2) - 1, height: (width/2) )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.handleItemSelection(for: indexPath)
     }
 }
 

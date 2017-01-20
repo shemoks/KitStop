@@ -38,6 +38,9 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
                 self?.presenter.updateProductData(product: product!, user: user)
             } else {
                 // show alert
+                let message = CustomError.init(code: error!).description
+                self?.presenter.showErrorAlert(title: "Error", message: message)
+
             }
         })
     }
@@ -47,6 +50,19 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
             [weak self] error in
             if error == nil {
                 self?.presenter.showSuccessAlert(title: "Success", message: "Delete success")
+            } else {
+                let message = CustomError.init(code: error!).description
+                self?.presenter.showErrorAlert(title: "Error", message: message)
+            }
+        })
+    }
+    
+    func update(data: [String : String], id: String, mainImage: String) {
+        self.kitFolioDetailerManager?.update(id: id, data: data, mainImage: mainImage, completitionBlock: {
+            [weak self] product, error in
+            LoadingIndicatorView.hide()
+            if error == nil {
+                self?.presenter.updateProduct(product: product!)
             } else {
                 let message = CustomError.init(code: error!).description
                 self?.presenter.showErrorAlert(title: "Error", message: message)
@@ -77,6 +93,7 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
     }
     
     func saveImageTo(_ path: [String], images: [UIImage], success: @escaping (_ smallImageUrl: String?, _ bigImageUrl: String?) -> () ) {
+        self.awsManager = AWS3UploadImageService()
         awsManager.uploadImage(userImage: images[0], path: path[0], successBlock: {
             [weak self] smallImageUrl in
             self?.awsManager = AWS3UploadImageService()

@@ -16,7 +16,7 @@
         <!--Delegate-->
         <scene sceneID="5g4-Fq-hRD">
             <objects>
-                <viewController storyboardIdentifier="SignUp" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bkt-59-oES"/>
                         <viewControllerLayoutGuide type="bottom" id="zll-Qt-2q6"/>
@@ -66,7 +66,7 @@
                                             <constraint firstAttribute="height" constant="45" id="fC0-1H-F2I"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
-                                        <state key="normal" title="Log In with Email" backgroundImage="email-icon">
+                                        <state key="normal" title="Log In with E-mail" backgroundImage="email-icon">
                                             <color key="titleColor" red="0.41960784313725491" green="0.43137254901960786" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>

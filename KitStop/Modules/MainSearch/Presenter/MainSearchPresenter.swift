@@ -35,7 +35,6 @@ extension MainSearchPresenter: MainSearchViewOutput {
         } else {
             return 0
         }
-        
     }
     
     func closeModule() {
@@ -46,8 +45,28 @@ extension MainSearchPresenter: MainSearchViewOutput {
         return kits[indexPath.row]
     }
     
+    func setTitle() -> String {
+        switch selectedSegment {
+        case 0:
+            return "Search in 'For Sale' category"
+        case 1:
+            return "Search in 'Kits' category"
+        case 2:
+            return "Search in 'KitFolio'"
+        default:
+            return "Search"
+        }
+    }
+    
+    
     func handleSearchButtonTap(title: String) {
         interactor.commenceSearch(with: title, selectedSegment: selectedSegment)
+    }
+    
+    func handleItemSelection(for indexPath: IndexPath) {
+        let postID = kits[indexPath.row].id
+        let ownerID = kits[indexPath.row].owner
+        router.openDetailedView(postID: postID, ownerID: ownerID, selectedSegment: self.selectedSegment)
     }
 }
 
@@ -60,6 +79,10 @@ extension MainSearchPresenter: MainSearchInteractorOutput {
     
     func reloadData() {
         view.reloadData()
+    }
+    
+    func showAlert(message: String) {
+        view.showAlert(message: message)
     }
 }
 
