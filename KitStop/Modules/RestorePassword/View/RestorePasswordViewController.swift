@@ -56,7 +56,7 @@ final class RestorePasswordViewController: UIViewController, FlowController, Ale
 
 extension RestorePasswordViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         UITextField().checkIfEmailIsValid(email: email)
     }
     

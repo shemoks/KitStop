@@ -16,7 +16,7 @@
         <!--Delegate-->
         <scene sceneID="5g4-Fq-hRD">
             <objects>
-                <viewController storyboardIdentifier="SignUp" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wkH-Lk-Bn6" customClass="SignUpViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bkt-59-oES"/>
                         <viewControllerLayoutGuide type="bottom" id="zll-Qt-2q6"/>

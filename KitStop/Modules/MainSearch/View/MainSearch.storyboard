@@ -92,7 +92,7 @@
                                                     <rect key="frame" x="119" y="9" width="58" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ge-SG-V4B">
-                                                            <rect key="frame" x="14" y="4" width="31" height="15"/>
+                                                            <rect key="frame" x="14" y="4.666666666666667" width="31" height="14"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -162,6 +162,8 @@
                     <connections>
                         <outlet property="collectionView" destination="uwQ-8d-gNj" id="bQE-sX-Sbq"/>
                         <outlet property="search" destination="uIo-Vy-5k8" id="90Z-3S-BId"/>
+                        <segue destination="hM4-Ks-gYg" kind="show" identifier="transitionToKitsDetailed" id="8vU-YM-xvn"/>
+                        <segue destination="n5p-km-kb1" kind="show" identifier="transitionToKitDetailed" id="CbA-fW-CZN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKj-3z-yWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,6 +174,22 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="-233.33333333333334" y="15.489130434782609"/>
+        </scene>
+        <!--KitsDetailedViewController-->
+        <scene sceneID="nPo-I7-TS5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="KitsDetailed" referencedIdentifier="KitsDetailedViewController" id="hM4-Ks-gYg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="weO-qL-7RT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="-148"/>
+        </scene>
+        <!--KitFolioDetailed-->
+        <scene sceneID="aV2-0o-yhd">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="KitFolioDetailed" storyboardName="KitFolioDetailed" referencedIdentifier="KitFolioDetailed" id="n5p-km-kb1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWE-nw-lv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="34"/>
         </scene>
     </scenes>
 </document>
