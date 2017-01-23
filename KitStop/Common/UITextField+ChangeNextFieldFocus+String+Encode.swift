@@ -204,4 +204,28 @@ extension String {
     }
 }
 
+extension String {
+    func dividedByUppercaseLetter() -> String {
+        var currentWord: String = ""
+        var words: [String] = []
+
+        for char in self.characters {
+            let charString = String(char)
+
+            if (charString == charString.uppercased()) && currentWord.characters.count > 0 {
+                words.append(currentWord)
+                currentWord = ""
+            }
+
+            currentWord.append(char)
+        }
+
+        if currentWord.characters.count > 0 {
+            words.append(currentWord)
+        }
+
+        return words.joined(separator: " ")
+    }
+}
+
 

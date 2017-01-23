@@ -57,7 +57,7 @@ extension FiltersInteractor: FiltersInteractorInput {
                 if object.categoryPrice.maxValue != object.categoryPrice.minValue {
                     self?.presenter.setPrice(price: object.categoryPrice)
                 } else {
-                    self?.presenter.showError(title: "Search results", message: "Not found")
+                    self?.presenter.showError(title: "Search results", message: "Nothing found")
                     self?.clearAll(types: categories)
                 }
 
