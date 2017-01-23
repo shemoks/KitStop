@@ -77,7 +77,7 @@ extension SelectImageViewController: UIImagePickerControllerDelegate, UINavigati
         } else {
             pickedImage = originalImage
         }
-        let image = presenter.cropImage(image: pickedImage!, buttons: [camera, gallery], delegate: delegate!)
+        let image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: [camera, gallery], delegate: delegate!)
         let newHeight = pickedImage?.heightWithOrientation(contentHeight: self.view.frame.size.height)
         delegate?.changeContainer(newHeight!)
         image.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: newHeight!)

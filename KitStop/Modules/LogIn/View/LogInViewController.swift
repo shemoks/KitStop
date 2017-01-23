@@ -16,13 +16,20 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
+    @IBOutlet weak var login: CustomButton!
     @IBOutlet weak var password: CustomPasswordTextField!
     @IBOutlet weak var email: UITextField!
     
     // MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.clearTextFields()
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        login.isEnabled = true
     }
     
     override func viewDidLoad() {
@@ -42,6 +49,7 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     }
 
     @IBAction func tapOnLoginButton(_ sender: Any) {
+        login.isEnabled = false
         presenter.handleUserData(userData: getUserData())
     }
     
@@ -78,6 +86,7 @@ extension LogInViewController: UITextFieldDelegate {
 extension LogInViewController: LogInViewInput {
     
     func showAlert(title: String, massage: String) {
+        login.isEnabled = true
         showAlertWithTitle(title, message: massage)
     }
 }

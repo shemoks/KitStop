@@ -17,6 +17,8 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     var presenter: KitFolioDetailedViewOutput!
     
+    @IBOutlet weak var post: UITextView!
+    @IBOutlet weak var information: UITextView!
     @IBOutlet weak var scrollBottom: NSLayoutConstraint!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var like: UIButton!
@@ -38,6 +40,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     override func viewDidLoad() {
         presenter.checkXib(view: UIView.loadFromNibNamed(nibNamed: "UserInformation"))
         presenter.handleKitData()
+        addTextViewInset()
         
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: userInformationXib!) ?          UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(editKitFolio)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
         // add image picker
@@ -62,6 +65,13 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         cancelContainer.isHidden = false
         cancelContainer.alpha = 1
         scrollBottom.constant = 49
+    }
+    
+    func addTextViewInset() {
+        postTitle.textContainerInset = UIEdgeInsetsMake(0, 8, 4, 0)
+        postDescription.textContainerInset = UIEdgeInsetsMake(0, 8, 4, 0)
+        information.textContainerInset = UIEdgeInsetsMake(0, 8, 4, 0)
+        post.textContainerInset = UIEdgeInsetsMake(0, 8, 4, 0)
     }
     
     func save() {

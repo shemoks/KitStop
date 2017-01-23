@@ -81,7 +81,7 @@ extension Double {
     public func checkNumberAfterDot(number: Double) -> String {
         let beforeDot = "\(number)".components(separatedBy: ".")[0]
         let afterDot = "\(number)".components(separatedBy: ".")[1]
-        if afterDot == "0" {
+        if afterDot == "0" && afterDot.characters.count == 1 {
             return beforeDot
         }
         return "\(number)"

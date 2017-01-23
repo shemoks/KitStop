@@ -94,6 +94,15 @@ enum Endpoint {
             return ("/kits-for-sale/" + idKit)
         }
     }
+    
+    var encoding: ParameterEncoding {
+        switch self {
+        case .createKitFolio():
+            return JSONEncoding.default
+        default:
+            return URLEncoding.default
+        }
+    }
 
     
     var url: URL {

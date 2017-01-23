@@ -41,23 +41,33 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
     
     func registrationNewUser(userData: [String : String], userImage: UIImage) {
         let user: SignUpUserModel?
-        let name = checkUserName(name: userData["name"]!)
+        let name = userData["name"]!
         let surname = userData["surname"]!
         if !upload {
             user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: nil, name: name, surname: surname)
         } else {
             user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage, name: name, surname: surname)
         }
-        interactor.addUser(user: user!)
+        let status = checkUserName(name: name, surname: surname)
+        if !status.0 && !status.1 {
+            interactor.addUser(user: user!)
+        } else {
+            LoadingIndicatorView.hide()
+            view.validationFailedBorder(name: status.0, surname: status.1)
+        }
         
     }
     
-    func checkUserName(name: String?) -> String? {
+    func checkUserName(name: String?, surname: String?) -> (Bool, Bool) {
+        var nameStatus = false
+        var surnameStatus = false
         if name == "" {
-            return nil
-        } else {
-            return name!
+            nameStatus = true
         }
+        if surname == "" {
+            surnameStatus = true
+        }
+        return (nameStatus, surnameStatus)
     }
 
 }

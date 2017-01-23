@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class CreateKitFolioService: NSObject, CreateKitFolioServiceProtocol  {
     
@@ -19,7 +20,15 @@ class CreateKitFolioService: NSObject, CreateKitFolioServiceProtocol  {
 
     
     func createKitFolioItem(postTitle: String, postDescription: String, mainImageUrl: String, arrayImageUrl: [String], completionBlock: @escaping (Bool, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.createKitFolio(), parameters: ["title" : postTitle as AnyObject, "description" : postDescription as AnyObject, "mainImage" : mainImageUrl as AnyObject, "images" : arrayImageUrl as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let params: [String: Any] = [
+            "title": postTitle,
+            "description": postDescription,
+            "mainImage": mainImageUrl,
+            "images": arrayImageUrl
+        ]
+        
+        let _ = manager.apiRequest(.createKitFolio(), parameters: params, headers: nil)
+            .apiResponse(completionHandler: {
             response in
             switch response.result{
             case .success(let json):

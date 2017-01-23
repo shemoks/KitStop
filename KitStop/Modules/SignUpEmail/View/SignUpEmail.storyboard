@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1NS-NU-HqI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1NS-NU-HqI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -112,7 +112,7 @@
                                                     <constraint firstAttribute="width" constant="250" id="iuC-ig-EyW"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
-                                                <state key="normal" title="Sign Up">
+                                                <state key="normal" title="Sign up">
                                                     <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -164,7 +164,7 @@
                             <constraint firstItem="qIU-Lk-htl" firstAttribute="height" secondItem="nf5-G9-7Ml" secondAttribute="height" id="kGC-in-jId"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Signup" id="m6O-nE-WIX"/>
+                    <navigationItem key="navigationItem" title="Sign up" id="m6O-nE-WIX"/>
                     <connections>
                         <outlet property="avatar" destination="8Pr-rd-2KX" id="9Ox-k9-u94"/>
                         <outlet property="email" destination="O2b-XY-oAz" id="aNl-fa-yrC"/>
