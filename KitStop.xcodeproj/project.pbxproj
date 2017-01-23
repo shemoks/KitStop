@@ -2534,7 +2534,7 @@
 					FA4528671DF802F900B2AA03 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 729WFR3HVU;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = FA4528531DF802F900B2AA03;
 					};
 				};
@@ -3139,8 +3139,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3172,8 +3172,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

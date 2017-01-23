@@ -203,3 +203,15 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
 }
+
+extension String {
+    func formattedDouble(decimalPlaces: Int) -> Double {
+        if self.contains(",") {
+            let localizedDecimalString = self.replacingOccurrences(of: ",", with: ".")
+            let formattedString = String(format: "%.\(decimalPlaces)f", Double(localizedDecimalString)!)
+            return Double(formattedString)!
+        }
+        let formattedString = String(format: "%.\(decimalPlaces)f", Double(self)!)
+        return Double(formattedString)!
+    }
+}
