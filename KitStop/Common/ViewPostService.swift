@@ -239,7 +239,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         }
                         post.createAt = json["data"]["updatedAt"].stringValue
                         let owner = User()
-                        owner.avatar = json["data"]["owner"]["photo_url"].stringValue
+                        owner.avatar = json["data"]["owner"]["photoUrl"].stringValue
                         if json["data"]["owner"]["country"] != JSON.null {
                             owner.country = json["data"]["owner"]["country"].stringValue
                         } else {

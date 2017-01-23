@@ -19,7 +19,7 @@ final class FiltersPresenter {
     var interactor: FiltersInteractorInput!
     var router: FiltersRouterInput!
     var types = [Category]()
-    var price = Price(minValue: 0, maxValue: 100)
+    var price = Price(minValue: 0, maxValue: 1000000000)
     var currentCategory: Category?
     var priceVisible: Bool = false
     var activeClearAll: Bool = false
@@ -136,7 +136,7 @@ extension FiltersPresenter: FilterTypeModuleOutput {
         self.types = categories
         view.reloadData()
         self.setCurrentCategory(category: currentCategory)
-        interactor.getPrice(category: currentCategory)
+        interactor.getPrice(category: currentCategory, categories: categories)
         view.reloadPrice()
     }
     
