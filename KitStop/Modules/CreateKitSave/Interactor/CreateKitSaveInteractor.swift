@@ -67,16 +67,25 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         let brandName = post.generalProperty.first?.textValue
         let model = post.generalProperty.last?.textValue
         let serialNumber = post.generalProperty[1].textValue
+        
         var manufacturerCountry = ""
+        
         if post.metadata.count > 1 {
             manufacturerCountry = post.metadata[1].textValue
         }
-        let purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
-        let purchasePrice = price
+        
+        var purchaseDate = TimeInterval()
+
+        if !date.isEmpty {
+            purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
+        }
+        
+        let purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
         let buyingPlace = ""
         let category = post.categoryId
         let userDescription = post.description.textValue
-        let manufacturerDescription = ""
+        let manufacturerDescription = post.notes.textValue
+        
         let notes = post.notes.textValue
         let mainImage = imageArray.first
         let images = imageArray

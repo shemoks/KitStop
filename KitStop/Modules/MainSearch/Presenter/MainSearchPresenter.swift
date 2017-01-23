@@ -52,7 +52,7 @@ extension MainSearchPresenter: MainSearchViewOutput {
         case 1:
             return "Search in 'Kits' category"
         case 2:
-            return "Search in 'KitFolio'"
+            return "Search in 'KitFolio' category"
         default:
             return "Search"
         }
@@ -81,8 +81,8 @@ extension MainSearchPresenter: MainSearchInteractorOutput {
         view.reloadData()
     }
     
-    func showAlert(message: String) {
-        view.showAlert(message: message)
+    func showAlert(title: String, message: String) {
+        view.showAlert(title: title, message: message)
     }
 }
 

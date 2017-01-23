@@ -44,6 +44,7 @@ final class RestorePasswordViewController: UIViewController, FlowController, Ale
     
     @IBAction func receiveSubmitTap(_ sender: AnyObject) {
         if UITextField().emailValidation(textField: email) {
+            submit.isEnabled = false
             presenter.handleSubmitTap(email: email.text!)
         } else {
             self.showAlertWithTitle("Error", message: "Invalid e-mail")
@@ -55,6 +56,10 @@ final class RestorePasswordViewController: UIViewController, FlowController, Ale
 // MARK: - UITextFieldDelegate
 
 extension RestorePasswordViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        submit.isEnabled = true
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         UITextField().checkIfEmailIsValid(email: email)

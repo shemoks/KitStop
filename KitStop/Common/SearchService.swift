@@ -18,7 +18,7 @@ class SearchService: SearchServiceProtocol {
         self.manager = manager
     }
     
-    func fetchKitFolioSearchResults(page: Int, title: String, completion: @escaping ([Product], Bool) -> ()) {
+    func fetchKitFolioSearchResults(page: Int, title: String, completion: @escaping ([Product], _ error: Int?, Bool) -> ()) {
         let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "title": title as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
@@ -33,19 +33,20 @@ class SearchService: SearchServiceProtocol {
                     kits.append(kitModel)
                 }
                 if json["data"]["docs"].count == 0 {
-                    completion(kits, false)
+                    completion(kits, nil, false)
                 } else {
-                    completion(kits , true)
+                    completion(kits, nil, true)
                 }
                 print(json)
             case .failure(let error):
+                completion([Product](), (error as NSError).code, false)
                 print(error)
             }
         })
     }
     
     
-    func fetchKitsSearchResults(page: Int, title: String, completion: @escaping ([Product], _ kitsFound: Bool) -> ()) {
+    func fetchKitsSearchResults(page: Int, title: String, completion: @escaping ([Product], _ error: Int?, _ kitsFound: Bool) -> ()) {
         let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "title": title as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
@@ -60,18 +61,19 @@ class SearchService: SearchServiceProtocol {
                     kits.append(kitModel)
                 }
                 if json["data"]["docs"].count == 0 {
-                    completion(kits, false)
+                    completion(kits, nil, false)
                 } else {
-                     completion(kits , true)
+                     completion(kits, nil, true)
                 }
                 print(json)
             case .failure(let error):
+                completion([Product](), (error as NSError).code, false)
                 print(error)
             }
         })
     }
     
-    func fetchKitsForSaleSearchResults(page: Int, title: String, completion: @escaping ([Product], _ kitsFound: Bool) -> ()) {
+    func fetchKitsForSaleSearchResults(page: Int, title: String, completion: @escaping ([Product], _ error: Int?, _ kitsFound: Bool) -> ()) {
         let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "title": title as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
@@ -91,17 +93,16 @@ class SearchService: SearchServiceProtocol {
                     kits.append(kitModel)
                 }
                 if json["data"]["docs"].count == 0 {
-                    completion(kits, false)
+                    completion(kits, nil, false)
                 } else {
-                    completion(kits , true)
+                    completion(kits, nil, true)
                 }
                 print(json)
             case .failure(let error):
+                completion([Product](), (error as NSError).code, false)
                 print(error)
             }
         })
     }
 
-    
-    
 }
