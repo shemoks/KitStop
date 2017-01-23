@@ -10,7 +10,7 @@
 struct Price {
 
     var minValue: Int = 0
-    var maxValue: Int = 1000000
+    var maxValue: Int = 1000000000
 
 }
 
@@ -25,7 +25,7 @@ struct Filter {
     var idCategory: String
     var title: String = ""
     var minPrice: Int = 0
-    var maxPrice: Int = 1000000
+    var maxPrice: Int = 1000000000
     var type: Bool = true
 
 }

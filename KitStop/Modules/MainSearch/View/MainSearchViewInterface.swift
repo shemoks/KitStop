@@ -10,5 +10,5 @@
 
 protocol MainSearchViewInput: class {
     func reloadData()
-    func showAlert(message: String)
+    func showAlert(title: String, message: String)
 }

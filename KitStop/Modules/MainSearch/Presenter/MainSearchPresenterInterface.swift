@@ -25,7 +25,7 @@ protocol MainSearchViewOutput: class {
 protocol MainSearchInteractorOutput: class {
     func setKits(_ kits: [Product])
     func reloadData()
-    func showAlert(message: String)
+    func showAlert(title: String, message: String)
 }
 
 // MARK: - MainSearchModuleInput

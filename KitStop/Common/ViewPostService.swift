@@ -38,7 +38,8 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         for value in generalValues {
                             if general.contains(value.0) {
                                 let newItem = ViewProperty()
-                                newItem.title = String(describing: value.0).capitalizingFirstLetter()
+                                let valueTitle = String(describing: value.0).capitalizingFirstLetter().dividedByUppercaseLetter()
+                                newItem.title = valueTitle
                                 newItem.text = value.1.stringValue
                                 generalProperty.append(newItem)
                             }
@@ -86,7 +87,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         let metaDataArray = json["data"]["metaData"]
                         for product in metaDataArray {
                             let newItem = ViewProperty()
-                            newItem.title = product.0.capitalizingFirstLetter()
+                            newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                             newItem.text = String(describing: product.1)
                             metaData.append(newItem)
                         }
@@ -96,7 +97,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             let forSale = json["data"]["forSale"]
                             for product in forSale {
                                 let newItem = ViewProperty()
-                                newItem.title = product.0.capitalizingFirstLetter()
+                                newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                                 newItem.text = String(describing: product.1)
                                 saleData.append(newItem)
                             }
@@ -174,7 +175,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         for value in generalValues {
                             if general.contains(value.0) {
                                 let newItem = ViewProperty()
-                                newItem.title = String(describing: value.0).capitalizingFirstLetter()
+                                newItem.title = String(describing: value.0).capitalizingFirstLetter().dividedByUppercaseLetter()
                                 newItem.text = value.1.stringValue
                                 generalProperty.append(newItem)
                             }
@@ -224,7 +225,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         let metaDataArray = json["data"]["metaData"]
                         for product in metaDataArray {
                             let newItem = ViewProperty()
-                            newItem.title = product.0.capitalizingFirstLetter()
+                            newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                             newItem.text = String(describing: product.1)
                             metaData.append(newItem)
                         }
@@ -232,14 +233,14 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             let forSale = json["data"]["forSale"]
                             for product in forSale {
                                 let newItem = ViewProperty()
-                                newItem.title = product.0.capitalizingFirstLetter()
+                                newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                                 newItem.text = String(describing: product.1)
                                 saleData.append(newItem)
                             }
                         }
                         post.createAt = json["data"]["updatedAt"].stringValue
                         let owner = User()
-                        owner.avatar = json["data"]["owner"]["photo_url"].stringValue
+                        owner.avatar = json["data"]["owner"]["photoUrl"].stringValue
                         if json["data"]["owner"]["country"] != JSON.null {
                             owner.country = json["data"]["owner"]["country"].stringValue
                         } else {

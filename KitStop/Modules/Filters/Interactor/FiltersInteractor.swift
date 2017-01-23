@@ -47,17 +47,18 @@ extension FiltersInteractor: FiltersInteractorInput {
     func clearAll(types: [Category]) {
         let newCategories = FilterManager().clearAll(categories: types)
         presenter.setTypes(types: newCategories)
-        presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
+        presenter.setPrice(price: Price(minValue: 0, maxValue: 1000000000))
         presenter.setCurrentCategory(category: nil)
     }
 
-    func getPrice(category: Category) {
+    func getPrice(category: Category, categories: [Category]) {
         dataManager.getPrice(category: category) { [weak self] object, error in
             if error == nil {
                 if object.categoryPrice.maxValue != object.categoryPrice.minValue {
                     self?.presenter.setPrice(price: object.categoryPrice)
                 } else {
-                    self?.presenter.setPrice(price: Price(minValue: 0, maxValue: 100))
+                    self?.presenter.showError(title: "Search results", message: "Nothing found")
+                    self?.clearAll(types: categories)
                 }
 
             } else {

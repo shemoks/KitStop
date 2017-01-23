@@ -26,7 +26,6 @@ final class CreateKitSavePresenter {
     var price = ""
     var postId: String?
     var limit:Int?
-
 }
 
 // MARK: - CreateKitSaveViewOutput
@@ -75,8 +74,8 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setDetails() {
-        details.append(KitDetailsModel(header: "Purchase Date", contents: "", placeholder: "Not Set"))
-        details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: "Enter value"))
+        details.append(KitDetailsModel(header: "Purchase Date", contents: "", placeholder: "select date (optional)"))
+        details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: "enter value (optional)"))
         
     }
     

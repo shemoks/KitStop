@@ -45,7 +45,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                               "manufacturerCountry": manufacturerCountry,
                                                               "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
                                                               "buyingPlace": buyingPlace, "category": category,
-                                                              "userDescription": userDescription,
+                                                              "description": userDescription,
                                                               "manufacturerDescription": manufacturerDescription,
                                                               "notes": notes, "mainImage": mainImage,
                                                               "images": images, "condition": condition,

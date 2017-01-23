@@ -40,6 +40,8 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self
+        search.layer.borderWidth = 1
+        search.layer.borderColor = UIColor.white.cgColor
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -50,9 +52,10 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
         search.placeholderText = presenter.setTitle()
         
         var searchTextField: UITextField? = search.value(forKey: "searchField") as? UITextField
+        searchField?.tintColor = .black
         if searchTextField!.responds(to: #selector(getter: UITextField.attributedPlaceholder)) {
             var color = UIColor.darkText
-            let attributeDict = [NSForegroundColorAttributeName: UIColor.darkText]
+            let attributeDict = [NSForegroundColorAttributeName: UIColor(colorLiteralRed: 151/255, green: 153/255, blue: 155/255, alpha: 1.0)]
             searchTextField!.attributedPlaceholder = NSAttributedString(string: presenter.setTitle(), attributes: attributeDict)
         }
         
@@ -67,7 +70,7 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
     @IBAction func tapOnCancel(_ sender: Any) {
         presenter.closeModule()
     }
-    
+
 }
 
 
@@ -78,8 +81,8 @@ extension MainSearchViewController: MainSearchViewInput {
         collectionView.reloadData()
     }
     
-    func showAlert(message: String) {
-        self.showAlertWithTitle("No Results", message: message)
+    func showAlert(title: String, message: String) {
+        self.showAlertWithTitle(title, message: message)
     }
 }
 
