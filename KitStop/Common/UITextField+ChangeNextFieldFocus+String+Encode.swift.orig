@@ -205,6 +205,7 @@ extension String {
 }
 
 extension String {
+<<<<<<< HEAD
     func dividedByUppercaseLetter() -> String {
         var currentWord: String = ""
         var words: [String] = []
@@ -229,8 +230,7 @@ extension String {
 }
 
 
-
-extension String {
+=======
     func formattedDouble(decimalPlaces: Int) -> Double {
         if self.contains(",") {
             let localizedDecimalString = self.replacingOccurrences(of: ",", with: ".")
@@ -241,3 +241,4 @@ extension String {
         return Double(formattedString)!
     }
 }
+>>>>>>> b421b0787ba28a74b77f777833fd78270d31c7b0

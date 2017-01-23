@@ -115,15 +115,16 @@ extension KitFolioCreateViewController : UITextFieldDelegate, UITextViewDelegate
             postDescription.textColor = UIColor.init(red: 151/255, green: 153/255, blue: 155/255, alpha: 0.5)
             postDescription.text = PlaceholderText.kitfolioDescriptionText
         }
+        postDescription.resignFirstResponder()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if postDescription.text == PlaceholderText.kitfolioDescriptionText {
             postDescription.text = ""
+            postDescription.textColor = UIColor.black
         }
-        postDescription.textColor = UIColor.black
+        postDescription.becomeFirstResponder()
     }
-    
     func validation(data: String) -> Bool {
         let newData = data.trimmingCharacters(in: .whitespaces)
         if data.characters.count > 0 && newData.characters.count > 0 {

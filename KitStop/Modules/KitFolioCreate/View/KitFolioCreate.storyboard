@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,15 +53,15 @@
                                         <rect key="frame" x="0.0" y="234" width="414" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-8y-0KA">
-                                                <rect key="frame" x="8.0000000000000036" y="8" width="53.333333333333343" height="14"/>
+                                                <rect key="frame" x="8.0000000000000036" y="8" width="53.333333333333343" height="14.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter short description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-I2-5Ra">
-                                                <rect key="frame" x="8" y="22" width="406" height="17"/>
+                                                <rect key="frame" x="8" y="22.333333333333314" width="406" height="21"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
                                                     <action selector="postTitleChange:" destination="nZ0-5w-Sbl" eventType="editingChanged" id="ghO-xg-EN2"/>
@@ -82,9 +82,9 @@
                                         <rect key="frame" x="0.0" y="292" width="414" height="176"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnj-n0-VZk">
-                                                <rect key="frame" x="8" y="14" width="65" height="14"/>
+                                                <rect key="frame" x="8" y="15.666666666666686" width="65" height="14.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG">
@@ -93,13 +93,13 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="146" id="tVS-Ej-enA"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="cnj-n0-VZk" secondAttribute="bottom" constant="2" id="6sE-JM-VGY"/>
+                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="cnj-n0-VZk" secondAttribute="bottom" id="6sE-JM-VGY"/>
                                             <constraint firstAttribute="trailing" secondItem="6vx-yE-NEG" secondAttribute="trailing" id="EMT-hR-j1U"/>
                                             <constraint firstItem="cnj-n0-VZk" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" constant="8" id="HV3-yk-KDQ"/>
                                             <constraint firstItem="6vx-yE-NEG" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" constant="4" id="Lgm-M7-aKT"/>
@@ -225,7 +225,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGt-W5-XF2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypf-OR-rQE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ypf-OR-rQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
