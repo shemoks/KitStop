@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Sy-sm-N2G" id="Kpn-By-Sr6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -47,7 +47,7 @@
                             <constraint firstAttribute="trailing" secondItem="caW-ye-Pg8" secondAttribute="trailing" id="Yhp-oD-Y9M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Condition" id="dJO-39-nb4"/>
+                    <navigationItem key="navigationItem" id="dJO-39-nb4"/>
                     <connections>
                         <segue destination="Cb5-kQ-0q9" kind="show" identifier="TrunsitionToCustomInput" id="dvF-tW-EKd"/>
                     </connections>

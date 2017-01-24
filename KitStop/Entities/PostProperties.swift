@@ -52,6 +52,7 @@ class Property {
     var list: [Other]?
     var typeOfData: dataType = .string
     var numberValue: Int? = nil
+    var order: Int = 10
 
 }
 
@@ -92,5 +93,6 @@ class ViewPost {
 class ViewProperty {
     var title: String = ""
     var text: String = ""
+    var order: Int = 10
 }
 
