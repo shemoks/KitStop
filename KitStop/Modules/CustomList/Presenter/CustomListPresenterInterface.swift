@@ -15,6 +15,7 @@ protocol CustomListViewOutput: class {
     func numberOfElements() -> Int
     func elementList(for indexPath: IndexPath) -> String
     func handleCellTap(for indexPath: IndexPath)
+    func getTitle() -> String
 
 }
 
@@ -28,7 +29,7 @@ protocol CustomListInteractorOutput: class {
 
 protocol CustomListModuleInput: ModuleInput {
 
-    func setElements(list: [Other])
+    func setElements(list: [Other], name: String)
 
 }
 

@@ -81,9 +81,10 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                             resultValue.property.salesDetails = true
                             arrProducts.salesDetails.append(resultValue.property)
                         }
-                        arrProducts.generalProperty = generalProperty
-                        arrProducts.additionalProperty = additionalProperty
-                        arrProducts.otherProperty = otherProperty
+                        arrProducts.salesDetails = self.sortedProperty(customArray: arrProducts.salesDetails)
+                        arrProducts.generalProperty = self.sortedProperty(customArray: generalProperty)
+                        arrProducts.additionalProperty = self.sortedProperty(customArray: additionalProperty)
+                        arrProducts.otherProperty = self.sortedProperty(customArray:otherProperty)
                         categoryStructure(arrProducts, nil)
                     } else {
 
@@ -152,9 +153,10 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                             resultValue.property.salesDetails = true
                             arrProducts.salesDetails.append(resultValue.property)
                         }
-                        arrProducts.generalProperty = generalProperty
-                        arrProducts.additionalProperty = additionalProperty
-                        arrProducts.otherProperty = otherProperty
+                        arrProducts.salesDetails = self.sortedProperty(customArray: arrProducts.salesDetails)
+                        arrProducts.generalProperty = self.sortedProperty(customArray: generalProperty)
+                        arrProducts.additionalProperty = self.sortedProperty(customArray: additionalProperty)
+                        arrProducts.otherProperty = self.sortedProperty(customArray:otherProperty)
                         categoryStructure(arrProducts, nil)
                     } else {
 
@@ -164,7 +166,8 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                 case .failure(let error):
                     categoryStructure(Post(), (error as NSError).code)
                 }
-            })        }
+            })
+        }
 
     }
 
@@ -227,7 +230,6 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                             }
                             if let dictionaryValue = element.value(forKey: "data") as? NSDictionary {
                                 newData.data   = ""
-
                             }
                         }
                     }
@@ -263,7 +265,15 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
         }
         newElement.limit = product["limit"].intValue
         newElement.units = product["units"].stringValue
+        newElement.order = product["order"].intValue
         return newElement
     }
-    
+
+    func sortedProperty(customArray: [Property]) -> [Property] {
+    let sortedArray = customArray.sorted {
+        $0.order < $1.order
+    }
+    return sortedArray
+}
+
 }

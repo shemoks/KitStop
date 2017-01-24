@@ -44,8 +44,13 @@ extension FiltersPresenter: FiltersViewOutput {
     }
     
     func priceList() -> PriceString {
+        if self.price.maxValue != 2000 {
         let priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue))
-        return priceString
+             return priceString
+        } else {
+            let priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue) + "+") 
+            return priceString
+        }
     }
     
     func handleCancelTap() {

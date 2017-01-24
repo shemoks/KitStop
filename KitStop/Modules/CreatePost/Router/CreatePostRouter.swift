@@ -39,10 +39,10 @@ extension CreatePostRouter: CreatePostRouterInput {
                     }
     }
 
-    func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {
+    func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String) {
         flowController.openModule(using: .openList) {
             guard let moduleInput = $0 as? CustomListModuleInput else { fatalError() }
-            moduleInput.setElements(list: list)
+            moduleInput.setElements(list: list, name: name)
             return customListModuleOutput
         }
     }
@@ -54,6 +54,14 @@ extension CreatePostRouter: CreatePostRouterInput {
 //            return viewPhotoModuleOutput
 //        }
 //    }
+
+    func openUnderConstruction() {
+        flowController.openModule(using: .openUnderConstruction) {
+            guard let moduleInput = $0 as? UnderConstructionModuleInput else { fatalError() }
+            return nil
+        }
+
+    }
 }
 
 extension Segue {
@@ -74,4 +82,5 @@ extension Segue {
     static var openKitConfirm: Segue<CreateKitSaveViewController> {
                 return .init(identifier: "TransitionToKitConfirm")
     }
+
 }

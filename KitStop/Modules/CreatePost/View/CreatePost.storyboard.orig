@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hd3-YF-VkB">
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hd3-YF-VkB">
+>>>>>>> d1d4fc8c1f3f8aacba3f0aa7d5271af2aad32279
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,8 +54,11 @@
                         <outlet property="tableView" destination="YVE-8W-r3O" id="Wk1-Oa-X6I"/>
                         <segue destination="3WE-8T-KpH" kind="show" identifier="TrunsitionToCustomList" id="dVn-5U-5ZR"/>
                         <segue destination="iq9-S0-H0a" kind="show" identifier="TransitionToKitConfirm" id="L2f-tX-SCL"/>
+<<<<<<< HEAD
                         <segue destination="lDI-ah-lYx" kind="show" identifier="transitionToUnderConstruction" id="Bzf-lv-yS9"/>
+=======
                         <segue destination="WXL-qD-iZR" kind="show" identifier="TransitionToSaleConfirm" id="NVz-Hg-iwq"/>
+>>>>>>> d1d4fc8c1f3f8aacba3f0aa7d5271af2aad32279
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdT-1Z-b4q" userLabel="First Responder" sceneMemberID="firstResponder"/>

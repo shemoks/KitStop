@@ -22,10 +22,10 @@ final class CreateSaleConfirmRouter {
 
 extension CreateSaleConfirmRouter: CreateSaleConfirmRouterInput {
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {
-        flowController.openModule(using: .openList) {
-            guard let moduleInput = $0 as? CustomListModuleInput else { fatalError() }
-            moduleInput.setElements(list: list)
-            return customListModuleOutput
-        }
+//        flowController.openModule(using: .openList) {
+//            guard let moduleInput = $0 as? CustomListModuleInput else { fatalError() }
+//            moduleInput.setElements(list: list)
+//            return customListModuleOutput
+//        }
     }
 }
