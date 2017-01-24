@@ -81,7 +81,6 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                             resultValue.property.salesDetails = true
                             arrProducts.salesDetails.append(resultValue.property)
                         }
-                        arrProducts.salesDetails = self.sortedProperty(customArray: arrProducts.salesDetails)
                         arrProducts.generalProperty = self.sortedProperty(customArray: generalProperty)
                         arrProducts.additionalProperty = self.sortedProperty(customArray: additionalProperty)
                         arrProducts.otherProperty = self.sortedProperty(customArray:otherProperty)
@@ -153,7 +152,6 @@ class CreatePostService: NSObject, CreatePostServiceProtocol {
                             resultValue.property.salesDetails = true
                             arrProducts.salesDetails.append(resultValue.property)
                         }
-                        arrProducts.salesDetails = self.sortedProperty(customArray: arrProducts.salesDetails)
                         arrProducts.generalProperty = self.sortedProperty(customArray: generalProperty)
                         arrProducts.additionalProperty = self.sortedProperty(customArray: additionalProperty)
                         arrProducts.otherProperty = self.sortedProperty(customArray:otherProperty)
