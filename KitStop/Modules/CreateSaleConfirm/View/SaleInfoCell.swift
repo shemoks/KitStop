@@ -15,10 +15,11 @@ class SaleInfoCell: UITableViewCell {
     
     func configure(detail: ForSaleDetailsModel) {
         title.text = detail.header
-        if detail.isEditable {
+        title.placeholderText = detail.placeholder
+        if detail.isEditable! {
             contents.isEnabled = true
         }
-        if detail.isExpandable {
+        if detail.isExpandable! {
             self.accessoryType = .disclosureIndicator
         }
     }

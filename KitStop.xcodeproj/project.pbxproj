@@ -148,6 +148,9 @@
 		9592B07D1E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0711E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift */; };
 		9592B07E1E373B130040ECB0 /* SaleInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0721E373B130040ECB0 /* SaleInfoCell.swift */; };
 		9592B07F1E373B130040ECB0 /* SaleInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9592B0731E373B130040ECB0 /* SaleInfoCell.xib */; };
+		9592B0811E3740CF0040ECB0 /* KitsForSaleRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0801E3740CF0040ECB0 /* KitsForSaleRequestBody.swift */; };
+		9592B0831E374FB10040ECB0 /* CreateForSaleServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0821E374FB10040ECB0 /* CreateForSaleServiceProtocol.swift */; };
+		9592B0851E374FE70040ECB0 /* CreateForSaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0841E374FE70040ECB0 /* CreateForSaleService.swift */; };
 		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
 		95D4F5891E2E55490073196C /* CustomInputAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4F5781E2E55490073196C /* CustomInputAssember.swift */; };
@@ -540,6 +543,9 @@
 		9592B0711E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmViewInterface.swift; sourceTree = "<group>"; };
 		9592B0721E373B130040ECB0 /* SaleInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleInfoCell.swift; sourceTree = "<group>"; };
 		9592B0731E373B130040ECB0 /* SaleInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaleInfoCell.xib; sourceTree = "<group>"; };
+		9592B0801E3740CF0040ECB0 /* KitsForSaleRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitsForSaleRequestBody.swift; sourceTree = "<group>"; };
+		9592B0821E374FB10040ECB0 /* CreateForSaleServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateForSaleServiceProtocol.swift; sourceTree = "<group>"; };
+		9592B0841E374FE70040ECB0 /* CreateForSaleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateForSaleService.swift; sourceTree = "<group>"; };
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
 		95D4F5781E2E55490073196C /* CustomInputAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAssember.swift; sourceTree = "<group>"; };
@@ -898,6 +904,7 @@
 				2558387D1E2D2905005AA7C8 /* KitFolioDetailedService.swift */,
 				95E4532E1E2CC93C002ABF74 /* CreateKitsService.swift */,
 				9AEA5DA81E2E51FF008AEF11 /* ViewPostService.swift */,
+				9592B0841E374FE70040ECB0 /* CreateForSaleService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -946,6 +953,7 @@
 				253220521E1BDBCB00BF96C1 /* Category(Add New Item).swift */,
 				95E453281E2CB37E002ABF74 /* KitDetailsModel.swift */,
 				95E4532A1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift */,
+				9592B0801E3740CF0040ECB0 /* KitsForSaleRequestBody.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1078,6 +1086,7 @@
 				2558387F1E2D2921005AA7C8 /* KitFolioDetailedServiceProtocol.swift */,
 				9AEA5DA61E2E51AC008AEF11 /* ViewPostServiceProtocol.swift */,
 				95F2E8881E3106A70025F993 /* CreateKitsServiceProtocol.swift */,
+				9592B0821E374FB10040ECB0 /* CreateForSaleServiceProtocol.swift */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -2855,6 +2864,7 @@
 				9A8E875F1DFAC24C00780ED1 /* RootPresenter.swift in Sources */,
 				9AB17CB61E0BD29F004E95FF /* LogInUserModel.swift in Sources */,
 				9AB17CA51E0BCEAF004E95FF /* SignUpInteractorInterface.swift in Sources */,
+				9592B0811E3740CF0040ECB0 /* KitsForSaleRequestBody.swift in Sources */,
 				9AB17E1F1E1E597F004E95FF /* GeneralCell.swift in Sources */,
 				9AE801F21E3101640086F662 /* KitFolioDetailedInteractor.swift in Sources */,
 				9AB17CB21E0BD059004E95FF /* KeychainService.swift in Sources */,
@@ -2989,6 +2999,7 @@
 				9AB178A51E0925F7004E95FF /* FilterTypeRouterInterface.swift in Sources */,
 				95E453291E2CB37E002ABF74 /* KitDetailsModel.swift in Sources */,
 				95D4F5951E2E55490073196C /* CustomInputViewInterface.swift in Sources */,
+				9592B0851E374FE70040ECB0 /* CreateForSaleService.swift in Sources */,
 				9AB178A01E0925F7004E95FF /* FilterTypeInteractor.swift in Sources */,
 				9AB17D1B1E0D7331004E95FF /* ApplyCell.swift in Sources */,
 				9AB17CFB1E0C07A6004E95FF /* Category.swift in Sources */,
@@ -3063,6 +3074,7 @@
 				24F46143E77F24E759A6F4EE /* MainSearchPresenter.swift in Sources */,
 				A8FD8493176463A13AF24933 /* MainSearchRouterInterface.swift in Sources */,
 				F5649A00AC8584F8D4548C00 /* MainSearchRouter.swift in Sources */,
+				9592B0831E374FB10040ECB0 /* CreateForSaleServiceProtocol.swift in Sources */,
 				4DC31B64D529D94AF60728DA /* BottomBarViewInterface.swift in Sources */,
 				9AEAE2CB1E30E83E00D6D182 /* CategoryCellWithImage.swift in Sources */,
 				14CB328104E0A5242ACE2533 /* BottomBarViewController.swift in Sources */,

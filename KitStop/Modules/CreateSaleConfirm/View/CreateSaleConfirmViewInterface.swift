@@ -9,5 +9,7 @@
 // MARK: - CreateSaleConfirmViewInput
 
 protocol CreateSaleConfirmViewInput: class {
-
+    func showAlert(title: String, message: String)
+    func returnToMainModule()
+    func reloadData()
 }

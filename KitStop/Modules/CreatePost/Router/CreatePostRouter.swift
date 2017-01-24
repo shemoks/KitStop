@@ -26,7 +26,7 @@ extension CreatePostRouter: CreatePostRouterInput {
     func openSaveForSaleModule(post: Post) {
         flowController.openModule(using: .openSaleConfirm) {
             guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
-            moduleInput.setPost(post: post)
+            moduleInput.setPost(with: post)
             return nil
         }
     }

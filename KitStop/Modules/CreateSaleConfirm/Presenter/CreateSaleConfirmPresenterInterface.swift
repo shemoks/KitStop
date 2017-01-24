@@ -14,14 +14,18 @@ import UIKit
 protocol CreateSaleConfirmViewOutput: class {
     func detail(for indexPath: IndexPath) -> ForSaleDetailsModel
     func handleSaveTap()
+    func priceLimit() -> Int
     func setPrice(value: String)
+    func setLimit()
     func setDetails()
+    func showAlert()
 }
 
 // MARK: - CreateSaleConfirmInteractorOutput
 
 protocol CreateSaleConfirmInteractorOutput: class {
-
+    func showAlertWith(title: String, message: String)
+    func returnToMainModule()
 }
 
 // MARK: - CreateSaleConfirmModuleInput

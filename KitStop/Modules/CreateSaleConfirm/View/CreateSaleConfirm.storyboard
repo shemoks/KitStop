@@ -32,7 +32,7 @@
         <!--View-->
         <scene sceneID="78n-xM-jWx">
             <objects>
-                <viewController id="KHl-TP-P93" customClass="CreateSaleConfirmViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateSaleConfirmViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KHl-TP-P93" customClass="CreateSaleConfirmViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sFA-i6-2Vk"/>
                         <viewControllerLayoutGuide type="bottom" id="psK-nJ-w20"/>
@@ -202,7 +202,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ndn-sG-Fts"/>
                     <connections>
+                        <outlet property="finalPrice" destination="1xk-dC-OWJ" id="ur6-X0-jfM"/>
+                        <outlet property="kitStopFee" destination="aya-eE-KiW" id="aEx-8s-YEN"/>
+                        <outlet property="shippingFee" destination="Ef0-ye-pjc" id="R7t-Kw-DJF"/>
                         <outlet property="tableView" destination="rQ9-ls-mBT" id="S2p-ug-ew7"/>
+                        <outlet property="transactionFee" destination="V7W-1B-cMW" id="qDo-OD-2Ag"/>
+                        <outlet property="userPrice" destination="r1n-vC-q8W" id="CgR-L8-F6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZU-Gf-7le" userLabel="First Responder" sceneMemberID="firstResponder"/>

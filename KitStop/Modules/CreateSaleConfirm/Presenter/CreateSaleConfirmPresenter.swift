@@ -20,13 +20,26 @@ final class CreateSaleConfirmPresenter {
     var interactor: CreateSaleConfirmInteractorInput!
     var router: CreateSaleConfirmRouterInput!
     var details:[ForSaleDetailsModel] = []
-    var post: Post!
+    var post: Post?
+    var isPrivate:Bool = false
+    var price = ""
+    var condition = ""
+    var packageWeight = ""
+    var limit: Int?
 
 }
 
 // MARK: - CreateSaleConfirmViewOutput
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
+    
+    func setLimit() {
+        self.limit = post?.salesDetails[1].limit
+    }
+    
+    func priceLimit() -> Int {
+        return self.limit!
+    }
     
     func detail(for indexPath: IndexPath) -> ForSaleDetailsModel{
         return details[indexPath.row]
@@ -40,11 +53,14 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
         details.first!.value = value
     }
     
+    func showAlert() {
+        view.showAlert(title: "Error", message: "Set price exceeds maximum value of 1000000")
+    }
+    
     func setDetails() {
-        details.append(ForSaleDetailsModel(header: "Price", value: "" , isEditable: true, isExpandable: false))
-        details.append(ForSaleDetailsModel(header: "Select Conditions", value: "", isEditable: false, isExpandable: true))
-        details.append(ForSaleDetailsModel(header: "Package Weight", value: "", isEditable: false, isExpandable: true))
-        details.append(ForSaleDetailsModel(header: "Select Card", value: "", isEditable: false, isExpandable: true))
+        details.append(ForSaleDetailsModel(header: "Price", value: "" , placeholder: post?.salesDetails[1].textValue, isEditable: true, isExpandable: false))
+        details.append(ForSaleDetailsModel(header: "Select Conditions", value: "", placeholder: post?.salesDetails.first!.textValue, isEditable: false, isExpandable: true))
+        details.append(ForSaleDetailsModel(header: "Package Weight", value: "", placeholder: post?.salesDetails.last!.textValue, isEditable: false, isExpandable: true))
     }
     
   
@@ -53,11 +69,19 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
 // MARK: - CreateSaleConfirmInteractorOutput
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmInteractorOutput {
-
+    func showAlertWith(title: String, message: String) {
+        view.showAlert(title: title, message: message)
+    }
+    
+    func returnToMainModule() {
+        view.returnToMainModule()
+    }
 }
 
 // MARK: - CreateSaleConfirmModuleInput
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
-//    func setPost(with post: Post)
+    func setPost(with post: Post) {
+        self.post = post
+    }
 }
