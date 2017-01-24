@@ -25,6 +25,6 @@ struct CreateKitsRequestBody {
     var images: [String?]
     var condition: String?
     var tags: [String?]
-    var metaData: [String: AnyObject?]
+    var metaData: [String:AnyObject] = [:]
     var isPrivate: Bool = false
 }

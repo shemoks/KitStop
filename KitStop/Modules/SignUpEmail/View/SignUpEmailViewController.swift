@@ -31,6 +31,10 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         repeatPassword.email = email
         email.layer.borderWidth = 2.5
         email.layer.borderColor = UIColor.white.cgColor
+        name.layer.borderWidth = 2.5
+        name.layer.borderColor = UIColor.white.cgColor
+        surname.layer.borderWidth = 2.5
+        surname.layer.borderColor = UIColor.white.cgColor
         navigationController?.isNavigationBarHidden = false
     }
     
@@ -65,6 +69,20 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     
     @IBAction func avatarTap(_ sender: UITapGestureRecognizer) {
         presenter.takePhoto()
+    }
+    
+    func validationFailedBorder(name: Bool, surname: Bool) {
+        if name {
+            self.name.layer.borderColor = UIColor.red.cgColor
+        }
+        else {
+            self.name.layer.borderColor = UIColor.white.cgColor
+        }
+        if surname {
+            self.surname.layer.borderColor = UIColor.red.cgColor
+        } else {
+            self.surname.layer.borderColor = UIColor.white.cgColor
+        }
     }
 
 }

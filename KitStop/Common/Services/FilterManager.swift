@@ -58,7 +58,7 @@ class FilterManager: NSObject, FilterManagerProtocol {
                         let products = json["data"]["docs"]
                         for product in products {
                             let newProduct = Product(id: product.1["_id"].stringValue, title: product.1["title"].stringValue, salesDetails: SalesDetails(price: product.1["salesDetails"]["price"].doubleValue, id: product.1["salesDetails"]["_id"].stringValue
-                            ), mainImage: product.1["mainImage"].stringValue, description: "", date: "", owner: "")
+                            ), mainImage: product.1["mainImage"].stringValue, description: "", date: "", owner: "", imagesArray: [])
                             arrProducts.append(newProduct)
                         }
                         let total = json["data"]["total"].intValue
@@ -85,7 +85,7 @@ class FilterManager: NSObject, FilterManagerProtocol {
                         var arrProducts = [Product]()
                         let products = json["data"]["docs"]
                         for product in products {
-                            let newProduct = Product(id: product.1["_id"].stringValue, title: product.1["title"].stringValue, salesDetails: nil, mainImage: product.1["mainImage"].stringValue, description: "", date: "", owner: "")
+                            let newProduct = Product(id: product.1["_id"].stringValue, title: product.1["title"].stringValue, salesDetails: nil, mainImage: product.1["mainImage"].stringValue, description: "", date: "", owner: "", imagesArray: [])
                             arrProducts.append(newProduct)
                         }
                         let total = json["data"]["total"].intValue

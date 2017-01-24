@@ -26,7 +26,7 @@ class KitFolioDetailedService: NSObject, KitFolioDetailedServiceProtocol {
                 if json["success"].boolValue {
                     var product = Product()
                     product.id = json["data"]["_id"].stringValue
-                    product.mainImage = json["data"]["mainImage"].stringValue
+                    product.mainImage = json["data"]["images"][1].stringValue
                     product.title = json["data"]["title"].stringValue
                     product.description = json["data"]["description"].stringValue
                     product.date = Date().dateFrom(string: json["data"]["updatedAt"].stringValue)

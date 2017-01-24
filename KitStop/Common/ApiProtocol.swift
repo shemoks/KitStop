@@ -11,7 +11,7 @@ import SwiftyJSON
 import KeychainAccess
 
 protocol ApiManagerProtocol {
-    func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]?, headers: [String : String]?) -> ApiRequestProtocol
+    func apiRequest(_ endpoint: Endpoint, parameters: [String : Any]?, headers: [String : String]?) -> ApiRequestProtocol
 }
 
 extension ApiManagerProtocol {
@@ -35,7 +35,7 @@ func += <K, V> ( left: inout [K : V], right: [K : V]) {
 }
 
 extension SessionManager: ApiManagerProtocol {
-    func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]? = nil, headers: [String : String]? = nil) -> ApiRequestProtocol {
+    func apiRequest(_ endpoint: Endpoint, parameters: [String : Any]? = nil, headers: [String : String]? = nil) -> ApiRequestProtocol {
         // Insert your common headers here, for example, authorization token or accept.
         var commonHeaders = ["Accept" : "application/json"]
         let tokenService = Keychain(service: "com.mozidev.KitStop").accessibility(.alwaysThisDeviceOnly)
@@ -48,7 +48,7 @@ extension SessionManager: ApiManagerProtocol {
         } catch is Error {
             print("no token")
         }
-        return request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: URLEncoding.default, headers: commonHeaders)
+        return request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: endpoint.encoding , headers: commonHeaders)
     }
 }
 

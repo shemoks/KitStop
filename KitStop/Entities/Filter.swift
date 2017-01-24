@@ -54,6 +54,7 @@ struct Product {
     var description: String = ""
     var date: String = ""
     var owner: String = ""
+    var imagesArray: [String] = []
 }
 
 struct FilterResult {

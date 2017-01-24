@@ -86,7 +86,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
             self.currentIndex += 1
             images[self.currentIndex] = photo
             if self.currentIndex + 1 < 5 {
-                images[self.currentIndex + 1] = UIImage.init(named: "camera")
+                images[self.currentIndex + 1] = UIImage.init(named: "cameraForSave")
             }
             view.reloadData()
         }

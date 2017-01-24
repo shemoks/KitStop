@@ -35,14 +35,14 @@ extension SelectImagePresenter: SelectImageViewOutput {
         view.openGallary()
     }
     
-    func cropImage(image: UIImage, buttons: [UIButton], delegate: SelectImageContainerProtocol?) -> UIImageView{
-        self.smallImage = image.cropToSmall()
-        self.bigImage = image.cropToBig()
+    func cropImage(image: [UIImage], buttons: [UIButton], delegate: SelectImageContainerProtocol?) -> UIImageView{
+        self.smallImage = image[0].cropToSmall()
+        self.bigImage = image[1].cropToBig()
         delegate?.passImage(small: self.smallImage!, big: self.bigImage!)
         for button in buttons {
             view.removeButton(button: button)
         }
-        let imageView = UIImageView.init(image: image)
+        let imageView = UIImageView.init(image: image[1])
         imageView.contentMode = .scaleToFill
         return imageView
     }

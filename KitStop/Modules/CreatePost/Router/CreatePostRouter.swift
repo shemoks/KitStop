@@ -24,11 +24,11 @@ final class CreatePostRouter {
 extension CreatePostRouter: CreatePostRouterInput {
 
     func openSaveForSaleModule(post: Post) {
-//        flowController.openModule(using: .openSaleConfirm) {
-//            guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
-//            moduleInput.setPost(post: post)
-//            return nil
-//        }
+        flowController.openModule(using: .openSaleConfirm) {
+            guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
+            moduleInput.setPost(with: post)
+            return nil
+        }
     }
 
     func openSaveKitModule(post: Post) {
@@ -70,10 +70,10 @@ extension Segue {
         return .init(identifier: "TrunsitionToCustomList")
     }
 
-//  static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
-        //        return .init(identifier: "TransitionToSaleConfirm")
-        //    
-//}
+  static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
+                return .init(identifier: "TransitionToSaleConfirm")
+            
+  }
 
 //    static var openViewPhoto: Segue<ViewPhotoViewController> {
 //        return .init(identifier: "TrunsitionToViewPhoto")
