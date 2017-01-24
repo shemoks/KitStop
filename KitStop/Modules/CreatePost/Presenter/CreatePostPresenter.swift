@@ -85,7 +85,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
         if currentIndex <= 4 {
             self.currentIndex += 1
             images[self.currentIndex] = photo
-            if self.currentIndex + 1 < 5 {
+            if self.currentIndex + 1 < 6 {
                 images[self.currentIndex + 1] = UIImage.init(named: "cameraForSave")
             }
             view.reloadData()
@@ -171,18 +171,18 @@ extension CreatePostPresenter: CustomListModuleOutput {
 
     func getData(data: Other) {
         self.currentData?.list?.last?.data = ""
-//        self.currentData?.currentData = data.name
+        self.currentData?.isValidate = true
         self.currentData?.textValue = data.name
         view.reloadData()
     }
 
     func getDataWithInput(data: Other) {
         if currentData?.list?.last?.data == "" {
-         //   self.currentData?.currentData = "Other"
+            self.currentData?.isValidate = true
             self.currentData?.textValue = "Other"
             view.reloadData()
         } else {
-      //      self.currentData?.currentData = "Other: " + (currentData?.list?.last?.data)!
+            self.currentData?.isValidate = true
             self.currentData?.textValue = "Other: " + (currentData?.list?.last?.data)!
             view.reloadData()
         }
