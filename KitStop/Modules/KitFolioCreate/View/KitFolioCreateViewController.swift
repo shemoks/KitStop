@@ -29,7 +29,6 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     fileprivate let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
-        navigationController?.navigationBar.tintColor = .black
         postTitle.delegate = self
         postDescription.delegate = self
         postTitle.tag = 100

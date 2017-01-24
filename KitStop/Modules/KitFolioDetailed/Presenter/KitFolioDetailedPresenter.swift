@@ -45,11 +45,12 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
         interactor.fetchKitFrom(id: self.id)
     }
     
-    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat) {
-        imageView.frame.size.height = imageHeight
+    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint) {
         if imageUrl != nil && imageUrl != "" {
             let url = URL.init(string: imageUrl!)
-            imageView.sd_setImage(with: url!)
+            imageView.sd_setImage(with: url!, completed: {
+                completed in
+            })
         } else {
             // whats happaned if image does return on server ???
         }
@@ -204,7 +205,8 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
     func showSuccessAlert(title: String, message: String) {
         view.showSuccessAlert(title: title, message: message, action: [UIAlertAction.init(title: "Ok", style: .default, handler: {
             result in
-            self.router.closeModule()
+            let moduleOutput = self.moduleOutput as! KitFolioDetailedModuleOutput
+            self.router.closeModule(moduleOutput: moduleOutput)
         })])
     }
     
@@ -226,3 +228,4 @@ extension KitFolioDetailedPresenter: KitFolioDetailedModuleInput {
         self.ownerId = ownerId
     }
 }
+

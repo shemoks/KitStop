@@ -28,7 +28,6 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         super.viewDidLoad()
         tableView.register(UINib(nibName: "GeneralCell", bundle: nil), forCellReuseIdentifier: "GeneralCell")
         tableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
-        navigationController?.navigationBar.tintColor = .black
         imagePicker.navigationBar.tintColor = .black
         imagePicker.delegate = self
         headerView.collectionView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")

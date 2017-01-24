@@ -43,31 +43,36 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         let user: SignUpUserModel?
         let name = userData["name"]!
         let surname = userData["surname"]!
+        let email = userData["email"]!
         if !upload {
-            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: nil, name: name, surname: surname)
+            user = SignUpUserModel.init(email: email, password: userData["password"]!, userImage: nil, name: name, surname: surname)
         } else {
-            user = SignUpUserModel.init(email: userData["email"]!, password: userData["password"]!, userImage: userImage, name: name, surname: surname)
+            user = SignUpUserModel.init(email: email, password: userData["password"]!, userImage: userImage, name: name, surname: surname)
         }
-        let status = checkUserName(name: name, surname: surname)
-        if !status.0 && !status.1 {
+        let status = checkUserName(name: name, surname: surname, email: email)
+        if !status.0 && !status.1 && !status.2 {
             interactor.addUser(user: user!)
         } else {
             LoadingIndicatorView.hide()
-            view.validationFailedBorder(name: status.0, surname: status.1)
+            view.validationFailedBorder(name: status.0, surname: status.1, email: status.2)
         }
         
     }
     
-    func checkUserName(name: String?, surname: String?) -> (Bool, Bool) {
+    func checkUserName(name: String?, surname: String?, email: String) -> (Bool, Bool, Bool) {
         var nameStatus = false
         var surnameStatus = false
+        var emailStatus = false
         if name == "" {
             nameStatus = true
         }
         if surname == "" {
             surnameStatus = true
         }
-        return (nameStatus, surnameStatus)
+        if email == "" {
+            emailStatus = true
+        }
+        return (nameStatus, surnameStatus, emailStatus)
     }
 
 }

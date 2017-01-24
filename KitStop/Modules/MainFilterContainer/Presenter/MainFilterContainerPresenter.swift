@@ -38,7 +38,7 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     }
     
     func openKitFolioDetailedModule(kitId: String, ownerId: String) {
-        router.openKitFolioDetailedModule(kitId: kitId, ownerId: ownerId)
+        router.openKitFolioDetailedModule(kitId: kitId, ownerId: ownerId, moduleOutput: self)
     }
     
     func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String) {
@@ -66,5 +66,11 @@ extension MainFilterContainerPresenter: FiltersModuleOutput{
         } else {
             view.fetchKits()
         }
+    }
+}
+
+extension MainFilterContainerPresenter: KitFolioDetailedModuleOutput {
+    func updateKitFolio() {
+        view.passData(selectedItem: 2)
     }
 }

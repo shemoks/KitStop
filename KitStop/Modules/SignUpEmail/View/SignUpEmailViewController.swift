@@ -71,7 +71,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
         presenter.takePhoto()
     }
     
-    func validationFailedBorder(name: Bool, surname: Bool) {
+    func validationFailedBorder(name: Bool, surname: Bool, email: Bool) {
         if name {
             self.name.layer.borderColor = UIColor.red.cgColor
         }
@@ -82,6 +82,11 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
             self.surname.layer.borderColor = UIColor.red.cgColor
         } else {
             self.surname.layer.borderColor = UIColor.white.cgColor
+        }
+        if email {
+            self.email.layer.borderColor = UIColor.red.cgColor
+        } else {
+            self.email.layer.borderColor = UIColor.white.cgColor
         }
     }
 

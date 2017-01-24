@@ -131,8 +131,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         self.navigationItem.title = product.title
         postDescription.text = product.description
         postTitle.text = product.title
-        presenter.addImageWithOrientation(imageView: image, imageUrl: product.mainImage, imageHeight: self.view.frame.width)
-        imageHeight.constant = self.view.frame.width
+        presenter.addImageWithOrientation(imageView: image, imageUrl: product.mainImage, imageHeight: self.view.frame.width, imageViewHeight: imageHeight)
         date.text = product.date
         
         // change size textView to its content
@@ -183,8 +182,9 @@ extension KitFolioDetailedViewController: UIImagePickerControllerDelegate, UINav
         }
         presenter.cropImage(editedImage: editedImage, originalImage: originalImage)
         let newHeight = pickedImage?.heightWithOrientation(contentHeight: self.view.frame.size.width / 2)
-        imageHeight.constant = newHeight!
         image.image = originalImage
+        imageHeight.constant = newHeight!
+        
         image.frame.size.height = newHeight!
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true

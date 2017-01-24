@@ -84,7 +84,6 @@ extension FilterTypeViewController: UITableViewDelegate {
                 }
 
                 let newCell = tableView.cellForRow(at: indexPath)
-                newCell?.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
                 newCell?.accessoryType = .checkmark
                 lastSelectedIndexPath = indexPath
 

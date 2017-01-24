@@ -42,7 +42,6 @@ final class FiltersViewController: UIViewController, FlowController, Alertable {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TypeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
-        navigationController?.navigationBar.tintColor = .black
         presenter.handleViewDidLoad()
     }
     

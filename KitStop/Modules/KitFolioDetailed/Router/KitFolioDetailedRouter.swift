@@ -30,10 +30,10 @@ extension KitFolioDetailedRouter: KitFolioDetailedRouterInput {
         }
     }
     
-    func closeModule() {
+    func closeModule(moduleOutput: KitFolioDetailedModuleOutput) {
+        moduleOutput.updateKitFolio()
         self.flowController.closeModule(animated: true)
     }
-
 }
 
 extension Segue {
