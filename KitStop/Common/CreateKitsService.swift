@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class CreateKitsService {
 
@@ -24,6 +25,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
     func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
         let title = kit.title as AnyObject
         let brandName = kit.brandName as AnyObject
+        print("BRAND NAME:   \(brandName)")
         let model = kit.model as AnyObject
         let serialNumber = kit.serialNumber as AnyObject
         let manufacturerCountry = kit.manufacturerCountry as AnyObject
@@ -40,7 +42,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
-        let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brandName" : brandName,
+        let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brand" : brandName,
                                                               "model":model, "serialNumber": serialNumber,
                                                               "manufacturerCountry": manufacturerCountry,
                                                               "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
@@ -59,7 +61,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                     } else {
                                                                         completion(false, response.response?.statusCode, nil)
                                                                     }
-                                                                    print(json)
+                                                                    print("KIT WAS SUCCESSFULLY SAVED: \(json)")
                                                                 case .failure(let error):
                                                                     print(error)
                                                                     completion(false, (error as NSError).code, nil)

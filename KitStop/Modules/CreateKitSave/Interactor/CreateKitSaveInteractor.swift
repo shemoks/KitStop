@@ -41,6 +41,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
                     result , error, id in
                     LoadingIndicatorView.hide()
                     if result {
+
                         self?.presenter.returnToMainModule()
                     } else {
                         let errorMessage = CustomError(code: error!).description
@@ -57,11 +58,14 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     // Some questionable code here. Should probably take different approach to request body creation.
     func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?]) -> CreateKitsRequestBody {
         
-        var metaData = [String:AnyObject]()
+        var metaData:[String:AnyObject] = [:]
         
         for item in post.metadata {
-            metaData.updateValue(item.textValue as AnyObject, forKey: item.title)
+            let key = item.title.capitalized.replacingOccurrences(of: " ", with: "")
+            metaData[key.lowerCaseFirstLetter()] = item.textValue as AnyObject?
         }
+        
+        print(metaData)
         
         let title = post.generalProperty[2].textValue
         let brandName = post.generalProperty.first?.textValue
@@ -80,7 +84,12 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
             purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
         }
         
-        let purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
+        var purchasePrice = ""
+        
+        if !price.isEmpty {
+            purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
+        }
+        
         let buyingPlace = ""
         let category = post.categoryId
         let userDescription = post.description.textValue
