@@ -19,6 +19,7 @@ final class CustomListViewController: UIViewController, FlowController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = presenter.getTitle()
     }
 
 }

@@ -77,7 +77,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description
                 for image in post.images {
-                    if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "camera") {
+                    if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "cameraForSave") {
                         newImages.append(image)
                     }
                 }

@@ -24,11 +24,11 @@ final class CreatePostRouter {
 extension CreatePostRouter: CreatePostRouterInput {
 
     func openSaveForSaleModule(post: Post) {
-//        flowController.openModule(using: .openSaleConfirm) {
-//            guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
-//            moduleInput.setPost(post: post)
-//            return nil
-//        }
+        flowController.openModule(using: .openSaleConfirm) {
+            guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
+            moduleInput.setPost(with: post)
+            return nil
+        }
     }
 
     func openSaveKitModule(post: Post) {
@@ -39,10 +39,10 @@ extension CreatePostRouter: CreatePostRouterInput {
                     }
     }
 
-    func openList(list: [Other], customListModuleOutput: CustomListModuleOutput) {
+    func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String) {
         flowController.openModule(using: .openList) {
             guard let moduleInput = $0 as? CustomListModuleInput else { fatalError() }
-            moduleInput.setElements(list: list)
+            moduleInput.setElements(list: list, name: name)
             return customListModuleOutput
         }
     }
@@ -54,6 +54,14 @@ extension CreatePostRouter: CreatePostRouterInput {
 //            return viewPhotoModuleOutput
 //        }
 //    }
+
+    func openUnderConstruction() {
+        flowController.openModule(using: .openUnderConstruction) {
+            guard let moduleInput = $0 as? UnderConstructionModuleInput else { fatalError() }
+            return nil
+        }
+
+    }
 }
 
 extension Segue {
@@ -62,10 +70,10 @@ extension Segue {
         return .init(identifier: "TrunsitionToCustomList")
     }
 
-//  static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
-        //        return .init(identifier: "TransitionToSaleConfirm")
-        //    
-//}
+  static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
+                return .init(identifier: "TransitionToSaleConfirm")
+            
+  }
 
 //    static var openViewPhoto: Segue<ViewPhotoViewController> {
 //        return .init(identifier: "TrunsitionToViewPhoto")
@@ -74,4 +82,5 @@ extension Segue {
     static var openKitConfirm: Segue<CreateKitSaveViewController> {
                 return .init(identifier: "TransitionToKitConfirm")
     }
+
 }

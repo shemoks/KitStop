@@ -86,7 +86,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
             self.currentIndex += 1
             images[self.currentIndex] = photo
             if self.currentIndex + 1 < 5 {
-                images[self.currentIndex + 1] = UIImage.init(named: "camera")
+                images[self.currentIndex + 1] = UIImage.init(named: "cameraForSave")
             }
             view.reloadData()
         }
@@ -100,7 +100,8 @@ extension CreatePostPresenter: CreatePostViewOutput {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
         if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice)
+          //  router.openSaveForSaleModule(post: self.postForPrice)
+            router.openUnderConstruction()
         } else {
             router.openSaveKitModule(post: self.postForPrice)
         }
@@ -111,12 +112,12 @@ extension CreatePostPresenter: CreatePostViewOutput {
         case 0:
             if  let object = self.generalProperty(for: indexPath).list {
                 self.currentData = self.generalProperty(for: indexPath)
-                router.openList(list: object, customListModuleOutput: self)
+                router.openList(list: object, customListModuleOutput: self, name: (self.currentData?.title)!)
             }
         case 1:
             if  let object = self.additionalProperty(for: indexPath).list {
                 self.currentData = self.additionalProperty(for: indexPath)
-                router.openList(list: object, customListModuleOutput: self)
+                router.openList(list: object, customListModuleOutput: self, name: (self.currentData?.title)!)
             }
         default:
             _ = [Other]()
@@ -161,7 +162,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
             self.isForSale = false
             self.screenTitle = "Kits / "
         }
-        interactor.getStructure(forSale: true, idCategory: idCategory)
+        interactor.getStructure(forSale: forSale, idCategory: idCategory)
     }
 
 }

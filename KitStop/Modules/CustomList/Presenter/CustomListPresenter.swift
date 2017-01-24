@@ -19,6 +19,7 @@ final class CustomListPresenter {
     var interactor: CustomListInteractorInput!
     var router: CustomListRouterInput!
     var list = [Other]()
+    var title = ""
 
 }
 
@@ -50,6 +51,9 @@ extension CustomListPresenter: CustomListViewOutput {
             router.closeModule()
         }
     }
+    func getTitle() -> String {
+        return self.title
+    }
 
 }
 
@@ -62,8 +66,9 @@ extension CustomListPresenter: CustomListInteractorOutput {
 // MARK: - CustomListModuleInput
 
 extension CustomListPresenter: CustomListModuleInput {
-    func setElements(list: [Other]) {
+    func setElements(list: [Other], name: String) {
         self.list = list
+        self.title = name
     }
 
 }

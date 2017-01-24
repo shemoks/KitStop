@@ -97,7 +97,7 @@ enum Endpoint {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .createKitFolio():
+        case .createKitFolio(), .createKit():
             return JSONEncoding.default
         default:
             return URLEncoding.default

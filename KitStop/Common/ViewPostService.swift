@@ -37,11 +37,14 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         let generalValues = json["data"]
                         for value in generalValues {
                             if general.contains(value.0) {
-                                let newItem = ViewProperty()
-                                let valueTitle = String(describing: value.0).capitalizingFirstLetter().dividedByUppercaseLetter()
-                                newItem.title = valueTitle
-                                newItem.text = value.1.stringValue
-                                generalProperty.append(newItem)
+                                if value.1.stringValue != "" {
+                                    let newItem = ViewProperty()
+                                    let valueTitle = String(describing: value.0).capitalizingFirstLetter().dividedByUppercaseLetter()
+                                    newItem.title = valueTitle
+                                    newItem.text = value.1.stringValue
+                                    newItem.order = value.1.intValue
+                                    generalProperty.append(newItem)
+                                }
                             }
                         }
                         let images = json["data"]["images"]
@@ -59,14 +62,14 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             if json["data"]["description"].stringValue != "" {
                                 description.text = json["data"]["description"].stringValue
                             } else {
-                                description.text = "No Description is entered"
+                                description.text = "No Description"
                             }
 
                             post.description = description
                         } else {
                             let description = ViewProperty()
                             description.title = "Description"
-                            description.text = "No Description is entered"
+                            description.text = "No Description"
                             post.description = description
                         }
                         if json["data"]["notes"] != JSON.null {
@@ -75,13 +78,13 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             if json["data"]["notes"].stringValue != "" {
                                 notes.text = json["data"]["notes"].stringValue
                             } else {
-                                notes.text = "No Owner Notes is entered"
+                                notes.text = "No Owner Notes"
                             }
                             post.notes = notes
                         } else {
                             let notes = ViewProperty()
                             notes.title = "Owner notes"
-                            notes.text = "No Owner Notes is entered"
+                            notes.text = "No Owner Notes"
                             post.notes = notes
                         }
                         let metaDataArray = json["data"]["metaData"]
@@ -89,6 +92,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             let newItem = ViewProperty()
                             newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                             newItem.text = String(describing: product.1)
+                            newItem.order = product.1.intValue
                             metaData.append(newItem)
                         }
                         let category = json["data"]["category"]["title"].stringValue
@@ -99,6 +103,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                                 let newItem = ViewProperty()
                                 newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                                 newItem.text = String(describing: product.1)
+                                newItem.order = product.1.intValue
                                 saleData.append(newItem)
                             }
                         }
@@ -133,9 +138,9 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         owner.surname = json["data"]["owner"]["surname"].stringValue
                         owner.id = json["data"]["owner"]["_id"].stringValue
                         post.owner = owner
-                        post.metaData = metaData
-                        post.saleData = saleDateItems
-                        post.generalProperty = generalProperty
+                        post.metaData = self.sortedProperty(customArray: metaData)
+                        post.saleData = self.sortedProperty(customArray: saleDateItems)
+                        post.generalProperty = self.sortedProperty(customArray: generalProperty)
                         postValue(post, nil)
                     } else {
                         postValue (ViewPost(), response.response?.statusCode)
@@ -167,17 +172,21 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         conditon.title = "Condition"
                         generalProperty.append(conditon)
                         let price = ViewProperty()
-           //           let currency = json["data"]["salesDetails"]["currency"].stringValue
+                        //           let currency = json["data"]["salesDetails"]["currency"].stringValue
                         price.text = "$" + String(describing: json["data"]["salesDetails"]["price"].intValue)
                         price.title = "Price"
                         saleData.append(price)
                         let generalValues = json["data"]
                         for value in generalValues {
                             if general.contains(value.0) {
-                                let newItem = ViewProperty()
-                                newItem.title = String(describing: value.0).capitalizingFirstLetter().dividedByUppercaseLetter()
-                                newItem.text = value.1.stringValue
-                                generalProperty.append(newItem)
+                                if value.1.stringValue != "" {
+                                    let newItem = ViewProperty()
+                                    let valueTitle = String(describing: value.0).capitalizingFirstLetter().dividedByUppercaseLetter()
+                                    newItem.title = valueTitle
+                                    newItem.text = value.1.stringValue
+                                    newItem.order = value.1.intValue
+                                    generalProperty.append(newItem)
+                                }
                             }
                         }
                         let images = json["data"]["images"]
@@ -197,14 +206,14 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             if json["data"]["description"].bool != nil {
                                 description.text = json["data"]["description"].stringValue
                             } else {
-                                description.text = "No Description is entered"
+                                description.text = "No Description"
                             }
 
                             post.description = description
                         } else {
                             let description = ViewProperty()
                             description.title = "Description"
-                            description.text = "No Description is entered"
+                            description.text = "No Description"
                             post.description = description
                         }
                         if json["data"]["notes"] != JSON.null {
@@ -213,13 +222,13 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             if json["data"]["notes"].bool != nil {
                                 notes.text = json["data"]["notes"].stringValue
                             } else {
-                                notes.text = "No Owner Notes is entered"
+                                notes.text = "No Owner Notes"
                             }
                             post.notes = notes
                         } else {
                             let notes = ViewProperty()
                             notes.title = "Owner notes"
-                            notes.text = "No Owner Notes is entered"
+                            notes.text = "No Owner Notes"
                             post.notes = notes
                         }
                         let metaDataArray = json["data"]["metaData"]
@@ -227,6 +236,7 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             let newItem = ViewProperty()
                             newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                             newItem.text = String(describing: product.1)
+                            newItem.order = product.1.intValue
                             metaData.append(newItem)
                         }
                         if json["data"]["forSale"] != JSON.null {
@@ -250,9 +260,9 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         owner.surname = json["data"]["owner"]["surname"].stringValue
                         owner.id = json["data"]["owner"]["_id"].stringValue
                         post.owner = owner
-                        post.metaData = metaData
-                        post.saleData = saleData
-                        post.generalProperty = generalProperty
+                        post.metaData = self.sortedProperty(customArray: metaData)
+                        post.saleData = self.sortedProperty(customArray: saleData)
+                        post.generalProperty = self.sortedProperty(customArray: generalProperty)
                         postValue(post, nil)
                     } else {
                         postValue (ViewPost(), response.response?.statusCode)
@@ -263,6 +273,14 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
             })
         }
     }
+
+    func sortedProperty(customArray: [ViewProperty]) -> [ViewProperty] {
+        let sortedArray = customArray.sorted {
+            $0.order > $1.order
+        }
+        return sortedArray
+    }
+
 }
 
 

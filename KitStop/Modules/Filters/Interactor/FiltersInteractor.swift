@@ -54,13 +54,26 @@ extension FiltersInteractor: FiltersInteractorInput {
     func getPrice(category: Category, categories: [Category]) {
         dataManager.getPrice(category: category) { [weak self] object, error in
             if error == nil {
-                if object.categoryPrice.maxValue != object.categoryPrice.minValue {
+                print(object)
+                if (object.categoryPrice.maxValue != object.categoryPrice.minValue) && object.categoryPrice.maxValue < 2000 {
                     self?.presenter.setPrice(price: object.categoryPrice)
-                } else {
+                }
+                if (object.categoryPrice.maxValue != object.categoryPrice.minValue) && object.categoryPrice.maxValue > 2000 {
+                    let price = Price(minValue: object.categoryPrice.minValue, maxValue: 2000)
+                    self?.presenter.setPrice(price: price)
+                }
+                if (object.categoryPrice.maxValue == object.categoryPrice.minValue) && object.categoryPrice.maxValue > 0 && object.categoryPrice.maxValue < 2000 {
+                    let price = Price(minValue: 0, maxValue: object.categoryPrice.maxValue)
+                    self?.presenter.setPrice(price: price)
+                }
+                if (object.categoryPrice.maxValue == object.categoryPrice.minValue) && object.categoryPrice.maxValue > 0 && object.categoryPrice.maxValue >= 2000 {
+                    let price = Price(minValue: 0, maxValue: 2000)
+                    self?.presenter.setPrice(price: price)
+                }
+                if (object.categoryPrice.maxValue == object.categoryPrice.minValue) && object.categoryPrice.maxValue == 0  {
                     self?.presenter.showError(title: "Search results", message: "Nothing found")
                     self?.clearAll(types: categories)
                 }
-
             } else {
                 let error = CustomError(code: error!).description
                 self?.presenter.showError(title: "Error", message: error)
