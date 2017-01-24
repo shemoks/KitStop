@@ -93,7 +93,9 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                             newItem.text = String(describing: product.1)
                             newItem.order = product.1.intValue
+                            if newItem.text != "" {
                             metaData.append(newItem)
+                            }
                         }
                         let category = json["data"]["category"]["title"].stringValue
                         post.category = category
@@ -104,7 +106,9 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                                 newItem.title = product.0.capitalizingFirstLetter().dividedByUppercaseLetter()
                                 newItem.text = String(describing: product.1)
                                 newItem.order = product.1.intValue
+                                if newItem.text != "" {
                                 saleData.append(newItem)
+                                }
                             }
                         }
                         var saleDateItems = [ViewProperty]()
