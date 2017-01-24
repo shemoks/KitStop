@@ -1,31 +1,29 @@
 //
-//  CreateKitsService.swift
+//  CreateForSaleService.swift
 //  KitStop
 //
-//  Created by Dmitriy Melnichenko on 1/16/17.
+//  Created by Dmitriy Melnichenko on 1/24/17.
 //  Copyright © 2017 MOZI Development. All rights reserved.
 //
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-class CreateKitsService {
-
+class CreateForSaleService {
+    
     fileprivate let manager: ApiManagerProtocol
-
+    
     init(manager: ApiManagerProtocol = SessionManager.default) {
         self.manager = manager
     }
-
-
+    
+    
 }
 
-extension CreateKitsService: CreateKitsServiceProtocol {
-    func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
+extension CreateForSaleService: CreateForSaleServiceProtocol {
+    func createKit(kit: KitsForSaleRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
         let title = kit.title as AnyObject
         let brandName = kit.brandName as AnyObject
-        print("BRAND NAME:   \(brandName)")
         let model = kit.model as AnyObject
         let serialNumber = kit.serialNumber as AnyObject
         let manufacturerCountry = kit.manufacturerCountry as AnyObject
@@ -41,8 +39,9 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let condition = kit.condition as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
+        let salesDetails = kit.salesDetails as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
-        let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brand" : brandName,
+        let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brandName" : brandName,
                                                               "model":model, "serialNumber": serialNumber,
                                                               "manufacturerCountry": manufacturerCountry,
                                                               "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
@@ -52,6 +51,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                               "notes": notes, "mainImage": mainImage,
                                                               "images": images, "condition": condition,
                                                               "tags": tags, "metaData": metaData,
+                                                              "salesDetails": salesDetails,
                                                               "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
                                                                 response in
                                                                 switch response.result {
@@ -61,7 +61,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                     } else {
                                                                         completion(false, response.response?.statusCode, nil)
                                                                     }
-                                                                    print("KIT WAS SUCCESSFULLY SAVED: \(json)")
+                                                                    print(json)
                                                                 case .failure(let error):
                                                                     print(error)
                                                                     completion(false, (error as NSError).code, nil)

@@ -14,12 +14,12 @@ import UIKit
 protocol CreateKitSaveViewOutput: class {
     func detail(for indexPath: IndexPath) -> KitDetailsModel
     func handleSaveTap()
-    func setPrice(value: String)
     func setDate(date: String)
     func setDetails()
     func setPrivacy(isPrivate:Bool)
     func hasPrivacySet() -> Bool
     func priceLimit() -> Int
+    func setPrice(value: String)
     func setLimit()
     func showAlert()
 }
@@ -28,7 +28,6 @@ protocol CreateKitSaveViewOutput: class {
 
 protocol CreateKitSaveInteractorOutput: class {
     func showAlertWith(title: String, message: String)
-    func openDetailedModule(id: String)
     func returnToMainModule()
 }
 

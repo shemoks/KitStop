@@ -143,7 +143,7 @@ extension CreateKitSaveViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField != dateField {
-            if textField.text != nil && !(textField.text?.isEmpty)! && textField.text?.rangeOfCharacter(from: CharacterSet.whitespaces) == nil{
+            if !(textField.text?.isEmpty)! && textField.text?.rangeOfCharacter(from: CharacterSet.whitespaces) == nil{
                 if (textField.text?.formattedDouble(decimalPlaces: 2))! < Double(presenter.priceLimit()) {
                     textField.superview?.backgroundColor = .white
                     presenter.setPrice(value: textField.text!)

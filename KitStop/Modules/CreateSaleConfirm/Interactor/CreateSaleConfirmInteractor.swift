@@ -1,47 +1,45 @@
 //
-//  CreateKitSaveInteractor.swift
+//  CreateSaleConfirmInteractor.swift
 //  KitStop
 //
-//  Created by Dmitriy Melnichenko on 13/01/2017.
+//  Created by Dmitriy Melnichenko on 05/01/2017.
 //  Copyright © 2017 MoziDev. All rights reserved.
 //
 
-// MARK: - CreateKitSaveInteractor
+// MARK: - CreateSaleConfirmInteractor
 import UIKit
 
-final class CreateKitSaveInteractor {
+final class CreateSaleConfirmInteractor {
 
     // MARK: - VIPER stack
 
-    weak var presenter: CreateKitSaveInteractorOutput!
+    weak var presenter: CreateSaleConfirmInteractorOutput!
 
-
-    fileprivate let createKitService: CreateKitsServiceProtocol?
+    fileprivate let kitForSaleService: CreateForSaleServiceProtocol?
     // MARK: -
     
-    init(createKitService: CreateKitsServiceProtocol) {
-        self.createKitService = createKitService
+    init(kitForSaleService: CreateForSaleServiceProtocol) {
+        self.kitForSaleService = kitForSaleService
     }
     
     convenience init() {
-        self.init(createKitService: CreateKitsService())
+        self.init(kitForSaleService: CreateForSaleService())
     }
 
 }
 
-// MARK: - CreateKitSaveInteractorInput
+// MARK: - CreateSaleConfirmInteractorInput
 
-extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
-    func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post) {
+extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
+    func saveForSaleKit(price: String?, date: String?, condition: String?, weight: String?, isPrivate:Bool, post:Post) {
         self.saveImagesTo("Kits", images: post.images, success: { [weak self]
             imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
-                self?.createKitService?.createKit(kit: kit!, completion: {
+                let kit = self?.requestBody(price: price!, date: date!, condition: condition!, weight: weight!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                self?.kitForSaleService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
                     if result {
-
                         self?.presenter.returnToMainModule()
                     } else {
                         let errorMessage = CustomError(code: error!).description
@@ -55,17 +53,19 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         })
     }
     
-    // Some questionable code here. Should probably take different approach to request body creation.
-    func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?]) -> CreateKitsRequestBody {
+    func requestBody(price: String, date: String, condition: String, weight: String, isPrivate:Bool, post: Post, imageArray: [String?]) -> KitsForSaleRequestBody {
         
-        var metaData:[String:AnyObject] = [:]
+        var metaData = [String:AnyObject]()
+        
+        var salesDetails = [String: AnyObject]()
+        
+        salesDetails.updateValue(condition as AnyObject, forKey: "Condition")
+        salesDetails.updateValue(price as AnyObject, forKey: "Sale Price")
+        salesDetails.updateValue(weight as AnyObject, forKey: "Package Weight")
         
         for item in post.metadata {
-            let key = item.title.capitalized.replacingOccurrences(of: " ", with: "")
-            metaData[key.lowerCaseFirstLetter()] = item.textValue as AnyObject?
+            metaData.updateValue(item.textValue as AnyObject, forKey: item.title)
         }
-        
-        print(metaData)
         
         let title = post.generalProperty[2].textValue
         let brandName = post.generalProperty.first?.textValue
@@ -79,17 +79,12 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         }
         
         var purchaseDate = TimeInterval()
-
+        
         if !date.isEmpty {
             purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
         }
         
-        var purchasePrice = ""
-        
-        if !price.isEmpty {
-            purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
-        }
-        
+        let purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
         let buyingPlace = ""
         let category = post.categoryId
         let userDescription = post.description.textValue
@@ -99,9 +94,9 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         let mainImage = imageArray.first
         let images = imageArray
         let condition = post.salesDetails.first?.textValue
-        let tags = [String?]()
+        let tags = [String?]() 
         
-        let kit = CreateKitsRequestBody(title: title, brandName: brandName, model: model, serialNumber: serialNumber, manufacturerCountry: manufacturerCountry, purchaseDate: purchaseDate, purchasePrice: purchasePrice, buyingPlace: buyingPlace, category: category, userDescription: userDescription, manufacturerDescription: manufacturerDescription, notes: notes, mainImage: mainImage!!, images: images, condition: condition, tags: tags, metaData: metaData, isPrivate: isPrivate)
+        let kit = KitsForSaleRequestBody(title: title, brandName: brandName, model: model, serialNumber: serialNumber, manufacturerCountry: manufacturerCountry, purchaseDate: purchaseDate, purchasePrice: purchasePrice, buyingPlace: buyingPlace, category: category, userDescription: userDescription, manufacturerDescription: manufacturerDescription, notes: notes, mainImage: mainImage!!, images: images, condition: condition, tags: tags, metaData: metaData, salesDetails: salesDetails, isPrivate: isPrivate)
         
         return kit
     }
@@ -114,10 +109,14 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
                 image in
                 imageUrls.append(image)
                 if imageUrls.count == images.count {
-                        success(imageUrls)
+                    success(imageUrls)
                 }
             })
         }
+        
+    }
     
+    func updateFinalPrice(pricingModel: KitsForSalePricingModel) {
+        
     }
 }

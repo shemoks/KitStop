@@ -226,6 +226,19 @@ extension String {
 
         return words.joined(separator: " ")
     }
+    
+    func capitalizeFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    func lowerCaseFirstLetter() -> String {
+        let first = String(characters.prefix(1)).lowercased()
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
 }
 
 
