@@ -136,6 +136,18 @@
 		953129A91E1E662F0009760F /* BottomBarTransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953129A81E1E662F0009760F /* BottomBarTransitionProtocol.swift */; };
 		953FD41D1E1EA7DA0000086E /* UnderConstruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */; };
 		957542E31E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */; };
+		9592B0741E373B130040ECB0 /* CreateSaleConfirmAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0641E373B130040ECB0 /* CreateSaleConfirmAssember.swift */; };
+		9592B0751E373B130040ECB0 /* CreateSaleConfirmInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0661E373B130040ECB0 /* CreateSaleConfirmInteractor.swift */; };
+		9592B0761E373B130040ECB0 /* CreateSaleConfirmInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0671E373B130040ECB0 /* CreateSaleConfirmInteractorInterface.swift */; };
+		9592B0771E373B130040ECB0 /* CreateSaleConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0691E373B130040ECB0 /* CreateSaleConfirmPresenter.swift */; };
+		9592B0781E373B130040ECB0 /* CreateSaleConfirmPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B06A1E373B130040ECB0 /* CreateSaleConfirmPresenterInterface.swift */; };
+		9592B0791E373B130040ECB0 /* CreateSaleConfirmRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B06C1E373B130040ECB0 /* CreateSaleConfirmRouter.swift */; };
+		9592B07A1E373B130040ECB0 /* CreateSaleConfirmRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B06D1E373B130040ECB0 /* CreateSaleConfirmRouterInterface.swift */; };
+		9592B07B1E373B130040ECB0 /* CreateSaleConfirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9592B06F1E373B130040ECB0 /* CreateSaleConfirm.storyboard */; };
+		9592B07C1E373B130040ECB0 /* CreateSaleConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0701E373B130040ECB0 /* CreateSaleConfirmViewController.swift */; };
+		9592B07D1E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0711E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift */; };
+		9592B07E1E373B130040ECB0 /* SaleInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592B0721E373B130040ECB0 /* SaleInfoCell.swift */; };
+		9592B07F1E373B130040ECB0 /* SaleInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9592B0731E373B130040ECB0 /* SaleInfoCell.xib */; };
 		95A638831E0A6DBC0055DB6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A638821E0A6DBC0055DB6D /* CustomError.swift */; };
 		95BFD6721E0A87D30081793B /* UIViewController+Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */; };
 		95D4F5891E2E55490073196C /* CustomInputAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4F5781E2E55490073196C /* CustomInputAssember.swift */; };
@@ -516,6 +528,18 @@
 		953129A81E1E662F0009760F /* BottomBarTransitionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarTransitionProtocol.swift; sourceTree = "<group>"; };
 		953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UnderConstruction.storyboard; sourceTree = "<group>"; };
 		957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordServiceProtocol.swift; path = KitStop/Common/RestorePasswordServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		9592B0641E373B130040ECB0 /* CreateSaleConfirmAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmAssember.swift; sourceTree = "<group>"; };
+		9592B0661E373B130040ECB0 /* CreateSaleConfirmInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmInteractor.swift; sourceTree = "<group>"; };
+		9592B0671E373B130040ECB0 /* CreateSaleConfirmInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmInteractorInterface.swift; sourceTree = "<group>"; };
+		9592B0691E373B130040ECB0 /* CreateSaleConfirmPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmPresenter.swift; sourceTree = "<group>"; };
+		9592B06A1E373B130040ECB0 /* CreateSaleConfirmPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmPresenterInterface.swift; sourceTree = "<group>"; };
+		9592B06C1E373B130040ECB0 /* CreateSaleConfirmRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmRouter.swift; sourceTree = "<group>"; };
+		9592B06D1E373B130040ECB0 /* CreateSaleConfirmRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmRouterInterface.swift; sourceTree = "<group>"; };
+		9592B06F1E373B130040ECB0 /* CreateSaleConfirm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateSaleConfirm.storyboard; sourceTree = "<group>"; };
+		9592B0701E373B130040ECB0 /* CreateSaleConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmViewController.swift; sourceTree = "<group>"; };
+		9592B0711E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmViewInterface.swift; sourceTree = "<group>"; };
+		9592B0721E373B130040ECB0 /* SaleInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleInfoCell.swift; sourceTree = "<group>"; };
+		9592B0731E373B130040ECB0 /* SaleInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaleInfoCell.xib; sourceTree = "<group>"; };
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
 		95D4F5781E2E55490073196C /* CustomInputAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAssember.swift; sourceTree = "<group>"; };
@@ -956,6 +980,7 @@
 				95F2E8661E3106550025F993 /* CreateKitSave */,
 				FE64B01E57500BA04DA4BFEE /* UnderConstruction */,
 				4C562A960589FDF1C846CBB1 /* KitsDetailed */,
+				9592B0621E373B130040ECB0 /* CreateSaleConfirm */,
 				9E62D9E6E0CB228790060695 /* KitFolioDetailed */,
 			);
 			path = Modules;
@@ -1428,6 +1453,65 @@
 				549E6D75D861F2271823A4C3 /* MainFilterContainerRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		9592B0621E373B130040ECB0 /* CreateSaleConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				9592B0631E373B130040ECB0 /* Assembler */,
+				9592B0651E373B130040ECB0 /* Interactor */,
+				9592B0681E373B130040ECB0 /* Presenter */,
+				9592B06B1E373B130040ECB0 /* Router */,
+				9592B06E1E373B130040ECB0 /* View */,
+			);
+			path = CreateSaleConfirm;
+			sourceTree = "<group>";
+		};
+		9592B0631E373B130040ECB0 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				9592B0641E373B130040ECB0 /* CreateSaleConfirmAssember.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		9592B0651E373B130040ECB0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9592B0661E373B130040ECB0 /* CreateSaleConfirmInteractor.swift */,
+				9592B0671E373B130040ECB0 /* CreateSaleConfirmInteractorInterface.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9592B0681E373B130040ECB0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9592B0691E373B130040ECB0 /* CreateSaleConfirmPresenter.swift */,
+				9592B06A1E373B130040ECB0 /* CreateSaleConfirmPresenterInterface.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9592B06B1E373B130040ECB0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9592B06C1E373B130040ECB0 /* CreateSaleConfirmRouter.swift */,
+				9592B06D1E373B130040ECB0 /* CreateSaleConfirmRouterInterface.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9592B06E1E373B130040ECB0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9592B06F1E373B130040ECB0 /* CreateSaleConfirm.storyboard */,
+				9592B0701E373B130040ECB0 /* CreateSaleConfirmViewController.swift */,
+				9592B0711E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift */,
+				9592B0721E373B130040ECB0 /* SaleInfoCell.swift */,
+				9592B0731E373B130040ECB0 /* SaleInfoCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		95BFD6701E0A87B90081793B /* Helpers */ = {
@@ -2573,6 +2657,7 @@
 				9AB17CE01E0BD5AE004E95FF /* SF-UI-Display-Light.otf in Resources */,
 				9AB17E1D1E1E58BC004E95FF /* GeneralCell.xib in Resources */,
 				9AB17E211E1E7DF2004E95FF /* PhotoCell.xib in Resources */,
+				9592B07F1E373B130040ECB0 /* SaleInfoCell.xib in Resources */,
 				9AB17CE51E0BD5AE004E95FF /* SF-UI-Display-Ultralight.otf in Resources */,
 				9AB17CED1E0BD5AE004E95FF /* SF-UI-Text-MediumItalic.otf in Resources */,
 				95F2E8871E3106550025F993 /* KitPrivacyCell.xib in Resources */,
@@ -2627,6 +2712,7 @@
 				9AB17C2F1E096FD9004E95FF /* FilterCategory.storyboard in Resources */,
 				2523D1411E1CE2370053BFD6 /* KitFolioCreate.storyboard in Resources */,
 				9A47E5101E02FFBA005EED88 /* PriceCell.xib in Resources */,
+				9592B07B1E373B130040ECB0 /* CreateSaleConfirm.storyboard in Resources */,
 				9AB17CF71E0C0531004E95FF /* Filters.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2780,6 +2866,7 @@
 				2558387E1E2D2905005AA7C8 /* KitFolioDetailedService.swift in Sources */,
 				95D4F58C1E2E55490073196C /* CustomInputPresenter.swift in Sources */,
 				9AB17C8F1E0BCDA3004E95FF /* SignUpEmailPresenterInterface.swift in Sources */,
+				9592B0751E373B130040ECB0 /* CreateSaleConfirmInteractor.swift in Sources */,
 				25211E8E1E1F934200630200 /* RangeSlider.swift in Sources */,
 				9AB17C281E094D68004E95FF /* RegistrationTakePhotoPresenter.swift in Sources */,
 				9AB17C261E094D68004E95FF /* RegistrationTakePhotoInteractor.swift in Sources */,
@@ -2795,6 +2882,7 @@
 				95F2EBC41E16579200A84B7F /* FacebookService.swift in Sources */,
 				259C5E031DF9B35B001E3CCC /* LogInRouter.swift in Sources */,
 				9AB17CA31E0BCEAF004E95FF /* SignUpAssember.swift in Sources */,
+				9592B07C1E373B130040ECB0 /* CreateSaleConfirmViewController.swift in Sources */,
 				259C5E051DF9B35B001E3CCC /* LogInViewController.swift in Sources */,
 				9527A3921E1D0A7500DAE96C /* SearchService.swift in Sources */,
 				259C5E001DF9B35B001E3CCC /* LogInInteractorInterface.swift in Sources */,
@@ -2834,11 +2922,14 @@
 				25211E991E1F97F800630200 /* BottomBarPresenter.swift in Sources */,
 				6061E731A508DA580752129A /* MainPresenter.swift in Sources */,
 				62CD331FAB140A4596144D24 /* MainRouterInterface.swift in Sources */,
+				9592B0741E373B130040ECB0 /* CreateSaleConfirmAssember.swift in Sources */,
 				2523D1461E1D50270053BFD6 /* SelectImageContainerProtocol.swift in Sources */,
 				34C1A10708ABA0DCF9E3C882 /* MainRouter.swift in Sources */,
 				25365CE31E14147C005A92DA /* SignUpService.swift in Sources */,
+				9592B0761E373B130040ECB0 /* CreateSaleConfirmInteractorInterface.swift in Sources */,
 				FFEEFBEA8DE34F6F10E2AF26 /* MainFilterContainerAssember.swift in Sources */,
 				038F533ED9C65095DCEC976D /* MainFilterContainerViewInterface.swift in Sources */,
+				9592B0771E373B130040ECB0 /* CreateSaleConfirmPresenter.swift in Sources */,
 				253220531E1BDBCB00BF96C1 /* Category(Add New Item).swift in Sources */,
 				DE0941D010C9C64BB0059C1F /* MainFilterContainerViewController.swift in Sources */,
 				9A9D0FD71E2CFDB80009274C /* SelectCategoryCell.swift in Sources */,
@@ -2855,6 +2946,7 @@
 				A8E10A38F960FDB693073882 /* MainFilterContainerRouter.swift in Sources */,
 				DD6E7480ED7A9D297ACDA9F8 /* RestorePasswordAssember.swift in Sources */,
 				9AB17E231E1E83CC004E95FF /* PhotoCell.swift in Sources */,
+				9592B0781E373B130040ECB0 /* CreateSaleConfirmPresenterInterface.swift in Sources */,
 				9AB17E121E1E4EC1004E95FF /* HeaderViewCreatePost.swift in Sources */,
 				376BCC662338A75E312060C9 /* RestorePasswordViewInterface.swift in Sources */,
 				9A1604B2EF12EDE8F7FBB56C /* RestorePasswordViewController.swift in Sources */,
@@ -2908,9 +3000,11 @@
 				A0AC4214648ADD8420A3F50D /* CreatePostViewController.swift in Sources */,
 				EBAFFAFA77866A74A4BA123B /* CreatePostInteractorInterface.swift in Sources */,
 				AEB9A64598DE4F795D5DC93E /* CreatePostInteractor.swift in Sources */,
+				9592B07A1E373B130040ECB0 /* CreateSaleConfirmRouterInterface.swift in Sources */,
 				95F2E8831E3106550025F993 /* CreateKitSaveViewInterface.swift in Sources */,
 				BBA346933796E8901DA6EB1B /* CreatePostPresenterInterface.swift in Sources */,
 				869DC7215FD91CDD46F0F03E /* CreatePostPresenter.swift in Sources */,
+				9592B0791E373B130040ECB0 /* CreateSaleConfirmRouter.swift in Sources */,
 				205D9BC9988639698ACEDD33 /* CreatePostRouterInterface.swift in Sources */,
 				704627C447B6266F9D3603BF /* CreatePostRouter.swift in Sources */,
 				4F180DF18B9400DA882A5468 /* CustomListAssember.swift in Sources */,
@@ -2958,6 +3052,7 @@
 				95F2E87C1E3106550025F993 /* CreateKitSaveInteractorInterface.swift in Sources */,
 				9A9D0FD31E2CFDB80009274C /* SelectCategoryPresenterInterface.swift in Sources */,
 				9F3921472D76DF0A6BC59523 /* SelectImageRouterInterface.swift in Sources */,
+				9592B07E1E373B130040ECB0 /* SaleInfoCell.swift in Sources */,
 				0B88DA742DA3178C8BEAD5B8 /* SelectImageRouter.swift in Sources */,
 				702C10088F5B170D96F37281 /* MainSearchAssember.swift in Sources */,
 				7A5F2056AA0E1F239BC9C70C /* MainSearchViewInterface.swift in Sources */,
@@ -2993,6 +3088,7 @@
 				A96F3693D08EE728216635A2 /* KitsDetailedRouter.swift in Sources */,
 				37275768A09E287499A895C4 /* KitFolioDetailedAssember.swift in Sources */,
 				832AC1CE6DDFB0B76592FC73 /* KitFolioDetailedViewInterface.swift in Sources */,
+				9592B07D1E373B130040ECB0 /* CreateSaleConfirmViewInterface.swift in Sources */,
 				A0FD6DF4E2769D57DFEADB76 /* KitFolioDetailedViewController.swift in Sources */,
 				F3B63D1BCE7514A920A4170C /* KitFolioDetailedPresenterInterface.swift in Sources */,
 				CA3D4CFB790737BC65D11A45 /* KitFolioDetailedPresenter.swift in Sources */,
@@ -3120,7 +3216,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3139,8 +3235,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3153,7 +3249,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3172,8 +3268,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3184,6 +3280,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				INFOPLIST_FILE = KitStopTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3199,6 +3297,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				INFOPLIST_FILE = KitStopTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
