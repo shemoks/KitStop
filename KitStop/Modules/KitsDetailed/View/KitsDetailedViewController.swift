@@ -23,7 +23,6 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         super.viewDidLoad()
         tableView.register(UINib(nibName: "ViewGeneralCell", bundle: nil), forCellReuseIdentifier: "GeneralCell")
         tableView.register(UINib(nibName: "ViewDescriptionCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
-     //   navigationController?.navigationBar.tintColor = .black
         presenter.handleViewDidLoad()
         self.tableView.estimatedRowHeight = 50.0
 

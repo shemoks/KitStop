@@ -30,11 +30,6 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
         setupNavigationBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupNavigationBar()
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         setupNavigationBar()
@@ -45,7 +40,6 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
     
     func setupNavigationBar() {
         self.navigationItem.title = "Select Category"
-        self.navigationController?.navigationBar.tintColor = .black
     }
 }
 

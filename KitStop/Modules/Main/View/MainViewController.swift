@@ -39,14 +39,6 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         presenter.handleKitForSale()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 136/255, blue: 48/255, alpha: 1)
-    }
-    
     func addRefreshControl() {
         refreshControl.bounds = CGRect.init(x: refreshControl.bounds.origin.x, y: 25, width: refreshControl.bounds.size.width, height: refreshControl.bounds.size.height)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)

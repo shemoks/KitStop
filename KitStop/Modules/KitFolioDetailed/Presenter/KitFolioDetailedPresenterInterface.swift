@@ -13,7 +13,7 @@ import Chamomile
 protocol KitFolioDetailedViewOutput: class {
     func checkXib(view: UIView?)
     func handleKitData()
-    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat)
+    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint)
     func checkUserInformation(xib: UIView, user: User)
     func updateData(xib: UIView) -> Bool
     func openChat()
@@ -45,5 +45,5 @@ protocol KitFolioDetailedModuleInput: ModuleInput {
 // MARK: - KitFolioDetailedModuleOutput
 
 protocol KitFolioDetailedModuleOutput: ModuleOutput {
-
+    func updateKitFolio()
 }

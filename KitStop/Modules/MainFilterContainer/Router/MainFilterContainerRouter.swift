@@ -44,11 +44,11 @@ extension MainFilterContainerRouter: MainFilterContainerRouterInput {
         }
     }
     
-    func openKitFolioDetailedModule(kitId: String, ownerId: String) {
+    func openKitFolioDetailedModule(kitId: String, ownerId: String, moduleOutput: KitFolioDetailedModuleOutput) {
         flowController.openModule(using: .openKitDetailed) {
             guard let moduleInput = $0 as? KitFolioDetailedModuleInput else { fatalError() }
             moduleInput.handleKitId(id: kitId, ownerId: ownerId)
-            return nil
+            return moduleOutput
         }
     }
     
