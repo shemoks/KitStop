@@ -329,6 +329,12 @@
 		95F2E8811E3106550025F993 /* CreateKitSave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F2E8731E3106550025F993 /* CreateKitSave.storyboard */; };
 		95F2E8851E3106550025F993 /* KitInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95F2E8771E3106550025F993 /* KitInfoCell.xib */; };
 		95F2E8871E3106550025F993 /* KitPrivacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95F2E8791E3106550025F993 /* KitPrivacyCell.xib */; };
+		9A45963F1E38A9BA00FDC805 /* CaruselHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A45963E1E38A9BA00FDC805 /* CaruselHeader.xib */; };
+		9A4596411E38ADB200FDC805 /* CaruselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4596401E38ADB200FDC805 /* CaruselCell.xib */; };
+		9A4596451E38AF4500FDC805 /* CaruselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4596441E38AF4500FDC805 /* CaruselCell.swift */; };
+		9A4596471E38B01B00FDC805 /* CaruselHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4596461E38B01B00FDC805 /* CaruselHeader.swift */; };
+		9A4596491E38B38B00FDC805 /* Carusel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4596481E38B38B00FDC805 /* Carusel.xib */; };
+		9A45964B1E38B61F00FDC805 /* Carusel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A45964A1E38B61F00FDC805 /* Carusel.swift */; };
 		9A47E5001E02B9B6005EED88 /* TypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E4FF1E02B9B6005EED88 /* TypeCell.xib */; };
 		9A47E5081E02BDCF005EED88 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E5071E02BDCF005EED88 /* HeaderView.xib */; };
 		9A47E5101E02FFBA005EED88 /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A47E50F1E02FFBA005EED88 /* PriceCell.xib */; };
@@ -586,6 +592,12 @@
 		981B129FD09D318777BD2B26 /* SelectImageViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectImageViewInterface.swift; sourceTree = "<group>"; };
 		9918C383B8084AF970FABD27 /* MainFilterContainerRouterInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainFilterContainerRouterInterface.swift; sourceTree = "<group>"; };
 		9980A42AD2A54300DC74D7DE /* SignUpEmailViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewInterface.swift; sourceTree = "<group>"; };
+		9A45963E1E38A9BA00FDC805 /* CaruselHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaruselHeader.xib; sourceTree = "<group>"; };
+		9A4596401E38ADB200FDC805 /* CaruselCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaruselCell.xib; sourceTree = "<group>"; };
+		9A4596441E38AF4500FDC805 /* CaruselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaruselCell.swift; sourceTree = "<group>"; };
+		9A4596461E38B01B00FDC805 /* CaruselHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaruselHeader.swift; sourceTree = "<group>"; };
+		9A4596481E38B38B00FDC805 /* Carusel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Carusel.xib; sourceTree = "<group>"; };
+		9A45964A1E38B61F00FDC805 /* Carusel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carusel.swift; sourceTree = "<group>"; };
 		9A47E4E51E02A974005EED88 /* FiltersAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersAssember.swift; sourceTree = "<group>"; };
 		9A47E4E71E02A974005EED88 /* FiltersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersInteractor.swift; sourceTree = "<group>"; };
 		9A47E4E81E02A974005EED88 /* FiltersInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1188,6 +1200,12 @@
 				9A7B6AD91E31241B00806A17 /* TableFooterView.swift */,
 				9A7B6ADB1E322BF600806A17 /* HeaderForSale.xib */,
 				9A7B6ADD1E32329A00806A17 /* HeaderForSale.swift */,
+				9A45963E1E38A9BA00FDC805 /* CaruselHeader.xib */,
+				9A4596401E38ADB200FDC805 /* CaruselCell.xib */,
+				9A4596441E38AF4500FDC805 /* CaruselCell.swift */,
+				9A4596461E38B01B00FDC805 /* CaruselHeader.swift */,
+				9A4596481E38B38B00FDC805 /* Carusel.xib */,
+				9A45964A1E38B61F00FDC805 /* Carusel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1248,7 +1266,6 @@
 				2FE594FB7991354CD530F043 /* View */,
 				0C0133A43BB39699E2055A3C /* Interactor */,
 				788347DC1878D8F470D53490 /* Presenter */,
-				BF9ADB302749E44F20B3BE40 /* Router */,
 			);
 			path = KitsDetailed;
 			sourceTree = "<group>";
@@ -1403,6 +1420,7 @@
 			children = (
 				0AD343968DB0F24D075C0832 /* KitsDetailedPresenterInterface.swift */,
 				7535DE39E07893775CDD0E3B /* KitsDetailedPresenter.swift */,
+				BF9ADB302749E44F20B3BE40 /* Router */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2213,7 +2231,8 @@
 				E9F470FCD952597E3C1DC06E /* KitsDetailedRouterInterface.swift */,
 				E79C5755EE9C45BFDD7DA6EB /* KitsDetailedRouter.swift */,
 			);
-			path = Router;
+			name = Router;
+			path = ../Router;
 			sourceTree = "<group>";
 		};
 		CD5A68BC5B16CBC937A265B8 /* Presenter */ = {
@@ -2667,6 +2686,7 @@
 				9AB17E1D1E1E58BC004E95FF /* GeneralCell.xib in Resources */,
 				9AB17E211E1E7DF2004E95FF /* PhotoCell.xib in Resources */,
 				25EC09211E37B6DA00BE8F06 /* SaleInfoCell.xib in Resources */,
+				9A4596411E38ADB200FDC805 /* CaruselCell.xib in Resources */,
 				9AB17CE51E0BD5AE004E95FF /* SF-UI-Display-Ultralight.otf in Resources */,
 				9AB17CED1E0BD5AE004E95FF /* SF-UI-Text-MediumItalic.otf in Resources */,
 				95F2E8871E3106550025F993 /* KitPrivacyCell.xib in Resources */,
@@ -2680,6 +2700,7 @@
 				9A7B6AD81E31213300806A17 /* View.xib in Resources */,
 				9AE8DFF71E2F914C00A78D6C /* ViewDescriptionCell.xib in Resources */,
 				9A9D0FB71E27CBFB0009274C /* CustomList.storyboard in Resources */,
+				9A4596491E38B38B00FDC805 /* Carusel.xib in Resources */,
 				9AB17CEE1E0BD5AE004E95FF /* SF-UI-Text-Regular.otf in Resources */,
 				2523D1441E1CF5B80053BFD6 /* UserInformation.xib in Resources */,
 				9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */,
@@ -2691,6 +2712,7 @@
 				9AB17CEA1E0BD5AE004E95FF /* SF-UI-Text-Light.otf in Resources */,
 				9AB17CE41E0BD5AE004E95FF /* SF-UI-Display-Thin.otf in Resources */,
 				9AB17CDE1E0BD5AE004E95FF /* SF-UI-Display-Bold.otf in Resources */,
+				9A45963F1E38A9BA00FDC805 /* CaruselHeader.xib in Resources */,
 				9AB17CDD1E0BD5AE004E95FF /* SF-UI-Display-Black.otf in Resources */,
 				25FFBF4A1E2D0FC700B29A7A /* KitFolioDetailed.storyboard in Resources */,
 				9A9D0FA31E1EBE320009274C /* DescriptionCell.xib in Resources */,
@@ -2841,6 +2863,7 @@
 				25EC07ED1E37B55500BE8F06 /* CreateKitsRequestBody.swift in Sources */,
 				25EC07EE1E37B55500BE8F06 /* CustomPasswordTextField.swift in Sources */,
 				25EC07EF1E37B55500BE8F06 /* CustomPasswordDelegateTextField.swift in Sources */,
+				9A4596471E38B01B00FDC805 /* CaruselHeader.swift in Sources */,
 				25EC07F01E37B55500BE8F06 /* CustomAvatar.swift in Sources */,
 				25EC07F11E37B55500BE8F06 /* CustomButton.swift in Sources */,
 				25EC07F21E37B55500BE8F06 /* LoadingIndicatorView.swift in Sources */,
@@ -2923,6 +2946,7 @@
 				25EC08481E37B55500BE8F06 /* MainFilterContainerInteractorInterface.swift in Sources */,
 				25EC08491E37B55500BE8F06 /* MainFilterContainerInteractor.swift in Sources */,
 				25EC084A1E37B55500BE8F06 /* MainFilterContainerPresenterInterface.swift in Sources */,
+				9A45964B1E38B61F00FDC805 /* Carusel.swift in Sources */,
 				25EC084B1E37B55500BE8F06 /* MainFilterContainerPresenter.swift in Sources */,
 				25EC084C1E37B55500BE8F06 /* MainFilterContainerRouterInterface.swift in Sources */,
 				25EC084D1E37B55500BE8F06 /* MainFilterContainerRouter.swift in Sources */,
@@ -2936,6 +2960,7 @@
 				25EC08551E37B55500BE8F06 /* MainInteractor.swift in Sources */,
 				25EC08561E37B55500BE8F06 /* MainPresenterInterface.swift in Sources */,
 				25EC08571E37B55500BE8F06 /* MainPresenter.swift in Sources */,
+				9A4596451E38AF4500FDC805 /* CaruselCell.swift in Sources */,
 				25EC09181E37B6DA00BE8F06 /* CreateSaleConfirmInteractorInterface.swift in Sources */,
 				25EC08581E37B55500BE8F06 /* MainRouterInterface.swift in Sources */,
 				25EC08591E37B55500BE8F06 /* MainRouter.swift in Sources */,

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CaruselHeader" customModule="KitStop" customModuleProvider="target">
+            <connections>
+                <outlet property="carusel" destination="idg-y4-0uw" id="M4a-M2-D5P"/>
+                <outlet property="like" destination="GFO-UM-2Lt" id="tyK-cn-KHP"/>
+                <outlet property="privateLabel" destination="ToU-Ig-r9t" id="41D-ku-Kqg"/>
+                <outlet property="userInfoContainer" destination="uHu-lb-5Nh" id="NZS-Ax-wET"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="217"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idg-y4-0uw" customClass="Carusel" customModule="KitStop" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="428" height="171"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-UM-2Lt">
+                    <rect key="frame" x="373" y="126" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="cjv-Wk-DgK"/>
+                        <constraint firstAttribute="height" constant="40" id="kJT-Rm-uT4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" image="like"/>
+                    <connections>
+                        <action selector="likeTap:" destination="-1" eventType="touchUpInside" id="YsL-cK-hp8"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-Ig-r9t">
+                    <rect key="frame" x="278" y="10" width="135" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="135" id="uUY-TO-z23"/>
+                        <constraint firstAttribute="height" constant="40" id="wYp-Hp-tr8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHu-lb-5Nh">
+                    <rect key="frame" x="0.0" y="171" width="428" height="46"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="UdU-h8-xl2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="uHu-lb-5Nh" secondAttribute="trailing" id="0GC-Au-hLW"/>
+                <constraint firstItem="idg-y4-0uw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0UB-PY-qM6"/>
+                <constraint firstItem="uHu-lb-5Nh" firstAttribute="top" secondItem="idg-y4-0uw" secondAttribute="bottom" id="8Z0-Jf-6u1"/>
+                <constraint firstItem="uHu-lb-5Nh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TId-Cm-eHZ"/>
+                <constraint firstAttribute="bottom" secondItem="uHu-lb-5Nh" secondAttribute="bottom" id="XNS-XY-3BJ"/>
+                <constraint firstItem="ToU-Ig-r9t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="fkt-bz-bFA"/>
+                <constraint firstItem="uHu-lb-5Nh" firstAttribute="top" secondItem="GFO-UM-2Lt" secondAttribute="bottom" constant="5" id="hFN-Ij-qpF"/>
+                <constraint firstItem="idg-y4-0uw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n94-yX-Hv5"/>
+                <constraint firstAttribute="trailing" secondItem="ToU-Ig-r9t" secondAttribute="trailing" constant="15" id="ti9-PN-sKc"/>
+                <constraint firstAttribute="trailing" secondItem="GFO-UM-2Lt" secondAttribute="trailing" constant="15" id="u7P-Qt-6Pn"/>
+                <constraint firstAttribute="trailing" secondItem="idg-y4-0uw" secondAttribute="trailing" id="viy-Ov-ouy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-420" y="-306.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="like" width="26" height="21"/>
+    </resources>
+</document>

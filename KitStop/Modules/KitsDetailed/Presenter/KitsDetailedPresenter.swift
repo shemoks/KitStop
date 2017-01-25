@@ -21,6 +21,7 @@ final class KitsDetailedPresenter {
     var post = ViewPost()
     var ownerId: String = ""
     var sectionSale: Bool = true
+    fileprivate var likeStatus = true
 
 }
 
@@ -108,6 +109,36 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
             }
         }
         return result
+    }
+
+    func getSection() -> Bool {
+        return self.sectionSale
+    }
+
+    func getImages() -> [String] {
+        var images = [String]()
+        for image in post.images {
+            images.append(image)
+        }
+        if images.count == 0 {
+              images.append(self.post.mainImage)
+        }
+        return images
+    }
+
+    func changeLike(like: UIButton) {
+        if likeStatus {
+            like.setImage(UIImage.init(named: "like_active"), for: .normal)
+            likeStatus = false
+        } else {
+            like.setImage(UIImage.init(named: "like"), for: .normal)
+            likeStatus = true
+        }
+    }
+
+    func isPrivatePost() -> Bool {
+        print(post)
+        return !self.post.isPrivate
     }
 
 }

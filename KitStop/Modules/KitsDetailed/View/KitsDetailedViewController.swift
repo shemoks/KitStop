@@ -33,25 +33,49 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
     }
 
     @objc func sheetsView() {
-       // setupAlert()
+      setupAlert()
     }
 
     func setupAlert() {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let openCamera = UIAlertAction.init(title: "Take a Photo", style: .default, handler: {
+        let openEdit = UIAlertAction.init(title: "Edit", style: .default, handler: {
             result in
 
         })
 
-        let openGallery = UIAlertAction.init(title: "Choose from Gallery", style: .default, handler: {
+        if presenter.getSection() {
+
+        let openListForSale = UIAlertAction.init(title: "List For Sale", style: .default, handler: {
             result in
 
         })
+            let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+            let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
+                result in
 
-        let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
-        alertController.addAction(openCamera)
-        alertController.addAction(openGallery)
-        alertController.addAction(cancel)
+            })
+
+            alertController.addAction(openEdit)
+            alertController.addAction(openListForSale)
+            alertController.addAction(remove)
+            alertController.addAction(cancel)
+        } else {
+            let openListForKits = UIAlertAction.init(title: "List For Kits", style: .default, handler: {
+                result in
+
+            })
+            let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
+                result in
+
+            })
+            let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(openEdit)
+            alertController.addAction(openListForKits)
+            alertController.addAction(remove)
+            alertController.addAction(cancel)
+        }
+
+
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = UIColor.gray
         
@@ -65,6 +89,15 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         frame.size.height = height
         headerView.frame = frame
         tableView.tableHeaderView = headerView
+    }
+
+    func setSizeForCell(header: CaruselHeader) {
+        let layout = header.carusel.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        let screenWidth = view.frame.width
+        layout?.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout?.itemSize = CGSize(width: screenWidth, height: screenWidth)
+        layout?.minimumInteritemSpacing = 0
+        layout?.minimumLineSpacing = 0
     }
 
 }
@@ -83,17 +116,26 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
     }
 
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
-        let headerView = HeaderKitsDetailed()
+        let headerView = CaruselHeader()
+        headerView.onTouch = {
+             self.presenter.changeLike(like: headerView.like)
+        }
+        headerView.carusel.heightCell = view.frame.width
+        setSizeForCell(header: headerView)
+        headerView.carusel.images = presenter.getImages()
+        headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
+        headerView.carusel.pageControl.currentPage = 0
+        headerView.privateLabel.isHidden = presenter.isPrivatePost()
+        // let headerView = HeaderKitsDetailed()
         tableView.tableHeaderView = headerView
         let height = view.frame.width + 46
         sizeHeaderToFit(height: height)
-        headerView.imageView.sd_setImage(with: url)
+       // headerView.imageView.sd_setImage(with: url)
         (headerView.actualView as! UserInformationViewController).updateUser(user: userInfo)
         let footerView = TableFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         footerView.dateUpdate.text = dateUpdate
         tableView.tableFooterView = footerView
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "Icons_action_sheet"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
-
 
     }
 

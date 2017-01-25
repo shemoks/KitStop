@@ -26,6 +26,10 @@ protocol KitsDetailedViewOutput: class {
     func openChat()
     func numberOfSections() -> Int
     func getPrice() -> String
+    func getSection() -> Bool
+    func getImages() -> [String]
+    func changeLike(like: UIButton)
+    func isPrivatePost() -> Bool
     
 }
 

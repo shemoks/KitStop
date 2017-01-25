@@ -159,7 +159,7 @@ extension CreatePostViewController: CreatePostViewInput {
             self.openGallery()
         })
 
-        let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
+        let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(openCamera)
         alertController.addAction(openGallery)
         alertController.addAction(cancel)
