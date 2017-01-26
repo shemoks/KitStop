@@ -19,6 +19,7 @@ protocol CreateSaleConfirmViewOutput: class {
     func setLimit()
     func setDetails()
     func showAlert()
+    func handleCellSelect(for indexPath: IndexPath)
 }
 
 // MARK: - CreateSaleConfirmInteractorOutput

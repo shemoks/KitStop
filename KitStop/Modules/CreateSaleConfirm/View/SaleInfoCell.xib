@@ -15,46 +15,47 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ifB-WH-YjH" customClass="SaleInfoCell" customModule="KitStop" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SaleInfoCell" id="5OM-mm-Cyp" customClass="SaleInfoCell" customModule="KitStop" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ifB-WH-YjH" id="oZC-7U-pEd">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5OM-mm-Cyp" id="DdW-Tf-ZjO">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RR6-E1-ne5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBN-wJ-z1d">
                         <rect key="frame" x="18" y="8" width="160" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="7Xx-LU-sQq"/>
-                            <constraint firstAttribute="width" constant="160" id="VaB-CB-iSO"/>
+                            <constraint firstAttribute="width" constant="160" id="2o8-AU-c67"/>
+                            <constraint firstAttribute="height" constant="16" id="Z7n-j8-xeu"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                        <color key="textColor" red="0.59211921691894531" green="0.60009485483169556" blue="0.6040077805519104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.59211921690000002" green="0.60009485480000002" blue="0.60400778060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Not Set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="33o-l2-ed8">
-                        <rect key="frame" x="18" y="30" width="341" height="14"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Not Set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ay-T7-G9C">
+                        <rect key="frame" x="18" y="0.0" width="341" height="74"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="vmp-i6-ksi"/>
+                            <constraint firstAttribute="height" constant="74" id="l4M-6e-zxV"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="33o-l2-ed8" firstAttribute="leading" secondItem="oZC-7U-pEd" secondAttribute="leading" constant="18" id="6Fo-i9-Ada"/>
-                    <constraint firstAttribute="trailing" secondItem="33o-l2-ed8" secondAttribute="trailing" constant="16" id="Aqf-qT-6rF"/>
-                    <constraint firstItem="RR6-E1-ne5" firstAttribute="top" secondItem="oZC-7U-pEd" secondAttribute="top" constant="8" id="RTF-Je-uer"/>
-                    <constraint firstItem="RR6-E1-ne5" firstAttribute="leading" secondItem="oZC-7U-pEd" secondAttribute="leading" constant="18" id="UTm-r6-8yt"/>
-                    <constraint firstItem="33o-l2-ed8" firstAttribute="top" secondItem="RR6-E1-ne5" secondAttribute="bottom" constant="6" id="X9u-em-NBv"/>
+                    <constraint firstItem="lBN-wJ-z1d" firstAttribute="leading" secondItem="DdW-Tf-ZjO" secondAttribute="leading" constant="18" id="0zA-bF-y11"/>
+                    <constraint firstItem="lBN-wJ-z1d" firstAttribute="top" secondItem="DdW-Tf-ZjO" secondAttribute="top" constant="8" id="DEs-Fc-TfQ"/>
+                    <constraint firstItem="7Ay-T7-G9C" firstAttribute="leading" secondItem="DdW-Tf-ZjO" secondAttribute="leading" constant="18" id="EKZ-Fl-9yI"/>
+                    <constraint firstAttribute="trailing" secondItem="7Ay-T7-G9C" secondAttribute="trailing" constant="16" id="eSF-BN-d29"/>
+                    <constraint firstItem="7Ay-T7-G9C" firstAttribute="top" secondItem="lBN-wJ-z1d" secondAttribute="bottom" constant="-24" id="jEy-rC-px5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="contents" destination="33o-l2-ed8" id="ayy-4V-4aK"/>
-                <outlet property="title" destination="RR6-E1-ne5" id="pMT-TK-TXi"/>
+                <outlet property="contents" destination="7Ay-T7-G9C" id="Yfv-4H-KhR"/>
+                <outlet property="title" destination="lBN-wJ-z1d" id="FqK-kc-J2W"/>
             </connections>
-            <point key="canvasLocation" x="18.5" y="-51.5"/>
+            <point key="canvasLocation" x="-135.5" y="-108.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -23,36 +23,26 @@ class CreateForSaleService {
 extension CreateForSaleService: CreateForSaleServiceProtocol {
     func createKit(kit: KitsForSaleRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
         let title = kit.title as AnyObject
-        let brandName = kit.brandName as AnyObject
+        let brand = kit.brand as AnyObject
         let model = kit.model as AnyObject
         let serialNumber = kit.serialNumber as AnyObject
-        let manufacturerCountry = kit.manufacturerCountry as AnyObject
-        let purchaseDate = kit.purchaseDate as AnyObject
-        let purchasePrice = kit.purchasePrice as AnyObject
-        let buyingPlace = kit.buyingPlace as AnyObject
         let category = kit.category as AnyObject
-        let userDescription = kit.userDescription as AnyObject
-        let manufacturerDescription = kit.manufacturerDescription as AnyObject
+        let description = kit.description as AnyObject
         let notes = kit.notes as AnyObject
         let mainImage = kit.mainImage as AnyObject
         let images = kit.images as AnyObject
-        let condition = kit.condition as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let salesDetails = kit.salesDetails as AnyObject
-        let isPrivate = kit.isPrivate as AnyObject
-        let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brandName" : brandName,
+        let _ = manager.apiRequest(.createKitForSale(), parameters: ["title" : title, "brand" : brand,
                                                               "model":model, "serialNumber": serialNumber,
-                                                              "manufacturerCountry": manufacturerCountry,
-                                                              "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
-                                                              "buyingPlace": buyingPlace, "category": category,
-                                                              "description": userDescription,
-                                                              "manufacturerDescription": manufacturerDescription,
+                                                              "category": category,
+                                                              "description": description,
                                                               "notes": notes, "mainImage": mainImage,
-                                                              "images": images, "condition": condition,
+                                                              "images": images,
                                                               "tags": tags, "metaData": metaData,
                                                               "salesDetails": salesDetails,
-                                                              "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
+                                                              "isPrivate": false], headers: nil).apiResponse(completionHandler: {
                                                                 response in
                                                                 switch response.result {
                                                                 case .success(let json):
@@ -67,5 +57,9 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
                                                                     completion(false, (error as NSError).code, nil)
                                                                 }
                                                               })
+    }
+    
+    func getRates(completion: @escaping (Bool, _ error: Int?, _ rates: RatesModel?) -> ()) {
+        
     }
 }

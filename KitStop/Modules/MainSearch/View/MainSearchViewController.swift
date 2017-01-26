@@ -34,6 +34,7 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.topItem?.title = ""
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     

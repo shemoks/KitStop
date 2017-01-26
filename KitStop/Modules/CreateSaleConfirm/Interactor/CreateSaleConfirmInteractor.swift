@@ -31,11 +31,11 @@ final class CreateSaleConfirmInteractor {
 // MARK: - CreateSaleConfirmInteractorInput
 
 extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
-    func saveForSaleKit(price: String?, date: String?, condition: String?, weight: String?, isPrivate:Bool, post:Post) {
+    func saveForSaleKit(price: String?,  condition: String?, weight: String?, isPrivate:Bool, post:Post) {
         self.saveImagesTo("Kits", images: post.images, success: { [weak self]
             imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, date: date!, condition: condition!, weight: weight!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
                 self?.kitForSaleService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -53,50 +53,50 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         })
     }
     
-    func requestBody(price: String, date: String, condition: String, weight: String, isPrivate:Bool, post: Post, imageArray: [String?]) -> KitsForSaleRequestBody {
+    func requestBody(price: String, condition: String, weight: String, post: Post, imageArray: [String?]) -> KitsForSaleRequestBody {
         
-        var metaData = [String:AnyObject]()
-        
-        var salesDetails = [String: AnyObject]()
-        
-        salesDetails.updateValue(condition as AnyObject, forKey: "Condition")
-        salesDetails.updateValue(price as AnyObject, forKey: "Sale Price")
-        salesDetails.updateValue(weight as AnyObject, forKey: "Package Weight")
+        var metaData:[String:AnyObject] = [:]
         
         for item in post.metadata {
-            metaData.updateValue(item.textValue as AnyObject, forKey: item.title)
+            let key = item.title.capitalized.replacingOccurrences(of: " ", with: "")
+            metaData[key.lowerCaseFirstLetter()] = item.textValue as AnyObject?
         }
         
-        let title = post.generalProperty[2].textValue
-        let brandName = post.generalProperty.first?.textValue
-        let model = post.generalProperty.last?.textValue
-        let serialNumber = post.generalProperty[1].textValue
+        print(metaData)
         
-        var manufacturerCountry = ""
-        
-        if post.metadata.count > 1 {
-            manufacturerCountry = post.metadata[1].textValue
-        }
-        
-        var purchaseDate = TimeInterval()
-        
-        if !date.isEmpty {
-            purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
-        }
-        
-        let purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
-        let buyingPlace = ""
-        let category = post.categoryId
-        let userDescription = post.description.textValue
-        let manufacturerDescription = post.notes.textValue
-        
+        var title: String = ""
+        var brand: String?
+        var model: String?
+        var serialNumber: String?
+        let category: String = post.categoryId
+        let description = post.description.textValue
         let notes = post.notes.textValue
-        let mainImage = imageArray.first
+        let mainImage = imageArray.first!
         let images = imageArray
-        let condition = post.salesDetails.first?.textValue
-        let tags = [String?]() 
+        let tags  = [String?]()
         
-        let kit = KitsForSaleRequestBody(title: title, brandName: brandName, model: model, serialNumber: serialNumber, manufacturerCountry: manufacturerCountry, purchaseDate: purchaseDate, purchasePrice: purchasePrice, buyingPlace: buyingPlace, category: category, userDescription: userDescription, manufacturerDescription: manufacturerDescription, notes: notes, mainImage: mainImage!!, images: images, condition: condition, tags: tags, metaData: metaData, salesDetails: salesDetails, isPrivate: isPrivate)
+        for item in post.generalProperty {
+            switch item.title {
+            case "Title":
+                title = item.textValue
+            case "Brand":
+                brand = item.textValue
+            case "Model":
+                model = item.textValue
+            case "Serial #":
+                serialNumber = item.textValue
+            default:
+                _ = "Default"
+            }
+        }
+    
+        var salesDetails: [String:AnyObject] = [:]
+        
+        salesDetails["сondition"] = condition as AnyObject?
+        salesDetails["salePrice"] = price as AnyObject?
+        salesDetails["packageWeight"] = weight as AnyObject?
+        
+        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails, isPrivate: false)
         
         return kit
     }
@@ -116,7 +116,4 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         
     }
     
-    func updateFinalPrice(pricingModel: KitsForSalePricingModel) {
-        
-    }
 }

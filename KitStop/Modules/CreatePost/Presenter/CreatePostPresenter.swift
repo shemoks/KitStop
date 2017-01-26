@@ -100,8 +100,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
         if isForSale {
-          //  router.openSaveForSaleModule(post: self.postForPrice)
-            router.openUnderConstruction()
+            router.openSaveForSaleModule(post: self.postForPrice)
         } else {
             router.openSaveKitModule(post: self.postForPrice)
         }
