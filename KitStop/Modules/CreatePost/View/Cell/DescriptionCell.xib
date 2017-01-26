@@ -28,8 +28,8 @@
                         <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="K6y-Gw-Z1I">
-                        <rect key="frame" x="20" y="26" width="376" height="68"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="K6y-Gw-Z1I" customClass="MyTextView" customModule="KitStop" customModuleProvider="target">
+                        <rect key="frame" x="15" y="26" width="381" height="68"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="70" id="x1c-GL-MEz"/>
@@ -40,7 +40,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="x6u-U1-w5e" firstAttribute="leading" secondItem="Mdh-za-v0T" secondAttribute="leading" constant="20" id="6C8-bm-V51"/>
-                    <constraint firstItem="K6y-Gw-Z1I" firstAttribute="leading" secondItem="Mdh-za-v0T" secondAttribute="leading" constant="20" id="PYh-Wo-Zi0"/>
+                    <constraint firstItem="K6y-Gw-Z1I" firstAttribute="leading" secondItem="Mdh-za-v0T" secondAttribute="leading" constant="15" id="PYh-Wo-Zi0"/>
                     <constraint firstItem="K6y-Gw-Z1I" firstAttribute="top" secondItem="x6u-U1-w5e" secondAttribute="bottom" constant="4" id="VCF-SH-z6w"/>
                     <constraint firstAttribute="trailing" secondItem="x6u-U1-w5e" secondAttribute="trailing" constant="20" id="XkG-jq-8QA"/>
                     <constraint firstAttribute="trailing" secondItem="K6y-Gw-Z1I" secondAttribute="trailing" constant="20" id="b84-rM-7WM"/>

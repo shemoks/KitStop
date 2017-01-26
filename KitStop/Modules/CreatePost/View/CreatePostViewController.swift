@@ -159,7 +159,7 @@ extension CreatePostViewController: CreatePostViewInput {
             self.openGallery()
         })
 
-        let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
+        let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(openCamera)
         alertController.addAction(openGallery)
         alertController.addAction(cancel)
@@ -265,6 +265,8 @@ extension CreatePostViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             presenter.isSelectedCell(inSection: 0, for: indexPath)
+            let cell = tableView.cellForRow(at: indexPath) as? GeneralCell
+            cell?.data.becomeFirstResponder()
         case 1:
             presenter.isSelectedCell(inSection: 1, for: indexPath)
         default:

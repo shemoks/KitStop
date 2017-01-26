@@ -285,6 +285,44 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
         return sortedArray
     }
 
+    func removeKit(idKit: String, completitionBlock: @escaping (Int?) -> ()) {
+        let _ = manager.apiRequest(.removeKit(idKit: idKit), parameters: [:], headers: nil).apiResponse(completionHandler: {
+            response in
+            switch response.result{
+            case .success(let json):
+                print(json["success"])
+                if json["success"].boolValue {
+                    completitionBlock(nil)
+                } else {
+                    print("error \(json)")
+                    completitionBlock(response.response?.statusCode)
+                }
+            case .failure(let error):
+                print(error)
+                completitionBlock((error as NSError).code)
+            }
+        })
+    }
+
+    func removeKitForSale(idKit: String, completitionBlock: @escaping (Int?) -> ()) {
+        let _ = manager.apiRequest(.removeKitForSale(idKit: idKit), parameters: [:], headers: nil).apiResponse(completionHandler: {
+            response in
+            switch response.result{
+            case .success(let json):
+                print(json["success"])
+                if json["success"].boolValue {
+                    completitionBlock(nil)
+                } else {
+                    print("error \(json)")
+                    completitionBlock(response.response?.statusCode)
+                }
+            case .failure(let error):
+                print(error)
+                completitionBlock((error as NSError).code)
+            }
+        })
+    }
+
 }
 
 

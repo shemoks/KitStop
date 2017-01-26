@@ -48,5 +48,16 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
         }
 
     }
+
+    func closeModule(moduleOutput: KitsDetailedModuleOutput, section: Bool) {
+        if section {
+            moduleOutput.updateKitForSale()
+            self.flowController.closeModule(animated: true)
+        } else {
+            moduleOutput.updateKits()
+            self.flowController.closeModule(animated: true)
+        }
+
+    }
 }
 

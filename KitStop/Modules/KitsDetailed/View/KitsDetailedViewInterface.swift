@@ -15,5 +15,6 @@ protocol KitsDetailedViewInput: class {
     func reloadData()
     func showError(title: String, message: String)
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String)
+    func showSuccessAlert(title: String, message: String, action: [UIAlertAction])
 
 }

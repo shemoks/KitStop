@@ -11,5 +11,6 @@
 protocol KitsDetailedInteractorInput: class {
 
     func getPost(forSale: Bool, idPost: String)
-
+    func removePost(section: Bool, idPost: String)
+    
 }
