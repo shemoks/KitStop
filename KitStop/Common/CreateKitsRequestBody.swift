@@ -10,20 +10,16 @@ import Foundation
 
 struct CreateKitsRequestBody {
     var title: String = ""
-    var brandName: String?
+    var brand: String?
     var model: String?
     var serialNumber: String?
-    var manufacturerCountry: String?
     var purchaseDate: TimeInterval?
     var purchasePrice: String?
-    var buyingPlace: String?
     var category: String = ""
-    var userDescription: String?
-    var manufacturerDescription: String?
+    var description: String?
     var notes: String?
     var mainImage: String = ""
     var images: [String?]
-    var condition: String?
     var tags: [String?]
     var metaData: [String:AnyObject] = [:]
     var isPrivate: Bool = false

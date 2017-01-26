@@ -27,7 +27,7 @@ final class CustomListViewController: UIViewController, FlowController {
 // MARK: - FilterTypeViewInput
 
 extension CustomListViewController: CustomListViewInput {
-
+    
 }
 
 extension CustomListViewController: UITableViewDataSource {

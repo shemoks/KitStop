@@ -29,10 +29,12 @@ enum Endpoint {
     case fbAuthenticate()
     case kitFolioDetailed(id: String)
     case createKit()
+    case createKitForSale()
     case viewKitByOwner(idKit: String)
     case viewKitForSale(idKit: String)
     case deleteKitFolio(id: String)
     case saveKitFolio(id: String)
+    case rates()
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -42,6 +44,8 @@ enum Endpoint {
         case .signUp:
             return .post
         case .createKitFolio:
+            return .post
+        case .createKitForSale:
             return .post
         case .fbAuthenticate():
             return .post
@@ -92,12 +96,16 @@ enum Endpoint {
             return "/kit-folio/\(id)"
         case .viewKitForSale(let idKit):
             return ("/kits-for-sale/" + idKit)
+        case .createKitForSale():
+            return "kits-for-sale"
+        case .rates():
+            return "rates"
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .createKitFolio(), .createKit():
+        case .createKitFolio(), .createKit(), .createKitForSale():
             return JSONEncoding.default
         default:
             return URLEncoding.default

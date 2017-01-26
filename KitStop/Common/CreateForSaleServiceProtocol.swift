@@ -11,4 +11,5 @@ import Alamofire
 
 protocol CreateForSaleServiceProtocol {
     func createKit(kit: KitsForSaleRequestBody, completion: @escaping (Bool, _ error: Int?, _ id: String?) -> ())
+    func getRates(completion: @escaping (Bool, _ error: Int?, _ rates: RatesModel?) -> ())
 }

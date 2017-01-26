@@ -29,15 +29,26 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
     //MARK: - Life cycle 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setLimit()
         presenter.setDetails()
         self.title = "For Sale / Camera"
-        tableView.register(UINib(nibName: "SaleInfoCell", bundle: nil), forCellReuseIdentifier: "SaleInfoCell")
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.register(UINib(nibName: "SaleInfoCell", bundle: nil), forCellReuseIdentifier: "SaleInfoCell")
+        
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
         navigationItem.rightBarButtonItem?.tintColor = UIColor().hexStringToUIColor(hex: Color.orangeColor)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: animated)
+        }
     }
     
     // MARK: - Actions
@@ -78,15 +89,31 @@ extension CreateSaleConfirmViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 0 {
+            presenter.handleCellSelect(for: indexPath)
+        }
     }
 }
 
 extension CreateSaleConfirmViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
-        cell?.configure(detail: presenter.detail(for: indexPath))
+        var cell: UITableViewCell!
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let pCell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
+                pCell?.contents.delegate = self
+                pCell?.configure(detail: presenter.detail(for: indexPath))
+                cell = pCell
+                
+            } else {
+                let nCell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
+                nCell?.configure(detail: presenter.detail(for: indexPath))
+                cell = nCell
+            }
+        }
+  
+
         return cell!
     }
     
