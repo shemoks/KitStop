@@ -44,7 +44,7 @@ extension MainPresenter: MainViewOutput {
             result in
                 self.router.openKitFolioCreateModule(secondModuleOutput: self)
         })
-        let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
+        let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         
         
         alertController.addAction(listForSaleAction)

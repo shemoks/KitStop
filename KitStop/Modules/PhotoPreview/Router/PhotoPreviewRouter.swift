@@ -21,5 +21,7 @@ final class PhotoPreviewRouter {
 // MARK: - PhotoPreviewRouterInput
 
 extension PhotoPreviewRouter: PhotoPreviewRouterInput {
-
+    func closeModule() {
+        flowController.closeModule(animated: false)
+    }
 }

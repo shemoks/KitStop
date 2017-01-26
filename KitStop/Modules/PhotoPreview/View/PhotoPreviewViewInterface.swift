@@ -7,7 +7,8 @@
 //
 
 // MARK: - PhotoPreviewViewInput
+import UIKit
 
 protocol PhotoPreviewViewInput: class {
-
+    func handleImage(image: UIImage, isEditMode: Bool)
 }

@@ -9,5 +9,5 @@
 // MARK: - PhotoPreviewRouterInput
 
 protocol PhotoPreviewRouterInput: class {
-
+    func closeModule()
 }

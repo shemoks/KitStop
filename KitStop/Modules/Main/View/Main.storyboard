@@ -42,7 +42,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMg-TB-sDx">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMg-TB-sDx">
                                                     <rect key="frame" x="0.0" y="0.0" width="177" height="155"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="177" placeholderIntrinsicHeight="106" translatesAutoresizingMaskIntoConstraints="NO" id="0R9-4Z-PwJ">
@@ -312,7 +312,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MainViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jRK-Rw-uKN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fPy-Eq-pzs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fPy-Eq-pzs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
