@@ -99,7 +99,7 @@
                                         <rect key="frame" x="0.0" y="587" width="414" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd MM yyyy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8N-UB-ddA">
-                                                <rect key="frame" x="192" y="13.333333333333371" width="207" height="18"/>
+                                                <rect key="frame" x="192" y="13" width="207" height="18"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                                 <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,43 +153,6 @@
                                     <constraint firstAttribute="trailing" secondItem="HmU-QQ-1Q3" secondAttribute="trailing" id="pYy-OG-CC8"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkq-eo-dvy" userLabel="Cancel Container">
-                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-PT-YmE">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="49"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancel:" destination="16O-T3-L84" eventType="touchUpInside" id="197-R7-UtO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1n-fb-KKh">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="49"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
-                                        <state key="normal" title="Delete">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="deletePost:" destination="16O-T3-L84" eventType="touchUpInside" id="mzD-wO-5B1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="S1n-fb-KKh" firstAttribute="leading" secondItem="mkq-eo-dvy" secondAttribute="leading" id="816-CS-kYG"/>
-                                    <constraint firstAttribute="bottom" secondItem="S1n-fb-KKh" secondAttribute="bottom" id="IjG-9z-1ty"/>
-                                    <constraint firstItem="S1n-fb-KKh" firstAttribute="top" secondItem="mkq-eo-dvy" secondAttribute="top" id="MR9-bx-jZR"/>
-                                    <constraint firstItem="fJM-PT-YmE" firstAttribute="width" secondItem="mkq-eo-dvy" secondAttribute="width" multiplier="0.5" id="Qq2-GV-DMq"/>
-                                    <constraint firstAttribute="bottom" secondItem="fJM-PT-YmE" secondAttribute="bottom" id="c5o-6v-3Qm"/>
-                                    <constraint firstAttribute="height" constant="49" id="f8l-MU-Ntr"/>
-                                    <constraint firstItem="S1n-fb-KKh" firstAttribute="width" secondItem="mkq-eo-dvy" secondAttribute="width" multiplier="0.5" id="fvL-6M-5mn"/>
-                                    <constraint firstItem="fJM-PT-YmE" firstAttribute="top" secondItem="mkq-eo-dvy" secondAttribute="top" id="lYu-cY-aFx"/>
-                                    <constraint firstAttribute="trailing" secondItem="fJM-PT-YmE" secondAttribute="trailing" id="pOw-Q7-IXc"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -197,17 +160,13 @@
                             <constraint firstItem="NGn-jM-rzw" firstAttribute="top" secondItem="J4g-N4-eUF" secondAttribute="bottom" id="8Ts-dr-lF6"/>
                             <constraint firstItem="lGR-pN-dzN" firstAttribute="leading" secondItem="WmZ-1B-MMh" secondAttribute="leading" id="DIh-iP-cH1"/>
                             <constraint firstItem="J4g-N4-eUF" firstAttribute="leading" secondItem="WmZ-1B-MMh" secondAttribute="leading" id="Uf4-64-urn"/>
-                            <constraint firstItem="mkq-eo-dvy" firstAttribute="leading" secondItem="WmZ-1B-MMh" secondAttribute="leading" id="VAX-fi-Rix"/>
                             <constraint firstItem="NGn-jM-rzw" firstAttribute="top" secondItem="lGR-pN-dzN" secondAttribute="bottom" id="bC0-e3-w9s"/>
                             <constraint firstAttribute="trailing" secondItem="lGR-pN-dzN" secondAttribute="trailing" id="hgk-no-mku"/>
                             <constraint firstAttribute="trailing" secondItem="J4g-N4-eUF" secondAttribute="trailing" id="mYC-MP-a94"/>
-                            <constraint firstAttribute="trailing" secondItem="mkq-eo-dvy" secondAttribute="trailing" id="md6-Q1-YtQ"/>
-                            <constraint firstItem="NGn-jM-rzw" firstAttribute="top" secondItem="mkq-eo-dvy" secondAttribute="bottom" id="ue4-L5-cdl"/>
                             <constraint firstItem="lGR-pN-dzN" firstAttribute="top" secondItem="HQt-EG-CWa" secondAttribute="bottom" id="v0H-w2-NrD"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancelContainer" destination="mkq-eo-dvy" id="nz6-Fr-xRn"/>
                         <outlet property="date" destination="T8N-UB-ddA" id="slR-MC-JCb"/>
                         <outlet property="image" destination="Qru-Ty-tFc" id="hew-wi-2Dd"/>
                         <outlet property="imageHeight" destination="aJw-mh-UIm" id="su6-qX-9Cf"/>
@@ -219,9 +178,9 @@
                         <outlet property="postTitle" destination="HmU-QQ-1Q3" id="lAH-2f-mCS"/>
                         <outlet property="postTitleHeight" destination="MkW-FK-3ly" id="D6f-UH-yzt"/>
                         <outlet property="scroll" destination="lGR-pN-dzN" id="OeA-8U-7Aj"/>
-                        <outlet property="scrollBottom" destination="bC0-e3-w9s" id="TEH-Cl-1Qm"/>
                         <outlet property="userInformation" destination="ZE3-2F-fnk" id="eOj-TH-5G3"/>
                         <segue destination="ckf-8E-3qD" kind="show" identifier="transitionToUnderConstruction" id="FrF-cq-y9x"/>
+                        <segue destination="HeJ-75-hl8" kind="show" identifier="transitionToPhotoPreview" id="wfT-cp-aLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0d-AE-TB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,6 +193,14 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="81.159420289855078" y="131.25"/>
+        </scene>
+        <!--PhotoPreviewViewController-->
+        <scene sceneID="LVc-IC-D9y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoPreview" referencedIdentifier="PhotoPreviewViewController" id="HeJ-75-hl8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ho8-56-0Qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="748" y="73"/>
         </scene>
         <!--UnderConstructionViewController-->
         <scene sceneID="tTE-j8-v3m">

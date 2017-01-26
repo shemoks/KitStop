@@ -35,14 +35,14 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
 
     func getPost(forSale: Bool, idPost: String) {
         if !forSale {
-        dataManager.getKit(idKit: idPost, forSale: false) { [weak self] object, error in
-            if error == nil {
-                self?.presenter.setPost(post: object)
-            } else {
-                let error = CustomError(code: error!).description
-                self?.presenter.showError(title: "Error", message: error)
+            dataManager.getKit(idKit: idPost, forSale: false) { [weak self] object, error in
+                if error == nil {
+                    self?.presenter.setPost(post: object)
+                } else {
+                    let error = CustomError(code: error!).description
+                    self?.presenter.showError(title: "Error", message: error)
+                }
             }
-        }
         } else {
             dataManager.getKitForSale(idKit: idPost, forSale: forSale) { [weak self] object, error in
                 if error == nil {
@@ -52,7 +52,32 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
                     self?.presenter.showError(title: "Error", message: error)
                 }
             }
-            
+
+        }
+    }
+
+    func removePost(section: Bool, idPost: String) {
+        if section {
+            dataManager.removeKitForSale(idKit: idPost) {
+                    [weak self] error in
+                    if error == nil {
+                        self?.presenter.showSuccess(title: "Success", message: "The item has been deleted")
+                    } else {
+                        let message = CustomError.init(code: error!).description
+                        self?.presenter.showError(title: "Error", message: message)
+                    }
+                }
+
+        } else {
+            dataManager.removeKit(idKit: idPost) {
+                [weak self] error in
+                if error == nil {
+                    self?.presenter.showSuccess(title: "Success", message: "The item has been deleted")
+                } else {
+                    let message = CustomError.init(code: error!).description
+                    self?.presenter.showError(title: "Error", message: message)
+                }
+            }
         }
     }
 

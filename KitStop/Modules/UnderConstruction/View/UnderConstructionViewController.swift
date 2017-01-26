@@ -32,18 +32,9 @@ final class UnderConstructionViewController: UIViewController, FlowController {
         }
         KeychainService().clearToken()
         logoutFromFacebook()
-//        var containsViewController = false
-//        for controller in self.navigationController!.viewControllers as Array {
-//            if controller is SignUpViewController {
-//                let _ = self.navigationController?.popToViewController(controller, animated: true)
-//                containsViewController = true
-//                break
-//            }
-//        }
-//        if !containsViewController {
-//            let signUpViewController = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SignUp")
-//            let _ = self.navigationController?.popToViewController(signUpViewController, animated: true)
-//        }
+        if let navController = self.navigationController {
+            navController.navigationBar.isHidden = true
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

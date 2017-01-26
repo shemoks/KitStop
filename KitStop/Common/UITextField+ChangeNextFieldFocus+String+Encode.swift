@@ -32,23 +32,24 @@ extension UITextField {
     }
     
     func checkFieldFrom(email: UITextField, textField: UITextField) {
-        if textField != email && email.text != "" && !UITextField().emailValidation(textField: email) {
+        if textField != email && !UITextField().emailValidation(textField: email) {
             email.layer.borderColor = UIColor.red.cgColor
             email.textColor = UIColor.red
         } else {
             email.layer.borderColor = UIColor.white.cgColor
             email.textColor = UIColor.black
         }
-        
     }
     
-    func checkIfEmailIsValid(email: UITextField) {
-        if email.text != "" && !UITextField().emailValidation(textField: email) {
+    func checkIfEmailIsValid(email: UITextField) -> Bool {
+        if !UITextField().emailValidation(textField: email) {
             email.layer.borderColor = UIColor.red.cgColor
             email.textColor = UIColor.red
+            return true
         } else {
             email.layer.borderColor = UIColor.white.cgColor
             email.textColor = UIColor.black
+            return false
         }
     }
 }
@@ -104,40 +105,32 @@ extension UIView {
 
 extension UIImage {
     
-    var clipRect: UIImage {
-        // Create a copy of the image without the imageOrientation property so it is in its native orientation (landscape)
-        let contextImage: UIImage = self
+    func RBResizeImage(targetSize: CGSize, staticWidth: Bool) -> UIImage {
+        let size = self.size
         
-        // Get the size of the contextImage
-        let contextSize: CGSize = contextImage.size
+        let widthRatio  = targetSize.width  / self.size.width
+        let heightRatio = targetSize.height / self.size.height
         
-        let posX: CGFloat
-        let posY: CGFloat
-        let width: CGFloat
-        let height: CGFloat
-        
-        // Check to see which length is the longest and create the offset based on that length, then set the width and height of our rect
-        if contextSize.width > contextSize.height {
-            posX = ((contextSize.width - contextSize.height) / 2)
-            posY = 0
-            width = contextSize.height
-            height = contextSize.height
-        } else {
-            posX = 0
-            posY = ((contextSize.height - contextSize.width) / 2)
-            width = contextSize.width
-            height = contextSize.width
+        var newSize: CGSize
+        var width: CGFloat = 500
+        if staticWidth {
+            width = 1080
         }
         
-        let rect: CGRect = CGRect(x: posX, y: posY, width: width, height: height)
+        if(widthRatio > heightRatio) {
+            newSize = CGSize.init(width: width, height: size.height * widthRatio)
+        } else {
+            newSize = CGSize.init(width: width, height: size.height * heightRatio)
+        }
         
-        // Create bitmap image from context using the rect
-        let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
+        let rect = CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height)
         
-        // Create a new image based on the imageRef and rotate back to the original orientation
-        let cropImage = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
-        return cropImage
+        return newImage!
     }
     
     public func heightWithOrientation(contentHeight: CGFloat) -> CGFloat {
@@ -150,27 +143,24 @@ extension UIImage {
         }
     }
     
-    public func cropToSmall() -> UIImage {
-        UIGraphicsBeginImageContext(CGSize(width: 500, height: 500))
-        self.draw(in: CGRect(x: 0, y: 0, width: 500, height: 500))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-    public func cropToBig() -> UIImage {
-        let newWidth: CGFloat = 1080
+    public func bigHeightSize() -> CGFloat {
         var newHeight: CGFloat?
         if size.width == size.height {
-            newHeight = newWidth
+            newHeight = 1080
         } else if size.height > size.width {
             newHeight = 1350
         } else {
             newHeight = 566
         }
-        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight!))
-        self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight!))
+        return newHeight!
+    }
+    
+    public func cropToSmall() -> UIImage {
+        let newSize = CGSize(width: 500, height: 500)
+        let rect = CGRect.init(x: 0, y: 0, width: 500, height: 500)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

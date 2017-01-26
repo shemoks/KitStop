@@ -20,7 +20,23 @@ final class RootViewController: UIViewController, FlowController {
         navigationController?.isNavigationBarHidden = true
         presenter.handleViewDidload()
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if (self.navigationController!.viewControllers as Array).count == 1 {
+            let storyboard = UIStoryboard(name: "Signup", bundle: nil)
+            let VC = storyboard.instantiateViewController(withIdentifier: "SignUp")
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
+    }
 }
 // MARK: - RootViewInput
 

@@ -11,7 +11,7 @@ import Chamomile
 // MARK: - PhotoPreviewViewOutput
 
 protocol PhotoPreviewViewOutput: class {
-
+    func closeModule()
 }
 
 // MARK: - PhotoPreviewInteractorOutput
@@ -23,7 +23,7 @@ protocol PhotoPreviewInteractorOutput: class {
 // MARK: - PhotoPreviewModuleInput
 
 protocol PhotoPreviewModuleInput: ModuleInput {
-
+    func handleImages(images: UIImage, isEditMode: Bool)
 }
 
 // MARK: - PhotoPreviewModuleOutput

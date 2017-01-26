@@ -11,7 +11,8 @@ import Alamofire
 
 enum Endpoint {
     
-    static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+  //  static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+    static let baseURL = URL(string: "http://34.198.24.119:8443/api/v1")!
     
     case login()
     case signUp()
@@ -34,6 +35,8 @@ enum Endpoint {
     case viewKitForSale(idKit: String)
     case deleteKitFolio(id: String)
     case saveKitFolio(id: String)
+    case removeKit(idKit: String)
+    case removeKitForSale(idKit: String)
     case rates()
     
     // MARK: - Public Properties
@@ -52,6 +55,10 @@ enum Endpoint {
         case .createKit:
             return .post
         case .deleteKitFolio:
+            return .delete
+        case .removeKit:
+            return .delete
+        case .removeKitForSale:
             return .delete
         case .saveKitFolio:
             return .patch
@@ -96,6 +103,10 @@ enum Endpoint {
             return "/kit-folio/\(id)"
         case .viewKitForSale(let idKit):
             return ("/kits-for-sale/" + idKit)
+        case .removeKit(let idKit):
+            return ("/kits/" + idKit)
+        case .removeKitForSale(let idKit):
+            return ("/kits-for-sale/" + idKit)
         case .createKitForSale():
             return "kits-for-sale"
         case .rates():
@@ -105,6 +116,7 @@ enum Endpoint {
     
     var encoding: ParameterEncoding {
         switch self {
+        case .createKitFolio(), .createKit(), .saveKitFolio:
         case .createKitFolio(), .createKit(), .createKitForSale():
             return JSONEncoding.default
         default:

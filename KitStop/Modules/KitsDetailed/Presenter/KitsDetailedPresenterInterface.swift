@@ -26,6 +26,11 @@ protocol KitsDetailedViewOutput: class {
     func openChat()
     func numberOfSections() -> Int
     func getPrice() -> String
+    func getSection() -> Bool
+    func getImages() -> [String]
+    func changeLike(like: UIButton)
+    func isPrivatePost() -> Bool
+    func removePost()
     
 }
 
@@ -35,6 +40,7 @@ protocol KitsDetailedInteractorOutput: class {
 
     func setPost(post: ViewPost)
     func showError(title: String, message: String)
+    func showSuccess(title: String, message: String)
 
 }
 
@@ -49,5 +55,8 @@ protocol KitsDetailedModuleInput: ModuleInput {
 // MARK: - KitsDetailedModuleOutput
 
 protocol KitsDetailedModuleOutput: ModuleOutput {
+
+   func updateKits()
+   func updateKitForSale()
 
 }

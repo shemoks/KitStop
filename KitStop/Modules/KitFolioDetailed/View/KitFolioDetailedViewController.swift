@@ -19,7 +19,6 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     @IBOutlet weak var post: UITextView!
     @IBOutlet weak var information: UITextView!
-    @IBOutlet weak var scrollBottom: NSLayoutConstraint!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var like: UIButton!
     @IBOutlet weak var postTitleHeight: NSLayoutConstraint!
@@ -30,17 +29,18 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var userInformation: UIView!
     @IBOutlet weak var scroll: UIScrollView!
-    @IBOutlet weak var cancelContainer: UIView!
     
     fileprivate var userInformationXib: UIView?
     fileprivate var toolBar: UIView?
     fileprivate let imagePicker = UIImagePickerController()
     fileprivate var viewRec: UITapGestureRecognizer?
+    fileprivate var showImage: UITapGestureRecognizer?
     
     override func viewDidLoad() {
         presenter.checkXib(view: UIView.loadFromNibNamed(nibNamed: "UserInformation"))
         presenter.handleKitData()
         addTextViewInset()
+        postTitle.delegate = self
         
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: userInformationXib!) ?          UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(editKitFolio)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
         // add image picker
@@ -48,6 +48,9 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         imagePicker.delegate = self
         
         viewRec = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        showImage = UITapGestureRecognizer(target: self, action: #selector(showFullScreenImages))
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(showImage!)
     }
     
     @objc func openChatModule() {
@@ -55,16 +58,18 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     }
     
     @objc func editKitFolio() {
+        presenter.addEditActionSheet()
+    }
+    
+    func edit() {
         self.navigationItem.rightBarButtonItem? = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         viewRec?.numberOfTapsRequired = 1
         viewRec?.numberOfTouchesRequired = 1
         postTitle.isEditable = true
         postDescription.isEditable = true
-        image.isUserInteractionEnabled = true
+        image.removeGestureRecognizer(showImage!)
         image.addGestureRecognizer(viewRec!)
-        cancelContainer.isHidden = false
-        cancelContainer.alpha = 1
-        scrollBottom.constant = 49
     }
     
     func addTextViewInset() {
@@ -77,44 +82,38 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     func save() {
         // save changes
         let data: [String : String] = ["title" : postTitle.text, "description" : postDescription.text]
-        presenter.validation(data: data, image: image.image!)
-    }
-    
-    @IBAction func deletePost(_ sender: Any) {
-        // delete post
-        let yes = UIAlertAction.init(title: "Yes", style: .default, handler: {
-            result in
-            self.presenter.deletePost()
-        })
-        let no = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
-        showAlertWithTitle("Delete", message: "Are you sure to delete this item?", actions: [yes, no])
-        
-    }
-    
-    func refreshDataAfterUpdate() {
-        self.navigationItem.rightBarButtonItem? = UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(editKitFolio))
-        postTitle.isEditable = false
-        postDescription.isEditable = false
-        image.isUserInteractionEnabled = false
-        image.removeGestureRecognizer(viewRec!)
-        cancelContainer.isHidden = true
-        cancelContainer.alpha = 0
-        scrollBottom.constant = 0
-        presenter.imageChange = false
-        presenter.imageDeleteStatus = false
-        if presenter.product != nil {
-            updateData(product: presenter.product!)
+        if let image = image.image {
+            presenter.validation(data: data, image: image)
+        } else {
+            showAlertWithTitle("Error", message: "Image not set")
         }
     }
     
+    func refreshDataAfterUpdate(isSizeChange: Bool) {
+        self.navigationItem.rightBarButtonItem? = UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(editKitFolio))
+        self.navigationItem.leftBarButtonItem = nil
+        postTitle.isEditable = false
+        postDescription.isEditable = false
+        image.removeGestureRecognizer(viewRec!)
+        image.addGestureRecognizer(showImage!)
+        presenter.imageChange = false
+        presenter.imageDeleteStatus = false
+        if presenter.product != nil {
+            updateData(product: presenter.product!, isSizeChange: isSizeChange)
+        }
+    }
     
-    @IBAction func cancel(_ sender: Any) {
-        // cancel
-        refreshDataAfterUpdate()
+    func cancel() {
+        refreshDataAfterUpdate(isSizeChange: false)
     }
     
     func imageTapped() {
         presenter.showActionSheet(image: image, picker: imagePicker)
+    }
+    
+    func showFullScreenImages() {
+        // check true if you want see trash button and page control
+        presenter.openPhotoPreview(images: self.image.image, isEditMode: false)
     }
     
     func addXibOnView(view: UIView) {
@@ -123,11 +122,13 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         userInformation.addSubview(userInformationXib!)
     }
     
+    
+    
     @IBAction func changeLikeStatus(_ sender: Any) {
         presenter.changeLike(like: like)
     }
     
-    func updateData(product: Product) {
+    func updateData(product: Product, isSizeChange: Bool) {
         self.navigationItem.title = product.title
         postDescription.text = product.description
         postTitle.text = product.title
@@ -135,10 +136,12 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         date.text = product.date
         
         // change size textView to its content
-        postDescription.sizeToFit()
-        postDescriptionHeight.constant = postDescription.contentSize.height
-        postTitle.sizeToFit()
-        postTitleHeight.constant = postTitle.contentSize.height
+        if isSizeChange {
+            postDescription.sizeToFit()
+            postDescriptionHeight.constant = postDescription.contentSize.height
+            postTitle.sizeToFit()
+            postTitleHeight.constant = postTitle.contentSize.height
+        }
     }
 }
 
@@ -148,7 +151,7 @@ extension KitFolioDetailedViewController: KitFolioDetailedViewInput {
     
     func updateProduct(product: Product, user: User?) {
         presenter.checkUserInformation(xib: userInformationXib!, user: user!)
-        updateData(product: product)
+        updateData(product: product, isSizeChange: true)
     }
     
     func presentAlert(alert: UIAlertController) {
@@ -172,20 +175,17 @@ extension KitFolioDetailedViewController: KitFolioDetailedViewInput {
 extension KitFolioDetailedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let pickedImage: UIImage?
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
-        if ( editedImage != nil ) {
-            pickedImage = editedImage
-        } else {
-            pickedImage = originalImage
-        }
         presenter.cropImage(editedImage: editedImage, originalImage: originalImage)
-        let newHeight = pickedImage?.heightWithOrientation(contentHeight: self.view.frame.size.width / 2)
-        image.image = originalImage
-        imageHeight.constant = newHeight!
-        
-        image.frame.size.height = newHeight!
+        if let bigImage = presenter.bigImage {
+            image.image = bigImage
+        } else {
+            image.image = originalImage
+        }
+        let height = self.view.frame.size.width
+        imageHeight.constant = height
+        image.frame.size.height = height
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         presenter.imageChange = true
@@ -196,4 +196,10 @@ extension KitFolioDetailedViewController: UIImagePickerControllerDelegate, UINav
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension KitFolioDetailedViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        self.navigationItem.title = textView.text
+    }
 }

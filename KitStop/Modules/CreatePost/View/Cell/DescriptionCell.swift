@@ -17,28 +17,24 @@ protocol ResizeTextViewDelegate {
 class DescriptionCell: UITableViewCell, UITextViewDelegate {
     var delegate: ResizeTextViewDelegate?
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var descriptions: UITextView!
+    @IBOutlet weak var descriptions: MyTextView!
     var object: Property?
     func configure(property: Property) {
         self.object = property
         title.text = property.title
 
-        if self.descriptions.text == "" || self.descriptions.text == property.placeholder {
-            self.descriptions.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
-            self.descriptions.text = property.placeholder
-        } else {
-            self.descriptions.textColor = UIColor.black
-        }
-        //    self.descriptions.text = property.textValue
+        descriptions.placeholderLabel.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
+        descriptions.placeholderLabel.text = property.placeholder
         descriptions.delegate = self
-
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let currentCharacterCount = descriptions.text?.characters.count ?? 0
+        textView.textColor = UIColor.black
+        let currentCharacterCount = textView.text?.characters.count ?? 0
         if (range.length + range.location > currentCharacterCount){
             return false
         }
+
         let newLength = currentCharacterCount + text.characters.count - range.length
         if let limit = object?.limit {
             return newLength <= limit
@@ -53,25 +49,12 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        if !validation(data: self.descriptions.text) {
-            textView.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
-            textView.text = (self.object?.placeholder)!
-        } else {
             self.object?.textValue = textView.text
-        }
     }
 
-
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if self.descriptions.text == (self.object?.placeholder)! {
-            textView.text = nil
-        }
-        self.descriptions.textColor = UIColor.black
-    }
-
-    func validation(data: String) -> Bool {
+      func validation(data: String) -> Bool {
         let newData = data.trimmingCharacters(in: .whitespaces)
-        if data.characters.count > 0 && newData.characters.count > 0 && data != object?.placeholder {
+        if data.characters.count > 0 && newData.characters.count > 0  {
             return true
         }
         return false

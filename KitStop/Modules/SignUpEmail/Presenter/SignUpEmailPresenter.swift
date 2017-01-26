@@ -39,7 +39,7 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         }
     }
     
-    func registrationNewUser(userData: [String : String], userImage: UIImage) {
+    func registrationNewUser(userData: [String : String], userImage: UIImage, emailTF: UITextField) {
         let user: SignUpUserModel?
         let name = userData["name"]!
         let surname = userData["surname"]!
@@ -49,7 +49,7 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         } else {
             user = SignUpUserModel.init(email: email, password: userData["password"]!, userImage: userImage, name: name, surname: surname)
         }
-        let status = checkUserName(name: name, surname: surname, email: email)
+        let status = checkUserName(name: name, surname: surname, email: email, emailTF: emailTF)
         if !status.0 && !status.1 && !status.2 {
             interactor.addUser(user: user!)
         } else {
@@ -59,7 +59,7 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         
     }
     
-    func checkUserName(name: String?, surname: String?, email: String) -> (Bool, Bool, Bool) {
+    func checkUserName(name: String?, surname: String?, email: String, emailTF: UITextField) -> (Bool, Bool, Bool) {
         var nameStatus = false
         var surnameStatus = false
         var emailStatus = false
@@ -69,7 +69,7 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         if surname == "" {
             surnameStatus = true
         }
-        if email == "" {
+        if email == "" || UITextField().checkIfEmailIsValid(email: emailTF) {
             emailStatus = true
         }
         return (nameStatus, surnameStatus, emailStatus)

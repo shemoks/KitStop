@@ -30,6 +30,14 @@ extension KitFolioDetailedRouter: KitFolioDetailedRouterInput {
         }
     }
     
+    func openPhotoPreviewModule(image: UIImage, isEditMode: Bool) {
+        flowController.openModule(using: .openPhotoPreviewModule) {
+            guard let moduleInput = $0 as? PhotoPreviewModuleInput else {fatalError()}
+            moduleInput.handleImages(images: image, isEditMode: isEditMode)
+            return nil
+        }
+    }
+    
     func closeModule(moduleOutput: KitFolioDetailedModuleOutput) {
         moduleOutput.updateKitFolio()
         self.flowController.closeModule(animated: true)
@@ -39,5 +47,9 @@ extension KitFolioDetailedRouter: KitFolioDetailedRouterInput {
 extension Segue {
     static var openUnderConstructionModule: Segue<UnderConstructionViewController> {
         return .init(identifier:"transitionToUnderConstruction")
+    }
+    
+    static var openPhotoPreviewModule: Segue<PhotoPreviewViewController> {
+        return .init(identifier: "transitionToPhotoPreview")
     }
 }

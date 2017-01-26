@@ -52,11 +52,11 @@ extension MainFilterContainerRouter: MainFilterContainerRouterInput {
         }
     }
     
-    func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String) {
+    func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String, moduleOutput: KitsDetailedModuleOutput) {
         flowController.openModule(using: .openKitsDetailed) {
             guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
             moduleInput.dataForView(forSale: segmentedIndex, idPost: kitId, idOwner: ownerId)
-            return nil
+            return moduleOutput
         }
     }
 }

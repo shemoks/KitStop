@@ -15,7 +15,8 @@ protocol SignUpEmailViewOutput: class {
 
     func takePhoto()
     func comparePassword(password: String, repeatPassword: String)
-    func registrationNewUser(userData: [String : String], userImage: UIImage)
+    func registrationNewUser(userData: [String : String], userImage: UIImage, emailTF: UITextField)
+    func checkUserName(name: String?, surname: String?, email: String, emailTF: UITextField) -> (Bool, Bool, Bool)
 }
 
 // MARK: - SignUpEmailInteractorOutput
