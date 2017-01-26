@@ -25,8 +25,8 @@ final class KitFolioDetailedPresenter {
     fileprivate var likeStatus = true
     var imageDeleteStatus = false
     fileprivate var picker: UIImagePickerController?
-    fileprivate var smallImage: UIImage?
-    fileprivate var bigImage: UIImage?
+    var smallImage: UIImage?
+    var bigImage: UIImage?
     var product: Product?
     var imageChange: Bool = false
 }
@@ -160,13 +160,44 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
     }
     
     func cropImage(editedImage: UIImage?, originalImage: UIImage?) {
-        self.smallImage = editedImage?.cropToSmall()
-        self.bigImage = originalImage?.cropToBig()
+        self.smallImage = editedImage?.RBResizeImage(targetSize: CGSize(width: 500, height: 500), staticWidth: false)
+        self.bigImage = originalImage?.RBResizeImage(targetSize: CGSize.init(width: 1080, height: (originalImage?.bigHeightSize())!), staticWidth: true)
         imageDeleteStatus = false
+    }
+    
+    func openPhotoPreview(images: UIImage?, isEditMode: Bool) {
+        if let image = images {
+            router.openPhotoPreviewModule(image: image, isEditMode: isEditMode)
+        }
     }
     
     func deletePost() {
         interactor.delete(id: self.id!)
+    }
+    
+    func addEditActionSheet() {
+        let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let delete = UIAlertAction.init(title: "Delete post", style: .default, handler: {
+            result in
+            let yes = UIAlertAction.init(title: "Yes", style: .default, handler: {
+                result in
+                self.deletePost()
+            })
+            let no = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
+            self.view.showSuccessAlert(title: "Delete", message: "Are you sure to delete this item?", action: [yes, no])
+        })
+        let edit = UIAlertAction.init(title: "Edit", style: .default, handler: {
+            result in
+            self.view.edit()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(edit)
+        alertController.addAction(delete)
+        alertController.addAction(cancel)
+        
+        view.presentAlert(alert: alertController)
+
     }
     
     func validation(data: [String : String], image: UIImage) {
@@ -214,7 +245,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
         self.product = product
         let ok = UIAlertAction.init(title: "Ok", style: .default, handler: {
             result in
-            self.view.refreshDataAfterUpdate()
+            self.view.refreshDataAfterUpdate(isSizeChange: true)
         })
         view.showSuccessAlert(title: "Success", message: "Update success", action: [ok])
     }

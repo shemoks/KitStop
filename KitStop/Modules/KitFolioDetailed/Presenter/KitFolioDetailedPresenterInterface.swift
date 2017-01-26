@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import UIKit
 
 // MARK: - KitFolioDetailedViewOutput
 
@@ -17,6 +18,7 @@ protocol KitFolioDetailedViewOutput: class {
     func checkUserInformation(xib: UIView, user: User)
     func updateData(xib: UIView) -> Bool
     func openChat()
+    func openPhotoPreview(images: UIImage?, isEditMode: Bool)
     func changeLike(like: UIButton)
     func showActionSheet(image: UIImageView, picker: UIImagePickerController)
     func cropImage(editedImage: UIImage?, originalImage: UIImage?)
@@ -25,6 +27,8 @@ protocol KitFolioDetailedViewOutput: class {
     var product: Product? {get set}
     var imageChange: Bool {get set}
     var imageDeleteStatus: Bool {get set}
+    var bigImage: UIImage? {get set}
+    func addEditActionSheet()
 }
 
 // MARK: - KitFolioDetailedInteractorOutput

@@ -22,11 +22,14 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     @IBOutlet weak var email: UITextField!
 
     var presenter: SignUpEmailViewOutput!
+    fileprivate var tapSignUpStatus = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         password.passwordDelegate = self
         repeatPassword.passwordDelegate = self
+        password.delegate = self
+        repeatPassword.delegate = self
         password.email = email
         repeatPassword.email = email
         email.layer.borderWidth = 2.5
@@ -41,18 +44,32 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let navController = self.navigationController {
+            navController.navigationBar.isHidden = true
+            for controller in navController.viewControllers as Array {
+                if controller.isKind(of: SignUpViewController.self) {
+                    let _ = self.navigationController?.popToViewController(controller as! SignUpViewController, animated: false)
+                    break
+                }
+            }
+        }
+    }
 
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
 
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
+        tapSignUpStatus = true
         presenter.comparePassword(password: password.text!, repeatPassword: repeatPassword.text!)
     }
     
     func registrationNewUser() {
         LoadingIndicatorView.show(self.view)
-        presenter.registrationNewUser(userData: getUserData(), userImage: avatar.image!)
+        presenter.registrationNewUser(userData: getUserData(), userImage: avatar.image!, emailTF: self.email)
     }
     
     func getUserData() -> [String : String] {
@@ -108,11 +125,17 @@ extension SignUpEmailViewController: SignUpEmailViewInput {
 
 extension SignUpEmailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == repeatPassword {
+            return false
+        }
         textField.nextField?.becomeFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        UITextField().checkFieldFrom(email: email, textField: textField)
+        if tapSignUpStatus {
+            let validate = presenter.checkUserName(name: name.text, surname: surname.text, email: email.text!, emailTF: email)
+            validationFailedBorder(name: validate.0, surname: validate.1, email: validate.2)
+        }
     }
 }

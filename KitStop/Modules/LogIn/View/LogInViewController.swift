@@ -12,13 +12,14 @@ import UIKit
 // MARK: - LogInViewController
 
 final class LogInViewController: UIViewController, FlowController, Alertable, CustomPasswordDelegateTextField {
-
+    
     // MARK: - VIPER stack
     var presenter: LogInViewOutput!
     
     @IBOutlet weak var login: CustomButton!
     @IBOutlet weak var password: CustomPasswordTextField!
     @IBOutlet weak var email: UITextField!
+    fileprivate var forgotOppened: Bool = false
     
     // MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,19 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         login.isEnabled = true
+        if let navController = self.navigationController {
+            if !forgotOppened {
+                navController.navigationBar.isHidden = true
+                for controller in navController.viewControllers as Array {
+                    if controller.isKind(of: SignUpViewController.self) {
+                        let _ = self.navigationController?.popToViewController(controller as! SignUpViewController, animated: false)
+                        break
+                    }
+                }
+            } else {
+                forgotOppened = false
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -37,6 +51,7 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
         password.email = email
         email.layer.borderWidth = 2.5
         email.layer.borderColor = UIColor.white.cgColor
+        forgotOppened = false
     }
     
     func clearTextFields() {
@@ -47,7 +62,7 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
-
+    
     @IBAction func tapOnLoginButton(_ sender: Any) {
         login.isEnabled = false
         presenter.handleUserData(userData: getUserData())
@@ -61,6 +76,7 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
     }
     
     @IBAction func tapOnForgetButton(_ sender: Any) {
+        forgotOppened = true
         presenter.openForgetPasswordModule()
     }
     

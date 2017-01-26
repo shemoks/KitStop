@@ -22,7 +22,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     @IBOutlet weak var toolbarContainer: UIView!
     
     var presenter: MainViewOutput!
-    fileprivate var refreshControl = UIRefreshControl()
+    var refreshControl = UIRefreshControl()
     fileprivate var kits: [Product] = []
     var delegate: MainViewPassDataProtocol?
     fileprivate var refreshStatus = false
@@ -101,6 +101,10 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         (toolBar as? BottomBarViewController)?.tappedItem = self
         toolbarContainer.addSubview(toolBar!)
         
+    }
+    
+    func stopRefresh() {
+        self.refreshControl.endRefreshing()
     }
 }
 
