@@ -129,9 +129,8 @@ extension CreateSaleConfirmViewController: UITableViewDataSource {
 extension CreateSaleConfirmViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         navigationItem.rightBarButtonItem?.isEnabled = false
-        if textField.isEnabled {
-            textField.text = textField.text?.replacingOccurrences(of: "$", with: "")
-        }
+        textField.text = textField.text?.replacingOccurrences(of: "$", with: "")
+
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

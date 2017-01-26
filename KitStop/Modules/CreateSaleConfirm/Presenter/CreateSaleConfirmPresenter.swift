@@ -72,7 +72,9 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     }
     
     func setPrice(value: String) {
-        details.first!.value = value
+        self.price = value
+        self.details[1].value = "$\(value)"
+        view.reloadData()
     }
     
     func showAlert() {
