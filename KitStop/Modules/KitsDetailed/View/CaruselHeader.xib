@@ -43,13 +43,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-Ig-r9t">
-                    <rect key="frame" x="278" y="10" width="135" height="40"/>
+                    <rect key="frame" x="358" y="15" width="55" height="20"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="135" id="uUY-TO-z23"/>
-                        <constraint firstAttribute="height" constant="40" id="wYp-Hp-tr8"/>
+                        <constraint firstAttribute="width" constant="55" id="uUY-TO-z23"/>
+                        <constraint firstAttribute="height" constant="20" id="wYp-Hp-tr8"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -68,7 +68,7 @@
                 <constraint firstItem="uHu-lb-5Nh" firstAttribute="top" secondItem="idg-y4-0uw" secondAttribute="bottom" id="8Z0-Jf-6u1"/>
                 <constraint firstItem="uHu-lb-5Nh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TId-Cm-eHZ"/>
                 <constraint firstAttribute="bottom" secondItem="uHu-lb-5Nh" secondAttribute="bottom" id="XNS-XY-3BJ"/>
-                <constraint firstItem="ToU-Ig-r9t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="fkt-bz-bFA"/>
+                <constraint firstItem="ToU-Ig-r9t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="fkt-bz-bFA"/>
                 <constraint firstItem="uHu-lb-5Nh" firstAttribute="top" secondItem="GFO-UM-2Lt" secondAttribute="bottom" constant="5" id="hFN-Ij-qpF"/>
                 <constraint firstItem="idg-y4-0uw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n94-yX-Hv5"/>
                 <constraint firstAttribute="trailing" secondItem="ToU-Ig-r9t" secondAttribute="trailing" constant="15" id="ti9-PN-sKc"/>

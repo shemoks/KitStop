@@ -11,7 +11,8 @@ import Alamofire
 
 enum Endpoint {
     
-    static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+  //  static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+    static let baseURL = URL(string: "http://34.198.24.119:8443/api/v1")!
     
     case login()
     case signUp()
