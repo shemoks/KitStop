@@ -42,7 +42,7 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     }
     
     func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String) {
-        router.openKitsModule(segmentedIndex: segmentedIndex, kitId: kitId, ownerId: ownerId)
+        router.openKitsModule(segmentedIndex: segmentedIndex, kitId: kitId, ownerId: ownerId, moduleOutput: self)
     }
 }
 
@@ -72,5 +72,14 @@ extension MainFilterContainerPresenter: FiltersModuleOutput{
 extension MainFilterContainerPresenter: KitFolioDetailedModuleOutput {
     func updateKitFolio() {
         view.passData(selectedItem: 2)
+    }
+}
+
+extension MainFilterContainerPresenter: KitsDetailedModuleOutput {
+    func updateKits() {
+        view.passData(selectedItem: 1)
+    }
+    func updateKitForSale() {
+        view.passData(selectedItem: 0)
     }
 }

@@ -40,37 +40,44 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let openEdit = UIAlertAction.init(title: "Edit", style: .default, handler: {
             result in
-
         })
 
         if presenter.getSection() {
 
-        let openListForSale = UIAlertAction.init(title: "List For Sale", style: .default, handler: {
+        let openListForKits = UIAlertAction.init(title: "List For Kits", style: .default, handler: {
             result in
-
         })
             let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
             let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
                 result in
-
+                let yes = UIAlertAction.init(title: "Yes", style: .default, handler: {
+                    result in
+                    self.presenter.removePost()
+                })
+                let no = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
+                self.showAlertWithTitle("Delete", message: "Are you sure to delete this item?", actions: [yes, no])
             })
 
             alertController.addAction(openEdit)
-            alertController.addAction(openListForSale)
+            alertController.addAction(openListForKits)
             alertController.addAction(remove)
             alertController.addAction(cancel)
         } else {
-            let openListForKits = UIAlertAction.init(title: "List For Kits", style: .default, handler: {
+            let openListForSale = UIAlertAction.init(title: "List For Sales", style: .default, handler: {
                 result in
-
             })
             let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
                 result in
-
+                let yes = UIAlertAction.init(title: "Yes", style: .default, handler: {
+                    result in
+                    self.presenter.removePost()
+                })
+                let no = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
+                self.showAlertWithTitle("Delete", message: "Are you sure to delete this item?", actions: [yes, no])
             })
             let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(openEdit)
-            alertController.addAction(openListForKits)
+            alertController.addAction(openListForSale)
             alertController.addAction(remove)
             alertController.addAction(cancel)
         }
@@ -123,22 +130,29 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         headerView.carusel.heightCell = view.frame.width
         setSizeForCell(header: headerView)
         headerView.carusel.images = presenter.getImages()
-        headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
-        headerView.carusel.pageControl.currentPage = 0
+        let numberOfPages = presenter.getImages().count
+        if numberOfPages > 1 {
+             headerView.carusel.pageControl.isHidden = false
+             headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
+             headerView.carusel.pageControl.currentPage = 0
+        } else {
+            headerView.carusel.pageControl.isHidden = true
+            headerView.carusel.pageControl.numberOfPages = 0
+        }
         headerView.privateLabel.isHidden = presenter.isPrivatePost()
-        // let headerView = HeaderKitsDetailed()
         tableView.tableHeaderView = headerView
         let height = view.frame.width + 46
         sizeHeaderToFit(height: height)
-       // headerView.imageView.sd_setImage(with: url)
         (headerView.actualView as! UserInformationViewController).updateUser(user: userInfo)
         let footerView = TableFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         footerView.dateUpdate.text = dateUpdate
         tableView.tableFooterView = footerView
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "Icons_action_sheet"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
-
     }
 
+    func showSuccessAlert(title: String, message: String, action: [UIAlertAction]) {
+        showAlertWithTitle(title, message: message, actions: action)
+    }
 
 }
 

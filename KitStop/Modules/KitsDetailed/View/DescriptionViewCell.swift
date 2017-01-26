@@ -14,7 +14,7 @@ class DescriptionViewCell: UITableViewCell {
 
     func configure(property: ViewProperty) {
         title.text = property.title
-        self.descriptions.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 1.0)
+//        self.descriptions.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 1.0)
         descriptions.text = property.text
         self.isUserInteractionEnabled = false
     }

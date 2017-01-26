@@ -49,7 +49,7 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
         kitFolioDetailerManager?.deleteKitFolio(id: id, completitionBlock: {
             [weak self] error in
             if error == nil {
-                self?.presenter.showSuccessAlert(title: "Success", message: "Delete success")
+                self?.presenter.showSuccessAlert(title: "Success", message: "The item has been deleted")
             } else {
                 let message = CustomError.init(code: error!).description
                 self?.presenter.showErrorAlert(title: "Error", message: message)

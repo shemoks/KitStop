@@ -37,63 +37,62 @@ class Carusel: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
-        let swipe = UIPanGestureRecognizer(target: self,action: #selector(handleSwipe))
-        collectionView.addGestureRecognizer(swipe)
+      //  let swipe = UIPanGestureRecognizer(target: self,action: #selector(handleSwipe))
+     //   collectionView.addGestureRecognizer(swipe)
         collectionView.register(UINib(nibName: "CaruselCell",bundle: nil), forCellWithReuseIdentifier: "CaruselCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        pageControl.currentPage = 0
         collectionView.reloadData()
 
     }
 
-    func handleSwipe(recognizer:UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: self.view)
-        recognizer.setTranslation(CGPoint.zero, in: self.view)
-       switch(recognizer.state) {
-        case UIGestureRecognizerState.changed:
-            if translation.x > 0 {
-                print(translation.x)
-                let add = collectionView.contentOffset.x
-                let index = lroundf(Float(add/heightCell))
-                if index < images.count && index > 0 {
-                   collectionView.scrollToItem(at: IndexPath.init(row: index - 1, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
-                    pageControl.currentPage = index - 1
-                }
-                if index == 0 {
-                    collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
-                    pageControl.currentPage = 0
-                }
-            }
-                else {
-                let add = collectionView.contentOffset.x
-                let index = lroundf(Float(add/heightCell))
-                if index >= 0 && index < images.count - 1 {
-                collectionView.scrollToItem(at: IndexPath.init(row: index + 1, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
-                    pageControl.currentPage = index + 1
-                }
-        }
-        case UIGestureRecognizerState.ended:
-            let velocity = recognizer.velocity(in: self.view)
-            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-            let slideMultiplier = magnitude / 200
-
-            let slideFactor = 0.1 * slideMultiplier
-            var finalPoint = CGPoint(x:view.center.x ,
-                                     y:recognizer.view!.center.y + (velocity.y * slideFactor))
-            finalPoint.x = view.center.x + translation.x
-            finalPoint.y = view.center.y
-
-            UIView.animate(withDuration: Double(slideFactor * 2),
-                           delay: 0,
-                           options: UIViewAnimationOptions.curveEaseOut,
-                           animations: {recognizer.view!.center = finalPoint },
-                           completion: nil)
-
-        default:
-            collectionView.cancelInteractiveMovement()
-    }
-    }
+//    func handleSwipe(recognizer:UIPanGestureRecognizer) {
+//        let translation = recognizer.translation(in: self.view)
+//        recognizer.setTranslation(CGPoint.zero, in: self.view)
+//       switch(recognizer.state) {
+//        case UIGestureRecognizerState.changed:
+//            if translation.x > 0 {
+//                print(translation.x)
+//                let add = collectionView.contentOffset.x
+//                let index = lroundf(Float(add/heightCell))
+//                if index < images.count && index > 0 {
+//                   collectionView.scrollToItem(at: IndexPath.init(row: index - 1, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+//                    pageControl.currentPage = index - 1
+//                }
+//                if index == 0 {
+//                    collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+//                    pageControl.currentPage = 0
+//                }
+//            }
+//                else {
+//                let add = collectionView.contentOffset.x
+//                let index = lroundf(Float(add/heightCell))
+//                if index >= 0 && index < images.count - 1 {
+//                collectionView.scrollToItem(at: IndexPath.init(row: index + 1, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+//                    pageControl.currentPage = index + 1
+//                }
+//        }
+//        case UIGestureRecognizerState.ended:
+//            let velocity = recognizer.velocity(in: self.view)
+//            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+//            let slideMultiplier = magnitude / 200
+//
+//            let slideFactor = 0.1 * slideMultiplier
+//            var finalPoint = CGPoint(x:view.center.x ,
+//                                     y:recognizer.view!.center.y + (velocity.y * slideFactor))
+//            finalPoint.x = view.center.x + translation.x
+//            finalPoint.y = view.center.y
+//
+//            UIView.animate(withDuration: Double(slideFactor * 2),
+//                           delay: 0,
+//                           options: UIViewAnimationOptions.curveEaseOut,
+//                           animations: {recognizer.view!.center = finalPoint },
+//                           completion: nil)
+//
+//        default:
+//            collectionView.cancelInteractiveMovement()
+//    }
+//    }
 
     func loadViewFromNib() -> UIView {
         let bundle = Bundle(for: type(of: self))
@@ -108,6 +107,13 @@ extension Carusel: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        collectionView.contentSize.width
+        let add = collectionView.contentOffset.x
+        let index = lroundf(Float(add/heightCell))
+        pageControl.currentPage = index
     }
 
 }

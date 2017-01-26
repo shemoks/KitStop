@@ -141,6 +141,10 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         return !self.post.isPrivate
     }
 
+    func removePost() {
+        interactor.removePost(section: sectionSale, idPost: self.post.id)
+    }
+
 }
 
 // MARK: - KitsDetailedInteractorOutput
@@ -160,6 +164,15 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
+    }
+
+    func showSuccess(title: String, message: String) {
+        view.showSuccessAlert(title: title, message: message, action: [UIAlertAction.init(title: "Ok", style: .default, handler: {
+            result in
+            let moduleOutput = self.moduleOutput as! KitsDetailedModuleOutput
+            self.router.closeModule(moduleOutput: moduleOutput, section: self.sectionSale)
+        })])
+
     }
 
 }

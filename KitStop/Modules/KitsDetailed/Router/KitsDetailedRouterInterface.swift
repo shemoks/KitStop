@@ -11,5 +11,6 @@
 protocol KitsDetailedRouterInput: class {
     func openModule(identifier: Int)
     func openChatModule()
+    func closeModule(moduleOutput: KitsDetailedModuleOutput, section: Bool)
 
 }
