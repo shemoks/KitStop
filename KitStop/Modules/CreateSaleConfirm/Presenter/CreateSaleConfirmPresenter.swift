@@ -29,12 +29,43 @@ final class CreateSaleConfirmPresenter {
     var limit: Int?
     var currentIndex: Int?
     var rates: RatesModel?
+    var shouldUpdate = false
 
+    func setReady(isReady: Bool) {
+        for item in details {
+            item.isReady = true
+        }
+    }
 }
 
 // MARK: - CreateSaleConfirmViewOutput
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
+    
+    func setDetails() {
+        let priceDetails = ForSaleDetailsModel(header: "Price", value: "" , placeholder: "", isEditable: true, isExpandable: false, isValid: false, isReady: false)
+        let conditionDetails = ForSaleDetailsModel(header: "Select Conditions", value: "", placeholder: "", isEditable: false, isExpandable: true, isValid: false, isReady: false)
+        let weightDetails = ForSaleDetailsModel(header: "Package Weight", value: "", placeholder: "", isEditable: false, isExpandable: true, isValid: false, isReady: false)
+        
+        details.append(priceDetails)
+        details.append(conditionDetails)
+        details.append(weightDetails)
+        
+        for item in (post?.salesDetails)! {
+            switch item.title {
+            case "Sale price":
+                details.first?.placeholder = item.placeholder
+            case "Condition":
+                details[1].placeholder = item.placeholder
+            case "Package Weight":
+                details.last?.placeholder = item.placeholder
+            default:
+                _ = ""
+            }
+        }
+
+        interactor.getRates()
+    }
     
     func handleCellSelect(for indexPath: IndexPath) {
         
@@ -68,12 +99,42 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     }
     
     func handleSaveTap() {
-        interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, isPrivate: isPrivate, post: post!)
+        if shouldUpdate {
+            
+        } else {
+            
+            
+            self.setReady(isReady: true)
+            
+            if price.isEmpty || condition.isEmpty || packageWeight.isEmpty {
+                view.reloadData()
+                view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
+                self.setReady(isReady: false)
+            } else {
+               interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
+            }
+            
+        }
     }
     
     func setPrice(value: String) {
         self.price = value
-        self.details[1].value = "$\(value)"
+        if !value.isEmpty {
+            self.details.first?.value = "$\(value)"
+            self.details.first?.isValid = true
+            self.details.first?.isReady = true
+            
+        } else {
+            self.details.first?.value = ""
+            self.details.first?.isValid = false
+            self.details.first?.isReady = false
+        }
+       
+        interactor.calculatePrice(price: value, weight: self.packageWeight, rates: self.rates!, completion: {
+            priceModel in
+            self.view.setPriceLabels(priceModel: priceModel!)
+        })
+
         view.reloadData()
     }
     
@@ -81,15 +142,6 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
         view.showAlert(title: "Error", message: "Set price exceeds maximum value of 1000000")
     }
     
-    func setDetails() {
-        let priceDetails = ForSaleDetailsModel(header: "Price", value: "" , placeholder: post?.salesDetails[1].placeholder!, isEditable: true, isExpandable: false)
-        let conditionDetails = ForSaleDetailsModel(header: "Select Conditions", value: "", placeholder: post?.salesDetails.first!.placeholder, isEditable: false, isExpandable: true)
-        let weightDetails = ForSaleDetailsModel(header: "Package Weight", value: "", placeholder: post?.salesDetails.last!.placeholder, isEditable: false, isExpandable: true)
-        details.append(priceDetails)
-        details.append(conditionDetails)
-        details.append(weightDetails)
-    }
-  
 }
 
 // MARK: - CreateSaleConfirmInteractorOutput
@@ -102,6 +154,11 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmInteractorOutput {
     func returnToMainModule() {
         view.returnToMainModule()
     }
+    
+    func setRates(rates: RatesModel?) {
+        self.rates = rates
+    }
+    
 }
 
 // MARK: - CreateSaleConfirmModuleInput
@@ -122,9 +179,17 @@ extension CreateSaleConfirmPresenter: CustomListModuleOutput {
         case 1:
             condition = (self.currentData?.textValue)!
             details[1].value = condition
+            details[1].isValid = true
+            details[1].isReady = true
         case 2:
             packageWeight = (self.currentData?.textValue)!
+            interactor.calculatePrice(price: self.price, weight: self.packageWeight, rates: self.rates!, completion: {
+                priceModel in
+                self.view.setPriceLabels(priceModel: priceModel!)
+            })
             details.last!.value = packageWeight
+            details.last!.isValid = true
+            details.last!.isValid = true
         default:
             print()
         }

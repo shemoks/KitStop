@@ -41,8 +41,8 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
                                                               "notes": notes, "mainImage": mainImage,
                                                               "images": images,
                                                               "tags": tags, "metaData": metaData,
-                                                              "salesDetails": salesDetails,
-                                                              "isPrivate": false], headers: nil).apiResponse(completionHandler: {
+                                                              "salesDetails": salesDetails
+                                                              ], headers: nil).apiResponse(completionHandler: {
                                                                 response in
                                                                 switch response.result {
                                                                 case .success(let json):
@@ -60,6 +60,31 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
     }
     
     func getRates(completion: @escaping (Bool, _ error: Int?, _ rates: RatesModel?) -> ()) {
-        
+        let _ = manager.apiRequest(.rates()).apiResponse(completionHandler: {
+            response in
+            switch response.result {
+            case .success(let json):
+                if json["success"].boolValue {
+                    let transactionPercent = json["data"]["transactionPercent"].doubleValue
+                    let transactionRate = json["data"]["transactionRate"].doubleValue
+                    let kitStopFee = json["data"]["kitStopFee"].doubleValue
+                    var weight: [String:Double] = [:]
+                    
+                    for (key, item) in json["data"]["weight"] {
+                        weight["\(key)"] = item.doubleValue
+                    }
+                    
+                    let rates = RatesModel(transactionPercent: transactionPercent, transactionRate: transactionRate, kitStopFee: kitStopFee, weight: weight)
+                    
+                    completion(true, nil, rates)
+                    
+                } else {
+                    completion(false, response.response?.statusCode, nil)
+                }
+            case .failure(let error):
+                print(error)
+                completion(false, (error as NSError).code, nil)
+            }
+        })
     }
 }
