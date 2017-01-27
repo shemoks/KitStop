@@ -67,41 +67,44 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         
         print(metaData)
         
-        let title = post.generalProperty[2].textValue
-        let brandName = post.generalProperty.first?.textValue
-        let model = post.generalProperty.last?.textValue
-        let serialNumber = post.generalProperty[1].textValue
+        var title: String = ""
+        var brand: String?
+        var model: String?
+        var serialNumber: String?
+        var purchaseDate = TimeInterval()
+        var purchasePrice = ""
+        let category: String = post.categoryId
+        let description = post.description.textValue
+        let notes = post.notes.textValue
+        let mainImage = imageArray.first!
+        let images = imageArray
+        let tags  = [String?]()
+        let isPrivate = isPrivate
         
-        var manufacturerCountry = ""
-        
-        if post.metadata.count > 1 {
-            manufacturerCountry = post.metadata[1].textValue
+        for item in post.generalProperty {
+            switch item.title {
+            case "Title":
+                title = item.textValue
+            case "Brand":
+                brand = item.textValue
+            case "Model":
+                model = item.textValue
+            case "Serial #":
+                serialNumber = item.textValue
+            default:
+                _ = "Default"
+            }
         }
         
-        var purchaseDate = TimeInterval()
-
         if !date.isEmpty {
             purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
         }
-        
-        var purchasePrice = ""
         
         if !price.isEmpty {
             purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
         }
         
-        let buyingPlace = ""
-        let category = post.categoryId
-        let userDescription = post.description.textValue
-        let manufacturerDescription = post.notes.textValue
-        
-        let notes = post.notes.textValue
-        let mainImage = imageArray.first
-        let images = imageArray
-        let condition = post.salesDetails.first?.textValue
-        let tags = [String?]()
-        
-        let kit = CreateKitsRequestBody(title: title, brandName: brandName, model: model, serialNumber: serialNumber, manufacturerCountry: manufacturerCountry, purchaseDate: purchaseDate, purchasePrice: purchasePrice, buyingPlace: buyingPlace, category: category, userDescription: userDescription, manufacturerDescription: manufacturerDescription, notes: notes, mainImage: mainImage!!, images: images, condition: condition, tags: tags, metaData: metaData, isPrivate: isPrivate)
+        let kit = CreateKitsRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, purchaseDate: purchaseDate, purchasePrice: purchasePrice, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, isPrivate: isPrivate)
         
         return kit
     }

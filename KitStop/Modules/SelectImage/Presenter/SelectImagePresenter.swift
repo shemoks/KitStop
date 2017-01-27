@@ -36,7 +36,7 @@ extension SelectImagePresenter: SelectImageViewOutput {
     }
     
     func cropImage(image: [UIImage], buttons: [UIButton], delegate: SelectImageContainerProtocol?) -> UIImageView{
-        self.smallImage = image[0].RBResizeImage(targetSize: CGSize(width: 500, height: 500), staticWidth: false)
+        self.smallImage = image[0]
         self.bigImage = image[1].RBResizeImage(targetSize: CGSize.init(width: 1080, height: image[1].bigHeightSize()), staticWidth: true)
         delegate?.passImage(small: self.smallImage!, big: self.bigImage!)
         for button in buttons {

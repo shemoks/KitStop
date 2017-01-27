@@ -13,7 +13,8 @@ import Chamomile
 
 final class KitFolioCreateViewController: UIViewController, FlowController, SelectImageContainerProtocol, Alertable {
     
-    @IBOutlet weak var postTitle: UITextField!
+
+    @IBOutlet weak var postTitle: UITextView!
     @IBOutlet weak var postDescription: UITextView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
@@ -32,7 +33,6 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         postTitle.delegate = self
         postDescription.delegate = self
         postTitle.tag = 100
-        addPlaceholderFromDescription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,11 +52,6 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         containerHeight.constant = height
     }
     
-    @IBAction func postTitleChange(_ sender: Any) {
-            self.navigationItem.title = postTitle.text
-    }
-    
-    
     @IBAction func save(_ sender: Any) {
         view.endEditing(true)
         presenter.saveKitFolio(postTitle: postTitle.text!, postDescription: postDescription.text!, smallImage: self.small, bigImage: self.big)
@@ -65,13 +60,6 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     func passImage(small: UIImage, big: UIImage) {
         self.small = small
         self.big = big
-    }
-    
-    func addPlaceholderFromDescription() {
-        if postDescription.text == "" || postDescription.text == PlaceholderText.kitfolioDescriptionText {
-            postDescription.textColor = UIColor.init(red: 151/255, green: 153/255, blue: 155/255, alpha: 0.5)
-            postDescription.text = PlaceholderText.kitfolioDescriptionText
-        }
     }
     
 }
@@ -95,40 +83,21 @@ extension KitFolioCreateViewController: KitFolioCreateViewInput {
     }
 }
 
-extension KitFolioCreateViewController : UITextFieldDelegate, UITextViewDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let limitLength = 100
-        guard let text = textField.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= limitLength
-    }
+extension KitFolioCreateViewController : UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        var limitLength = 100
+        if textView == postDescription {
+            limitLength = 500
+        }
         let text = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = text.characters.count
-        return numberOfChars < 500;
+        return numberOfChars < limitLength;
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if !validation(data: postDescription.text) {
-            postDescription.textColor = UIColor.init(red: 151/255, green: 153/255, blue: 155/255, alpha: 0.5)
-            postDescription.text = PlaceholderText.kitfolioDescriptionText
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == postTitle {
+            self.navigationItem.title = postTitle.text
         }
-        postDescription.resignFirstResponder()
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if postDescription.text == PlaceholderText.kitfolioDescriptionText {
-            postDescription.text = ""
-            postDescription.textColor = UIColor.black
-        }
-        postDescription.becomeFirstResponder()
-    }
-    func validation(data: String) -> Bool {
-        let newData = data.trimmingCharacters(in: .whitespaces)
-        if data.characters.count > 0 && newData.characters.count > 0 {
-            return true
-        }
-        return false
     }
 }

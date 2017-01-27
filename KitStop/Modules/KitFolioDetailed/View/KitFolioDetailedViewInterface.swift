@@ -16,6 +16,6 @@ protocol KitFolioDetailedViewInput: class {
     func presentPicker()
     func showAlert(title: String, message: String)
     func showSuccessAlert(title: String, message: String, action: [UIAlertAction])
-    func refreshDataAfterUpdate(isSizeChange: Bool)
+    func refreshDataAfterUpdate()
     func edit()
 }

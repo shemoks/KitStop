@@ -24,33 +24,27 @@ class CreateKitsService {
 extension CreateKitsService: CreateKitsServiceProtocol {
     func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
         let title = kit.title as AnyObject
-        let brandName = kit.brandName as AnyObject
+        let brandName = kit.brand as AnyObject
         print("BRAND NAME:   \(brandName)")
         let model = kit.model as AnyObject
         let serialNumber = kit.serialNumber as AnyObject
-        let manufacturerCountry = kit.manufacturerCountry as AnyObject
         let purchaseDate = kit.purchaseDate as AnyObject
         let purchasePrice = kit.purchasePrice as AnyObject
-        let buyingPlace = kit.buyingPlace as AnyObject
         let category = kit.category as AnyObject
-        let userDescription = kit.userDescription as AnyObject
-        let manufacturerDescription = kit.manufacturerDescription as AnyObject
+        let description = kit.description as AnyObject
         let notes = kit.notes as AnyObject
         let mainImage = kit.mainImage as AnyObject
         let images = kit.images as AnyObject
-        let condition = kit.condition as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
         let _ = manager.apiRequest(.createKit(), parameters: ["title" : title, "brand" : brandName,
                                                               "model":model, "serialNumber": serialNumber,
-                                                              "manufacturerCountry": manufacturerCountry,
                                                               "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
-                                                              "buyingPlace": buyingPlace, "category": category,
-                                                              "description": userDescription,
-                                                              "manufacturerDescription": manufacturerDescription,
+                                                              "category": category,
+                                                              "description": description,
                                                               "notes": notes, "mainImage": mainImage,
-                                                              "images": images, "condition": condition,
+                                                              "images": images,
                                                               "tags": tags, "metaData": metaData,
                                                               "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
                                                                 response in

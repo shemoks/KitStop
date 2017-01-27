@@ -17,8 +17,9 @@ protocol CreateSaleConfirmViewOutput: class {
     func priceLimit() -> Int
     func setPrice(value: String)
     func setLimit()
-    func setDetails()
     func showAlert()
+    func setDetails()
+    func handleCellSelect(for indexPath: IndexPath)
 }
 
 // MARK: - CreateSaleConfirmInteractorOutput
@@ -26,6 +27,8 @@ protocol CreateSaleConfirmViewOutput: class {
 protocol CreateSaleConfirmInteractorOutput: class {
     func showAlertWith(title: String, message: String)
     func returnToMainModule()
+    
+    func setRates(rates: RatesModel?)
 }
 
 // MARK: - CreateSaleConfirmModuleInput

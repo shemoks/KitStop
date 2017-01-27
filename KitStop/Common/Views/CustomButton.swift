@@ -14,7 +14,8 @@ import Foundation
         super.awakeFromNib()
         self.backgroundColor = UIColor.white
         self.tintColor = UIColor(red: (107/255.0), green: (110/255.0), blue: (112/255.0), alpha: 1.0)
-        self.titleLabel?.font = UIFont.init(name: "SFUIText-Regular", size: 17.0)
+        
+        self.titleLabel?.font = UIFont.init(name: "SFUIText-Regular", size: 17)
     }
 
     @IBInspectable var cornerRadius: CGFloat {

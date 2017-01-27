@@ -23,7 +23,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     @IBOutlet weak var like: UIButton!
     @IBOutlet weak var postTitleHeight: NSLayoutConstraint!
     @IBOutlet weak var postTitle: UITextView!
-    @IBOutlet weak var postDescriptionHeight: NSLayoutConstraint!
+ //   @IBOutlet weak var postDescriptionHeight: NSLayoutConstraint!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var postDescription: UITextView!
     @IBOutlet weak var image: UIImageView!
@@ -89,7 +89,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         }
     }
     
-    func refreshDataAfterUpdate(isSizeChange: Bool) {
+    func refreshDataAfterUpdate() {
         self.navigationItem.rightBarButtonItem? = UIBarButtonItem.init(image: UIImage.init(named: "edit_icon"), style: .done, target: self, action: #selector(editKitFolio))
         self.navigationItem.leftBarButtonItem = nil
         postTitle.isEditable = false
@@ -99,12 +99,12 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         presenter.imageChange = false
         presenter.imageDeleteStatus = false
         if presenter.product != nil {
-            updateData(product: presenter.product!, isSizeChange: isSizeChange)
+            updateData(product: presenter.product!)
         }
     }
     
     func cancel() {
-        refreshDataAfterUpdate(isSizeChange: false)
+        refreshDataAfterUpdate()
     }
     
     func imageTapped() {
@@ -128,20 +128,12 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         presenter.changeLike(like: like)
     }
     
-    func updateData(product: Product, isSizeChange: Bool) {
+    func updateData(product: Product) {
         self.navigationItem.title = product.title
         postDescription.text = product.description
         postTitle.text = product.title
         presenter.addImageWithOrientation(imageView: image, imageUrl: product.mainImage, imageHeight: self.view.frame.width, imageViewHeight: imageHeight)
         date.text = product.date
-        
-        // change size textView to its content
-        if isSizeChange {
-            postDescription.sizeToFit()
-            postDescriptionHeight.constant = postDescription.contentSize.height
-            postTitle.sizeToFit()
-            postTitleHeight.constant = postTitle.contentSize.height
-        }
     }
 }
 
@@ -151,7 +143,7 @@ extension KitFolioDetailedViewController: KitFolioDetailedViewInput {
     
     func updateProduct(product: Product, user: User?) {
         presenter.checkUserInformation(xib: userInformationXib!, user: user!)
-        updateData(product: product, isSizeChange: true)
+        updateData(product: product)
     }
     
     func presentAlert(alert: UIAlertController) {
@@ -175,8 +167,11 @@ extension KitFolioDetailedViewController: KitFolioDetailedViewInput {
 extension KitFolioDetailedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
+        var editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
+        if abs((editedImage?.size.width)! - (editedImage?.size.height)!) > 50 {
+            editedImage = UIImage().RBSquareImageTo(image: editedImage!, size: CGSize(width: 500, height: 500))
+        }
         presenter.cropImage(editedImage: editedImage, originalImage: originalImage)
         if let bigImage = presenter.bigImage {
             image.image = bigImage

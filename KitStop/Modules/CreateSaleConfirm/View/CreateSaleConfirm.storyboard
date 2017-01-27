@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L2V-ul-bzF">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,7 +17,7 @@
         <scene sceneID="0F3-0E-ePL">
             <objects>
                 <navigationController id="L2V-ul-bzF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YDW-vV-LCT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YDW-vV-LCT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -38,11 +38,11 @@
                         <viewControllerLayoutGuide type="bottom" id="psK-nJ-w20"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FEB-yU-KgT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FER-R6-USv">
-                                <rect key="frame" x="0.0" y="294" width="414" height="137"/>
+                                <rect key="frame" x="0.0" y="294" width="320" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-Ac-3XN">
                                         <rect key="frame" x="18" y="6" width="199" height="18"/>
@@ -55,7 +55,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1n-vC-q8W">
-                                        <rect key="frame" x="310" y="6" width="86" height="18"/>
+                                        <rect key="frame" x="216" y="6" width="86" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="GEE-BD-Vgd"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="TWa-GU-bvB"/>
@@ -67,7 +67,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7W-1B-cMW">
-                                        <rect key="frame" x="310" y="48" width="86" height="18"/>
+                                        <rect key="frame" x="216" y="48" width="86" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="86" id="E6L-uv-AHJ"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="Tcx-fp-0Ue"/>
@@ -79,7 +79,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aya-eE-KiW">
-                                        <rect key="frame" x="310" y="69" width="86" height="18"/>
+                                        <rect key="frame" x="216" y="69" width="86" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="86" id="DPB-IG-Wz1"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="Nfg-af-bxN"/>
@@ -91,7 +91,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-ye-pjc">
-                                        <rect key="frame" x="310" y="27" width="86" height="18"/>
+                                        <rect key="frame" x="216" y="27" width="86" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="86" id="3ii-cu-lbi"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="LKV-7T-UNy"/>
@@ -145,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xk-dC-OWJ">
-                                        <rect key="frame" x="285" y="107" width="111" height="18"/>
+                                        <rect key="frame" x="191" y="107" width="111" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="111" id="0re-tR-3dj"/>
                                             <constraint firstAttribute="height" constant="18" id="2AJ-sB-ctE"/>
@@ -182,8 +182,8 @@
                                     <constraint firstAttribute="trailing" secondItem="V7W-1B-cMW" secondAttribute="trailing" constant="18" id="h65-rC-jBC"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-ls-mBT">
-                                <rect key="frame" x="0.0" y="104" width="414" height="150"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-ls-mBT">
+                                <rect key="frame" x="0.0" y="104" width="320" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="a05-rg-yIW"/>
@@ -205,9 +205,11 @@
                         <outlet property="finalPrice" destination="1xk-dC-OWJ" id="ur6-X0-jfM"/>
                         <outlet property="kitStopFee" destination="aya-eE-KiW" id="aEx-8s-YEN"/>
                         <outlet property="shippingFee" destination="Ef0-ye-pjc" id="R7t-Kw-DJF"/>
+                        <outlet property="shippingTitle" destination="5M3-Ke-0QJ" id="JOz-Li-YLZ"/>
                         <outlet property="tableView" destination="rQ9-ls-mBT" id="S2p-ug-ew7"/>
                         <outlet property="transactionFee" destination="V7W-1B-cMW" id="qDo-OD-2Ag"/>
                         <outlet property="userPrice" destination="r1n-vC-q8W" id="CgR-L8-F6l"/>
+                        <segue destination="G5U-7C-iBW" kind="show" identifier="TrunsitionToCustomList" id="6aP-Ju-92B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZU-Gf-7le" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,6 +220,14 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="727.536231884058" y="79.076086956521749"/>
+        </scene>
+        <!--CustomListViewController-->
+        <scene sceneID="csr-c1-8sf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CustomList" referencedIdentifier="CustomListViewController" id="G5U-7C-iBW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JW6-JH-Iah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="-146"/>
         </scene>
     </scenes>
 </document>

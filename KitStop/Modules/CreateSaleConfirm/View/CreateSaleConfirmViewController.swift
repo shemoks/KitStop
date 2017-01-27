@@ -25,24 +25,36 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
     @IBOutlet weak var transactionFee: UILabel!
     @IBOutlet weak var kitStopFee: UILabel!
     @IBOutlet weak var finalPrice: UILabel!
+    @IBOutlet weak var shippingTitle: UILabel!
     
     //MARK: - Life cycle 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setLimit()
         presenter.setDetails()
+        
         self.title = "For Sale / Camera"
-        tableView.register(UINib(nibName: "SaleInfoCell", bundle: nil), forCellReuseIdentifier: "SaleInfoCell")
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        tableView.register(UINib(nibName: "SaleInfoCell", bundle: nil), forCellReuseIdentifier: "SaleInfoCell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
         navigationItem.rightBarButtonItem?.tintColor = UIColor().hexStringToUIColor(hex: Color.orangeColor)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: animated)
+        }
+    }
+    
     // MARK: - Actions
     func tapOnSave() {
-        
+        presenter.handleSaveTap()
     }
 
 }
@@ -50,9 +62,6 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
 // MARK: - CreateSaleConfirmViewInput
 
 extension CreateSaleConfirmViewController: CreateSaleConfirmViewInput {
-    func reloadPricingData() {
-        
-    }
     
     func reloadData() {
         self.tableView.reloadData()
@@ -70,6 +79,15 @@ extension CreateSaleConfirmViewController: CreateSaleConfirmViewInput {
             }
         }
     }
+    
+    func setPriceLabels(priceModel: PriceModel) {
+        self.userPrice.text = priceModel.startingPrice
+        self.shippingFee.text = priceModel.weightRate
+        self.shippingTitle.text = priceModel.weight
+        self.kitStopFee.text = priceModel.kitStopPrice
+        self.transactionFee.text = priceModel.transactionPrice
+        self.finalPrice.text = priceModel.finalPrice
+    }
 }
 
 extension CreateSaleConfirmViewController: UITableViewDelegate {
@@ -78,15 +96,31 @@ extension CreateSaleConfirmViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 0 {
+            presenter.handleCellSelect(for: indexPath)
+        }
     }
 }
 
 extension CreateSaleConfirmViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
-        cell?.configure(detail: presenter.detail(for: indexPath))
+        var cell: UITableViewCell!
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let pCell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
+                pCell?.contents.delegate = self
+                pCell?.configure(detail: presenter.detail(for: indexPath))
+                cell = pCell
+                
+            } else {
+                let nCell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
+                nCell?.configure(detail: presenter.detail(for: indexPath))
+                cell = nCell
+            }
+        }
+  
+
         return cell!
     }
     
@@ -102,9 +136,8 @@ extension CreateSaleConfirmViewController: UITableViewDataSource {
 extension CreateSaleConfirmViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         navigationItem.rightBarButtonItem?.isEnabled = false
-        if textField.isEnabled {
-            textField.text = textField.text?.replacingOccurrences(of: "$", with: "")
-        }
+        textField.text = textField.text?.replacingOccurrences(of: "$", with: "")
+
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -117,6 +150,9 @@ extension CreateSaleConfirmViewController: UITextFieldDelegate {
                     presenter.showAlert()
                 }
             }
+        if (textField.text?.isEmpty)! {
+            presenter.setPrice(value: "")
+        }
         navigationItem.rightBarButtonItem?.isEnabled = true
     }
     

@@ -10,32 +10,17 @@ import Foundation
 
 struct KitsForSaleRequestBody {
     var title: String = ""
-    var brandName: String?
+    var brand: String?
     var model: String?
     var serialNumber: String?
-    var manufacturerCountry: String?
-    var purchaseDate: TimeInterval?
-    var purchasePrice: String?
-    var buyingPlace: String?
     var category: String = ""
-    var userDescription: String?
-    var manufacturerDescription: String?
+    var description: String?
     var notes: String?
     var mainImage: String = ""
     var images: [String?]
-    var condition: String?
     var tags: [String?]
-    var metaData: [String: AnyObject?]
-    var salesDetails: [String: AnyObject]
-    var isPrivate: Bool = false
-}
-
-struct KitsForSalePricingModel {
-    var userPrice: Double?
-    var shippingFee: Double?
-    var transactionFee: Double?
-    var kitStopFee: Double?
-    var finalPrice: Double?
+    var metaData: [String:AnyObject] = [:]
+    var salesDetails: [String: AnyObject] = [:]
 }
 
 class ForSaleDetailsModel {
@@ -44,11 +29,33 @@ class ForSaleDetailsModel {
     var placeholder: String?
     var isEditable: Bool?
     var isExpandable: Bool?
+    var isValid: Bool?
+    var isReady: Bool?
     
-    init(header: String?, value: String?, placeholder: String?, isEditable: Bool?, isExpandable: Bool?) {
+    init(header: String?, value: String?, placeholder: String?, isEditable: Bool?, isExpandable: Bool?, isValid: Bool?, isReady: Bool?) {
         self.header = header
         self.value = value
+        self.placeholder = placeholder
         self.isEditable = isEditable
         self.isExpandable = isExpandable
+        self.isValid = isValid
+        self.isReady = isReady
     }
+}
+
+struct RatesModel {
+    var transactionPercent = 0.0
+    var transactionRate = 0.0
+    var kitStopFee = 0.0
+    var weight: [String:Double] = [:]
+}
+
+struct PriceModel {
+    var weight = "Shipping:"
+    var weightRate = "$0.00"
+    var startingPrice = "$0.00"
+    var transactionPrice = "$0.00"
+    var transactionRatePrice = "$0.00"
+    var kitStopPrice = "$0.00"
+    var finalPrice = "$0.00" 
 }
