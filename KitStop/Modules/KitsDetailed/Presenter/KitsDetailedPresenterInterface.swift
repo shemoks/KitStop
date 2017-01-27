@@ -11,16 +11,17 @@ import Chamomile
 // MARK: - KitsDetailedViewOutput
 
 protocol KitsDetailedViewOutput: class {
+
     func openModule(identifier: Int)
-    func generalProperty(for indexPath: IndexPath)-> ViewProperty
-    func additionalProperty(for indexPath: IndexPath)-> ViewProperty
-    func saleProperty(for indexPath: IndexPath)-> ViewProperty
+    func generalProperty(for indexPath: IndexPath)-> Property
+    func additionalProperty(for indexPath: IndexPath)-> Property
+    func saleProperty(for indexPath: IndexPath)-> Property
     func numberOfGeneralProperties(inSection section: Int) -> Int
     func numberOfAdditionalProperties(inSection section: Int) -> Int
     func numberOfSaleProperties(inSection section: Int) -> Int
     func handleViewDidLoad()
-    func descriptions(for indexPath: IndexPath)-> ViewProperty
-    func notes(for indexPath: IndexPath)-> ViewProperty
+    func descriptions(for indexPath: IndexPath)-> Property
+    func notes(for indexPath: IndexPath)-> Property
     func getTittle() -> String
     func updateData(xib: UIView) -> Bool
     func openChat()
@@ -31,6 +32,9 @@ protocol KitsDetailedViewOutput: class {
     func changeLike(like: UIButton)
     func isPrivatePost() -> Bool
     func removePost()
+    func openFullScreen(index: Int, images: [String], isEdit: Bool)
+    func openEditForSale()
+    func openEditKit()
     
 }
 
@@ -38,7 +42,7 @@ protocol KitsDetailedViewOutput: class {
 
 protocol KitsDetailedInteractorOutput: class {
 
-    func setPost(post: ViewPost)
+    func setPost(post: Post)
     func showError(title: String, message: String)
     func showSuccess(title: String, message: String)
 

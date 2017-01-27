@@ -14,7 +14,7 @@ protocol CreatePostRouterInput: class {
     func openSaveForSaleModule(post: Post)
     func openSaveKitModule(post: Post)
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String)
-//  func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput)
+//  func viewPhoto(index: Int, images: [UIImage], isEdit: Bool, viewPhotoModuleOutput: ViewPhotoModuleOutput)
     func openUnderConstruction()
 
 }

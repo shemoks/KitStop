@@ -44,6 +44,7 @@
                     <connections>
                         <outlet property="tableView" destination="REt-MC-88B" id="ZoR-BM-JX1"/>
                         <segue destination="we0-Ac-Rwn" kind="show" identifier="transitionToUnderConstruction" id="aw2-7H-b04"/>
+                        <segue destination="Kmg-DD-sna" kind="show" identifier="TrunsitionToEditPost" id="VKf-Ga-hLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6a-PE-oFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,6 +63,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlC-z8-wqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1449" y="-22"/>
+        </scene>
+        <!--CreatePostViewController-->
+        <scene sceneID="jIh-ug-UFe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreatePost" referencedIdentifier="CreatePostViewController" id="Kmg-DD-sna" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jm3-hS-8hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486" y="289"/>
         </scene>
     </scenes>
 </document>

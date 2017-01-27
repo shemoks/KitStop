@@ -66,7 +66,7 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setLimit() {
-        self.limit = post?.salesDetails[1].limit
+        self.limit = post?.otherProperty[1].limit
     }
     
     func priceLimit() -> Int {
