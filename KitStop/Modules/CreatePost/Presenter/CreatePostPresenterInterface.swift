@@ -26,6 +26,9 @@ protocol CreatePostViewOutput: class {
     func getTittle() -> String
     func handleNextTap()
     func isSelectedCell(inSection: Int, for: IndexPath)
+    func setMainPhoto(photo: UIImage)
+    func setIsNotMainImage() -> Bool
+
 }
 
 // MARK: - CreatePostInteractorOutput
@@ -44,6 +47,8 @@ protocol CreatePostInteractorOutput: class {
 protocol CreatePostModuleInput: ModuleInput {
     
     func valuesFromCategoryList(forSale: Bool, idCategory: String)
+    func setKitEdit(post: Post)
+    func setForSaleEdit(post: Post)
 
 }
 

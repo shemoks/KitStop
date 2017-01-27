@@ -85,6 +85,8 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.metadata = post.metadata
                 newPost.notes = post.notes
                 newPost.salesDetails = post.salesDetails
+                newPost.owner = post.owner
+                newPost.otherProperty = post.otherProperty
                 presenter.setPost(post: newPost)
             }
         }

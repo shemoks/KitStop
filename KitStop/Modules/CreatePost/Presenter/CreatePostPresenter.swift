@@ -25,6 +25,7 @@ final class CreatePostPresenter {
     var currentData: Property?
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
+    var isNotMainImage: Bool = false
 
 }
 
@@ -77,7 +78,13 @@ extension CreatePostPresenter: CreatePostViewOutput {
         if indexPath.row > currentIndex {
             view.setupAlert()
         } else {
-            // router.viewPhoto(images: self.images, viewPhotoModuleOutput: self)
+            var newImages = [UIImage]()
+            for image in self.images {
+                if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "cameraForSave") {
+                    newImages.append(image!)
+                }
+            }
+            // router.viewPhoto(index: indexPath.row, images: newImages, isEdit: true, viewPhotoModuleOutput: self)
         }
     }
 
@@ -90,6 +97,11 @@ extension CreatePostPresenter: CreatePostViewOutput {
             }
             view.reloadData()
         }
+        self.isNotMainImage = true
+    }
+
+    func setIsNotMainImage() -> Bool {
+        return self.isNotMainImage
     }
 
     func getTittle() -> String {
@@ -121,6 +133,10 @@ extension CreatePostPresenter: CreatePostViewOutput {
         default:
             _ = [Other]()
         }
+    }
+
+    func setMainPhoto(photo: UIImage) {
+        self.post.mainImageObject = photo
     }
 
 }
@@ -162,6 +178,63 @@ extension CreatePostPresenter: CreatePostModuleInput {
             self.screenTitle = "Kits / "
         }
         interactor.getStructure(forSale: forSale, idCategory: idCategory)
+    }
+
+    func setKitEdit(post: Post) {
+        isForSale = false
+        self.post = post
+        if post.imagesString.count == 0 {
+            post.imagesString.append(post.mainImage)
+        }
+        var newImages = [UIImage]()
+        for image in post.imagesString {
+            let urlValue = URL(string: image)
+            if urlValue != nil {
+                let data = NSData(contentsOf: urlValue!)
+                newImages.append(UIImage(data: data! as Data)!)
+            }
+        }
+            var imagesCount = newImages.count
+            if imagesCount < 7 {
+                newImages.append(UIImage.init(named: "cameraForSave")!)
+                imagesCount = newImages.count
+            }
+            for _ in imagesCount...5 {
+                 newImages.append(UIImage.init(named: "blank1")!)
+            }
+        self.isNotMainImage = true
+        self.currentIndex = post.imagesString.count + self.currentIndex
+        self.post.images = newImages
+        self.images = newImages
+    }
+
+
+    func setForSaleEdit(post: Post) {
+        isForSale = true
+        self.post = post
+        if post.imagesString.count == 0 {
+            post.imagesString.append(post.mainImage)
+        }
+        var newImages = [UIImage]()
+        for image in post.imagesString {
+            let urlValue = URL(string: image)
+            if urlValue != nil {
+                let data = NSData(contentsOf: urlValue!)
+                newImages.append(UIImage(data: data! as Data)!)
+            }
+        }
+        var imagesCount = newImages.count
+        if imagesCount < 7 {
+            newImages.append(UIImage.init(named: "cameraForSave")!)
+            imagesCount = newImages.count
+        }
+        for _ in imagesCount...5 {
+            newImages.append(UIImage.init(named: "blank1")!)
+        }
+        self.isNotMainImage = true
+        self.currentIndex = post.imagesString.count + self.currentIndex
+        self.post.images = newImages
+        self.images = newImages
     }
 
 }

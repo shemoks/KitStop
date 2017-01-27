@@ -68,6 +68,18 @@ class Post {
     var images = [UIImage]()
     var salesDetails = [Property]()
     var otherProperty = [Property]()
+    var mainImage: String = ""
+    var imagesString = [String]()
+    var isPrivate: Bool = false
+    var owner = User()
+    var id: String = ""
+    var createAt: String = ""
+    var category: String = ""
+    var title = Property()
+    var generalForViewProperty = [Property]()
+    var additionalForViewProperty = [Property]()
+    var otherForViewProperty = [Property]()
+    var mainImageObject = UIImage()
 
 }
 

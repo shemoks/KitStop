@@ -41,6 +41,14 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
         }
     }
 
+    func openFullScreen(index: Int, images: [UIImage], isEdit: Bool) {
+//        flowController.openModule(using: .openUnderConstruction) {
+//            guard let moduleInput = $0 as? UnderConstructionModuleInput else {fatalError()}
+//            return nil
+//        }
+
+    }
+
     func openChatModule() {
         flowController.openModule(using: .openUnderConstruction) {
             guard let moduleInput = $0 as? UnderConstructionModuleInput else {fatalError()}
@@ -59,5 +67,29 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
         }
 
     }
+
+    func openEditKit(post: Post) {
+        flowController.openModule(using: .openEditKit) {
+            guard let moduleInput = $0 as? CreatePostModuleInput else {fatalError()}
+            moduleInput.setKitEdit(post: post)
+            return nil
+        }
+    }
+
+    func openEditForSale(post: Post) {
+        flowController.openModule(using: .openEditKit) {
+            guard let moduleInput = $0 as? CreatePostModuleInput else {fatalError()}
+            moduleInput.setForSaleEdit(post: post)
+            return nil
+        }
+    }
+}
+
+extension Segue {
+
+    static var openEditKit: Segue<CreatePostViewController> {
+        return .init(identifier: "TrunsitionToEditPost")
+}
+
 }
 

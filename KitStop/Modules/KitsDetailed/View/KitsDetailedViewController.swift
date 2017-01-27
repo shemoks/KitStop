@@ -40,6 +40,11 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let openEdit = UIAlertAction.init(title: "Edit", style: .default, handler: {
             result in
+            if self.presenter.getSection() {
+                self.presenter.openEditForSale()
+            } else {
+                self.presenter.openEditKit()
+            }
         })
 
         if presenter.getSection() {
@@ -148,6 +153,10 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         footerView.dateUpdate.text = dateUpdate
         tableView.tableFooterView = footerView
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "Icons_action_sheet"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
+        headerView.carusel.onTouch = { index, arrayImages, isEdit in
+            self.presenter.openFullScreen(index: index, images: arrayImages, isEdit: isEdit)
+
+        }
     }
 
     func showSuccessAlert(title: String, message: String, action: [UIAlertAction]) {

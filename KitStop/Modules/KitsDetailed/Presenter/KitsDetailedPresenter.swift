@@ -18,7 +18,7 @@ final class KitsDetailedPresenter {
     weak var view: KitsDetailedViewInput!
     var interactor: KitsDetailedInteractorInput!
     var router: KitsDetailedRouterInput!
-    var post = ViewPost()
+    var post = Post()
     var ownerId: String = ""
     var sectionSale: Bool = true
     fileprivate var likeStatus = true
@@ -32,39 +32,39 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     func openModule(identifier: Int) {
         router.openModule(identifier: identifier)
     }
-    func generalProperty(for indexPath: IndexPath) -> ViewProperty {
-        let property = self.post.generalProperty[indexPath.row]
+    func generalProperty(for indexPath: IndexPath) -> Property {
+        let property = self.post.generalForViewProperty[indexPath.row]
         return property
     }
 
-    func additionalProperty(for indexPath: IndexPath) -> ViewProperty {
-        let property = self.post.metaData[indexPath.row]
+    func additionalProperty(for indexPath: IndexPath) -> Property {
+        let property = self.post.additionalForViewProperty[indexPath.row]
         return property
     }
 
-    func saleProperty(for indexPath: IndexPath) -> ViewProperty {
-        let property = self.post.saleData[indexPath.row]
+    func saleProperty(for indexPath: IndexPath) -> Property {
+        let property = self.post.otherForViewProperty[indexPath.row]
         return property
     }
 
-    func descriptions(for indexPath: IndexPath) -> ViewProperty {
+    func descriptions(for indexPath: IndexPath) -> Property {
         return self.post.description
     }
 
-    func notes(for indexPath: IndexPath) -> ViewProperty {
+    func notes(for indexPath: IndexPath) -> Property {
         return self.post.notes
     }
 
     func numberOfGeneralProperties(inSection section: Int) -> Int {
-        return post.generalProperty.count
+        return post.generalForViewProperty.count
     }
 
     func numberOfAdditionalProperties(inSection section: Int) -> Int {
-        return post.metaData.count
+        return post.additionalForViewProperty.count
     }
 
     func numberOfSaleProperties(inSection section: Int) -> Int {
-        return post.saleData.count
+        return post.otherForViewProperty.count
     }
 
     func handleViewDidLoad() {
@@ -74,7 +74,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func getTittle() -> String {
-        return  self.post.title
+        return  self.post.title.textValue
     }
 
     func updateData(xib: UIView) -> Bool {
@@ -102,10 +102,12 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
     func getPrice() -> String {
         var result = ""
-        let price = post.saleData
+        let price = post.salesDetails
         for saleItem in price {
-            if saleItem.title == "Price" {
-                result = saleItem.text
+            if saleItem.title == "Sale price" {
+                if saleItem.units == "USD" {
+                    result = "$" + saleItem.textValue
+                }
             }
         }
         return result
@@ -117,11 +119,11 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
 
     func getImages() -> [String] {
         var images = [String]()
-        for image in post.images {
+        for image in post.imagesString {
             images.append(image)
         }
         if images.count == 0 {
-              images.append(self.post.mainImage)
+            images.append(self.post.mainImage)
         }
         return images
     }
@@ -145,19 +147,45 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         interactor.removePost(section: sectionSale, idPost: self.post.id)
     }
 
+    func openFullScreen(index: Int, images: [String], isEdit: Bool) {
+        var newImages = [UIImage]()
+        for image in images {
+            let urlValue = URL(string: image)
+            if urlValue != nil {
+                let data = NSData(contentsOf: urlValue!)
+                newImages.append(UIImage(data: data! as Data)!)
+            }
+        }
+        router.openFullScreen(index: index, images: newImages, isEdit: isEdit)
+    }
+    func openEditForSale() {
+        router.openEditForSale(post: self.post)
+    }
+
+    func openEditKit() {
+        router.openEditKit(post: self.post)
+    }
+
 }
 
 // MARK: - KitsDetailedInteractorOutput
 
 extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 
-    func setPost(post: ViewPost) {
+    func setPost(post: Post) {
         self.post = post
+        print(post)
         let urlValue = URL(string: self.post.mainImage)
         if urlValue != nil {
             view.reloadHeader(url: urlValue!, userInfo: post.owner, dateUpdate: Date().dateFrom(string: post.createAt))
         } else {
             //
+        }
+        let sale = post.salesDetails
+        for saleItem in sale {
+            if saleItem.title == "Condition" {
+                self.post.generalForViewProperty.insert(saleItem, at: 0)
+            }
         }
         view.reloadData()
     }

@@ -35,7 +35,7 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
 
     func getPost(forSale: Bool, idPost: String) {
         if !forSale {
-            dataManager.getKit(idKit: idPost, forSale: false) { [weak self] object, error in
+            dataManager.getAllKits(idKit: idPost, forSale: false) { [weak self] object, error in
                 if error == nil {
                     self?.presenter.setPost(post: object)
                 } else {
@@ -44,8 +44,9 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
                 }
             }
         } else {
-            dataManager.getKitForSale(idKit: idPost, forSale: forSale) { [weak self] object, error in
+            dataManager.getAllKitsForSale(idKit: idPost, forSale: forSale) { [weak self] object, error in
                 if error == nil {
+                    print(object)
                     self?.presenter.setPost(post: object)
                 } else {
                     let error = CustomError(code: error!).description
