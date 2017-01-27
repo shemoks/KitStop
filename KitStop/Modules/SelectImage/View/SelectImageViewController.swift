@@ -69,8 +69,11 @@ extension SelectImageViewController: SelectImageViewInput {
 extension SelectImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
+        var editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
+        if abs((editedImage?.size.width)! - (editedImage?.size.height)!) > 50 {
+           editedImage = UIImage().RBSquareImageTo(image: editedImage!, size: CGSize(width: 500, height: 500))
+        }
         let image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: [camera, gallery], delegate: delegate!)
         delegate?.changeContainer(self.view.frame.size.width)
         image.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)

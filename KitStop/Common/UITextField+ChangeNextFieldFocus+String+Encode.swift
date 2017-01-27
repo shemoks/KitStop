@@ -105,6 +105,50 @@ extension UIView {
 
 extension UIImage {
     
+    func RBSquareImageTo(image: UIImage, size: CGSize) -> UIImage {
+        return resizeImage(image: RBSquareImage(image: image), targetSize: size)
+    }
+    
+    func RBSquareImage(image: UIImage) -> UIImage {
+        let originalWidth  = image.size.width
+        let originalHeight = image.size.height
+        
+        var edge: CGFloat
+        if originalWidth > originalHeight {
+            edge = originalHeight
+        } else {
+            edge = originalWidth
+        }
+        
+        let posX = (originalWidth  - edge) / 2.0
+        let posY = (originalHeight - edge) / 2.0
+        
+        let cropSquare = CGRect(x: posX, y: posY, width: edge, height: edge)
+        
+        let imageRef = image.cgImage!.cropping(to: cropSquare);
+        return UIImage(cgImage: imageRef!, scale: UIScreen.main.scale, orientation: image.imageOrientation)
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        }
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
     func RBResizeImage(targetSize: CGSize, staticWidth: Bool) -> UIImage {
         let size = self.size
         
