@@ -19,11 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5OM-mm-Cyp" id="DdW-Tf-ZjO">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBN-wJ-z1d">
                         <rect key="frame" x="18" y="8" width="160" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="2o8-AU-c67"/>
                             <constraint firstAttribute="height" constant="16" id="Z7n-j8-xeu"/>
@@ -34,6 +35,7 @@
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Not Set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ay-T7-G9C">
                         <rect key="frame" x="18" y="0.0" width="341" height="74"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="74" id="l4M-6e-zxV"/>
                         </constraints>

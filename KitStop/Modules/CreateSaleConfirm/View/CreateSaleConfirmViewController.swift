@@ -25,20 +25,21 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
     @IBOutlet weak var transactionFee: UILabel!
     @IBOutlet weak var kitStopFee: UILabel!
     @IBOutlet weak var finalPrice: UILabel!
+    @IBOutlet weak var shippingTitle: UILabel!
     
     //MARK: - Life cycle 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setLimit()
         presenter.setDetails()
+        
         self.title = "For Sale / Camera"
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        
         tableView.register(UINib(nibName: "SaleInfoCell", bundle: nil), forCellReuseIdentifier: "SaleInfoCell")
-        
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
         navigationItem.rightBarButtonItem?.tintColor = UIColor().hexStringToUIColor(hex: Color.orangeColor)
     }
@@ -53,7 +54,7 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
     
     // MARK: - Actions
     func tapOnSave() {
-        
+        presenter.handleSaveTap()
     }
 
 }
@@ -61,9 +62,6 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
 // MARK: - CreateSaleConfirmViewInput
 
 extension CreateSaleConfirmViewController: CreateSaleConfirmViewInput {
-    func reloadPricingData() {
-        
-    }
     
     func reloadData() {
         self.tableView.reloadData()
@@ -80,6 +78,15 @@ extension CreateSaleConfirmViewController: CreateSaleConfirmViewInput {
                 break
             }
         }
+    }
+    
+    func setPriceLabels(priceModel: PriceModel) {
+        self.userPrice.text = priceModel.startingPrice
+        self.shippingFee.text = priceModel.weightRate
+        self.shippingTitle.text = priceModel.weight
+        self.kitStopFee.text = priceModel.kitStopPrice
+        self.transactionFee.text = priceModel.transactionPrice
+        self.finalPrice.text = priceModel.finalPrice
     }
 }
 
@@ -143,6 +150,9 @@ extension CreateSaleConfirmViewController: UITextFieldDelegate {
                     presenter.showAlert()
                 }
             }
+        if (textField.text?.isEmpty)! {
+            presenter.setPrice(value: "")
+        }
         navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
