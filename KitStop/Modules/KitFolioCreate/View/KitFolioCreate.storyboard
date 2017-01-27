@@ -49,80 +49,60 @@
                                             <constraint firstAttribute="height" constant="46" id="KHa-A2-AFI"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8a-Ak-Cc2">
-                                        <rect key="frame" x="0.0" y="234" width="414" height="50"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-8y-0KA">
-                                                <rect key="frame" x="8.0000000000000036" y="8" width="50.333333333333343" height="14"/>
-                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
-                                                <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter short description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-I2-5Ra">
-                                                <rect key="frame" x="8" y="22" width="406" height="20"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                                <connections>
-                                                    <action selector="postTitleChange:" destination="nZ0-5w-Sbl" eventType="editingChanged" id="ghO-xg-EN2"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-sV-Abz">
+                                        <rect key="frame" x="0.0" y="259" width="414" height="36.333333333333314"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Post Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-Q0-dRh">
+                                        <rect key="frame" x="0.0" y="234" width="414" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="gDf-I2-5Ra" secondAttribute="trailing" id="Byy-gd-lAC"/>
-                                            <constraint firstAttribute="height" constant="50" id="DW9-mz-7g3"/>
-                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="top" secondItem="aCl-8y-0KA" secondAttribute="bottom" id="MWT-2n-L5m"/>
-                                            <constraint firstItem="gDf-I2-5Ra" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="8" id="Qcg-Yi-rQO"/>
-                                            <constraint firstItem="aCl-8y-0KA" firstAttribute="top" secondItem="Y8a-Ak-Cc2" secondAttribute="top" constant="8" id="geR-CZ-OSB"/>
-                                            <constraint firstItem="aCl-8y-0KA" firstAttribute="leading" secondItem="Y8a-Ak-Cc2" secondAttribute="leading" constant="8" id="k95-ZB-i5d"/>
+                                            <constraint firstAttribute="height" constant="25" id="wyB-Wn-Zeg"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oE-r6-dBK">
-                                        <rect key="frame" x="0.0" y="292" width="414" height="176"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnj-n0-VZk">
-                                                <rect key="frame" x="8" y="16" width="61.333333333333329" height="14"/>
-                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
-                                                <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG">
-                                                <rect key="frame" x="4" y="30" width="410" height="146"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="146" id="tVS-Ej-enA"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
+                                        <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-TS-cMR">
+                                        <rect key="frame" x="0.0" y="303.33333333333331" width="414" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="cnj-n0-VZk" secondAttribute="bottom" id="6sE-JM-VGY"/>
-                                            <constraint firstAttribute="trailing" secondItem="6vx-yE-NEG" secondAttribute="trailing" id="EMT-hR-j1U"/>
-                                            <constraint firstItem="cnj-n0-VZk" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" constant="8" id="HV3-yk-KDQ"/>
-                                            <constraint firstItem="6vx-yE-NEG" firstAttribute="leading" secondItem="2oE-r6-dBK" secondAttribute="leading" constant="4" id="Lgm-M7-aKT"/>
-                                            <constraint firstAttribute="height" constant="176" id="eKG-Bu-wbB"/>
-                                            <constraint firstAttribute="bottom" secondItem="6vx-yE-NEG" secondAttribute="bottom" id="rQm-WH-S7u"/>
+                                            <constraint firstAttribute="height" constant="30" id="5OP-KH-912"/>
                                         </constraints>
-                                    </view>
+                                        <color key="textColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG">
+                                        <rect key="frame" x="0.0" y="333.33333333333331" width="414" height="37"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="2oE-r6-dBK" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="3ZE-dq-xbj"/>
-                                    <constraint firstAttribute="trailing" secondItem="Y8a-Ak-Cc2" secondAttribute="trailing" id="4CM-gB-YXB"/>
+                                    <constraint firstAttribute="trailing" secondItem="dBw-TS-cMR" secondAttribute="trailing" id="4Ci-an-IO1"/>
                                     <constraint firstItem="SBg-2U-8l7" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="67W-Zl-Bol"/>
+                                    <constraint firstItem="1XK-sV-Abz" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="7lZ-9M-GFa"/>
+                                    <constraint firstAttribute="trailing" secondItem="6vx-yE-NEG" secondAttribute="trailing" id="Fm3-3a-B9P"/>
+                                    <constraint firstAttribute="bottom" secondItem="6vx-yE-NEG" secondAttribute="bottom" constant="50" id="Jv7-vo-CES"/>
+                                    <constraint firstAttribute="trailing" secondItem="gKG-Q0-dRh" secondAttribute="trailing" id="K6g-88-bft"/>
                                     <constraint firstAttribute="trailing" secondItem="X8h-rI-XzM" secondAttribute="trailing" id="OcX-vy-4pI"/>
-                                    <constraint firstAttribute="bottom" secondItem="2oE-r6-dBK" secondAttribute="bottom" constant="88" id="Ouh-3e-T4E"/>
-                                    <constraint firstItem="Y8a-Ak-Cc2" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="WLI-Pb-tFb"/>
+                                    <constraint firstItem="dBw-TS-cMR" firstAttribute="top" secondItem="1XK-sV-Abz" secondAttribute="bottom" constant="8" id="UaR-1p-Yoa"/>
+                                    <constraint firstItem="dBw-TS-cMR" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="ZGQ-t4-vKn"/>
+                                    <constraint firstItem="gKG-Q0-dRh" firstAttribute="top" secondItem="SBg-2U-8l7" secondAttribute="bottom" constant="8" id="bRQ-nt-fOd"/>
+                                    <constraint firstItem="1XK-sV-Abz" firstAttribute="top" secondItem="gKG-Q0-dRh" secondAttribute="bottom" id="e7S-KS-zwW"/>
+                                    <constraint firstItem="6vx-yE-NEG" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="iAR-tz-0vo"/>
                                     <constraint firstItem="X8h-rI-XzM" firstAttribute="centerX" secondItem="E5u-sy-6GZ" secondAttribute="centerX" id="ihf-lJ-0z7"/>
-                                    <constraint firstItem="Y8a-Ak-Cc2" firstAttribute="top" secondItem="SBg-2U-8l7" secondAttribute="bottom" constant="8" id="lKe-zU-xFB"/>
+                                    <constraint firstItem="gKG-Q0-dRh" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="jV8-iB-Wej"/>
+                                    <constraint firstAttribute="trailing" secondItem="1XK-sV-Abz" secondAttribute="trailing" id="lpb-wU-scq"/>
                                     <constraint firstAttribute="trailing" secondItem="SBg-2U-8l7" secondAttribute="trailing" id="mIe-Ud-Fmk"/>
                                     <constraint firstItem="X8h-rI-XzM" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="nQB-7k-vuf"/>
-                                    <constraint firstItem="2oE-r6-dBK" firstAttribute="top" secondItem="Y8a-Ak-Cc2" secondAttribute="bottom" constant="8" id="nvm-yk-Han"/>
                                     <constraint firstItem="SBg-2U-8l7" firstAttribute="top" secondItem="X8h-rI-XzM" secondAttribute="bottom" id="qzh-lQ-Qhx"/>
                                     <constraint firstItem="X8h-rI-XzM" firstAttribute="top" secondItem="E5u-sy-6GZ" secondAttribute="top" id="rB5-LT-LyX"/>
-                                    <constraint firstAttribute="trailing" secondItem="2oE-r6-dBK" secondAttribute="trailing" id="seL-bJ-8rY"/>
+                                    <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="dBw-TS-cMR" secondAttribute="bottom" id="reB-tN-XDo"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -130,13 +110,12 @@
                         <constraints>
                             <constraint firstItem="FF3-U0-y14" firstAttribute="leading" secondItem="107-6P-bLR" secondAttribute="leading" id="1Sp-90-GV0"/>
                             <constraint firstItem="Qzf-IJ-X63" firstAttribute="top" secondItem="FF3-U0-y14" secondAttribute="bottom" id="2TB-XY-hX6"/>
-                            <constraint firstItem="E5u-sy-6GZ" firstAttribute="leading" secondItem="FF3-U0-y14" secondAttribute="leading" id="AaW-MM-QdY"/>
-                            <constraint firstItem="E5u-sy-6GZ" firstAttribute="trailing" secondItem="FF3-U0-y14" secondAttribute="trailing" id="Fao-CU-e7X"/>
+                            <constraint firstItem="E5u-sy-6GZ" firstAttribute="leading" secondItem="107-6P-bLR" secondAttribute="leading" id="7Sb-PB-i9V"/>
                             <constraint firstAttribute="trailing" secondItem="FF3-U0-y14" secondAttribute="trailing" id="HCH-Kg-WcO"/>
-                            <constraint firstItem="E5u-sy-6GZ" firstAttribute="centerY" secondItem="107-6P-bLR" secondAttribute="centerY" id="IxK-cQ-oLp"/>
                             <constraint firstItem="Qzf-IJ-X63" firstAttribute="top" secondItem="E5u-sy-6GZ" secondAttribute="bottom" id="SFw-bT-mSs"/>
                             <constraint firstItem="E5u-sy-6GZ" firstAttribute="top" secondItem="107-6P-bLR" secondAttribute="top" id="UyO-F1-0d3"/>
                             <constraint firstItem="FF3-U0-y14" firstAttribute="top" secondItem="J5R-1G-8fr" secondAttribute="bottom" id="aUZ-u8-7D3"/>
+                            <constraint firstAttribute="trailing" secondItem="E5u-sy-6GZ" secondAttribute="trailing" id="aai-bs-py0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Qi-In-fix">
@@ -151,7 +130,7 @@
                         <outlet property="container" destination="X8h-rI-XzM" id="YPH-p2-jfe"/>
                         <outlet property="containerHeight" destination="Beg-Us-kfH" id="y2B-wr-FOe"/>
                         <outlet property="postDescription" destination="6vx-yE-NEG" id="ZTG-BO-AIo"/>
-                        <outlet property="postTitle" destination="gDf-I2-5Ra" id="hWz-ru-eWS"/>
+                        <outlet property="postTitle" destination="1XK-sV-Abz" id="Px6-J3-9iv"/>
                         <outlet property="scroll" destination="E5u-sy-6GZ" id="gU0-ed-gZK"/>
                         <outlet property="userInformation" destination="SBg-2U-8l7" id="ItB-7P-MaY"/>
                     </connections>
@@ -163,7 +142,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="951.20000000000005" y="157.87106446776613"/>
+            <point key="canvasLocation" x="950.72463768115949" y="157.33695652173915"/>
         </scene>
         <!--View-->
         <scene sceneID="ZC6-gd-8zC">
@@ -225,7 +204,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGt-W5-XF2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ypf-OR-rQE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypf-OR-rQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

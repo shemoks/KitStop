@@ -160,7 +160,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
     }
     
     func cropImage(editedImage: UIImage?, originalImage: UIImage?) {
-        self.smallImage = editedImage?.RBResizeImage(targetSize: CGSize(width: 500, height: 500), staticWidth: false)
+        self.smallImage = editedImage
         self.bigImage = originalImage?.RBResizeImage(targetSize: CGSize.init(width: 1080, height: (originalImage?.bigHeightSize())!), staticWidth: true)
         imageDeleteStatus = false
     }
@@ -245,7 +245,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
         self.product = product
         let ok = UIAlertAction.init(title: "Ok", style: .default, handler: {
             result in
-            self.view.refreshDataAfterUpdate(isSizeChange: true)
+            self.view.refreshDataAfterUpdate()
         })
         view.showSuccessAlert(title: "Success", message: "Update success", action: [ok])
     }
