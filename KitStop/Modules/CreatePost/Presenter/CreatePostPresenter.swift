@@ -213,7 +213,29 @@ extension CreatePostPresenter: CreatePostModuleInput {
     func setForSaleEdit(post: Post) {
         isForSale = true
         self.post = post
-        view.reloadData()
+        if post.imagesString.count == 0 {
+            post.imagesString.append(post.mainImage)
+        }
+        var newImages = [UIImage]()
+        for image in post.imagesString {
+            let urlValue = URL(string: image)
+            if urlValue != nil {
+                let data = NSData(contentsOf: urlValue!)
+                newImages.append(UIImage(data: data! as Data)!)
+            }
+        }
+        var imagesCount = newImages.count
+        if imagesCount < 7 {
+            newImages.append(UIImage.init(named: "cameraForSave")!)
+            imagesCount = newImages.count
+        }
+        for _ in imagesCount...5 {
+            newImages.append(UIImage.init(named: "blank1")!)
+        }
+        self.isNotMainImage = true
+        self.currentIndex = post.imagesString.count + self.currentIndex
+        self.post.images = newImages
+        self.images = newImages
     }
 
 }
