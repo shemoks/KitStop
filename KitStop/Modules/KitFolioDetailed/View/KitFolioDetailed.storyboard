@@ -39,6 +39,18 @@
                                             <constraint firstAttribute="height" constant="320" id="aJw-mh-UIm"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="177" placeholderIntrinsicHeight="106" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-LY-FKO">
+                                        <rect key="frame" x="0.0" y="220" width="414" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="upf-zp-PcQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zRH-Aa-daq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1C4-CY-3MY"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-2F-fnk">
                                         <rect key="frame" x="0.0" y="320" width="414" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +59,7 @@
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mFX-lg-eum">
-                                        <rect key="frame" x="0.0" y="443.33333333333331" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="444" width="414" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="wxy-dL-1aH"/>
@@ -57,13 +69,13 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ymr-hG-LZ4">
-                                        <rect key="frame" x="0.0" y="473.33333333333337" width="414" height="37.000000000000057"/>
+                                        <rect key="frame" x="0.0" y="474" width="414" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" text="title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HmU-QQ-1Q3">
-                                        <rect key="frame" x="0.0" y="399" width="414" height="36.333333333333314"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HmU-QQ-1Q3">
+                                        <rect key="frame" x="0.0" y="399" width="414" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
@@ -90,7 +102,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79R-Fi-s6X">
-                                        <rect key="frame" x="0.0" y="510.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="511" width="414" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd MM yyyy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8N-UB-ddA">
                                                 <rect key="frame" x="192" y="13" width="207" height="18"/>
@@ -124,6 +136,8 @@
                                     <constraint firstItem="ZE3-2F-fnk" firstAttribute="top" secondItem="FXY-rb-pbK" secondAttribute="bottom" constant="5" id="3J5-Yy-DPR"/>
                                     <constraint firstAttribute="trailing" secondItem="ZE3-2F-fnk" secondAttribute="trailing" id="44n-Hg-MZG"/>
                                     <constraint firstAttribute="trailing" secondItem="Ymr-hG-LZ4" secondAttribute="trailing" id="4Om-pt-I9b"/>
+                                    <constraint firstItem="zRH-Aa-daq" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="8y7-za-6Z1"/>
+                                    <constraint firstItem="zRH-Aa-daq" firstAttribute="top" secondItem="lGR-pN-dzN" secondAttribute="top" id="CxZ-Sc-lxj"/>
                                     <constraint firstItem="HmU-QQ-1Q3" firstAttribute="top" secondItem="Qbi-tH-rQQ" secondAttribute="bottom" id="FKP-Bt-HzP"/>
                                     <constraint firstItem="ZE3-2F-fnk" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="GdD-jd-L6o"/>
                                     <constraint firstItem="Qbi-tH-rQQ" firstAttribute="top" secondItem="ZE3-2F-fnk" secondAttribute="bottom" constant="8" id="HFy-lz-xwY"/>
@@ -133,6 +147,8 @@
                                     <constraint firstItem="mFX-lg-eum" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="Kqa-3D-i8Q"/>
                                     <constraint firstItem="79R-Fi-s6X" firstAttribute="bottom" secondItem="Ymr-hG-LZ4" secondAttribute="bottom" constant="44" id="Nv2-FN-T28"/>
                                     <constraint firstAttribute="trailing" secondItem="Qbi-tH-rQQ" secondAttribute="trailing" id="Pfb-AS-yl0"/>
+                                    <constraint firstItem="KB9-LY-FKO" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="V5P-BO-EEF"/>
+                                    <constraint firstAttribute="trailing" secondItem="KB9-LY-FKO" secondAttribute="trailing" id="VUv-jy-zqK"/>
                                     <constraint firstAttribute="trailing" secondItem="mFX-lg-eum" secondAttribute="trailing" id="Wcp-Rh-PZC"/>
                                     <constraint firstAttribute="bottom" secondItem="79R-Fi-s6X" secondAttribute="bottom" constant="8" id="Xhk-W5-uho"/>
                                     <constraint firstItem="HmU-QQ-1Q3" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="ZUh-yp-n6p"/>
@@ -141,10 +157,12 @@
                                     <constraint firstItem="ZE3-2F-fnk" firstAttribute="top" secondItem="Qru-Ty-tFc" secondAttribute="bottom" id="fHC-d5-puu"/>
                                     <constraint firstItem="Ymr-hG-LZ4" firstAttribute="top" secondItem="mFX-lg-eum" secondAttribute="bottom" id="hHA-8q-4Hn"/>
                                     <constraint firstItem="Qru-Ty-tFc" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="kHx-Hi-6Ln"/>
+                                    <constraint firstAttribute="trailing" secondItem="zRH-Aa-daq" secondAttribute="trailing" id="lH0-ls-sbo"/>
                                     <constraint firstItem="Qru-Ty-tFc" firstAttribute="centerX" secondItem="lGR-pN-dzN" secondAttribute="centerX" id="lVp-Zv-FhY"/>
                                     <constraint firstItem="79R-Fi-s6X" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="m5E-3B-7gO"/>
                                     <constraint firstItem="Ymr-hG-LZ4" firstAttribute="leading" secondItem="lGR-pN-dzN" secondAttribute="leading" id="mlH-VV-Vxg"/>
                                     <constraint firstAttribute="trailing" secondItem="HmU-QQ-1Q3" secondAttribute="trailing" id="pYy-OG-CC8"/>
+                                    <constraint firstItem="ZE3-2F-fnk" firstAttribute="top" secondItem="KB9-LY-FKO" secondAttribute="bottom" id="vQW-Lx-rGJ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -161,6 +179,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomMask" destination="KB9-LY-FKO" id="eyu-oq-cE8"/>
                         <outlet property="date" destination="T8N-UB-ddA" id="slR-MC-JCb"/>
                         <outlet property="image" destination="Qru-Ty-tFc" id="hew-wi-2Dd"/>
                         <outlet property="imageHeight" destination="aJw-mh-UIm" id="su6-qX-9Cf"/>
@@ -170,9 +189,10 @@
                         <outlet property="postDescription" destination="Ymr-hG-LZ4" id="6aa-Vt-wBf"/>
                         <outlet property="postTitle" destination="HmU-QQ-1Q3" id="lAH-2f-mCS"/>
                         <outlet property="scroll" destination="lGR-pN-dzN" id="OeA-8U-7Aj"/>
+                        <outlet property="topMask" destination="zRH-Aa-daq" id="K2R-ar-GX3"/>
                         <outlet property="userInformation" destination="ZE3-2F-fnk" id="eOj-TH-5G3"/>
                         <segue destination="ckf-8E-3qD" kind="show" identifier="transitionToUnderConstruction" id="FrF-cq-y9x"/>
-                        <segue destination="HeJ-75-hl8" kind="show" identifier="transitionToPhotoPreview" id="wfT-cp-aLj"/>
+                        <segue destination="HeJ-75-hl8" kind="presentation" identifier="transitionToPhotoPreview" modalPresentationStyle="fullScreen" id="wfT-cp-aLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0d-AE-TB7" userLabel="First Responder" sceneMemberID="firstResponder"/>

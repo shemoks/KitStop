@@ -74,6 +74,11 @@ extension SignUpEmailPresenter: SignUpEmailViewOutput {
         }
         return (nameStatus, surnameStatus, emailStatus)
     }
+    
+    func addBorder(_ textField: UITextField) {
+        textField.layer.borderWidth = 2.5
+        textField.layer.borderColor = UIColor.white.cgColor
+    }
 
 }
 

@@ -18,6 +18,7 @@ struct AWS3 {
 struct Color {
     static let emailInvalidateColor = "f5d0d0"
     static let orangeColor = "ff8830"
+    static let placeholderText = "#97999B"
 }
 
 struct PlaceholderText {

@@ -18,7 +18,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKits(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -30,9 +30,12 @@ class MainService: NSObject, MainServiceProtocol {
                         kitModel.mainImage = kit.1["mainImage"].stringValue
                         kitModel.title = kit.1["title"].stringValue
                         kitModel.owner = kit.1["owner"].stringValue
+                        kitModel.isPrivate = kit.1["isPrivate"].boolValue
                         kits.append(kitModel)
                     }
-                    kits.reverse()
+                    if let _ = kits.first {
+                        kits[0].total = json["data"]["total"].intValue
+                    }
                     completionBlock(kits, nil)
                 } else {
                     completionBlock(nil, response.response?.statusCode)
@@ -47,7 +50,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKitFolio(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -61,7 +64,9 @@ class MainService: NSObject, MainServiceProtocol {
                         kitModel.owner = kit.1["owner"].stringValue
                         kits.append(kitModel)
                     }
-                    kits.reverse()
+                    if let _ = kits.first {
+                        kits[0].total = json["data"]["total"].intValue
+                    }
                     completionBlock(kits, nil)
                 } else {
                     completionBlock(nil, response.response?.statusCode)
@@ -75,7 +80,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKitsForSale(page: Int,completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -94,7 +99,9 @@ class MainService: NSObject, MainServiceProtocol {
                         }
                         kits.append(kitModel)
                     }
-                    kits.reverse()
+                    if let _ = kits.first {
+                        kits[0].total = json["data"]["total"].intValue
+                    }
                     completionBlock(kits, nil)
                 } else {
                     completionBlock(nil, response.response?.statusCode)

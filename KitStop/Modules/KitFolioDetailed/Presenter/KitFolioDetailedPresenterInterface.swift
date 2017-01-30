@@ -14,13 +14,12 @@ import UIKit
 protocol KitFolioDetailedViewOutput: class {
     func checkXib(view: UIView?)
     func handleKitData()
-    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint)
+    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint, bottomMask: UIImageView, topMask: UIImageView)
     func checkUserInformation(xib: UIView, user: User)
     func updateData(xib: UIView) -> Bool
     func openChat()
-    func openPhotoPreview(images: UIImage?, isEditMode: Bool)
     func changeLike(like: UIButton)
-    func showActionSheet(image: UIImageView, picker: UIImagePickerController)
+    func showActionSheet(image: UIImageView, picker: UIImagePickerController, bottomMask: UIImageView, topMask: UIImageView)
     func cropImage(editedImage: UIImage?, originalImage: UIImage?)
     func deletePost()
     func validation(data: [String : String], image: UIImage)

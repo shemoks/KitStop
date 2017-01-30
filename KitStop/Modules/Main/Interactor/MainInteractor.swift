@@ -26,8 +26,8 @@ final class MainInteractor {
     }
     
     
-    func handleKitsForSale() {
-        dataManager.fetchAllKitsForSale(page: 1, completionBlock: {
+    func handleKitsForSale(page: Int) {
+        dataManager.fetchAllKitsForSale(page: page, completionBlock: {
             [weak self] kitsForSale, error in
             if error == nil {
                 self?.presenter.updateKits(kits: kitsForSale!)

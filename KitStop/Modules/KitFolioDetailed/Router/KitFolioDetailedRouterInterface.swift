@@ -11,6 +11,5 @@ import UIKit
 
 protocol KitFolioDetailedRouterInput: class {
     func openChatModule()
-    func openPhotoPreviewModule(image: UIImage, isEditMode: Bool)
     func closeModule(moduleOutput: KitFolioDetailedModuleOutput)
 }

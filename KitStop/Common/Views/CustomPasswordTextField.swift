@@ -68,11 +68,9 @@ class CustomPasswordTextField: UITextField, UITextFieldDelegate {
         return false
     }
     
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        if let email = self.email {
-//            UITextField().checkFieldFrom(email: email, textField: textField)
-//        }
-//        return true
-//    }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let email = self.email {
+            UITextField().checkFieldFrom(email: email, textField: textField)
+        }
+    }
 }
