@@ -72,8 +72,8 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setLimit() {
-        for item in (post?.salesDetails)! {
-            if item.title == "Sale price" {
+        for item in (post?.otherProperty)! {
+            if item.title == "Purchase Price" {
                 self.limit = item.limit
                 break
             }

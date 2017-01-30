@@ -336,9 +336,6 @@
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
 		953129A71E1E4D280009760F /* BottomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953129A61E1E4D280009760F /* BottomBar.xib */; };
 		953FD41D1E1EA7DA0000086E /* UnderConstruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */; };
-		95D4D9A01E3EF10900CC7E4D /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4D99F1E3EF10900CC7E4D /* RatesView.swift */; };
-		95D4D9A21E3EF26900CC7E4D /* RatesViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4D9A11E3EF26900CC7E4D /* RatesViewDelegate.swift */; };
-		95D4D9A41E3EF2B600CC7E4D /* RatesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D4D9A31E3EF2B600CC7E4D /* RatesView.xib */; };
 		95D4F5901E2E55490073196C /* CustomInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5831E2E55490073196C /* CustomInput.storyboard */; };
 		95D4F5921E2E55490073196C /* CustomInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5851E2E55490073196C /* CustomInputCell.xib */; };
 		95D4F5931E2E55490073196C /* CustomInputHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5861E2E55490073196C /* CustomInputHeaderView.xib */; };
@@ -584,9 +581,6 @@
 		957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordServiceProtocol.swift; path = KitStop/Common/RestorePasswordServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
-		95D4D99F1E3EF10900CC7E4D /* RatesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
-		95D4D9A11E3EF26900CC7E4D /* RatesViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesViewDelegate.swift; sourceTree = "<group>"; };
-		95D4D9A31E3EF2B600CC7E4D /* RatesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatesView.xib; sourceTree = "<group>"; };
 		95D4F5781E2E55490073196C /* CustomInputAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAssember.swift; sourceTree = "<group>"; };
 		95D4F57A1E2E55490073196C /* CustomInputInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputInteractor.swift; sourceTree = "<group>"; };
 		95D4F57B1E2E55490073196C /* CustomInputInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputInteractorInterface.swift; sourceTree = "<group>"; };
@@ -988,9 +982,6 @@
 				9AB17CB31E0BD06D004E95FF /* CustomButton.swift */,
 				9AE7AAFD1E3A3CAA00B89562 /* MyTextView.swift */,
 				25FBAC461E16945900A956CE /* LoadingIndicatorView.swift */,
-				95D4D99F1E3EF10900CC7E4D /* RatesView.swift */,
-				95D4D9A11E3EF26900CC7E4D /* RatesViewDelegate.swift */,
-				95D4D9A31E3EF2B600CC7E4D /* RatesView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2790,7 +2781,6 @@
 				9511346E1E1CE24400175EE2 /* MainSearch.storyboard in Resources */,
 				9AB17CF21E0BD5AE004E95FF /* SF-UI-Text-Ultrathin.otf in Resources */,
 				9AB17CE01E0BD5AE004E95FF /* SF-UI-Display-Light.otf in Resources */,
-				95D4D9A41E3EF2B600CC7E4D /* RatesView.xib in Resources */,
 				9AB17E1D1E1E58BC004E95FF /* GeneralCell.xib in Resources */,
 				9AB17E211E1E7DF2004E95FF /* PhotoCell.xib in Resources */,
 				25EC09211E37B6DA00BE8F06 /* SaleInfoCell.xib in Resources */,
@@ -2939,7 +2929,6 @@
 				25EC07CC1E37B55500BE8F06 /* FilterManagerProtocol.swift in Sources */,
 				25EC07CD1E37B55500BE8F06 /* LogInServiceProtocol.swift in Sources */,
 				25EC07CE1E37B55500BE8F06 /* SignUpServiceProtocol.swift in Sources */,
-				95D4D9A21E3EF26900CC7E4D /* RatesViewDelegate.swift in Sources */,
 				25EC07CF1E37B55500BE8F06 /* MainServiceProtocol.swift in Sources */,
 				25EC07D01E37B55500BE8F06 /* AWS3UploadImageProtocol.swift in Sources */,
 				25EC07D11E37B55500BE8F06 /* CategoryServiceProtocol.swift in Sources */,
@@ -2969,7 +2958,6 @@
 				25EC07E91E37B55500BE8F06 /* LogInUserModel.swift in Sources */,
 				25EC07EA1E37B55500BE8F06 /* SignUpUserModel.swift in Sources */,
 				25EC07EB1E37B55500BE8F06 /* Category(Add New Item).swift in Sources */,
-				95D4D9A01E3EF10900CC7E4D /* RatesView.swift in Sources */,
 				25EC07EC1E37B55500BE8F06 /* KitDetailsModel.swift in Sources */,
 				25EC07ED1E37B55500BE8F06 /* CreateKitsRequestBody.swift in Sources */,
 				25EC07EE1E37B55500BE8F06 /* CustomPasswordTextField.swift in Sources */,
