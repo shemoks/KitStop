@@ -15,6 +15,7 @@
 		2563208C1E38D5F600F2F805 /* SwiftPhotoGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256320891E38D5F600F2F805 /* SwiftPhotoGalleryCell.swift */; };
 		2563208E1E38DA9500F2F805 /* PhotoPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2563208D1E38DA9500F2F805 /* PhotoPreview.storyboard */; };
 		25AB73831E02CB9100BAA278 /* SignUpEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AB73821E02CB9100BAA278 /* SignUpEmail.storyboard */; };
+		25E656841E3EA063003D0A6D /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E656831E3EA063003D0A6D /* MainFooterView.swift */; };
 		25EC07A41E37B4D600BE8F06 /* LogInDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8273D1E1E67280007E522 /* LogInDataManagerProtocol.swift */; };
 		25EC07A51E37B4DA00BE8F06 /* LogInDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8273A1E1E66F10007E522 /* LogInDataManager.swift */; };
 		25EC07A61E37B4DE00BE8F06 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211E8D1E1F934200630200 /* RangeSlider.swift */; };
@@ -495,6 +496,7 @@
 		25D8A1491E0EC13D007FC431 /* CustomPasswordDelegateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPasswordDelegateTextField.swift; path = Views/CustomPasswordDelegateTextField.swift; sourceTree = "<group>"; };
 		25D8A14D1E0F0BBB007FC431 /* SignUpUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpUserModel.swift; sourceTree = "<group>"; };
 		25D8A1511E0F0E41007FC431 /* SignUpServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpServiceProtocol.swift; sourceTree = "<group>"; };
+		25E656831E3EA063003D0A6D /* MainFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
 		25EC09061E37B6DA00BE8F06 /* CreateSaleConfirmAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmAssember.swift; sourceTree = "<group>"; };
 		25EC09081E37B6DA00BE8F06 /* CreateSaleConfirmInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmInteractor.swift; sourceTree = "<group>"; };
 		25EC09091E37B6DA00BE8F06 /* CreateSaleConfirmInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaleConfirmInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1360,6 +1362,7 @@
 		4C562A960589FDF1C846CBB1 /* KitsDetailed */ = {
 			isa = PBXGroup;
 			children = (
+				BF9ADB302749E44F20B3BE40 /* Router */,
 				6D284D00C4FA6D9365E1AE2A /* Assembler */,
 				2FE594FB7991354CD530F043 /* View */,
 				0C0133A43BB39699E2055A3C /* Interactor */,
@@ -1518,7 +1521,6 @@
 			children = (
 				0AD343968DB0F24D075C0832 /* KitsDetailedPresenterInterface.swift */,
 				7535DE39E07893775CDD0E3B /* KitsDetailedPresenter.swift */,
-				BF9ADB302749E44F20B3BE40 /* Router */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2329,8 +2331,7 @@
 				E9F470FCD952597E3C1DC06E /* KitsDetailedRouterInterface.swift */,
 				E79C5755EE9C45BFDD7DA6EB /* KitsDetailedRouter.swift */,
 			);
-			name = Router;
-			path = ../Router;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		CD5A68BC5B16CBC937A265B8 /* Presenter */ = {
@@ -2363,6 +2364,7 @@
 		CFE00873B8D6A8D3A055A276 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25E656831E3EA063003D0A6D /* MainFooterView.swift */,
 				9A9D0FDA1E2D02F30009274C /* MainViewController.swift */,
 				26F3E44B9044B4FE5AED7220 /* MainViewInterface.swift */,
 				25432DCB1E042E3D00BB7B8F /* Main.storyboard */,
@@ -2946,6 +2948,7 @@
 				25EC07DD1E37B55500BE8F06 /* FilterManager.swift in Sources */,
 				25EC07DE1E37B55500BE8F06 /* FacebookService.swift in Sources */,
 				25EC07DF1E37B55500BE8F06 /* KeychainService.swift in Sources */,
+				25E656841E3EA063003D0A6D /* MainFooterView.swift in Sources */,
 				25EC07E01E37B55500BE8F06 /* MainService.swift in Sources */,
 				25EC07E11E37B55500BE8F06 /* CategoryService.swift in Sources */,
 				25EC07E21E37B55500BE8F06 /* CreatePostService.swift in Sources */,
@@ -3366,7 +3369,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3384,8 +3387,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3400,7 +3403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3418,8 +3421,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

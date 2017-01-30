@@ -38,6 +38,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     }
     
     @IBAction func changeKitsElement(_ sender: Any) {
+        transferData?.clearKitsPage()
         fetchKits()
     }
     

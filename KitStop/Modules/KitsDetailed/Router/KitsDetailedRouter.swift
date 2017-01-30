@@ -65,7 +65,6 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
             moduleOutput.updateKits()
             self.flowController.closeModule(animated: true)
         }
-
     }
 
     func openEditKit(post: Post) {

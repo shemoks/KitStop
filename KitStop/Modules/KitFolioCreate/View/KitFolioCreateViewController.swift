@@ -14,8 +14,9 @@ import Chamomile
 final class KitFolioCreateViewController: UIViewController, FlowController, SelectImageContainerProtocol, Alertable {
     
 
-    @IBOutlet weak var postTitle: UITextView!
-    @IBOutlet weak var postDescription: UITextView!
+
+    @IBOutlet weak var postTitle: MyTextView!
+    @IBOutlet weak var postDescription: MyTextView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var scroll: UIScrollView!
@@ -33,6 +34,19 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         postTitle.delegate = self
         postDescription.delegate = self
         postTitle.tag = 100
+        addTextViewPlaceholder()
+    }
+    
+    func addTextViewPlaceholder() {
+        postTitle.placeholderLabel.textColor = UIColor().hexStringToUIColor(hex: Color.placeholderText)
+        postTitle.placeholderLabel.alpha = 0.5
+        postTitle.placeholderLabel.font = UIFont.init(name: "SFUIText-Regular", size: 14)
+        postTitle.placeholderLabel.text = "Enter short description"
+        postDescription.placeholderLabel.textColor =  UIColor().hexStringToUIColor(hex: Color.placeholderText)
+        postDescription.placeholderLabel.font = UIFont.init(name: "SFUIText-Regular", size: 14)
+        postDescription.placeholderLabel.alpha = 0.5
+        postDescription.placeholderLabel.text = "Tell the community about this photograph"
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

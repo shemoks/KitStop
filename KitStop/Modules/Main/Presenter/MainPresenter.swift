@@ -55,8 +55,8 @@ extension MainPresenter: MainViewOutput {
         view.presentAlert(alertController: alertController)
     }
     
-    func handleKitForSale() {
-        interactor.handleKitsForSale()
+    func handleKitForSale(page: Int) {
+        interactor.handleKitsForSale(page: page)
     }
 }
 

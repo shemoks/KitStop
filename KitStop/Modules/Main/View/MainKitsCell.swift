@@ -12,6 +12,7 @@ import SDWebImage
 class MainKitsCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var privateContainer: UIView!
     @IBOutlet weak var priceContainer: UIView!
     @IBOutlet weak var camera: UIImageView!
     @IBOutlet weak var cameraDescription: UILabel!
@@ -22,8 +23,13 @@ class MainKitsCell: UICollectionViewCell {
     func setupCell(row: Int, kit: Product) {
         topMask.image = UIImage.init(named: "top_mask")
         bottomMask.image = UIImage.init(named: "bottom_mask")
-        camera.sd_setImage(with: URL.init(string: kit.mainImage))
+        camera.sd_setImage(with: URL.init(string: kit.mainImage), placeholderImage: UIImage(named: "placeholder500x500"))
         cameraDescription.text = kit.title
+        if kit.isPrivate {
+                privateContainer.isHidden = false
+        } else {
+                privateContainer.isHidden = true
+        }
         if let price = kit.salesDetails?.price {
             self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
             priceContainer.isHidden = false
