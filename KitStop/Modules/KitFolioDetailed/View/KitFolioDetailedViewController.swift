@@ -116,7 +116,8 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     func showFullScreenImages() {
         // check true if you want see trash button and page control
-        presenter.openPhotoPreview(images: self.image.image, isEditMode: false)
+        let gallery = SwiftPhotoGallery.init(delegate: self, dataSource: self, trashButtonStatus: false)
+        present(gallery, animated: true, completion: nil)
     }
     
     func addXibOnView(view: UIView) {
@@ -211,6 +212,23 @@ extension KitFolioDetailedViewController: UITextViewDelegate {
         let text = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = text.characters.count
         return numberOfChars < limitLength;
+    }
+
+}
+
+extension KitFolioDetailedViewController: SwiftPhotoGalleryDataSource {
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return 1
+    }
+    
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> UIImage? {
+        return image.image
+    }
+}
+
+extension KitFolioDetailedViewController: SwiftPhotoGalleryDelegate {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+        
     }
 
 }

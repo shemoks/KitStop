@@ -169,12 +169,6 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
         imageDeleteStatus = false
     }
     
-    func openPhotoPreview(images: UIImage?, isEditMode: Bool) {
-        if let image = images {
-            router.openPhotoPreviewModule(image: image, isEditMode: isEditMode)
-        }
-    }
-    
     func deletePost() {
         interactor.delete(id: self.id!)
     }
