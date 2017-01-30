@@ -26,6 +26,8 @@ final class CreateKitSavePresenter {
     var price = ""
     var postId: String?
     var limit:Int?
+    var shouldUpdate: Bool = false
+
 }
 
 // MARK: - CreateKitSaveViewOutput
@@ -105,5 +107,9 @@ extension CreateKitSavePresenter: CreateKitSaveInteractorOutput {
 extension CreateKitSavePresenter: CreateKitSaveModuleInput {
     func setPost(post: Post) {
         self.post = post
+    }
+
+    func setUpdate(shouldUpdate: Bool) {
+        self.shouldUpdate = shouldUpdate
     }
 }

@@ -26,6 +26,7 @@ final class CreatePostPresenter {
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
     var isNotMainImage: Bool = false
+    var shouldUpdate = false
 
 }
 
@@ -112,9 +113,9 @@ extension CreatePostPresenter: CreatePostViewOutput {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
         if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice)
+            router.openSaveForSaleModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
         } else {
-            router.openSaveKitModule(post: self.postForPrice)
+            router.openSaveKitModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
         }
     }
 
@@ -200,13 +201,16 @@ extension CreatePostPresenter: CreatePostModuleInput {
             newImages.append(UIImage.init(named: "cameraForSave")!)
             imagesCount = newImages.count
         }
-        for _ in imagesCount...5 {
-            newImages.append(UIImage.init(named: "blank1")!)
+        if imagesCount < 6 {
+            for _ in imagesCount...5 {
+                newImages.append(UIImage.init(named: "blank1")!)
+            }
         }
         self.isNotMainImage = true
         self.currentIndex = post.imagesString.count + self.currentIndex
         self.post.images = newImages
         self.images = newImages
+        self.shouldUpdate = true
     }
 
 
@@ -230,13 +234,16 @@ extension CreatePostPresenter: CreatePostModuleInput {
             newImages.append(UIImage.init(named: "cameraForSave")!)
             imagesCount = newImages.count
         }
-        for _ in imagesCount...5 {
-            newImages.append(UIImage.init(named: "blank1")!)
+        if imagesCount < 6 {
+            for _ in imagesCount...5 {
+                newImages.append(UIImage.init(named: "blank1")!)
+            }
         }
         self.isNotMainImage = true
         self.currentIndex = post.imagesString.count + self.currentIndex
         self.post.images = newImages
         self.images = newImages
+        self.shouldUpdate = true
     }
 
 }
@@ -281,7 +288,7 @@ extension CreatePostPresenter: CustomListModuleOutput {
 //        for _ in imagesCount...5 {
 //            newImages.append(UIImage.init(named: "blank1")!)
 //        }
-//        
+//
 //        self.currentIndex = imagesCount + self.currentIndex
 //        self.post.images = newImages
 //        self.images = newImages
