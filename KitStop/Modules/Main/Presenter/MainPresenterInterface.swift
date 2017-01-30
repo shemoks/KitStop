@@ -12,7 +12,7 @@ import Chamomile
 
 protocol MainViewOutput: class {
     func setupAlert()
-    func handleKitForSale()
+    func handleKitForSale(page :Int)
     func openModule(identifier: Int)
 }
 

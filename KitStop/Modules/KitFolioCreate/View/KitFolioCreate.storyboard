@@ -49,13 +49,13 @@
                                             <constraint firstAttribute="height" constant="46" id="KHa-A2-AFI"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-sV-Abz">
-                                        <rect key="frame" x="0.0" y="259" width="414" height="36.333333333333314"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-sV-Abz" customClass="MyTextView" customModule="KitStop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="259" width="414" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Post Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-Q0-dRh">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Post Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-Q0-dRh">
                                         <rect key="frame" x="0.0" y="234" width="414" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -66,7 +66,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-TS-cMR">
-                                        <rect key="frame" x="0.0" y="303.33333333333331" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="304" width="414" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5OP-KH-912"/>
@@ -75,8 +75,8 @@
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG">
-                                        <rect key="frame" x="0.0" y="333.33333333333331" width="414" height="37"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG" customClass="MyTextView" customModule="KitStop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="334" width="414" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -127,10 +127,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="IQLayoutGuideConstraint" destination="Jv7-vo-CES" id="Fxa-NY-6vZ"/>
                         <outlet property="container" destination="X8h-rI-XzM" id="YPH-p2-jfe"/>
                         <outlet property="containerHeight" destination="Beg-Us-kfH" id="y2B-wr-FOe"/>
-                        <outlet property="postDescription" destination="6vx-yE-NEG" id="ZTG-BO-AIo"/>
-                        <outlet property="postTitle" destination="1XK-sV-Abz" id="Px6-J3-9iv"/>
+                        <outlet property="postDescription" destination="6vx-yE-NEG" id="XmA-6p-ofv"/>
+                        <outlet property="postTitle" destination="1XK-sV-Abz" id="0Ff-cB-3xW"/>
                         <outlet property="scroll" destination="E5u-sy-6GZ" id="gU0-ed-gZK"/>
                         <outlet property="userInformation" destination="SBg-2U-8l7" id="ItB-7P-MaY"/>
                     </connections>
@@ -204,7 +205,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGt-W5-XF2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypf-OR-rQE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ypf-OR-rQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

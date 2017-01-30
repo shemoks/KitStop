@@ -40,7 +40,7 @@ extension MainFilterContainerInteractor: MainFilterContainerInteractorInput {
         switch category {
         case 0:
             filterButton.isHidden = false
-            dataManager.fetchAllKitsForSale(page: 1, completionBlock: {
+            dataManager.fetchAllKitsForSale(page: (transferData?.page)!, completionBlock: {
                 kitsForSale, error in
                 if error == nil {
                     transferData?.kitItems(transferData: kitsForSale!)
@@ -50,7 +50,7 @@ extension MainFilterContainerInteractor: MainFilterContainerInteractorInput {
             })
         case 1:
             filterButton.isHidden = false
-            dataManager.fetchAllKits(page: 1, completionBlock: {
+            dataManager.fetchAllKits(page: (transferData?.page)!, completionBlock: {
                 kits, error in
                 if error == nil {
                     transferData?.kitItems(transferData: kits!)
@@ -60,7 +60,7 @@ extension MainFilterContainerInteractor: MainFilterContainerInteractorInput {
             })
         case 2:
             filterButton.isHidden = true
-            dataManager.fetchAllKitFolio(page: 1, completionBlock: {
+            dataManager.fetchAllKitFolio(page: (transferData?.page)!, completionBlock: {
                 kitFolio, error in
                 if error == nil {
                     transferData?.kitItems(transferData: kitFolio!)

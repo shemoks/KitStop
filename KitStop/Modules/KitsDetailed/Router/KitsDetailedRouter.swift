@@ -57,7 +57,6 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
             moduleOutput.updateKits()
             self.flowController.closeModule(animated: true)
         }
-
     }
 }
 

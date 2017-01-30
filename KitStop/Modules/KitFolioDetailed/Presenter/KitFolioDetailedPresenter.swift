@@ -45,11 +45,13 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
         interactor.fetchKitFrom(id: self.id)
     }
     
-    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint) {
+    func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint, bottomMask: UIImageView, topMask: UIImageView) {
         if imageUrl != nil && imageUrl != "" {
             let url = URL.init(string: imageUrl!)
-            imageView.sd_setImage(with: url!, completed: {
+            imageView.sd_setImage(with: url!, placeholderImage: UIImage(named: "placeholder1080x1080"), options: SDWebImageOptions.delayPlaceholder, completed: {
                 completed in
+                bottomMask.image = UIImage(named: "bottom_mask")
+                topMask.image = UIImage(named: "top_mask")
             })
         } else {
             // whats happaned if image does return on server ???
@@ -88,13 +90,15 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
         }
     }
     
-    func showActionSheet(image: UIImageView, picker: UIImagePickerController) {
+    func showActionSheet(image: UIImageView, picker: UIImagePickerController, bottomMask: UIImageView, topMask: UIImageView) {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         var addPhotoMessage = ""
         if !imageDeleteStatus {
             addPhotoMessage = "Replace Photo"
             let deletePhoto = UIAlertAction.init(title: "Delete Photo", style: .destructive, handler: {
                 result in
+                bottomMask.image = UIImage()
+                topMask.image = UIImage()
                 image.image = UIImage.init(named: "camera")
                 self.imageDeleteStatus = true
             })
