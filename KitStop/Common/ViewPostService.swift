@@ -289,6 +289,8 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                             var generalProperty = [Property]()
                             var additionalProperty = [Property]()
                             var otherProperty = [Property]()
+                            arrProducts.categoryId = json["data"]["category"]["_id"].stringValue
+                            arrProducts.categoryTitle = json["data"]["category"]["title"].stringValue
                             arrProducts.createAt = json["data"]["updatedAt"].stringValue
                             let owner = User()
                             owner.avatar = json["data"]["owner"]["photoUrl"].stringValue
@@ -391,6 +393,8 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                         var generalProperty = [Property]()
                         var additionalProperty = [Property]()
                         var otherProperty = [Property]()
+                        arrProducts.categoryId = json["data"]["category"]["_id"].stringValue
+                        arrProducts.categoryTitle = json["data"]["category"]["title"].stringValue
                         arrProducts.createAt = json["data"]["updatedAt"].stringValue
                         let owner = User()
                         owner.avatar = json["data"]["owner"]["photoUrl"].stringValue
