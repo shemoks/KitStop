@@ -27,7 +27,6 @@ final class CreateKitSavePresenter {
     var postId: String?
     var limit:Int?
     var shouldUpdate: Bool = false
-
 }
 
 // MARK: - CreateKitSaveViewOutput
@@ -48,7 +47,12 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func handleSaveTap() {
-        interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!)
+        if shouldUpdate {
+            interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!)
+        } else {
+            interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!)
+        }
+  
     }
     
     func setPrice(value: String) {
@@ -68,7 +72,12 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setLimit() {
-        self.limit = post?.otherProperty[1].limit
+        for item in (post?.otherProperty)! {
+            if item.title == "Purchase Price" {
+                self.limit = item.limit
+                break
+            }
+        }
     }
     
     func priceLimit() -> Int {
@@ -76,9 +85,42 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     }
     
     func setDetails() {
-        details.append(KitDetailsModel(header: "Purchase Date", contents: "", placeholder: "select date (optional)"))
-        details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: "enter value (optional)"))
+        details.append(KitDetailsModel(header: "Purchase Date", contents: "", placeholder: ""))
+        details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: ""))
         
+        for item in (post?.otherProperty)! {
+            switch item.title {
+            case "Purchase Date":
+                details.first?.placeholder = item.placeholder
+            case "Purchase Price":
+                details.last?.placeholder = item.placeholder
+            default:
+                _ = ""
+            }
+        }
+        
+        if shouldUpdate {
+            for item in (post?.otherProperty)! {
+                switch item.title {
+                case "Purchase Date":
+                    if !item.textValue.isEmpty {
+                             let currentDate = Date(timeIntervalSince1970: Double(item.textValue)!).string(format: "dd/MMM/yyyy")
+                        details.first?.contents = item.currentData
+                   
+                        self.date = currentDate
+                    }
+                case "Purchase Price":
+                    if !item.textValue.isEmpty {
+                        details.last?.contents = "$\(item.textValue)"
+                        self.price = item.textValue
+                    }
+                default:
+                    _ = ""
+                }
+            }
+            self.setPrivacy(isPrivate: (post?.isPrivate)!)
+        }
+
     }
     
     func showAlert() {
@@ -108,7 +150,7 @@ extension CreateKitSavePresenter: CreateKitSaveModuleInput {
     func setPost(post: Post) {
         self.post = post
     }
-
+    
     func setUpdate(shouldUpdate: Bool) {
         self.shouldUpdate = shouldUpdate
     }

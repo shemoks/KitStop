@@ -17,6 +17,8 @@ class SaleInfoCell: UITableViewCell {
         title.text = detail.header
         contents.placeholder = detail.placeholder
         
+        contents.clipsToBounds = true
+        
         if detail.isEditable! {
             contents.isEnabled = true
         }

@@ -26,19 +26,19 @@ extension CreatePostRouter: CreatePostRouterInput {
     func openSaveForSaleModule(post: Post, shouldUpdate: Bool) {
         flowController.openModule(using: .openSaleConfirm) {
             guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
-            moduleInput.setPost(with: post)
-            moduleInput.setUpdate(shouldUpdate: shouldUpdate)
-            return nil
+                moduleInput.setPost(with: post)
+                moduleInput.setUpdate(shouldUpdate: shouldUpdate)
+                return nil
         }
     }
 
     func openSaveKitModule(post: Post, shouldUpdate: Bool) {
         flowController.openModule(using: .openKitConfirm) {
             guard let moduleInput = $0 as? CreateKitSaveModuleInput else { fatalError() }
-            moduleInput.setPost(post: post)
-            moduleInput.setUpdate(shouldUpdate: shouldUpdate)
-            return nil
-        }
+                moduleInput.setPost(post: post)
+                moduleInput.setUpdate(shouldUpdate: shouldUpdate)
+                return nil
+            }
     }
 
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String) {
@@ -49,13 +49,13 @@ extension CreatePostRouter: CreatePostRouterInput {
         }
     }
 
-    //    func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput) {
-    //        flowController.openModule(using: .openViewPhoto) {
-    //            guard let moduleInput = $0 as? ViewPhotoModuleInput else { fatalError() }
-    //            moduleInput.setPhoto(images: images)
-    //            return viewPhotoModuleOutput
-    //        }
-    //    }
+//    func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput) {
+//        flowController.openModule(using: .openViewPhoto) {
+//            guard let moduleInput = $0 as? ViewPhotoModuleInput else { fatalError() }
+//            moduleInput.setPhoto(images: images)
+//            return viewPhotoModuleOutput
+//        }
+//    }
 
     func openUnderConstruction() {
         flowController.openModule(using: .openUnderConstruction) {
@@ -72,17 +72,17 @@ extension Segue {
         return .init(identifier: "TrunsitionToCustomList")
     }
 
-    static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
-        return .init(identifier: "TransitionToSaleConfirm")
+  static var openSaleConfirm: Segue<CreateSaleConfirmViewController> {
+                return .init(identifier: "TransitionToSaleConfirm")
+            
+  }
 
-    }
-
-    //    static var openViewPhoto: Segue<ViewPhotoViewController> {
-    //        return .init(identifier: "TrunsitionToViewPhoto")
-    //    }
+//    static var openViewPhoto: Segue<ViewPhotoViewController> {
+//        return .init(identifier: "TrunsitionToViewPhoto")
+//    }
 
     static var openKitConfirm: Segue<CreateKitSaveViewController> {
-        return .init(identifier: "TransitionToKitConfirm")
+                return .init(identifier: "TransitionToKitConfirm")
     }
-    
+
 }

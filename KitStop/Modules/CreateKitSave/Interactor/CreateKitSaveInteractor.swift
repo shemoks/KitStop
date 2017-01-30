@@ -33,15 +33,36 @@ final class CreateKitSaveInteractor {
 
 extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post) {
-        self.saveImagesTo("Kits", images: post.images, success: { [weak self]
-            imageUrls in
+        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: post.images,  success: { [weak self]
+            mainImage, imageUrls in
             if imageUrls.first != nil {
                 let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
                 self?.createKitService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
                     if result {
-
+                        self?.presenter.returnToMainModule()
+                    } else {
+                        let errorMessage = CustomError(code: error!).description
+                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
+                    }
+                })
+            } else {
+                LoadingIndicatorView.hide()
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+            }
+        })
+    }
+    
+    func updateKit(price: String?, date: String?, isPrivate: Bool, post: Post) {
+        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: post.images, success: { [weak self]
+            mainImage, imageUrls in
+            if imageUrls.first != nil {
+                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                self?.createKitService?.updateKit(id: post.id, kit: kit!, completion: {
+                    result , error, id in
+                    LoadingIndicatorView.hide()
+                    if result {
                         self?.presenter.returnToMainModule()
                     } else {
                         let errorMessage = CustomError(code: error!).description
@@ -109,18 +130,35 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         return kit
     }
     
-    func saveImagesTo(_ path: String, images: [UIImage], success: @escaping (_ imageUrls: [String?]) -> () ) {
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: [UIImage], success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
         var imageUrls:[String?] = []
-        for image in images {
-            let awsManager = AWS3UploadImageService()
-            awsManager.uploadImage(userImage: image, path: path, successBlock: {
-                image in
-                imageUrls.append(image)
-                if imageUrls.count == images.count {
-                        success(imageUrls)
-                }
-            })
-        }
+        
+        let awsManager = AWS3UploadImageService()
+        awsManager.uploadImage(userImage: cropImage(image: mainImage), path: path, successBlock: { mainImage in
+            for image in images {
+                
+                let awsManager = AWS3UploadImageService()
+                awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
+                    image in
+                    imageUrls.append(image)
+                    if imageUrls.count == images.count {
+                        success(mainImage!, imageUrls)
+                    }
+                })
+            }
+        })
+        
+    }
     
+    func cropImage(image: UIImage) -> UIImage {
+        if abs(image.size.width - image.size.height) > 50 {
+            return UIImage().RBSquareImageTo(image: image, size: CGSize(width: 500, height: 500))
+        } else {
+            return image
+        }
+    }
+    
+    func cropBigImage(image: UIImage) -> UIImage {
+        return image.RBResizeImage(targetSize: CGSize(width: 1080, height: image.bigHeightSize()), staticWidth: true)
     }
 }

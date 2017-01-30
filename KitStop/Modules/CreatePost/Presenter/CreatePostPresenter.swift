@@ -169,6 +169,9 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
 
 extension CreatePostPresenter: CreatePostModuleInput {
 
+    func setUpdate(shouldUpdate: Bool) {
+        self.shouldUpdate = shouldUpdate
+    }
 
     func valuesFromCategoryList(forSale: Bool, idCategory: String) {
         if forSale {

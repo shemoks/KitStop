@@ -29,7 +29,7 @@ final class CreateSaleConfirmPresenter {
     var limit: Int?
     var currentIndex: Int?
     var rates: RatesModel?
-    var shouldUpdate = false
+    var shouldUpdate:Bool = false
 
     func setReady(isReady: Bool) {
         for item in details {
@@ -63,31 +63,72 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 _ = ""
             }
         }
-
+        
         interactor.getRates()
+        
+        if shouldUpdate {
+            for item in (post?.salesDetails)! {
+                switch item.title {
+                case "Sale price":
+                    details.first?.value = "$\(item.textValue)"
+                    self.price = item.textValue
+                    details.first?.isValid = true
+                    details.first?.isReady = true
+                case "Condition":
+                    details[1].value = item.textValue
+                    self.condition = item.textValue
+                    details[1].isValid = true
+                    details[1].isReady = true
+                case "Package Weight":
+                    details.last?.value = item.textValue
+                    details.last?.isValid = true
+                    details.last?.isReady = true
+                    self.packageWeight = item.textValue
+                default:
+                    _ = ""
+                }
+            }
+
+        }
+        
     }
     
     func handleCellSelect(for indexPath: IndexPath) {
         
         switch indexPath.row {
         case 1:
-            if  let object = self.post?.salesDetails.first!.list {
-                self.currentData = self.post?.salesDetails.first!
-                self.currentIndex = indexPath.row
-                router.openList(list: object, customListModuleOutput: self, name: (self.currentData?.title)!)
+            for item in (post?.salesDetails)! {
+                if item.title == "Condition" {
+                    let object = item.list
+                    self.currentData = item
+                    self.currentIndex = indexPath.row
+                    router.openList(list: object!, customListModuleOutput: self, name: (self.currentData?.title)!)
+
+                    break
+                }
             }
         case 2:
-            if  let object = self.post?.salesDetails.last!.list {
-                self.currentData = self.post?.salesDetails.last!
-                self.currentIndex = indexPath.row
-                router.openList(list: object, customListModuleOutput: self, name: (self.currentData?.title)!)
+            for item in (post?.salesDetails)! {
+                if item.title == "Package Weight" {
+                    let object = item.list
+                    self.currentData = item
+                    self.currentIndex = indexPath.row
+                    router.openList(list: object!, customListModuleOutput: self, name: (self.currentData?.title)!)
+                    
+                    break
+                }
             }
         default:
             _ = [Other]()
         }
     }
     func setLimit() {
-        self.limit = post?.otherProperty[1].limit
+        for item in (post?.salesDetails)! {
+            if item.title == "Sale price" {
+                self.limit = item.limit
+                break
+            }
+        }
     }
     
     func priceLimit() -> Int {
@@ -99,21 +140,26 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     }
     
     func handleSaveTap() {
+        self.setReady(isReady: true)
         if shouldUpdate {
-            
+            if price.isEmpty{
+                view.reloadData()
+                view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
+                self.setReady(isReady: false)
+            } else {
+                LoadingIndicatorView.show()
+                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
+            }
         } else {
-            
-            
             self.setReady(isReady: true)
-            
             if price.isEmpty || condition.isEmpty || packageWeight.isEmpty {
                 view.reloadData()
                 view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
                 self.setReady(isReady: false)
             } else {
+               LoadingIndicatorView.show()
                interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
             }
-            
         }
     }
     
@@ -164,10 +210,11 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmInteractorOutput {
 // MARK: - CreateSaleConfirmModuleInput
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
+    
     func setPost(with post: Post) {
         self.post = post
     }
-
+    
     func setUpdate(shouldUpdate: Bool) {
         self.shouldUpdate = shouldUpdate
     }
