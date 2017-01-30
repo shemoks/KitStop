@@ -147,6 +147,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
                 self.setReady(isReady: false)
             } else {
+                LoadingIndicatorView.show()
                 interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
             }
         } else {
@@ -156,6 +157,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
                 self.setReady(isReady: false)
             } else {
+               LoadingIndicatorView.show()
                interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
             }
         }
