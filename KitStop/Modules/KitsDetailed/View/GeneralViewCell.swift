@@ -14,10 +14,27 @@ class GeneralViewCell: UITableViewCell {
 
     @IBOutlet weak var data: UITextField!
 
-    func configure(property: ViewProperty) {
+    func configure(property: Property) {
 
         title.text = property.title
-        data.text = property.text
+        if property.title  == "Purchase Date" {
+            let value = Double(property.textValue)
+            let dateFormatter = DateFormatter()
+            let dateValue = Date(timeIntervalSince1970: TimeInterval(value!))
+            dateFormatter.dateFormat = "dd MMM yyyy"
+            dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+            let timeStamp = dateFormatter.string(from: dateValue)
+            data.text = timeStamp
+        } else {
+            if property.title  == "Purchase Price" {
+                let units = property.units
+                if units == "USD" {
+                    data.text = "$" + property.textValue
+                }
+            } else {
+                data.text = property.textValue
+            }
+        }
         data.isUserInteractionEnabled = false
     }
 }

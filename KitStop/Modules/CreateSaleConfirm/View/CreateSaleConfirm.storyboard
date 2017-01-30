@@ -188,10 +188,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="a05-rg-yIW"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="KHl-TP-P93" id="sr8-kN-myb"/>
-                                    <outlet property="delegate" destination="KHl-TP-P93" id="72T-iQ-7vL"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.94084018468856812" green="0.93776899576187134" blue="0.96169513463973999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -209,6 +205,7 @@
                         <outlet property="finalPrice" destination="1xk-dC-OWJ" id="ur6-X0-jfM"/>
                         <outlet property="kitStopFee" destination="aya-eE-KiW" id="aEx-8s-YEN"/>
                         <outlet property="shippingFee" destination="Ef0-ye-pjc" id="R7t-Kw-DJF"/>
+                        <outlet property="shippingTitle" destination="5M3-Ke-0QJ" id="JOz-Li-YLZ"/>
                         <outlet property="tableView" destination="rQ9-ls-mBT" id="S2p-ug-ew7"/>
                         <outlet property="transactionFee" destination="V7W-1B-cMW" id="qDo-OD-2Ag"/>
                         <outlet property="userPrice" destination="r1n-vC-q8W" id="CgR-L8-F6l"/>

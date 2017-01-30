@@ -35,7 +35,6 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
         if property.isSelect == true {
             self.accessoryType = .disclosureIndicator
             data.isEnabled = false
-
         }
 
 //        if  property.isSelect && property.currentData == nil {
@@ -66,9 +65,7 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
         if validation(data: (self.object?.textValue)!) {
             self.object?.isValidate = true
             self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
-
         }
-
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -91,6 +88,5 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
         }
         return false
     }
-    
     
 }

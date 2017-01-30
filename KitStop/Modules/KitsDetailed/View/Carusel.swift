@@ -6,9 +6,12 @@
 //  Copyright © 2017 MOZI Development. All rights reserved.
 //
 
+
 import UIKit
 
 class Carusel: UIView {
+    typealias ButtonAction = (Int, [String], Bool) -> ()
+    var onTouch: ButtonAction?
     var view: UIView!
     var nibName: String = "Carusel"
     var images = [String]()
@@ -106,7 +109,7 @@ class Carusel: UIView {
 extension Carusel: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        onTouch?(indexPath.row, images, false)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

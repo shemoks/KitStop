@@ -103,7 +103,11 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
 extension CreatePostViewController: CreatePostViewInput {
 
     func openGallery() {
-        imagePicker.allowsEditing = true
+        if presenter.setIsNotMainImage() {
+        imagePicker.allowsEditing = false
+        } else {
+            imagePicker.allowsEditing = true
+        }
         imagePicker.sourceType = .photoLibrary
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         imagePicker.modalPresentationStyle = .popover
@@ -311,10 +315,9 @@ extension CreatePostViewController: UIImagePickerControllerDelegate {
         var originalImage:UIImage?, editedImage:UIImage?, imageToSave:UIImage?
         editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
         originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
-        if ( editedImage != nil ) {
-            imageToSave = editedImage
-        } else {
-            imageToSave = originalImage
+        imageToSave = originalImage
+        if presenter.setIsNotMainImage() == false {
+             self.presenter.setMainPhoto(photo: editedImage!)
         }
         presenter.setPhoto(photo: imageToSave!)
     }

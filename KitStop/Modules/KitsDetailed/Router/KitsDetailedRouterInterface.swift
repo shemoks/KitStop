@@ -7,10 +7,15 @@
 //
 
 // MARK: - KitsDetailedRouterInput
+import UIKit
 
 protocol KitsDetailedRouterInput: class {
+    
     func openModule(identifier: Int)
     func openChatModule()
     func closeModule(moduleOutput: KitsDetailedModuleOutput, section: Bool)
+    func openFullScreen(index: Int, images: [UIImage], isEdit: Bool)
+    func openEditForSale(post: Post)
+    func openEditKit(post: Post)
 
 }

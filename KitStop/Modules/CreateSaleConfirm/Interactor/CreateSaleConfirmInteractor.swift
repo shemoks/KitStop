@@ -31,7 +31,9 @@ final class CreateSaleConfirmInteractor {
 // MARK: - CreateSaleConfirmInteractorInput
 
 extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
-    func saveForSaleKit(price: String?,  condition: String?, weight: String?, isPrivate:Bool, post:Post) {
+    func saveForSaleKit(price: String?,  condition: String?, weight: String?, post:Post) {
+        let imageArray = post.images
+        
         self.saveImagesTo("Kits", images: post.images, success: { [weak self]
             imageUrls in
             if imageUrls.first != nil {
@@ -92,11 +94,11 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
     
         var salesDetails: [String:AnyObject] = [:]
         
-        salesDetails["сondition"] = condition as AnyObject?
-        salesDetails["salePrice"] = price as AnyObject?
-        salesDetails["packageWeight"] = weight as AnyObject?
+        salesDetails["condition"] = condition as AnyObject?
+        salesDetails["price"] = price as AnyObject?
+        salesDetails["weight"] = weight as AnyObject?
         
-        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails, isPrivate: false)
+        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails)
         
         return kit
     }
@@ -114,6 +116,35 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
             })
         }
         
+    }
+    
+    func getRates() {
+        kitForSaleService?.getRates(completion: { [weak self]
+            success, error, rates in
+            if success {
+               self?.presenter.setRates(rates: rates!)
+            } else {
+                self?.presenter.setRates(rates: nil)
+                self?.presenter.showAlertWith(title: "Error", message: CustomError.init(code: error!).description)
+            }
+        })
+    }
+    
+    func calculatePrice(price: String, weight: String, rates: RatesModel?, completion: @escaping (_ priceModel: (PriceModel?)) -> ()) {
+        if !price.isEmpty && !weight.isEmpty && rates != nil{
+            
+            let weightRate = rates?.weight["\(weight)"]
+            let transactionPrice = Double(price)! * (rates?.transactionPercent)!/100
+            let transactionRatePrice = Double(price)! * (rates?.transactionRate)!/100
+            let kitStopPrice = Double(price)! * (rates?.kitStopFee)!/100
+            let userPrice = Double(price)! - transactionPrice - transactionRatePrice - kitStopPrice - weightRate!
+            
+            let priceModel = PriceModel(weight: "Shipping UDSP \(weight):", weightRate: "$\(String(format: "%.2f", weightRate!))" ,startingPrice: "$\(price.formattedDouble(decimalPlaces: 2))", transactionPrice: "$\(String(format: "%.2f", transactionPrice))", transactionRatePrice: "$\(String(format: "%.2f", transactionRatePrice))", kitStopPrice: "$\(String(format: "%.2f", kitStopPrice))", finalPrice: "$\(String(format: "%.2f", userPrice))")
+            
+            completion(priceModel)
+        } else {
+            completion(PriceModel())
+        }
     }
     
 }

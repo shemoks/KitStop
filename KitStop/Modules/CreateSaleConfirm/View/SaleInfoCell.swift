@@ -23,6 +23,14 @@ class SaleInfoCell: UITableViewCell {
         if detail.isExpandable! {
             self.accessoryType = .disclosureIndicator
         }
+        if detail.isReady! {
+            if detail.isValid! {
+                self.backgroundColor = .white
+            } else {
+                self.backgroundColor = UIColor(colorLiteralRed: 245.0/255.0, green: 208.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+            }
+        }
+  
         if !(detail.value?.isEmpty)! {
             contents.text = detail.value
         }
