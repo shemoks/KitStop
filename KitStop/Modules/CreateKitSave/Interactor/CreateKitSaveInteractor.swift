@@ -55,6 +55,29 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         })
     }
     
+    func updateKit(price: String?, date: String?, isPrivate: Bool, post: Post) {
+        self.saveImagesTo("Kits", images: post.images, success: { [weak self]
+            imageUrls in
+            if imageUrls.first != nil {
+                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                self?.createKitService?.updateKit(id: post.id,kit: kit!, completion: {
+                    result , error, id in
+                    LoadingIndicatorView.hide()
+                    if result {
+                        
+                        self?.presenter.returnToMainModule()
+                    } else {
+                        let errorMessage = CustomError(code: error!).description
+                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
+                    }
+                })
+            } else {
+                LoadingIndicatorView.hide()
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+            }
+        })
+    }
+    
     // Some questionable code here. Should probably take different approach to request body creation.
     func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?]) -> CreateKitsRequestBody {
         

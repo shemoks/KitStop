@@ -55,6 +55,30 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         })
     }
     
+    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post) {
+        let imageArray = post.images
+        
+        self.saveImagesTo("Kits", images: post.images, success: { [weak self]
+            imageUrls in
+            if imageUrls.first != nil {
+                let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
+                self?.kitForSaleService?.updateKit(id: post.id, kit: kit!, completion: {
+                    result , error, id in
+                    LoadingIndicatorView.hide()
+                    if result {
+                        self?.presenter.returnToMainModule()
+                    } else {
+                        let errorMessage = CustomError(code: error!).description
+                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
+                    }
+                })
+            } else {
+                LoadingIndicatorView.hide()
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+            }
+        })
+    }
+    
     func requestBody(price: String, condition: String, weight: String, post: Post, imageArray: [String?]) -> KitsForSaleRequestBody {
         
         var metaData:[String:AnyObject] = [:]

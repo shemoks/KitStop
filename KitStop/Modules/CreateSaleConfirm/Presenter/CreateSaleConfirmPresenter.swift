@@ -29,7 +29,7 @@ final class CreateSaleConfirmPresenter {
     var limit: Int?
     var currentIndex: Int?
     var rates: RatesModel?
-    var shouldUpdate = false
+    var shouldUpdate:Bool = false
 
     func setReady(isReady: Bool) {
         for item in details {
@@ -63,8 +63,28 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 _ = ""
             }
         }
-
+        
         interactor.getRates()
+        
+        if shouldUpdate {
+            for item in (post?.salesDetails)! {
+                switch item.title {
+                case "Sale price":
+                    details.first?.value = "$\(item.textValue)"
+                    self.price = item.textValue
+                case "Condition":
+                    details[1].value = item.textValue
+                    self.condition = item.textValue
+                case "Package Weight":
+                    details.last?.value = item.textValue
+                    self.packageWeight = item.textValue
+                default:
+                    _ = ""
+                }
+            }
+
+        }
+        
     }
     
     func handleCellSelect(for indexPath: IndexPath) {
@@ -87,7 +107,12 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
         }
     }
     func setLimit() {
-        self.limit = post?.salesDetails[1].limit
+        for item in (post?.salesDetails)! {
+            if item.title == "Sale price" {
+                self.limit = item.limit
+                break
+            }
+        }
     }
     
     func priceLimit() -> Int {
@@ -100,12 +125,16 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     
     func handleSaveTap() {
         if shouldUpdate {
-            
-        } else {
-            
-            
             self.setReady(isReady: true)
-            
+            if price.isEmpty || condition.isEmpty || packageWeight.isEmpty {
+                view.reloadData()
+                view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
+                self.setReady(isReady: false)
+            } else {
+                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
+            }
+        } else {
+            self.setReady(isReady: true)
             if price.isEmpty || condition.isEmpty || packageWeight.isEmpty {
                 view.reloadData()
                 view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
@@ -113,7 +142,6 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
             } else {
                interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
             }
-            
         }
     }
     
@@ -164,8 +192,13 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmInteractorOutput {
 // MARK: - CreateSaleConfirmModuleInput
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
+    
     func setPost(with post: Post) {
         self.post = post
+    }
+    
+    func setUpdate(shouldUpdate: Bool) {
+        self.shouldUpdate = shouldUpdate
     }
 }
 

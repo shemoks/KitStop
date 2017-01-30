@@ -23,20 +23,22 @@ final class CreatePostRouter {
 
 extension CreatePostRouter: CreatePostRouterInput {
 
-    func openSaveForSaleModule(post: Post) {
+    func openSaveForSaleModule(post: Post, shouldUpdate: Bool) {
         flowController.openModule(using: .openSaleConfirm) {
             guard let moduleInput = $0 as? CreateSaleConfirmModuleInput else { fatalError() }
-            moduleInput.setPost(with: post)
-            return nil
+                moduleInput.setPost(with: post)
+                moduleInput.setUpdate(shouldUpdate: shouldUpdate)
+                return nil
         }
     }
 
-    func openSaveKitModule(post: Post) {
+    func openSaveKitModule(post: Post, shouldUpdate: Bool) {
         flowController.openModule(using: .openKitConfirm) {
-                        guard let moduleInput = $0 as? CreateKitSaveModuleInput else { fatalError() }
-                        moduleInput.setPost(post: post)
-                        return nil
-                    }
+            guard let moduleInput = $0 as? CreateKitSaveModuleInput else { fatalError() }
+                moduleInput.setPost(post: post)
+                moduleInput.setUpdate(shouldUpdate: shouldUpdate)
+                return nil
+            }
     }
 
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String) {

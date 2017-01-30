@@ -26,6 +26,7 @@ final class CreatePostPresenter {
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
     var isNotMainImage: Bool = false
+    var shouldUpdate: Bool = false
 
 }
 
@@ -112,9 +113,9 @@ extension CreatePostPresenter: CreatePostViewOutput {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
         if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice)
+            router.openSaveForSaleModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
         } else {
-            router.openSaveKitModule(post: self.postForPrice)
+            router.openSaveKitModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
         }
     }
 
@@ -168,6 +169,9 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
 
 extension CreatePostPresenter: CreatePostModuleInput {
 
+    func setUpdate(shouldUpdate: Bool) {
+        self.shouldUpdate = shouldUpdate
+    }
 
     func valuesFromCategoryList(forSale: Bool, idCategory: String) {
         if forSale {
@@ -206,6 +210,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
         self.currentIndex = post.imagesString.count + self.currentIndex
         self.post.images = newImages
         self.images = newImages
+        self.shouldUpdate = true
     }
 
 
@@ -235,6 +240,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
         self.currentIndex = post.imagesString.count + self.currentIndex
         self.post.images = newImages
         self.images = newImages
+        self.shouldUpdate = true
     }
 
 }

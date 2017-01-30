@@ -38,6 +38,8 @@ enum Endpoint {
     case removeKit(idKit: String)
     case removeKitForSale(idKit: String)
     case rates()
+    case updateKit(id: String)
+    case updateKitForSale(id: String)
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -61,6 +63,10 @@ enum Endpoint {
         case .removeKitForSale:
             return .delete
         case .saveKitFolio:
+            return .patch
+        case .updateKit:
+            return .patch
+        case .updateKitForSale:
             return .patch
         default:
             return .get
@@ -111,12 +117,16 @@ enum Endpoint {
             return "kits-for-sale"
         case .rates():
             return "rates"
+        case .updateKit(let id):
+            return ("/kits/\(id)")
+        case .updateKitForSale(let id):
+            return ("/kits-for-sale/\(id)")
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .createKitFolio(), .createKit(), .createKitForSale(), .saveKitFolio:
+        case .createKitFolio(), .createKit(), .createKitForSale(), .saveKitFolio, .updateKitForSale, .updateKit:
             return JSONEncoding.default
         default:
             return URLEncoding.default
