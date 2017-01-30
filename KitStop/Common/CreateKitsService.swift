@@ -25,6 +25,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
     func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
         let title = kit.title as AnyObject
         let brandName = kit.brand as AnyObject
+        print("BRAND NAME:   \(brandName)")
         let model = kit.model as AnyObject
         let serialNumber = kit.serialNumber as AnyObject
         let purchaseDate = kit.purchaseDate as AnyObject
@@ -54,6 +55,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                     } else {
                                                                         completion(false, response.response?.statusCode, nil)
                                                                     }
+                                                                    print("KIT WAS SUCCESSFULLY SAVED: \(json)")
                                                                 case .failure(let error):
                                                                     print(error)
                                                                     completion(false, (error as NSError).code, nil)
@@ -91,6 +93,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                     if json["success"].boolValue {
                                                                         completion(true, nil, json["data"]["_id"].stringValue)
                                                                     } else {
+                                                                        print(response.result.value as Any)
                                                                         completion(false, response.response?.statusCode, nil)
                                                                     }
                                                                 case .failure(let error):

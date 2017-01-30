@@ -72,11 +72,17 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 case "Sale price":
                     details.first?.value = "$\(item.textValue)"
                     self.price = item.textValue
+                    details.first?.isValid = true
+                    details.first?.isReady = true
                 case "Condition":
                     details[1].value = item.textValue
                     self.condition = item.textValue
+                    details[1].isValid = true
+                    details[1].isReady = true
                 case "Package Weight":
                     details.last?.value = item.textValue
+                    details.last?.isValid = true
+                    details.last?.isReady = true
                     self.packageWeight = item.textValue
                 default:
                     _ = ""
@@ -91,16 +97,26 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
         
         switch indexPath.row {
         case 1:
-            if  let object = self.post?.salesDetails.first!.list {
-                self.currentData = self.post?.salesDetails.first!
-                self.currentIndex = indexPath.row
-                router.openList(list: object, customListModuleOutput: self, name: (self.currentData?.title)!)
+            for item in (post?.salesDetails)! {
+                if item.title == "Condition" {
+                    let object = item.list
+                    self.currentData = item
+                    self.currentIndex = indexPath.row
+                    router.openList(list: object!, customListModuleOutput: self, name: (self.currentData?.title)!)
+
+                    break
+                }
             }
         case 2:
-            if  let object = self.post?.salesDetails.last!.list {
-                self.currentData = self.post?.salesDetails.last!
-                self.currentIndex = indexPath.row
-                router.openList(list: object, customListModuleOutput: self, name: (self.currentData?.title)!)
+            for item in (post?.salesDetails)! {
+                if item.title == "Package Weight" {
+                    let object = item.list
+                    self.currentData = item
+                    self.currentIndex = indexPath.row
+                    router.openList(list: object!, customListModuleOutput: self, name: (self.currentData?.title)!)
+                    
+                    break
+                }
             }
         default:
             _ = [Other]()
@@ -124,9 +140,9 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     }
     
     func handleSaveTap() {
+        self.setReady(isReady: true)
         if shouldUpdate {
-            self.setReady(isReady: true)
-            if price.isEmpty || condition.isEmpty || packageWeight.isEmpty {
+            if price.isEmpty{
                 view.reloadData()
                 view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
                 self.setReady(isReady: false)

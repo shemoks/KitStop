@@ -11,7 +11,7 @@ import Alamofire
 
 enum Endpoint {
     
-  //  static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+    //  static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
     static let baseURL = URL(string: "http://34.198.24.119:8443/api/v1")!
     
     case login()
@@ -114,25 +114,25 @@ enum Endpoint {
         case .removeKitForSale(let idKit):
             return ("/kits-for-sale/" + idKit)
         case .createKitForSale():
-            return "kits-for-sale"
-        case .rates():
-            return "rates"
+            return "/kits-for-sale"
         case .updateKit(let id):
-            return ("/kits/\(id)")
+            return "/kits/\(id)"
         case .updateKitForSale(let id):
-            return ("/kits-for-sale/\(id)")
+            return "/kits-for-sale/\(id)"
+        case .rates():
+            return "/rates"
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .createKitFolio(), .createKit(), .createKitForSale(), .saveKitFolio, .updateKitForSale, .updateKit:
+        case .createKitFolio(), .createKit(), .createKitForSale(), .saveKitFolio, .updateKit, .updateKitForSale:
             return JSONEncoding.default
         default:
             return URLEncoding.default
         }
     }
-
+    
     
     var url: URL {
         let baseUrl = Endpoint.baseURL

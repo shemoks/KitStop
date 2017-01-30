@@ -32,10 +32,9 @@ final class CreateSaleConfirmInteractor {
 
 extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
     func saveForSaleKit(price: String?,  condition: String?, weight: String?, post:Post) {
-        let imageArray = post.images
         
-        self.saveImagesTo("Kits", images: post.images, success: { [weak self]
-            imageUrls in
+        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: post.images, success: { [weak self]
+            mainImage, imageUrls in
             if imageUrls.first != nil {
                 let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
                 self?.kitForSaleService?.createKit(kit: kit!, completion: {
@@ -56,10 +55,9 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
     }
     
     func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post) {
-        let imageArray = post.images
-        
-        self.saveImagesTo("Kits", images: post.images, success: { [weak self]
-            imageUrls in
+
+        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: post.images, success: { [weak self]
+            mainImage, imageUrls in
             if imageUrls.first != nil {
                 let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
                 self?.kitForSaleService?.updateKit(id: post.id, kit: kit!, completion: {
@@ -127,19 +125,36 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         return kit
     }
     
-    func saveImagesTo(_ path: String, images: [UIImage], success: @escaping (_ imageUrls: [String?]) -> () ) {
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: [UIImage], success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
         var imageUrls:[String?] = []
-        for image in images {
-            let awsManager = AWS3UploadImageService()
-            awsManager.uploadImage(userImage: image, path: path, successBlock: {
-                image in
-                imageUrls.append(image)
-                if imageUrls.count == images.count {
-                    success(imageUrls)
-                }
-            })
-        }
         
+        let awsManager = AWS3UploadImageService()
+        awsManager.uploadImage(userImage: cropImage(image: mainImage), path: path, successBlock: { mainImage in
+            for image in images {
+                
+                let awsManager = AWS3UploadImageService()
+                awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
+                    image in
+                    imageUrls.append(image)
+                    if imageUrls.count == images.count {
+                        success(mainImage!, imageUrls)
+                    }
+                })
+            }
+        })
+        
+    }
+    
+    func cropImage(image: UIImage) -> UIImage {
+        if abs(image.size.width - image.size.height) > 50 {
+            return UIImage().RBSquareImageTo(image: image, size: CGSize(width: 500, height: 500))
+        } else {
+            return image
+        }
+    }
+    
+    func cropBigImage(image: UIImage) -> UIImage {
+        return image.RBResizeImage(targetSize: CGSize(width: 1080, height: image.bigHeightSize()), staticWidth: true)
     }
     
     func getRates() {

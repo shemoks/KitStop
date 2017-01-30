@@ -111,7 +111,7 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
                     }
                 case "Purchase Price":
                     if !item.textValue.isEmpty {
-                        details.last?.contents = item.textValue
+                        details.last?.contents = "$\(item.textValue)"
                         self.price = item.textValue
                     }
                 default:
@@ -152,6 +152,6 @@ extension CreateKitSavePresenter: CreateKitSaveModuleInput {
     }
     
     func setUpdate(shouldUpdate: Bool) {
-        self.shouldUpdate = true
+        self.shouldUpdate = shouldUpdate
     }
 }

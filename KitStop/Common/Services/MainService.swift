@@ -32,7 +32,6 @@ class MainService: NSObject, MainServiceProtocol {
                         kitModel.owner = kit.1["owner"].stringValue
                         kits.append(kitModel)
                     }
-                    kits.reverse()
                     completionBlock(kits, nil)
                 } else {
                     completionBlock(nil, response.response?.statusCode)
@@ -61,7 +60,6 @@ class MainService: NSObject, MainServiceProtocol {
                         kitModel.owner = kit.1["owner"].stringValue
                         kits.append(kitModel)
                     }
-                    kits.reverse()
                     completionBlock(kits, nil)
                 } else {
                     completionBlock(nil, response.response?.statusCode)
@@ -94,7 +92,6 @@ class MainService: NSObject, MainServiceProtocol {
                         }
                         kits.append(kitModel)
                     }
-                    kits.reverse()
                     completionBlock(kits, nil)
                 } else {
                     completionBlock(nil, response.response?.statusCode)

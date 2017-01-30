@@ -76,6 +76,8 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.categoryId = post.categoryId
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description
+                newPost.id = post.id
+                newPost.categoryId = post.categoryId
                 for image in post.images {
                     if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "cameraForSave") {
                         newImages.append(image)
@@ -86,6 +88,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.notes = post.notes
                 newPost.salesDetails = post.salesDetails
                 newPost.owner = post.owner
+                newPost.mainImageObject = post.mainImageObject
                 newPost.otherProperty = post.otherProperty
                 presenter.setPost(post: newPost)
             }
