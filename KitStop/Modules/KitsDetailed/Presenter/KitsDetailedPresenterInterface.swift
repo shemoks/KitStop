@@ -35,6 +35,8 @@ protocol KitsDetailedViewOutput: class {
     func openFullScreen(index: Int, images: [String], isEdit: Bool)
     func openEditForSale()
     func openEditKit()
+    func handleKit()
+    func handleKitForSale()
     
 }
 
@@ -45,6 +47,7 @@ protocol KitsDetailedInteractorOutput: class {
     func setPost(post: Post)
     func showError(title: String, message: String)
     func showSuccess(title: String, message: String)
+    func setPostForChange(post: Post)
 
 }
 

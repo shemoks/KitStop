@@ -34,7 +34,9 @@ protocol CreateKitSaveInteractorOutput: class {
 // MARK: - CreateKitSaveModuleInput
 
 protocol CreateKitSaveModuleInput: ModuleInput {
+
     func setPost(post: Post)
+    func setUpdate(shouldUpdate: Bool)
     
 }
 
