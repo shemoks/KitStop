@@ -112,11 +112,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
     func handleNextTap() {
         self.post.images = self.images as! [UIImage]
         interactor.getObject(post: self.post)
-        if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
-        } else {
-            router.openSaveKitModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
-        }
+     
     }
 
     func  isSelectedCell(inSection: Int, for indexPath: IndexPath) {
@@ -161,6 +157,11 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
 
     func setPost(post: Post) {
         self.postForPrice = post
+        if isForSale {
+            router.openSaveForSaleModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
+        } else {
+            router.openSaveKitModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
+        }
     }
 
 }
