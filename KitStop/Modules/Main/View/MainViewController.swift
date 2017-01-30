@@ -93,6 +93,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func kitItems(transferData: [Product]) {
         if refreshStatus {
+            refreshStatus = false
             refreshControl.endRefreshing()
         }
         self.kits += transferData
@@ -157,16 +158,6 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
 
 extension MainViewController: UIScrollViewDelegate {
     
-    //    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    //        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
-    //            if let total = self.kits.first?.total {
-    //                if kits.count < total {
-    //
-    //                }
-    //            }
-    //        }
-    //    }
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
             if let total = self.kits.first?.total {
@@ -215,7 +206,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainKitsCell
-        cell.setupCell(row: indexPath.row, kit: kits[indexPath.row])
+        if kits.count > 0 {
+            cell.setupCell(row: indexPath.row, kit: kits[indexPath.row])
+        }
         return cell
     }
     

@@ -68,11 +68,8 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     }
     
     func showAlert(title: String, message: String) {
-        let action = UIAlertAction(title: "Ok", style: .default, handler: {
-            _ in
-            self.transferData?.stopRefresh()
-        })
-        showAlertWithTitle(title, message: message, actions: [action])
+        self.transferData?.stopRefresh()
+        showAlertWithTitle(title, message: message)
     }
 }
 

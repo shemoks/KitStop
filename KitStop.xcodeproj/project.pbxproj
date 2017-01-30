@@ -13,7 +13,6 @@
 		2563208A1E38D5F600F2F805 /* PortraitOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256320871E38D5F600F2F805 /* PortraitOnlyViewController.swift */; };
 		2563208B1E38D5F600F2F805 /* SwiftPhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256320881E38D5F600F2F805 /* SwiftPhotoGallery.swift */; };
 		2563208C1E38D5F600F2F805 /* SwiftPhotoGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256320891E38D5F600F2F805 /* SwiftPhotoGalleryCell.swift */; };
-		2563208E1E38DA9500F2F805 /* PhotoPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2563208D1E38DA9500F2F805 /* PhotoPreview.storyboard */; };
 		25AB73831E02CB9100BAA278 /* SignUpEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AB73821E02CB9100BAA278 /* SignUpEmail.storyboard */; };
 		25E656841E3EA063003D0A6D /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E656831E3EA063003D0A6D /* MainFooterView.swift */; };
 		25EC07A41E37B4D600BE8F06 /* LogInDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8273D1E1E67280007E522 /* LogInDataManagerProtocol.swift */; };
@@ -319,15 +318,6 @@
 		25EC09231E37B75B00BE8F06 /* KitsForSaleRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09221E37B75B00BE8F06 /* KitsForSaleRequestBody.swift */; };
 		25EC09251E37B79200BE8F06 /* CreateForSaleServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09241E37B79200BE8F06 /* CreateForSaleServiceProtocol.swift */; };
 		25EC09271E37B7F400BE8F06 /* CreateForSaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09261E37B7F400BE8F06 /* CreateForSaleService.swift */; };
-		25EC09371E37C5D400BE8F06 /* PhotoPreviewAssember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC092A1E37C5D400BE8F06 /* PhotoPreviewAssember.swift */; };
-		25EC09381E37C5D400BE8F06 /* PhotoPreviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC092C1E37C5D400BE8F06 /* PhotoPreviewInteractor.swift */; };
-		25EC09391E37C5D400BE8F06 /* PhotoPreviewInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC092D1E37C5D400BE8F06 /* PhotoPreviewInteractorInterface.swift */; };
-		25EC093A1E37C5D400BE8F06 /* PhotoPreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC092F1E37C5D400BE8F06 /* PhotoPreviewPresenter.swift */; };
-		25EC093B1E37C5D400BE8F06 /* PhotoPreviewPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09301E37C5D400BE8F06 /* PhotoPreviewPresenterInterface.swift */; };
-		25EC093C1E37C5D400BE8F06 /* PhotoPreviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09321E37C5D400BE8F06 /* PhotoPreviewRouter.swift */; };
-		25EC093D1E37C5D400BE8F06 /* PhotoPreviewRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09331E37C5D400BE8F06 /* PhotoPreviewRouterInterface.swift */; };
-		25EC093E1E37C5D400BE8F06 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09351E37C5D400BE8F06 /* PhotoPreviewViewController.swift */; };
-		25EC093F1E37C5D400BE8F06 /* PhotoPreviewViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC09361E37C5D400BE8F06 /* PhotoPreviewViewInterface.swift */; };
 		25FFBF4A1E2D0FC700B29A7A /* KitFolioDetailed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FFBF491E2D0FC700B29A7A /* KitFolioDetailed.storyboard */; };
 		745891994723DED5E13B76F6 /* Pods_KitStop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB6090BFED7E8DF04618427 /* Pods_KitStop.framework */; };
 		9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9502CD811E0832D9007AD6EA /* RestorePassword.storyboard */; };
@@ -476,7 +466,6 @@
 		256320871E38D5F600F2F805 /* PortraitOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitOnlyViewController.swift; sourceTree = "<group>"; };
 		256320881E38D5F600F2F805 /* SwiftPhotoGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPhotoGallery.swift; sourceTree = "<group>"; };
 		256320891E38D5F600F2F805 /* SwiftPhotoGalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPhotoGalleryCell.swift; sourceTree = "<group>"; };
-		2563208D1E38DA9500F2F805 /* PhotoPreview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPreview.storyboard; sourceTree = "<group>"; };
 		2572A0E11E1BDCE8004FA904 /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		259C5DF11DF9B35B001E3CCC /* LogInAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInAssember.swift; sourceTree = "<group>"; };
 		259C5DF31DF9B35B001E3CCC /* LogInInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
@@ -512,15 +501,6 @@
 		25EC09221E37B75B00BE8F06 /* KitsForSaleRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitsForSaleRequestBody.swift; sourceTree = "<group>"; };
 		25EC09241E37B79200BE8F06 /* CreateForSaleServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateForSaleServiceProtocol.swift; sourceTree = "<group>"; };
 		25EC09261E37B7F400BE8F06 /* CreateForSaleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateForSaleService.swift; sourceTree = "<group>"; };
-		25EC092A1E37C5D400BE8F06 /* PhotoPreviewAssember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewAssember.swift; sourceTree = "<group>"; };
-		25EC092C1E37C5D400BE8F06 /* PhotoPreviewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewInteractor.swift; sourceTree = "<group>"; };
-		25EC092D1E37C5D400BE8F06 /* PhotoPreviewInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewInteractorInterface.swift; sourceTree = "<group>"; };
-		25EC092F1E37C5D400BE8F06 /* PhotoPreviewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewPresenter.swift; sourceTree = "<group>"; };
-		25EC09301E37C5D400BE8F06 /* PhotoPreviewPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewPresenterInterface.swift; sourceTree = "<group>"; };
-		25EC09321E37C5D400BE8F06 /* PhotoPreviewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewRouter.swift; sourceTree = "<group>"; };
-		25EC09331E37C5D400BE8F06 /* PhotoPreviewRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewRouterInterface.swift; sourceTree = "<group>"; };
-		25EC09351E37C5D400BE8F06 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
-		25EC09361E37C5D400BE8F06 /* PhotoPreviewViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewInterface.swift; sourceTree = "<group>"; };
 		25FBAC461E16945900A956CE /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		25FFBF491E2D0FC700B29A7A /* KitFolioDetailed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KitFolioDetailed.storyboard; sourceTree = "<group>"; };
 		26F3E44B9044B4FE5AED7220 /* MainViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewInterface.swift; sourceTree = "<group>"; };
@@ -1017,6 +997,7 @@
 				256320891E38D5F600F2F805 /* SwiftPhotoGalleryCell.swift */,
 			);
 			name = PhotoGallery;
+			path = PhotoPreview;
 			sourceTree = "<group>";
 		};
 		259C5DEE1DF9B35B001E3CCC /* Modules */ = {
@@ -1043,7 +1024,7 @@
 				FE64B01E57500BA04DA4BFEE /* UnderConstruction */,
 				4C562A960589FDF1C846CBB1 /* KitsDetailed */,
 				9E62D9E6E0CB228790060695 /* KitFolioDetailed */,
-				25EC09281E37C5D400BE8F06 /* PhotoPreview */,
+				256320861E38D5B200F2F805 /* PhotoGallery */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1200,64 +1181,6 @@
 				25EC09131E37B6DA00BE8F06 /* CreateSaleConfirmViewInterface.swift */,
 				25EC09141E37B6DA00BE8F06 /* SaleInfoCell.swift */,
 				25EC09151E37B6DA00BE8F06 /* SaleInfoCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		25EC09281E37C5D400BE8F06 /* PhotoPreview */ = {
-			isa = PBXGroup;
-			children = (
-				256320861E38D5B200F2F805 /* PhotoGallery */,
-				25EC09291E37C5D400BE8F06 /* Assembler */,
-				25EC092B1E37C5D400BE8F06 /* Interactor */,
-				25EC092E1E37C5D400BE8F06 /* Presenter */,
-				25EC09311E37C5D400BE8F06 /* Router */,
-				25EC09341E37C5D400BE8F06 /* View */,
-			);
-			path = PhotoPreview;
-			sourceTree = "<group>";
-		};
-		25EC09291E37C5D400BE8F06 /* Assembler */ = {
-			isa = PBXGroup;
-			children = (
-				25EC092A1E37C5D400BE8F06 /* PhotoPreviewAssember.swift */,
-			);
-			path = Assembler;
-			sourceTree = "<group>";
-		};
-		25EC092B1E37C5D400BE8F06 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				25EC092C1E37C5D400BE8F06 /* PhotoPreviewInteractor.swift */,
-				25EC092D1E37C5D400BE8F06 /* PhotoPreviewInteractorInterface.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		25EC092E1E37C5D400BE8F06 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				25EC092F1E37C5D400BE8F06 /* PhotoPreviewPresenter.swift */,
-				25EC09301E37C5D400BE8F06 /* PhotoPreviewPresenterInterface.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		25EC09311E37C5D400BE8F06 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				25EC09321E37C5D400BE8F06 /* PhotoPreviewRouter.swift */,
-				25EC09331E37C5D400BE8F06 /* PhotoPreviewRouterInterface.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		25EC09341E37C5D400BE8F06 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				25EC09351E37C5D400BE8F06 /* PhotoPreviewViewController.swift */,
-				25EC09361E37C5D400BE8F06 /* PhotoPreviewViewInterface.swift */,
-				2563208D1E38DA9500F2F805 /* PhotoPreview.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2803,7 +2726,6 @@
 				9A4596491E38B38B00FDC805 /* Carusel.xib in Resources */,
 				9AB17CEE1E0BD5AE004E95FF /* SF-UI-Text-Regular.otf in Resources */,
 				2523D1441E1CF5B80053BFD6 /* UserInformation.xib in Resources */,
-				2563208E1E38DA9500F2F805 /* PhotoPreview.storyboard in Resources */,
 				9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */,
 				9AB17D191E0D72A7004E95FF /* ApplyCell.xib in Resources */,
 				9A47E5001E02B9B6005EED88 /* TypeCell.xib in Resources */,
@@ -2982,11 +2904,9 @@
 				25EC08011E37B55500BE8F06 /* FiltersViewController.swift in Sources */,
 				25EC08021E37B55500BE8F06 /* FiltersViewInterface.swift in Sources */,
 				25EC08031E37B55500BE8F06 /* FilterTypeAssember.swift in Sources */,
-				25EC093B1E37C5D400BE8F06 /* PhotoPreviewPresenterInterface.swift in Sources */,
 				25EC08041E37B55500BE8F06 /* FilterTypeInteractor.swift in Sources */,
 				25EC08051E37B55500BE8F06 /* FilterTypeInteractorInterface.swift in Sources */,
 				25EC08061E37B55500BE8F06 /* FilterTypePresenter.swift in Sources */,
-				25EC093A1E37C5D400BE8F06 /* PhotoPreviewPresenter.swift in Sources */,
 				25EC08071E37B55500BE8F06 /* FilterTypePresenterInterface.swift in Sources */,
 				25EC08081E37B55500BE8F06 /* FilterTypeRouter.swift in Sources */,
 				25EC08091E37B55500BE8F06 /* FilterTypeRouterInterface.swift in Sources */,
@@ -3019,7 +2939,6 @@
 				25EC08271E37B55500BE8F06 /* RegistrationTakePhotoInteractor.swift in Sources */,
 				25EC08281E37B55500BE8F06 /* RegistrationTakePhotoInteractorInterface.swift in Sources */,
 				25EC08291E37B55500BE8F06 /* RegistrationTakePhotoPresenter.swift in Sources */,
-				25EC09381E37C5D400BE8F06 /* PhotoPreviewInteractor.swift in Sources */,
 				25EC091E1E37B6DA00BE8F06 /* CreateSaleConfirmViewController.swift in Sources */,
 				25EC082A1E37B55500BE8F06 /* RegistrationTakePhotoPresenterInterface.swift in Sources */,
 				25EC082B1E37B55500BE8F06 /* RegistrationTakePhotoRouter.swift in Sources */,
@@ -3036,7 +2955,6 @@
 				25EC08381E37B55500BE8F06 /* LogInViewController.swift in Sources */,
 				25EC08391E37B55500BE8F06 /* LogInViewInterface.swift in Sources */,
 				25EC083A1E37B55500BE8F06 /* SignUpEmailAssember.swift in Sources */,
-				25EC09391E37C5D400BE8F06 /* PhotoPreviewInteractorInterface.swift in Sources */,
 				25EC083B1E37B55500BE8F06 /* SignUpEmailViewInterface.swift in Sources */,
 				25EC083C1E37B55500BE8F06 /* SignUpEmailViewController.swift in Sources */,
 				25EC083E1E37B55500BE8F06 /* SignUpEmailInteractorInterface.swift in Sources */,
@@ -3050,7 +2968,6 @@
 				25EC08461E37B55500BE8F06 /* MainFilterContainerViewController.swift in Sources */,
 				25EC08471E37B55500BE8F06 /* MainFilterContainerTransferDataProtocol.swift in Sources */,
 				25EC08481E37B55500BE8F06 /* MainFilterContainerInteractorInterface.swift in Sources */,
-				25EC093E1E37C5D400BE8F06 /* PhotoPreviewViewController.swift in Sources */,
 				25EC08491E37B55500BE8F06 /* MainFilterContainerInteractor.swift in Sources */,
 				25EC084A1E37B55500BE8F06 /* MainFilterContainerPresenterInterface.swift in Sources */,
 				9A45964B1E38B61F00FDC805 /* Carusel.swift in Sources */,
@@ -3090,7 +3007,6 @@
 				25EC086F1E37B55600BE8F06 /* CustomInputInteractor.swift in Sources */,
 				25EC091A1E37B6DA00BE8F06 /* CreateSaleConfirmPresenterInterface.swift in Sources */,
 				25EC08701E37B55600BE8F06 /* CustomInputInteractorInterface.swift in Sources */,
-				25EC093F1E37C5D400BE8F06 /* PhotoPreviewViewInterface.swift in Sources */,
 				25EC08711E37B55600BE8F06 /* CustomInputPresenter.swift in Sources */,
 				25EC08721E37B55600BE8F06 /* CustomInputPresenterInterface.swift in Sources */,
 				25EC08731E37B55600BE8F06 /* CustomInputRouter.swift in Sources */,
@@ -3186,7 +3102,6 @@
 				25EC08D01E37B55600BE8F06 /* CreateKitSavePresenter.swift in Sources */,
 				25EC08D11E37B55600BE8F06 /* CreateKitSavePresenterInterface.swift in Sources */,
 				25EC08D21E37B55600BE8F06 /* CreateKitSaveRouter.swift in Sources */,
-				25EC093C1E37C5D400BE8F06 /* PhotoPreviewRouter.swift in Sources */,
 				25EC08D31E37B55600BE8F06 /* CreateKitSaveRouterInterface.swift in Sources */,
 				25EC08D51E37B55600BE8F06 /* CreateKitSaveViewController.swift in Sources */,
 				25EC08D61E37B55600BE8F06 /* CreateKitSaveViewInterface.swift in Sources */,
@@ -3226,9 +3141,7 @@
 				25EC09001E37B55600BE8F06 /* KitFolioDetailedPresenter.swift in Sources */,
 				25EC09011E37B55600BE8F06 /* KitFolioDetailedRouterInterface.swift in Sources */,
 				25EC09021E37B55600BE8F06 /* KitFolioDetailedRouter.swift in Sources */,
-				25EC09371E37C5D400BE8F06 /* PhotoPreviewAssember.swift in Sources */,
 				25EC09031E37B55600BE8F06 /* AppDelegate.swift in Sources */,
-				25EC093D1E37C5D400BE8F06 /* PhotoPreviewRouterInterface.swift in Sources */,
 				25EC07B01E37B4EB00BE8F06 /* CustomError.swift in Sources */,
 				25EC07B11E37B4EB00BE8F06 /* UIViewController+Alertable.swift in Sources */,
 				25EC07B21E37B4EB00BE8F06 /* Constant.swift in Sources */,

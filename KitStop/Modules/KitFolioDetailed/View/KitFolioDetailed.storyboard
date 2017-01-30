@@ -192,7 +192,7 @@
                         <outlet property="topMask" destination="zRH-Aa-daq" id="K2R-ar-GX3"/>
                         <outlet property="userInformation" destination="ZE3-2F-fnk" id="eOj-TH-5G3"/>
                         <segue destination="ckf-8E-3qD" kind="show" identifier="transitionToUnderConstruction" id="FrF-cq-y9x"/>
-                        <segue destination="HeJ-75-hl8" kind="show" identifier="transitionToPhotoPreview" id="wfT-cp-aLj"/>
+                        <segue destination="HeJ-75-hl8" kind="presentation" identifier="transitionToPhotoPreview" modalPresentationStyle="fullScreen" id="wfT-cp-aLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0d-AE-TB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
