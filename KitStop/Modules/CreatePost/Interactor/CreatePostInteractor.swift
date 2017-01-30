@@ -90,6 +90,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.owner = post.owner
                 newPost.mainImageObject = post.mainImageObject
                 newPost.otherProperty = post.otherProperty
+                newPost.mainImageObject = post.mainImageObject
                 presenter.setPost(post: newPost)
             }
         }

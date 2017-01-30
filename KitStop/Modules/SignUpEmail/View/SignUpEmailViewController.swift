@@ -11,7 +11,7 @@ import Chamomile
 // MARK: - SignUpEmailViewController
 
 final class SignUpEmailViewController: UIViewController, FlowController, CustomPasswordDelegateTextField, Alertable {
-
+    
     // MARK: - VIPER stack
     
     @IBOutlet weak var name: UITextField!
@@ -20,25 +20,21 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     @IBOutlet weak var password: CustomPasswordTextField!
     @IBOutlet weak var repeatPassword: CustomPasswordTextField!
     @IBOutlet weak var email: UITextField!
-
+    
     var presenter: SignUpEmailViewOutput!
     fileprivate var tapSignUpStatus = false
+    fileprivate var choosePhoto: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         password.passwordDelegate = self
         repeatPassword.passwordDelegate = self
         password.delegate = self
-        repeatPassword.delegate = self
-        password.email = email
-        repeatPassword.email = email
-        email.layer.borderWidth = 2.5
-        email.layer.borderColor = UIColor.white.cgColor
-        name.layer.borderWidth = 2.5
-        name.layer.borderColor = UIColor.white.cgColor
-        surname.layer.borderWidth = 2.5
-        surname.layer.borderColor = UIColor.white.cgColor
+        presenter.addBorder(email)
+        presenter.addBorder(name)
+        presenter.addBorder(surname)
         navigationController?.isNavigationBarHidden = false
+        choosePhoto = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,20 +44,29 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if let navController = self.navigationController {
-            navController.navigationBar.isHidden = true
-            for controller in navController.viewControllers as Array {
-                if controller.isKind(of: SignUpViewController.self) {
-                    let _ = self.navigationController?.popToViewController(controller as! SignUpViewController, animated: false)
-                    break
+            if !choosePhoto {
+                navController.navigationBar.isHidden = true
+                for controller in navController.viewControllers as Array {
+                    if controller.isKind(of: SignUpViewController.self) {
+                        let _ = self.navigationController?.popToViewController(controller as! SignUpViewController, animated: false)
+                        break
+                    }
                 }
+            } else {
+                choosePhoto = false
             }
         }
     }
-
+    
+    
+    @IBAction func validateChangeFocus(_ sender: Any) {
+        validate()
+    }
+    
     func tapOnPasswordImageSuccess(textField: UITextField) {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
-
+    
     @IBAction func tapOnSignUpButtonAction(_ sender: Any) {
         tapSignUpStatus = true
         presenter.comparePassword(password: password.text!, repeatPassword: repeatPassword.text!)
@@ -85,6 +90,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     }
     
     @IBAction func avatarTap(_ sender: UITapGestureRecognizer) {
+        choosePhoto = true
         presenter.takePhoto()
     }
     
@@ -106,13 +112,20 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
             self.email.layer.borderColor = UIColor.white.cgColor
         }
     }
-
+    
+    func validate() {
+        if tapSignUpStatus {
+            let validate = presenter.checkUserName(name: name.text, surname: surname.text, email: email.text!, emailTF: email)
+            validationFailedBorder(name: validate.0, surname: validate.1, email: validate.2)
+        }
+    }
+    
 }
 
 // MARK: - SignUpEmailViewInput
 
 extension SignUpEmailViewController: SignUpEmailViewInput {
-
+    
     func getPhoto(photo: UIImage) {
         avatar.image = photo
     }
@@ -120,22 +133,16 @@ extension SignUpEmailViewController: SignUpEmailViewInput {
     func showAlert(title: String, massage: String) {
         showAlertWithTitle(title, message: massage)
     }
-
+    
 }
 
 extension SignUpEmailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == repeatPassword {
-            return false
-        }
         textField.nextField?.becomeFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if tapSignUpStatus {
-            let validate = presenter.checkUserName(name: name.text, surname: surname.text, email: email.text!, emailTF: email)
-            validationFailedBorder(name: validate.0, surname: validate.1, email: validate.2)
-        }
+        validate()
     }
 }

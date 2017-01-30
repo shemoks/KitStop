@@ -14,9 +14,10 @@ import RealmSwift
 // MARK: - MainViewController
 
 final class MainViewController: UIViewController, FlowController, MainFilterContainerTransferDataProtocol, Alertable {
-
+    
     // MARK: - VIPER stack
     
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var toolbarContainer: UIView!
@@ -26,6 +27,9 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     fileprivate var kits: [Product] = []
     var delegate: MainViewPassDataProtocol?
     fileprivate var refreshStatus = false
+    var footerView: MainFooterView?
+    var loadMoreStatus = false
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +40,12 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         addNavigationBarItems()
         addRefreshControl()
         addToolbar()
-        presenter.handleKitForSale()
+        presenter.handleKitForSale(page: self.page)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        footerView?.isHidden = true
     }
     
     func addRefreshControl() {
@@ -47,6 +56,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func refresh() {
         print("refresh")
+        clearKitsPage()
         delegate?.refreshKits()
         refreshStatus = true
     }
@@ -67,7 +77,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func addSectionInset() {
         let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake((self.navigationController?.navigationBar.frame.size.height)! , 0, (self.navigationController?.toolbar.frame.size.height)!, 0)
+        layout.sectionInset = UIEdgeInsetsMake((self.navigationController?.navigationBar.frame.size.height)! , 0, 0, 0)
         collectionView.collectionViewLayout = layout
     }
     
@@ -83,10 +93,19 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func kitItems(transferData: [Product]) {
         if refreshStatus {
+            refreshStatus = false
             refreshControl.endRefreshing()
         }
-        self.kits = transferData
-        collectionView.reloadData()
+        self.kits += transferData
+        if loadMoreStatus {
+            self.loadMoreStatus = false
+            self.footerView?.activityIndicator.stopAnimating()
+            self.footerView?.isHidden = true
+            self.collectionViewHeight.constant = 0
+        }
+        let range = Range(uncheckedBounds: (0, collectionView.numberOfSections))
+        let indexSet = IndexSet(integersIn: range)
+        collectionView.reloadSections(indexSet)
     }
     
     func passDataToSubmodule() {
@@ -95,7 +114,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func addToolbar() {
         let toolBar = UIView.loadFromNibNamed(nibNamed: "BottomBar")
-  
+        
         toolBar?.frame = CGRect(x: 0, y: 0, width: toolbarContainer.frame.width, height: toolbarContainer.frame.height)
         
         (toolBar as? BottomBarViewController)?.tappedItem = self
@@ -104,7 +123,49 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     }
     
     func stopRefresh() {
+        self.page -= 1
+        self.footerView?.isHidden = true
+        self.footerView?.activityIndicator.stopAnimating()
         self.refreshControl.endRefreshing()
+    }
+    
+    func loadMore() {
+        if ( !loadMoreStatus ) {
+            self.loadMoreStatus = true
+            self.footerView?.activityIndicator.startAnimating()
+            self.footerView?.isHidden = false
+            self.collectionViewHeight.constant = 50
+            loadMoreBegin()
+        }
+    }
+    
+    func loadMoreBegin() {
+        DispatchQueue.global().async {
+            self.page += 1
+            DispatchQueue.main.async {
+                print("load more")
+                self.delegate?.fetchKits()
+            }
+        }
+    }
+    
+    func clearKitsPage() {
+        self.page = 1
+        self.kits.removeAll()
+    }
+    
+}
+
+extension MainViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
+            if let total = self.kits.first?.total {
+                if kits.count < total {
+                    loadMore()
+                }
+            }
+        }
     }
 }
 
@@ -115,7 +176,7 @@ extension MainViewController: MainViewInput {
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = UIColor.gray
-
+        
     }
     
     func showAlert(title: String, message: String) {
@@ -145,7 +206,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainKitsCell
-        cell.setupCell(row: indexPath.row, kit: kits[indexPath.row])
+        if kits.count > 0 {
+            cell.setupCell(row: indexPath.row, kit: kits[indexPath.row])
+        }
         return cell
     }
     
@@ -157,4 +220,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: self.collectionView.frame.width, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "MainFooter", for: indexPath) as? MainFooterView
+        return footerView!
+    }
+    
 }

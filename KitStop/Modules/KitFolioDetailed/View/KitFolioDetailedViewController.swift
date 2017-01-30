@@ -17,6 +17,8 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     var presenter: KitFolioDetailedViewOutput!
     
+    @IBOutlet weak var topMask: UIImageView!
+    @IBOutlet weak var bottomMask: UIImageView!
     @IBOutlet weak var post: UITextView!
     @IBOutlet weak var information: UITextView!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
@@ -81,6 +83,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     func save() {
         // save changes
+        view.endEditing(true)
         let data: [String : String] = ["title" : postTitle.text, "description" : postDescription.text]
         if let image = image.image {
             presenter.validation(data: data, image: image)
@@ -108,12 +111,13 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     }
     
     func imageTapped() {
-        presenter.showActionSheet(image: image, picker: imagePicker)
+        presenter.showActionSheet(image: image, picker: imagePicker, bottomMask: self.bottomMask, topMask: self.topMask)
     }
     
     func showFullScreenImages() {
         // check true if you want see trash button and page control
-        presenter.openPhotoPreview(images: self.image.image, isEditMode: false)
+        let gallery = SwiftPhotoGallery.init(delegate: self, dataSource: self, trashButtonStatus: false)
+        present(gallery, animated: true, completion: nil)
     }
     
     func addXibOnView(view: UIView) {
@@ -132,7 +136,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
         self.navigationItem.title = product.title
         postDescription.text = product.description
         postTitle.text = product.title
-        presenter.addImageWithOrientation(imageView: image, imageUrl: product.mainImage, imageHeight: self.view.frame.width, imageViewHeight: imageHeight)
+        presenter.addImageWithOrientation(imageView: image, imageUrl: product.mainImage, imageHeight: self.view.frame.width, imageViewHeight: imageHeight, bottomMask: self.bottomMask, topMask: self.topMask)
         date.text = product.date
     }
 }
@@ -184,6 +188,8 @@ extension KitFolioDetailedViewController: UIImagePickerControllerDelegate, UINav
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         presenter.imageChange = true
+        bottomMask.image = UIImage(named: "bottom_mask")
+        topMask.image = UIImage(named: "top_mask")
         dismiss(animated: true, completion: nil)
     }
     
@@ -197,4 +203,32 @@ extension KitFolioDetailedViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         self.navigationItem.title = textView.text
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        var limitLength = 100
+        if textView == postDescription {
+            limitLength = 500
+        }
+        let text = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = text.characters.count
+        return numberOfChars < limitLength;
+    }
+
+}
+
+extension KitFolioDetailedViewController: SwiftPhotoGalleryDataSource {
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return 1
+    }
+    
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> UIImage? {
+        return image.image
+    }
+}
+
+extension KitFolioDetailedViewController: SwiftPhotoGalleryDelegate {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+        
+    }
+
 }

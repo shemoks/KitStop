@@ -26,7 +26,7 @@ final class CreatePostPresenter {
     var screenTitle: String = "ForSale / "
     var postForPrice = Post()
     var isNotMainImage: Bool = false
-    var shouldUpdate: Bool = false
+    var shouldUpdate = false
 
 }
 
@@ -186,36 +186,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
 
     func setKitEdit(post: Post) {
         isForSale = false
-        self.post = post
-        if post.imagesString.count == 0 {
-            post.imagesString.append(post.mainImage)
-        }
-        var newImages = [UIImage]()
-        for image in post.imagesString {
-            let urlValue = URL(string: image)
-            if urlValue != nil {
-                let data = NSData(contentsOf: urlValue!)
-                newImages.append(UIImage(data: data! as Data)!)
-            }
-        }
-            var imagesCount = newImages.count
-            if imagesCount < 7 {
-                newImages.append(UIImage.init(named: "cameraForSave")!)
-                imagesCount = newImages.count
-            }
-            for _ in imagesCount...5 {
-                 newImages.append(UIImage.init(named: "blank1")!)
-            }
-        self.isNotMainImage = true
-        self.currentIndex = post.imagesString.count + self.currentIndex
-        self.post.images = newImages
-        self.images = newImages
-        self.shouldUpdate = true
-    }
-
-
-    func setForSaleEdit(post: Post) {
-        isForSale = true
+        self.screenTitle = "Kits / "
         self.post = post
         if post.imagesString.count == 0 {
             post.imagesString.append(post.mainImage)
@@ -233,8 +204,43 @@ extension CreatePostPresenter: CreatePostModuleInput {
             newImages.append(UIImage.init(named: "cameraForSave")!)
             imagesCount = newImages.count
         }
-        for _ in imagesCount...5 {
-            newImages.append(UIImage.init(named: "blank1")!)
+        if imagesCount < 6 {
+            for _ in imagesCount...5 {
+                newImages.append(UIImage.init(named: "blank1")!)
+            }
+        }
+        self.isNotMainImage = true
+        self.currentIndex = post.imagesString.count + self.currentIndex
+        self.post.images = newImages
+        self.images = newImages
+        self.shouldUpdate = true
+    }
+
+
+    func setForSaleEdit(post: Post) {
+        isForSale = true
+        self.screenTitle = "ForSale / "
+        self.post = post
+        if post.imagesString.count == 0 {
+            post.imagesString.append(post.mainImage)
+        }
+        var newImages = [UIImage]()
+        for image in post.imagesString {
+            let urlValue = URL(string: image)
+            if urlValue != nil {
+                let data = NSData(contentsOf: urlValue!)
+                newImages.append(UIImage(data: data! as Data)!)
+            }
+        }
+        var imagesCount = newImages.count
+        if imagesCount < 7 {
+            newImages.append(UIImage.init(named: "cameraForSave")!)
+            imagesCount = newImages.count
+        }
+        if imagesCount < 6 {
+            for _ in imagesCount...5 {
+                newImages.append(UIImage.init(named: "blank1")!)
+            }
         }
         self.isNotMainImage = true
         self.currentIndex = post.imagesString.count + self.currentIndex
@@ -270,9 +276,27 @@ extension CreatePostPresenter: CustomListModuleOutput {
 //extension CreatePostPresenter: ViewPhotoModuleOutput {
 //
 //    func setNewPhoto(images: [UIImage]) {
-//        self.images = images
-//    }
+//        var newImages = [UIImage]()
+//        var imagesCount = images.count
+//        if imagesCount == 0 {
+//            newImages.append(UIImage.init(named: "required")!)
+//            imagesCount = newImages.count
+//            self.isNotMainImage = false
+//        }
+//        if imagesCount > 0 && imagesCount < 7 {
+//            self.isNotMainImage = true
+//            newImages.append(UIImage.init(named: "cameraForSave")!)
+//            imagesCount = newImages.count
+//        }
+//        for _ in imagesCount...5 {
+//            newImages.append(UIImage.init(named: "blank1")!)
+//        }
 //
+//        self.currentIndex = imagesCount + self.currentIndex
+//        self.post.images = newImages
+//        self.images = newImages
+//    }
+//    
 //}
 
 

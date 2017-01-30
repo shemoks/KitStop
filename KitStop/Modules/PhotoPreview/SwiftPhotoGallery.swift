@@ -145,6 +145,12 @@ public class SwiftPhotoGallery: UIViewController {
         
         view.backgroundColor = UIColor.black
         
+        if trashButtonStatus {
+            self.hidePageControl = false
+        } else {
+            self.hidePageControl = true
+        }
+        
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.pageIndicatorTintColor = UIColor(white: 0.75, alpha: 0.35) //Dim Grey
         setupPageControl()
@@ -238,6 +244,7 @@ public class SwiftPhotoGallery: UIViewController {
     }
     
     public func close(recognizer: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
         delegate?.galleryDidTapToClose(gallery: self)
     }
     

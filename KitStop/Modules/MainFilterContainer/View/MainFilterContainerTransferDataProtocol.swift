@@ -11,4 +11,6 @@ import Foundation
 protocol MainFilterContainerTransferDataProtocol {
     func kitItems(transferData: [Product])
     func stopRefresh()
+    func clearKitsPage()
+    var page: Int {get}
 }

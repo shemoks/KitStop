@@ -158,12 +158,21 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         }
         router.openFullScreen(index: index, images: newImages, isEdit: isEdit)
     }
+
     func openEditForSale() {
         router.openEditForSale(post: self.post)
     }
 
     func openEditKit() {
         router.openEditKit(post: self.post)
+    }
+
+    func handleKit() {
+        interactor.getPostAsForSale(idPost: self.post.id)
+    }
+
+    func handleKitForSale() {
+        interactor.getPostAsKit(idPost: self.post.id)
     }
 
 }
@@ -201,6 +210,14 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
             self.router.closeModule(moduleOutput: moduleOutput, section: self.sectionSale)
         })])
 
+    }
+
+    func setPostForChange(post: Post) {
+        if sectionSale {
+            router.openEditKit(post: post)
+        } else {
+            router.openEditForSale(post: post)
+        }
     }
 
 }
