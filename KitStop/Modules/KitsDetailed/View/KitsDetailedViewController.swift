@@ -16,6 +16,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
     @IBOutlet weak var tableView: UITableView!
     var presenter: KitsDetailedViewOutput!
+    let headerView = CaruselHeader()
 
 
 
@@ -130,18 +131,21 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
     }
 
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
-        let headerView = CaruselHeader()
+
         headerView.onTouch = {
-             self.presenter.changeLike(like: headerView.like)
+             self.presenter.changeLike(like: self.headerView.like)
         }
         headerView.carusel.heightCell = view.frame.width
         setSizeForCell(header: headerView)
         headerView.carusel.images = presenter.getImages()
         let numberOfPages = presenter.getImages().count
+        let currentNumberImage = 0
+        let currentIndex = IndexPath(item: currentNumberImage, section: 0)
         if numberOfPages > 1 {
              headerView.carusel.pageControl.isHidden = false
              headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
-             headerView.carusel.pageControl.currentPage = 0
+             headerView.carusel.collectionView.scrollToItem(at: currentIndex, at: .centeredHorizontally, animated: false)
+             headerView.carusel.pageControl.currentPage = currentNumberImage
         } else {
             headerView.carusel.pageControl.isHidden = true
             headerView.carusel.pageControl.numberOfPages = 0
@@ -156,8 +160,8 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         tableView.tableFooterView = footerView
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "Icons_action_sheet"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
         headerView.carusel.onTouch = { index, arrayImages, isEdit in
-            self.presenter.openFullScreen(index: index, images: arrayImages, isEdit: isEdit)
-
+            let gallery = SwiftPhotoGallery(delegate: self, dataSource: self, trashButtonStatus: isEdit, pageBeforeRotation: index, page: index)
+            self.present(gallery, animated: true, completion: nil)
         }
     }
 
@@ -165,6 +169,38 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         showAlertWithTitle(title, message: message, actions: action)
     }
 
+    func isVisibleTableView(flag: Bool) {
+        if flag {
+            tableView.isHidden = false
+        } else {
+            tableView.isHidden = true
+        }
+    }
+
+}
+
+extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
+
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
+         let index = IndexPath(item: index, section: 0)
+        headerView.carusel.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+    }
+
+    func deletePhoto(index: Int) {
+
+    }
+
+}
+
+extension KitsDetailedViewController: SwiftPhotoGalleryDataSource {
+
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> AnyObject? {
+        return presenter.imageFromUrl()[forIndex] as AnyObject?
+    }
+
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return presenter.imageFromUrl().count
+    }
 }
 
 extension KitsDetailedViewController: BottomBarTransitionProtocol {

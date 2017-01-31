@@ -95,7 +95,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
             UIView.setAnimationsEnabled(true)
         }
     }
-    
+
 }
 
 // MARK: - CreatePostViewInput
@@ -104,7 +104,7 @@ extension CreatePostViewController: CreatePostViewInput {
 
     func openGallery() {
         if presenter.setIsNotMainImage() {
-        imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = false
         } else {
             imagePicker.allowsEditing = true
         }
@@ -172,9 +172,38 @@ extension CreatePostViewController: CreatePostViewInput {
 
     }
 
+    func returnImages(images: [AnyObject], index: Int) {
+        let gallery = SwiftPhotoGallery(delegate: self, dataSource: self, trashButtonStatus: true, pageBeforeRotation: index, page: index)
+        present(gallery, animated: true, completion: nil)
+
+    }
+
+}
+extension CreatePostViewController: SwiftPhotoGalleryDelegate {
+
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
+
+    }
+
+    func deletePhoto(index: Int) {
+        presenter.anyObject.remove(at: index)
+        presenter.deletePhoto(index: index)
+    }
+
+
 }
 
-extension CreatePostViewController:UITableViewDataSource {
+extension CreatePostViewController: SwiftPhotoGalleryDataSource {
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return presenter.anyObject.count
+    }
+
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> AnyObject? {
+        return presenter.anyObject[forIndex]
+    }
+
+}
+extension CreatePostViewController: UITableViewDataSource {
 
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -290,7 +319,7 @@ extension CreatePostViewController: UICollectionViewDelegate {
     func collectionView(_ collectionViews: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let type = presenter.getModelItem(index: indexPath.row)
         switch type {
-           case .Required:
+        case .Required:
             self.setupAlert()
         case .Add:
             self.setupAlert()
@@ -328,11 +357,11 @@ extension CreatePostViewController: UIImagePickerControllerDelegate {
         originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
         imageToSave = originalImage
         if presenter.setIsNotMainImage() == false {
-             self.presenter.setMainPhoto(photo: editedImage!)
+            self.presenter.setMainPhoto(photo: editedImage!)
         }
         presenter.addPhoto(image: imageToSave!)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

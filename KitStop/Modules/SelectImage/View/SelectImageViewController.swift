@@ -21,6 +21,7 @@ final class SelectImageViewController: UIViewController, FlowController, Alertab
     @IBOutlet weak var camera: UIButton!
     @IBOutlet weak var gallery: UIButton!
     
+    var flag = false
     override func viewDidLoad() {
         imagePicker.navigationBar.tintColor = .black
         imagePicker.delegate = self
@@ -64,6 +65,15 @@ extension SelectImageViewController: SelectImageViewInput {
     func removeButton(button: UIButton) {
         button.removeFromSuperview()
     }
+    
+    func replaceImage() {
+        presenter.showActionSheet()
+    }
+    
+    func presentActionSheet(actionSheet: UIAlertController) {
+        present(actionSheet, animated: true, completion: nil)
+        actionSheet.view.tintColor = UIColor.gray
+    }
 }
 
 extension SelectImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -74,11 +84,20 @@ extension SelectImageViewController: UIImagePickerControllerDelegate, UINavigati
         if abs((editedImage?.size.width)! - (editedImage?.size.height)!) > 50 {
            editedImage = UIImage().RBSquareImageTo(image: editedImage!, size: CGSize(width: 500, height: 500))
         }
-        let image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: [camera, gallery], delegate: delegate!)
+        var image = UIImageView()
+        if flag {
+             image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: nil, delegate: delegate!)
+        } else {
+            image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: [camera, gallery], delegate: delegate!)
+            flag = true
+        }
         delegate?.changeContainer(self.view.frame.size.width)
         image.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(self.replaceImage))
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(imageTap)
         self.view.addSubview(image)
         dismiss(animated: true, completion: nil)
     }

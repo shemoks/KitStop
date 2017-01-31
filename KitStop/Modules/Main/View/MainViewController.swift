@@ -83,7 +83,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func updateData(kits: [Product]) {
         self.kits = kits
-        self.collectionView.reloadData()
+        reloadSection()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,6 +103,10 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
             self.footerView?.isHidden = true
             self.collectionViewHeight.constant = 0
         }
+        reloadSection()
+    }
+    
+    func reloadSection() {
         let range = Range(uncheckedBounds: (0, collectionView.numberOfSections))
         let indexSet = IndexSet(integersIn: range)
         collectionView.reloadSections(indexSet)
@@ -218,7 +222,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
+        if self.kits.count >= indexPath.row && self.kits.count > 0 {
+            delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

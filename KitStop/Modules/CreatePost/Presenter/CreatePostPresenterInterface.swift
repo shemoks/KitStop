@@ -29,6 +29,8 @@ protocol CreatePostViewOutput: class {
     func handleFullScreenOpen(index: Int)
     func getModelItem(index: Int) -> PostImagesModel.CellImage
     func addPhoto(image: UIImage)
+    var anyObject: [AnyObject] {get set}
+    func deletePhoto(index: Int)
 
 }
 

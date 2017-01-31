@@ -35,15 +35,36 @@ extension SelectImagePresenter: SelectImageViewOutput {
         view.openGallary()
     }
     
-    func cropImage(image: [UIImage], buttons: [UIButton], delegate: SelectImageContainerProtocol?) -> UIImageView{
+    func cropImage(image: [UIImage], buttons: [UIButton]?, delegate: SelectImageContainerProtocol?) -> UIImageView{
         self.smallImage = image[0]
         self.bigImage = image[1].RBResizeImage(targetSize: CGSize.init(width: 1080, height: image[1].bigHeightSize()), staticWidth: true)
         delegate?.passImage(small: self.smallImage!, big: self.bigImage!)
-        for button in buttons {
-            view.removeButton(button: button)
+        if let buttonArray = buttons {
+            for button in buttonArray {
+                view.removeButton(button: button)
+            }
         }
         let imageView = UIImageView.init(image: self.bigImage)
         return imageView
+    }
+    
+    func showActionSheet() {
+        let actionSheet = UIAlertController(title: "", message: "Replace image", preferredStyle: .actionSheet)
+        let camera = UIAlertAction(title: "Choose from camera", style: .default, handler: {
+            res in
+            self.view.openCamera()
+        })
+        let gallery = UIAlertAction(title: "Choose from gallary", style: .default, handler: {
+            res in
+            self.view.openGallary()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            cancel in
+        })
+        actionSheet.addAction(camera)
+        actionSheet.addAction(gallery)
+        actionSheet.addAction(cancel)
+        view.presentActionSheet(actionSheet: actionSheet)
     }
 }
 

@@ -23,6 +23,7 @@ class User : Object {
     
     func checkUser(id: String) -> Bool {
         let realm = try! Realm()
+        print("user id = \(realm.objects(User.self).filter("online = %s", true).first?.id)")
         if realm.objects(User.self).filter("online = %s", true).first?.id == id {
             return true
         } else {

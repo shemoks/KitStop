@@ -41,14 +41,6 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
         }
     }
 
-    func openFullScreen(index: Int, images: [UIImage], isEdit: Bool) {
-//        flowController.openModule(using: .openUnderConstruction) {
-//            guard let moduleInput = $0 as? UnderConstructionModuleInput else {fatalError()}
-//            return nil
-//        }
-
-    }
-
     func openChatModule() {
         flowController.openModule(using: .openUnderConstruction) {
             guard let moduleInput = $0 as? UnderConstructionModuleInput else {fatalError()}
