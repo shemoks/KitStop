@@ -11,6 +11,6 @@
 protocol CreatePostInteractorInput: class {
 
    func getStructure(forSale: Bool, idCategory: String)
-   func getObject(post: Post)
+   func getObject(post: Post, model: PostImagesModel)
 
 }

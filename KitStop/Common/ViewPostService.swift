@@ -445,7 +445,6 @@ class ViewPostService: NSObject, ViewPostServiceProtocol {
                                     arrProducts.metadata.append(resultValue.property)
                                 case 3:
                                     arrProducts.description = resultValue.property
-                                    arrProducts.description = resultValue.property
                                 default:
                                     arrProducts.notes = resultValue.property
                                 }
