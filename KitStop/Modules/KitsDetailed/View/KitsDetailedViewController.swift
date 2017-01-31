@@ -51,6 +51,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
         let openListForKits = UIAlertAction.init(title: "List For Kits", style: .default, handler: {
             result in
+            self.presenter.handleKit()
         })
             let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
             let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
@@ -70,6 +71,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         } else {
             let openListForSale = UIAlertAction.init(title: "List For Sales", style: .default, handler: {
                 result in
+                self.presenter.handleKitForSale()
             })
             let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
                 result in

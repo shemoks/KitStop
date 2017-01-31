@@ -48,7 +48,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
         }
     }
 
-    func getObject(post: Post) {
+    func getObject(post: Post, model: PostImagesModel) {
         if post.images.contains(UIImage.init(named: "required")!) {
             presenter.showError(title: "Error", message: "Please add at least one photo")
         } else {
@@ -76,19 +76,15 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.categoryId = post.categoryId
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description
-                for image in post.images {
-                    if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "cameraForSave") {
-                        newImages.append(image)
-                    }
-                }
                 newPost.images = newImages
                 newPost.metadata = post.metadata
                 newPost.notes = post.notes
                 newPost.salesDetails = post.salesDetails
                 newPost.owner = post.owner
+                newPost.mainImageObject = post.mainImageObject
                 newPost.otherProperty = post.otherProperty
                 newPost.mainImageObject = post.mainImageObject
-                presenter.setPost(post: newPost)
+                presenter.setPost(post: newPost, model: model)
             }
         }
     }

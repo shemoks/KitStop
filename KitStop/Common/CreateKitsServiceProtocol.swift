@@ -11,6 +11,8 @@ import Alamofire
 
 protocol CreateKitsServiceProtocol {
     func createKit(kit: CreateKitsRequestBody, completion: @escaping (Bool, _ error: Int?, _ id: String?) -> ())
+    func updateKit(id: String, kit: CreateKitsRequestBody, completion: @escaping (Bool, _ error: Int?, _ id: String?) -> ())
+
 }
 
 

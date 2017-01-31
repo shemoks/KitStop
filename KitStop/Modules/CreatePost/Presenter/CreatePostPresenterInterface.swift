@@ -21,13 +21,14 @@ protocol CreatePostViewOutput: class {
     func numberOfPhoto() -> Int
     func descriptions(for indexPath: IndexPath)-> Property
     func notes(for indexPath: IndexPath)-> Property
-    func handleCollectionCellTap(for indexPath: IndexPath)
-    func setPhoto(photo: UIImage)
     func getTittle() -> String
     func handleNextTap()
     func isSelectedCell(inSection: Int, for: IndexPath)
     func setMainPhoto(photo: UIImage)
     func setIsNotMainImage() -> Bool
+    func handleFullScreenOpen(index: Int)
+    func getModelItem(index: Int) -> PostImagesModel.CellImage
+    func addPhoto(image: UIImage)
 
 }
 
@@ -38,7 +39,7 @@ protocol CreatePostInteractorOutput: class {
     func setStructure(post: Post)
     func showError(title: String, message: String)
     func selectMistakes()
-    func setPost(post: Post)
+    func setPost(post: Post, model: PostImagesModel)
 
 }
 
@@ -48,6 +49,7 @@ protocol CreatePostModuleInput: ModuleInput {
     
     func valuesFromCategoryList(forSale: Bool, idCategory: String)
     func setKitEdit(post: Post)
+    func setUpdate(shouldUpdate: Bool)
     func setForSaleEdit(post: Post)
 
 }
