@@ -32,12 +32,12 @@ protocol KitsDetailedViewOutput: class {
     func changeLike(like: UIButton)
     func isPrivatePost() -> Bool
     func removePost()
-    func openFullScreen(index: Int, images: [String], isEdit: Bool)
     func openEditForSale()
     func openEditKit()
     func handleKit()
     func handleKitForSale()
     func getNumber() -> Int
+    func imageFromUrl() -> [URL]
     
 }
 
