@@ -181,13 +181,15 @@ extension CreatePostViewController: CreatePostViewInput {
 }
 extension CreatePostViewController: SwiftPhotoGalleryDelegate {
 
-    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
 
     }
 
     func deletePhoto(index: Int) {
-  
+        presenter.anyObject.remove(at: index)
+        presenter.deletePhoto(index: index)
     }
+
 
 }
 

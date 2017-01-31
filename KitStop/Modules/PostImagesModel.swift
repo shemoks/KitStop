@@ -58,8 +58,10 @@ class PostImagesModel {
             let left = maxLimit - items.count
 
             if left > 0 {
-                for _ in 1...left {
-                    toReturn.append(.Blank)
+                for i in 0...left {
+                    if i != left && i != 0 {
+                        toReturn.append(.Blank)
+                    }
                 }
             }
 

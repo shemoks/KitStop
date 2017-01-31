@@ -16,6 +16,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
     @IBOutlet weak var tableView: UITableView!
     var presenter: KitsDetailedViewOutput!
+    let headerView = CaruselHeader()
 
 
 
@@ -130,15 +131,15 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
     }
 
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
-        let headerView = CaruselHeader()
+
         headerView.onTouch = {
-             self.presenter.changeLike(like: headerView.like)
+             self.presenter.changeLike(like: self.headerView.like)
         }
         headerView.carusel.heightCell = view.frame.width
         setSizeForCell(header: headerView)
         headerView.carusel.images = presenter.getImages()
         let numberOfPages = presenter.getImages().count
-        let currentNumberImage = presenter.getNumber()
+        let currentNumberImage = 0
         let currentIndex = IndexPath(item: currentNumberImage, section: 0)
         if numberOfPages > 1 {
              headerView.carusel.pageControl.isHidden = false
@@ -168,12 +169,21 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         showAlertWithTitle(title, message: message, actions: action)
     }
 
+    func isVisibleTableView(flag: Bool) {
+        if flag {
+            tableView.isHidden = false
+        } else {
+            tableView.isHidden = true
+        }
+    }
+
 }
 
 extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
 
-    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
-
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
+         let index = IndexPath(item: index, section: 0)
+        headerView.carusel.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
     }
 
     func deletePhoto(index: Int) {

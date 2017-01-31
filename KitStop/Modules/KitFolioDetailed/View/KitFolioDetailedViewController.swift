@@ -116,8 +116,8 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     func showFullScreenImages() {
         // check true if you want see trash button and page control
-        let gallery = SwiftPhotoGallery(delegate: self, dataSource: self, trashButtonStatus: false, pageBeforeRotation: 0, page: 0)
-        present(gallery, animated: true, completion: nil)
+//        let gallery = SwiftPhotoGallery(delegate: self, dataSource: self, trashButtonStatus: false, pageBeforeRotation: 0, page: 0)
+//        present(gallery, animated: true, completion: nil)
     }
     
     func addXibOnView(view: UIView) {
@@ -231,7 +231,7 @@ extension KitFolioDetailedViewController: SwiftPhotoGalleryDataSource {
 }
 
 extension KitFolioDetailedViewController: SwiftPhotoGalleryDelegate {
-    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
         
     }
     
