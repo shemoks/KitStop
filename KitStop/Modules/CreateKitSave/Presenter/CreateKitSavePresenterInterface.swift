@@ -37,6 +37,7 @@ protocol CreateKitSaveModuleInput: ModuleInput {
 
     func setPost(post: Post)
     func setUpdate(shouldUpdate: Bool)
+    func setImages(images: PostImagesModel)
     
 }
 

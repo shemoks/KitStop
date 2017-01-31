@@ -29,7 +29,8 @@ final class CreateSaleConfirmPresenter {
     var limit: Int?
     var currentIndex: Int?
     var rates: RatesModel?
-    var shouldUpdate:Bool = false
+    var shouldUpdate = false
+    var images = PostImagesModel()
 
     func setReady(isReady: Bool) {
         for item in details {
@@ -217,6 +218,10 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
     
     func setUpdate(shouldUpdate: Bool) {
         self.shouldUpdate = shouldUpdate
+    }
+
+    func setImages(images: PostImagesModel){
+        self.images = images
     }
 }
 

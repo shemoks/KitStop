@@ -16,7 +16,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
     @IBOutlet weak var tableView: UITableView!
     // MARK: - VIPER stack
     @IBAction func NextTap(_ sender: Any) {
-                presenter.handleNextTap()
+        presenter.handleNextTap()
     }
 
     var presenter: CreatePostViewOutput!
@@ -288,7 +288,18 @@ extension CreatePostViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionViews: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.handleCollectionCellTap(for: indexPath)
+        let type = presenter.getModelItem(index: indexPath.row)
+        switch type {
+           case .Required:
+            self.setupAlert()
+        case .Add:
+            self.setupAlert()
+        case .Blank:
+            self.setupAlert()
+        default:
+            presenter.handleFullScreenOpen(index: indexPath.row)
+
+        }
     }
 
 
@@ -301,8 +312,8 @@ extension CreatePostViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionViews: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = headerView.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell
-        cell?.configure(image: presenter.photoProperty(for: indexPath))
+        let cell = headerView.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCellNew
+        cell?.configure(typeImage:presenter.getModelItem(index: indexPath.row))
         return cell!
     }
 
@@ -319,7 +330,7 @@ extension CreatePostViewController: UIImagePickerControllerDelegate {
         if presenter.setIsNotMainImage() == false {
              self.presenter.setMainPhoto(photo: editedImage!)
         }
-        presenter.setPhoto(photo: imageToSave!)
+        presenter.addPhoto(image: imageToSave!)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
