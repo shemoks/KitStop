@@ -148,11 +148,6 @@ public class SwiftPhotoGallery: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.black
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> 4bfc0aa003243c1687815bba2389ed1d0d1515c5
         if numberOfImages > 1 {
             self.hidePageControl = false
         } else {

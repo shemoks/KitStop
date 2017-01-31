@@ -79,6 +79,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
 extension MainFilterContainerViewController: MainFilterContainerViewInput {
     func transferKits(kits: [Product]) {
         filter.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
+        transferData?.clearKitsPage()
         transferData?.kitItems(transferData: kits)
     }
 }
