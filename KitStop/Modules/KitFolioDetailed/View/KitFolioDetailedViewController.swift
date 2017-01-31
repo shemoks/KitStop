@@ -116,7 +116,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     func showFullScreenImages() {
         // check true if you want see trash button and page control
-        let gallery = SwiftPhotoGallery.init(delegate: self, dataSource: self, trashButtonStatus: false)
+        let gallery = SwiftPhotoGallery(delegate: self, dataSource: self, trashButtonStatus: false, pageBeforeRotation: 0, page: 0)
         present(gallery, animated: true, completion: nil)
     }
     
@@ -221,8 +221,12 @@ extension KitFolioDetailedViewController: SwiftPhotoGalleryDataSource {
         return 1
     }
     
-    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> UIImage? {
-        return image.image
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> AnyObject? {
+        if let image = image.image {
+            return image
+        } else {
+            return UIImage(named: "placeholder500x500")
+        }
     }
 }
 
@@ -230,5 +234,8 @@ extension KitFolioDetailedViewController: SwiftPhotoGalleryDelegate {
     func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
         
     }
-
+    
+    func deletePhoto(index: Int) {
+        // Some: imageArr.remove(at: index)
+    }
 }

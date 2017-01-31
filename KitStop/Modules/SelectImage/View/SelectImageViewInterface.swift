@@ -13,4 +13,5 @@ protocol SelectImageViewInput: class {
     func openCamera()
     func openGallary()
     func removeButton(button: UIButton)
+    func presentActionSheet(actionSheet: UIAlertController)
 }

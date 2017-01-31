@@ -175,7 +175,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
     
     func addEditActionSheet() {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let delete = UIAlertAction.init(title: "Delete post", style: .default, handler: {
+        let delete = UIAlertAction.init(title: "Delete post", style: .destructive, handler: {
             result in
             let yes = UIAlertAction.init(title: "Yes", style: .default, handler: {
                 result in
@@ -245,7 +245,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
             result in
             self.view.refreshDataAfterUpdate()
         })
-        view.showSuccessAlert(title: "Success", message: "Update success", action: [ok])
+        view.showSuccessAlert(title: "Success", message: "Update completed", action: [ok])
     }
 }
 
