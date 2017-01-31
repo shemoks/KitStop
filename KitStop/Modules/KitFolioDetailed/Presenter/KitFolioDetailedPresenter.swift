@@ -29,6 +29,7 @@ final class KitFolioDetailedPresenter {
     var bigImage: UIImage?
     var product: Product?
     var imageChange: Bool = false
+    var mainOriginalImageUrl: String?
 }
 
 // MARK: - KitFolioDetailedViewOutput
@@ -182,7 +183,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
                 self.deletePost()
             })
             let no = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
-            self.view.showSuccessAlert(title: "Delete", message: "Are you sure to delete this item?", action: [yes, no])
+            self.view.showSuccessAlert(title: "Delete", message: "Are you sure you want to delete this item?", action: [yes, no])
         })
         let edit = UIAlertAction.init(title: "Edit", style: .default, handler: {
             result in
@@ -245,7 +246,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
             result in
             self.view.refreshDataAfterUpdate()
         })
-        view.showSuccessAlert(title: "Success", message: "Update completed", action: [ok])
+        view.showSuccessAlert(title: "Success", message: "Post is successfully updated", action: [ok])
     }
 }
 
