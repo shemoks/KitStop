@@ -76,12 +76,12 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.categoryId = post.categoryId
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description
-        //        newImages = model.forGallary
                 newPost.images = newImages
                 newPost.metadata = post.metadata
                 newPost.notes = post.notes
                 newPost.salesDetails = post.salesDetails
                 newPost.owner = post.owner
+                newPost.mainImageObject = post.mainImageObject
                 newPost.otherProperty = post.otherProperty
                 newPost.mainImageObject = post.mainImageObject
                 presenter.setPost(post: newPost, model: model)

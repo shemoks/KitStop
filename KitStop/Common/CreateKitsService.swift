@@ -62,4 +62,44 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                 }
                                                               })
     }
+    
+    func updateKit(id: String, kit: CreateKitsRequestBody, completion: @escaping (Bool, Int?, String?) -> ()) {
+        let title = kit.title as AnyObject
+        let brandName = kit.brand as AnyObject
+        let model = kit.model as AnyObject
+        let serialNumber = kit.serialNumber as AnyObject
+        let purchaseDate = kit.purchaseDate as AnyObject
+        let purchasePrice = kit.purchasePrice as AnyObject
+        let category = kit.category as AnyObject
+        let description = kit.description as AnyObject
+        let notes = kit.notes as AnyObject
+        let mainImage = kit.mainImage as AnyObject
+        let images = kit.images as AnyObject
+        let tags = kit.tags as AnyObject
+        let metaData = kit.metaData as AnyObject
+        let isPrivate = kit.isPrivate as AnyObject
+        let _ = manager.apiRequest(.updateKit(id: id), parameters: ["title" : title, "brand" : brandName,
+                                                              "model":model, "serialNumber": serialNumber,
+                                                              "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
+                                                              "category": category,
+                                                              "description": description,
+                                                              "notes": notes, "mainImage": mainImage,
+                                                              "images": images,
+                                                              "tags": tags, "metaData": metaData,
+                                                              "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
+                                                                response in
+                                                                switch response.result {
+                                                                case .success(let json):
+                                                                    if json["success"].boolValue {
+                                                                        completion(true, nil, json["data"]["_id"].stringValue)
+                                                                    } else {
+                                                                        print(response.result.value as Any)
+                                                                        completion(false, response.response?.statusCode, nil)
+                                                                    }
+                                                                case .failure(let error):
+                                                                    print(error)
+                                                                    completion(false, (error as NSError).code, nil)
+                                                                }
+                                                              })
+    }
 }

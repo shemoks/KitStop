@@ -49,6 +49,7 @@ protocol CreatePostModuleInput: ModuleInput {
     
     func valuesFromCategoryList(forSale: Bool, idCategory: String)
     func setKitEdit(post: Post)
+    func setUpdate(shouldUpdate: Bool)
     func setForSaleEdit(post: Post)
 
 }

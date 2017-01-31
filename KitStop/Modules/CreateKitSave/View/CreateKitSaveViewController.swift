@@ -34,7 +34,6 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         
         tableView.register(UINib(nibName: "KitInfoCell", bundle: nil), forCellReuseIdentifier: "KitInfoCell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
-
     }
     
     func tapOnSave() {

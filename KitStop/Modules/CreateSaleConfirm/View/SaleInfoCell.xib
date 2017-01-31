@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5OM-mm-Cyp" id="DdW-Tf-ZjO">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBN-wJ-z1d">
@@ -44,7 +44,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="lBN-wJ-z1d" firstAttribute="leading" secondItem="DdW-Tf-ZjO" secondAttribute="leading" constant="18" id="0zA-bF-y11"/>
                     <constraint firstItem="lBN-wJ-z1d" firstAttribute="top" secondItem="DdW-Tf-ZjO" secondAttribute="top" constant="8" id="DEs-Fc-TfQ"/>

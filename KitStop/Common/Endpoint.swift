@@ -11,7 +11,7 @@ import Alamofire
 
 enum Endpoint {
     
-  //  static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
+    //  static let baseURL = URL(string: "http://34.194.202.148:8443/api/v1")!
     static let baseURL = URL(string: "http://34.198.24.119:8443/api/v1")!
     
     case login()
@@ -38,6 +38,8 @@ enum Endpoint {
     case removeKit(idKit: String)
     case removeKitForSale(idKit: String)
     case rates()
+    case updateKit(id: String)
+    case updateKitForSale(id: String)
     
     // MARK: - Public Properties
     var httpMethod: Alamofire.HTTPMethod{
@@ -61,6 +63,10 @@ enum Endpoint {
         case .removeKitForSale:
             return .delete
         case .saveKitFolio:
+            return .patch
+        case .updateKit:
+            return .patch
+        case .updateKitForSale:
             return .patch
         default:
             return .get
@@ -108,21 +114,25 @@ enum Endpoint {
         case .removeKitForSale(let idKit):
             return ("/kits-for-sale/" + idKit)
         case .createKitForSale():
-            return "kits-for-sale"
+            return "/kits-for-sale"
+        case .updateKit(let id):
+            return "/kits/\(id)"
+        case .updateKitForSale(let id):
+            return "/kits-for-sale/\(id)"
         case .rates():
-            return "rates"
+            return "/rates"
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .createKitFolio(), .createKit(), .createKitForSale(), .saveKitFolio:
+        case .createKitFolio(), .createKit(), .createKitForSale(), .saveKitFolio, .updateKit, .updateKitForSale:
             return JSONEncoding.default
         default:
             return URLEncoding.default
         }
     }
-
+    
     
     var url: URL {
         let baseUrl = Endpoint.baseURL
