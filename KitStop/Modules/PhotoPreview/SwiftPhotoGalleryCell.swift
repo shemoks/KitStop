@@ -122,11 +122,14 @@ class SwiftPhotoGalleryCell: UICollectionViewCell {
             imageView.image = img
             setup()
         } else {
-            imageView.sd_setImage(with: image as! URL)
-            imageView.sd_setImage(with: image as! URL, completed: {
+            imageView.sd_setImage(with: image as! URL, placeholderImage: UIImage(named: "placeholder1080x1080"), options: [], completed: {
                 completed in
                 self.setup()
             })
+//            imageView.sd_setImage(with: image as! URL, completed: {
+//                completed in
+//                self.setup()
+//            })
         }
     }
     

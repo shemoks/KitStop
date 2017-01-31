@@ -172,7 +172,7 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
 
 extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
 
-    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
 
     }
 

@@ -225,13 +225,17 @@ extension KitFolioDetailedViewController: SwiftPhotoGalleryDataSource {
         if let image = image.image {
             return image
         } else {
-            return UIImage(named: "placeholder500x500")
+            if let main = presenter.product {
+                return URL(string: main.mainImage) as AnyObject?
+            } else {
+                return UIImage(named: "placeholder500x500")
+            }
         }
     }
 }
 
 extension KitFolioDetailedViewController: SwiftPhotoGalleryDelegate {
-    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
         
     }
     

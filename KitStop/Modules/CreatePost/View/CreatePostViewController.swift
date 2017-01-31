@@ -181,7 +181,7 @@ extension CreatePostViewController: CreatePostViewInput {
 }
 extension CreatePostViewController: SwiftPhotoGalleryDelegate {
 
-    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
 
     }
 

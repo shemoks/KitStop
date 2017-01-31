@@ -15,7 +15,7 @@ import UIKit
 }
 
 @objc public protocol SwiftPhotoGalleryDelegate {
-    func galleryDidTapToClose(gallery:SwiftPhotoGallery)
+    func galleryDidTapToClose(gallery:SwiftPhotoGallery, index: Int)
     func deletePhoto(index: Int)
 }
 
@@ -149,7 +149,7 @@ public class SwiftPhotoGallery: UIViewController {
         
         view.backgroundColor = UIColor.black
         
-        if trashButtonStatus {
+        if numberOfImages > 1 {
             self.hidePageControl = false
         } else {
             self.hidePageControl = true
@@ -251,12 +251,12 @@ public class SwiftPhotoGallery: UIViewController {
                 self.navBar?.alpha = 1.0
             }
         }, completion: nil)
-
     }
     
     public func close(recognizer: UITapGestureRecognizer) {
-        dismiss(animated: true, completion: nil)
-        //delegate?.galleryDidTapToClose(gallery: self)
+        dismiss(animated: true, completion: {
+            self.delegate?.galleryDidTapToClose(gallery: self, index: self.currentPage)
+        })
     }
     
     
