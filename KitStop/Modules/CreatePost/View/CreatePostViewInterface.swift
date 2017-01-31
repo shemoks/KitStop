@@ -10,9 +10,10 @@
 
 protocol CreatePostViewInput: class {
 
-   func reloadData()
-   func openGallery()
-   func showError(title: String, message: String)
-   func setupAlert()
-
+    func reloadData()
+    func openGallery()
+    func showError(title: String, message: String)
+    func setupAlert()
+    func returnImages(images: [AnyObject], index: Int)
+    
 }

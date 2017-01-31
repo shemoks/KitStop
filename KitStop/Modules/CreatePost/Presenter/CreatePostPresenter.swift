@@ -28,7 +28,7 @@ final class CreatePostPresenter {
     var isNotMainImage: Bool = false
     var shouldUpdate = false
     var model = PostImagesModel()
-
+    var anyObject = [AnyObject]()
 }
 
 // MARK: - CreatePostViewOutput
@@ -77,21 +77,18 @@ extension CreatePostPresenter: CreatePostViewOutput {
 
     func handleFullScreenOpen(index: Int) {
         let images = model.forGallery
-        var imagesForView = [UIImage]()
-        var imagesForViewURL = [URL]()
+        anyObject.removeAll()
         for item in images {
             switch item {
             case .Actual(let image):
-                imagesForView.append(image)
+                anyObject.append(image)
             case .Remote(let url):
-                imagesForViewURL.append(url)
+                anyObject.append(url as AnyObject)
             default: break
             }
 
         }
-        if imagesForView.count > 0 {
-
-        }
+        view.returnImages(images: anyObject, index: index)
 
     }
 

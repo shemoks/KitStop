@@ -138,10 +138,13 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         setSizeForCell(header: headerView)
         headerView.carusel.images = presenter.getImages()
         let numberOfPages = presenter.getImages().count
+        let currentNumberImage = presenter.getNumber()
+        let currentIndex = IndexPath(item: currentNumberImage, section: 0)
         if numberOfPages > 1 {
              headerView.carusel.pageControl.isHidden = false
              headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
-             headerView.carusel.pageControl.currentPage = 0
+             headerView.carusel.collectionView.scrollToItem(at: currentIndex, at: .centeredHorizontally, animated: false)
+             headerView.carusel.pageControl.currentPage = currentNumberImage
         } else {
             headerView.carusel.pageControl.isHidden = true
             headerView.carusel.pageControl.numberOfPages = 0
@@ -156,8 +159,8 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         tableView.tableFooterView = footerView
         self.navigationItem.rightBarButtonItem = presenter.updateData(xib: headerView.actualView!) ?          UIBarButtonItem.init(image: UIImage.init(named: "Icons_action_sheet"), style: .done, target: self, action: #selector(sheetsView)) : UIBarButtonItem.init(image: UIImage.init(named: "Conv"), style: .done, target: self, action: #selector(openChatModule))
         headerView.carusel.onTouch = { index, arrayImages, isEdit in
-            self.presenter.openFullScreen(index: index, images: arrayImages, isEdit: isEdit)
-
+            let gallery = SwiftPhotoGallery(delegate: self, dataSource: self, trashButtonStatus: isEdit, pageBeforeRotation: index, page: index)
+            self.present(gallery, animated: true, completion: nil)
         }
     }
 
@@ -165,6 +168,29 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         showAlertWithTitle(title, message: message, actions: action)
     }
 
+}
+
+extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
+
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+
+    }
+
+    func deletePhoto(index: Int) {
+
+    }
+
+}
+
+extension KitsDetailedViewController: SwiftPhotoGalleryDataSource {
+
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> AnyObject? {
+        return presenter.imageFromUrl()[forIndex] as AnyObject?
+    }
+
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return presenter.imageFromUrl().count
+    }
 }
 
 extension KitsDetailedViewController: BottomBarTransitionProtocol {

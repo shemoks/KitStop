@@ -22,6 +22,7 @@ final class KitsDetailedPresenter {
     var ownerId: String = ""
     var sectionSale: Bool = true
     fileprivate var likeStatus = true
+    var numberItem: Int = 0
 
 }
 
@@ -128,6 +129,14 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         return images
     }
 
+    func imageFromUrl() -> [URL] {
+        var urlArray = [URL]()
+        for url in self.getImages() {
+            urlArray.append(URL(string: url)!)
+        }
+        return urlArray
+    }
+
     func changeLike(like: UIButton) {
         if likeStatus {
             like.setImage(UIImage.init(named: "like_active"), for: .normal)
@@ -147,18 +156,6 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         interactor.removePost(section: sectionSale, idPost: self.post.id)
     }
 
-    func openFullScreen(index: Int, images: [String], isEdit: Bool) {
-        var newImages = [UIImage]()
-        for image in images {
-            let urlValue = URL(string: image)
-            if urlValue != nil {
-                let data = NSData(contentsOf: urlValue!)
-                newImages.append(UIImage(data: data! as Data)!)
-            }
-        }
-        router.openFullScreen(index: index, images: newImages, isEdit: isEdit)
-    }
-
     func openEditForSale() {
         router.openEditForSale(post: self.post)
     }
@@ -173,6 +170,10 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
 
     func handleKitForSale() {
         interactor.getPostAsKit(idPost: self.post.id)
+    }
+
+    func getNumber() -> Int {
+        return self.numberItem
     }
 
 }
