@@ -9,6 +9,6 @@
 // MARK: - CreateKitSaveInteractorInput
 
 protocol CreateKitSaveInteractorInput: class {
-    func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post)
-    func updateKit(price: String?, date: String?, isPrivate:Bool, post:Post)
+    func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post, images: PostImagesModel)
+    func updateKit(price: String?, date: String?, isPrivate:Bool, post:Post, images: PostImagesModel)
 }

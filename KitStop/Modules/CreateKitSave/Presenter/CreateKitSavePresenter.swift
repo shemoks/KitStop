@@ -50,9 +50,9 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     
     func handleSaveTap() {
         if shouldUpdate {
-            interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!)
+            interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images)
         } else {
-            interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!)
+            interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images)
         }
   
     }
@@ -107,7 +107,7 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
                 case "Purchase Date":
                     if !item.textValue.isEmpty {
                              let currentDate = Date(timeIntervalSince1970: Double(item.textValue)!).string(format: "dd/MMM/yyyy")
-                        details.first?.contents = item.currentData
+                        details.first?.contents = currentDate
                    
                         self.date = currentDate
                     }
