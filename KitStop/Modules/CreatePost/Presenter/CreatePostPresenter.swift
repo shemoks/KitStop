@@ -136,6 +136,24 @@ extension CreatePostPresenter: CreatePostViewOutput {
         return self.model.toDisplay[index]
     }
 
+    func deletePhoto(index: Int) {
+        var i = 0
+        model.remove(index: index)
+        for item in model.forGallery {
+            switch item {
+            case .Actual(let image):
+                i += 1
+            case .Remote(let url):
+                i += 1
+            default: break
+            }
+        }
+        if i == 0 {
+            self.isNotMainImage = false
+        }
+        view.reloadData()
+    }
+
 }
 
 // MARK: - CreatePostInteractorOutput

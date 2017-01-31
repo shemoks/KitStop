@@ -36,7 +36,6 @@ protocol KitsDetailedViewOutput: class {
     func openEditKit()
     func handleKit()
     func handleKitForSale()
-    func getNumber() -> Int
     func imageFromUrl() -> [URL]
     
 }

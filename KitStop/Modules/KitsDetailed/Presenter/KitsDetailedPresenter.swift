@@ -70,7 +70,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
 
     func handleViewDidLoad() {
         // interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
-        view.reloadData()
+       //view.reloadData()
 
     }
 
@@ -165,16 +165,15 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleKit() {
-        interactor.getPostAsForSale(idPost: self.post.id)
+        router.openChatModule()
+       // interactor.getPostAsForSale(idPost: self.post.id)
     }
 
     func handleKitForSale() {
-        interactor.getPostAsKit(idPost: self.post.id)
+        router.openChatModule()
+       // interactor.getPostAsKit(idPost: self.post.id)
     }
 
-    func getNumber() -> Int {
-        return self.numberItem
-    }
 
 }
 
@@ -198,6 +197,7 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
             }
         }
         view.reloadData()
+        view.isVisibleTableView(flag: true)
     }
 
     func showError(title: String, message: String) {

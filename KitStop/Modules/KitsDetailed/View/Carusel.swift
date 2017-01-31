@@ -127,7 +127,7 @@ extension Carusel: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CaruselCell", for: indexPath) as! CaruselCell
         let urlValue = URL(string: images[indexPath.row])
         if urlValue != nil {
-            cell.photo.sd_setImage(with: urlValue)
+            cell.photo.sd_setImage(with: urlValue, placeholderImage: UIImage(named: "placeholder1080x1080"))
         }
         return cell
     }

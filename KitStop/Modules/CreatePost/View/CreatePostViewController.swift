@@ -186,8 +186,10 @@ extension CreatePostViewController: SwiftPhotoGalleryDelegate {
     }
 
     func deletePhoto(index: Int) {
-  
+        presenter.anyObject.remove(at: index)
+        presenter.deletePhoto(index: index)
     }
+
 
 }
 

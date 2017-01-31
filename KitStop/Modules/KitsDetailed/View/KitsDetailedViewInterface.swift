@@ -16,5 +16,6 @@ protocol KitsDetailedViewInput: class {
     func showError(title: String, message: String)
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String)
     func showSuccessAlert(title: String, message: String, action: [UIAlertAction])
+    func isVisibleTableView(flag: Bool)
 
 }
