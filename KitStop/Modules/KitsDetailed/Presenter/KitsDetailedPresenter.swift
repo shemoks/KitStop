@@ -22,6 +22,7 @@ final class KitsDetailedPresenter {
     var ownerId: String = ""
     var sectionSale: Bool = true
     fileprivate var likeStatus = true
+    var numberItem: Int = 0
 
 }
 
@@ -173,6 +174,10 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
 
     func handleKitForSale() {
         interactor.getPostAsKit(idPost: self.post.id)
+    }
+
+    func getNumber() -> Int {
+        return self.numberItem
     }
 
 }

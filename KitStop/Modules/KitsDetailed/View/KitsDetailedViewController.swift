@@ -138,10 +138,13 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         setSizeForCell(header: headerView)
         headerView.carusel.images = presenter.getImages()
         let numberOfPages = presenter.getImages().count
+        let currentNumberImage = presenter.getNumber()
+        let currentIndex = IndexPath(item: currentNumberImage, section: 0)
         if numberOfPages > 1 {
              headerView.carusel.pageControl.isHidden = false
              headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
-             headerView.carusel.pageControl.currentPage = 0
+             headerView.carusel.collectionView.scrollToItem(at: currentIndex, at: .centeredHorizontally, animated: false)
+             headerView.carusel.pageControl.currentPage = currentNumberImage
         } else {
             headerView.carusel.pageControl.isHidden = true
             headerView.carusel.pageControl.numberOfPages = 0
