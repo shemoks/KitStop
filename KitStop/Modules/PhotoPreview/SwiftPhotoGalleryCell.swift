@@ -9,7 +9,7 @@
 import UIKit
 
 class SwiftPhotoGalleryCell: UICollectionViewCell {
-    var image:UIImage? {
+    var image:AnyObject? {
         didSet {
             configureForNewImage()
         }
@@ -118,7 +118,19 @@ class SwiftPhotoGalleryCell: UICollectionViewCell {
     }
     
     func configureForNewImage() {
-        imageView.image = image
+        if let img = image as? UIImage {
+            imageView.image = img
+            setup()
+        } else {
+            imageView.sd_setImage(with: image as! URL)
+            imageView.sd_setImage(with: image as! URL, completed: {
+                completed in
+                self.setup()
+            })
+        }
+    }
+    
+    func setup() {
         imageView.sizeToFit()
         imageView.alpha = 0.0
         
@@ -128,6 +140,7 @@ class SwiftPhotoGalleryCell: UICollectionViewCell {
         UIView.animate(withDuration: 0.5) {
             self.imageView.alpha = 1.0
         }
+        
     }
     
     // MARK: Private Methods

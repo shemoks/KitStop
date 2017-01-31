@@ -11,11 +11,12 @@ import UIKit
 
 @objc public protocol SwiftPhotoGalleryDataSource {
     func numberOfImagesInGallery(gallery:SwiftPhotoGallery) -> Int
-    func imageInGallery(gallery:SwiftPhotoGallery, forIndex:Int) -> UIImage?
+    func imageInGallery(gallery:SwiftPhotoGallery, forIndex:Int) -> AnyObject?
 }
 
 @objc public protocol SwiftPhotoGalleryDelegate {
     func galleryDidTapToClose(gallery:SwiftPhotoGallery)
+    func deletePhoto(index: Int)
 }
 
 public class SwiftPhotoGallery: UIViewController {
@@ -88,13 +89,16 @@ public class SwiftPhotoGallery: UIViewController {
     private var needsLayout = true
     fileprivate var navBar: UINavigationBar?
     fileprivate var trashButtonStatus: Bool = false
+    fileprivate var page: Int = 0
     
-    public init(delegate: SwiftPhotoGalleryDelegate, dataSource: SwiftPhotoGalleryDataSource, trashButtonStatus: Bool) {
+    public init(delegate: SwiftPhotoGalleryDelegate, dataSource: SwiftPhotoGalleryDataSource, trashButtonStatus: Bool, pageBeforeRotation: Int, page: Int) {
         super.init(nibName: nil, bundle: nil)
         
         self.dataSource = dataSource
         self.delegate = delegate
         self.trashButtonStatus = trashButtonStatus
+        self.pageBeforeRotation = pageBeforeRotation
+        self.page = page
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -178,7 +182,14 @@ public class SwiftPhotoGallery: UIViewController {
     
     func deleteImages() {
         let alertController = UIAlertController(title: "Delete", message: "Are you want delete photo", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "Yes", style: .default, handler: nil)
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: {
+            result in
+            if self.numberOfImages > 1 {
+                self.delegate?.deletePhoto(index: self.pageControl.currentPage)
+                self.imageCollectionView.reloadData()
+                self.pageControl.numberOfPages = self.numberOfImages
+            }
+        })
         let no = UIAlertAction(title: "No", style: .default, handler: nil)
         alertController.addAction(no)
         alertController.addAction(yes)
@@ -245,7 +256,7 @@ public class SwiftPhotoGallery: UIViewController {
     
     public func close(recognizer: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)
-        delegate?.galleryDidTapToClose(gallery: self)
+        //delegate?.galleryDidTapToClose(gallery: self)
     }
     
     
@@ -312,7 +323,7 @@ public class SwiftPhotoGallery: UIViewController {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         
         pageControl.numberOfPages = numberOfImages
-        pageControl.currentPage = 0
+        pageControl.currentPage = self.page
         
         pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor
         pageControl.pageIndicatorTintColor = pageIndicatorTintColor
@@ -345,7 +356,7 @@ public class SwiftPhotoGallery: UIViewController {
         imageCollectionView.scrollToItem(at: IndexPath(item: withIndex, section: 0), at: .centeredHorizontally, animated: animated)
     }
     
-    fileprivate func getImage(currentPage: Int) -> UIImage {
+    fileprivate func getImage(currentPage: Int) -> AnyObject {
         let imageForPage = dataSource?.imageInGallery(gallery: self, forIndex: currentPage)
         return imageForPage!
     }

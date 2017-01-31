@@ -52,6 +52,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     }
     
     func passData(selectedItem: Int) {
+        transferData?.clearKitsPage()
         kitSegmentControl.selectedSegmentIndex = selectedItem
         fetchKits()
     }
