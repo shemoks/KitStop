@@ -23,6 +23,11 @@ final class CustomInputViewController: UIViewController, FlowController {
     }
 
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.backBarButtonItem?.title = ""
+    }
+    
     @IBAction func saveTap(_ sender: Any) {
         presenter.returnOther(dataText: presenter.getText())
     }

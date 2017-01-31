@@ -50,8 +50,11 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
         if let index = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: index, animated: animated)
         }
-        
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .plain, target:nil, action:nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.backBarButtonItem?.title = ""
     }
     
     // MARK: - Actions

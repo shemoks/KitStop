@@ -2624,6 +2624,7 @@
 				557B64B595784B9710D04ED6 /* [CP] Embed Pods Frameworks */,
 				5CC46302B370845B522969D9 /* [CP] Copy Pods Resources */,
 				951B39731DF967E3001765C3 /* Run Script */,
+				95B69DBC1E407C5E00DF5F7A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2847,7 +2848,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		95B69DBC1E407C5E00DF5F7A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cf52b4ae7d2ecc89897b8a6eddf944b30e818777 76c57d2ad2f5ee792f55fc962a076c1eb2dd93d8dee8024b8a21a1bbe4994b76";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3290,7 +3304,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3308,8 +3322,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3324,7 +3338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3342,8 +3356,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -10,6 +10,8 @@ import UIKit
 import FBSDKLoginKit
 import IQKeyboardManagerSwift
 import RealmSwift
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         UINavigationBar.appearance().tintColor = UIColor().hexStringToUIColor(hex: "ff8830")
         UITabBar.appearance().tintColor = UIColor(colorLiteralRed: 255/255.0, green: 136/255.0, blue: 40/255.0, alpha: 1.0)
+
+        Fabric.with([Crashlytics.self])
+        
         // Override point for customization after application launch.
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
