@@ -27,6 +27,7 @@ final class CreateKitSavePresenter {
     var postId: String?
     var limit:Int?
     var shouldUpdate: Bool = false
+    var images = PostImagesModel()
 
 }
 
@@ -111,5 +112,9 @@ extension CreateKitSavePresenter: CreateKitSaveModuleInput {
 
     func setUpdate(shouldUpdate: Bool) {
         self.shouldUpdate = shouldUpdate
+    }
+
+    func setImages(images: PostImagesModel) {
+        self.images = images
     }
 }

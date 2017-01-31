@@ -27,6 +27,7 @@ final class CreatePostPresenter {
     var postForPrice = Post()
     var isNotMainImage: Bool = false
     var shouldUpdate = false
+    var model = PostImagesModel()
 
 }
 
@@ -54,7 +55,6 @@ extension CreatePostPresenter: CreatePostViewOutput {
         return self.post.notes
     }
 
-
     func numberOfGeneralProperties(inSection section: Int) -> Int {
         return post.generalProperty.count
     }
@@ -72,33 +72,27 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func numberOfPhoto() -> Int {
-        return self.images.count
+        return self.model.toDisplay.count
     }
 
-    func handleCollectionCellTap(for indexPath: IndexPath) {
-        if indexPath.row > currentIndex {
-            view.setupAlert()
-        } else {
-            var newImages = [UIImage]()
-            for image in self.images {
-                if image != UIImage.init(named: "blank1") && image != UIImage.init(named: "cameraForSave") {
-                    newImages.append(image!)
-                }
+    func handleFullScreenOpen(index: Int) {
+        let images = model.forGallery
+        var imagesForView = [UIImage]()
+        var imagesForViewURL = [URL]()
+        for item in images {
+            switch item {
+            case .Actual(let image):
+                imagesForView.append(image)
+            case .Remote(let url):
+                imagesForViewURL.append(url)
+            default: break
             }
-            // router.viewPhoto(index: indexPath.row, images: newImages, isEdit: true, viewPhotoModuleOutput: self)
-        }
-    }
 
-    func setPhoto(photo: UIImage) {
-        if currentIndex <= 4 {
-            self.currentIndex += 1
-            images[self.currentIndex] = photo
-            if self.currentIndex + 1 < 6 {
-                images[self.currentIndex + 1] = UIImage.init(named: "cameraForSave")
-            }
-            view.reloadData()
         }
-        self.isNotMainImage = true
+        if imagesForView.count > 0 {
+
+        }
+
     }
 
     func setIsNotMainImage() -> Bool {
@@ -110,8 +104,8 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func handleNextTap() {
-        self.post.images = self.images as! [UIImage]
-        interactor.getObject(post: self.post)
+        //        self.post.images = self.images as! [UIImage]
+        interactor.getObject(post: self.post, model: model)
     }
 
     func  isSelectedCell(inSection: Int, for indexPath: IndexPath) {
@@ -135,6 +129,16 @@ extension CreatePostPresenter: CreatePostViewOutput {
         self.post.mainImageObject = photo
     }
 
+    func addPhoto(image: UIImage) {
+        self.isNotMainImage = true
+        self.model.add(image: image)
+        view.reloadData()
+    }
+
+    func getModelItem(index: Int) -> PostImagesModel.CellImage {
+        return self.model.toDisplay[index]
+    }
+
 }
 
 // MARK: - CreatePostInteractorOutput
@@ -154,12 +158,13 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
         view.reloadData()
     }
 
-    func setPost(post: Post) {
+    func setPost(post: Post, model: PostImagesModel) {
         self.postForPrice = post
+        self.model = model
         if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
+            router.openSaveForSaleModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate)
         } else {
-            router.openSaveKitModule(post: self.postForPrice, shouldUpdate: self.shouldUpdate)
+            router.openSaveKitModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate)
         }
     }
 
@@ -185,31 +190,11 @@ extension CreatePostPresenter: CreatePostModuleInput {
         isForSale = false
         self.screenTitle = "Kits / "
         self.post = post
-        if post.imagesString.count == 0 {
-            post.imagesString.append(post.mainImage)
-        }
-        var newImages = [UIImage]()
         for image in post.imagesString {
             let urlValue = URL(string: image)
-            if urlValue != nil {
-                let data = NSData(contentsOf: urlValue!)
-                newImages.append(UIImage(data: data! as Data)!)
-            }
-        }
-        var imagesCount = newImages.count
-        if imagesCount < 7 {
-            newImages.append(UIImage.init(named: "cameraForSave")!)
-            imagesCount = newImages.count
-        }
-        if imagesCount < 6 {
-            for _ in imagesCount...5 {
-                newImages.append(UIImage.init(named: "blank1")!)
-            }
+            self.model.add(url: urlValue!)
         }
         self.isNotMainImage = true
-        self.currentIndex = post.imagesString.count + self.currentIndex
-        self.post.images = newImages
-        self.images = newImages
         self.shouldUpdate = true
     }
 
@@ -218,31 +203,11 @@ extension CreatePostPresenter: CreatePostModuleInput {
         isForSale = true
         self.screenTitle = "ForSale / "
         self.post = post
-        if post.imagesString.count == 0 {
-            post.imagesString.append(post.mainImage)
-        }
-        var newImages = [UIImage]()
         for image in post.imagesString {
-            let urlValue = URL(string: image)
-            if urlValue != nil {
-                let data = NSData(contentsOf: urlValue!)
-                newImages.append(UIImage(data: data! as Data)!)
-            }
-        }
-        var imagesCount = newImages.count
-        if imagesCount < 7 {
-            newImages.append(UIImage.init(named: "cameraForSave")!)
-            imagesCount = newImages.count
-        }
-        if imagesCount < 6 {
-            for _ in imagesCount...5 {
-                newImages.append(UIImage.init(named: "blank1")!)
-            }
+            let url = URL(string: image)
+            self.model.add(url: url!)
         }
         self.isNotMainImage = true
-        self.currentIndex = post.imagesString.count + self.currentIndex
-        self.post.images = newImages
-        self.images = newImages
         self.shouldUpdate = true
     }
 

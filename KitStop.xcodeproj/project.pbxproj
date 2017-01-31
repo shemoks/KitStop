@@ -387,6 +387,8 @@
 		9AE8DFEE1E2F7A7C00A78D6C /* HeaderKitsDetailed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFED1E2F7A7C00A78D6C /* HeaderKitsDetailed.xib */; };
 		9AE8DFF71E2F914C00A78D6C /* ViewDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFF51E2F914C00A78D6C /* ViewDescriptionCell.xib */; };
 		9AE8DFF81E2F914C00A78D6C /* ViewGeneralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFF61E2F914C00A78D6C /* ViewGeneralCell.xib */; };
+		9AE94D181E3F92B40080348C /* PostImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE94D171E3F92B40080348C /* PostImagesModel.swift */; };
+		9AE94D1A1E3F94BF0080348C /* PhotoCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE94D191E3F94BF0080348C /* PhotoCellNew.swift */; };
 		9AEAE2C91E30E31800D6D182 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAE2C81E30E31800D6D182 /* CategoryCell.xib */; };
 		FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA45285E1DF802F900B2AA03 /* Assets.xcassets */; };
 		FA45286D1DF802F900B2AA03 /* KitStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45286C1DF802F900B2AA03 /* KitStopTests.swift */; };
@@ -740,6 +742,8 @@
 		9AE8DFF31E2F8F0700A78D6C /* DescriptionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewCell.swift; sourceTree = "<group>"; };
 		9AE8DFF51E2F914C00A78D6C /* ViewDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewDescriptionCell.xib; sourceTree = "<group>"; };
 		9AE8DFF61E2F914C00A78D6C /* ViewGeneralCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewGeneralCell.xib; sourceTree = "<group>"; };
+		9AE94D171E3F92B40080348C /* PostImagesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostImagesModel.swift; path = ../Modules/PostImagesModel.swift; sourceTree = "<group>"; };
+		9AE94D191E3F94BF0080348C /* PhotoCellNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellNew.swift; sourceTree = "<group>"; };
 		9AEA5DA61E2E51AC008AEF11 /* ViewPostServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostServiceProtocol.swift; sourceTree = "<group>"; };
 		9AEA5DA81E2E51FF008AEF11 /* ViewPostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostService.swift; sourceTree = "<group>"; };
 		9AEAE2C81E30E31800D6D182 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
@@ -977,6 +981,7 @@
 				253220521E1BDBCB00BF96C1 /* Category(Add New Item).swift */,
 				95E453281E2CB37E002ABF74 /* KitDetailsModel.swift */,
 				95E4532A1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift */,
+				9AE94D171E3F92B40080348C /* PostImagesModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2069,6 +2074,7 @@
 				9A9D0FA41E1EBE4F0009274C /* DescriptionCell.swift */,
 				9A9D0FA81E2501E20009274C /* HeaderTableView.xib */,
 				9A9D0FAA1E2503A70009274C /* HeaderTableView.swift */,
+				9AE94D191E3F94BF0080348C /* PhotoCellNew.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2973,6 +2979,7 @@
 				9A45964B1E38B61F00FDC805 /* Carusel.swift in Sources */,
 				25EC084B1E37B55500BE8F06 /* MainFilterContainerPresenter.swift in Sources */,
 				25EC084C1E37B55500BE8F06 /* MainFilterContainerRouterInterface.swift in Sources */,
+				9AE94D181E3F92B40080348C /* PostImagesModel.swift in Sources */,
 				25EC084D1E37B55500BE8F06 /* MainFilterContainerRouter.swift in Sources */,
 				25EC084E1E37B55500BE8F06 /* MainAssember.swift in Sources */,
 				25EC084F1E37B55500BE8F06 /* MainViewController.swift in Sources */,
@@ -3063,6 +3070,7 @@
 				25EC08AA1E37B55600BE8F06 /* KitFolioCreatePresenterInterface.swift in Sources */,
 				25EC08AB1E37B55600BE8F06 /* KitFolioCreatePresenter.swift in Sources */,
 				25EC091C1E37B6DA00BE8F06 /* CreateSaleConfirmRouterInterface.swift in Sources */,
+				9AE94D1A1E3F94BF0080348C /* PhotoCellNew.swift in Sources */,
 				25EC08AC1E37B55600BE8F06 /* KitFolioCreateRouterInterface.swift in Sources */,
 				25EC08AD1E37B55600BE8F06 /* KitFolioCreateRouter.swift in Sources */,
 				25EC08AE1E37B55600BE8F06 /* RestorePasswordAssember.swift in Sources */,

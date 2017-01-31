@@ -36,6 +36,7 @@ protocol CreateSaleConfirmInteractorOutput: class {
 protocol CreateSaleConfirmModuleInput: ModuleInput {
     func setPost(with post: Post)
     func setUpdate(shouldUpdate: Bool)
+    func setImages(images: PostImagesModel)
 }
 
 // MARK: - CreateSaleConfirmModuleOutput

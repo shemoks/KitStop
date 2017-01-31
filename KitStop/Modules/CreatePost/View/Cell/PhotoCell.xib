@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="mk8-z2-Ckt" customClass="PhotoCell" customModule="KitStop" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="mk8-z2-Ckt" customClass="PhotoCellNew" customModule="KitStop" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -32,9 +32,9 @@
             </constraints>
             <size key="customSize" width="144" height="136"/>
             <connections>
-                <outlet property="photo" destination="fNP-iw-bRN" id="73w-63-htS"/>
+                <outlet property="photo" destination="fNP-iw-bRN" id="yke-su-fMD"/>
             </connections>
-            <point key="canvasLocation" x="-227" y="-159"/>
+            <point key="canvasLocation" x="-645" y="-206"/>
         </collectionViewCell>
     </objects>
 </document>
