@@ -55,7 +55,10 @@ extension SignUpViewController: FBSDKLoginButtonDelegate {
         } else if result.isCancelled{
             
         } else {
+            var titleText = NSAttributedString(string: "Log In with Facebook")
+            facebook.setAttributedTitle(titleText, for: .normal)
             presenter.handleFacebookLoginTap()
+
             LoadingIndicatorView.show()
         }
     }
