@@ -165,13 +165,14 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleKit() {
-        router.openChatModule()
-       // interactor.getPostAsForSale(idPost: self.post.id)
+//        router.openChatModule()
+        interactor.getPostAsKit(idPost: self.post.id)
     }
 
     func handleKitForSale() {
-        router.openChatModule()
-       // interactor.getPostAsKit(idPost: self.post.id)
+//        router.openChatModule()
+        interactor.getPostAsForSale(idPost: self.post.id)
+        
     }
 
 

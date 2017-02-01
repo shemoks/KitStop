@@ -44,6 +44,8 @@ final class CreateSaleConfirmPresenter {
 extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     
     func setDetails() {
+        interactor.getRates()
+        
         let priceDetails = ForSaleDetailsModel(header: "Price", value: "" , placeholder: "", isEditable: true, isExpandable: false, isValid: false, isReady: false)
         let conditionDetails = ForSaleDetailsModel(header: "Select Conditions", value: "", placeholder: "", isEditable: false, isExpandable: true, isValid: false, isReady: false)
         let weightDetails = ForSaleDetailsModel(header: "Package Weight", value: "", placeholder: "", isEditable: false, isExpandable: true, isValid: false, isReady: false)
@@ -64,8 +66,6 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 _ = ""
             }
         }
-        
-        interactor.getRates()
         
         if shouldUpdate {
             for item in (post?.salesDetails)! {
@@ -89,6 +89,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                     _ = ""
                 }
             }
+
 
         }
         
