@@ -305,6 +305,7 @@ extension KitsDetailedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderViewCreatePost()
         let viewRorSale = HeaderForSale()
+        let viewForSaleOwner = ViewForOwner()
         viewRorSale.price.text = presenter.getPrice()
         switch section {
         case 0:
@@ -317,7 +318,12 @@ extension KitsDetailedViewController: UITableViewDelegate {
             }
             if presenter.numberOfSections() == 4 {
                 if presenter.numberOfGeneralProperties(inSection: section) > 0 {
+                    if presenter.updateData(xib: headerView.actualView!) {
+                        return viewForSaleOwner
+
+                    } else {
                     return viewRorSale
+                    }
                 } else {
                     return nil
                 }

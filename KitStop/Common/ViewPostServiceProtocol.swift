@@ -15,4 +15,5 @@ protocol ViewPostServiceProtocol {
     func removeKit(idKit: String, completitionBlock: @escaping (Int?) -> ())
     func removeKitForSale(idKit: String, completitionBlock: @escaping (Int?) -> ())
     
+    
 }

@@ -382,6 +382,8 @@
 		9AB17E141E1E4F3A004E95FF /* HeaderViewCreatePost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17E131E1E4F3A004E95FF /* HeaderViewCreatePost.xib */; };
 		9AB17E1D1E1E58BC004E95FF /* GeneralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17E1C1E1E58BC004E95FF /* GeneralCell.xib */; };
 		9AB17E211E1E7DF2004E95FF /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17E201E1E7DF2004E95FF /* PhotoCell.xib */; };
+		9ACF69A11E41D16F0070CE93 /* ViewForOwner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF69A01E41D16F0070CE93 /* ViewForOwner.xib */; };
+		9ACF69A31E41D8000070CE93 /* ViewForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF69A21E41D8000070CE93 /* ViewForOwner.swift */; };
 		9AE7AAFE1E3A3CAA00B89562 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7AAFD1E3A3CAA00B89562 /* MyTextView.swift */; };
 		9AE8DFEC1E2F71FB00A78D6C /* KitsDetailed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFEB1E2F71FB00A78D6C /* KitsDetailed.storyboard */; };
 		9AE8DFEE1E2F7A7C00A78D6C /* HeaderKitsDetailed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFED1E2F7A7C00A78D6C /* HeaderKitsDetailed.xib */; };
@@ -732,6 +734,8 @@
 		9AB17E1E1E1E597F004E95FF /* GeneralCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
 		9AB17E201E1E7DF2004E95FF /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		9AB17E221E1E83CC004E95FF /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		9ACF69A01E41D16F0070CE93 /* ViewForOwner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForOwner.xib; sourceTree = "<group>"; };
+		9ACF69A21E41D8000070CE93 /* ViewForOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForOwner.swift; sourceTree = "<group>"; };
 		9AE7AAFD1E3A3CAA00B89562 /* MyTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		9AE801F01E3101640086F662 /* KitFolioDetailedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitFolioDetailedInteractor.swift; sourceTree = "<group>"; };
 		9AE801F11E3101640086F662 /* KitFolioDetailedInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitFolioDetailedInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1234,6 +1238,8 @@
 				9A4596461E38B01B00FDC805 /* CaruselHeader.swift */,
 				9A4596481E38B38B00FDC805 /* Carusel.xib */,
 				9A45964A1E38B61F00FDC805 /* Carusel.swift */,
+				9ACF69A01E41D16F0070CE93 /* ViewForOwner.xib */,
+				9ACF69A21E41D8000070CE93 /* ViewForOwner.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2734,6 +2740,7 @@
 				2523D1441E1CF5B80053BFD6 /* UserInformation.xib in Resources */,
 				9502CD821E0832D9007AD6EA /* RestorePassword.storyboard in Resources */,
 				9AB17D191E0D72A7004E95FF /* ApplyCell.xib in Resources */,
+				9ACF69A11E41D16F0070CE93 /* ViewForOwner.xib in Resources */,
 				9A47E5001E02B9B6005EED88 /* TypeCell.xib in Resources */,
 				FA45285F1DF802F900B2AA03 /* Assets.xcassets in Resources */,
 				9AB17CE81E0BD5AE004E95FF /* SF-UI-Text-Heavy.otf in Resources */,
@@ -3106,6 +3113,7 @@
 				25EC08CC1E37B55600BE8F06 /* BottomBarRouterInterface.swift in Sources */,
 				25EC08CD1E37B55600BE8F06 /* CreateKitSaveAssember.swift in Sources */,
 				25EC08CE1E37B55600BE8F06 /* CreateKitSaveInteractor.swift in Sources */,
+				9ACF69A31E41D8000070CE93 /* ViewForOwner.swift in Sources */,
 				25EC08CF1E37B55600BE8F06 /* CreateKitSaveInteractorInterface.swift in Sources */,
 				25EC08D01E37B55600BE8F06 /* CreateKitSavePresenter.swift in Sources */,
 				25EC08D11E37B55600BE8F06 /* CreateKitSavePresenterInterface.swift in Sources */,

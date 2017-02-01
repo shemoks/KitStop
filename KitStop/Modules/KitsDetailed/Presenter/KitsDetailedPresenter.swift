@@ -23,6 +23,7 @@ final class KitsDetailedPresenter {
     var sectionSale: Bool = true
     fileprivate var likeStatus = true
     var numberItem: Int = 0
+    var rates: PriceModel!
 
 }
 
@@ -174,6 +175,9 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
        // interactor.getPostAsKit(idPost: self.post.id)
     }
 
+    func getRates() -> PriceModel {
+        return self.rates!
+    }
 
 }
 
@@ -219,6 +223,11 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
         } else {
             router.openEditForSale(post: post)
         }
+    }
+
+    func setRates(rates: RatesModel) {
+  //      interactor.calculateView(price: self.getPrice(), post: self.post, rates: self.rates)
+        self.rates = rates
     }
 
 }

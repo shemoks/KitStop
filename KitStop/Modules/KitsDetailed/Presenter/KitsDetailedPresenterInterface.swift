@@ -37,6 +37,7 @@ protocol KitsDetailedViewOutput: class {
     func handleKit()
     func handleKitForSale()
     func imageFromUrl() -> [URL]
+    func getRates() -> PriceModel
     
 }
 
@@ -48,6 +49,7 @@ protocol KitsDetailedInteractorOutput: class {
     func showError(title: String, message: String)
     func showSuccess(title: String, message: String)
     func setPostForChange(post: Post)
+    func setRates(rates: PriceModel)
 
 }
 
