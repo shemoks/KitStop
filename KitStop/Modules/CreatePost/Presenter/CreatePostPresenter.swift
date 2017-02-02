@@ -29,6 +29,7 @@ final class CreatePostPresenter {
     var shouldUpdate = false
     var model = PostImagesModel()
     var anyObject = [AnyObject]()
+    var oldModel = "forSale"
 }
 
 // MARK: - CreatePostViewOutput
@@ -177,9 +178,9 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
         self.postForPrice = post
         self.model = model
         if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate)
+            router.openSaveForSaleModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate, oldModel: self.oldModel)
         } else {
-            router.openSaveKitModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate)
+            router.openSaveKitModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate, oldModel: self.oldModel)
         }
     }
 
@@ -197,14 +198,16 @@ extension CreatePostPresenter: CreatePostModuleInput {
         if forSale {
             self.isForSale = true
             self.screenTitle = "ForSale / "
+            self.oldModel = "forSale"
         } else {
             self.isForSale = false
             self.screenTitle = "Kits / "
+            self.oldModel = "kit"
         }
         interactor.getStructure(forSale: forSale, idCategory: idCategory)
     }
 
-    func setKitEdit(post: Post) {
+    func setKitEdit(post: Post, oldModel: String) {
         isForSale = false
         self.screenTitle = "Kits / "
         self.post = post
@@ -214,10 +217,11 @@ extension CreatePostPresenter: CreatePostModuleInput {
         }
         self.isNotMainImage = true
         self.shouldUpdate = true
+        self.oldModel = oldModel
     }
 
 
-    func setForSaleEdit(post: Post) {
+    func setForSaleEdit(post: Post, oldModel: String) {
         isForSale = true
         self.screenTitle = "ForSale / "
         self.post = post
@@ -227,6 +231,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
         }
         self.isNotMainImage = true
         self.shouldUpdate = true
+        self.oldModel = oldModel
     }
 
 }

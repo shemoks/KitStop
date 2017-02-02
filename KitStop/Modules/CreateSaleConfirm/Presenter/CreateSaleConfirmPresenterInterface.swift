@@ -35,7 +35,7 @@ protocol CreateSaleConfirmInteractorOutput: class {
 
 protocol CreateSaleConfirmModuleInput: ModuleInput {
     func setPost(with post: Post)
-    func setUpdate(shouldUpdate: Bool)
+    func setUpdate(shouldUpdate: Bool, oldModel: String)
     func setImages(images: PostImagesModel)
 }
 

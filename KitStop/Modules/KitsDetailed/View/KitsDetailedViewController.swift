@@ -34,7 +34,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
     }
 
     @objc func sheetsView() {
-      setupAlert()
+        setupAlert()
     }
 
     func setupAlert() {
@@ -50,10 +50,10 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
         if presenter.getSection() {
 
-        let openListForKits = UIAlertAction.init(title: "List For Kits", style: .default, handler: {
-            result in
-            self.presenter.handleKit()
-        })
+            let openListForKits = UIAlertAction.init(title: "List For Kits", style: .default, handler: {
+                result in
+                self.presenter.handleKit()
+            })
             let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
             let remove = UIAlertAction.init(title: "Remove this Post", style: .default, handler: {
                 result in
@@ -93,7 +93,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = UIColor.gray
-        
+
     }
 
     func sizeHeaderToFit(height: CGFloat) {
@@ -133,7 +133,7 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
 
         headerView.onTouch = {
-             self.presenter.changeLike(like: self.headerView.like)
+            self.presenter.changeLike(like: self.headerView.like)
         }
         headerView.carusel.heightCell = view.frame.width
         setSizeForCell(header: headerView)
@@ -142,10 +142,10 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         let currentNumberImage = 0
         let currentIndex = IndexPath(item: currentNumberImage, section: 0)
         if numberOfPages > 1 {
-             headerView.carusel.pageControl.isHidden = false
-             headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
-             headerView.carusel.collectionView.scrollToItem(at: currentIndex, at: .centeredHorizontally, animated: false)
-             headerView.carusel.pageControl.currentPage = currentNumberImage
+            headerView.carusel.pageControl.isHidden = false
+            headerView.carusel.pageControl.numberOfPages = presenter.getImages().count
+            headerView.carusel.collectionView.scrollToItem(at: currentIndex, at: .centeredHorizontally, animated: false)
+            headerView.carusel.pageControl.currentPage = currentNumberImage
         } else {
             headerView.carusel.pageControl.isHidden = true
             headerView.carusel.pageControl.numberOfPages = 0
@@ -182,7 +182,7 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
 extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
 
     func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
-         let index = IndexPath(item: index, section: 0)
+        let index = IndexPath(item: index, section: 0)
         headerView.carusel.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
     }
 
@@ -305,6 +305,7 @@ extension KitsDetailedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderViewCreatePost()
         let viewRorSale = HeaderForSale()
+
         viewRorSale.price.text = presenter.getPrice()
         switch section {
         case 0:
@@ -317,7 +318,15 @@ extension KitsDetailedViewController: UITableViewDelegate {
             }
             if presenter.numberOfSections() == 4 {
                 if presenter.numberOfGeneralProperties(inSection: section) > 0 {
-                    return viewRorSale
+                    if presenter.updateData(xib: headerView.actualView!) {
+                        let value = presenter.getPost()
+                        let viewForOwner = ViewForOwner()
+                        viewForOwner.rates = value
+                        viewForOwner.reloadView()
+                        return viewForOwner
+                    } else {
+                        return viewRorSale
+                    }
                 } else {
                     return nil
                 }
@@ -352,7 +361,11 @@ extension KitsDetailedViewController: UITableViewDelegate {
             }
             if presenter.numberOfSections() == 4 {
                 if presenter.numberOfGeneralProperties(inSection: section) > 0 {
-                    return 90
+                    if presenter.updateData(xib: headerView.actualView!) {
+                        return 137
+                    } else {
+                        return 90
+                    }
                 } else {
                     return 0
                 }

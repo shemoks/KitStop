@@ -23,6 +23,9 @@ final class KitsDetailedPresenter {
     var sectionSale: Bool = true
     fileprivate var likeStatus = true
     var numberItem: Int = 0
+    var calculate = CalculationForOwner()
+    var delegate: TransportPost?
+    var viewModel: PriceModel?
 
 }
 
@@ -157,23 +160,26 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func openEditForSale() {
-        router.openEditForSale(post: self.post)
+        router.openEditForSale(post: self.post, oldModel: "forSale")
     }
 
     func openEditKit() {
-        router.openEditKit(post: self.post)
+        router.openEditKit(post: self.post, oldModel: "kit")
     }
 
     func handleKit() {
-        router.openChatModule()
-       // interactor.getPostAsForSale(idPost: self.post.id)
+     //   router.openChatModule()
+        interactor.getPostAsKit(idPost: self.post.id)
     }
 
     func handleKitForSale() {
-        router.openChatModule()
-       // interactor.getPostAsKit(idPost: self.post.id)
+     //   router.openChatModule()
+        interactor.getPostAsForSale(idPost: self.post.id)
     }
 
+    func getPost() -> PriceModel? {
+        return viewModel
+    }
 
 }
 
@@ -196,8 +202,13 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
                 self.post.generalForViewProperty.insert(saleItem, at: 0)
             }
         }
-        view.reloadData()
-        view.isVisibleTableView(flag: true)
+        delegate = calculate
+        delegate?.returnPost(post: post)
+        calculate.calculate { object in
+            self.viewModel = object
+            self.view.reloadData()
+        self.view.isVisibleTableView(flag: true)
+        }
     }
 
     func showError(title: String, message: String) {
@@ -213,11 +224,11 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 
     }
 
-    func setPostForChange(post: Post) {
+    func setPostForChange(post: Post, oldModel: String) {
         if sectionSale {
-            router.openEditKit(post: post)
+            router.openEditKit(post: post, oldModel: oldModel)
         } else {
-            router.openEditForSale(post: post)
+            router.openEditForSale(post: post, oldModel: oldModel)
         }
     }
 
@@ -231,6 +242,7 @@ extension KitsDetailedPresenter: KitsDetailedModuleInput {
         sectionSale = forSale
         self.ownerId = idOwner!
         interactor.getPost(forSale: forSale, idPost: idPost)
+        
     }
     
 }

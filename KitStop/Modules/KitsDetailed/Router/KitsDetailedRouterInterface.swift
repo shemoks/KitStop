@@ -14,7 +14,7 @@ protocol KitsDetailedRouterInput: class {
     func openModule(identifier: Int)
     func openChatModule()
     func closeModule(moduleOutput: KitsDetailedModuleOutput, section: Bool)
-    func openEditForSale(post: Post)
-    func openEditKit(post: Post)
+    func openEditForSale(post: Post, oldModel: String)
+    func openEditKit(post: Post, oldModel: String)
 
 }

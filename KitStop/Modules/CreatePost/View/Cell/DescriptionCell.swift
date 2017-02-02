@@ -22,9 +22,12 @@ class DescriptionCell: UITableViewCell, UITextViewDelegate {
     func configure(property: Property) {
         self.object = property
         title.text = property.title
-
+        descriptions.text = property.textValue
         descriptions.placeholderLabel.textColor = UIColor(red: (151/255.0), green: (153/255.0), blue: (155/255.0), alpha: 0.5)
         descriptions.placeholderLabel.text = property.placeholder
+        if descriptions.text != "" {
+            descriptions.placeholderLabel.isHidden = true
+        }
         descriptions.delegate = self
     }
 
