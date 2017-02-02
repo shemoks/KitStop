@@ -14,5 +14,6 @@ protocol KitsDetailedInteractorInput: class {
     func removePost(section: Bool, idPost: String)
     func getPostAsForSale(idPost: String)
     func getPostAsKit(idPost: String)
+    func calculateView(price: String, post: Post, rates: RatesModel)
     
 }

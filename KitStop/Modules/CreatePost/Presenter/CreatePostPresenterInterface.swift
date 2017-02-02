@@ -50,9 +50,9 @@ protocol CreatePostInteractorOutput: class {
 protocol CreatePostModuleInput: ModuleInput {
     
     func valuesFromCategoryList(forSale: Bool, idCategory: String)
-    func setKitEdit(post: Post)
+    func setKitEdit(post: Post, oldModel: String)
     func setUpdate(shouldUpdate: Bool)
-    func setForSaleEdit(post: Post)
+    func setForSaleEdit(post: Post, oldModel: String)
 
 }
 

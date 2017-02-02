@@ -36,7 +36,7 @@ protocol CreateKitSaveInteractorOutput: class {
 protocol CreateKitSaveModuleInput: ModuleInput {
 
     func setPost(post: Post)
-    func setUpdate(shouldUpdate: Bool)
+    func setUpdate(shouldUpdate: Bool, oldModel: String)
     func setImages(images: PostImagesModel)
     
 }
