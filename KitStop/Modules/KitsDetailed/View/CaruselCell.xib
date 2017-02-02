@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,19 +20,41 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="79H-bY-17X">
                         <rect key="frame" x="0.0" y="0.0" width="417" height="220"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="177" placeholderIntrinsicHeight="106" image="bottom_mask" translatesAutoresizingMaskIntoConstraints="NO" id="ft7-Nq-NR7">
+                        <rect key="frame" x="0.0" y="120" width="417" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="bYX-3D-Ro9"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_mask" translatesAutoresizingMaskIntoConstraints="NO" id="aRa-ml-n5X">
+                        <rect key="frame" x="0.0" y="0.0" width="417" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="nE5-cg-N9m"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="79H-bY-17X" firstAttribute="leading" secondItem="Pvx-3y-Ei2" secondAttribute="leading" id="3PV-Ok-YwY"/>
+                <constraint firstAttribute="trailing" secondItem="aRa-ml-n5X" secondAttribute="trailing" id="IZQ-ZZ-yPG"/>
                 <constraint firstAttribute="bottom" secondItem="79H-bY-17X" secondAttribute="bottom" id="Obr-FH-D9c"/>
+                <constraint firstAttribute="trailing" secondItem="ft7-Nq-NR7" secondAttribute="trailing" id="ZV3-70-rzq"/>
                 <constraint firstItem="79H-bY-17X" firstAttribute="top" secondItem="Pvx-3y-Ei2" secondAttribute="top" id="blP-f3-dtJ"/>
+                <constraint firstItem="aRa-ml-n5X" firstAttribute="leading" secondItem="Pvx-3y-Ei2" secondAttribute="leading" id="fh3-A8-0Rt"/>
+                <constraint firstItem="ft7-Nq-NR7" firstAttribute="leading" secondItem="Pvx-3y-Ei2" secondAttribute="leading" id="jS3-xE-UjM"/>
                 <constraint firstAttribute="trailing" secondItem="79H-bY-17X" secondAttribute="trailing" id="ugm-cn-yNH"/>
+                <constraint firstItem="aRa-ml-n5X" firstAttribute="top" secondItem="Pvx-3y-Ei2" secondAttribute="top" id="vXr-oN-2bU"/>
+                <constraint firstAttribute="bottom" secondItem="ft7-Nq-NR7" secondAttribute="bottom" id="zox-Q9-G8b"/>
             </constraints>
             <size key="customSize" width="417" height="220"/>
             <connections>
                 <outlet property="photo" destination="79H-bY-17X" id="dJz-Wa-3ut"/>
             </connections>
-            <point key="canvasLocation" x="-267" y="-133"/>
+            <point key="canvasLocation" x="-267.5" y="-133"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="bottom_mask" width="58" height="106"/>
+        <image name="top_mask" width="34" height="46"/>
+    </resources>
 </document>

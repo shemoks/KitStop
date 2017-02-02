@@ -384,6 +384,7 @@
 		9AB17E211E1E7DF2004E95FF /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB17E201E1E7DF2004E95FF /* PhotoCell.xib */; };
 		9ACF69A11E41D16F0070CE93 /* ViewForOwner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF69A01E41D16F0070CE93 /* ViewForOwner.xib */; };
 		9ACF69A31E41D8000070CE93 /* ViewForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF69A21E41D8000070CE93 /* ViewForOwner.swift */; };
+		9ACF69A51E423AB10070CE93 /* CalculationForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF69A41E423AB10070CE93 /* CalculationForOwner.swift */; };
 		9AE7AAFE1E3A3CAA00B89562 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7AAFD1E3A3CAA00B89562 /* MyTextView.swift */; };
 		9AE8DFEC1E2F71FB00A78D6C /* KitsDetailed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFEB1E2F71FB00A78D6C /* KitsDetailed.storyboard */; };
 		9AE8DFEE1E2F7A7C00A78D6C /* HeaderKitsDetailed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE8DFED1E2F7A7C00A78D6C /* HeaderKitsDetailed.xib */; };
@@ -736,6 +737,7 @@
 		9AB17E221E1E83CC004E95FF /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		9ACF69A01E41D16F0070CE93 /* ViewForOwner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForOwner.xib; sourceTree = "<group>"; };
 		9ACF69A21E41D8000070CE93 /* ViewForOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForOwner.swift; sourceTree = "<group>"; };
+		9ACF69A41E423AB10070CE93 /* CalculationForOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationForOwner.swift; sourceTree = "<group>"; };
 		9AE7AAFD1E3A3CAA00B89562 /* MyTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		9AE801F01E3101640086F662 /* KitFolioDetailedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitFolioDetailedInteractor.swift; sourceTree = "<group>"; };
 		9AE801F11E3101640086F662 /* KitFolioDetailedInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitFolioDetailedInteractorInterface.swift; sourceTree = "<group>"; };
@@ -986,6 +988,7 @@
 				95E453281E2CB37E002ABF74 /* KitDetailsModel.swift */,
 				95E4532A1E2CB4C4002ABF74 /* CreateKitsRequestBody.swift */,
 				9AE94D171E3F92B40080348C /* PostImagesModel.swift */,
+				9ACF69A41E423AB10070CE93 /* CalculationForOwner.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2630,6 +2633,7 @@
 				557B64B595784B9710D04ED6 /* [CP] Embed Pods Frameworks */,
 				5CC46302B370845B522969D9 /* [CP] Copy Pods Resources */,
 				951B39731DF967E3001765C3 /* Run Script */,
+				95B69DBC1E407C5E00DF5F7A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2854,7 +2858,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		95B69DBC1E407C5E00DF5F7A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cf52b4ae7d2ecc89897b8a6eddf944b30e818777 76c57d2ad2f5ee792f55fc962a076c1eb2dd93d8dee8024b8a21a1bbe4994b76";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2956,6 +2973,7 @@
 				25EC082A1E37B55500BE8F06 /* RegistrationTakePhotoPresenterInterface.swift in Sources */,
 				25EC082B1E37B55500BE8F06 /* RegistrationTakePhotoRouter.swift in Sources */,
 				25EC082C1E37B55500BE8F06 /* RegistrationTakePhotoRouterInterface.swift in Sources */,
+				9ACF69A51E423AB10070CE93 /* CalculationForOwner.swift in Sources */,
 				25EC082E1E37B55500BE8F06 /* RegistrationTakePhotoViewController.swift in Sources */,
 				25EC082F1E37B55500BE8F06 /* RegistrationTakePhotoViewInterface.swift in Sources */,
 				25EC08301E37B55500BE8F06 /* LogInAssember.swift in Sources */,
@@ -3298,7 +3316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3316,8 +3334,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3332,7 +3350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3350,8 +3368,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
+				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

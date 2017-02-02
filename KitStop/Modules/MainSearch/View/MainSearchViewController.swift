@@ -21,6 +21,7 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
 
    
     @IBOutlet weak var search: UISearchBar!
+
     @IBOutlet weak var collectionView: UICollectionView!
 
     

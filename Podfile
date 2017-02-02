@@ -13,6 +13,8 @@ target 'KitStop' do
   pod 'RealmSwift'
   pod 'AWSS3'
   pod 'Cosmos'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 
 post_install do |installer|

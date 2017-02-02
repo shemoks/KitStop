@@ -50,11 +50,11 @@ extension CreatePostInteractor: CreatePostInteractorInput {
 
     func getObject(post: Post, model: PostImagesModel) {
         if post.images.contains(UIImage.init(named: "required")!) {
-            presenter.showError(title: "Error", message: "Please add at least one photo")
+            presenter.showError(title: "Warning", message: "Please add at least one photo")
         } else {
             let validarionResult = ValidationPost().validationBeforeNext(post: post)
             if !validarionResult {
-                presenter.showError(title: "Error", message: "Please fill in the required fields")
+                presenter.showError(title: "Warning", message: "Please fill in the required fields")
                 presenter.selectMistakes()
             } else {
                 let newPost = Post()
@@ -73,6 +73,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                     }
                 }
                 newPost.generalProperty = newGeneralProperty
+                newPost.id = post.id
                 newPost.categoryId = post.categoryId
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description

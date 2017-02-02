@@ -7,15 +7,16 @@
 //
 
 import UIKit
+protocol TransportPost {
+    func returnPost (post: Post)
+}
 
 class ViewForOwner: UIView {
 
     var view: UIView!
     var nibName: String = "ViewForOwner"
     var priceValue: Double = 0.00
-    var rates: RatesModel?
-
-
+    var rates: PriceModel?
 
 
     @IBOutlet weak var price: UILabel!
@@ -44,17 +45,15 @@ class ViewForOwner: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
-        if rates != nil {
-        self.price.text = "$" + String(describing: price)
-//        self.shipping.text = "$" + rates.
-//        self.transaction.text = "$" + String(describing: transaction)
-//        let shippingFee = priceValue * shippingValue/100
-//        let transactionFee = priceValue * transaction/100
-//        let kitStopFee = price * transaction/100
-//        let finalPrice = price - shippingFee - transactionFee - kitStopFee
-//        self.make.text = "$" + String(finalPrice)
 
     }
+
+    func reloadView() {
+        self.price.text = rates?.startingPrice
+        self.shipping.text = rates?.transactionRatePrice
+        self.transaction.text = rates?.transactionPrice
+        self.kitStop.text = rates?.kitStopPrice
+        self.make.text = rates?.finalPrice
     }
 
     func loadViewFromNib() -> UIView {
