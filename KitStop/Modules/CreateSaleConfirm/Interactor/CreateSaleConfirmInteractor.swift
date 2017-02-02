@@ -31,9 +31,9 @@ final class CreateSaleConfirmInteractor {
 // MARK: - CreateSaleConfirmInteractorInput
 
 extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
-    func saveForSaleKit(price: String?,  condition: String?, weight: String?, post:Post) {
+    func saveForSaleKit(price: String?,  condition: String?, weight: String?, post:Post, images: PostImagesModel) {
         
-        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: post.images, success: { [weak self]
+        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
                 let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
@@ -54,9 +54,9 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         })
     }
     
-    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post) {
+    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post, images: PostImagesModel) {
 
-        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: post.images, success: { [weak self]
+        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
                 let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
@@ -85,8 +85,6 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
             let key = item.title.capitalized.replacingOccurrences(of: " ", with: "")
             metaData[key.lowerCaseFirstLetter()] = item.textValue as AnyObject?
         }
-        
-        print(metaData)
         
         var title: String = ""
         var brand: String?
@@ -125,22 +123,32 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         return kit
     }
     
-    func saveImagesTo(_ path: String, mainImage: UIImage, images: [UIImage], success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
-        var imageUrls:[String?] = []
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
+
+        sortImages(images: images, completion: { imageUrls, imageObjects in
+           
+            let imagesCount = imageUrls.count + imageObjects.count
         
-        let awsManager = AWS3UploadImageService()
-        awsManager.uploadImage(userImage: cropImage(image: mainImage), path: path, successBlock: { mainImage in
-            for image in images {
-                
-                let awsManager = AWS3UploadImageService()
-                awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
-                    image in
-                    imageUrls.append(image)
-                    if imageUrls.count == images.count {
-                        success(mainImage!, imageUrls)
+            var imageStrings = imageUrls
+            
+            let awsManager = AWS3UploadImageService()
+            
+            awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
+                if imageObjects.count == 0 {
+                    success(mainImage!, imageStrings)
+                } else {
+                    for image in imageObjects {
+                        let awsManager = AWS3UploadImageService()
+                        awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
+                            image in
+                            imageStrings.append(image!)
+                            if imageStrings.count == imagesCount  {
+                                success(mainImage!, imageStrings)
+                            }
+                        })
                     }
-                })
-            }
+                }
+            })
         })
         
     }
@@ -184,6 +192,25 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         } else {
             completion(PriceModel())
         }
+    }
+    
+    func sortImages(images: PostImagesModel, completion: @escaping (_ imageUrls: [String], _ imageObjects: [UIImage]) -> ()) {
+        
+        var imageUrls = [String]()
+        var imageObjects = [UIImage]()
+        
+        for image in images.forGallery {
+            switch image {
+            case .Actual(let image):
+                imageObjects.append(image)
+            case .Remote(let url):
+                imageUrls.append(url.absoluteString)
+            default:
+                break
+            }
+        }
+        
+        completion(imageUrls, imageObjects)
     }
     
 }

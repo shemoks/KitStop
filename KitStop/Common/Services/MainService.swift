@@ -18,7 +18,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKits(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "perPage" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -50,7 +50,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKitFolio(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -80,7 +80,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKitsForSale(page: Int,completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "perPage" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):

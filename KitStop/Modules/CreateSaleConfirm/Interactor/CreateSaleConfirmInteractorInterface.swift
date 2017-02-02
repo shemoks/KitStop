@@ -9,8 +9,8 @@
 // MARK: - CreateSaleConfirmInteractorInput
 
 protocol CreateSaleConfirmInteractorInput: class {
-    func saveForSaleKit(price: String?, condition: String?, weight: String?, post:Post)
-    func updateForSaleKit(price: String?, condition: String?, weight: String?, post:Post)
+    func saveForSaleKit(price: String?, condition: String?, weight: String?, post:Post, images: PostImagesModel)
+    func updateForSaleKit(price: String?, condition: String?, weight: String?, post:Post, images: PostImagesModel)
     func getRates()
     func calculatePrice(price: String, weight: String, rates: RatesModel?, completion: @escaping (_ priceModel: (PriceModel?)) -> ())
 }

@@ -36,6 +36,11 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapOnSave))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.backBarButtonItem?.title = ""
+    }
+    
     func tapOnSave() {
         LoadingIndicatorView.show()
         presenter.handleSaveTap()

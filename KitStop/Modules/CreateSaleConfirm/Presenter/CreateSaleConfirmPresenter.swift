@@ -145,21 +145,21 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
         if shouldUpdate {
             if price.isEmpty{
                 view.reloadData()
-                view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
+                view.showAlert(title: "Warning", message: "Please fill in the required fields")
                 self.setReady(isReady: false)
             } else {
                 LoadingIndicatorView.show()
-                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
+                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!, images: images)
             }
         } else {
             self.setReady(isReady: true)
             if price.isEmpty || condition.isEmpty || packageWeight.isEmpty {
                 view.reloadData()
-                view.showAlert(title: "Missing Fields", message: "Please fill out all required fields")
+                view.showAlert(title: "Warning", message: "Please fill in the required fields")
                 self.setReady(isReady: false)
             } else {
                LoadingIndicatorView.show()
-               interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!)
+               interactor.saveForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!, images: images)
             }
         }
     }

@@ -10,6 +10,9 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - Cosmos (7.0.0)
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -45,6 +48,8 @@ DEPENDENCIES:
   - Alamofire
   - AWSS3
   - Cosmos
+  - Crashlytics
+  - Fabric
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -60,6 +65,8 @@ SPEC CHECKSUMS:
   AWSS3: fef6aa8f8f625df8f67f1b6574fe761f3a4ddc99
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
@@ -73,6 +80,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 66d77e3fabe34bad022ff529573de10bad49c221
+PODFILE CHECKSUM: 83cb131873e6b4a5f22bdbbcab38f06026f13a9e
 
 COCOAPODS: 1.1.1
