@@ -37,8 +37,8 @@ extension FilterTypePresenter: FilterTypeViewOutput {
 
     func returnCategory (category: Category) {
         let filterTypeModuleOutput = moduleOutput as! FilterTypeModuleOutput
-        self.categories = interactor.changeCategories(categories: self.categories, category: category)
-        filterTypeModuleOutput.currentCategory(categories: categories, currentCategory: category)
+      //  self.categories = interactor.changeCategories(categories: self.categories, category: category)
+        filterTypeModuleOutput.currentCategory(currentCategory: category)
         router.closeTypeCategoryModule()
     }
 

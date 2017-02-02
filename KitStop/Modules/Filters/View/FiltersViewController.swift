@@ -18,6 +18,7 @@ final class FiltersViewController: UIViewController, FlowController, Alertable {
     @IBOutlet weak var minValue: UILabel!
     var presenter: FiltersViewOutput!
     
+    @IBOutlet weak var withoutPrice: UIView!
     @IBOutlet weak var applyConstraintForSale: NSLayoutConstraint!
     @IBOutlet weak var maxValue: UILabel!
     @IBOutlet weak var applyConstraintForKits: NSLayoutConstraint!
@@ -42,6 +43,7 @@ final class FiltersViewController: UIViewController, FlowController, Alertable {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TypeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
+        navigationController?.navigationBar.tintColor = .black
         presenter.handleViewDidLoad()
     }
     
@@ -78,6 +80,17 @@ extension FiltersViewController: FiltersViewInput {
     
     func activeClearAll(isActive: Bool) {
         clearAll.isEnabled = isActive
+    }
+
+    func isVisiblePrice(result: Bool) {
+        if result {
+            rangeSliderView.isHidden = false
+            withoutPrice.isHidden = true
+        } else {
+            rangeSliderView.isHidden = true
+            withoutPrice.isHidden = false
+        }
+
     }
     
 }

@@ -36,6 +36,6 @@ protocol FilterTypeModuleInput: ModuleInput {
 
 protocol FilterTypeModuleOutput: ModuleOutput {
 
-    func currentCategory(categories: [Category], currentCategory: Category)
+    func currentCategory(currentCategory: Category)
 
 }
