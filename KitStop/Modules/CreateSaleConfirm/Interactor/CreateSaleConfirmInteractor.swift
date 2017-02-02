@@ -118,7 +118,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         salesDetails["price"] = price as AnyObject?
         salesDetails["weight"] = weight as AnyObject?
         
-        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails)
+        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails, oldModel: "")
         
         return kit
     }

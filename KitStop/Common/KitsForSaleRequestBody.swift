@@ -21,6 +21,7 @@ struct KitsForSaleRequestBody {
     var tags: [String?]
     var metaData: [String:AnyObject] = [:]
     var salesDetails: [String: AnyObject] = [:]
+    var oldModel = "kits-for-sale"
 }
 
 class ForSaleDetailsModel {

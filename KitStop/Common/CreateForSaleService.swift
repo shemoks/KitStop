@@ -73,6 +73,7 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let salesDetails = kit.salesDetails as AnyObject
+        let oldModel = kit.oldModel as AnyObject
         let _ = manager.apiRequest(.updateKitForSale(id: id), parameters: ["title" : title, "brand" : brand,
                                                                      "model":model, "serialNumber": serialNumber,
                                                                      "category": category,
@@ -80,7 +81,7 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
                                                                      "notes": notes, "mainImage": mainImage,
                                                                      "images": images,
                                                                      "tags": tags, "metaData": metaData,
-                                                                     "salesDetails": salesDetails
+                                                                     "salesDetails": salesDetails, "oldModel": oldModel
             ], headers: nil).apiResponse(completionHandler: {
                 response in
                 switch response.result {

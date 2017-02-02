@@ -78,6 +78,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
+        let oldModel = kit.oldModel as AnyObject
         let _ = manager.apiRequest(.updateKit(id: id), parameters: ["title" : title, "brand" : brandName,
                                                               "model":model, "serialNumber": serialNumber,
                                                               "purchaseDate": purchaseDate, "purchasePrice": purchasePrice,
@@ -86,7 +87,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                               "notes": notes, "mainImage": mainImage,
                                                               "images": images,
                                                               "tags": tags, "metaData": metaData,
-                                                              "isPrivate": isPrivate], headers: nil).apiResponse(completionHandler: {
+                                                              "isPrivate": isPrivate, "oldModel": oldModel], headers: nil).apiResponse(completionHandler: {
                                                                 response in
                                                                 switch response.result {
                                                                 case .success(let json):
