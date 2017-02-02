@@ -153,7 +153,7 @@ extension CreateKitSavePresenter: CreateKitSaveModuleInput {
         self.post = post
     }
     
-    func setUpdate(shouldUpdate: Bool) {
+    func setUpdate(shouldUpdate: Bool, oldModel: String) {
         self.shouldUpdate = shouldUpdate
     }
 
