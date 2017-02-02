@@ -42,9 +42,10 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         let openEdit = UIAlertAction.init(title: "Edit", style: .default, handler: {
             result in
             if self.presenter.getSection() {
-                self.presenter.openEditKit()
-            } else {
                 self.presenter.openEditForSale()
+            
+            } else {
+                self.presenter.openEditKit()
             }
         })
 

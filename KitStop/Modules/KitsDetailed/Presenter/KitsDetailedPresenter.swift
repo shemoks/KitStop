@@ -172,7 +172,6 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     func handleKitForSale() {
 //        router.openChatModule()
         interactor.getPostAsForSale(idPost: self.post.id)
-        
     }
 
 

@@ -165,16 +165,20 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         return image.RBResizeImage(targetSize: CGSize(width: 1080, height: image.bigHeightSize()), staticWidth: true)
     }
     
-    func getRates() {
+    func getRates(completion: @escaping () -> Void) {
         kitForSaleService?.getRates(completion: { [weak self]
             success, error, rates in
             if success {
-               self?.presenter.setRates(rates: rates!)
+                self?.presenter.setRates(rates: rates!)
+                completion()
             } else {
                 self?.presenter.setRates(rates: nil)
                 self?.presenter.showAlertWith(title: "Error", message: CustomError.init(code: error!).description)
             }
         })
+    }
+    func getRates() {
+      
     }
     
     func calculatePrice(price: String, weight: String, rates: RatesModel?, completion: @escaping (_ priceModel: (PriceModel?)) -> ()) {
