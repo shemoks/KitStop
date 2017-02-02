@@ -36,7 +36,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
+                let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls, oldModel: "forSale")
                 self?.kitForSaleService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -54,12 +54,12 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         })
     }
     
-    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post, images: PostImagesModel) {
+    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post, images: PostImagesModel, oldModel: String) {
 
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls)
+                let kit = self?.requestBody(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls, oldModel: oldModel)
                 self?.kitForSaleService?.updateKit(id: post.id, kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -77,7 +77,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         })
     }
     
-    func requestBody(price: String, condition: String, weight: String, post: Post, imageArray: [String?]) -> KitsForSaleRequestBody {
+    func requestBody(price: String, condition: String, weight: String, post: Post, imageArray: [String?], oldModel: String) -> KitsForSaleRequestBody {
         
         var metaData:[String:AnyObject] = [:]
         
@@ -118,7 +118,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         salesDetails["price"] = price as AnyObject?
         salesDetails["weight"] = weight as AnyObject?
         
-        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails, oldModel: "")
+        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails, oldModel: oldModel)
         
         return kit
     }

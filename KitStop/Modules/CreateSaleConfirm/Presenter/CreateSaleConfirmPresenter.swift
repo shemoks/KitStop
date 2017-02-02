@@ -31,6 +31,7 @@ final class CreateSaleConfirmPresenter {
     var rates: RatesModel?
     var shouldUpdate = false
     var images = PostImagesModel()
+    var oldModel = "forSale"
 
     func setReady(isReady: Bool) {
         for item in details {
@@ -152,7 +153,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 self.setReady(isReady: false)
             } else {
                 LoadingIndicatorView.show()
-                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!, images: images)
+                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!, images: images, oldModel: self.oldModel)
             }
         } else {
             self.setReady(isReady: true)
@@ -221,6 +222,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
     
     func setUpdate(shouldUpdate: Bool, oldModel: String) {
         self.shouldUpdate = shouldUpdate
+        self.oldModel = oldModel
     }
 
     func setImages(images: PostImagesModel){

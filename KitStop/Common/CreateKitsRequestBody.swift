@@ -23,5 +23,5 @@ struct CreateKitsRequestBody {
     var tags: [String?]
     var metaData: [String:AnyObject] = [:]
     var isPrivate: Bool = false
-    var oldModel = "kits"
+    var oldModel = "kit"
 }
