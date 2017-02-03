@@ -11,9 +11,9 @@ import Chamomile
 // MARK: - FiltersPresenter
 
 final class FiltersPresenter {
-    
+
     // MARK: - VIPER stack
-    
+
     weak var moduleOutput: ModuleOutput?
     weak var view: FiltersViewInput!
     var interactor: FiltersInteractorInput!
@@ -23,78 +23,84 @@ final class FiltersPresenter {
     var currentCategory: Category?
     var priceVisible: Bool = false
     var activeClearAll: Bool = false
-    var filter = FilterModel()
-    var currentFilter = CurrentFilter()
+    var filter: FilterModel?
+    var currentFilter: CurrentFilter?
     var sliderVisible: Bool = true
-    
+
 }
 
 // MARK: - FiltersViewOutput
 
 extension FiltersPresenter: FiltersViewOutput {
-    
+
     func handleApplyTap(price: Price) {
-        if self.currentCategory != nil {
-            interactor.getProducts(category: self.currentCategory!, price: price, type: priceVisible)
+        if self.currentFilter != nil && sliderVisible {
+            if self.filter != nil {
+                interactor.updateFilter(filter: self.filter!, currentFilter: self.currentFilter!)
+                router.closeModule()
+            } else {
+                let filter = FilterModel()
+                filter.section = (self.currentFilter?.section)!
+                filter.maxValue = (self.currentFilter?.maxValue)!
+                filter.minValue = (self.currentFilter?.minValue)!
+                filter.number = (self.currentFilter?.number)!
+                filter.title = (self.currentFilter?.title)!
+                interactor.writeFilter(filter: filter)
+                router.closeModule()
+            }
         } else {
             self.handleViewWillDisappear(kits: [])
             router.closeModule()
         }
     }
-    
-    func typesList() -> String {
-        return self.currentFilter.title
+
+    func typesList() -> CurrentFilter? {
+        return self.currentFilter
     }
-    
+
     func priceList() -> PriceString {
-        let priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue))
+        var priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue))
+        if currentFilter != nil {
+            priceString = PriceString(price: self.price, minValue: "$"+String(self.currentFilter!.minValue), maxValue: "$"+String(self.currentFilter!.maxValue))
+        }
+
         return priceString
     }
-    
+
     func handleCancelTap() {
         router.closeModule()
     }
-    
+
     func handleClearAllTap() {
         interactor.clearAll(types: self.types)
         view.reloadData()
         view.reloadPrice()
-        
+
     }
-    
+
     func handleTypeTap() {
-        router.openTypeModule(types: self.types, filterTypeModuleOutput: self)
+        interactor.getFilters()
     }
-    
+
     func handleViewDidLoad() {
         view.priceVisible(visible: self.priceVisible)
+        view.reloadData()
+        view.reloadPrice()
         //view.activeClearAll(isActive: self.activeClearAll)
-        interactor.getFilters() { _ in
-            self.interactor.getCurrentFilter(type: self.types, section: self.priceVisible) { result in
-                self.visibleComponents()
-
-            }
-        }
     }
-    
+
     func changePrice(price: Price) {
         self.price = price
+        self.currentFilter?.maxValue = self.price.maxValue
+        self.currentFilter?.minValue = self.price.minValue
     }
-    
+
     func visible() -> Bool {
         return self.priceVisible
     }
 
-    func visibleComponents() {
-        if self.sliderVisible {
-            self.view.isVisiblePrice(result: self.sliderVisible)
-            self.view.reloadData()
-            self.view.reloadPrice()
-        } else {
-            self.view.isVisiblePrice(result: self.sliderVisible)
-            self.view.reloadData()
-            self.view.reloadPrice()
-        }
+    func isVisiblePriceSlider() -> Bool {
+        return self.sliderVisible
     }
 
 }
@@ -102,22 +108,19 @@ extension FiltersPresenter: FiltersViewOutput {
 // MARK: - FiltersInteractorOutput
 
 extension FiltersPresenter: FiltersInteractorOutput {
-    
-    
+
+
     func setTypes(types: [Category]) {
         self.types = types
-        view.reloadData()
+        router.openTypeModule(types: self.types, filterTypeModuleOutput: self)
     }
-    
+
     func setPrice(price: Price) {
         self.price = price
-        self.currentFilter.maxValue = self.price.maxValue
-        self.currentFilter.minValue = self.price.minValue
-        self.visibleComponents()
-        view.reloadData()
-        view.reloadPrice()
+        self.currentFilter?.maxValue = self.price.maxValue
+        self.currentFilter?.minValue = self.price.minValue
     }
-    
+
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
     }
@@ -131,64 +134,61 @@ extension FiltersPresenter: FiltersInteractorOutput {
             router.returnToMainModule(kits: [], filter: false,  moduleOutput: mainModuleOutput)
         }
     }
-    
-    func setCurrentCategory(category: Category?) {
-        if category != nil {
-        self.currentCategory = category
-        self.activeClearAll = true
-       // self.priceVisible = true
-        } else {
-            //
-        }
-    }
 
-    func setFilter(filter: FilterModel) {
-        self.filter = filter
-        let category = Category()
-        category.number = filter.number
-        category.isSelected = true
-        category.title = filter.title
-        self.currentCategory = category
-        self.currentFilter.maxValue = filter.maxValue
-        self.currentFilter.minValue = filter.minValue
-        self.currentFilter.number = filter.number
-        self.currentFilter.section = filter.section
-        self.currentFilter.title = filter.title
-        if currentFilter.title == "All categories" {
-            self.sliderVisible = false
-        } else {
+    func setFilter(filter: FilterModel?) {
+        if filter != nil {
+            self.filter = filter
+            let newCurrentFilter = CurrentFilter()
+            newCurrentFilter.maxValue = filter!.maxValue
+            newCurrentFilter.minValue = filter!.minValue
+            newCurrentFilter.number = filter!.number
+            newCurrentFilter.section = filter!.section
+            newCurrentFilter.title = filter!.title
+            self.currentFilter = newCurrentFilter
+            self.price = Price(minValue: filter!.minValue, maxValue: filter!.maxValue)
             self.sliderVisible = true
+        } else {
+            self.sliderVisible = false
+            view.reloadData()
         }
     }
 
-    func isVisiblePriceSlider(isVisible: Bool) {
+    func isVisibleSlider(isVisible: Bool) {
         self.sliderVisible = isVisible
+        view.reloadPrice()
     }
-
 
 }
 
 // MARK: - FiltersModuleInput
 
 extension FiltersPresenter: FiltersModuleInput {
-    
+
     func priceVisible(visible: Bool) {
-        
         self.priceVisible = visible
-        
+            interactor.getCurrentFilter(section: visible)
     }
-    
 }
 
 extension FiltersPresenter: FilterTypeModuleOutput {
-    
+
     func currentCategory(currentCategory: Category) {
         view.activeClearAll(isActive: true)
-      //  self.types = categories
-        self.currentFilter.title = currentCategory.title
-        self.currentFilter.number = currentCategory.number
-        self.setCurrentCategory(category: currentCategory)
-        interactor.getPrice(category: currentCategory)
+        if currentFilter == nil {
+            let filter = CurrentFilter()
+            filter.title = currentCategory.title
+            filter.number = currentCategory.number
+            filter.section = self.priceVisible
+            self.currentFilter = filter
+        } else {
+            currentFilter?.number = currentCategory.number
+            currentFilter?.title = currentCategory.title
+        }
+        view.reloadData()
+        if !priceVisible {
+            interactor.getPrice(category: currentCategory)
+            view.reloadPrice()
+        }
     }
     
 }

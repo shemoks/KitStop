@@ -2057,8 +2057,8 @@
 		9ACF69C11E438ABD0070CE93 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				9ACF69C21E438ABD0070CE93 /* FiltersInteractor.swift */,
 				9ACF69C31E438ABD0070CE93 /* FiltersInteractorInterface.swift */,
+				9ACF69C21E438ABD0070CE93 /* FiltersInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";

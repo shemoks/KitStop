@@ -28,6 +28,7 @@ class FilterManager: NSObject, FilterManagerProtocol {
             switch response.result{
             case .success(let json):
                 if json["success"] == true {
+                    self.deleteFromRealm()
                     let categories = json["data"]
                     for category in categories {
                         let newCategory = Category()
@@ -35,8 +36,8 @@ class FilterManager: NSObject, FilterManagerProtocol {
                         newCategory.isSelected = false
                         newCategory.title = category.1["title"].stringValue
                         self.saveInRealm(category: newCategory)
-                        arrayOfCategories(self.getCategories(), nil)
                     }
+                     arrayOfCategories(self.getCategories(), nil)
                 } else {
                     arrayOfCategories(self.getCategories(), response.response?.statusCode)
                 }
@@ -110,6 +111,12 @@ class FilterManager: NSObject, FilterManagerProtocol {
         }
     }
 
+    func deleteFromRealm() {
+        try! realm.write {
+            realm.delete(realm.objects(Category.self))
+        }
+    }
+
     func getCategories() -> [Category] {
         let categories = realm.objects(Category.self)
         return Array(categories)
@@ -167,6 +174,42 @@ class FilterManager: NSObject, FilterManagerProtocol {
     func savePrice(price: CategoryPrice) {
         try! realm.write {
             realm.add(price, update: true)
+        }
+    }
+
+    func saveFilter(filter: FilterModel) {
+        try! realm.write {
+            realm.add(filter)
+        }
+    }
+
+    func deleteFilter(filter: FilterModel) {
+        try! realm.write {
+            realm.delete(filter)
+        }
+        //   "".characters.split(separator: { NSCharacterSet.uppercaseLetters.contains($0) })
+    }
+
+    func getCurrentFilter(section: Bool, result: @escaping ([FilterModel]) -> ()) {
+        let filter = realm.objects(FilterModel.self).filter("section == %@", section)
+        result(Array(filter))
+    }
+
+    func setCategory(id: String, result: @escaping (Category?) -> ()) {
+        let filter = realm.objects(Category.self).filter("number == %@", id)
+        if filter.count > 0 {
+            let category = filter.first
+            result(category!)
+        }
+        result(nil)
+    }
+
+    func updateFilter(filter: FilterModel, currentFilter: CurrentFilter) {
+        try! realm.write {
+            filter.maxValue = currentFilter.maxValue
+            filter.minValue = currentFilter.minValue
+            filter.number = currentFilter.number
+            filter.title = currentFilter.title
         }
     }
     

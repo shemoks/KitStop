@@ -14,7 +14,7 @@ protocol FilterTypeViewOutput: class {
 
     func category(for indexPath: IndexPath) -> Category
     func numberOfCategories() -> Int
-    func returnCategory(category: Category)
+    func returnCategory(index: IndexPath)
 
 }
 

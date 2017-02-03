@@ -12,9 +12,12 @@ class TypeCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
 
-    func configure(filter: String) {
-
-    titleLabel.text = filter
-}
-
+    func configure(filter: CurrentFilter?) {
+        if filter != nil {
+            titleLabel.text = filter?.title
+        } else {
+            titleLabel.text = "All categories"
+        }
+    }
+    
 }

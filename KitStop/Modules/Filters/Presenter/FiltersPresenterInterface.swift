@@ -13,7 +13,7 @@ import Chamomile
 protocol FiltersViewOutput: class {
 
     func handleApplyTap(price: Price)
-    func typesList() -> String
+    func typesList() -> CurrentFilter?
     func priceList() -> PriceString
     func handleCancelTap()
     func handleClearAllTap()
@@ -21,6 +21,7 @@ protocol FiltersViewOutput: class {
     func handleViewDidLoad()
     func changePrice(price: Price)
     func visible() -> Bool
+    func isVisiblePriceSlider() -> Bool
 
 
 }
@@ -33,9 +34,9 @@ protocol FiltersInteractorOutput: class {
     func setPrice(price: Price)
     func showError(title: String, message: String)
     func handleViewWillDisappear(kits: [Product])
-    func setCurrentCategory(category: Category?)
-    func setFilter(filter: FilterModel)
-    func isVisiblePriceSlider(isVisible: Bool)
+    func setFilter(filter: FilterModel?)
+    func isVisibleSlider(isVisible: Bool)
+
     
 }
 

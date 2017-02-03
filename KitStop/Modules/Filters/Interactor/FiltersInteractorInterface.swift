@@ -10,10 +10,12 @@
 
 protocol FiltersInteractorInput: class {
 
-    func getFilters(completion: @escaping () -> ())
+    func getFilters()
     func clearAll(types: [Category])
     func getPrice(category: Category)
     func getProducts(category: Category, price: Price, type: Bool)
-    func getCurrentFilter(type: [Category], section: Bool, completion: @escaping (Bool) -> ())
+    func getCurrentFilter(section: Bool)
+    func updateFilter(filter: FilterModel, currentFilter: CurrentFilter)
+    func writeFilter(filter: FilterModel)
 
 }
