@@ -325,6 +325,7 @@
 		951B396E1DF967B0001765C3 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396D1DF967B0001765C3 /* Aspects.framework */; };
 		951B39701DF967B2001765C3 /* Chamomile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B396F1DF967B2001765C3 /* Chamomile.framework */; };
 		951B39721DF967B4001765C3 /* Perform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951B39711DF967B4001765C3 /* Perform.framework */; };
+		951D02911E4486AC00799F21 /* MainSearchKitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D02901E4486AC00799F21 /* MainSearchKitsCell.swift */; };
 		953129A71E1E4D280009760F /* BottomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953129A61E1E4D280009760F /* BottomBar.xib */; };
 		953FD41D1E1EA7DA0000086E /* UnderConstruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */; };
 		95D4F5901E2E55490073196C /* CustomInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5831E2E55490073196C /* CustomInput.storyboard */; };
@@ -560,6 +561,7 @@
 		951B396D1DF967B0001765C3 /* Aspects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aspects.framework; path = Carthage/Build/iOS/Aspects.framework; sourceTree = "<group>"; };
 		951B396F1DF967B2001765C3 /* Chamomile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chamomile.framework; path = Carthage/Build/iOS/Chamomile.framework; sourceTree = "<group>"; };
 		951B39711DF967B4001765C3 /* Perform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Perform.framework; path = Carthage/Build/iOS/Perform.framework; sourceTree = "<group>"; };
+		951D02901E4486AC00799F21 /* MainSearchKitsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchKitsCell.swift; sourceTree = "<group>"; };
 		9527A38F1E1D05C300DAE96C /* SearchServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceProtocol.swift; sourceTree = "<group>"; };
 		9527A3911E1D0A7500DAE96C /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		953129A61E1E4D280009760F /* BottomBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomBar.xib; sourceTree = "<group>"; };
@@ -2315,6 +2317,7 @@
 		CFF9835B6FCC7370CAE4F56B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				951D02901E4486AC00799F21 /* MainSearchKitsCell.swift */,
 				FAA4D98C1B8EC7F3A3C8F80D /* MainSearchViewInterface.swift */,
 				D0BE3B1C9CAA66994EA7211C /* MainSearchViewController.swift */,
 				9511346D1E1CE24400175EE2 /* MainSearch.storyboard */,
@@ -3011,6 +3014,7 @@
 				25EC08501E37B55500BE8F06 /* MainViewInterface.swift in Sources */,
 				25EC08521E37B55500BE8F06 /* MainKitsCell.swift in Sources */,
 				25EC08531E37B55500BE8F06 /* MainViewPassDataProtocol.swift in Sources */,
+				951D02911E4486AC00799F21 /* MainSearchKitsCell.swift in Sources */,
 				25EC08541E37B55500BE8F06 /* MainInteractorInterface.swift in Sources */,
 				25EC09161E37B6DA00BE8F06 /* CreateSaleConfirmAssember.swift in Sources */,
 				25EC08551E37B55500BE8F06 /* MainInteractor.swift in Sources */,

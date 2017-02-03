@@ -116,7 +116,7 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainKitsCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainSearchCell", for: indexPath) as! MainSearchKitsCell
         cell.setupCell(row: indexPath.row, kit: presenter.kit(for: indexPath))
         return cell
     }
