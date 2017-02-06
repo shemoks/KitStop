@@ -34,7 +34,7 @@ final class FiltersPresenter {
 extension FiltersPresenter: FiltersViewOutput {
 
     func handleApplyTap(price: Price) {
-        if self.currentFilter != nil && sliderVisible {
+        if self.currentFilter != nil && sliderVisible || self.currentFilter != nil && priceVisible {
             if self.filter != nil {
                 interactor.updateFilter(filter: self.filter!, currentFilter: self.currentFilter!)
                 router.closeModule()
@@ -60,9 +60,13 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func priceList() -> PriceString {
         var priceString = PriceString(price: self.price, minValue: "$"+String(self.price.minValue), maxValue: "$"+String(self.price.maxValue))
-        if currentFilter != nil {
+        if currentFilter != nil && self.currentFilter!.maxValue < 2000 {
             priceString = PriceString(price: self.price, minValue: "$"+String(self.currentFilter!.minValue), maxValue: "$"+String(self.currentFilter!.maxValue))
         }
+        if currentFilter != nil && self.currentFilter!.maxValue == 2000 {
+            priceString = PriceString(price: self.price, minValue: "$"+String(self.currentFilter!.minValue), maxValue: "$"+String(self.currentFilter!.maxValue) + "+")
+        }
+
 
         return priceString
     }
@@ -72,10 +76,15 @@ extension FiltersPresenter: FiltersViewOutput {
     }
 
     func handleClearAllTap() {
-        interactor.clearAll(types: self.types)
-        view.reloadData()
-        view.reloadPrice()
-
+        if self.currentFilter != nil && self.filter != nil {
+            interactor.clearAll(filter: self.filter!)
+            self.currentFilter = nil
+            self.filter = nil
+            view.activeClearAll(isActive: false)
+            self.sliderVisible = false
+            view.reloadPrice()
+            view.reloadData()
+        }
     }
 
     func handleTypeTap() {
@@ -84,9 +93,13 @@ extension FiltersPresenter: FiltersViewOutput {
 
     func handleViewDidLoad() {
         view.priceVisible(visible: self.priceVisible)
+        if currentFilter != nil {
+            view.activeClearAll(isActive: true)
+        } else {
+            view.activeClearAll(isActive: false)
+        }
         view.reloadData()
         view.reloadPrice()
-        //view.activeClearAll(isActive: self.activeClearAll)
     }
 
     func changePrice(price: Price) {
@@ -119,6 +132,7 @@ extension FiltersPresenter: FiltersInteractorOutput {
         self.price = price
         self.currentFilter?.maxValue = self.price.maxValue
         self.currentFilter?.minValue = self.price.minValue
+
     }
 
     func showError(title: String, message: String) {
@@ -147,6 +161,7 @@ extension FiltersPresenter: FiltersInteractorOutput {
             self.currentFilter = newCurrentFilter
             self.price = Price(minValue: filter!.minValue, maxValue: filter!.maxValue)
             self.sliderVisible = true
+            view.activeClearAll(isActive: true)                                                                     
         } else {
             self.sliderVisible = false
             view.reloadData()
@@ -166,14 +181,13 @@ extension FiltersPresenter: FiltersModuleInput {
 
     func priceVisible(visible: Bool) {
         self.priceVisible = visible
-            interactor.getCurrentFilter(section: visible)
+        interactor.getCurrentFilter(section: visible)
     }
 }
 
 extension FiltersPresenter: FilterTypeModuleOutput {
 
     func currentCategory(currentCategory: Category) {
-        view.activeClearAll(isActive: true)
         if currentFilter == nil {
             let filter = CurrentFilter()
             filter.title = currentCategory.title
@@ -184,13 +198,16 @@ extension FiltersPresenter: FilterTypeModuleOutput {
             currentFilter?.number = currentCategory.number
             currentFilter?.title = currentCategory.title
         }
-        view.reloadData()
-        if !priceVisible {
-            interactor.getPrice(category: currentCategory)
-            view.reloadPrice()
+        self.view.reloadData()
+        if !self.priceVisible {
+            interactor.getPrice(category: currentCategory) { _ in
+                self.view.reloadData()
+                self.view.reloadPrice()
+            }
         }
+        
     }
-    
 }
+
 
 

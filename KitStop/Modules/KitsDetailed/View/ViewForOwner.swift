@@ -19,6 +19,7 @@ class ViewForOwner: UIView {
     var rates: PriceModel?
 
 
+    @IBOutlet weak var shippingString: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var shipping: UILabel!
     @IBOutlet weak var transaction: UILabel!
@@ -50,7 +51,8 @@ class ViewForOwner: UIView {
 
     func reloadView() {
         self.price.text = rates?.startingPrice
-        self.shipping.text = rates?.transactionRatePrice
+        self.shippingString.text = rates?.weight
+        self.shipping.text = rates?.weightRate
         self.transaction.text = rates?.transactionPrice
         self.kitStop.text = rates?.kitStopPrice
         self.make.text = rates?.finalPrice

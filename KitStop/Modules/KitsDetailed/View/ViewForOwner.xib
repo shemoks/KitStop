@@ -20,6 +20,7 @@
                 <outlet property="make" destination="4Le-eD-Tjl" id="8ap-WV-eAk"/>
                 <outlet property="price" destination="ur0-Tw-fwg" id="wt1-40-bdp"/>
                 <outlet property="shipping" destination="INY-m0-aaZ" id="Gic-7b-4si"/>
+                <outlet property="shippingString" destination="L50-bi-eK6" id="Ewm-VF-RXB"/>
                 <outlet property="transaction" destination="N9M-KS-fIZ" id="W6z-yS-JIt"/>
             </connections>
         </placeholder>
@@ -39,34 +40,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="418" height="180"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-bD-F7y">
-                            <rect key="frame" x="18" y="0.0" width="255" height="180"/>
+                            <rect key="frame" x="18" y="0.0" width="273" height="180"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFg-IM-3tT">
-                                    <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L50-bi-eK6">
-                                    <rect key="frame" x="0.0" y="30" width="255" height="29"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L50-bi-eK6">
+                                    <rect key="frame" x="0.0" y="30" width="273" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction fee (2.9% + $0.3)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1y-Ib-lF2">
-                                    <rect key="frame" x="0.0" y="59" width="255" height="30"/>
+                                    <rect key="frame" x="0.0" y="60" width="273" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KitStop fee (5%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deE-dz-AuN">
-                                    <rect key="frame" x="0.0" y="89" width="255" height="30"/>
+                                    <rect key="frame" x="0.0" y="90" width="273" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You make:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fS-bg-XD1">
-                                    <rect key="frame" x="0.0" y="119" width="255" height="61"/>
+                                    <rect key="frame" x="0.0" y="120" width="273" height="60"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -80,34 +81,34 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hWU-FE-5Ka">
-                            <rect key="frame" x="273" y="0.0" width="127" height="180"/>
+                            <rect key="frame" x="291" y="0.0" width="109" height="180"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ur0-Tw-fwg">
-                                    <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INY-m0-aaZ">
-                                    <rect key="frame" x="0.0" y="30" width="127" height="30"/>
+                                    <rect key="frame" x="0.0" y="30" width="109" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9M-KS-fIZ">
-                                    <rect key="frame" x="0.0" y="60" width="127" height="30"/>
+                                    <rect key="frame" x="0.0" y="60" width="109" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-lQ-3xw">
-                                    <rect key="frame" x="0.0" y="90" width="127" height="30"/>
+                                    <rect key="frame" x="0.0" y="90" width="109" height="30"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Le-eD-Tjl">
-                                    <rect key="frame" x="0.0" y="120" width="127" height="60"/>
+                                    <rect key="frame" x="0.0" y="120" width="109" height="60"/>
                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -129,7 +130,7 @@
                         <constraint firstItem="hWU-FE-5Ka" firstAttribute="leading" secondItem="jfm-bD-F7y" secondAttribute="trailing" id="U2m-25-ZXE"/>
                         <constraint firstAttribute="bottom" secondItem="jfm-bD-F7y" secondAttribute="bottom" id="Ur4-dO-sKA"/>
                         <constraint firstAttribute="trailing" secondItem="hWU-FE-5Ka" secondAttribute="trailing" constant="18" id="hZq-sB-w34"/>
-                        <constraint firstItem="hWU-FE-5Ka" firstAttribute="width" secondItem="jfm-bD-F7y" secondAttribute="width" multiplier="0.5" id="wdE-Al-1Lg"/>
+                        <constraint firstItem="hWU-FE-5Ka" firstAttribute="width" secondItem="jfm-bD-F7y" secondAttribute="width" multiplier="0.4" id="wdE-Al-1Lg"/>
                         <constraint firstItem="jfm-bD-F7y" firstAttribute="top" secondItem="gnc-jY-lN5" secondAttribute="top" id="ycY-gf-g4P"/>
                     </constraints>
                 </view>
