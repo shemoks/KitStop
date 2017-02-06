@@ -28,7 +28,7 @@ final class CreateKitSavePresenter {
     var limit:Int?
     var shouldUpdate: Bool = false
     var images = PostImagesModel()
-    var oldModel = "kit"
+    var oldModel = "Kit"
 
 }
 
@@ -51,7 +51,12 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     
     func handleSaveTap() {
         if shouldUpdate {
-            interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images, oldModel: self.oldModel)
+            if oldModel == "forSale"
+            {
+                interactor.updateForSaleKit(price: price, condition: "", weight: "", post: post!, images: images, oldModel: "")
+            } else {
+               interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images, oldModel: self.oldModel)
+            }
         } else {
             interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images)
         } 

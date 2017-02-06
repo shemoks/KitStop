@@ -11,4 +11,5 @@
 protocol CreateKitSaveInteractorInput: class {
     func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post, images: PostImagesModel)
     func updateKit(price: String?, date: String?, isPrivate:Bool, post:Post, images: PostImagesModel, oldModel: String)
+    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post, images: PostImagesModel, oldModel: String)
 }

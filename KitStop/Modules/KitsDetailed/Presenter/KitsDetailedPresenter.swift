@@ -164,7 +164,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func openEditKit() {
-        router.openEditKit(post: self.post, oldModel: "kit")
+        router.openEditKit(post: self.post, oldModel: "Kit")
     }
 
     func handleKit() {
