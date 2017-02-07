@@ -43,6 +43,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
             result in
             if self.presenter.getSection() {
                 self.presenter.openEditForSale()
+            
             } else {
                 self.presenter.openEditKit()
             }
@@ -122,6 +123,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 extension KitsDetailedViewController: KitsDetailedViewInput {
 
     func reloadData() {
+        LoadingIndicatorView.hide()
         navigationItem.title = presenter.getTittle()
         tableView.reloadData()
     }
@@ -131,7 +133,6 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
     }
 
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
-
         headerView.onTouch = {
             self.presenter.changeLike(like: self.headerView.like)
         }

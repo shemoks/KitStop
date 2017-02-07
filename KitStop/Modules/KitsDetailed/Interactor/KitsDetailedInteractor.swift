@@ -99,7 +99,7 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
         dataManager.getAllKitsForSale(idKit: idPost, forSale: true) { [weak self] object, error in
             if error == nil {
                 print(object)
-                self?.presenter.setPostForChange(post: object, oldModel: "kit")
+                self?.presenter.setPostForChange(post: object, oldModel: "Kit")
             } else {
                 let error = CustomError(code: error!).description
                 self?.presenter.showError(title: "Error", message: error)

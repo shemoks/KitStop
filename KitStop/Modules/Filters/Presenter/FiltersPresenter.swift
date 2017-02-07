@@ -125,6 +125,7 @@ extension FiltersPresenter: FiltersInteractorOutput {
 
     func setTypes(types: [Category]) {
         self.types = types
+        LoadingIndicatorView.hide()
         router.openTypeModule(types: self.types, filterTypeModuleOutput: self)
     }
 
@@ -161,7 +162,7 @@ extension FiltersPresenter: FiltersInteractorOutput {
             self.currentFilter = newCurrentFilter
             self.price = Price(minValue: filter!.minValue, maxValue: filter!.maxValue)
             self.sliderVisible = true
-            view.activeClearAll(isActive: true)                                                                     
+            view.activeClearAll(isActive: true)
         } else {
             self.sliderVisible = false
             view.reloadData()
@@ -198,12 +199,13 @@ extension FiltersPresenter: FilterTypeModuleOutput {
             currentFilter?.number = currentCategory.number
             currentFilter?.title = currentCategory.title
         }
-        self.view.reloadData()
         if !self.priceVisible {
             interactor.getPrice(category: currentCategory) { _ in
                 self.view.reloadData()
                 self.view.reloadPrice()
             }
+        } else {
+            self.view.reloadData()
         }
         
     }

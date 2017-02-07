@@ -202,7 +202,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
         } else {
             self.isForSale = false
             self.screenTitle = "Kits / "
-            self.oldModel = "kit"
+            self.oldModel = "Kit"
         }
         interactor.getStructure(forSale: forSale, idCategory: idCategory)
     }
