@@ -16,10 +16,11 @@ final class CreateKitSaveInteractor {
     weak var presenter: CreateKitSaveInteractorOutput!
 
 
-    fileprivate let createKitService: CreateKitsServiceProtocol?
+    fileprivate var createKitService: CreateKitsServiceProtocol?
     // MARK: -
     
     init(createKitService: CreateKitsServiceProtocol) {
+
         self.createKitService = createKitService
     }
     
@@ -36,7 +37,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images,  success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls, oldModel: "kit")
                 self?.createKitService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -54,11 +55,11 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         })
     }
     
-    func updateKit(price: String?, date: String?, isPrivate: Bool, post: Post, images: PostImagesModel) {
+    func updateKit(price: String?, date: String?, isPrivate: Bool, post: Post, images: PostImagesModel, oldModel: String) {
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls)
+                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls, oldModel: oldModel)
                 self?.createKitService?.updateKit(id: post.id, kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -76,8 +77,9 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         })
     }
     
+    
     // Some questionable code here. Should probably take different approach to request body creation.
-    func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?]) -> CreateKitsRequestBody {
+    func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?], oldModel: String) -> CreateKitsRequestBody {
         
         var metaData:[String:AnyObject] = [:]
         
@@ -125,11 +127,12 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
             purchasePrice = String(price.formattedDouble(decimalPlaces: 2))
         }
         
-        let kit = CreateKitsRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, purchaseDate: purchaseDate, purchasePrice: purchasePrice, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, isPrivate: isPrivate)
+        let kit = CreateKitsRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, purchaseDate: purchaseDate, purchasePrice: purchasePrice, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, isPrivate: isPrivate, oldModel: oldModel)
         
         return kit
     }
     
+        
     func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
         
         sortImages(images: images, completion: { imageUrls, imageObjects in

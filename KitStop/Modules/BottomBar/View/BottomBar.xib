@@ -36,7 +36,7 @@
             <connections>
                 <outlet property="tabBar" destination="4TH-FW-YqR" id="pvr-80-1bG"/>
             </connections>
-            <point key="canvasLocation" x="115.5" y="-83.5"/>
+            <point key="canvasLocation" x="-214" y="97"/>
         </view>
         <customObject id="xdP-p4-0uT" customClass="BottomBarAssembler" customModule="KitStop" customModuleProvider="target">
             <connections>

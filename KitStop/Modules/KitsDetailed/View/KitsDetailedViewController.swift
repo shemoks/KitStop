@@ -43,6 +43,7 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
             result in
             if self.presenter.getSection() {
                 self.presenter.openEditForSale()
+            
             } else {
                 self.presenter.openEditKit()
             }

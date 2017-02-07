@@ -324,3 +324,10 @@ extension String {
         return Double(formattedString)!
     }
 }
+
+extension Request {
+    public func debugLog() -> Self {
+            debugPrint(self)
+        return self
+    }
+}
