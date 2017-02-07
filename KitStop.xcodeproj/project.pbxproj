@@ -3308,7 +3308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3326,8 +3326,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3342,7 +3342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KitStop/KitStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 729WFR3HVU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3360,8 +3360,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozidev.KitStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afac4939-9c03-4630-a211-24656c1fa1dc";
-				PROVISIONING_PROFILE_SPECIFIER = "KitStop AppStore";
+				PROVISIONING_PROFILE = "dec474d2-8310-4377-9c74-46a82cbb689b";
+				PROVISIONING_PROFILE_SPECIFIER = "KitStop Development";
 				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
