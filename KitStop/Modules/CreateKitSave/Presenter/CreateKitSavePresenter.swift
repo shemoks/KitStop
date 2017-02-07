@@ -51,12 +51,7 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
     
     func handleSaveTap() {
         if shouldUpdate {
-            if oldModel == "forSale"
-            {
-                interactor.updateForSaleKit(price: price, condition: "", weight: "", post: post!, images: images, oldModel: "")
-            } else {
                interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images, oldModel: self.oldModel)
-            }
         } else {
             interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images)
         } 

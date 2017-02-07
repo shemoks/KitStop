@@ -17,17 +17,15 @@ final class CreateKitSaveInteractor {
 
 
     fileprivate var createKitService: CreateKitsServiceProtocol?
-    fileprivate var createForSaleService: CreateForSaleServiceProtocol?
     // MARK: -
     
-    init(createKitService: CreateKitsServiceProtocol, createForSaleService: CreateForSaleServiceProtocol) {
+    init(createKitService: CreateKitsServiceProtocol) {
 
         self.createKitService = createKitService
-        self.createForSaleService = createForSaleService
     }
     
     convenience init() {
-        self.init(createKitService: CreateKitsService(), createForSaleService: CreateForSaleService())
+        self.init(createKitService: CreateKitsService())
     }
 
 }
@@ -79,28 +77,6 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         })
     }
     
-    func updateForSaleKit(price: String?, condition: String?, weight: String?, post: Post, images: PostImagesModel, oldModel: String) {
-        
-        self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
-            mainImage, imageUrls in
-            if imageUrls.first != nil {
-                let kit = self?.requestBodyForSale(price: price!, condition: condition!, weight: weight!, post: post, imageArray: imageUrls, oldModel: oldModel)
-                self?.createForSaleService?.updateKit(id: post.id, kit: kit!, completion: {
-                    result , error, id in
-                    LoadingIndicatorView.hide()
-                    if result {
-                        self?.presenter.returnToMainModule()
-                    } else {
-                        let errorMessage = CustomError(code: error!).description
-                        self?.presenter.showAlertWith(title: "Error", message: errorMessage)
-                    }
-                })
-            } else {
-                LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
-            }
-        })
-    }
     
     // Some questionable code here. Should probably take different approach to request body creation.
     func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?], oldModel: String) -> CreateKitsRequestBody {
@@ -156,52 +132,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         return kit
     }
     
-    func requestBodyForSale(price: String, condition: String, weight: String, post: Post, imageArray: [String?], oldModel: String) -> KitsForSaleRequestBody {
         
-        var metaData:[String:AnyObject] = [:]
-        
-        for item in post.metadata {
-            let key = item.title.capitalized.replacingOccurrences(of: " ", with: "")
-            metaData[key.lowerCaseFirstLetter()] = item.textValue as AnyObject?
-        }
-        
-        var title: String = ""
-        var brand: String?
-        var model: String?
-        var serialNumber: String?
-        let category: String = post.categoryId
-        let description = post.description.textValue
-        let notes = post.notes.textValue
-        let mainImage = imageArray.first!
-        let images = imageArray
-        let tags  = [String?]()
-        
-        for item in post.generalProperty {
-            switch item.title {
-            case "Title":
-                title = item.textValue
-            case "Brand":
-                brand = item.textValue
-            case "Model":
-                model = item.textValue
-            case "Serial #":
-                serialNumber = item.textValue
-            default:
-                _ = "Default"
-            }
-        }
-        
-        var salesDetails: [String:AnyObject] = [:]
-        
-        salesDetails["condition"] = condition as AnyObject?
-        salesDetails["price"] = price as AnyObject?
-        salesDetails["weight"] = weight as AnyObject?
-        
-        let kit = KitsForSaleRequestBody(title: title, brand: brand, model: model, serialNumber: serialNumber, category: category, description: description, notes: notes, mainImage: mainImage!, images: images, tags: tags, metaData: metaData, salesDetails: salesDetails, oldModel: oldModel)
-        
-        return kit
-    }
-    
     func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
         
         sortImages(images: images, completion: { imageUrls, imageObjects in
