@@ -4,14 +4,14 @@ use_frameworks!
 target 'KitStop' do
   pod 'Alamofire'
   pod 'KeychainAccess'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
+  pod 'FacebookCore’, '~> 0.2.0’
+  pod 'FacebookLogin', '~> 0.2.0’
+  pod 'FacebookShare’, '~> 0.2.0’
   pod 'IQKeyboardManagerSwift', '~> 4.0'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'RealmSwift'
-  pod 'AWSS3'
+  pod 'AWSS3', '~> 2.4.16’
   pod 'Cosmos'
   pod 'Fabric'
   pod 'Crashlytics'
