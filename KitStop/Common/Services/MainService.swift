@@ -12,13 +12,31 @@ import Alamofire
 class MainService: NSObject, MainServiceProtocol {
     
     fileprivate let manager: ApiManagerProtocol
+    let filterManager: FilterManager?
     
     init(manager: ApiManagerProtocol = SessionManager.default) {
         self.manager = manager
+        filterManager = FilterManager()
     }
     
-    func fetchAllKits(page: Int, completionBlock: @escaping (_ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "perPage" : 5 as AnyObject], headers: nil).apiResponse(completionHandler: {
+    func fetchAllKits(page: Int, filterButton: UIButton?, completionBlock: @escaping (_ error: Int?) -> ()) {
+        var params = [String : AnyObject]()
+        filterManager?.getCurrentFilter(section: true, result: {
+            filter in
+            if let filter = filter.first {
+                if let filterButton = filterButton {
+                    filterButton.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
+                }
+                params = ["page" : page as AnyObject,
+                          "perPage" : 5 as AnyObject,
+                          "category" : filter.number as AnyObject]
+            } else {
+                filterButton?.setImage(UIImage.init(named: "filter_icon"), for: .normal)
+                params = ["page" : page as AnyObject,
+                          "perPage" : 5 as AnyObject]
+            }
+        })
+        let _ = manager.apiRequest(.getKits(), parameters: params, headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -88,8 +106,28 @@ class MainService: NSObject, MainServiceProtocol {
         })
     }
     
-    func fetchAllKitsForSale(page: Int,completionBlock: @escaping (_ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "perPage" : 5 as AnyObject], headers: nil).apiResponse(completionHandler: {
+    func fetchAllKitsForSale(page: Int, filterButton: UIButton? ,completionBlock: @escaping (_ error: Int?) -> ()) {
+        var params = [String : AnyObject]()
+        filterManager?.getCurrentFilter(section: false, result: {
+            filter in
+            if let filter = filter.first {
+                if let filterButton = filterButton {
+                    filterButton.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
+                }
+                params = ["page" : page as AnyObject,
+                              "perPage" : 5 as AnyObject,
+                              "from" : filter.minValue as AnyObject,
+                              "to" : filter.maxValue as AnyObject,
+                              "category" : filter.number as AnyObject]
+            } else {
+                if let filterButton = filterButton {
+                    filterButton.setImage(UIImage.init(named: "filter_icon"), for: .normal)
+                }
+                params = ["page" : page as AnyObject,
+                          "perPage" : 5 as AnyObject]
+            }
+        })
+        let _ = manager.apiRequest(.getKitsForSale(), parameters: params, headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):

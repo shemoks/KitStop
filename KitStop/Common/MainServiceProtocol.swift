@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainServiceProtocol {
     func fetchAllKitFolio(page: Int, completionBlock: @escaping (_ error: Int?) -> ())
-    func fetchAllKits(page: Int, completionBlock: @escaping (_ error: Int?) -> ())
-    func fetchAllKitsForSale(page: Int, completionBlock: @escaping (_ error: Int?) -> ())
+    func fetchAllKits(page: Int, filterButton: UIButton? , completionBlock: @escaping (_ error: Int?) -> ())
+    func fetchAllKitsForSale(page: Int, filterButton: UIButton? , completionBlock: @escaping (_ error: Int?) -> ())
 }

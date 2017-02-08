@@ -22,6 +22,7 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshKitsWithFilter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,15 +46,22 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
         fetchKits()
     }
     
-    func refreshKits() {
-        KitRealmManager.sharedManager.showCollectionView = false
+    func refreshKitsWithFilter() {
+        transferData?.stopRefresh()
+        transferData?.page = 1
+        self.addLoadingIndicatorView()
         presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
+        presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
+    }
+    
+    func refreshKits() {
+        presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
+        KitRealmManager.sharedManager.showCollectionView = false
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
     
     func fetchKits() {
         KitRealmManager.sharedManager.showCollectionView = false
-        filter.setImage(UIImage.init(named: "filter_icon"), for: .normal)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
     
@@ -84,10 +92,8 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
 // MARK: - MainFilterContainerViewInput
 
 extension MainFilterContainerViewController: MainFilterContainerViewInput {
-    func transferKits(kits: [Product]) {
-        filter.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
-        transferData?.clearKitsPage()
-        transferData?.kitItems(transferData: kits)
+    func stopRefresh() {
+        transferData?.stopRefresh()
     }
     
     func addLoadingIndicatorView() {

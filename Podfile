@@ -11,7 +11,7 @@ target 'KitStop' do
   pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'RealmSwift'
-  pod 'AWSS3'
+  pod 'AWSS3', '~> 2.4.16'
   pod 'Cosmos'
   pod 'Fabric'
   pod 'Crashlytics'

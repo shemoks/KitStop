@@ -1,0 +1,88 @@
+PODS:
+  - Alamofire (4.3.0)
+  - AWSCore (2.4.16)
+  - AWSS3 (2.4.16):
+    - AWSCore (= 2.4.16)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - Cosmos (8.0.2)
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FacebookShare (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKShareKit (~> 4.15)
+  - FBSDKCoreKit (4.19.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.19.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.19.0):
+    - FBSDKCoreKit
+  - IQKeyboardManagerSwift (4.0.8)
+  - KeychainAccess (3.0.1)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SwiftyJSON (3.1.4)
+  - UIScrollView-InfiniteScroll (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AWSS3 (~> 2.4.16)
+  - Cosmos
+  - Crashlytics
+  - Fabric
+  - FacebookCore
+  - FacebookLogin
+  - FacebookShare
+  - IQKeyboardManagerSwift (~> 4.0)
+  - KeychainAccess
+  - RealmSwift
+  - SDWebImage
+  - SwiftyJSON
+  - UIScrollView-InfiniteScroll (~> 1.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  AWSCore: 7c3c129991e6387bcbad7132bc3661e7135754db
+  AWSS3: fef6aa8f8f625df8f67f1b6574fe761f3a4ddc99
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
+  FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
+  FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
+  FBSDKShareKit: 5953758366278430dc322d5cdc906db361ed7f81
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  UIScrollView-InfiniteScroll: d26885be71caca7485cdb37eab513a8f89036bb0
+
+PODFILE CHECKSUM: a5a7975d40ec138a9fb1d5267d64b5e2c5a89cd3
+
+COCOAPODS: 1.2.0

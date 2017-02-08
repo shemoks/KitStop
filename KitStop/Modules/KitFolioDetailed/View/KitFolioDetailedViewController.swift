@@ -65,7 +65,8 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     func edit() {
         self.navigationItem.rightBarButtonItem? = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(save))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .done, target: self, action: #selector(cancel))
+        //self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         viewRec?.numberOfTapsRequired = 1
         viewRec?.numberOfTouchesRequired = 1
         postTitle.isEditable = true

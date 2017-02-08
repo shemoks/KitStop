@@ -29,7 +29,7 @@ final class MainInteractor {
     func handleKitsForSale(page: Int) {
         presenter.showLoadingIndicatorView()
         removeAllFromRealm()
-        dataManager.fetchAllKitsForSale(page: page, completionBlock: {
+        dataManager.fetchAllKitsForSale(page: page,filterButton: nil, completionBlock: {
             [weak self] error in
             if error != nil {
                 let message = CustomError.init(code: error!).description

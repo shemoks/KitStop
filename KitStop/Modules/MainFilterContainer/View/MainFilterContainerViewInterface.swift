@@ -16,4 +16,5 @@ protocol MainFilterContainerViewInput: class {
     func addLoadingIndicatorView()
     func removeLoadingIndicatorView()
     func stopInfiniteScroll(finishSuccess: Bool)
+    func refreshKitsWithFilter()
 }

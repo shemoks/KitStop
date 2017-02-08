@@ -7,6 +7,7 @@
 //
 
 // MARK: - MainInteractorInput
+import UIKit
 
 protocol MainInteractorInput: class {
     func handleKitsForSale(page: Int)

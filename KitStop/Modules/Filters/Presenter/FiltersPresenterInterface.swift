@@ -51,5 +51,5 @@ protocol FiltersModuleInput: ModuleInput {
 // MARK: - FiltersModuleOutput
 
 protocol FiltersModuleOutput: ModuleOutput {
-    func kitsWithFilters(kits: [Product], filter: Bool)
+    func kitsWithFilters(filter: Bool)
 }
