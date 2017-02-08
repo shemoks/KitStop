@@ -64,9 +64,15 @@ class CalculationForOwner: TransportPost {
     }
 
     func calculate (resultValue: @escaping (PriceModel) -> ()) {
+        var flag = false
         var priceModel = PriceModel(weight: "Shipping:", weightRate: "0.00", startingPrice: "0.00", transactionPrice: "0.00", transactionRatePrice: "0.00", kitStopPrice: "0.00", finalPrice: "0.00")
         self.getInfo { result in
-            if result != nil {
+            for item in (self.post?.salesDetails)! {
+                if item.title == "Sale price" && item.textValue != "" {
+                    flag = true
+                }
+            }
+            if result != nil && flag {
                 priceModel =  self.getValuesForView(post: self.post!, rates: result!)!
                 resultValue(priceModel)
             } else {

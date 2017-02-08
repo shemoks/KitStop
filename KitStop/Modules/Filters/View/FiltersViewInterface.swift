@@ -15,5 +15,6 @@ protocol FiltersViewInput: class {
     func reloadPrice()
     func priceVisible(visible: Bool)
     func activeClearAll(isActive: Bool)
+    func isVisiblePrice(result: Bool)
     
 }

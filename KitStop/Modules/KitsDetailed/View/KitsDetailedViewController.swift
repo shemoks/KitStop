@@ -132,7 +132,6 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
     }
 
     func reloadHeader(url: URL, userInfo: User, dateUpdate: String) {
-
         headerView.onTouch = {
             self.presenter.changeLike(like: self.headerView.like)
         }
@@ -185,6 +184,7 @@ extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
     func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
         let index = IndexPath(item: index, section: 0)
         headerView.carusel.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+        headerView.carusel.pageControl.currentPage = index.row
     }
 
     func deletePhoto(index: Int) {

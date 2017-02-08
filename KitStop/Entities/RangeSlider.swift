@@ -18,7 +18,7 @@ class RangeSliderTrackLayer: CALayer {
         }
 
         // Clip
-        let cornerRadius = bounds.height * slider.curvaceousness / 2.0
+        let cornerRadius = bounds.height * slider.curvaceousness
         let path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         ctx.addPath(path.cgPath)
 
@@ -62,7 +62,7 @@ class RangeSliderThumbLayer: CALayer {
         }
 
         let thumbFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
-        let cornerRadius = thumbFrame.height * slider.curvaceousness / 2.0
+        let cornerRadius = thumbFrame.height * slider.curvaceousness 
         let thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
 
         // Fill

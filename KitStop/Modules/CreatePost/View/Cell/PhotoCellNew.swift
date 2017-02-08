@@ -19,7 +19,7 @@ class PhotoCellNew: UICollectionViewCell {
         case .Actual(let image):
              photo.image = image
         case .Remote(let url):
-            photo.sd_setImage(with: url)
+            photo.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder500x500"))
         case .Blank:
             photo.image = UIImage.init(named: "blank1")
 

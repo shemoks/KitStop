@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import MobileCoreServices
 
 // MARK: - RegistrationTakePhotoViewController
 
@@ -39,7 +40,7 @@ extension RegistrationTakePhotoViewController: RegistrationTakePhotoViewInput {
     func openGallery() {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
-        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        imagePicker.mediaTypes = [kUTTypeImage as String]
         imagePicker.modalPresentationStyle = .popover
         present(imagePicker, animated: true, completion: nil)
     }

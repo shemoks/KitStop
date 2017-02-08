@@ -12,20 +12,12 @@ class TypeCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
 
-    func configure(filter: [Category]) {
-        let clearFilter = "Select filter"
-        var labelText = ""
-        if !filter.isEmpty {
-            for item in filter {
-                if item.isSelected == true {
-                    labelText = item.title
-                }
-            }
-        }
-        if labelText == "" {
-            titleLabel.text = clearFilter
+    func configure(filter: CurrentFilter?) {
+        if filter != nil {
+            titleLabel.text = filter?.title
         } else {
-            titleLabel.text = labelText
+            titleLabel.text = "All categories"
         }
     }
+    
 }

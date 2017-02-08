@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import MobileCoreServices
 
 // MARK: - CreatePostViewController
 
@@ -124,7 +125,7 @@ extension CreatePostViewController: CreatePostViewInput {
             imagePicker.allowsEditing = true
         }
         imagePicker.sourceType = .photoLibrary
-        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        imagePicker.mediaTypes = [kUTTypeImage as String]
         imagePicker.modalPresentationStyle = .popover
         present(imagePicker, animated: true, completion: nil)
     }
