@@ -11,13 +11,17 @@ import UIKit
 class LoadingIndicatorView {
     
     static var currentOverlay : UIView?
+    static var blurView: UIVisualEffectView!
+    static var vibrancyView: UIVisualEffectView!
+    fileprivate static var patternImage: Bool = false
+    fileprivate static var overlayTarget: UIView?
     
     static func show() {
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
             print("No main window.")
             return
         }
-        show(currentMainWindow)
+        show(currentMainWindow, false)
     }
     
     static func show(_ loadingText: String) {
@@ -25,30 +29,51 @@ class LoadingIndicatorView {
             print("No main window.")
             return
         }
-        show(currentMainWindow, loadingText: loadingText)
+        show(currentMainWindow, loadingText: loadingText, patternImage: false)
     }
     
-    static func show(_ overlayTarget : UIView) {
-        show(overlayTarget, loadingText: nil)
+    static func show(_ overlayTarget : UIView,_ patternImage: Bool) {
+        show(overlayTarget, loadingText: nil, patternImage: patternImage)
     }
     
-    static func show(_ overlayTarget : UIView, loadingText: String?) {
+    static func show(_ overlayTarget : UIView, loadingText: String?, patternImage: Bool) {
         // Clear it first in case it was already shown
         hide()
+        let blurEffectStyle: UIBlurEffectStyle = .light
+        var blurEffect: UIBlurEffect!
+        blurEffect = UIBlurEffect(style: blurEffectStyle)
+        blurView = UIVisualEffectView(effect: blurEffect)
+        
+        
+        vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
+        
+        blurView.frame = overlayTarget.frame
+        vibrancyView.frame = overlayTarget.frame
         
         // Create the overlay
         let overlay = UIView(frame: overlayTarget.frame)
         overlay.center = overlayTarget.center
-        overlay.alpha = 0
-        overlay.backgroundColor = UIColor.black
+        if patternImage {
+            overlay.alpha = 1
+            let imageView = UIImageView(frame: overlay.frame)
+            imageView.center = overlay.center
+            imageView.image = UIImage(named: "background")
+            overlay.addSubview(imageView)
+        } else {
+            overlay.backgroundColor = UIColor.black
+            overlay.alpha = 0.5
+        }
         overlayTarget.addSubview(overlay)
-        overlayTarget.bringSubview(toFront: overlay)
+        overlayTarget.addSubview(vibrancyView)
+        overlayTarget.addSubview(blurView)
+        overlayTarget.bringSubview(toFront: blurView)
+        
         
         // Create and animate the activity indicator
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
         indicator.center = overlay.center
         indicator.startAnimating()
-        overlay.addSubview(indicator)
+        blurView.addSubview(indicator)
         
         // Create label
         if let textString = loadingText {
@@ -57,14 +82,17 @@ class LoadingIndicatorView {
             label.textColor = UIColor.white
             label.sizeToFit()
             label.center = CGPoint(x: indicator.center.x, y: indicator.center.y + 30)
-            overlay.addSubview(label)
+            blurView.addSubview(label)
         }
         
         // Animate the overlay to show
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.5)
-        overlay.alpha = overlay.alpha > 0 ? 0 : 0.5
+       // overlay.alpha = overlay.alpha > 0 ? 0 : 0.5
         UIView.commitAnimations()
+        
+        self.patternImage = patternImage
+        self.overlayTarget? = overlayTarget
         
         currentOverlay = overlay
     }
@@ -72,6 +100,11 @@ class LoadingIndicatorView {
     static func hide() {
         if currentOverlay != nil {
             currentOverlay?.removeFromSuperview()
+            if self.patternImage {
+                overlayTarget?.isHidden = true
+            }
+            blurView.removeFromSuperview()
+            vibrancyView.removeFromSuperview()
             currentOverlay =  nil
         }
     }

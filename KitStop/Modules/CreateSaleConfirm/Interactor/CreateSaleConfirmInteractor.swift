@@ -49,7 +49,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }
@@ -72,7 +72,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }

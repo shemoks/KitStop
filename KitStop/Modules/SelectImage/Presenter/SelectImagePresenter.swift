@@ -49,12 +49,12 @@ extension SelectImagePresenter: SelectImageViewOutput {
     }
     
     func showActionSheet() {
-        let actionSheet = UIAlertController(title: "", message: "Replace image", preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: "Choose from camera", style: .default, handler: {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let camera = UIAlertAction(title: "Take photo", style: .default, handler: {
             res in
             self.view.openCamera()
         })
-        let gallery = UIAlertAction(title: "Choose from gallary", style: .default, handler: {
+        let gallery = UIAlertAction(title: "Choose photo", style: .default, handler: {
             res in
             self.view.openGallary()
         })

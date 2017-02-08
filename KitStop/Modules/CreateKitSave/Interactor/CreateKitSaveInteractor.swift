@@ -53,7 +53,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }
@@ -75,7 +75,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }

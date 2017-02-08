@@ -11,7 +11,10 @@ import UIKit
 
 protocol MainViewInput: class {
     func presentAlert(alertController: UIAlertController)
-    func updateData(kits: [Product])
     func passDataToSubmodule()
     func showAlert(title: String, message: String)
+    func addLoadingIndicatorView()
+    func removeLoadingIndicatorView()
+    var page: Int {get set}
+    func finishInfiniteScroll()
 }

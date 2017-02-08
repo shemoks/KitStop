@@ -49,7 +49,7 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
         kitFolioDetailerManager?.deleteKitFolio(id: id, completitionBlock: {
             [weak self] error in
             if error == nil {
-                self?.presenter.showSuccessAlert(title: "Success", message: "The item has been deleted")
+                self?.presenter.showSuccessAlert(title: "Success", message: "Your post was successfully deleted")
             } else {
                 let message = CustomError.init(code: error!).description
                 self?.presenter.showErrorAlert(title: "Error", message: message)
@@ -86,7 +86,7 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
                 })
                 } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showErrorAlert(title: "Error", message: "Image upload fail")
+                self?.presenter.showErrorAlert(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
 
