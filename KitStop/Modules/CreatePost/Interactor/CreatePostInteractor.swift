@@ -85,6 +85,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.mainImageObject = post.mainImageObject
                 newPost.otherProperty = post.otherProperty
                 newPost.mainImageObject = post.mainImageObject
+                newPost.isPrivate = post.isPrivate
                 presenter.setPost(post: newPost, model: model)
             }
         }

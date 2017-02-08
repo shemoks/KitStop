@@ -18,17 +18,25 @@ final class CreateKitSavePresenter {
     weak var view: CreateKitSaveViewInput!
     var interactor: CreateKitSaveInteractorInput!
     var router: CreateKitSaveRouterInput!
+    
+    // MARK: - Models
     var details: [KitDetailsModel] = []
     var kit: CreateKitsRequestBody?
     var post: Post?
-    var isPrivate:Bool = false
+    var images = PostImagesModel()
+    
+    // MARK: - Required properties
+    var postId: String?
     var date = ""
     var price = ""
-    var postId: String?
+    var isPrivate:Bool = false
+    
+    // MARK: - Misc properties
     var limit:Int?
     var shouldUpdate: Bool = false
-    var images = PostImagesModel()
     var oldModel = "Kit"
+
+
 
 }
 
@@ -123,7 +131,6 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
             }
             self.setPrivacy(isPrivate: (post?.isPrivate)!)
         }
-
     }
     
     func showAlert() {

@@ -30,6 +30,7 @@ class SearchService: SearchServiceProtocol {
                     kitModel.title = kit.1["title"].stringValue
                     kitModel.id = kit.1["_id"].stringValue
                     kitModel.owner = kit.1["owner"].stringValue
+                    kitModel.isPrivate = kit.1["isPrivate"].boolValue
                     kits.append(kitModel)
                 }
                 if json["data"]["docs"].count == 0 {
@@ -58,6 +59,7 @@ class SearchService: SearchServiceProtocol {
                     kitModel.title = kit.1["title"].stringValue
                     kitModel.id = kit.1["_id"].stringValue
                     kitModel.owner = kit.1["owner"].stringValue
+                    kitModel.isPrivate = kit.1["isPrivate"].boolValue
                     kits.append(kitModel)
                 }
                 if json["data"]["docs"].count == 0 {
