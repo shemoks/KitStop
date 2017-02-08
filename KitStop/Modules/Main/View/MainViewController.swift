@@ -10,6 +10,7 @@ import Chamomile
 import UIKit
 import KeychainAccess
 import RealmSwift
+import UIScrollView_InfiniteScroll
 
 // MARK: - MainViewController
 
@@ -17,6 +18,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     // MARK: - VIPER stack
     
+    @IBOutlet weak var loadingIndicatorView: UIView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,25 +29,45 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     fileprivate var kits: [Product] = []
     var delegate: MainViewPassDataProtocol?
     fileprivate var refreshStatus = false
-    var footerView: MainFooterView?
-    var loadMoreStatus = false
     var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadingIndicatorView.hide()
+        //LoadingIndicatorView.hide()
         collectionView.delegate = self
         collectionView.dataSource = self
         addSectionInset()
         addNavigationBarItems()
         addRefreshControl()
         addToolbar()
+        addNotificationToken()
+        addInfiniteScroll()
         presenter.handleKitForSale(page: self.page)
+    }
+    
+    func addNotificationToken() {
+        presenter.notificationCenter = KitRealmManager.sharedManager.getRealm().addNotificationBlock({
+            [weak self] (changes: RealmCollectionChange) in
+            guard let collectionView = self?.collectionView else {return}
+            collectionView.reloadData()
+        })
+        
+    }
+    
+    func addInfiniteScroll() {
+        self.collectionView.addInfiniteScroll(handler: {
+            scrollView in
+            self.page += 1
+            self.delegate?.fetchKits()
+        })
+    }
+    
+    deinit {
+        presenter.notificationCenter?.stop()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        footerView?.isHidden = true
     }
     
     func addRefreshControl() {
@@ -56,7 +78,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     func refresh() {
         print("refresh")
-        clearKitsPage()
+        page = 1
         delegate?.refreshKits()
         refreshStatus = true
     }
@@ -81,35 +103,9 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         collectionView.collectionViewLayout = layout
     }
     
-    func updateData(kits: [Product]) {
-        self.kits = kits
-        reloadSection()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let container = segue.destinationViewController(ofType: MainFilterContainerViewController.self)
         container?.transferData = self
-    }
-    
-    func kitItems(transferData: [Product]) {
-        if refreshStatus {
-            refreshStatus = false
-            refreshControl.endRefreshing()
-        }
-        self.kits += transferData
-        if loadMoreStatus {
-            self.loadMoreStatus = false
-            self.footerView?.activityIndicator.stopAnimating()
-            self.footerView?.isHidden = true
-            self.collectionViewHeight.constant = 0
-        }
-        reloadSection()
-    }
-    
-    func reloadSection() {
-        let range = Range(uncheckedBounds: (0, collectionView.numberOfSections))
-        let indexSet = IndexSet(integersIn: range)
-        collectionView.reloadSections(indexSet)
     }
     
     func passDataToSubmodule() {
@@ -127,55 +123,34 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     }
     
     func stopRefresh() {
-        self.page -= 1
-        self.footerView?.isHidden = true
-        self.footerView?.activityIndicator.stopAnimating()
         self.refreshControl.endRefreshing()
     }
     
-    func loadMore() {
-        if ( !loadMoreStatus ) {
-            self.loadMoreStatus = true
-            self.footerView?.activityIndicator.startAnimating()
-            self.footerView?.isHidden = false
-            self.collectionViewHeight.constant = 50
-            loadMoreBegin()
-        }
+    func addSpinner() {
+        self.addLoadingIndicatorView()
     }
     
-    func loadMoreBegin() {
-        DispatchQueue.global().async {
-            self.page += 1
-            DispatchQueue.main.async {
-                print("load more")
-                self.delegate?.fetchKits()
-            }
-        }
+    func removeSpinner() {
+        self.removeLoadingIndicatorView()
     }
     
-    func clearKitsPage() {
-        self.page = 1
-        self.kits.removeAll()
-    }
-    
-}
-
-extension MainViewController: UIScrollViewDelegate {
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
-            if let total = self.kits.first?.total {
-                if kits.count < total {
-                    loadMore()
-                }
-            }
-        }
+    func finishInfiniteScroll() {
+        self.collectionView.finishInfiniteScroll()
     }
 }
 
 // MARK: - MainViewInput
 
 extension MainViewController: MainViewInput {
+    
+    func addLoadingIndicatorView() {
+        loadingIndicatorView.isHidden = false
+        LoadingIndicatorView.show(loadingIndicatorView, true)
+    }
+    
+    func removeLoadingIndicatorView() {
+        loadingIndicatorView.isHidden = true
+    }
     
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true, completion: nil)
@@ -205,13 +180,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return kits.count
+        if KitRealmManager.sharedManager.showCollectionView {
+            return KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType).count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainKitsCell
-        if kits.count > 0 {
-            cell.setupCell(row: indexPath.row, kit: kits[indexPath.row])
+        if KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType).count >= indexPath.row {
+            cell.setupCell(kit: KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType)[indexPath.row])
         }
         return cell
     }
@@ -222,18 +200,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if self.kits.count >= indexPath.row && self.kits.count > 0 {
-            delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
+        if KitRealmManager.sharedManager.showCollectionView {
+            delegate?.selectedKits(kitId: KitRealmManager.sharedManager.getRealm()[indexPath.row].id, ownerId: KitRealmManager.sharedManager.getRealm()[indexPath.row].owner)
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width, height: 50)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "MainFooter", for: indexPath) as? MainFooterView
-        return footerView!
+        
     }
     
 }

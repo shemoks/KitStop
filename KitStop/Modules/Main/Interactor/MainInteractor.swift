@@ -27,15 +27,23 @@ final class MainInteractor {
     
     
     func handleKitsForSale(page: Int) {
+        presenter.showLoadingIndicatorView()
+        removeAllFromRealm()
         dataManager.fetchAllKitsForSale(page: page, completionBlock: {
-            [weak self] kitsForSale, error in
-            if error == nil {
-                self?.presenter.updateKits(kits: kitsForSale!)
-            } else {
+            [weak self] error in
+            if error != nil {
                 let message = CustomError.init(code: error!).description
+                self?.presenter.finishInfiniteScroll(finishSuccess: false)
                 self?.presenter.showAlert(title: "Error", message: message)
+            } else {
+                self?.presenter.finishInfiniteScroll(finishSuccess: true)
+                self?.presenter.removeLoadingIndicatorView()
             }
         })
+    }
+    
+    func removeAllFromRealm() {
+        KitRealmManager.sharedManager.removeAllFromRealm()
     }
     
 }

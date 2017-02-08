@@ -16,12 +16,17 @@ protocol MainFilterContainerViewOutput: class {
     func handleKitsForCategory(category: Int, transferData: MainFilterContainerTransferDataProtocol?, filterButton: UIButton)
     func openKitFolioDetailedModule(kitId: String, ownerId: String)
     func openKitsModule(segmentedIndex: Bool ,kitId: String, ownerId: String)
+    func changeCollectionViewStatus(index: Int)
 }
 
 // MARK: - MainFilterContainerInteractorOutput
 
 protocol MainFilterContainerInteractorOutput: class {
     func showAlert(title: String, message: String)
+    func stopRefresh()
+    func addLoadingIndicatorView()
+    func removeLoadingIndicatorView()
+    func stopInfiniteScroll(finishSuccess: Bool)
 }
 
 // MARK: - MainFilterContainerModuleInput

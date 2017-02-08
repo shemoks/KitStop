@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MainServiceProtocol {
-    func fetchAllKitFolio(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ())
-    func fetchAllKits(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ())
-    func fetchAllKitsForSale(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ())
+    func fetchAllKitFolio(page: Int, completionBlock: @escaping (_ error: Int?) -> ())
+    func fetchAllKits(page: Int, completionBlock: @escaping (_ error: Int?) -> ())
+    func fetchAllKitsForSale(page: Int, completionBlock: @escaping (_ error: Int?) -> ())
 }

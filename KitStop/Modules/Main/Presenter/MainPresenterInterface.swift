@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import RealmSwift
 
 // MARK: - MainViewOutput
 
@@ -14,13 +15,18 @@ protocol MainViewOutput: class {
     func setupAlert()
     func handleKitForSale(page :Int)
     func openModule(identifier: Int)
+    var notificationCenter: NotificationToken? {get set}
+    var preloadMargin: Int {get}
+    var lastLoadedPage: Int {get set}
 }
 
 // MARK: - MainInteractorOutput
 
 protocol MainInteractorOutput: class {
-    func updateKits(kits: [Product])
     func showAlert(title: String, message: String)
+    func showLoadingIndicatorView()
+    func removeLoadingIndicatorView()
+    func finishInfiniteScroll(finishSuccess: Bool)
 }
 
 // MARK: - MainModuleInput

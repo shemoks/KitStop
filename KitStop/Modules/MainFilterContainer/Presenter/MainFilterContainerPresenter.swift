@@ -44,6 +44,27 @@ extension MainFilterContainerPresenter: MainFilterContainerViewOutput {
     func openKitsModule(segmentedIndex: Bool, kitId: String, ownerId: String) {
         router.openKitsModule(segmentedIndex: segmentedIndex, kitId: kitId, ownerId: ownerId, moduleOutput: self)
     }
+    
+    func changeCollectionViewStatus(index: Int) {
+        switch index {
+        case 0:
+            KitRealmManager.sharedManager.setType = "KitForSale"
+            KitRealmManager.sharedManager.removeAllFromRealm()
+        case 1:
+            KitRealmManager.sharedManager.setType = "Kits"
+            KitRealmManager.sharedManager.removeAllFromRealm()
+        case 2:
+            KitRealmManager.sharedManager.setType = "KitFolio"
+            KitRealmManager.sharedManager.removeAllFromRealm()
+        default:
+            KitRealmManager.sharedManager.setType = "KitForSale"
+            KitRealmManager.sharedManager.removeAllFromRealm()
+        }
+    }
+    
+    func stopInfiniteScroll(finishSuccess: Bool) {
+        view.stopInfiniteScroll(finishSuccess: finishSuccess)
+    }
 }
 
 // MARK: - MainFilterContainerInteractorOutput
@@ -52,17 +73,31 @@ extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
     func showAlert(title: String, message: String) {
         view.showAlert(title: title, message: message)
     }
+    
+    func stopRefresh() {
+        view.stopRefresh()
+    }
+    
+    func addLoadingIndicatorView() {
+        view.addLoadingIndicatorView()
+    }
+    
+    func removeLoadingIndicatorView() {
+        view.removeLoadingIndicatorView()
+    }
 }
 
 // MARK: - MainFilterContainerModuleInput
 
 extension MainFilterContainerPresenter: MainFilterContainerModuleInput {
+    
+    
 }
 
 extension MainFilterContainerPresenter: FiltersModuleOutput{
     func kitsWithFilters(kits: [Product], filter: Bool) {
         if filter {
-            view.transferKits(kits: kits)
+//            view.transferKits(kits: kits)
         } else {
             view.fetchKits()
         }

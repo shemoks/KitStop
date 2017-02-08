@@ -10,4 +10,5 @@
 
 protocol MainInteractorInput: class {
     func handleKitsForSale(page: Int)
+    func removeAllFromRealm()
 }

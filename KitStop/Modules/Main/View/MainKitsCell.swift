@@ -20,19 +20,26 @@ class MainKitsCell: UICollectionViewCell {
     @IBOutlet weak var bottomMask: UIImageView!
     @IBOutlet weak var topMask: UIImageView!
     
-    func setupCell(row: Int, kit: Product) {
+    func setupCell(kit: KitModel) {
         topMask.image = UIImage.init(named: "top_mask")
         bottomMask.image = UIImage.init(named: "bottom_mask")
         camera.sd_setImage(with: URL.init(string: kit.mainImage), placeholderImage: UIImage(named: "placeholder500x500"))
         cameraDescription.text = kit.title
-        if kit.isPrivate {
-                privateContainer.isHidden = false
-        } else {
-                privateContainer.isHidden = true
-        }
-        if let price = kit.salesDetails?.price {
+        if let price = kit.price.value {
             self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
             priceContainer.isHidden = false
         } else { priceContainer.isHidden = true }
+        if kit.isPrivate {
+            privateContainer.isHidden = false
+        } else { privateContainer.isHidden = true }
+//        if kit.isPrivate {
+//                privateContainer.isHidden = false
+//        } else {
+//                privateContainer.isHidden = true
+//        }
+//        if let price = kit.salesDetails?.price {
+//            self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
+//            priceContainer.isHidden = false
+//        } else { priceContainer.isHidden = true }
     }
 }

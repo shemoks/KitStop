@@ -38,22 +38,29 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     }
     
     @IBAction func changeKitsElement(_ sender: Any) {
-        transferData?.clearKitsPage()
+        transferData?.stopRefresh()
+        transferData?.page = 1
+        self.addLoadingIndicatorView()
+        presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
         fetchKits()
     }
     
     func refreshKits() {
+        KitRealmManager.sharedManager.showCollectionView = false
+        presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
     
     func fetchKits() {
+        KitRealmManager.sharedManager.showCollectionView = false
         filter.setImage(UIImage.init(named: "filter_icon"), for: .normal)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
     
     func passData(selectedItem: Int) {
-        transferData?.clearKitsPage()
         kitSegmentControl.selectedSegmentIndex = selectedItem
+        transferData?.page = 1
+        presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
         fetchKits()
     }
     
@@ -77,9 +84,22 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
 // MARK: - MainFilterContainerViewInput
 
 extension MainFilterContainerViewController: MainFilterContainerViewInput {
-    func transferKits(kits: [Product]) {
-        filter.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
-        transferData?.clearKitsPage()
-        transferData?.kitItems(transferData: kits)
+    func stopRefresh() {
+        transferData?.stopRefresh()
+    }
+    
+    func addLoadingIndicatorView() {
+        transferData?.addSpinner()
+    }
+    
+    func removeLoadingIndicatorView() {
+        transferData?.removeSpinner()
+    }
+    
+    func stopInfiniteScroll(finishSuccess: Bool) {
+        if !finishSuccess {
+            transferData?.page -= 1
+        }
+        transferData?.finishInfiniteScroll()
     }
 }
