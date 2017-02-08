@@ -75,8 +75,12 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
         }
         let newLength = currentCharacterCount + string.characters.count - range.length
         if let limit = object?.limit {
+            self.object?.textValue = string
+            self.object?.isValidate = true
             return newLength <= limit
         } else {
+            self.object?.textValue = string
+            self.object?.isValidate = false
             return newLength <= 255
         }
     }

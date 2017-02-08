@@ -89,24 +89,24 @@ extension FiltersInteractor: FiltersInteractorInput {
 
 
     func getProducts(category: Category, price: Price, type: Bool) {
-        let filter = Filter(idCategory: category.number, title: category.title, minPrice: price.minValue, maxPrice: price.maxValue, type: type)
-        FilterManager().getCurrentFilter(section: type) {result in
-            let currentFilter = FilterModel()
-            currentFilter.number = category.number
-            currentFilter.title = category.title
-            currentFilter.section = type
-            currentFilter.minValue = price.minValue
-            currentFilter.maxValue = price.maxValue
-            FilterManager().saveFilter(filter: currentFilter)
-            self.dataManager.getProducts(filter: filter) { [weak self] object, error in
-                if error == nil {
-                    self?.presenter.handleViewWillDisappear(kits: object.products)
-                } else {
-                    let error = CustomError(code: error!).description
-                    self?.presenter.showError(title: "Error", message: error)
-                }
-            }
-        }
+//        let filter = Filter(idCategory: category.number, title: category.title, minPrice: price.minValue, maxPrice: price.maxValue, type: type)
+//        FilterManager().getCurrentFilter(section: type) {result in
+//            let currentFilter = FilterModel()
+//            currentFilter.number = category.number
+//            currentFilter.title = category.title
+//            currentFilter.section = type
+//            currentFilter.minValue = price.minValue
+//            currentFilter.maxValue = price.maxValue
+//            FilterManager().saveFilter(filter: currentFilter)
+//            self.dataManager.getProducts(filter: filter) { [weak self] object, error in
+//                if error == nil {
+//                    self?.presenter.handleViewWillDisappear(kits: object.products)
+//                } else {
+//                    let error = CustomError(code: error!).description
+//                    self?.presenter.showError(title: "Error", message: error)
+//                }
+//            }
+//        }
     }
 
     func getCurrentFilter(section: Bool) {

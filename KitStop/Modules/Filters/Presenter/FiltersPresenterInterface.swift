@@ -33,7 +33,7 @@ protocol FiltersInteractorOutput: class {
     func setTypes(types: [Category])
     func setPrice(price: Price)
     func showError(title: String, message: String)
-    func handleViewWillDisappear(kits: [Product])
+    func handleViewWillDisappear(filter: Bool)
     func setFilter(filter: FilterModel?)
     func isVisibleSlider(isVisible: Bool)
 
