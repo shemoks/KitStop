@@ -16,9 +16,11 @@ final class CreateKitSaveInteractor {
     weak var presenter: CreateKitSaveInteractorOutput!
 
 
+
+    // MARK: - Services
     fileprivate var createKitService: CreateKitsServiceProtocol?
-    // MARK: -
     
+    // MARK: - Services initializer
     init(createKitService: CreateKitsServiceProtocol) {
 
         self.createKitService = createKitService
@@ -33,6 +35,7 @@ final class CreateKitSaveInteractor {
 // MARK: - CreateKitSaveInteractorInput
 
 extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
+    
     func saveKit(price: String?, date: String?, isPrivate:Bool, post:Post, images: PostImagesModel) {
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images,  success: { [weak self]
             mainImage, imageUrls in
@@ -78,6 +81,73 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     }
     
     
+    // MARK: - AWS3 image upload service
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
+        
+        sortImages(images: images, completion: { imageUrls, imageObjects in
+            
+            let imagesCount = imageUrls.count + imageObjects.count
+            
+            var imageStrings = imageUrls
+            
+            let awsManager = AWS3UploadImageService()
+            
+            awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
+                if imageObjects.count == 0 {
+                    success(mainImage!, imageStrings)
+                } else {
+                    for image in imageObjects {
+                        let awsManager = AWS3UploadImageService()
+                        awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
+                            image in
+                            imageStrings.append(image!)
+                            if imageStrings.count == imagesCount  {
+                                success(mainImage!, imageStrings)
+                            }
+                        })
+                    }
+                }
+            })
+        })
+        
+    }
+    
+    
+    // MARK: Image helper methods
+    func cropImage(image: UIImage) -> UIImage {
+        if abs(image.size.width - image.size.height) > 50 {
+            return UIImage().RBSquareImageTo(image: image, size: CGSize(width: 500, height: 500))
+        } else {
+            return image
+        }
+    }
+    
+    func cropBigImage(image: UIImage) -> UIImage {
+        return image.RBResizeImage(targetSize: CGSize(width: 1080, height: image.bigHeightSize()), staticWidth: true)
+    }
+    
+    func sortImages(images: PostImagesModel, completion: @escaping (_ imageUrls: [String], _ imageObjects: [UIImage]) -> ()) {
+        
+        var imageUrls = [String]()
+        var imageObjects = [UIImage]()
+        
+        for image in images.forGallery {
+            switch image {
+            case .Actual(let image):
+                imageObjects.append(image)
+            case .Remote(let url):
+                imageUrls.append(url.absoluteString)
+            default:
+                break
+            }
+        }
+        
+        completion(imageUrls, imageObjects)
+    }
+    
+    
+    
+    // MARK: - Request body initialization
     // Some questionable code here. Should probably take different approach to request body creation.
     func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?], oldModel: String) -> CreateKitsRequestBody {
         
@@ -87,8 +157,6 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
             let key = item.title.capitalized.replacingOccurrences(of: " ", with: "")
             metaData[key.lowerCaseFirstLetter()] = item.textValue as AnyObject?
         }
-        
-        print(metaData)
         
         var title: String = ""
         var brand: String?
@@ -133,64 +201,5 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     }
     
         
-    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
-        
-        sortImages(images: images, completion: { imageUrls, imageObjects in
-            
-            let imagesCount = imageUrls.count + imageObjects.count
-            
-            var imageStrings = imageUrls
-            
-            let awsManager = AWS3UploadImageService()
-            
-            awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
-                if imageObjects.count == 0 {
-                    success(mainImage!, imageStrings)
-                } else {
-                    for image in imageObjects {
-                        let awsManager = AWS3UploadImageService()
-                        awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
-                            image in
-                            imageStrings.append(image!)
-                            if imageStrings.count == imagesCount  {
-                                success(mainImage!, imageStrings)
-                            }
-                        })
-                    }
-                }
-            })
-        })
-        
-    }
-    
-    func cropImage(image: UIImage) -> UIImage {
-        if abs(image.size.width - image.size.height) > 50 {
-            return UIImage().RBSquareImageTo(image: image, size: CGSize(width: 500, height: 500))
-        } else {
-            return image
-        }
-    }
-    
-    func cropBigImage(image: UIImage) -> UIImage {
-        return image.RBResizeImage(targetSize: CGSize(width: 1080, height: image.bigHeightSize()), staticWidth: true)
-    }
-    
-    func sortImages(images: PostImagesModel, completion: @escaping (_ imageUrls: [String], _ imageObjects: [UIImage]) -> ()) {
-        
-        var imageUrls = [String]()
-        var imageObjects = [UIImage]()
-        
-        for image in images.forGallery {
-            switch image {
-            case .Actual(let image):
-                imageObjects.append(image)
-            case .Remote(let url):
-                imageUrls.append(url.absoluteString)
-            default:
-                break
-            }
-        }
-        
-        completion(imageUrls, imageObjects)
-    }
+
 }
