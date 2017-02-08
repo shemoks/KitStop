@@ -35,8 +35,8 @@ extension FiltersRouter: FiltersRouterInput {
         }
     }
     
-    func returnToMainModule(kits: [Product],filter: Bool, moduleOutput: FiltersModuleOutput) {
-        moduleOutput.kitsWithFilters(kits: kits, filter: filter)
+    func returnToMainModule(filter: Bool, moduleOutput: FiltersModuleOutput) {
+        moduleOutput.kitsWithFilters(filter: filter)
         self.closeModule()
     }
 }
