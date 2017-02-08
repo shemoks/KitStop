@@ -8,6 +8,7 @@
 
 import Chamomile
 import UIKit
+import RealmSwift
 
 // MARK: - MainPresenter
 
@@ -19,6 +20,9 @@ final class MainPresenter {
     weak var view: MainViewInput!
     var interactor: MainInteractorInput!
     var router: MainRouterInput!
+    var notificationCenter: NotificationToken?
+    var preloadMargin = 5
+    var lastLoadedPage = 0
 }
 
 // MARK: - MainViewOutput
@@ -58,13 +62,26 @@ extension MainPresenter: MainViewOutput {
     func handleKitForSale(page: Int) {
         interactor.handleKitsForSale(page: page)
     }
+
 }
 
 // MARK: - MainInteractorOutput
 
 extension MainPresenter: MainInteractorOutput {
-    func updateKits(kits: [Product]) {
-        view.updateData(kits: kits)
+    
+    func showLoadingIndicatorView() {
+        view.addLoadingIndicatorView()
+    }
+    
+    func removeLoadingIndicatorView() {
+        view.removeLoadingIndicatorView()
+    }
+    
+    func finishInfiniteScroll(finishSuccess: Bool) {
+        if !finishSuccess {
+            view.page -= 1
+        }
+        view.finishInfiniteScroll()
     }
 }
 

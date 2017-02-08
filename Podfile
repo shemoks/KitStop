@@ -11,10 +11,11 @@ target 'KitStop' do
   pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'RealmSwift'
-  pod 'AWSS3'
+  pod 'AWSS3', '~> 2.4.16'
   pod 'Cosmos'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'UIScrollView-InfiniteScroll', '~> 1.0'
 end
 
 post_install do |installer|

@@ -9,8 +9,9 @@
 import Foundation
 
 protocol MainFilterContainerTransferDataProtocol {
-    func kitItems(transferData: [Product])
     func stopRefresh()
-    func clearKitsPage()
-    var page: Int {get}
+    var page: Int {get set}
+    func removeSpinner()
+    func addSpinner()
+    func finishInfiniteScroll()
 }

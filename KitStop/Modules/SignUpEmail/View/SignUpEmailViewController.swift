@@ -73,7 +73,7 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     }
     
     func registrationNewUser() {
-        LoadingIndicatorView.show(self.view)
+        LoadingIndicatorView.show()
         presenter.registrationNewUser(userData: getUserData(), userImage: avatar.image!, emailTF: self.email)
     }
     

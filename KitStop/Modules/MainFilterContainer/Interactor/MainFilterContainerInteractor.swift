@@ -40,32 +40,42 @@ extension MainFilterContainerInteractor: MainFilterContainerInteractorInput {
         switch category {
         case 0:
             filterButton.isHidden = false
-            dataManager.fetchAllKitsForSale(page: (transferData?.page)!, completionBlock: {
-                kitsForSale, error in
-                if error == nil {
-                    transferData?.kitItems(transferData: kitsForSale!)
-                } else {
+            dataManager.fetchAllKitsForSale(page: (transferData?.page)!, filterButton: filterButton , completionBlock: {
+                error in
+                if error != nil {
                     self.showAlert(error!)
+                    self.presenter.stopInfiniteScroll(finishSuccess: false)
+                } else {
+                    self.presenter.stopInfiniteScroll(finishSuccess: true)
+                    self.presenter.removeLoadingIndicatorView()
+                    self.presenter.stopRefresh()
                 }
             })
         case 1:
             filterButton.isHidden = false
-            dataManager.fetchAllKits(page: (transferData?.page)!, completionBlock: {
-                kits, error in
-                if error == nil {
-                    transferData?.kitItems(transferData: kits!)
-                } else {
+            dataManager.fetchAllKits(page: (transferData?.page)!, filterButton: filterButton,completionBlock: {
+                error in
+                if error != nil {
                     self.showAlert(error!)
+                    self.presenter.stopInfiniteScroll(finishSuccess: false)
+                } else {
+                    self.presenter.stopInfiniteScroll(finishSuccess: true)
+                    self.presenter.removeLoadingIndicatorView()
+                    self.presenter.stopRefresh()
                 }
             })
         case 2:
             filterButton.isHidden = true
-            dataManager.fetchAllKitFolio(page: (transferData?.page)!, completionBlock: {
-                kitFolio, error in
-                if error == nil {
-                    transferData?.kitItems(transferData: kitFolio!)
+            dataManager.fetchAllKitFolio(page: (transferData?.page)!,completionBlock: {
+                error in
+                if error != nil {
+                    self.showAlert(error!)
+                    self.presenter.stopInfiniteScroll(finishSuccess: false)
                 } else {
-                    self.showAlert(error!)                }
+                    self.presenter.stopInfiniteScroll(finishSuccess: true)
+                    self.presenter.removeLoadingIndicatorView()
+                    self.presenter.stopRefresh()
+                }
             })
         default:
             print("error")
