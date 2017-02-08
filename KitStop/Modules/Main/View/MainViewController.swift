@@ -200,8 +200,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if KitRealmManager.sharedManager.showCollectionView {
-            delegate?.selectedKits(kitId: KitRealmManager.sharedManager.getRealm()[indexPath.row].id, ownerId: KitRealmManager.sharedManager.getRealm()[indexPath.row].owner)
+        if self.kits.count >= indexPath.row && self.kits.count > 0 {
+            LoadingIndicatorView.show()
+            delegate?.selectedKits(kitId: self.kits[indexPath.row].id, ownerId: self.kits[indexPath.row].owner)
         }
         
     }

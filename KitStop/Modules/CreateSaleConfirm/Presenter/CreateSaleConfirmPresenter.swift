@@ -31,6 +31,7 @@ final class CreateSaleConfirmPresenter {
     var rates: RatesModel?
     var shouldUpdate = false
     var images = PostImagesModel()
+    var oldModel = "forSale"
 
     func setReady(isReady: Bool) {
         for item in details {
@@ -44,6 +45,8 @@ final class CreateSaleConfirmPresenter {
 extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     
     func setDetails() {
+        
+        
         let priceDetails = ForSaleDetailsModel(header: "Price", value: "" , placeholder: "", isEditable: true, isExpandable: false, isValid: false, isReady: false)
         let conditionDetails = ForSaleDetailsModel(header: "Select Conditions", value: "", placeholder: "", isEditable: false, isExpandable: true, isValid: false, isReady: false)
         let weightDetails = ForSaleDetailsModel(header: "Package Weight", value: "", placeholder: "", isEditable: false, isExpandable: true, isValid: false, isReady: false)
@@ -65,33 +68,34 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
             }
         }
         
-        interactor.getRates()
-        
-        if shouldUpdate {
-            for item in (post?.salesDetails)! {
-                switch item.title {
-                case "Sale price":
-                    details.first?.value = "$\(item.textValue)"
-                    self.price = item.textValue
-                    details.first?.isValid = true
-                    details.first?.isReady = true
-                case "Condition":
-                    details[1].value = item.textValue
-                    self.condition = item.textValue
-                    details[1].isValid = true
-                    details[1].isReady = true
-                case "Package Weight":
-                    details.last?.value = item.textValue
-                    details.last?.isValid = true
-                    details.last?.isReady = true
-                    self.packageWeight = item.textValue
-                default:
-                    _ = ""
+        interactor.getRates {
+            if self.shouldUpdate {
+                for item in (self.post?.salesDetails)! {
+                    switch item.title {
+                    case "Sale price":
+                        self.details.first?.value = "$\(item.textValue)"
+                        self.price = item.textValue
+                        self.details.first?.isValid = true
+                        self.details.first?.isReady = true
+                    case "Condition":
+                        self.details[1].value = item.textValue
+                        self.condition = item.textValue
+                        self.details[1].isValid = true
+                        self.details[1].isReady = true
+                    case "Package Weight":
+                        self.details.last?.value = item.textValue
+                        self.details.last?.isValid = true
+                        self.details.last?.isReady = true
+                        self.packageWeight = item.textValue
+                    default:
+                        _ = ""
+                    }
                 }
+                self.setPrice(value: self.price)
             }
-
         }
         
+
     }
     
     func handleCellSelect(for indexPath: IndexPath) {
@@ -149,7 +153,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
                 self.setReady(isReady: false)
             } else {
                 LoadingIndicatorView.show()
-                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!, images: images)
+                interactor.updateForSaleKit(price: self.price, condition: self.condition, weight: self.packageWeight, post: post!, images: images, oldModel: self.oldModel)
             }
         } else {
             self.setReady(isReady: true)
@@ -216,8 +220,9 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
         self.post = post
     }
     
-    func setUpdate(shouldUpdate: Bool) {
+    func setUpdate(shouldUpdate: Bool, oldModel: String) {
         self.shouldUpdate = shouldUpdate
+        self.oldModel = oldModel
     }
 
     func setImages(images: PostImagesModel){

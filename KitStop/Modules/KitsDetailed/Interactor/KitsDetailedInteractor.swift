@@ -15,6 +15,7 @@ final class KitsDetailedInteractor {
     weak var presenter: KitsDetailedInteractorOutput!
 
     fileprivate let dataManager: ViewPostServiceProtocol
+
     // MARK: -
 
 
@@ -37,8 +38,10 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
         if !forSale {
             dataManager.getAllKits(idKit: idPost, forSale: false) { [weak self] object, error in
                 if error == nil {
+                    LoadingIndicatorView.hide()
                     self?.presenter.setPost(post: object)
                 } else {
+                    LoadingIndicatorView.hide()
                     let error = CustomError(code: error!).description
                     self?.presenter.showError(title: "Error", message: error)
                 }
@@ -47,27 +50,28 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
             dataManager.getAllKitsForSale(idKit: idPost, forSale: true) { [weak self] object, error in
                 if error == nil {
                     print(object)
+                    LoadingIndicatorView.hide()
                     self?.presenter.setPost(post: object)
                 } else {
+                    LoadingIndicatorView.hide()
                     let error = CustomError(code: error!).description
                     self?.presenter.showError(title: "Error", message: error)
                 }
             }
-
         }
     }
 
     func removePost(section: Bool, idPost: String) {
         if section {
             dataManager.removeKitForSale(idKit: idPost) {
-                    [weak self] error in
-                    if error == nil {
-                        self?.presenter.showSuccess(title: "Success", message: "The item has been deleted")
-                    } else {
-                        let message = CustomError.init(code: error!).description
-                        self?.presenter.showError(title: "Error", message: message)
-                    }
+                [weak self] error in
+                if error == nil {
+                    self?.presenter.showSuccess(title: "Success", message: "The item has been deleted")
+                } else {
+                    let message = CustomError.init(code: error!).description
+                    self?.presenter.showError(title: "Error", message: message)
                 }
+            }
 
         } else {
             dataManager.removeKit(idKit: idPost) {
@@ -85,7 +89,7 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
     func getPostAsKit(idPost: String) {
         dataManager.getAllKits(idKit: idPost, forSale: false) { [weak self] object, error in
             if error == nil {
-                self?.presenter.setPostForChange(post: object)
+                self?.presenter.setPostForChange(post: object, oldModel: "forSale")
             } else {
                 let error = CustomError(code: error!).description
                 self?.presenter.showError(title: "Error", message: error)
@@ -97,12 +101,12 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
         dataManager.getAllKitsForSale(idKit: idPost, forSale: true) { [weak self] object, error in
             if error == nil {
                 print(object)
-                self?.presenter.setPostForChange(post: object)
+                self?.presenter.setPostForChange(post: object, oldModel: "Kit")
             } else {
                 let error = CustomError(code: error!).description
                 self?.presenter.showError(title: "Error", message: error)
             }
         }
     }
-
+    
 }

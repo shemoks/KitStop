@@ -59,18 +59,18 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
         }
     }
 
-    func openEditKit(post: Post) {
+    func openEditKit(post: Post, oldModel: String) {
         flowController.openModule(using: .openEditKit) {
             guard let moduleInput = $0 as? CreatePostModuleInput else {fatalError()}
-            moduleInput.setKitEdit(post: post)
+            moduleInput.setKitEdit(post: post, oldModel: oldModel)
             return nil
         }
     }
 
-    func openEditForSale(post: Post) {
+    func openEditForSale(post: Post, oldModel: String) {
         flowController.openModule(using: .openEditKit) {
             guard let moduleInput = $0 as? CreatePostModuleInput else {fatalError()}
-            moduleInput.setForSaleEdit(post: post)
+            moduleInput.setForSaleEdit(post: post, oldModel: oldModel)
             return nil
         }
     }

@@ -14,7 +14,7 @@ protocol FilterTypeViewOutput: class {
 
     func category(for indexPath: IndexPath) -> Category
     func numberOfCategories() -> Int
-    func returnCategory(category: Category)
+    func returnCategory(index: IndexPath)
 
 }
 
@@ -36,6 +36,6 @@ protocol FilterTypeModuleInput: ModuleInput {
 
 protocol FilterTypeModuleOutput: ModuleOutput {
 
-    func currentCategory(categories: [Category], currentCategory: Category)
+    func currentCategory(currentCategory: Category)
 
 }

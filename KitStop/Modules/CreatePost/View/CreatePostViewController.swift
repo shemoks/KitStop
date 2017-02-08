@@ -7,6 +7,7 @@
 //
 
 import Chamomile
+import MobileCoreServices
 
 // MARK: - CreatePostViewController
 
@@ -36,6 +37,21 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         tableView.tableHeaderView = headerView
         presenter.handleViewDidLoad()
         self.tableView.estimatedRowHeight = 50.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = presenter.getTittle()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (self.navigationItem.title?.isEmpty)! {
+            self.navigationItem.title = presenter.getTittle()
+        } else {
+            self.navigationItem.title = ""
+        }
+//        self.navigationItem.title = ""
     }
 
     override func viewDidLayoutSubviews() {
@@ -109,7 +125,7 @@ extension CreatePostViewController: CreatePostViewInput {
             imagePicker.allowsEditing = true
         }
         imagePicker.sourceType = .photoLibrary
-        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        imagePicker.mediaTypes = [kUTTypeImage as String]
         imagePicker.modalPresentationStyle = .popover
         present(imagePicker, animated: true, completion: nil)
     }

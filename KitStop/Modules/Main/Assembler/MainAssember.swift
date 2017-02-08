@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - MainAssembler
 
-final class MainAssembler: NSObject {
+final class MainAssembler: NSObject, TabBarInterface {
 
     @IBOutlet weak var view: MainViewController!
 
@@ -28,6 +29,15 @@ final class MainAssembler: NSObject {
         presenter.interactor = interactor
         presenter.router = router
         router.flowController = view
+    }
+    
+    func configuredViewController() -> UIViewController {
+        return self.view
+    }
+    
+    func installTabBarControllerIntoWindow(tabBarController: UITabBarController, window: UIWindow) {
+        window.rootViewController = tabBarController
+        window.makeKeyAndVisible()
     }
 
 }
