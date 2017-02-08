@@ -4,9 +4,9 @@ use_frameworks!
 target 'KitStop' do
   pod 'Alamofire'
   pod 'KeychainAccess'
-  pod 'FacebookCore’, '~> 0.2.0’
-  pod 'FacebookLogin', '~> 0.2.0’
-  pod 'FacebookShare’, '~> 0.2.0’
+  pod 'FacebookCore’
+  pod 'FacebookLogin'
+  pod 'FacebookShare’ 
   pod 'IQKeyboardManagerSwift', '~> 4.0'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
@@ -15,6 +15,7 @@ target 'KitStop' do
   pod 'Cosmos'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
 end
 
 post_install do |installer|
