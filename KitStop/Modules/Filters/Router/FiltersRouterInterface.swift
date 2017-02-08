@@ -12,5 +12,5 @@ protocol FiltersRouterInput: class {
 
     func closeModule()
     func openTypeModule(types: [Category], filterTypeModuleOutput: FilterTypeModuleOutput)
-    func returnToMainModule(kits: [Product], filter: Bool, moduleOutput: FiltersModuleOutput)
+    func returnToMainModule(filter: Bool, moduleOutput: FiltersModuleOutput)
 }

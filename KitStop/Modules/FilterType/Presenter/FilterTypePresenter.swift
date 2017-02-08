@@ -55,6 +55,7 @@ extension FilterTypePresenter: FilterTypeModuleInput {
 
     func setCategories(categories: [Category]) {
         self.categories = categories
+        LoadingIndicatorView.hide()
     }
 
 }

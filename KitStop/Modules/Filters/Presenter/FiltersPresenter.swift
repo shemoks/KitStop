@@ -37,6 +37,7 @@ extension FiltersPresenter: FiltersViewOutput {
         if self.currentFilter != nil && sliderVisible || self.currentFilter != nil && priceVisible {
             if self.filter != nil {
                 interactor.updateFilter(filter: self.filter!, currentFilter: self.currentFilter!)
+                self.handleViewWillDisappear(filter: true)
                 router.closeModule()
             } else {
                 let filter = FilterModel()
@@ -46,10 +47,11 @@ extension FiltersPresenter: FiltersViewOutput {
                 filter.number = (self.currentFilter?.number)!
                 filter.title = (self.currentFilter?.title)!
                 interactor.writeFilter(filter: filter)
+                self.handleViewWillDisappear(filter: true)
                 router.closeModule()
             }
         } else {
-            self.handleViewWillDisappear(kits: [])
+            self.handleViewWillDisappear(filter: false)
             router.closeModule()
         }
     }
@@ -140,14 +142,9 @@ extension FiltersPresenter: FiltersInteractorOutput {
         view.showError(title: title, message: message)
     }
 
-    func handleViewWillDisappear(kits: [Product]) {
-        if currentCategory != nil {
-            let mainModuleOutput = moduleOutput as! FiltersModuleOutput
-            router.returnToMainModule(kits: kits, filter: true, moduleOutput: mainModuleOutput)
-        } else {
-            let mainModuleOutput = moduleOutput as! FiltersModuleOutput
-            router.returnToMainModule(kits: [], filter: false,  moduleOutput: mainModuleOutput)
-        }
+    func handleViewWillDisappear(filter: Bool) {
+        let mainModuleOutput = moduleOutput as! FiltersModuleOutput
+        router.returnToMainModule(filter: filter, moduleOutput: mainModuleOutput)
     }
 
     func setFilter(filter: FilterModel?) {
