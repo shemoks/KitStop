@@ -21,7 +21,7 @@ final class CustomListViewController: UIViewController, FlowController {
         super.viewDidLoad()
         navigationItem.title = presenter.getTitle()
     }
-
+    
 }
 
 // MARK: - FilterTypeViewInput
