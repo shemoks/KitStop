@@ -123,7 +123,6 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 extension KitsDetailedViewController: KitsDetailedViewInput {
 
     func reloadData() {
-        LoadingIndicatorView.hide()
         navigationItem.title = presenter.getTittle()
         tableView.reloadData()
     }
@@ -185,6 +184,7 @@ extension KitsDetailedViewController: SwiftPhotoGalleryDelegate {
     func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
         let index = IndexPath(item: index, section: 0)
         headerView.carusel.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+        headerView.carusel.pageControl.currentPage = index.row
     }
 
     func deletePhoto(index: Int) {

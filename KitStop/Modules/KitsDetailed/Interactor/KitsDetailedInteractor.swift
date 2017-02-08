@@ -38,8 +38,10 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
         if !forSale {
             dataManager.getAllKits(idKit: idPost, forSale: false) { [weak self] object, error in
                 if error == nil {
+                    LoadingIndicatorView.hide()
                     self?.presenter.setPost(post: object)
                 } else {
+                    LoadingIndicatorView.hide()
                     let error = CustomError(code: error!).description
                     self?.presenter.showError(title: "Error", message: error)
                 }
@@ -48,16 +50,16 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
             dataManager.getAllKitsForSale(idKit: idPost, forSale: true) { [weak self] object, error in
                 if error == nil {
                     print(object)
+                    LoadingIndicatorView.hide()
                     self?.presenter.setPost(post: object)
                 } else {
+                    LoadingIndicatorView.hide()
                     let error = CustomError(code: error!).description
                     self?.presenter.showError(title: "Error", message: error)
                 }
             }
         }
     }
-
-
 
     func removePost(section: Bool, idPost: String) {
         if section {
@@ -105,10 +107,6 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
                 self?.presenter.showError(title: "Error", message: error)
             }
         }
-    }
-    
-    func calculateView(price: String, post: Post, rates: RatesModel) {
-        
     }
     
 }
