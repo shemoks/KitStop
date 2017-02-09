@@ -4,9 +4,9 @@ use_frameworks!
 target 'KitStop' do
   pod 'Alamofire'
   pod 'KeychainAccess'
-  pod 'FacebookCore’
+  pod 'FacebookCore'
   pod 'FacebookLogin'
-  pod 'FacebookShare’ 
+  pod 'FacebookShare'
   pod 'IQKeyboardManagerSwift', '~> 4.0'
   pod 'SwiftyJSON'
   pod 'SDWebImage'

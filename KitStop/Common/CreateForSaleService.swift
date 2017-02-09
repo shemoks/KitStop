@@ -92,7 +92,6 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
                         completion(false, response.response?.statusCode, nil)
                     }
                     print(json)
-                    print(String(data: (response.request?.httpBody)!, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)))
                 case .failure(let error):
                     print(error)
                     completion(false, (error as NSError).code, nil)

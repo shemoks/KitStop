@@ -44,6 +44,10 @@ final class CreateSaleConfirmPresenter {
 
 extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
     
+    func setTitle() {
+        view.setTitle(category: (post?.categoryTitle)!)
+    }
+    
     func setDetails() {
         
         
@@ -97,6 +101,7 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmViewOutput {
         
 
     }
+    
     
     func handleCellSelect(for indexPath: IndexPath) {
         
