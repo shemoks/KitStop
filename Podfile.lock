@@ -59,7 +59,7 @@ DEPENDENCIES:
   - RealmSwift
   - SDWebImage
   - SwiftyJSON
-  - UIScrollView-InfiniteScroll (~> 1.0)
+  - UIScrollView-InfiniteScroll (~> 1.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -83,6 +83,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   UIScrollView-InfiniteScroll: d26885be71caca7485cdb37eab513a8f89036bb0
 
-PODFILE CHECKSUM: a5a7975d40ec138a9fb1d5267d64b5e2c5a89cd3
+PODFILE CHECKSUM: baf0f0507e1e85b3e0144bfa12083193bf708723
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.1.1

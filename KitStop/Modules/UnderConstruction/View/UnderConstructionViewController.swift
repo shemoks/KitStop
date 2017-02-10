@@ -30,6 +30,7 @@ final class UnderConstructionViewController: UIViewController, FlowController {
         try! realm.write {
             realm.objects(User.self).filter("online = %s", true).first?.online = false
         }
+        FilterManager().deleteAllFilters()
         KeychainService().clearToken()
         logoutFromFacebook()
         if let navController = self.navigationController {
