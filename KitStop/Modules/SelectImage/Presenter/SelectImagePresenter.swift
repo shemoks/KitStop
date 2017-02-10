@@ -40,9 +40,7 @@ extension SelectImagePresenter: SelectImageViewOutput {
         self.bigImage = image[1].RBResizeImage(targetSize: CGSize.init(width: 1080, height: image[1].bigHeightSize()), staticWidth: true)
         delegate?.passImage(small: self.smallImage!, big: self.bigImage!)
         if let buttonArray = buttons {
-            for button in buttonArray {
-                view.removeButton(button: button)
-            }
+                view.removeButton(button: buttonArray.first!)
         }
         let imageView = UIImageView.init(image: self.bigImage)
         return imageView

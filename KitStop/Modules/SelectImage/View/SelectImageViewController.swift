@@ -19,7 +19,6 @@ final class SelectImageViewController: UIViewController, FlowController, Alertab
     let imagePicker = UIImagePickerController()
     var delegate: SelectImageContainerProtocol?
     
-    @IBOutlet weak var camera: UIButton!
     @IBOutlet weak var gallery: UIButton!
     
     var flag = false
@@ -28,14 +27,8 @@ final class SelectImageViewController: UIViewController, FlowController, Alertab
         imagePicker.delegate = self
     }
     
-    
-    @IBAction func takePhotoTap(_ sender: Any) {
-        presenter.openCamera()
-    }
-    
     @IBAction func choosePhotoTap(_ sender: Any) {
-        
-        presenter.openGallary()
+        presenter.showActionSheet()
     }
     
 }
@@ -89,7 +82,7 @@ extension SelectImageViewController: UIImagePickerControllerDelegate, UINavigati
         if flag {
              image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: nil, delegate: delegate!)
         } else {
-            image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: [camera, gallery], delegate: delegate!)
+            image = presenter.cropImage(image: [editedImage!, originalImage!], buttons: [gallery], delegate: delegate!)
             flag = true
         }
         delegate?.changeContainer(self.view.frame.size.width)
