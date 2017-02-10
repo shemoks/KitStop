@@ -17,7 +17,7 @@ struct KitsForSaleRequestBody {
     var description: String?
     var notes: String?
     var mainImage: String = ""
-    var images: [String?]
+    var images: [OrderedImage?]
     var tags: [String?]
     var metaData: [String:AnyObject] = [:]
     var salesDetails: [String: AnyObject] = [:]

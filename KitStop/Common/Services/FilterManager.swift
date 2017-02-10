@@ -213,4 +213,11 @@ class FilterManager: NSObject, FilterManagerProtocol {
         }
     }
     
+    func deleteAllFilters() {
+        try! realm.write {
+            realm.delete(realm.objects(FilterModel.self))
+        }
+    }
+
+    
 }
