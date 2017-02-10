@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class KitRealmManager: NSObject {
+class KitRealmManager: Object {
     
     static var sharedManager = KitRealmManager()
     
@@ -27,7 +27,7 @@ class KitRealmManager: NSObject {
     func insertItem(item: KitModel) throws {
         try getRealm().realm?.write {
             getRealm().realm!.add(item, update: true)
-            try getRealm().realm!.commitWrite()
+//            try getRealm().realm!.commitWrite()
         }
     }
     
@@ -37,7 +37,7 @@ class KitRealmManager: NSObject {
         if item.count > 0 {
             try getRealm().realm?.write {
                 getRealm().realm?.delete(item)
-                try getRealm().realm!.commitWrite()
+//                try getRealm().realm!.commitWrite()
             }
         }
     }
@@ -52,10 +52,9 @@ class KitRealmManager: NSObject {
         do {
             try getRealm().realm?.write {
                 getRealm().realm?.delete(getRealm())
-                try getRealm().realm!.commitWrite()
+//                try getRealm().realm!.commitWrite()
             }
         } catch (let error) {
-            print("\(error)")
         }
     }
 

@@ -27,8 +27,18 @@ final class SignUpViewController: UIViewController, FlowController {
     }
 
     override func viewDidLoad() {
-        facebook.titleLabel?.text = "Log In with Facebook"
         facebook.titleLabel?.font = UIFont.init(name: "SFUIText-Regular", size: 17.0)
+        let titleText = NSAttributedString(string: "Log in with Facebook")
+        facebook.setAttributedTitle(titleText, for: .normal)
+        
+        let layoutConstraintsArr = facebook.constraints
+        for lc in layoutConstraintsArr {
+            if lc.constant == 28 {
+                lc.isActive = false
+                break
+            }
+        }
+        
         navigationController?.isNavigationBarHidden = true
     }
 
