@@ -44,7 +44,6 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         postDescription.placeholderLabel.textColor =  UIColor().hexStringToUIColor(hex: Color.placeholderText)
         postDescription.placeholderLabel.alpha = 0.5
         postDescription.placeholderLabel.text = "Tell the community about this photograph"
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

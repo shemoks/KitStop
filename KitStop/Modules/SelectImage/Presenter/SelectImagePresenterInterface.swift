@@ -14,7 +14,7 @@ protocol SelectImageViewOutput: class {
     func openCamera()
     func openGallary()
     func cropImage(image: [UIImage], buttons: [UIButton]?, delegate: SelectImageContainerProtocol?) -> UIImageView
-    func showActionSheet() 
+    func showActionSheet()
 }
 
 // MARK: - SelectImageInteractorOutput
