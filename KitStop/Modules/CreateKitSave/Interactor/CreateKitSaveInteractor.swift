@@ -82,27 +82,32 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     
     
     // MARK: - AWS3 image upload service
-    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [OrderedImage?]) -> () ) {
         
         sortImages(images: images, completion: { imageUrls, imageObjects in
             
             let imagesCount = imageUrls.count + imageObjects.count
             
-            var imageStrings = imageUrls
+            var sortedImages: [OrderedImage?] = []
+            
+            for (index, image) in imageUrls.enumerated() {
+                sortedImages.append(OrderedImage(key: index, url: image))
+            }
+            
             
             let awsManager = AWS3UploadImageService()
             
             awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
                 if imageObjects.count == 0 {
-                    success(mainImage!, imageStrings)
+                    success(mainImage!, sortedImages)
                 } else {
-                    for image in imageObjects {
+                    for (index, image) in imageObjects.enumerated() {
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
                             image in
-                            imageStrings.append(image!)
-                            if imageStrings.count == imagesCount  {
-                                success(mainImage!, imageStrings)
+                            sortedImages.append(OrderedImage(key: index, url: image!))
+                            if sortedImages.count == imagesCount  {
+                                success(mainImage!, sortedImages)
                             }
                         })
                     }
@@ -149,7 +154,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     
     // MARK: - Request body initialization
     // Some questionable code here. Should probably take different approach to request body creation.
-    func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [String?], oldModel: String) -> CreateKitsRequestBody {
+    func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [OrderedImage?], oldModel: String) -> CreateKitsRequestBody {
         
         var metaData:[String:AnyObject] = [:]
         
@@ -167,7 +172,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         let category: String = post.categoryId
         let description = post.description.textValue
         let notes = post.notes.textValue
-        let mainImage = imageArray.first!
+        let mainImage = imageArray.first??.url
         let images = imageArray
         let tags  = [String?]()
         let isPrivate = isPrivate

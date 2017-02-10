@@ -34,7 +34,13 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let description = kit.description as AnyObject
         let notes = kit.notes as AnyObject
         let mainImage = kit.mainImage as AnyObject
-        let images = kit.images as AnyObject
+        var imageDictionary: [[String:AnyObject]] = []
+        
+        for image in kit.images {
+            imageDictionary.append((image?.getDictFormat())!)
+        }
+        
+        let images =  imageDictionary as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
@@ -74,7 +80,13 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         let description = kit.description as AnyObject
         let notes = kit.notes as AnyObject
         let mainImage = kit.mainImage as AnyObject
-        let images = kit.images as AnyObject
+        var imageDictionary: [[String:AnyObject]] = []
+        
+        for image in kit.images {
+            imageDictionary.append((image?.getDictFormat())!)
+        }
+        
+        let images =  imageDictionary as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
