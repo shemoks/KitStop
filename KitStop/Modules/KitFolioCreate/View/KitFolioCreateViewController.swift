@@ -40,13 +40,10 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     func addTextViewPlaceholder() {
         postTitle.placeholderLabel.textColor = UIColor().hexStringToUIColor(hex: Color.placeholderText)
         postTitle.placeholderLabel.alpha = 0.5
-        postTitle.placeholderLabel.font = UIFont.init(name: "SFUIText-Regular", size: 14)
         postTitle.placeholderLabel.text = "Enter short description"
         postDescription.placeholderLabel.textColor =  UIColor().hexStringToUIColor(hex: Color.placeholderText)
-        postDescription.placeholderLabel.font = UIFont.init(name: "SFUIText-Regular", size: 14)
         postDescription.placeholderLabel.alpha = 0.5
         postDescription.placeholderLabel.text = "Tell the community about this photograph"
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -12,104 +12,156 @@ import Alamofire
 class MainService: NSObject, MainServiceProtocol {
     
     fileprivate let manager: ApiManagerProtocol
+    let filterManager: FilterManager?
     
     init(manager: ApiManagerProtocol = SessionManager.default) {
         self.manager = manager
+        filterManager = FilterManager()
     }
     
-    func fetchAllKits(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKits(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
+    func fetchAllKits(page: Int, filterButton: UIButton?, completionBlock: @escaping (_ error: Int?) -> ()) {
+        var params = [String : AnyObject]()
+        filterManager?.getCurrentFilter(section: true, result: {
+            filter in
+            if let filter = filter.first {
+                if let filterButton = filterButton {
+                    filterButton.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
+                }
+                params = ["page" : page as AnyObject,
+                          "perPage" : 5 as AnyObject,
+                          "category" : filter.number as AnyObject]
+            } else {
+                filterButton?.setImage(UIImage.init(named: "filter_icon"), for: .normal)
+                params = ["page" : page as AnyObject,
+                          "perPage" : 5 as AnyObject]
+            }
+        })
+        let _ = manager.apiRequest(.getKits(), parameters: params, headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
                 if json["success"].boolValue {
-                    var kits = [Product]()
                     for kit in json["data"]["docs"] {
-                        var kitModel = Product()
-                        kitModel.id = kit.1["_id"].stringValue
-                        kitModel.mainImage = kit.1["mainImage"].stringValue
-                        kitModel.title = kit.1["title"].stringValue
-                        kitModel.owner = kit.1["owner"].stringValue
-                        kitModel.isPrivate = kit.1["isPrivate"].boolValue
-                        kits.append(kitModel)
+                        let kits = KitModel()
+                        kits.id = kit.1["_id"].stringValue
+                        kits.mainImage = kit.1["mainImage"].stringValue
+                        kits.title = kit.1["title"].stringValue
+                        kits.owner = kit.1["owner"].stringValue
+                        kits.isPrivate = kit.1["isPrivate"].boolValue
+                        kits.type = "Kits"
+                        do {
+                            try KitRealmManager.sharedManager.insertItem(item: kits)
+                        } catch (let error){
+                            print("\(error)")
+                        }
+
                     }
-                    if let _ = kits.first {
-                        kits[0].total = json["data"]["total"].intValue
-                    }
-                    completionBlock(kits, nil)
+                    KitRealmManager.sharedManager.showCollectionView = true
+                    LoadingIndicatorView.hide()
+                    completionBlock(nil)
                 } else {
-                    completionBlock(nil, response.response?.statusCode)
+                    LoadingIndicatorView.hide()
+                    completionBlock(response.response?.statusCode)
                 }
                 print(json)
             case .failure(let error):
                 print(error)
-                completionBlock(nil, (error as NSError).code)
+                completionBlock((error as NSError).code)
             }
         })
         
     }
     
-    func fetchAllKitFolio(page: Int, completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
+    func fetchAllKitFolio(page: Int, completionBlock: @escaping (_ error: Int?) -> ()) {
+        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 5 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
                 if json["success"].boolValue {
-                    var kits = [Product]()
                     for kit in json["data"]["docs"] {
-                        var kitModel = Product()
-                        kitModel.id = kit.1["_id"].stringValue
-                        kitModel.mainImage = kit.1["mainImage"].stringValue
-                        kitModel.title = kit.1["title"].stringValue
-                        kitModel.owner = kit.1["owner"].stringValue
-                        kits.append(kitModel)
+                        let kitFolio = KitModel()
+                        kitFolio.id = kit.1["_id"].stringValue
+                        kitFolio.mainImage = kit.1["mainImage"].stringValue
+                        kitFolio.title = kit.1["title"].stringValue
+                        kitFolio.owner = kit.1["owner"].stringValue
+                        kitFolio.type = "KitFolio"
+                        do {
+                            try KitRealmManager.sharedManager.insertItem(item: kitFolio)
+                        } catch (let error){
+                            print("\(error)")
+                        }
                     }
-                    if let _ = kits.first {
-                        kits[0].total = json["data"]["total"].intValue
-                    }
-                    completionBlock(kits, nil)
+                    KitRealmManager.sharedManager.showCollectionView = true
+                    LoadingIndicatorView.hide()
+                    completionBlock(nil)
                 } else {
-                    completionBlock(nil, response.response?.statusCode)
+                    LoadingIndicatorView.hide()
+                    completionBlock(response.response?.statusCode)
                 }
                 print(json)
             case .failure(let error):
                 print(error)
-                completionBlock(nil, (error as NSError).code)
+                completionBlock((error as NSError).code)
             }
         })
     }
     
-    func fetchAllKitsForSale(page: Int,completionBlock: @escaping ([Product]?, _ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitsForSale(), parameters: ["page" : page as AnyObject, "perPage" : 0 as AnyObject, "limit" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
+    func fetchAllKitsForSale(page: Int, filterButton: UIButton? ,completionBlock: @escaping (_ error: Int?) -> ()) {
+        var params = [String : AnyObject]()
+        filterManager?.getCurrentFilter(section: false, result: {
+            filter in
+            if let filter = filter.first {
+                if let filterButton = filterButton {
+                    filterButton.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
+                }
+                params = ["page" : page as AnyObject,
+                              "perPage" : 5 as AnyObject,
+                              "from" : filter.minValue as AnyObject,
+                              "to" : filter.maxValue as AnyObject,
+                              "category" : filter.number as AnyObject]
+            } else {
+                if let filterButton = filterButton {
+                    filterButton.setImage(UIImage.init(named: "filter_icon"), for: .normal)
+                }
+                params = ["page" : page as AnyObject,
+                          "perPage" : 5 as AnyObject]
+            }
+        })
+        let _ = manager.apiRequest(.getKitsForSale(), parameters: params, headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
                 if json["success"].boolValue {
-                    var kits = [Product]()
                     for kit in json["data"]["docs"] {
-                        var kitModel = Product()
-                        var saleDetails = SalesDetails()
-                        kitModel.id = kit.1["_id"].stringValue
-                        kitModel.mainImage = kit.1["mainImage"].stringValue
-                        kitModel.title = kit.1["title"].stringValue
-                        kitModel.owner = kit.1["owner"].stringValue
+                        let kitForSale = KitModel()
+                        kitForSale.id = kit.1["_id"].stringValue
+                        kitForSale.mainImage = kit.1["mainImage"].stringValue
+                        kitForSale.title = kit.1["title"].stringValue
+                        kitForSale.type = "KitForSale"
+                        kitForSale.owner = kit.1["owner"].stringValue
                         if let price = kit.1["salesDetails"]["price"].double {
-                            saleDetails.price = price
-                            kitModel.salesDetails = saleDetails
+                            kitForSale.price.value = price
                         }
-                        kits.append(kitModel)
+                        do {
+                            try KitRealmManager.sharedManager.insertItem(item: kitForSale)
+                        } catch (let error){
+                            print("\(error)")
+                        }
                     }
-                    if let _ = kits.first {
-                        kits[0].total = json["data"]["total"].intValue
-                    }
-                    completionBlock(kits, nil)
+                    KitRealmManager.sharedManager.showCollectionView = true
+                    LoadingIndicatorView.hide()
+                    completionBlock(nil)
                 } else {
-                    completionBlock(nil, response.response?.statusCode)
+                    LoadingIndicatorView.hide()
+                    completionBlock(response.response?.statusCode)
                 }
                 print(json)
             case .failure(let error):
                 print(error)
-                completionBlock(nil, (error as NSError).code)
+                let errorCode = (error as NSError).code
+                if errorCode != -999 {
+                    completionBlock(errorCode)
+                }
             }
         })
     }

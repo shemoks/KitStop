@@ -49,13 +49,13 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
     func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint, bottomMask: UIImageView, topMask: UIImageView) {
         if imageUrl != nil && imageUrl != "" {
             let url = URL.init(string: imageUrl!)
-            imageView.sd_setImage(with: url!, placeholderImage: UIImage(named: "placeholder1080x1080"), options: SDWebImageOptions.delayPlaceholder, completed: {
+            imageView.sd_setImage(with: url!, placeholderImage: UIImage(named: "placeholder1080x1080"), options: [], completed: {
                 completed in
                 bottomMask.image = UIImage(named: "bottom_mask")
                 topMask.image = UIImage(named: "top_mask")
             })
         } else {
-            // whats happaned if image does return on server ???
+            // whats happened if image does return on server ???
         }
     }
     
@@ -246,7 +246,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
             result in
             self.view.refreshDataAfterUpdate()
         })
-        view.showSuccessAlert(title: "Success", message: "Post is successfully updated", action: [ok])
+        view.showSuccessAlert(title: "Success", message: "Update completed", action: [ok])
     }
 }
 

@@ -13,4 +13,5 @@ protocol CreateSaleConfirmViewInput: class {
     func returnToMainModule()
     func reloadData()
     func setPriceLabels(priceModel: PriceModel)
+    func setTitle(category: String) 
 }

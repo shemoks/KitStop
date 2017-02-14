@@ -19,6 +19,7 @@ protocol CreateSaleConfirmViewOutput: class {
     func setLimit()
     func showAlert()
     func setDetails()
+    func setTitle()
     func handleCellSelect(for indexPath: IndexPath)
 }
 

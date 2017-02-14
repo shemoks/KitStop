@@ -49,7 +49,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }
@@ -72,12 +72,12 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed")
+                self?.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }
     
-    func requestBody(price: String, condition: String, weight: String, post: Post, imageArray: [String?], oldModel: String) -> KitsForSaleRequestBody {
+    func requestBody(price: String, condition: String, weight: String, post: Post, imageArray: [OrderedImage?], oldModel: String) -> KitsForSaleRequestBody {
         
         var metaData:[String:AnyObject] = [:]
         
@@ -93,7 +93,7 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         let category: String = post.categoryId
         let description = post.description.textValue
         let notes = post.notes.textValue
-        let mainImage = imageArray.first!
+        let mainImage = imageArray.first??.url
         let images = imageArray
         let tags  = [String?]()
         
@@ -123,27 +123,32 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
         return kit
     }
     
-    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [String?]) -> () ) {
-
-        sortImages(images: images, completion: { imageUrls, imageObjects in
-           
-            let imagesCount = imageUrls.count + imageObjects.count
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [OrderedImage?]) -> () ) {
         
-            var imageStrings = imageUrls
+        sortImages(images: images, completion: { imageUrls, imageObjects in
+            
+            let imagesCount = imageUrls.count + imageObjects.count
+            
+            var sortedImages: [OrderedImage?] = []
+            
+            for (index, image) in imageUrls.enumerated() {
+                sortedImages.append(OrderedImage(key: index, url: image))
+            }
+            
             
             let awsManager = AWS3UploadImageService()
             
             awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
                 if imageObjects.count == 0 {
-                    success(mainImage!, imageStrings)
+                    success(mainImage!, sortedImages)
                 } else {
-                    for image in imageObjects {
+                    for (index, image) in imageObjects.enumerated() {
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
                             image in
-                            imageStrings.append(image!)
-                            if imageStrings.count == imagesCount  {
-                                success(mainImage!, imageStrings)
+                            sortedImages.append(OrderedImage(key: index, url: image!))
+                            if sortedImages.count == imagesCount  {
+                                success(mainImage!, sortedImages)
                             }
                         })
                     }

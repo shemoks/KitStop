@@ -50,7 +50,7 @@ extension KitFolioCreateInteractor: KitFolioCreateInteractorInput {
                 })
             } else {
                 LoadingIndicatorView.hide()
-                self.presenter.showAlertWith(title: "Error", message: "Image upload fail")
+                self.presenter.showAlertWith(title: "Error", message: "Image upload failed. Please try again later")
             }
         })
     }

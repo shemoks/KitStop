@@ -24,7 +24,7 @@ class LogInDataManager: NSObject, LogInDataManagerProtocol {
         user.country = "USA"
         user.online = true
         try! realm.write {
-            realm.add(user, update: true)
+            realm.objects(User.self).realm?.add(user, update: true)
         }
     }
     

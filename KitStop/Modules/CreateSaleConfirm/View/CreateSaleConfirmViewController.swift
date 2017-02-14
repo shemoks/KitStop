@@ -50,12 +50,19 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
         if let index = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: index, animated: animated)
         }
+        
+        if (self.navigationItem.title?.isEmpty)! {
+            presenter.setTitle()
+        } else {
+            self.navigationItem.title = ""
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.backBarButtonItem?.title = ""
+        presenter.setTitle()
     }
+    
     
     // MARK: - Actions
     func tapOnSave() {
@@ -67,6 +74,10 @@ final class CreateSaleConfirmViewController: UIViewController, FlowController, A
 // MARK: - CreateSaleConfirmViewInput
 
 extension CreateSaleConfirmViewController: CreateSaleConfirmViewInput {
+    
+    func setTitle(category: String) {
+        self.navigationItem.title = "For Sale / \(category)"
+    }
     
     func reloadData() {
         self.tableView.reloadData()

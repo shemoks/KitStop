@@ -31,7 +31,13 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
         let description = kit.description as AnyObject
         let notes = kit.notes as AnyObject
         let mainImage = kit.mainImage as AnyObject
-        let images = kit.images as AnyObject
+            var imageDictionary: [[String:AnyObject]] = []
+        
+        for image in kit.images {
+            imageDictionary.append((image?.getDictFormat())!)
+        }
+        
+        let images =  imageDictionary as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let salesDetails = kit.salesDetails as AnyObject
@@ -69,7 +75,14 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
         let description = kit.description as AnyObject
         let notes = kit.notes as AnyObject
         let mainImage = kit.mainImage as AnyObject
-        let images = kit.images as AnyObject
+        
+        var imageDictionary: [[String:AnyObject]] = []
+        
+        for image in kit.images {
+            imageDictionary.append((image?.getDictFormat())!)
+        }
+        
+        let images =  imageDictionary as AnyObject
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let salesDetails = kit.salesDetails as AnyObject
@@ -92,7 +105,6 @@ extension CreateForSaleService: CreateForSaleServiceProtocol {
                         completion(false, response.response?.statusCode, nil)
                     }
                     print(json)
-                    print(String(data: (response.request?.httpBody)!, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)))
                 case .failure(let error):
                     print(error)
                     completion(false, (error as NSError).code, nil)

@@ -12,9 +12,19 @@ import KeychainAccess
 
 protocol ApiManagerProtocol {
     func apiRequest(_ endpoint: Endpoint, parameters: [String : Any]?, headers: [String : String]?) -> ApiRequestProtocol
+    func cancelAllRequest()
+}
+
+struct APIManager {
+    static let sharedManager: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 20
+        return SessionManager(configuration: configuration)
+    }()
 }
 
 extension ApiManagerProtocol {
+    
     func apiRequest(_ endpoint: Endpoint) -> ApiRequestProtocol {
         return apiRequest(endpoint, parameters: [:], headers: [:])
     }
@@ -22,6 +32,7 @@ extension ApiManagerProtocol {
     func apiRequest(_ endpoint: Endpoint, parameters: [String : AnyObject]?) -> ApiRequestProtocol {
         return apiRequest(endpoint, parameters: parameters, headers: nil)
     }
+    
 }
 
 protocol ApiRequestProtocol {
@@ -48,7 +59,16 @@ extension SessionManager: ApiManagerProtocol {
         } catch is Error {
             print("no token")
         }
-        return request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: endpoint.encoding , headers: commonHeaders)
+        return  APIManager.sharedManager.request(endpoint.url, method: endpoint.httpMethod, parameters: parameters, encoding: endpoint.encoding , headers: commonHeaders)
+    }
+    
+    func cancelAllRequest() {
+        self.session.getAllTasks(completionHandler: {
+            task in
+            task.forEach({
+                $0.cancel()
+            })
+        })
     }
 }
 
