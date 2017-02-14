@@ -25,25 +25,27 @@ extension MainSearchRouter: MainSearchRouterInput {
         flowController.closeModule(animated: true)
     }
     
-    func openDetailedView(postID: String, ownerID: String, selectedSegment: Int) {
+    func openDetailedView(postID: String, ownerID: String, selectedSegment: Int,  moduleOutput: KitsDetailedModuleOutput) {
         switch selectedSegment {
         case 0:
             flowController.openModule(using: .openKitsDetailed) {
                 guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
                 moduleInput.dataForView(forSale: true, idPost: postID, idOwner: ownerID)
-                return nil
+                moduleInput.flagFromSearch(search: true)
+                return moduleOutput
             }
         case 1:
             flowController.openModule(using: .openKitsDetailed) {
                 guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
                 moduleInput.dataForView(forSale: false, idPost: postID, idOwner: ownerID)
-                return nil
+                moduleInput.flagFromSearch(search: true)
+                return moduleOutput
             }
         case 2:
             flowController.openModule(using: .openKitDetailed) {
                 guard let moduleInput = $0 as? KitFolioDetailedModuleInput else { fatalError() }
                 moduleInput.handleKitId(id: postID, ownerId: ownerID)
-                return nil
+                return moduleOutput
             }
         default:
             print("Default")

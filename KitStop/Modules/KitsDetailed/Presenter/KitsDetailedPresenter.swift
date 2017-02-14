@@ -26,6 +26,7 @@ final class KitsDetailedPresenter {
     var calculate = CalculationForOwner()
     var delegate: TransportPost?
     var viewModel: PriceModel?
+    var search: Bool = false
 
 }
 
@@ -243,6 +244,10 @@ extension KitsDetailedPresenter: KitsDetailedModuleInput {
         self.ownerId = idOwner!
         interactor.getPost(forSale: forSale, idPost: idPost)
         
+    }
+
+    func flagFromSearch(search: Bool) {
+        self.search = true
     }
     
 }
