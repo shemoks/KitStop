@@ -30,11 +30,11 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>16</string>
+	<string>17</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
-		<string>cf52b4ae7d2ecc89897b8a6eddf944b30e818777</string>
+		<string>3804f043daaddf00de9b8976ee20cc534c20384a</string>
 		<key>Kits</key>
 		<array>
 			<dict>
