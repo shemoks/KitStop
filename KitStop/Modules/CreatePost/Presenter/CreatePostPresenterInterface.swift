@@ -53,6 +53,7 @@ protocol CreatePostModuleInput: ModuleInput {
     func setKitEdit(post: Post, oldModel: String)
     func setUpdate(shouldUpdate: Bool)
     func setForSaleEdit(post: Post, oldModel: String)
+    func returnCase(caseOf: ReturnCase)
 
 }
 

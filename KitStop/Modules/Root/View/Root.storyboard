@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yC4-4c-7Mb">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yC4-4c-7Mb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,7 +44,7 @@
                     <navigationItem key="navigationItem" id="PFc-TI-eIQ"/>
                     <connections>
                         <segue destination="XkI-86-IGM" kind="show" identifier="Registration" animates="NO" id="zsj-rE-G6H"/>
-                        <segue destination="pF3-0R-EEl" kind="show" identifier="transitionToMain" id="7R7-Y0-kJS"/>
+                        <segue destination="pF3-0R-EEl" kind="show" identifier="transitionToTabBar" id="7R7-Y0-kJS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="753.62318840579712" y="134.5108695652174"/>
         </scene>
-        <!--MainViewController-->
+        <!--TabBarViewController-->
         <scene sceneID="9ul-eS-HDr">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MainViewController" id="pF3-0R-EEl" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="TabBar" referencedIdentifier="TabBarViewController" id="pF3-0R-EEl" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obo-Jm-QpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1711" y="312"/>

@@ -66,7 +66,7 @@ extension MainSearchPresenter: MainSearchViewOutput {
     func handleItemSelection(for indexPath: IndexPath) {
         let postID = kits[indexPath.row].id
         let ownerID = kits[indexPath.row].owner
-        router.openDetailedView(postID: postID, ownerID: ownerID, selectedSegment: self.selectedSegment, moduleOutput: self)
+        router.openDetailedView(postID: postID, ownerID: ownerID, selectedSegment: self.selectedSegment, moduleOutput: self, returnCase: .search)
     }
 }
 

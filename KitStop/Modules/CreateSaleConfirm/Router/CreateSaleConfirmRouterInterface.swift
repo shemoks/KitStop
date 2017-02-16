@@ -9,6 +9,10 @@
 // MARK: - CreateSaleConfirmRouterInput
 
 protocol CreateSaleConfirmRouterInput: class {
+
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String)
+    func openMain()
+    func openMainSearch()
+    func openDetailedKit()
 
 }

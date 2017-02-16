@@ -17,4 +17,5 @@ protocol MainViewInput: class {
     func removeLoadingIndicatorView()
     var page: Int {get set}
     func finishInfiniteScroll()
+    func passData(index: Bool)
 }

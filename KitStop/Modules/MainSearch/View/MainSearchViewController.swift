@@ -73,6 +73,10 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
         presenter.closeModule()
     }
 
+    @IBAction func unwindSearch(segue: UIStoryboardSegue) {
+
+    }
+
 }
 
 

@@ -56,6 +56,7 @@ extension MainFilterContainerRouter: MainFilterContainerRouterInput {
         flowController.openModule(using: .openKitsDetailed) {
             guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
             moduleInput.dataForView(forSale: segmentedIndex, idPost: kitId, idOwner: ownerId)
+            moduleInput.returnCase(caseOf: .view)
             return moduleOutput
         }
     }

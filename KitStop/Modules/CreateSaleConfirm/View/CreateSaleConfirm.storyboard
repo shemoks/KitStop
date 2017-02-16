@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L2V-ul-bzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KHl-TP-P93">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,22 +13,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="0F3-0E-ePL">
-            <objects>
-                <navigationController id="L2V-ul-bzF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YDW-vV-LCT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="KHl-TP-P93" kind="relationship" relationship="rootViewController" id="CK3-O8-N2d"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MFf-KZ-LFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-95" y="80"/>
-        </scene>
         <!--View-->
         <scene sceneID="78n-xM-jWx">
             <objects>
@@ -42,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FER-R6-USv">
-                                <rect key="frame" x="0.0" y="294" width="375" height="137"/>
+                                <rect key="frame" x="0.0" y="250" width="375" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-Ac-3XN">
                                         <rect key="frame" x="18" y="6" width="199" height="18"/>
@@ -183,7 +167,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-ls-mBT">
-                                <rect key="frame" x="0.0" y="104" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="a05-rg-yIW"/>
@@ -210,9 +194,13 @@
                         <outlet property="transactionFee" destination="V7W-1B-cMW" id="qDo-OD-2Ag"/>
                         <outlet property="userPrice" destination="r1n-vC-q8W" id="CgR-L8-F6l"/>
                         <segue destination="G5U-7C-iBW" kind="show" identifier="TrunsitionToCustomList" id="6aP-Ju-92B"/>
+                        <segue destination="zmr-h8-OYz" kind="unwind" identifier="transitionToMain" unwindAction="unwindWithSegue:" id="ftT-mn-dcR"/>
+                        <segue destination="zmr-h8-OYz" kind="unwind" identifier="transitionToMainSearch" unwindAction="unwindSearchWithSegue:" id="q4c-iR-a2a"/>
+                        <segue destination="zmr-h8-OYz" kind="unwind" identifier="transitionToKitsDetailed" unwindAction="unwindKitsDetailedWithSegue:" id="PGb-1o-URf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZU-Gf-7le" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zmr-h8-OYz" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="b4P-8R-rl3" customClass="CreateSaleConfirmAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
                         <outlet property="view" destination="KHl-TP-P93" id="18J-JG-RAP"/>

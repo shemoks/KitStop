@@ -27,6 +27,7 @@ final class KitsDetailedPresenter {
     var delegate: TransportPost?
     var viewModel: PriceModel?
     var search: Bool = false
+    var caseOf: ReturnCase = .view
 
 }
 
@@ -73,9 +74,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleViewDidLoad() {
-        // interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
-       //view.reloadData()
-
+        interactor.getPost(forSale: self.sectionSale, idPost: post.id)
     }
 
     func getTittle() -> String {
@@ -161,11 +160,11 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func openEditForSale() {
-        router.openEditForSale(post: self.post, oldModel: "forSale")
+        router.openEditForSale(post: self.post, oldModel: "forSale", returnCase: self.caseOf)
     }
 
     func openEditKit() {
-        router.openEditKit(post: self.post, oldModel: "Kit")
+        router.openEditKit(post: self.post, oldModel: "Kit", returnCase: self.caseOf)
     }
 
     func handleKit() {
@@ -227,9 +226,9 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 
     func setPostForChange(post: Post, oldModel: String) {
         if sectionSale {
-            router.openEditKit(post: post, oldModel: oldModel)
+            router.openEditKit(post: post, oldModel: oldModel, returnCase: self.caseOf)
         } else {
-            router.openEditForSale(post: post, oldModel: oldModel)
+            router.openEditForSale(post: post, oldModel: oldModel, returnCase: self.caseOf)
         }
     }
 
@@ -249,5 +248,8 @@ extension KitsDetailedPresenter: KitsDetailedModuleInput {
     func flagFromSearch(search: Bool) {
         self.search = true
     }
-    
+
+    func returnCase(caseOf: ReturnCase) {
+        self.caseOf = caseOf
+    }
 }

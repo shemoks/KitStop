@@ -25,13 +25,14 @@ extension MainSearchRouter: MainSearchRouterInput {
         flowController.closeModule(animated: true)
     }
     
-    func openDetailedView(postID: String, ownerID: String, selectedSegment: Int,  moduleOutput: KitsDetailedModuleOutput) {
+    func openDetailedView(postID: String, ownerID: String, selectedSegment: Int,  moduleOutput: KitsDetailedModuleOutput, returnCase: ReturnCase) {
         switch selectedSegment {
         case 0:
             flowController.openModule(using: .openKitsDetailed) {
                 guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
                 moduleInput.dataForView(forSale: true, idPost: postID, idOwner: ownerID)
                 moduleInput.flagFromSearch(search: true)
+                moduleInput.returnCase(caseOf: returnCase)
                 return moduleOutput
             }
         case 1:
@@ -39,6 +40,7 @@ extension MainSearchRouter: MainSearchRouterInput {
                 guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
                 moduleInput.dataForView(forSale: false, idPost: postID, idOwner: ownerID)
                 moduleInput.flagFromSearch(search: true)
+                moduleInput.returnCase(caseOf: returnCase)
                 return moduleOutput
             }
         case 2:

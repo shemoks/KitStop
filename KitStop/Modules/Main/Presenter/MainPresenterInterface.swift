@@ -33,6 +33,9 @@ protocol MainInteractorOutput: class {
 // MARK: - MainModuleInput
 
 protocol MainModuleInput: ModuleInput {
+
+    func passData(index: Bool)
+    func updateKitFolio()
     
 }
 

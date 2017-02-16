@@ -32,6 +32,7 @@ final class CreateSaleConfirmPresenter {
     var shouldUpdate = false
     var images = PostImagesModel()
     var oldModel = "forSale"
+    var caseOf: ReturnCase = .main
 
     func setReady(isReady: Bool) {
         for item in details {
@@ -208,7 +209,14 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmInteractorOutput {
     }
     
     func returnToMainModule() {
-        view.returnToMainModule()
+        switch self.caseOf {
+        case .main:
+        router.openMain()
+        case .search:
+            router.openMainSearch()
+        case .view:
+            router.openDetailedKit()
+        }
     }
     
     func setRates(rates: RatesModel?) {
@@ -232,6 +240,10 @@ extension CreateSaleConfirmPresenter: CreateSaleConfirmModuleInput {
 
     func setImages(images: PostImagesModel){
         self.images = images
+    }
+
+    func returnCase(caseOf: ReturnCase) {
+        self.caseOf = caseOf
     }
 }
 

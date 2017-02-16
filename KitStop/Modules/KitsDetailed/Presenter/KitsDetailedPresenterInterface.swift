@@ -58,6 +58,7 @@ protocol KitsDetailedModuleInput: ModuleInput {
 
     func dataForView(forSale: Bool, idPost: String, idOwner: String?)
     func flagFromSearch(search: Bool)
+    func returnCase(caseOf: ReturnCase)
 
 }
 

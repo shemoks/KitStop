@@ -9,5 +9,6 @@
 // MARK: - SelectCategoryRouterInput
 
 protocol SelectCategoryRouterInput: class {
-    func openAddKitModule(categoryID: String, category: Bool)
+    func openAddKitModule(categoryID: String, category: Bool, returnCase: ReturnCase)
+    func openMainModule()
 }
