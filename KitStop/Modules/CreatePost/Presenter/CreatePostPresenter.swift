@@ -30,6 +30,7 @@ final class CreatePostPresenter {
     var model = PostImagesModel()
     var anyObject = [AnyObject]()
     var oldModel = "forSale"
+    var caseOf: ReturnCase = .main
 }
 
 // MARK: - CreatePostViewOutput
@@ -178,9 +179,9 @@ extension CreatePostPresenter: CreatePostInteractorOutput {
         self.postForPrice = post
         self.model = model
         if isForSale {
-            router.openSaveForSaleModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate, oldModel: self.oldModel)
+            router.openSaveForSaleModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate, oldModel: self.oldModel, returnCase: self.caseOf)
         } else {
-            router.openSaveKitModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate, oldModel: self.oldModel)
+            router.openSaveKitModule(post: self.postForPrice, images: self.model, shouldUpdate: self.shouldUpdate, oldModel: self.oldModel, returnCase: self.caseOf)
         }
     }
 
@@ -232,6 +233,10 @@ extension CreatePostPresenter: CreatePostModuleInput {
         self.isNotMainImage = true
         self.shouldUpdate = true
         self.oldModel = oldModel
+    }
+
+    func returnCase(caseOf: ReturnCase) {
+        self.caseOf = caseOf
     }
 
 }

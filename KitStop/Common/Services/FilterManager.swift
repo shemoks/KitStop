@@ -117,6 +117,12 @@ class FilterManager: NSObject, FilterManagerProtocol {
         }
     }
 
+    func deleteAllFilters() {
+        try! realm.write {
+            realm.delete(realm.objects(FilterModel.self))
+        }
+    }
+
     func getCategories() -> [Category] {
         let categories = realm.objects(Category.self)
         return Array(categories)
@@ -212,12 +218,5 @@ class FilterManager: NSObject, FilterManagerProtocol {
             filter.title = currentFilter.title
         }
     }
-    
-    func deleteAllFilters() {
-        try! realm.write {
-            realm.delete(realm.objects(FilterModel.self))
-        }
-    }
-
     
 }

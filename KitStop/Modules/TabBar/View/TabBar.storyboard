@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Axn-vq-4R8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="j50-KC-NL5">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oym-6r-oCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="TabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Axn-vq-4R8" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="1CP-4n-s2p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WjP-CW-oHs" kind="relationship" relationship="viewControllers" id="L3j-ud-VF7"/>
+                        <segue destination="Eat-xB-3Hm" kind="relationship" relationship="viewControllers" id="RHW-Ah-sgY"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-486" y="-291"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="JxR-Y3-060">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9s-dF-cSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="MainViewController" id="WjP-CW-oHs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="kitstop logo" id="zIJ-Vw-SJ8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hkn-Re-eki">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sqo-Zn-wI0" kind="relationship" relationship="rootViewController" id="rq4-lK-ibP"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="321" y="-600"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="SRi-0Z-Ip0">
+            <objects>
+                <navigationController id="Eat-xB-3Hm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="Account" id="mz6-0r-omi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xoX-EX-eH3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fJl-vm-FAp" kind="relationship" relationship="rootViewController" id="lDi-Qz-6Iq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ou9-Qo-BB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="73"/>
+        </scene>
+        <!--UnderConstructionViewController-->
+        <scene sceneID="A1T-12-t3a">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UnderConstruction" referencedIdentifier="UnderConstructionViewController" id="fJl-vm-FAp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Srz-uA-SdG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2S-dw-XoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995" y="30"/>
+        </scene>
+        <!--MainViewController-->
+        <scene sceneID="bAZ-jN-XuQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MainViewController" id="sqo-Zn-wI0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6CU-V3-Pmy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJE-Md-lOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="-705"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Account" width="25" height="25"/>
+        <image name="kitstop logo" width="24" height="24"/>
+    </resources>
+</document>

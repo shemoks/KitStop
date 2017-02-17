@@ -18,23 +18,24 @@ final class CreateKitSavePresenter {
     weak var view: CreateKitSaveViewInput!
     var interactor: CreateKitSaveInteractorInput!
     var router: CreateKitSaveRouterInput!
-    
+
     // MARK: - Models
     var details: [KitDetailsModel] = []
     var kit: CreateKitsRequestBody?
     var post: Post?
     var images = PostImagesModel()
-    
+
     // MARK: - Required properties
     var postId: String?
     var date = ""
     var price = ""
     var isPrivate:Bool = false
-    
+
     // MARK: - Misc properties
     var limit:Int?
     var shouldUpdate: Bool = false
     var oldModel = "Kit"
+    var caseOf : ReturnCase = .main
 
 
 
@@ -47,41 +48,41 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
         self.isPrivate = isPrivate
         view.reloadData()
     }
-    
+
     func hasPrivacySet() -> Bool {
         return self.isPrivate
     }
-    
-    
+
+
     func detail(for indexPath: IndexPath) -> KitDetailsModel {
         return details[indexPath.row]
     }
-    
+
     func handleSaveTap() {
         if shouldUpdate {
-               interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images, oldModel: self.oldModel)
+            interactor.updateKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images, oldModel: self.oldModel)
         } else {
             interactor.saveKit(price: price, date: date, isPrivate: isPrivate, post: post!, images: self.images)
-        } 
-  
+        }
+
     }
-    
+
     func setPrice(value: String) {
-            self.price = value
-            self.details.last?.contents = "$\(value)"
-            view.reloadData()
+        self.price = value
+        self.details.last?.contents = "$\(value)"
+        view.reloadData()
     }
-    
+
     func setDate(date: String) {
         self.date = date
         details.first?.contents = date
         view.reloadData()
     }
-    
+
     func chosenDate() -> String {
         return self.date
     }
-    
+
     func setLimit() {
         for item in (post?.otherProperty)! {
             if item.title == "Purchase Price" {
@@ -90,15 +91,15 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
             }
         }
     }
-    
+
     func priceLimit() -> Int {
         return self.limit!
     }
-    
+
     func setDetails() {
         details.append(KitDetailsModel(header: "Purchase Date", contents: "", placeholder: ""))
         details.append(KitDetailsModel(header: "Purchase Price", contents: "", placeholder: ""))
-        
+
         for item in (post?.otherProperty)! {
             switch item.title {
             case "Purchase Date":
@@ -109,15 +110,15 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
                 _ = ""
             }
         }
-        
+
         if shouldUpdate {
             for item in (post?.otherProperty)! {
                 switch item.title {
                 case "Purchase Date":
                     if !item.textValue.isEmpty {
-                             let currentDate = Date(timeIntervalSince1970: Double(item.textValue)!).string(format: "dd/MMM/yyyy")
+                        let currentDate = Date(timeIntervalSince1970: Double(item.textValue)!).string(format: "dd/MMM/yyyy")
                         details.first?.contents = currentDate
-                   
+
                         self.date = currentDate
                     }
                 case "Purchase Price":
@@ -132,7 +133,7 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
             self.setPrivacy(isPrivate: (post?.isPrivate)!)
         }
     }
-    
+
     func showAlert() {
         view.showAlert(title: "Error", message: "Set price exceeds maximum value of 1000000")
     }
@@ -144,13 +145,20 @@ extension CreateKitSavePresenter: CreateKitSaveInteractorOutput {
     func showAlertWith(title: String, message: String) {
         view.showAlert(title: title, message: message)
     }
-    
+
     func returnToMainModule() {
-        view.returnToMainModule()
+        switch self.caseOf {
+        case .main:
+            router.openMainModule()
+        case .view:
+            router.openKitsDetailedModule()
+        case .search:
+            router.openSearchModule()
+        }
     }
-    
+
     func openDetailedModule(id: String) {
-        
+
     }
 }
 
@@ -160,7 +168,7 @@ extension CreateKitSavePresenter: CreateKitSaveModuleInput {
     func setPost(post: Post) {
         self.post = post
     }
-    
+
     func setUpdate(shouldUpdate: Bool, oldModel: String) {
         self.shouldUpdate = shouldUpdate
         self.oldModel = oldModel
@@ -168,5 +176,9 @@ extension CreateKitSavePresenter: CreateKitSaveModuleInput {
 
     func setImages(images: PostImagesModel) {
         self.images = images
+    }
+    
+    func returnCase(caseOf: ReturnCase) {
+        self.caseOf = caseOf
     }
 }

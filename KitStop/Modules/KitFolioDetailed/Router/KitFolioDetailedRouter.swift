@@ -22,17 +22,20 @@ final class KitFolioDetailedRouter {
 // MARK: - KitFolioDetailedRouterInput
 
 extension KitFolioDetailedRouter: KitFolioDetailedRouterInput {
-    
+
     func openChatModule() {
         flowController.openModule(using: .openUnderConstructionModule) {
             guard ($0 as? UnderConstructionModuleInput) != nil else {fatalError()}
             return nil
         }
     }
-    
-    func closeModule(moduleOutput: KitFolioDetailedModuleOutput) {
-        moduleOutput.updateKitFolio()
-        self.flowController.closeModule(animated: true)
+
+    func closeModule() {
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
+            moduleInput.updateKitFolio()
+            return nil
+        }
     }
 }
 

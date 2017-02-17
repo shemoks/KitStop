@@ -26,6 +26,8 @@ final class KitsDetailedPresenter {
     var calculate = CalculationForOwner()
     var delegate: TransportPost?
     var viewModel: PriceModel?
+    var search: Bool = false
+    var caseOf: ReturnCase = .view
 
 }
 
@@ -71,10 +73,12 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         return post.otherForViewProperty.count
     }
 
-    func handleViewDidLoad() {
-        // interactor.getPost(forSale: false, idPost: "587cdd8680b4060ff7d68909")
-       //view.reloadData()
-
+    func handleViewDidLoad(result: @escaping () -> ()) {
+        interactor.getPostForUpdate(forSale: self.sectionSale, idPost: post.id) {
+            object in
+            self.post = object
+            result()
+        }
     }
 
     func getTittle() -> String {
@@ -160,11 +164,11 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func openEditForSale() {
-        router.openEditForSale(post: self.post, oldModel: "forSale")
+        router.openEditForSale(post: self.post, oldModel: "forSale", returnCase: self.caseOf)
     }
 
     func openEditKit() {
-        router.openEditKit(post: self.post, oldModel: "Kit")
+        router.openEditKit(post: self.post, oldModel: "Kit", returnCase: self.caseOf)
     }
 
     func handleKit() {
@@ -181,6 +185,30 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         return viewModel
     }
 
+    func update() {
+
+        let sale = post.salesDetails
+        for saleItem in sale {
+            if saleItem.title == "Condition" {
+                self.post.generalForViewProperty.insert(saleItem, at: 0)
+            }
+        }
+        delegate = calculate
+        delegate?.returnPost(post: self.post)
+        calculate.calculate { object in
+            self.viewModel = object
+            self.view.reloadData()
+            let urlValue = URL(string: self.post.mainImage)
+            if urlValue != nil {
+                self.view.reloadHeader(url: urlValue!, userInfo: self.post.owner, dateUpdate: Date().dateFrom(string: self.post.createAt))
+            } else {
+                //
+            }
+            self.view.isVisibleTableView(flag: true)
+        }
+    }
+
+
 }
 
 // MARK: - KitsDetailedInteractorOutput
@@ -190,26 +218,10 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
     func setPost(post: Post) {
         self.post = post
         print(post)
-        let urlValue = URL(string: self.post.mainImage)
-        if urlValue != nil {
-            view.reloadHeader(url: urlValue!, userInfo: post.owner, dateUpdate: Date().dateFrom(string: post.createAt))
-        } else {
-            //
-        }
-        let sale = post.salesDetails
-        for saleItem in sale {
-            if saleItem.title == "Condition" {
-                self.post.generalForViewProperty.insert(saleItem, at: 0)
-            }
-        }
-        delegate = calculate
-        delegate?.returnPost(post: post)
-        calculate.calculate { object in
-            self.viewModel = object
-            self.view.reloadData()
-        self.view.isVisibleTableView(flag: true)
-        }
+        update()
+
     }
+
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
@@ -226,9 +238,9 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 
     func setPostForChange(post: Post, oldModel: String) {
         if sectionSale {
-            router.openEditKit(post: post, oldModel: oldModel)
+            router.openEditKit(post: post, oldModel: oldModel, returnCase: self.caseOf)
         } else {
-            router.openEditForSale(post: post, oldModel: oldModel)
+            router.openEditForSale(post: post, oldModel: oldModel, returnCase: self.caseOf)
         }
     }
 
@@ -244,5 +256,12 @@ extension KitsDetailedPresenter: KitsDetailedModuleInput {
         interactor.getPost(forSale: forSale, idPost: idPost)
         
     }
-    
+
+    func flagFromSearch(search: Bool) {
+        self.search = true
+    }
+
+    func returnCase(caseOf: ReturnCase) {
+        self.caseOf = caseOf
+    }
 }

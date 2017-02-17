@@ -23,10 +23,18 @@ final class SelectCategoryRouter {
 
 extension SelectCategoryRouter: SelectCategoryRouterInput {
 
-    func openAddKitModule(categoryID: String, category: Bool) {
+    func openAddKitModule(categoryID: String, category: Bool, returnCase: ReturnCase) {
         flowController.openModule(using: .openAddKitModule) {
             guard let moduleInput = $0 as? CreatePostModuleInput else { fatalError() }
             moduleInput.valuesFromCategoryList(forSale: category, idCategory: categoryID)
+            moduleInput.returnCase(caseOf: returnCase)
+            return nil
+        }
+    }
+
+    func openMainModule() {
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
             return nil
         }
     }

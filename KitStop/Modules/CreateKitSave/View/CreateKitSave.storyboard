@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ICw-Rf-DBc">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ICw-Rf-DBc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,10 +42,13 @@
                     <navigationItem key="navigationItem" id="9Xw-nV-c9I"/>
                     <connections>
                         <outlet property="tableView" destination="v6o-zk-t6h" id="qcR-bp-tbE"/>
-                        <segue destination="BRu-Ms-p5d" kind="show" identifier="transitionToKitsDetailed" id="hbC-un-adl"/>
+                        <segue destination="a0Z-5o-ddb" kind="unwind" identifier="transitionToMain" unwindAction="unwindWithSegue:" id="reZ-Rz-Fyr"/>
+                        <segue destination="a0Z-5o-ddb" kind="unwind" identifier="transitionToMainSearch" unwindAction="unwindSearchWithSegue:" id="SWh-X8-83j"/>
+                        <segue destination="a0Z-5o-ddb" kind="unwind" identifier="transitionToKitsDetailed" unwindAction="unwindKitsDetailedWithSegue:" id="7qh-W4-iVk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lN-bd-YXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="a0Z-5o-ddb" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="l18-4G-zGR" customClass="CreateKitSaveAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
                         <outlet property="view" destination="ICw-Rf-DBc" id="eGZ-va-Adk"/>
@@ -53,14 +56,6 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="733.60000000000002" y="79.610194902548727"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="4RP-8d-6hd">
-            <objects>
-                <viewControllerPlaceholder id="BRu-Ms-p5d" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wco-91-OtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1514" y="13"/>
         </scene>
     </scenes>
 </document>

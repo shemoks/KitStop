@@ -28,4 +28,28 @@ extension CreateSaleConfirmRouter: CreateSaleConfirmRouterInput {
             return customListModuleOutput
         }
     }
+
+    func openMain() {
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
+            moduleInput.passData(index: true)
+            return nil
+        }
+    }
+
+    func openMainSearch() {
+        flowController.openModule(using: .openMainSearch) {
+            guard let moduleInput = $0 as? MainSearchModuleInput else { fatalError() }
+           // moduleInput.passData(index: true)
+            return nil
+        }
+    }
+
+    func openDetailedKit() {
+        flowController.openModule(using: .openKitsDetailed) {
+            guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
+            // moduleInput.passData(index: true)
+            return nil
+        }
+    }
 }

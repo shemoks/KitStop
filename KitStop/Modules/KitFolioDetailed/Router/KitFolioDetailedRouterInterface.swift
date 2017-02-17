@@ -11,5 +11,5 @@ import UIKit
 
 protocol KitFolioDetailedRouterInput: class {
     func openChatModule()
-    func closeModule(moduleOutput: KitFolioDetailedModuleOutput)
+    func closeModule()
 }

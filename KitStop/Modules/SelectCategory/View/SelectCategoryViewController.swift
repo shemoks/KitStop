@@ -32,7 +32,7 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .plain, target:nil, action:nil)
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .plain, target:nil, action:nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -45,7 +45,14 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
     
     func setupNavigationBar() {
         self.navigationItem.title = "Select Category"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
     }
+
+    func back() {
+        presenter.openMainModule()
+    }
+
+
 }
 
 // MARK: - SelectCategoryViewInput

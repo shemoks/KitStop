@@ -23,6 +23,9 @@ final class KitFolioCreateRouter {
 extension KitFolioCreateRouter: KitFolioCreateRouterInput {
     func returnToMainModule(moduleOutput: MainModuleOutput) {
         moduleOutput.updateKitFolioItems()
-        flowController.closeModule(animated: true)
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
+            return nil
+        }
     }
 }

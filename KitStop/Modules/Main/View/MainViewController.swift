@@ -30,6 +30,15 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     var delegate: MainViewPassDataProtocol?
     fileprivate var refreshStatus = false
     var page = 1
+
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        refresh()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +48,11 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         addSectionInset()
         addNavigationBarItems()
         addRefreshControl()
-        addToolbar()
+//        addToolbar()
         addNotificationToken()
         addInfiniteScroll()
     }
+
     
     func addNotificationToken() {
         presenter.notificationCenter = KitRealmManager.sharedManager.getRealm().addNotificationBlock({
@@ -110,17 +120,25 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     func passDataToSubmodule() {
         delegate?.passData(selectedItem: 2)
     }
-    
-    func addToolbar() {
-        let toolBar = UIView.loadFromNibNamed(nibNamed: "BottomBar")
-        
-        toolBar?.frame = CGRect(x: 0, y: 0, width: toolbarContainer.frame.width, height: toolbarContainer.frame.height)
-        
-        (toolBar as? BottomBarViewController)?.tappedItem = self
-        toolbarContainer.addSubview(toolBar!)
-        
+
+    func passData(index: Bool) {
+        if index {
+        delegate?.passData(selectedItem: 0)
+        } else {
+            delegate?.passData(selectedItem: 1)
+        }
     }
-    
+
+//    func addToolbar() {
+//        let toolBar = UIView.loadFromNibNamed(nibNamed: "BottomBar")
+//        
+//        toolBar?.frame = CGRect(x: 0, y: 0, width: toolbarContainer.frame.width, height: toolbarContainer.frame.height)
+//        
+//        (toolBar as? BottomBarViewController)?.tappedItem = self
+//        toolbarContainer.addSubview(toolBar!)
+//        
+//    }
+
     func stopRefresh() {
         self.refreshControl.endRefreshing()
     }
