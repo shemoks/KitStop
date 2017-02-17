@@ -73,8 +73,12 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         return post.otherForViewProperty.count
     }
 
-    func handleViewDidLoad() {
-        interactor.getPost(forSale: self.sectionSale, idPost: post.id)
+    func handleViewDidLoad(result: @escaping () -> ()) {
+        interactor.getPostForUpdate(forSale: self.sectionSale, idPost: post.id) {
+            object in
+            self.post = object
+            result()
+        }
     }
 
     func getTittle() -> String {
@@ -181,6 +185,30 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         return viewModel
     }
 
+    func update() {
+
+        let sale = post.salesDetails
+        for saleItem in sale {
+            if saleItem.title == "Condition" {
+                self.post.generalForViewProperty.insert(saleItem, at: 0)
+            }
+        }
+        delegate = calculate
+        delegate?.returnPost(post: self.post)
+        calculate.calculate { object in
+            self.viewModel = object
+            self.view.reloadData()
+            let urlValue = URL(string: self.post.mainImage)
+            if urlValue != nil {
+                self.view.reloadHeader(url: urlValue!, userInfo: self.post.owner, dateUpdate: Date().dateFrom(string: self.post.createAt))
+            } else {
+                //
+            }
+            self.view.isVisibleTableView(flag: true)
+        }
+    }
+
+
 }
 
 // MARK: - KitsDetailedInteractorOutput
@@ -190,26 +218,10 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
     func setPost(post: Post) {
         self.post = post
         print(post)
-        let urlValue = URL(string: self.post.mainImage)
-        if urlValue != nil {
-            view.reloadHeader(url: urlValue!, userInfo: post.owner, dateUpdate: Date().dateFrom(string: post.createAt))
-        } else {
-            //
-        }
-        let sale = post.salesDetails
-        for saleItem in sale {
-            if saleItem.title == "Condition" {
-                self.post.generalForViewProperty.insert(saleItem, at: 0)
-            }
-        }
-        delegate = calculate
-        delegate?.returnPost(post: post)
-        calculate.calculate { object in
-            self.viewModel = object
-            self.view.reloadData()
-        self.view.isVisibleTableView(flag: true)
-        }
+        update()
+
     }
+
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)

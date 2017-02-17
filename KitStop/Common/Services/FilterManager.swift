@@ -218,6 +218,5 @@ class FilterManager: NSObject, FilterManagerProtocol {
             filter.title = currentFilter.title
         }
     }
-      
     
 }

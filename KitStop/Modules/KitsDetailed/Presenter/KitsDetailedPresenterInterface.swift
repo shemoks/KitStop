@@ -19,7 +19,7 @@ protocol KitsDetailedViewOutput: class {
     func numberOfGeneralProperties(inSection section: Int) -> Int
     func numberOfAdditionalProperties(inSection section: Int) -> Int
     func numberOfSaleProperties(inSection section: Int) -> Int
-    func handleViewDidLoad()
+    func handleViewDidLoad(result: @escaping () -> ())
     func descriptions(for indexPath: IndexPath)-> Property
     func notes(for indexPath: IndexPath)-> Property
     func getTittle() -> String
@@ -38,6 +38,7 @@ protocol KitsDetailedViewOutput: class {
     func handleKitForSale()
     func imageFromUrl() -> [URL]
     func getPost() -> PriceModel?
+    func update()
     
 }
 

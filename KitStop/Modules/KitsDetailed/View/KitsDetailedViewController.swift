@@ -30,11 +30,14 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
     }
 
     @IBAction func unwindKitsDetailed(segue: UIStoryboardSegue) {
-        presenter.handleViewDidLoad()
+        presenter.handleViewDidLoad() {
+        self.presenter.update()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+
     }
 
     @objc func openChatModule() {
@@ -158,6 +161,7 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
             headerView.carusel.pageControl.isHidden = true
             headerView.carusel.pageControl.numberOfPages = 0
         }
+        headerView.carusel.collectionView.reloadData()
         headerView.privateLabel.isHidden = presenter.isPrivatePost()
         tableView.tableHeaderView = headerView
         let height = view.frame.width + 46

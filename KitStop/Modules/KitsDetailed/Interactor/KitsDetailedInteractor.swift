@@ -61,6 +61,33 @@ extension KitsDetailedInteractor: KitsDetailedInteractorInput {
         }
     }
 
+    func getPostForUpdate(forSale: Bool, idPost: String, post: @escaping (Post) -> ()) {
+        if !forSale {
+            dataManager.getAllKits(idKit: idPost, forSale: false) { [weak self] object, error in
+                if error == nil {
+                    LoadingIndicatorView.hide()
+                    post(object)
+                } else {
+                    LoadingIndicatorView.hide()
+                    let error = CustomError(code: error!).description
+                    self?.presenter.showError(title: "Error", message: error)
+                }
+            }
+        } else {
+            dataManager.getAllKitsForSale(idKit: idPost, forSale: true) { [weak self] object, error in
+                if error == nil {
+                    print(object)
+                    LoadingIndicatorView.hide()
+                    post(object)
+                } else {
+                    LoadingIndicatorView.hide()
+                    let error = CustomError(code: error!).description
+                    self?.presenter.showError(title: "Error", message: error)
+                }
+            }
+        }
+    }
+
     func removePost(section: Bool, idPost: String) {
         if section {
             dataManager.removeKitForSale(idKit: idPost) {
