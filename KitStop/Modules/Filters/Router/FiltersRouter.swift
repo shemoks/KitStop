@@ -27,6 +27,13 @@ extension FiltersRouter: FiltersRouterInput {
         flowController.closeModule(animated: true)
     }
 
+    func openMainModule() {
+        flowController.openModule(using: .returnMain)  {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
+            return nil
+        }
+    }
+
     func openTypeModule(types: [Category], filterTypeModuleOutput: FilterTypeModuleOutput) {
         flowController.openModule(using: .openFilterCategory) {
             guard let moduleInput = $0 as? FilterTypeModuleInput else { fatalError() }
@@ -45,6 +52,10 @@ extension Segue {
 
     static var openFilterCategory: Segue<FilterTypeViewController> {
         return .init(identifier: "FilterCategories")
+    }
+
+    static var returnMain: Segue<MainViewController> {
+        return .init(identifier: "unwind")
     }
     
 }

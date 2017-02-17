@@ -13,6 +13,7 @@ import Chamomile
 protocol SelectCategoryViewOutput: class {
     func fetchCategory()
     func openAddItemModule(categoryID: String)
+    func openMainModule()
 }
 
 // MARK: - SelectCategoryInteractorOutput
@@ -26,6 +27,7 @@ protocol SelectCategoryInteractorOutput: class {
 
 protocol SelectCategoryModuleInput: ModuleInput {
     func handleCategory(category: Bool)
+    func returnCase(caseOf: ReturnCase)
 }
 
 // MARK: - SelectCategoryModuleOutput

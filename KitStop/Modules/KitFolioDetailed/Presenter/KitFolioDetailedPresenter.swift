@@ -235,8 +235,8 @@ extension KitFolioDetailedPresenter: KitFolioDetailedInteractorOutput {
     func showSuccessAlert(title: String, message: String) {
         view.showSuccessAlert(title: title, message: message, action: [UIAlertAction.init(title: "Ok", style: .default, handler: {
             result in
-            let moduleOutput = self.moduleOutput as! KitFolioDetailedModuleOutput
-            self.router.closeModule(moduleOutput: moduleOutput)
+         //   let moduleOutput = self.moduleOutput as! KitFolioDetailedModuleOutput
+            self.router.closeModule()
         })])
     }
     

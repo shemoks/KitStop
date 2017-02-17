@@ -25,8 +25,18 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
         tableView.register(UINib(nibName: "ViewGeneralCell", bundle: nil), forCellReuseIdentifier: "GeneralCell")
         tableView.register(UINib(nibName: "ViewDescriptionCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         LoadingIndicatorView.show()
-        presenter.handleViewDidLoad()
         self.tableView.estimatedRowHeight = 50.0
+
+    }
+
+    @IBAction func unwindKitsDetailed(segue: UIStoryboardSegue) {
+        presenter.handleViewDidLoad() {
+        self.presenter.update()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
     }
 
@@ -151,6 +161,7 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
             headerView.carusel.pageControl.isHidden = true
             headerView.carusel.pageControl.numberOfPages = 0
         }
+        headerView.carusel.collectionView.reloadData()
         headerView.privateLabel.isHidden = presenter.isPrivatePost()
         tableView.tableHeaderView = headerView
         let height = view.frame.width + 46

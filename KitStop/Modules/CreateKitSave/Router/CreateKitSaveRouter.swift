@@ -24,19 +24,37 @@ final class CreateKitSaveRouter {
 
 extension CreateKitSaveRouter: CreateKitSaveRouterInput {
     func openDetailedModule(id: String) {
-//        flowController.openModule(using: .openKitsDetailed) {
-//            guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
-//            moduleInput.dataForView(forSale: false, idPost:id)
-//            return nil
-//        }
+        //        flowController.openModule(using: .openKitsDetailed) {
+        //            guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
+        //            moduleInput.dataForView(forSale: false, idPost:id)
+        //            return nil
+        //        }
     }
-    
-}
 
-extension Segue {
-//    static var openKitsDetailed: Segue<KitsDetailedViewController> {
-//        return .init(identifier: "transitionToKitDetailedViewController")
-//    }
+    func openMainModule() {
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
+            moduleInput.passData(index: false)
+            return nil
+        }
+    }
+
+    func openSearchModule() {
+        flowController.openModule(using: .openMainSearch) {
+            guard let moduleInput = $0 as? MainSearchModuleInput else { fatalError() }
+    //        moduleInput.passData(index: false)
+            return nil
+        }
+    }
+
+    func openKitsDetailedModule() {
+        flowController.openModule(using: .openKitsDetailed) {
+            guard let moduleInput = $0 as? KitsDetailedModuleInput else { fatalError() }
+            //        moduleInput.passData(index: false)
+            return nil
+        }
+    }
+
 }
 
 

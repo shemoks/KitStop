@@ -31,6 +31,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         tableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         imagePicker.navigationBar.tintColor = .black
         imagePicker.delegate = self
+        createBackButton()
         headerView.collectionView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
         headerView.collectionView.delegate = self
         headerView.collectionView.dataSource = self
@@ -59,6 +60,17 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         let height = setSizeForCell()
         sizeHeaderToFit(height: height)
 
+    }
+
+    func createBackButton() {
+
+        if navigationController?.viewControllers.count == 1 {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
+        }
+    }
+
+    func back() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     //    func setSizeForCell() {

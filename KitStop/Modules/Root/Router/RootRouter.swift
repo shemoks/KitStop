@@ -45,7 +45,7 @@ extension Segue {
     }
 
     static var openMain: Segue<MainViewController> {
-        return .init(identifier: "transitionToMain")
+        return .init(identifier: "transitionToTabBar")
     }
 
 }

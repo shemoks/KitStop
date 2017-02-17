@@ -23,15 +23,16 @@ final class MainRouter {
 // MARK: - MainRouterInput
 
 extension MainRouter: MainRouterInput {
-    func openCategoryModule(secondModuleOutput: SelectCategoryModuleOutput, category: Bool) {
+    func openCategoryModule(secondModuleOutput: SelectCategoryModuleOutput, category: Bool, returnCase: ReturnCase) {
         flowController.openModule(using: .openCategoryList) {
             guard let moduleInput = $0 as? SelectCategoryModuleInput else { fatalError() }
             moduleInput.handleCategory(category: category)
+            moduleInput.returnCase(caseOf: returnCase)
             return nil
         }
     }
     
-    func openKitFolioCreateModule(secondModuleOutput: KitFolioCreateModuleOutput) {
+    func openKitFolioCreateModule(secondModuleOutput: KitFolioCreateModuleOutput, returnCase: ReturnCase) {
         flowController.openModule(using: .openKitFolioCreate) {
             guard ($0 as? KitFolioCreateModuleInput) != nil else { fatalError() }
             return secondModuleOutput

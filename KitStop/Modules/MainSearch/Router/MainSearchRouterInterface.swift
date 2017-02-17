@@ -10,5 +10,5 @@
 
 protocol MainSearchRouterInput: class {
     func closeModule()
-    func openDetailedView(postID: String, ownerID: String, selectedSegment: Int)
+    func openDetailedView(postID: String, ownerID: String, selectedSegment: Int, moduleOutput: KitsDetailedModuleOutput, returnCase: ReturnCase)
 }

@@ -91,7 +91,6 @@ extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
 
 extension MainFilterContainerPresenter: MainFilterContainerModuleInput {
     
-    
 }
 
 extension MainFilterContainerPresenter: FiltersModuleOutput{

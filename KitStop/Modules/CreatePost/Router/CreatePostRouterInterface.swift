@@ -11,8 +11,8 @@ import UIKit
 
 protocol CreatePostRouterInput: class {
 
-    func openSaveForSaleModule(post: Post, images: PostImagesModel, shouldUpdate: Bool, oldModel: String)
-    func openSaveKitModule(post: Post, images: PostImagesModel, shouldUpdate: Bool, oldModel: String)
+    func openSaveForSaleModule(post: Post, images: PostImagesModel, shouldUpdate: Bool, oldModel: String, returnCase: ReturnCase)
+    func openSaveKitModule(post: Post, images: PostImagesModel, shouldUpdate: Bool, oldModel: String, returnCase: ReturnCase)
     func openList(list: [Other], customListModuleOutput: CustomListModuleOutput, name: String)
 //  func viewPhoto(index: Int, images: [UIImage], isEdit: Bool, viewPhotoModuleOutput: ViewPhotoModuleOutput)
     func openUnderConstruction()

@@ -38,7 +38,7 @@ extension FiltersPresenter: FiltersViewOutput {
             if self.filter != nil {
                 interactor.updateFilter(filter: self.filter!, currentFilter: self.currentFilter!)
                 self.handleViewWillDisappear(filter: true)
-                router.closeModule()
+                router.openMainModule()
             } else {
                 let filter = FilterModel()
                 filter.section = (self.currentFilter?.section)!
@@ -48,11 +48,11 @@ extension FiltersPresenter: FiltersViewOutput {
                 filter.title = (self.currentFilter?.title)!
                 interactor.writeFilter(filter: filter)
                 self.handleViewWillDisappear(filter: true)
-                router.closeModule()
+                router.openMainModule()
             }
         } else {
             self.handleViewWillDisappear(filter: false)
-            router.closeModule()
+            router.openMainModule()
         }
     }
 
@@ -74,7 +74,7 @@ extension FiltersPresenter: FiltersViewOutput {
     }
 
     func handleCancelTap() {
-        router.closeModule()
+        router.openMainModule()
     }
 
     func handleClearAllTap() {

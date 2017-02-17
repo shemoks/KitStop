@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gmd-Pm-BWe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,7 @@
         <!--View-->
         <scene sceneID="TUv-zy-7cX">
             <objects>
-                <viewController storyboardIdentifier="Filters" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QJd-ZO-nP3" customClass="FiltersViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="QJd-ZO-nP3" customClass="FiltersViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hu3-L4-3NI"/>
                         <viewControllerLayoutGuide type="bottom" id="yet-uh-d7t"/>
@@ -25,17 +25,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-Ji-7FL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="154"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="xS8-Jw-jMt"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="QJd-ZO-nP3" id="Ryg-Yb-jSx"/>
-                                    <outlet property="delegate" destination="QJd-ZO-nP3" id="fbJ-j2-9jx"/>
-                                </connections>
-                            </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJD-fS-A8q">
                                 <rect key="frame" x="0.0" y="218" width="375" height="55"/>
                                 <subviews>
@@ -140,29 +129,34 @@
                                     <constraint firstItem="qNI-Wr-Ukc" firstAttribute="leading" secondItem="dUL-lC-EEl" secondAttribute="leading" id="yU3-mR-eAq"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XqY-0a-JGP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="154"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="154" id="mQI-fx-nFv"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="QJd-ZO-nP3" id="Apo-ff-2bD"/>
+                                    <outlet property="delegate" destination="QJd-ZO-nP3" id="eJK-HY-yfr"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lEy-bN-zwM" firstAttribute="top" secondItem="XqY-0a-JGP" secondAttribute="bottom" id="5M1-Qd-SiY"/>
                             <constraint firstItem="RJD-fS-A8q" firstAttribute="bottom" secondItem="lEy-bN-zwM" secondAttribute="bottom" id="6QX-T2-KJ4"/>
                             <constraint firstItem="dUL-lC-EEl" firstAttribute="top" secondItem="lEy-bN-zwM" secondAttribute="bottom" id="8x7-Zs-b8R"/>
-                            <constraint firstItem="lEy-bN-zwM" firstAttribute="top" secondItem="EjM-Ji-7FL" secondAttribute="bottom" id="9dK-C0-fEf"/>
                             <constraint firstAttribute="trailing" secondItem="lEy-bN-zwM" secondAttribute="trailing" id="CPR-i1-bu8"/>
-                            <constraint firstItem="EjM-Ji-7FL" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="KBa-EK-zIj"/>
-                            <constraint firstItem="EjM-Ji-7FL" firstAttribute="top" secondItem="Hu3-L4-3NI" secondAttribute="bottom" id="LfD-fV-PP4"/>
                             <constraint firstAttribute="bottom" secondItem="dUL-lC-EEl" secondAttribute="bottom" id="STW-Qv-Dmz"/>
+                            <constraint firstItem="XqY-0a-JGP" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="To1-WH-sYe"/>
+                            <constraint firstAttribute="trailing" secondItem="XqY-0a-JGP" secondAttribute="trailing" id="ZGp-F6-sZs"/>
                             <constraint firstItem="dUL-lC-EEl" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="fNv-WS-cDk"/>
-                            <constraint firstItem="dUL-lC-EEl" firstAttribute="top" secondItem="EjM-Ji-7FL" secondAttribute="bottom" id="jxQ-7D-z5d"/>
                             <constraint firstAttribute="trailing" secondItem="dUL-lC-EEl" secondAttribute="trailing" id="kO2-6u-2Se"/>
+                            <constraint firstItem="XqY-0a-JGP" firstAttribute="top" secondItem="Hu3-L4-3NI" secondAttribute="bottom" id="kzW-uL-STs"/>
                             <constraint firstItem="lEy-bN-zwM" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="nzx-eO-S8G"/>
                             <constraint firstItem="RJD-fS-A8q" firstAttribute="leading" secondItem="P63-WU-WaT" secondAttribute="leading" id="qyX-o1-lcp"/>
                             <constraint firstAttribute="trailing" secondItem="RJD-fS-A8q" secondAttribute="trailing" id="tQv-Hq-FY5"/>
-                            <constraint firstAttribute="trailing" secondItem="EjM-Ji-7FL" secondAttribute="trailing" id="wiX-Cb-smR"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="jxQ-7D-z5d"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Filter Items" id="1zS-6z-fhS">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eIm-g5-65T">
@@ -179,19 +173,21 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="applyConstraintForKits" destination="jxQ-7D-z5d" id="3DT-NH-l4z"/>
+                        <outlet property="applyConstraintForKits" destination="8x7-Zs-b8R" id="eOl-Ec-93a"/>
                         <outlet property="applyConstraintForSale" destination="8x7-Zs-b8R" id="jdS-RA-TXk"/>
                         <outlet property="clearAll" destination="Lfq-QA-17R" id="LD0-Lv-92W"/>
                         <outlet property="maxValue" destination="KU0-8L-Cfr" id="4fY-MH-arA"/>
                         <outlet property="minValue" destination="JRG-Tn-7vl" id="cGg-9l-Yl1"/>
                         <outlet property="rangeSlider" destination="5h5-k7-lnI" id="eY5-Va-lRA"/>
                         <outlet property="rangeSliderView" destination="lEy-bN-zwM" id="giq-CR-JDq"/>
-                        <outlet property="tableView" destination="EjM-Ji-7FL" id="nWC-t0-qbN"/>
+                        <outlet property="tableView" destination="XqY-0a-JGP" id="VOM-2M-KG4"/>
                         <outlet property="withoutPrice" destination="RJD-fS-A8q" id="100-9X-1yJ"/>
                         <segue destination="Saf-h1-gPK" kind="show" identifier="FilterCategories" id="KCA-gl-dc6"/>
+                        <segue destination="pVh-jI-2ni" kind="unwind" identifier="unwind" unwindAction="unwindWithSegue:" id="j2v-8r-6Sd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAA-PU-UXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pVh-jI-2ni" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="KrK-XA-Qqd" customClass="FiltersAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
                         <outlet property="view" destination="QJd-ZO-nP3" id="kBZ-wQ-Vzr"/>
@@ -211,7 +207,8 @@
         <!--Navigation Controller-->
         <scene sceneID="9rc-OO-LNU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gmd-Pm-BWe" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leX-K6-P7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="Filters" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gmd-Pm-BWe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pvz-cU-NzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -225,7 +222,6 @@
                         <segue destination="QJd-ZO-nP3" kind="relationship" relationship="rootViewController" id="srT-m1-Vmn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="leX-K6-P7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-79" y="135"/>
         </scene>

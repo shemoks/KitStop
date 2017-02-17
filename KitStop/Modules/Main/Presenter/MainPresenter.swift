@@ -37,16 +37,16 @@ extension MainPresenter: MainViewOutput {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let listForSaleAction = UIAlertAction.init(title: "List for Sale", style: .default, handler: {
             result in
-            self.router.openCategoryModule(secondModuleOutput: self, category:  true)
+            self.router.openCategoryModule(secondModuleOutput: self, category:  true, returnCase: .main)
         })
         
         let addKitAction = UIAlertAction.init(title: "Add to Kit", style: .default, handler: {
             result in
-                self.router.openCategoryModule(secondModuleOutput: self, category:  false)
+            self.router.openCategoryModule(secondModuleOutput: self, category:  false, returnCase: .main)
         })
         let postWorkAction = UIAlertAction.init(title: "Post on KitFolio", style: .default, handler: {
             result in
-                self.router.openKitFolioCreateModule(secondModuleOutput: self)
+            self.router.openKitFolioCreateModule(secondModuleOutput: self, returnCase: .main)
         })
         let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         
@@ -88,6 +88,13 @@ extension MainPresenter: MainInteractorOutput {
 // MARK: - MainModuleInput
 
 extension MainPresenter: MainModuleInput {
+    func passData(index: Bool) {
+        view.passData(index: index)
+    }
+
+    func updateKitFolio() {
+        view.passDataToSubmodule()
+    }
 }
 
 extension MainPresenter: MainModuleOutput {
