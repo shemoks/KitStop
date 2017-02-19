@@ -41,6 +41,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         }
         
         let images =  imageDictionary as AnyObject
+        print(images)
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
@@ -57,6 +58,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                 switch response.result {
                                                                 case .success(let json):
                                                                     if json["success"].boolValue {
+                                                                                  print(json)
                                                                         completion(true, nil, json["data"]["_id"].stringValue)
                                                                     } else {
                                                                         completion(false, response.response?.statusCode, nil)
@@ -87,6 +89,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
         }
         
         let images =  imageDictionary as AnyObject
+        print(images)
         let tags = kit.tags as AnyObject
         let metaData = kit.metaData as AnyObject
         let isPrivate = kit.isPrivate as AnyObject
@@ -104,6 +107,7 @@ extension CreateKitsService: CreateKitsServiceProtocol {
                                                                 switch response.result {
                                                                 case .success(let json):
                                                                     if json["success"].boolValue {
+                                                                        print(json)
                                                                         completion(true, nil, json["data"]["_id"].stringValue)
                                                                     } else {
                                                                         print(response.result.value as Any)

@@ -133,20 +133,27 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
             
             for (index, image) in imageUrls.enumerated() {
                 sortedImages.append(OrderedImage(key: index, url: image))
+                print(index)
             }
             
             
             let awsManager = AWS3UploadImageService()
             
+            var index = sortedImages.count
+            
             awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
                 if imageObjects.count == 0 {
                     success(mainImage!, sortedImages)
                 } else {
-                    for (index, image) in imageObjects.enumerated() {
+                    for image in imageObjects {
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
                             image in
+                            print(index)
+                        
                             sortedImages.append(OrderedImage(key: index, url: image!))
+                            index += 1
+                            
                             if sortedImages.count == imagesCount  {
                                 success(mainImage!, sortedImages)
                             }
