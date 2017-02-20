@@ -7,6 +7,8 @@
 //
 
 import Chamomile
+import Perform
+import UIKit
 
 // MARK: - UnderConstructionRouter
 
@@ -21,5 +23,16 @@ final class UnderConstructionRouter {
 // MARK: - UnderConstructionRouterInput
 
 extension UnderConstructionRouter: UnderConstructionRouterInput {
+    func logOut() {
+        flowController.openModule(using: .openRoot) {
+            guard let moduleInput = $0 as? RootModuleInput else { fatalError() }
+            return nil
+        }
+    }
+}
 
+extension Segue {
+    static var openRoot: Segue<RootViewController> {
+        return .init(identifier: "transitionToRoot")
+    }
 }

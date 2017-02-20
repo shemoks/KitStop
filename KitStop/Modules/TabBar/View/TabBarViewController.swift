@@ -7,14 +7,23 @@
 //
 
 import Chamomile
+import UIKit
 
 // MARK: - TabBarViewController
 
-final class TabBarViewController: UIViewController, FlowController {
+final class TabBarViewController: UITabBarController, FlowController {
 
     // MARK: - VIPER stack
 
     var presenter: TabBarViewOutput!
+    var freshLaunch = true
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if freshLaunch {
+            freshLaunch = false
+            _ = self.selectedIndex = 2
+        }
+    }
 
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="89F-cp-7bt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XtU-FL-uzO">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,7 @@
         <!--View-->
         <scene sceneID="jaA-J4-xwO">
             <objects>
-                <viewController storyboardIdentifier="MainSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="89F-cp-7bt" customClass="MainSearchViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="89F-cp-7bt" customClass="MainSearchViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fma-fh-ygv"/>
                         <viewControllerLayoutGuide type="bottom" id="wue-qH-eZO"/>
@@ -33,13 +33,13 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uIo-Vy-5k8" customClass="CustomSearchBar" customModule="KitStop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="352" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="352" height="44"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Y0-Xb-Uer">
-                                <rect key="frame" x="352" y="20" width="62" height="44"/>
+                                <rect key="frame" x="352" y="64" width="62" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="MOD-Sx-lh0"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q1Q-yh-M7b">
-                                <rect key="frame" x="0.0" y="72" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="620"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J1r-ut-P2j">
                                     <size key="itemSize" width="177" height="155"/>
@@ -196,6 +196,7 @@
                             <constraint firstAttribute="trailing" secondItem="q1Q-yh-M7b" secondAttribute="trailing" id="z4D-cl-wvg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Bcm-WX-3VW"/>
                     <connections>
                         <outlet property="collectionView" destination="q1Q-yh-M7b" id="rgk-gF-ubW"/>
                         <outlet property="search" destination="uIo-Vy-5k8" id="90Z-3S-BId"/>
@@ -210,7 +211,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-233.33333333333334" y="15.489130434782609"/>
+            <point key="canvasLocation" x="673.91304347826087" y="15.489130434782609"/>
         </scene>
         <!--KitsDetailedViewController-->
         <scene sceneID="nPo-I7-TS5">
@@ -218,7 +219,7 @@
                 <viewControllerPlaceholder storyboardName="KitsDetailed" referencedIdentifier="KitsDetailedViewController" id="hM4-Ks-gYg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weO-qL-7RT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="-148"/>
+            <point key="canvasLocation" x="1997.826086956522" y="-148.36956521739131"/>
         </scene>
         <!--KitFolioDetailed-->
         <scene sceneID="aV2-0o-yhd">
@@ -226,7 +227,25 @@
                 <viewControllerPlaceholder storyboardIdentifier="KitFolioDetailed" storyboardName="KitFolioDetailed" referencedIdentifier="KitFolioDetailed" id="n5p-km-kb1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWE-nw-lv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104" y="34"/>
+            <point key="canvasLocation" x="2010.8695652173915" y="33.423913043478265"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EbZ-XB-Uv2">
+            <objects>
+                <navigationController storyboardIdentifier="MainSearchViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XtU-FL-uzO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xeS-hj-9fA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="89F-cp-7bt" kind="relationship" relationship="rootViewController" id="fDV-ff-kBU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAc-z4-wmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233.33333333333334" y="15.489130434782609"/>
         </scene>
     </scenes>
 </document>

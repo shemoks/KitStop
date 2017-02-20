@@ -9,5 +9,5 @@
 // MARK: - UnderConstructionRouterInput
 
 protocol UnderConstructionRouterInput: class {
-
+    func logOut()
 }
