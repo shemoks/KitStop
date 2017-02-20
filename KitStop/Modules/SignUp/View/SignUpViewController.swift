@@ -46,6 +46,10 @@ final class SignUpViewController: UIViewController, FlowController {
         navigationController?.isNavigationBarHidden = true
         presenter.showButton()
     }
+    
+    @IBAction func unwindSignUp(segue: UIStoryboardSegue) {
+        
+    }
 
 }
 

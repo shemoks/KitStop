@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iYI-wl-Y6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iYI-wl-Y6D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,9 +55,11 @@
                     </view>
                     <connections>
                         <outlet property="logOut" destination="ajf-1U-TO9" id="RZF-or-4ns"/>
+                        <segue destination="gQX-zd-KVv" kind="unwind" identifier="transitionToRoot" animates="NO" unwindAction="unwindRootWithSegue:" id="hn5-oB-IFH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLh-r2-uwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gQX-zd-KVv" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="WDN-xc-uU9" customClass="UnderConstructionAssembler" customModule="KitStop" customModuleProvider="target">
                     <connections>
                         <outlet property="view" destination="iYI-wl-Y6D" id="Rsg-eM-SzL"/>

@@ -167,6 +167,26 @@ extension CreateKitSaveViewController: UITextFieldDelegate {
             return false
         }
         
+        let nsString = textField.text as NSString?
+        
+        
+        if let newString = nsString?.replacingCharacters(in: range, with: string) {
+            
+            var decimalFound = false
+            var charactersAfterDecimal = 0
+            
+            for ch in newString.characters.reversed(){
+                if ch == "." {
+                    decimalFound = true
+                    break
+                }
+                charactersAfterDecimal += 1
+            }
+            if decimalFound && charactersAfterDecimal > 2 {
+                return false
+            }
+        }
+        
         let dotsCount = (textField.text?.components(separatedBy: ".").count)! - 1
         let commaCount = (textField.text?.components(separatedBy: ",").count)! - 1
         

@@ -133,20 +133,27 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
             
             for (index, image) in imageUrls.enumerated() {
                 sortedImages.append(OrderedImage(key: index, url: image))
+                print(index)
             }
             
             
             let awsManager = AWS3UploadImageService()
             
+            var index = sortedImages.count
+            
             awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
                 if imageObjects.count == 0 {
                     success(mainImage!, sortedImages)
                 } else {
-                    for (index, image) in imageObjects.enumerated() {
+                    for image in imageObjects {
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
                             image in
+                            print(index)
+                        
                             sortedImages.append(OrderedImage(key: index, url: image!))
+                            index += 1
+                            
                             if sortedImages.count == imagesCount  {
                                 success(mainImage!, sortedImages)
                             }
@@ -189,13 +196,15 @@ extension CreateSaleConfirmInteractor: CreateSaleConfirmInteractorInput {
     func calculatePrice(price: String, weight: String, rates: RatesModel?, completion: @escaping (_ priceModel: (PriceModel?)) -> ()) {
         if !price.isEmpty && !weight.isEmpty && rates != nil{
             
-            let weightRate = rates?.weight["\(weight)"]
-            let transactionPrice = Double(price)! * (rates?.transactionPercent)!/100
-            let transactionRatePrice = Double(price)! * (rates?.transactionRate)!/100
-            let kitStopPrice = Double(price)! * (rates?.kitStopFee)!/100
-            let userPrice = Double(price)! - transactionPrice - transactionRatePrice - kitStopPrice - weightRate!
+            let currentPrice = Double(price)!
             
-            let priceModel = PriceModel(weight: "Shipping UDSP \(weight):", weightRate: "$\(String(format: "%.2f", weightRate!))" ,startingPrice: "$\(price.formattedDouble(decimalPlaces: 2))", transactionPrice: "$\(String(format: "%.2f", transactionPrice))", transactionRatePrice: "$\(String(format: "%.2f", transactionRatePrice))", kitStopPrice: "$\(String(format: "%.2f", kitStopPrice))", finalPrice: "$\(String(format: "%.2f", userPrice))")
+            let weightRate = (rates?.weight["\(weight)"])!
+            let transactionPrice = currentPrice * (rates?.transactionPercent)!/100
+            let transactionRatePrice = currentPrice * (rates?.transactionRate)!/100
+            let kitStopPrice = currentPrice * (rates?.kitStopFee)!/100
+            let userPrice = currentPrice - transactionPrice.roundTo(places: 2) - kitStopPrice.roundTo(places: 2) - weightRate.roundTo(places: 2)
+            
+            let priceModel = PriceModel(weight: "Shipping UDSP \(weight):", weightRate: "$\(String(describing: weightRate.roundTo(places: 2)))" ,startingPrice: "$\(price)", transactionPrice: "$\(transactionPrice.roundTo(places: 2))", transactionRatePrice: "$\(transactionRatePrice.roundTo(places: 2))", kitStopPrice: "$\(kitStopPrice.roundTo(places: 2))", finalPrice: "$\(userPrice.roundTo(places: 2))")
             
             completion(priceModel)
         } else {

@@ -126,6 +126,7 @@ extension CreateSaleConfirmViewController: UITableViewDataSource {
             if indexPath.row == 0 {
                 let pCell = tableView.dequeueReusableCell(withIdentifier: "SaleInfoCell", for: indexPath) as? SaleInfoCell
                 pCell?.contents.delegate = self
+                pCell?.contents.keyboardType = .decimalPad
                 pCell?.configure(detail: presenter.detail(for: indexPath))
                 cell = pCell
                 
@@ -177,6 +178,26 @@ extension CreateSaleConfirmViewController: UITextFieldDelegate {
         
         if textField.text?.characters.count == 0 && ((string.range(of: ".") != nil) || string.range(of: ",") != nil) {
             return false
+        }
+        
+        let nsString = textField.text as NSString?
+
+        
+        if let newString = nsString?.replacingCharacters(in: range, with: string) {
+            
+            var decimalFound = false
+            var charactersAfterDecimal = 0
+            
+            for ch in newString.characters.reversed(){
+                if ch == "." {
+                    decimalFound = true
+                    break
+                }
+                charactersAfterDecimal += 1
+            }
+            if decimalFound && charactersAfterDecimal > 2 {
+                return false
+            }
         }
         
         let dotsCount = (textField.text?.components(separatedBy: ".").count)! - 1

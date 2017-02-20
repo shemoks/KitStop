@@ -37,6 +37,9 @@ final class RootViewController: UIViewController, FlowController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
+    
+    @IBAction func unwindRoot(segue: UIStoryboardSegue) {
+    }
 }
 // MARK: - RootViewInput
 
