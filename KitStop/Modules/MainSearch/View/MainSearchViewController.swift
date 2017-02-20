@@ -18,25 +18,26 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
     
     // MARK: - Outlets
     
-
-   
     @IBOutlet weak var search: UISearchBar!
 
     @IBOutlet weak var collectionView: UICollectionView!
-
-    
 
     // MARK: - Life cycle 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.topItem?.title = ""
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+           navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
         
         let searchField = search.value(forKey: "searchField") as? UITextField
         searchField?.backgroundColor = UIColor(colorLiteralRed: 232/255, green: 232/255, blue: 234/255, alpha: 1.0)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         search.placeholderText = presenter.setTitle()
         
@@ -70,11 +72,11 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
     // MARK: - Actions 
     
     @IBAction func tapOnCancel(_ sender: Any) {
-        presenter.closeModule()
+        self.dismiss(animated: false, completion: nil)
     }
 
     @IBAction func unwindSearch(segue: UIStoryboardSegue) {
-
+        presenter.handleSearchButtonTap(title: search.text!)
     }
 
 }

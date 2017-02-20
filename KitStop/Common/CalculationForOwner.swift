@@ -53,12 +53,16 @@ class CalculationForOwner: TransportPost {
             }
         }
         if price != "" {
-            let transactionPrice = Double(price)! * (rates.transactionPercent)/100
-            let transactionRatePrice = Double(price)! * (rates.transactionRate)/100
-            let kitStopPrice = Double(price)! * (rates.kitStopFee)/100
-            let userPrice = Double(price)! - transactionPrice - transactionRatePrice - kitStopPrice - resultRate
-            let priceModel = PriceModel(weight: "Shipping UDSP \(stringRate):", weightRate: "$\(String(format: "%.2f", resultRate))" ,startingPrice: "$\(price.formattedDouble(decimalPlaces: 2))", transactionPrice: "$\(String(format: "%.2f", transactionPrice))", transactionRatePrice: "$\(String(format: "%.2f", transactionRatePrice))", kitStopPrice: "$\(String(format: "%.2f", kitStopPrice))", finalPrice: "$\(String(format: "%.2f", userPrice))")
+            let currentPrice = Double(price)!
+    
+            let transactionPrice = currentPrice * (rates.transactionPercent)/100
+            let transactionRatePrice = currentPrice * (rates.transactionRate)/100
+            let kitStopPrice = currentPrice * (rates.kitStopFee)/100
+            let userPrice = currentPrice - transactionPrice.roundTo(places: 2) - kitStopPrice.roundTo(places: 2) - resultRate.roundTo(places: 2)
+            let priceModel = PriceModel(weight: "Shipping UDSP \(stringRate):", weightRate: "$\(String(describing: resultRate.roundTo(places: 2)))" ,startingPrice: "$\(price)", transactionPrice: "$\(transactionPrice.roundTo(places: 2))", transactionRatePrice: "$\(transactionRatePrice.roundTo(places: 2))", kitStopPrice: "$\(kitStopPrice.roundTo(places: 2))", finalPrice: "$\(userPrice.roundTo(places: 2))")
             return priceModel
+            
+            
         }
         return nil
     }

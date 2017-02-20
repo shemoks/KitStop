@@ -25,7 +25,7 @@ class MainKitsCell: UICollectionViewCell {
         bottomMask.image = UIImage.init(named: "bottom_mask")
         camera.sd_setImage(with: URL.init(string: kit.mainImage), placeholderImage: UIImage(named: "placeholder500x500"))
         cameraDescription.text = kit.title
-        if let price = kit.price.value {
+        if let price = kit.price.value?.roundTo(places: 2) {
             self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
             priceContainer.isHidden = false
         } else { priceContainer.isHidden = true }

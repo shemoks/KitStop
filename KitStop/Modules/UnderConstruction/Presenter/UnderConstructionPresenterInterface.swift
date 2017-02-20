@@ -11,7 +11,7 @@ import Chamomile
 // MARK: - UnderConstructionViewOutput
 
 protocol UnderConstructionViewOutput: class {
-
+    func logOut()
 }
 
 // MARK: - UnderConstructionInteractorOutput

@@ -24,7 +24,9 @@ final class UnderConstructionPresenter {
 // MARK: - UnderConstructionViewOutput
 
 extension UnderConstructionPresenter: UnderConstructionViewOutput {
-
+    func logOut() {
+        router.logOut()
+    }
 }
 
 // MARK: - UnderConstructionInteractorOutput

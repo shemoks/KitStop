@@ -23,6 +23,9 @@ final class UnderConstructionViewController: UIViewController, FlowController {
         if buttonStatus {
             logOut.isHidden = false
         }
+        if tabBarController?.selectedIndex == 4 {
+            logOut.isHidden = false
+        }
     }
 
     @IBAction func moveToRoot(_ sender: Any) {
@@ -36,7 +39,12 @@ final class UnderConstructionViewController: UIViewController, FlowController {
         if let navController = self.navigationController {
             navController.navigationBar.isHidden = true
         }
-        self.dismiss(animated: true, completion: nil)
+        if !logOut.isHidden {
+            presenter.logOut()
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+
     }
     
     func logoutFromFacebook() {
