@@ -26,6 +26,7 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
         super.viewWillAppear(animated)
         presenter.clearTextFields()
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "Log in"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -51,6 +52,7 @@ final class LogInViewController: UIViewController, FlowController, Alertable, Cu
         password.email = email
         email.layer.borderWidth = 2.5
         email.layer.borderColor = UIColor.white.cgColor
+        navigationController?.title = "Log in"
         forgotOppened = false
     }
     
