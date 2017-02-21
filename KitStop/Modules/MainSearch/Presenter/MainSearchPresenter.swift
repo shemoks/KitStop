@@ -23,6 +23,7 @@ final class MainSearchPresenter {
     var kits: [Product]!
     
     var selectedSegment: Int!
+    var searhKey = ""
 
 }
 
@@ -61,6 +62,12 @@ extension MainSearchPresenter: MainSearchViewOutput {
     
     func handleSearchButtonTap(title: String) {
         interactor.commenceSearch(with: title, selectedSegment: selectedSegment)
+    }
+    
+    func refresh() {
+        if !searhKey.isEmpty && !searhKey.replacingOccurrences(of: " ", with: "").isEmpty {
+            interactor.commenceSearch(with: self.searhKey, selectedSegment: selectedSegment)
+        }
     }
     
     func handleItemSelection(for indexPath: IndexPath) {
