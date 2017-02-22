@@ -32,12 +32,12 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .plain, target:nil, action:nil)
+        self.navigationItem.title = ""
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        setupNavigationBar()
+      //  setupNavigationBar()
         if let row = selectedRow {
             tableView.deselectRow(at: row, animated: false)
         }

@@ -10,4 +10,5 @@
 
 protocol KitFolioCreateRouterInput: class {
     func returnToMainModule(moduleOutput: MainModuleOutput)
+    func openMainModule()
 }

@@ -39,8 +39,12 @@ extension KitFolioCreatePresenter: KitFolioCreateViewOutput {
             }
             interactor.save(postTitle: postTitle, postDescription: description, smallImage: smallImage, bigImage: bigImage)
         } else {
-            view.showAlert(title: "Error", message: "Please fill all the fields")
+            view.showAlert(title: "Error", message: "Please fill in the required fields")
         }
+    }
+
+    func openMainModule() {
+        router.openMainModule()
     }
 }
 

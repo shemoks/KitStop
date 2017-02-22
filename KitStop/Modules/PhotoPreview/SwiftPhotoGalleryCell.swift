@@ -19,16 +19,13 @@ class SwiftPhotoGalleryCell: UICollectionViewCell {
     fileprivate let imageView: UIImageView
 
     override init(frame: CGRect) {
-
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         scrollView = UIScrollView(frame: frame)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-
         super.init(frame: frame)
         var scrollViewConstraints: [NSLayoutConstraint] = []
         var imageViewConstraints: [NSLayoutConstraint] = []
-
         scrollViewConstraints.append(NSLayoutConstraint(item: scrollView,
                                                         attribute: .leading,
                                                         relatedBy: .equal,
@@ -122,24 +119,19 @@ class SwiftPhotoGalleryCell: UICollectionViewCell {
             imageView.image = img
             setup()
         } else {
-            imageView.sd_setImage(with: image as! URL, placeholderImage: UIImage(named: "placeholder500x500"), options: [], completed: {
+            self.setup()
+            imageView.sd_setImage(with: image as! URL, placeholderImage: UIImage(named: "placeholder1080x1080"), options: [], completed: {
                 completed in
                 self.setup()
             })
-//            imageView.sd_setImage(with: image as! URL, completed: {
-//                completed in
-//                self.setup()
-//            })
         }
     }
 
     func setup() {
         imageView.sizeToFit()
         imageView.alpha = 0.0
-
         setZoomScale()
         scrollViewDidZoom(scrollView)
-
         UIView.animate(withDuration: 0.5) {
             self.imageView.alpha = 1.0
         }

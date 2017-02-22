@@ -30,6 +30,20 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     fileprivate let placeholderLabel = UILabel()
     fileprivate let imagePicker = UIImagePickerController()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+        addUserInformation()
+    }
+
+    func setupNavigationBar() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
+    }
+
+    func back() {
+        presenter.openMainModule()
+    }
+
     override func viewDidLoad() {
         postTitle.delegate = self
         postDescription.delegate = self
@@ -45,11 +59,7 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         postDescription.placeholderLabel.alpha = 0.5
         postDescription.placeholderLabel.text = "Tell the community about this photograph"
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        addUserInformation()
-    }
-    
+
     func addUserInformation() {
         presenter.checkXib(view: UIView.loadFromNibNamed(nibNamed: "UserInformation"))
     }

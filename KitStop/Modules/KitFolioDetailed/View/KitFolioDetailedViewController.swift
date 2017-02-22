@@ -40,6 +40,7 @@ final class KitFolioDetailedViewController: UIViewController, FlowController, Al
     
     override func viewDidLoad() {
         presenter.checkXib(view: UIView.loadFromNibNamed(nibNamed: "UserInformation"))
+        LoadingIndicatorView.show()
         presenter.handleKitData()
         addTextViewInset()
         postTitle.delegate = self

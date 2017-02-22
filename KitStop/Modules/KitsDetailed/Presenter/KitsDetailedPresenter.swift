@@ -28,6 +28,7 @@ final class KitsDetailedPresenter {
     var viewModel: PriceModel?
     var search: Bool = false
     var caseOf: ReturnCase = .view
+    var section: Bool = true
 
 }
 
@@ -74,11 +75,12 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleViewDidLoad(result: @escaping () -> ()) {
-        interactor.getPostForUpdate(forSale: self.sectionSale, idPost: post.id) {
-            object in
-            self.post = object
-            result()
-        }
+            interactor.getPostForUpdate(forSale: self.section, idPost: post.id) {
+                object in
+                self.post = object
+                self.update()
+                result()
+            }
     }
 
     func getTittle() -> String {
@@ -102,7 +104,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func numberOfSections() -> Int {
-        if self.sectionSale {
+        if self.section {
             return 4
         } else {
             return 5
@@ -122,7 +124,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func getSection() -> Bool {
-        return self.sectionSale
+        return self.section
     }
 
     func getImages() -> [String] {
@@ -160,7 +162,7 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func removePost() {
-        interactor.removePost(section: sectionSale, idPost: self.post.id)
+        interactor.removePost(section: section, idPost: self.post.id)
     }
 
     func openEditForSale() {
@@ -172,12 +174,12 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func handleKit() {
-     //   router.openChatModule()
+        //   router.openChatModule()
         interactor.getPostAsKit(idPost: self.post.id)
     }
 
     func handleKitForSale() {
-     //   router.openChatModule()
+        //   router.openChatModule()
         interactor.getPostAsForSale(idPost: self.post.id)
     }
 
@@ -186,7 +188,6 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
     }
 
     func update() {
-
         let sale = post.salesDetails
         for saleItem in sale {
             if saleItem.title == "Condition" {
@@ -197,17 +198,27 @@ extension KitsDetailedPresenter: KitsDetailedViewOutput {
         delegate?.returnPost(post: self.post)
         calculate.calculate { object in
             self.viewModel = object
-            self.view.reloadData()
-            let urlValue = URL(string: self.post.mainImage)
-            if urlValue != nil {
-                self.view.reloadHeader(url: urlValue!, userInfo: self.post.owner, dateUpdate: Date().dateFrom(string: self.post.createAt))
-            } else {
-                //
+            if self.view != nil {
+                self.view.reloadData()
+                let urlValue = URL(string: self.post.mainImage)
+                if urlValue != nil {
+                    self.view.reloadHeader(url: urlValue!, userInfo: self.post.owner, dateUpdate: Date().dateFrom(string: self.post.createAt))
+                } else {
+                    //
+                }
+                self.view.isVisibleTableView(flag: true)
             }
-            self.view.isVisibleTableView(flag: true)
         }
     }
 
+    func beginView() {
+        self.view.isVisibleTableView(flag: false)
+        update()
+    }
+
+    func changeStatus() {
+
+    }
 
 }
 
@@ -219,9 +230,7 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
         self.post = post
         print(post)
         update()
-
     }
-
 
     func showError(title: String, message: String) {
         view.showError(title: title, message: message)
@@ -231,7 +240,7 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
         view.showSuccessAlert(title: title, message: message, action: [UIAlertAction.init(title: "Ok", style: .default, handler: {
             result in
             let moduleOutput = self.moduleOutput as! KitsDetailedModuleOutput
-            self.router.closeModule(moduleOutput: moduleOutput, section: self.sectionSale)
+            self.router.closeModule(moduleOutput: moduleOutput, section: self.section)
         })])
 
     }
@@ -239,8 +248,10 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
     func setPostForChange(post: Post, oldModel: String) {
         if sectionSale {
             router.openEditKit(post: post, oldModel: oldModel, returnCase: self.caseOf)
+            section = !section
         } else {
             router.openEditForSale(post: post, oldModel: oldModel, returnCase: self.caseOf)
+            section = !section
         }
     }
 
@@ -251,16 +262,17 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
 extension KitsDetailedPresenter: KitsDetailedModuleInput {
 
     func dataForView(forSale: Bool, idPost: String, idOwner: String?) {
+        section = forSale
         sectionSale = forSale
         self.ownerId = idOwner!
         interactor.getPost(forSale: forSale, idPost: idPost)
         
     }
-
+    
     func flagFromSearch(search: Bool) {
         self.search = true
     }
-
+    
     func returnCase(caseOf: ReturnCase) {
         self.caseOf = caseOf
     }
