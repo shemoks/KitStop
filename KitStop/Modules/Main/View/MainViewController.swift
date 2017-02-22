@@ -37,7 +37,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        refresh()
+        addLoadingIndicatorView()
     }
     
     override func viewDidLoad() {
@@ -48,7 +48,6 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         addSectionInset()
         addNavigationBarItems()
         addRefreshControl()
-//        addToolbar()
         addNotificationToken()
         addInfiniteScroll()
     }
@@ -77,6 +76,7 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        refresh()
     }
     
     func addRefreshControl() {

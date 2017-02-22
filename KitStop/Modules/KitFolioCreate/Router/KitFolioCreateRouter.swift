@@ -28,4 +28,11 @@ extension KitFolioCreateRouter: KitFolioCreateRouterInput {
             return nil
         }
     }
+
+    func openMainModule() {
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else { fatalError() }
+            return nil
+        }
+    }
 }

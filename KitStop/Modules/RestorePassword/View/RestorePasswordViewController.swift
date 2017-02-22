@@ -23,7 +23,12 @@ final class RestorePasswordViewController: UIViewController, FlowController, Ale
     @IBOutlet weak var submit: CustomButton!
     
     // MARK: - Life cycle
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

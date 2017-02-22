@@ -40,22 +40,16 @@ final class SignUpEmailViewController: UIViewController, FlowController, CustomP
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.leftBarButtonItem?.isEnabled = false
+        navigationItem.setLeftBarButton(nil, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if let navController = self.navigationController {
-            if !choosePhoto {
-                navController.navigationBar.isHidden = true
-                for controller in navController.viewControllers as Array {
-                    if controller.isKind(of: SignUpViewController.self) {
-                        let _ = self.navigationController?.popToViewController(controller as! SignUpViewController, animated: false)
-                        break
-                    }
-                }
-            } else {
-                choosePhoto = false
-            }
-        }
     }
     
     

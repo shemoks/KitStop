@@ -33,29 +33,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-rI-XzM">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                                        <rect key="frame" x="0.0" y="64" width="414" height="324"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="320" id="Beg-Us-kfH"/>
+                                            <constraint firstAttribute="height" constant="324" id="Beg-Us-kfH"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="5cv-eK-Llm" kind="embed" id="zlY-MF-vP6"/>
                                         </connections>
                                     </containerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBg-2U-8l7">
-                                        <rect key="frame" x="0.0" y="320" width="414" height="46"/>
+                                        <rect key="frame" x="0.0" y="388" width="414" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="KHa-A2-AFI"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-sV-Abz" customClass="MyTextView" customModule="KitStop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="399" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="467" width="414" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Post Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-Q0-dRh">
-                                        <rect key="frame" x="0.0" y="374" width="414" height="25"/>
+                                        <rect key="frame" x="0.0" y="442" width="414" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="wyB-Wn-Zeg"/>
@@ -65,7 +65,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-TS-cMR">
-                                        <rect key="frame" x="0.0" y="444" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="512" width="414" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5OP-KH-912"/>
@@ -75,7 +75,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-yE-NEG" customClass="MyTextView" customModule="KitStop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="474" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="542" width="414" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -100,7 +100,7 @@
                                     <constraint firstAttribute="trailing" secondItem="SBg-2U-8l7" secondAttribute="trailing" id="mIe-Ud-Fmk"/>
                                     <constraint firstItem="X8h-rI-XzM" firstAttribute="leading" secondItem="E5u-sy-6GZ" secondAttribute="leading" id="nQB-7k-vuf"/>
                                     <constraint firstItem="SBg-2U-8l7" firstAttribute="top" secondItem="X8h-rI-XzM" secondAttribute="bottom" id="qzh-lQ-Qhx"/>
-                                    <constraint firstItem="X8h-rI-XzM" firstAttribute="top" secondItem="E5u-sy-6GZ" secondAttribute="top" id="rB5-LT-LyX"/>
+                                    <constraint firstItem="X8h-rI-XzM" firstAttribute="top" secondItem="E5u-sy-6GZ" secondAttribute="top" constant="64" id="rB5-LT-LyX"/>
                                     <constraint firstItem="6vx-yE-NEG" firstAttribute="top" secondItem="dBw-TS-cMR" secondAttribute="bottom" id="reB-tN-XDo"/>
                                 </constraints>
                             </scrollView>
@@ -154,11 +154,11 @@
                         <viewControllerLayoutGuide type="bottom" id="I35-ZW-ls8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f0L-LR-PJv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="324"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqr-aC-d7g">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="324"/>
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.59999999999999998" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="gallery"/>
                                 <connections>
@@ -192,7 +192,7 @@
             <objects>
                 <navigationController storyboardIdentifier="KitFolioCreate" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vGt-W5-XF2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypf-OR-rQE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ypf-OR-rQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

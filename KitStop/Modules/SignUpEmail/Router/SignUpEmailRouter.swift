@@ -32,9 +32,8 @@ extension SignUpEmailRouter: SignUpEmailRouterInput {
     }
     
     func openMainModule() {
-        flowController.openModule(using: .openMainModule) {
-            guard ($0 as? MainModuleInput) != nil else {fatalError()}
-            
+        flowController.openModule(using: .openMain) {
+            guard let _ = $0 as? MainModuleInput else { fatalError() }
             return nil
         }
     }

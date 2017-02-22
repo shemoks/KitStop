@@ -31,13 +31,8 @@ final class KitsDetailedViewController: UIViewController, FlowController, Alerta
 
     @IBAction func unwindKitsDetailed(segue: UIStoryboardSegue) {
         presenter.handleViewDidLoad() {
-        self.presenter.update()
+
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-
     }
 
     @objc func openChatModule() {
@@ -187,6 +182,10 @@ extension KitsDetailedViewController: KitsDetailedViewInput {
         } else {
             tableView.isHidden = true
         }
+    }
+
+    func update() {
+        presenter.update()
     }
 
 }
