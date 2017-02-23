@@ -73,7 +73,7 @@ class MainService: NSObject, MainServiceProtocol {
     }
     
     func fetchAllKitFolio(page: Int, completionBlock: @escaping (_ error: Int?) -> ()) {
-        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 5 as AnyObject], headers: nil).apiResponse(completionHandler: {
+        let _ = manager.apiRequest(.getKitFolio(), parameters: ["page" : page as AnyObject, "perPage" : 10 as AnyObject], headers: nil).apiResponse(completionHandler: {
             response in
             switch response.result {
             case .success(let json):
@@ -115,7 +115,7 @@ class MainService: NSObject, MainServiceProtocol {
                     filterButton.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
                 }
                 params = ["page" : page as AnyObject,
-                              "perPage" : 5 as AnyObject,
+                              "perPage" : 10 as AnyObject,
                               "from" : filter.minValue as AnyObject,
                               "to" : filter.maxValue as AnyObject,
                               "category" : filter.number as AnyObject]
@@ -124,7 +124,7 @@ class MainService: NSObject, MainServiceProtocol {
                     filterButton.setImage(UIImage.init(named: "filter_icon"), for: .normal)
                 }
                 params = ["page" : page as AnyObject,
-                          "perPage" : 5 as AnyObject]
+                          "perPage" : 10 as AnyObject]
             }
         })
         let _ = manager.apiRequest(.getKitsForSale(), parameters: params, headers: nil).apiResponse(completionHandler: {
