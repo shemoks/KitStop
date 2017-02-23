@@ -15,7 +15,6 @@ final class CreateKitSaveInteractor {
 
     weak var presenter: CreateKitSaveInteractorOutput!
 
-    fileprivate let group = DispatchQueue(label: "com.mozidev.KitStop.queue")
 
     // MARK: - Services
     fileprivate var createKitService: CreateKitsServiceProtocol?
@@ -108,7 +107,6 @@ func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, s
                     success(mainImage!, sortedImages)
                 } else {
                     for image in imageObjects {
-                    self.group.enter()
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
                             image in
@@ -121,7 +119,6 @@ func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, s
                                 success(mainImage!, sortedImages)
                             }
                             
-                            self.group.leave()
                            
                         })
                         
@@ -130,9 +127,6 @@ func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, s
             })
         })
         
-        group.notify(queue: .main) {
-            print("All is well")
-        }
     }
     
     
