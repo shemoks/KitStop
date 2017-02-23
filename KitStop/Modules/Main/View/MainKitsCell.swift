@@ -32,14 +32,14 @@ class MainKitsCell: UICollectionViewCell {
         if kit.isPrivate {
             privateContainer.isHidden = false
         } else { privateContainer.isHidden = true }
-//        if kit.isPrivate {
-//                privateContainer.isHidden = false
-//        } else {
-//                privateContainer.isHidden = true
-//        }
-//        if let price = kit.salesDetails?.price {
-//            self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
-//            priceContainer.isHidden = false
-//        } else { priceContainer.isHidden = true }
+        if kit.isPrivate {
+                privateContainer.isHidden = false
+        } else {
+                privateContainer.isHidden = true
+        }
+        if let price = kit.price.value {
+            self.price.text = "$\(Double().checkNumberAfterDot(number: price))"
+            priceContainer.isHidden = false
+        } else { priceContainer.isHidden = true }
     }
 }

@@ -85,7 +85,8 @@ extension Double {
         if afterDot == "0" && afterDot.characters.count == 1 {
             return beforeDot
         }
-        return "\(number)"
+       let twoCharacterAfterDot = afterDot.substring(to: String.Index(afterDot.utf16.startIndex + 2, within: afterDot)!)
+        return "\(beforeDot).\(twoCharacterAfterDot)"
     }
 }
 

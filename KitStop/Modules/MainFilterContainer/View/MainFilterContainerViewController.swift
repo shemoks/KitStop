@@ -41,7 +41,8 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     @IBAction func changeKitsElement(_ sender: Any) {
         transferData?.stopRefresh()
         transferData?.page = 1
-        self.addLoadingIndicatorView()
+        transferData?.startActivityIndicator()
+        //self.addLoadingIndicatorView()
         presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
         fetchKits()
     }
@@ -49,7 +50,8 @@ final class MainFilterContainerViewController: UIViewController, FlowController,
     func refreshKitsWithFilter() {
         transferData?.stopRefresh()
         transferData?.page = 1
-        self.addLoadingIndicatorView()
+        transferData?.startActivityIndicator()
+        //self.addLoadingIndicatorView()
         presenter.changeCollectionViewStatus(index: kitSegmentControl.selectedSegmentIndex)
         presenter.handleKitsForCategory(category: kitSegmentControl.selectedSegmentIndex, transferData: self.transferData, filterButton: filter)
     }
@@ -95,13 +97,9 @@ extension MainFilterContainerViewController: MainFilterContainerViewInput {
     func stopRefresh() {
         transferData?.stopRefresh()
     }
-    
-    func addLoadingIndicatorView() {
-        transferData?.addSpinner()
-    }
-    
-    func removeLoadingIndicatorView() {
-        transferData?.removeSpinner()
+
+    func stopActivityIndicator() {
+        transferData?.stopActivityIndicator()
     }
     
     func stopInfiniteScroll(finishSuccess: Bool) {

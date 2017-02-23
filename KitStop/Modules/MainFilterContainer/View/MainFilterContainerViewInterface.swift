@@ -13,8 +13,7 @@ protocol MainFilterContainerViewInput: class {
     func showAlert(title: String, message: String)
     func passData(selectedItem: Int)
     func stopRefresh()
-    func addLoadingIndicatorView()
-    func removeLoadingIndicatorView()
     func stopInfiniteScroll(finishSuccess: Bool)
     func refreshKitsWithFilter()
+    func stopActivityIndicator()
 }
