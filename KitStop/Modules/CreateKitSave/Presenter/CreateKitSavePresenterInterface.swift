@@ -14,7 +14,7 @@ import UIKit
 protocol CreateKitSaveViewOutput: class {
     func detail(for indexPath: IndexPath) -> KitDetailsModel
     func handleSaveTap()
-    func setDate(date: String)
+    func setDate(date: String?)
     func setDetails()
     func setPrivacy(isPrivate:Bool)
     func hasPrivacySet() -> Bool
@@ -22,6 +22,7 @@ protocol CreateKitSaveViewOutput: class {
     func setPrice(value: String)
     func setLimit()
     func showAlert()
+    func chosenDate() -> String?
 }
 
 // MARK: - CreateKitSaveInteractorOutput

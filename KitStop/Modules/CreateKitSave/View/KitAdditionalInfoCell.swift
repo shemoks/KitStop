@@ -11,7 +11,7 @@ import UIKit
 class KitInfoCell: UITableViewCell {
     @IBOutlet weak var header: UILabel!
     
-    @IBOutlet weak var value: UITextField!
+    @IBOutlet weak var value: NonEditableTextField!
     
     func configure(detail: KitDetailsModel) {
         header.text = detail.header

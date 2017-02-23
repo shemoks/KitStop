@@ -22,7 +22,8 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
     @IBOutlet weak var tableView: UITableView!
     
     var datePicker: UIDatePicker!
-    var dateField: UITextField!
+    var dateField: NonEditableTextField!
+    var wasCleared = false
     // MARK: - Lifecycle 
     
     override func viewDidLoad() {
@@ -41,9 +42,17 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         self.navigationItem.backBarButtonItem?.title = ""
     }
     
-    func tapOnSave() {
-        LoadingIndicatorView.show()
-        presenter.handleSaveTap()
+    func tapOnSave() { 
+        if (dateField.text?.isEmpty)! || ((dateField.text?.replacingOccurrences(of: " ", with: ""))?.isEmpty)!{
+            presenter.setDate(date: nil)
+            LoadingIndicatorView.show()
+            presenter.handleSaveTap()
+        } else {
+            LoadingIndicatorView.show()
+            presenter.handleSaveTap()
+          
+        }
+
     }
     
     func pickUpDate(textField: UITextField) {
@@ -63,27 +72,44 @@ final class CreateKitSaveViewController: UIViewController, FlowController, Alert
         toolBar.sizeToFit()
         
         //Buttons
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(CreateKitSaveViewController.doneTap))
-        doneButton.tintColor = UIColor().hexStringToUIColor(hex: Color.orangeColor)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(CreateKitSaveViewController.doneTap))
+        doneButton.tintColor = .black
         
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(CreateKitSaveViewController.clear))
+        clearButton.tintColor = UIColor().hexStringToUIColor(hex: Color.orangeColor)
 
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(CreateKitSaveViewController.cancelTap))
         cancelButton.tintColor = UIColor().hexStringToUIColor(hex: Color.orangeColor)
         
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.setItems([cancelButton, spaceButton, clearButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
         
     }
     
     func doneTap() {
-        presenter.setDate(date: datePicker.date.string(format: "dd/MMM/yyyy"))
-        dateField.resignFirstResponder()
+        if wasCleared{
+            dateField.text = ""
+            presenter.setDate(date: nil)
+            wasCleared = false
+        } else {
+            dateField.text = datePicker.date.string(format: "dd/MMM/yyyy")
+            presenter.setDate(date: dateField.text)
+            dateField.resignFirstResponder()
+            wasCleared = false
+        }
+
     }
     
     func cancelTap() {
         dateField.resignFirstResponder()
+    }
+    
+    func clear() {
+        dateField.text = ""
+        wasCleared = true
     }
     
 }

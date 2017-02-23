@@ -27,7 +27,7 @@ final class CreateKitSavePresenter {
 
     // MARK: - Required properties
     var postId: String?
-    var date = ""
+    var date: String? = nil
     var price = ""
     var isPrivate:Bool = false
 
@@ -73,13 +73,13 @@ extension CreateKitSavePresenter: CreateKitSaveViewOutput {
         view.reloadData()
     }
 
-    func setDate(date: String) {
+    func setDate(date: String?) {
         self.date = date
         details.first?.contents = date
         view.reloadData()
     }
 
-    func chosenDate() -> String {
+    func chosenDate() -> String? {
         return self.date
     }
 

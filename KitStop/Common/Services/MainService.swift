@@ -28,12 +28,12 @@ class MainService: NSObject, MainServiceProtocol {
                     filterButton.setImage(UIImage.init(named: "filter_active_icon"), for: .normal)
                 }
                 params = ["page" : page as AnyObject,
-                          "perPage" : 5 as AnyObject,
+                          "perPage" : 10 as AnyObject,
                           "category" : filter.number as AnyObject]
             } else {
                 filterButton?.setImage(UIImage.init(named: "filter_icon"), for: .normal)
                 params = ["page" : page as AnyObject,
-                          "perPage" : 5 as AnyObject]
+                          "perPage" : 10 as AnyObject]
             }
         })
         let _ = manager.apiRequest(.getKits(), parameters: params, headers: nil).apiResponse(completionHandler: {

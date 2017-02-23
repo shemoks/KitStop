@@ -16,7 +16,6 @@ final class CreateKitSaveInteractor {
     weak var presenter: CreateKitSaveInteractorOutput!
 
 
-
     // MARK: - Services
     fileprivate var createKitService: CreateKitsServiceProtocol?
     
@@ -29,6 +28,7 @@ final class CreateKitSaveInteractor {
     convenience init() {
         self.init(createKitService: CreateKitsService())
     }
+    
 
 }
 
@@ -40,7 +40,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images,  success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls, oldModel: "kit")
+                let kit = self?.requestBody(price: price!, date: date, isPrivate: isPrivate, post: post, imageArray: imageUrls, oldModel: "kit")
                 self?.createKitService?.createKit(kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -62,7 +62,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         self.saveImagesTo("Kits", mainImage: post.mainImageObject, images: images, success: { [weak self]
             mainImage, imageUrls in
             if imageUrls.first != nil {
-                let kit = self?.requestBody(price: price!, date: date!, isPrivate: isPrivate, post: post, imageArray: imageUrls, oldModel: oldModel)
+                let kit = self?.requestBody(price: price!, date: date, isPrivate: isPrivate, post: post, imageArray: imageUrls, oldModel: oldModel)
                 self?.createKitService?.updateKit(id: post.id, kit: kit!, completion: {
                     result , error, id in
                     LoadingIndicatorView.hide()
@@ -82,13 +82,13 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     
     
     // MARK: - AWS3 image upload service
-    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [OrderedImage?]) -> () ) {
+func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [OrderedImage?]) -> () ) {
         
         sortImages(images: images, completion: { imageUrls, imageObjects in
             
             let imagesCount = imageUrls.count + imageObjects.count
             
-            var sortedImages: [OrderedImage?] = []
+            var sortedImages: [OrderedImage] = []
             
             for (index, image) in imageUrls.enumerated() {
                 sortedImages.append(OrderedImage(key: index, url: image))
@@ -99,6 +99,9 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
             
             var index = sortedImages.count
             
+        
+            
+
             awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
                 if imageObjects.count == 0 {
                     success(mainImage!, sortedImages)
@@ -107,19 +110,23 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
                             image in
-                            print(index)
-                            
+
                             sortedImages.append(OrderedImage(key: index, url: image!))
+                            print("Finished request: \(index)")
                             index += 1
-                            
-                            if sortedImages.count == imagesCount  {
+
+                            if sortedImages.count == imagesCount {
                                 success(mainImage!, sortedImages)
                             }
+                            
+                           
                         })
+                        
                     }
                 }
             })
         })
+        
     }
     
     
@@ -159,7 +166,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     
     // MARK: - Request body initialization
     // Some questionable code here. Should probably take different approach to request body creation.
-    func requestBody(price: String, date: String, isPrivate:Bool, post: Post, imageArray: [OrderedImage?], oldModel: String) -> CreateKitsRequestBody {
+    func requestBody(price: String, date: String?, isPrivate:Bool, post: Post, imageArray: [OrderedImage?], oldModel: String) -> CreateKitsRequestBody {
         
         var metaData:[String:AnyObject] = [:]
         
@@ -172,7 +179,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
         var brand: String?
         var model: String?
         var serialNumber: String?
-        var purchaseDate = TimeInterval()
+        var purchaseDate: TimeInterval? = nil
         var purchasePrice = ""
         let category: String = post.categoryId
         let description = post.description.textValue
@@ -197,8 +204,11 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
             }
         }
         
-        if !date.isEmpty {
-            purchaseDate = date.date(format: "dd/MMM/yyyy").timeIntervalSince1970
+        
+        if date == nil {
+            purchaseDate = nil
+        } else {
+             purchaseDate = (date?.date(format: "dd/MMM/yyyy").timeIntervalSince1970)!
         }
         
         if !price.isEmpty {

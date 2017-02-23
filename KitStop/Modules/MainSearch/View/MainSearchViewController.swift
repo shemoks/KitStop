@@ -76,7 +76,7 @@ final class MainSearchViewController: UIViewController, FlowController, Alertabl
     }
 
     @IBAction func unwindSearch(segue: UIStoryboardSegue) {
-        presenter.handleSearchButtonTap(title: search.text!)
+        presenter.refresh()
     }
 
 }

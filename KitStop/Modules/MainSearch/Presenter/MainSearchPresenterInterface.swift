@@ -17,6 +17,7 @@ protocol MainSearchViewOutput: class {
     func closeModule()
     func setTitle() -> String
     func handleItemSelection(for indexPath: IndexPath)
+    func refresh()
     
 }
 
