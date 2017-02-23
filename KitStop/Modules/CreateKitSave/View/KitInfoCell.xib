@@ -32,7 +32,7 @@
                         <color key="textColor" red="0.59211921690000002" green="0.60009485480000002" blue="0.60400778060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Not Set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSY-Iu-QqS">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Not Set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSY-Iu-QqS" customClass="NonEditableTextField" customModule="KitStop" customModuleProvider="target">
                         <rect key="frame" x="18" y="0.0" width="341" height="74"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="74" id="0kt-t1-4B1"/>

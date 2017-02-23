@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrderedImage {
+struct OrderedImage {
     let key: Int
     let url: String
     

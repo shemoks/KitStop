@@ -313,6 +313,7 @@
 		95282CAA1E44CCF7007955E1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95282CA91E44CCF7007955E1 /* MainTabBarController.swift */; };
 		953129A71E1E4D280009760F /* BottomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953129A61E1E4D280009760F /* BottomBar.xib */; };
 		953FD41D1E1EA7DA0000086E /* UnderConstruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */; };
+		956BB9D81E5D8B9400AC1964 /* NonEditaleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956BB9D71E5D8B9400AC1964 /* NonEditaleTextField.swift */; };
 		95D4F5901E2E55490073196C /* CustomInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5831E2E55490073196C /* CustomInput.storyboard */; };
 		95D4F5921E2E55490073196C /* CustomInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5851E2E55490073196C /* CustomInputCell.xib */; };
 		95D4F5931E2E55490073196C /* CustomInputHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D4F5861E2E55490073196C /* CustomInputHeaderView.xib */; };
@@ -594,6 +595,7 @@
 		953129A61E1E4D280009760F /* BottomBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomBar.xib; sourceTree = "<group>"; };
 		953129A81E1E662F0009760F /* BottomBarTransitionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarTransitionProtocol.swift; sourceTree = "<group>"; };
 		953FD41C1E1EA7DA0000086E /* UnderConstruction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UnderConstruction.storyboard; sourceTree = "<group>"; };
+		956BB9D71E5D8B9400AC1964 /* NonEditaleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonEditaleTextField.swift; sourceTree = "<group>"; };
 		957542E21E1B92C5007D7A8B /* RestorePasswordServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordServiceProtocol.swift; path = KitStop/Common/RestorePasswordServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
 		95A638821E0A6DBC0055DB6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		95BFD6711E0A87D30081793B /* UIViewController+Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alertable.swift"; sourceTree = "<group>"; };
@@ -1019,6 +1021,7 @@
 				9AB17CB31E0BD06D004E95FF /* CustomButton.swift */,
 				9AE7AAFD1E3A3CAA00B89562 /* MyTextView.swift */,
 				25FBAC461E16945900A956CE /* LoadingIndicatorView.swift */,
+				956BB9D71E5D8B9400AC1964 /* NonEditaleTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3265,6 +3268,7 @@
 				25EC08F91E37B55600BE8F06 /* KitFolioDetailedInteractor.swift in Sources */,
 				25EC08FA1E37B55600BE8F06 /* KitFolioDetailedInteractorInterface.swift in Sources */,
 				25EC08FB1E37B55600BE8F06 /* KitFolioDetailedAssember.swift in Sources */,
+				956BB9D81E5D8B9400AC1964 /* NonEditaleTextField.swift in Sources */,
 				25EC08FC1E37B55600BE8F06 /* KitFolioDetailedViewInterface.swift in Sources */,
 				25EC08FD1E37B55600BE8F06 /* KitFolioDetailedViewController.swift in Sources */,
 				25EC08FF1E37B55600BE8F06 /* KitFolioDetailedPresenterInterface.swift in Sources */,
