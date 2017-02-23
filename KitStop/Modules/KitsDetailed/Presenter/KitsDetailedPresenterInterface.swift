@@ -39,6 +39,8 @@ protocol KitsDetailedViewOutput: class {
     func imageFromUrl() -> [URL]
     func getPost() -> PriceModel?
     func update()
+    func beginView()
+    func changeStatus()
     
 }
 

@@ -34,6 +34,7 @@ extension KitFolioDetailedInteractor: KitFolioDetailedInteractorInput {
     func fetchKitFrom(id: String?) {
         kitFolioDetailerManager?.fetchKit(id: id!, completitionBlock: {
             [weak self] product, user, error in
+            LoadingIndicatorView.hide()
             if error == nil {
                 self?.presenter.updateProductData(product: product!, user: user)
             } else {

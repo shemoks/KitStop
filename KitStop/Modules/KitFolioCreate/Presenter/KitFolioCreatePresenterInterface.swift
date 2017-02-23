@@ -13,6 +13,7 @@ import Chamomile
 protocol KitFolioCreateViewOutput: class {
     func checkXib(view: UIView?)
     func saveKitFolio(postTitle: String, postDescription: String, smallImage: UIImage?, bigImage: UIImage?)
+    func openMainModule()
 }
 
 // MARK: - KitFolioCreateInteractorOutput
