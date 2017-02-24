@@ -9,5 +9,7 @@
 // MARK: - SelectCategoryInteractorInput
 
 protocol SelectCategoryInteractorInput: class {
+
     func fetchCategory()
+    
 }

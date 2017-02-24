@@ -53,21 +53,13 @@ extension CreatePostRouter: CreatePostRouterInput {
         }
     }
 
-//    func viewPhoto(images: [UIImage], viewPhotoModuleOutput: ViewPhotoModuleOutput) {
-//        flowController.openModule(using: .openViewPhoto) {
-//            guard let moduleInput = $0 as? ViewPhotoModuleInput else { fatalError() }
-//            moduleInput.setPhoto(images: images)
-//            return viewPhotoModuleOutput
-//        }
-//    }
-
     func openUnderConstruction() {
         flowController.openModule(using: .openUnderConstruction) {
-            guard let moduleInput = $0 as? UnderConstructionModuleInput else { fatalError() }
+            guard ($0 as? UnderConstructionModuleInput) != nil else { fatalError() }
             return nil
         }
-
     }
+
 }
 
 extension Segue {
@@ -80,10 +72,6 @@ extension Segue {
                 return .init(identifier: "TransitionToSaleConfirm")
             
   }
-
-//    static var openViewPhoto: Segue<ViewPhotoViewController> {
-//        return .init(identifier: "TrunsitionToViewPhoto")
-//    }
 
     static var openKitConfirm: Segue<CreateKitSaveViewController> {
                 return .init(identifier: "TransitionToKitConfirm")

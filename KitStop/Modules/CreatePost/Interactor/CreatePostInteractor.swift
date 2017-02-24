@@ -26,10 +26,6 @@ final class CreatePostInteractor {
         self.init(dataManager: CreatePostService())
     }
 
-
-
-    // MARK: -
-
 }
 
 // MARK: - CreatePostInteractorInput

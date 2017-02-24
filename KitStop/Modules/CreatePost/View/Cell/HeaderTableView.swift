@@ -22,7 +22,6 @@ class HeaderTableView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -35,8 +34,6 @@ class HeaderTableView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
-
-
     }
 
     func loadViewFromNib() -> UIView {

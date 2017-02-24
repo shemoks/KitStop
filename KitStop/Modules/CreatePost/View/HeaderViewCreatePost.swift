@@ -9,9 +9,9 @@
 import UIKit
 
 class HeaderViewCreatePost: UIView {
+
     var view: UIView!
     var nibName: String = "HeaderViewCreatePost"
-
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,8 +33,6 @@ class HeaderViewCreatePost: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
-
-
     }
 
     func loadViewFromNib() -> UIView {
@@ -43,8 +41,6 @@ class HeaderViewCreatePost: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
-    
-    
-    
+
 }
 

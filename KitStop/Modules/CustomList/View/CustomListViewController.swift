@@ -21,20 +21,18 @@ final class CustomListViewController: UIViewController, FlowController {
         super.viewDidLoad()
         navigationItem.title = presenter.getTitle()
     }
-    
+
 }
 
 // MARK: - FilterTypeViewInput
 
 extension CustomListViewController: CustomListViewInput {
-    
+
 }
 
 extension CustomListViewController: UITableViewDataSource {
 
-
     func numberOfSections(in tableView: UITableView) -> Int {
-
         return 1
     }
 
@@ -55,20 +53,18 @@ extension CustomListViewController: UITableViewDataSource {
 
 extension CustomListViewController: UITableViewDelegate {
 
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.handleCellTap(for: indexPath)
-
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderViewCreatePost()
         return view
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
-
+    
 }

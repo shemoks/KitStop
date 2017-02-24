@@ -16,12 +16,10 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
     var object: Property?
     var result: Product!
     func configure(property: Property) {
-
+        data.autocorrectionType = .no
         self.accessoryType = .none
         data.isEnabled = true
-
         self.object = property
-
         if property.isValidate == false {
             self.layer.backgroundColor = UIColor(red: (253/255.0), green: (169/255.0), blue: (131/255.0), alpha: 1.0).cgColor
         } else {
@@ -36,27 +34,6 @@ class GeneralCell: UITableViewCell, UITextFieldDelegate {
             self.accessoryType = .disclosureIndicator
             data.isEnabled = false
         }
-
-//        if  property.isSelect && property.currentData == nil {
-//            self.accessoryType = .disclosureIndicator
-//            data.isEnabled = true
-//            if  property.placeholder != nil {
-//                data.placeholder = property.placeholder!
-//            }
-//            data.isEnabled = false
-//        }
-//
-//        if  property.isSelect && (property.currentData != nil) {
-//            self.accessoryType = .disclosureIndicator
-//            data.isEnabled = true
-//            if  property.placeholder != nil {
-//                data.placeholder = property.placeholder!
-//            }
-//            self.data.text = property.currentData
-//            data.isEnabled = false
-//            self.object?.isValidate = true
-//            self.layer.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0).cgColor
-//        }
         data.delegate = self
     }
 

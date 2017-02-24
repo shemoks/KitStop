@@ -42,7 +42,7 @@ extension Segue {
     static var openOther: Segue<CustomInputViewController> {
         return .init(identifier: "TrunsitionToCustomInput")
     }
-
+    
 }
 
 
