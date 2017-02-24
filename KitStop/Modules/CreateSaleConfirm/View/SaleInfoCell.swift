@@ -11,13 +11,15 @@ import UIKit
 class SaleInfoCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var contents: UITextField!
+    @IBOutlet weak var contents: NonEditableTextField!
     
     func configure(detail: ForSaleDetailsModel) {
         title.text = detail.header
         contents.placeholder = detail.placeholder
         
         contents.clipsToBounds = true
+        
+        contents.autocorrectionType = .no
         
         if detail.isEditable! {
             contents.isEnabled = true

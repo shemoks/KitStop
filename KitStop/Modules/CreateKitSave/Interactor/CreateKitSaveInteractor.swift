@@ -82,7 +82,7 @@ extension CreateKitSaveInteractor: CreateKitSaveInteractorInput {
     
     
     // MARK: - AWS3 image upload service
-func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [OrderedImage?]) -> () ) {
+    func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, success: @escaping (_ mainImage: String, _ imageUrls: [OrderedImage?]) -> () ) {
         
         sortImages(images: images, completion: { imageUrls, imageObjects in
             
@@ -99,29 +99,33 @@ func saveImagesTo(_ path: String, mainImage: UIImage, images: PostImagesModel, s
             
             var index = sortedImages.count
             
-        
+            var orderedImageObjects:[Int:UIImage] = [:]
             
+            for image in imageObjects {
+                orderedImageObjects[index] = image
+                index += 1
+            }
+            print(orderedImageObjects)
 
             awsManager.uploadImage(userImage: self.cropImage(image: mainImage), path: path, successBlock: { mainImage in
                 if imageObjects.count == 0 {
                     success(mainImage!, sortedImages)
                 } else {
+            
                     for image in imageObjects {
                         let awsManager = AWS3UploadImageService()
                         awsManager.uploadImage(userImage: self.cropBigImage(image: image), path: path, successBlock: {
-                            image in
-
-                            sortedImages.append(OrderedImage(key: index, url: image!))
-                            print("Finished request: \(index)")
-                            index += 1
-
+                            url in
+                            
+                            let key = orderedImageObjects.allKeys(forValue: image).first!
+                            sortedImages.append(OrderedImage(key: key, url: url!))
+                            
                             if sortedImages.count == imagesCount {
                                 success(mainImage!, sortedImages)
                             }
                             
-                           
+                            
                         })
-                        
                     }
                 }
             })
