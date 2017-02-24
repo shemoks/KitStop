@@ -17,7 +17,7 @@
         <!--View-->
         <scene sceneID="uCf-2m-DVj">
             <objects>
-                <viewController storyboardIdentifier="KitFolioDetailed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="16O-T3-L84" customClass="KitFolioDetailedViewController" customModule="KitStop" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KitFolioDetailed" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="16O-T3-L84" customClass="KitFolioDetailedViewController" customModule="KitStop" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HQt-EG-CWa"/>
                         <viewControllerLayoutGuide type="bottom" id="NGn-jM-rzw"/>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGR-pN-dzN">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGR-pN-dzN">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qru-Ty-tFc">

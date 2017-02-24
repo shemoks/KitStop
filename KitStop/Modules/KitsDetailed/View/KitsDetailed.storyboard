@@ -11,7 +11,7 @@
         <!--View-->
         <scene sceneID="sqd-4f-qc3">
             <objects>
-                <viewController storyboardIdentifier="KitsDetailedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="emS-ZE-rVp" customClass="KitsDetailedViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KitsDetailedViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="emS-ZE-rVp" customClass="KitsDetailedViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ksf-Ol-uX2"/>
                         <viewControllerLayoutGuide type="bottom" id="3XB-6X-3RF"/>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="REt-MC-88B">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="REt-MC-88B">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>

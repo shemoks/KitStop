@@ -389,7 +389,16 @@ extension KitsDetailedViewController: UITableViewDelegate {
                 return 0
             }
         case 2:
+            if presenter.numberOfSections() == 4 {
             return 10
+            }
+            if presenter.numberOfSections() == 5 {
+                if presenter.numberOfSaleProperties(inSection: section) > 0 {
+                    return 10
+                } else {
+                    return 0
+                }
+            }
         default:
             return 10
         }

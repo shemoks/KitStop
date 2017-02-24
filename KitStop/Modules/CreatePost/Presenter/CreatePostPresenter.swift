@@ -126,6 +126,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
 
     func setMainPhoto(photo: UIImage) {
         self.post.mainImageObject = photo
+        self.isNotMainImage = true
     }
 
     func addPhoto(image: UIImage) {
@@ -143,9 +144,9 @@ extension CreatePostPresenter: CreatePostViewOutput {
         model.remove(index: index)
         for item in model.forGallery {
             switch item {
-            case .Actual(let _):
+            case .Actual(let image):
                 i += 1
-            case .Remote(let _):
+            case .Remote(let url):
                 i += 1
             default: break
             }
