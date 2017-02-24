@@ -16,7 +16,7 @@ class AWS3UploadImageService: AWS3UploadImageProtocol {
     fileprivate var fileUrl = NSURL()
     fileprivate let uploadRequest = AWSS3TransferManagerUploadRequest()
     
-    func uploadImage(userImage: UIImage?, path: String ,successBlock: @escaping (_ url: String?) -> ()) {
+func uploadImage(userImage: UIImage?, path: String ,successBlock: @escaping (_ url: String?) -> ()) {
         if userImage == nil {
             // Do something to wake up user :)
         } else {

@@ -17,5 +17,6 @@ class KitInfoCell: UITableViewCell {
         header.text = detail.header
         value.text = detail.contents
         value.placeholder = detail.placeholder
+        value.autocorrectionType = .no
     }
 }
