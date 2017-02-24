@@ -11,7 +11,7 @@ import Foundation
 protocol MainFilterContainerTransferDataProtocol {
     func stopRefresh()
     var page: Int {get set}
-    func removeSpinner()
-    func addSpinner()
     func finishInfiniteScroll()
+    func stopActivityIndicator()
+    func startActivityIndicator()
 }

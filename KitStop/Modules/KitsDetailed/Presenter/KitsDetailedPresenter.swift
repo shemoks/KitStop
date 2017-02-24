@@ -239,8 +239,7 @@ extension KitsDetailedPresenter: KitsDetailedInteractorOutput {
     func showSuccess(title: String, message: String) {
         view.showSuccessAlert(title: title, message: message, action: [UIAlertAction.init(title: "Ok", style: .default, handler: {
             result in
-            let moduleOutput = self.moduleOutput as! KitsDetailedModuleOutput
-            self.router.closeModule(moduleOutput: moduleOutput, section: self.section)
+            self.router.closeModule(section: self.section)
         })])
 
     }

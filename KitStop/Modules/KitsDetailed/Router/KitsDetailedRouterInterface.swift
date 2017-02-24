@@ -13,7 +13,7 @@ protocol KitsDetailedRouterInput: class {
     
     func openModule(identifier: Int)
     func openChatModule()
-    func closeModule(moduleOutput: KitsDetailedModuleOutput, section: Bool)
+    func closeModule(section: Bool)
     func openEditForSale(post: Post, oldModel: String, returnCase: ReturnCase)
     func openEditKit(post: Post, oldModel: String, returnCase: ReturnCase)
 

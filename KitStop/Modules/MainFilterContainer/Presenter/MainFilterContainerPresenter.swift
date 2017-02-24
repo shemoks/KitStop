@@ -79,11 +79,11 @@ extension MainFilterContainerPresenter: MainFilterContainerInteractorOutput {
     }
     
     func addLoadingIndicatorView() {
-        view.addLoadingIndicatorView()
+
     }
     
     func removeLoadingIndicatorView() {
-        view.removeLoadingIndicatorView()
+        view.stopActivityIndicator()
     }
 }
 

@@ -13,9 +13,10 @@ class CustomInputCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var data: UITextField!
     var object: Other?
     var result: Product!
+
     func configure(property: Other) {
         if  property.placeholder != nil {
-        data.placeholder = property.placeholder
+            data.placeholder = property.placeholder
         }
         data.text = property.data
         self.object = property
@@ -27,10 +28,6 @@ class CustomInputCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
 
         data.addTarget(self, action: #selector(didChangeText(textField:)), for: .editingChanged)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-      //  self.object?.data = textField.text!
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -52,5 +49,5 @@ class CustomInputCell: UITableViewCell, UITextFieldDelegate {
             object?.data = textInField
         }
     }
-
+    
 }

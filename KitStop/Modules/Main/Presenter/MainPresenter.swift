@@ -68,13 +68,14 @@ extension MainPresenter: MainViewOutput {
 // MARK: - MainInteractorOutput
 
 extension MainPresenter: MainInteractorOutput {
-    
+
     func showLoadingIndicatorView() {
-        view.addLoadingIndicatorView()
+        view.startIndicator()
     }
     
     func removeLoadingIndicatorView() {
-        view.removeLoadingIndicatorView()
+        // stop indicator if needed
+        view.stopIndicator()
     }
     
     func finishInfiniteScroll(finishSuccess: Bool) {

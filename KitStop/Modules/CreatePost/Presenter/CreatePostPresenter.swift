@@ -143,9 +143,9 @@ extension CreatePostPresenter: CreatePostViewOutput {
         model.remove(index: index)
         for item in model.forGallery {
             switch item {
-            case .Actual(let image):
+            case .Actual(let _):
                 i += 1
-            case .Remote(let url):
+            case .Remote(let _):
                 i += 1
             default: break
             }
@@ -221,7 +221,6 @@ extension CreatePostPresenter: CreatePostModuleInput {
         self.oldModel = oldModel
     }
 
-
     func setForSaleEdit(post: Post, oldModel: String) {
         isForSale = true
         self.screenTitle = "ForSale / "
@@ -261,33 +260,8 @@ extension CreatePostPresenter: CustomListModuleOutput {
             view.reloadData()
         }
     }
-}
 
-//extension CreatePostPresenter: ViewPhotoModuleOutput {
-//
-//    func setNewPhoto(images: [UIImage]) {
-//        var newImages = [UIImage]()
-//        var imagesCount = images.count
-//        if imagesCount == 0 {
-//            newImages.append(UIImage.init(named: "required")!)
-//            imagesCount = newImages.count
-//            self.isNotMainImage = false
-//        }
-//        if imagesCount > 0 && imagesCount < 7 {
-//            self.isNotMainImage = true
-//            newImages.append(UIImage.init(named: "cameraForSave")!)
-//            imagesCount = newImages.count
-//        }
-//        for _ in imagesCount...5 {
-//            newImages.append(UIImage.init(named: "blank1")!)
-//        }
-//
-//        self.currentIndex = imagesCount + self.currentIndex
-//        self.post.images = newImages
-//        self.images = newImages
-//    }
-//    
-//}
+}
 
 
 

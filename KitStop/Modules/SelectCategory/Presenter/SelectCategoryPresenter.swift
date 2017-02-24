@@ -19,7 +19,6 @@ final class SelectCategoryPresenter {
     var interactor: SelectCategoryInteractorInput!
     var router: SelectCategoryRouterInput!
     var caseOf: ReturnCase = .main
-    
     fileprivate var category: Bool?
 
 }
@@ -27,6 +26,7 @@ final class SelectCategoryPresenter {
 // MARK: - SelectCategoryViewOutput
 
 extension SelectCategoryPresenter: SelectCategoryViewOutput {
+
     func fetchCategory() {
         interactor.fetchCategory()
     }
@@ -34,29 +34,31 @@ extension SelectCategoryPresenter: SelectCategoryViewOutput {
     func openMainModule() {
         router.openMainModule()
     }
+
 }
 
 // MARK: - SelectCategoryInteractorOutput
 
 extension SelectCategoryPresenter: SelectCategoryInteractorOutput {
+
     func updateView(categoryList: [CategoryList]) {
         view.updateData(categoryList: categoryList)
     }
-    
+
     func showAlert(error: String) {
         view.showAlert(errorMassage: error)
     }
-    
+
     func openAddItemModule(categoryID: String) {
         router.openAddKitModule(categoryID: categoryID, category: category!, returnCase: self.caseOf)
     }
-
 
 }
 
 // MARK: - SelectCategoryModuleInput
 
 extension SelectCategoryPresenter: SelectCategoryModuleInput {
+
     func handleCategory(category: Bool) {
         self.category = category
     }
@@ -64,4 +66,5 @@ extension SelectCategoryPresenter: SelectCategoryModuleInput {
     func returnCase(caseOf: ReturnCase) {
         self.caseOf = caseOf
     }
+    
 }

@@ -17,12 +17,11 @@ import UIScrollView_InfiniteScroll
 final class MainViewController: UIViewController, FlowController, MainFilterContainerTransferDataProtocol, Alertable {
     
     // MARK: - VIPER stack
-    
-    @IBOutlet weak var loadingIndicatorView: UIView!
-    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var toolbarContainer: UIView!
+    var activityIndicator: UIActivityIndicatorView?
+    var indicatorView: UIView?
     
     var presenter: MainViewOutput!
     var refreshControl = UIRefreshControl()
@@ -37,12 +36,17 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        addLoadingIndicatorView()
+       // addLoadingIndicatorView()
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+
+
+        collectionView.backgroundView = activityIndicator
+        startActivityIndicator()
     }
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        //LoadingIndicatorView.hide()
         collectionView.delegate = self
         collectionView.dataSource = self
         addSectionInset()
@@ -129,44 +133,36 @@ final class MainViewController: UIViewController, FlowController, MainFilterCont
         }
     }
 
-//    func addToolbar() {
-//        let toolBar = UIView.loadFromNibNamed(nibNamed: "BottomBar")
-//        
-//        toolBar?.frame = CGRect(x: 0, y: 0, width: toolbarContainer.frame.width, height: toolbarContainer.frame.height)
-//        
-//        (toolBar as? BottomBarViewController)?.tappedItem = self
-//        toolbarContainer.addSubview(toolBar!)
-//        
-//    }
-
     func stopRefresh() {
         self.refreshControl.endRefreshing()
     }
-    
-    func addSpinner() {
-        self.addLoadingIndicatorView()
-    }
-    
-    func removeSpinner() {
-        self.removeLoadingIndicatorView()
-    }
+
     
     func finishInfiniteScroll() {
         self.collectionView.finishInfiniteScroll()
+    }
+
+    func startActivityIndicator() {
+        activityIndicator?.startAnimating()
+        activityIndicator?.isHidden = false
+    }
+
+    func stopActivityIndicator() {
+        activityIndicator?.stopAnimating()
+        activityIndicator?.isHidden = true
     }
 }
 
 // MARK: - MainViewInput
 
 extension MainViewController: MainViewInput {
-    
-    func addLoadingIndicatorView() {
-        loadingIndicatorView.isHidden = false
-        LoadingIndicatorView.show(loadingIndicatorView, true)
+
+    func startIndicator() {
+        self.startActivityIndicator()
     }
-    
-    func removeLoadingIndicatorView() {
-        loadingIndicatorView.isHidden = true
+
+    func stopIndicator() {
+        self.stopActivityIndicator()
     }
     
     func presentAlert(alertController: UIAlertController) {
@@ -205,7 +201,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! MainKitsCell
-        if KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType).count >= indexPath.row {
+        if KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType).count >= indexPath.row && KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType).count != 0 {
             cell.setupCell(kit: KitRealmManager.sharedManager.getRealm().filter("type = %s", KitRealmManager.sharedManager.getType)[indexPath.row])
         }
         return cell
