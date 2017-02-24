@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoCellNew: UICollectionViewCell {
+
     @IBOutlet weak var photo: UIImageView!
     func configure(typeImage: PostImagesModel.CellImage) {
         switch  typeImage  {
@@ -17,12 +18,12 @@ class PhotoCellNew: UICollectionViewCell {
         case .Add:
             photo.image = UIImage.init(named: "cameraForSave")
         case .Actual(let image):
-             photo.image = image
+            photo.image = image
         case .Remote(let url):
             photo.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder500x500"))
         case .Blank:
             photo.image = UIImage.init(named: "blank1")
-
         }
-}
+    }
+
 }

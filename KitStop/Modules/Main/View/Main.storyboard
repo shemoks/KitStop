@@ -16,7 +16,7 @@
         <!--View-->
         <scene sceneID="Jl6-pD-fdb">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="7pL-Tk-IjC" customClass="MainViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" automaticallyAdjustsScrollViewInsets="NO" id="7pL-Tk-IjC" customClass="MainViewController" customModule="KitStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Eb-kk-nfu"/>
                         <viewControllerLayoutGuide type="bottom" id="2K1-YL-4YO"/>
@@ -61,10 +61,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-fI-a7p">
-                                                    <rect key="frame" x="119" y="9" width="58" height="22"/>
+                                                    <rect key="frame" x="142" y="9" width="35" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-oc-4Td">
-                                                            <rect key="frame" x="14" y="4" width="31" height="15"/>
+                                                            <rect key="frame" x="2" y="4" width="31" height="15"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,10 +72,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="0.53333333333333333" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="3j3-oc-4Td" firstAttribute="centerY" secondItem="CDf-fI-a7p" secondAttribute="centerY" id="3xZ-NE-jxt"/>
                                                         <constraint firstAttribute="height" constant="22" id="HvB-72-gjR"/>
-                                                        <constraint firstItem="3j3-oc-4Td" firstAttribute="centerX" secondItem="CDf-fI-a7p" secondAttribute="centerX" id="qpA-5c-O6m"/>
-                                                        <constraint firstAttribute="width" constant="58" id="ru8-9F-5pn"/>
+                                                        <constraint firstItem="3j3-oc-4Td" firstAttribute="centerY" secondItem="CDf-fI-a7p" secondAttribute="centerY" id="b75-tn-XYY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3j3-oc-4Td" secondAttribute="trailing" constant="2" id="k5R-al-Iva"/>
+                                                        <constraint firstItem="3j3-oc-4Td" firstAttribute="leading" secondItem="CDf-fI-a7p" secondAttribute="leading" constant="2" id="qZD-2v-aBx"/>
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtl-8s-zeQ">
@@ -145,33 +145,15 @@
                                     <segue destination="bfy-vK-Y4v" kind="embed" identifier="container" id="tfZ-9t-cGG"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-0H-mDY">
-                                <rect key="frame" x="0.0" y="38" width="414" height="698"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iE-iN-79O">
-                                <rect key="frame" x="0.0" y="736" width="414" height="0.0"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="Rro-cJ-wOz"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Az0-3O-3Tc" firstAttribute="top" secondItem="0Eb-kk-nfu" secondAttribute="bottom" id="088-GZ-M71"/>
-                            <constraint firstAttribute="trailing" secondItem="9iE-iN-79O" secondAttribute="trailing" id="5nY-TO-XoG"/>
-                            <constraint firstItem="9iE-iN-79O" firstAttribute="top" secondItem="dg0-0H-mDY" secondAttribute="bottom" id="9e9-i3-VOK"/>
-                            <constraint firstItem="2K1-YL-4YO" firstAttribute="top" secondItem="9iE-iN-79O" secondAttribute="bottom" id="APH-xW-euC"/>
                             <constraint firstItem="Az0-3O-3Tc" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="J8d-10-pBT"/>
-                            <constraint firstAttribute="trailing" secondItem="dg0-0H-mDY" secondAttribute="trailing" id="V1F-iv-JQZ"/>
                             <constraint firstItem="KSw-tq-O9G" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="YiD-6Y-oBy"/>
+                            <constraint firstItem="2K1-YL-4YO" firstAttribute="top" secondItem="KSw-tq-O9G" secondAttribute="bottom" id="fSz-XV-ONu"/>
                             <constraint firstItem="KSw-tq-O9G" firstAttribute="top" secondItem="jya-JH-ARH" secondAttribute="top" id="m1i-9U-mmP"/>
-                            <constraint firstItem="dg0-0H-mDY" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="syl-hY-Kv5"/>
-                            <constraint firstItem="dg0-0H-mDY" firstAttribute="top" secondItem="Az0-3O-3Tc" secondAttribute="bottom" constant="-20" id="vsj-uu-oDV"/>
-                            <constraint firstItem="9iE-iN-79O" firstAttribute="top" secondItem="KSw-tq-O9G" secondAttribute="bottom" id="x0e-Cm-ZLO"/>
                             <constraint firstAttribute="trailing" secondItem="KSw-tq-O9G" secondAttribute="trailing" id="xjc-pg-rVU"/>
-                            <constraint firstItem="9iE-iN-79O" firstAttribute="leading" secondItem="jya-JH-ARH" secondAttribute="leading" id="yOG-8K-5Gk"/>
                             <constraint firstAttribute="trailing" secondItem="Az0-3O-3Tc" secondAttribute="trailing" id="zIi-sY-gYU"/>
                         </constraints>
                     </view>
@@ -179,8 +161,6 @@
                     <connections>
                         <outlet property="collectionView" destination="KSw-tq-O9G" id="sNN-07-Y1W"/>
                         <outlet property="container" destination="Az0-3O-3Tc" id="AjL-7N-MNM"/>
-                        <outlet property="loadingIndicatorView" destination="dg0-0H-mDY" id="gIV-QJ-BPL"/>
-                        <outlet property="toolbarContainer" destination="9iE-iN-79O" id="6VY-Zv-bn5"/>
                         <segue destination="KmF-0a-aZv" kind="presentation" identifier="transitionToCategoryList" id="JaU-F6-bGP"/>
                         <segue destination="cv7-rN-JE2" kind="show" identifier="transitionToKitFolioCreate" id="vih-ro-J8V"/>
                         <segue destination="rNU-Za-ZKq" kind="show" identifier="transitionToUnderConstruction" id="2pE-IT-LVn"/>

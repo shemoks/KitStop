@@ -49,14 +49,13 @@ extension KitsDetailedRouter: KitsDetailedRouterInput {
 
     }
 
-    func closeModule(moduleOutput: KitsDetailedModuleOutput, section: Bool) {
-        if section {
-            moduleOutput.updateKitForSale()
-            self.flowController.closeModule(animated: true)
-        } else {
-            moduleOutput.updateKits()
-            self.flowController.closeModule(animated: true)
+    func closeModule(section: Bool) {
+        flowController.openModule(using: .openMainModule) {
+            guard let moduleInput = $0 as? MainModuleInput else {fatalError()}
+            moduleInput.passData(index: section)
+            return nil
         }
+
     }
 
     func openEditKit(post: Post, oldModel: String, returnCase: ReturnCase) {

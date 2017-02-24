@@ -52,12 +52,12 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
         presenter.openMainModule()
     }
 
-
 }
 
 // MARK: - SelectCategoryViewInput
 
 extension SelectCategoryViewController: SelectCategoryViewInput {
+
     func updateData(categoryList: [CategoryList]) {
         self.category = categoryList
         tableView.frame = CGRect.init(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height + 44)
@@ -67,9 +67,11 @@ extension SelectCategoryViewController: SelectCategoryViewInput {
     func showAlert(errorMassage: String) {
         showAlertWithTitle("Error", message: errorMassage)
     }
+
 }
 
 extension SelectCategoryViewController: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectCategoryCell") as! SelectCategoryCell
         cell.setupCell(category: self.category[indexPath.row])
@@ -84,4 +86,5 @@ extension SelectCategoryViewController: UITableViewDataSource, UITableViewDelega
         self.selectedRow = indexPath
         presenter.openAddItemModule(categoryID: category[indexPath.row].id)
     }
+    
 }

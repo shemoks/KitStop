@@ -39,12 +39,12 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         presenter.handleViewDidLoad()
         self.tableView.estimatedRowHeight = 50.0
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = presenter.getTittle()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if (self.navigationItem.title?.isEmpty)! {
@@ -52,14 +52,12 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
         } else {
             self.navigationItem.title = ""
         }
-//        self.navigationItem.title = ""
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let height = setSizeForCell()
         sizeHeaderToFit(height: height)
-
     }
 
     func createBackButton() {
@@ -72,22 +70,6 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
     func back() {
         self.dismiss(animated: true, completion: nil)
     }
-
-    //    func setSizeForCell() {
-    //        let layout = headerView.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-    //        let width = headerView.frame.width
-    //        let height = headerView.frame.height
-    //        let padding: CGFloat = 5
-    //        let numberOfItemWidth = 3
-    //        let numberOfItemHeight = 2
-    //        let sizeWidthCell = (width - padding * CGFloat(numberOfItemWidth))/CGFloat(numberOfItemWidth)
-    //        let sizeHeightCell = (height - padding * CGFloat(numberOfItemHeight - 1))/CGFloat(numberOfItemHeight)
-    //        layout?.itemSize.width = sizeWidthCell
-    //        layout?.itemSize.height = sizeHeightCell
-    //        layout?.minimumLineSpacing = padding
-    //        layout?.minimumInteritemSpacing = padding
-    //        layout?.invalidateLayout()
-    //    }
 
     func setSizeForCell() -> CGFloat {
         let padding: CGFloat = 10
@@ -168,7 +150,6 @@ extension CreatePostViewController: CreatePostViewInput {
                 completion: nil)
     }
 
-
     func reloadData() {
         navigationItem.title = presenter.getTittle()
         tableView.reloadData()
@@ -207,6 +188,7 @@ extension CreatePostViewController: CreatePostViewInput {
     }
 
 }
+
 extension CreatePostViewController: SwiftPhotoGalleryDelegate {
 
     func galleryDidTapToClose(gallery: SwiftPhotoGallery, index: Int) {
@@ -218,10 +200,10 @@ extension CreatePostViewController: SwiftPhotoGalleryDelegate {
         presenter.deletePhoto(index: index)
     }
 
-
 }
 
 extension CreatePostViewController: SwiftPhotoGalleryDataSource {
+
     func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
         return presenter.anyObject.count
     }
@@ -231,8 +213,8 @@ extension CreatePostViewController: SwiftPhotoGalleryDataSource {
     }
 
 }
-extension CreatePostViewController: UITableViewDataSource {
 
+extension CreatePostViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -272,7 +254,6 @@ extension CreatePostViewController: UITableViewDataSource {
             return cell!
         }
     }
-
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -333,11 +314,10 @@ extension CreatePostViewController: UITableViewDelegate {
         default:
             presenter.isSelectedCell(inSection: 2, for: indexPath)
         }
-
     }
 
-
 }
+
 extension CreatePostViewController: UICollectionViewDelegate {
 
     func numberOfSectionsInCollectionView(collectionViews: UICollectionView) -> Int {
@@ -355,10 +335,8 @@ extension CreatePostViewController: UICollectionViewDelegate {
             self.setupAlert()
         default:
             presenter.handleFullScreenOpen(index: indexPath.row)
-
         }
     }
-
 
 }
 
@@ -393,6 +371,7 @@ extension CreatePostViewController: UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+
 }
 
 

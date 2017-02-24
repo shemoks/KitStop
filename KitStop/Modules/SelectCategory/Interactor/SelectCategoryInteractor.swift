@@ -15,21 +15,21 @@ final class SelectCategoryInteractor {
     weak var presenter: SelectCategoryInteractorOutput!
     fileprivate let dataManager: CategoryServiceProtocol
     // MARK: -
-    
+
     init(dataManager: CategoryServiceProtocol) {
         self.dataManager = dataManager
     }
-    
+
     convenience init() {
         self.init(dataManager: CategoryService())
     }
-
 
 }
 
 // MARK: - SelectCategoryInteractorInput
 
 extension SelectCategoryInteractor: SelectCategoryInteractorInput {
+
     func fetchCategory() {
         dataManager.fetchCategory(result: {
             [weak self] result, error in
@@ -41,4 +41,5 @@ extension SelectCategoryInteractor: SelectCategoryInteractorInput {
             }
         })
     }
+    
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class SelectCategoryCell: UITableViewCell {
 
-    
     @IBOutlet weak var category: UIImageView!
     @IBOutlet weak var title: UILabel!
     

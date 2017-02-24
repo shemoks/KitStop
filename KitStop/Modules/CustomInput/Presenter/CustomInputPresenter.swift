@@ -27,9 +27,7 @@ final class CustomInputPresenter {
 extension CustomInputPresenter: CustomInputViewOutput {
 
     func inputData(for indexPath: IndexPath) -> Other {
-
-      return self.data!
-
+        return self.data!
     }
 
     func getTitle() -> String {
@@ -41,7 +39,7 @@ extension CustomInputPresenter: CustomInputViewOutput {
     }
 
     func returnOther(dataText: String) {
-         let customInputModuleOutput = moduleOutput as! CustomInputModuleOutput
+        let customInputModuleOutput = moduleOutput as! CustomInputModuleOutput
         router.closeModule(data: self.data!, moduleOutput: customInputModuleOutput)
     }
 
@@ -64,6 +62,6 @@ extension CustomInputPresenter: CustomInputModuleInput {
     func setInput(data: Other) {
         self.data = data
     }
-
+    
 }
 
