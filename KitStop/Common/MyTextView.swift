@@ -60,6 +60,11 @@ class MyTextView: UITextView {
             object: self)
     }
 
+    func updatePlacePlaceholder() {
+        placeholderLabel.removeFromSuperview()
+        sharedInit()
+    }
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

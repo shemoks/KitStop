@@ -25,6 +25,9 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
         presenter.fetchCategory()
     }
     
+    @IBAction func cancelTap(_ sender: Any) {
+        back()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
@@ -45,7 +48,7 @@ final class SelectCategoryViewController: UIViewController, FlowController, Aler
     
     func setupNavigationBar() {
         self.navigationItem.title = "Select Category"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
+      //  self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
     }
 
     func back() {

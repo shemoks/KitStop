@@ -127,6 +127,7 @@ extension CreatePostPresenter: CreatePostViewOutput {
     func setMainPhoto(photo: UIImage) {
         self.post.mainImageObject = photo
         self.isNotMainImage = true
+        self.post.mainImage = "yes"
     }
 
     func addPhoto(image: UIImage) {
@@ -140,19 +141,20 @@ extension CreatePostPresenter: CreatePostViewOutput {
     }
 
     func deletePhoto(index: Int) {
-        var i = 0
+  //      var i = 0
         model.remove(index: index)
-        for item in model.forGallery {
-            switch item {
-            case .Actual(let image):
-                i += 1
-            case .Remote(let url):
-                i += 1
-            default: break
-            }
-        }
-        if i == 0 {
+//        for item in model.forGallery {
+//            switch item {
+//            case .Actual(let image):
+//                i -= 1
+//            case .Remote(let url):
+//                i -= 1
+//            default: break
+//            }
+//        }
+        if model.forGallery.count == 0 {
             self.isNotMainImage = false
+            self.post.mainImage = ""
         }
         view.reloadData()
     }
@@ -199,7 +201,7 @@ extension CreatePostPresenter: CreatePostModuleInput {
     func valuesFromCategoryList(forSale: Bool, idCategory: String) {
         if forSale {
             self.isForSale = true
-            self.screenTitle = "ForSale / "
+            self.screenTitle = "For Sale / "
             self.oldModel = "forSale"
         } else {
             self.isForSale = false

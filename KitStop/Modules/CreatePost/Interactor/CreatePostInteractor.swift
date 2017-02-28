@@ -45,7 +45,7 @@ extension CreatePostInteractor: CreatePostInteractorInput {
     }
 
     func getObject(post: Post, model: PostImagesModel) {
-        if post.images.contains(UIImage.init(named: "required")!) {
+        if post.mainImage == "" {
             presenter.showError(title: "Warning", message: "Please add at least one photo")
         } else {
             let validarionResult = ValidationPost().validationBeforeNext(post: post)
@@ -56,7 +56,6 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 let newPost = Post()
                 var newAdditionalProperty = [Property]()
                 var newGeneralProperty = [Property]()
-                var newImages = [UIImage]()
                 for data in post.additionalProperty {
                     if !data.metadata {
                         newAdditionalProperty.append(data)
@@ -73,7 +72,6 @@ extension CreatePostInteractor: CreatePostInteractorInput {
                 newPost.categoryId = post.categoryId
                 newPost.categoryTitle = post.categoryTitle
                 newPost.description = post.description
-                newPost.images = newImages
                 newPost.metadata = post.metadata
                 newPost.notes = post.notes
                 newPost.salesDetails = post.salesDetails

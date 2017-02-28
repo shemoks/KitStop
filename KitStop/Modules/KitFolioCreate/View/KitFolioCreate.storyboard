@@ -128,6 +128,8 @@
                     <connections>
                         <outlet property="container" destination="X8h-rI-XzM" id="YPH-p2-jfe"/>
                         <outlet property="containerHeight" destination="Beg-Us-kfH" id="y2B-wr-FOe"/>
+                        <outlet property="information" destination="dBw-TS-cMR" id="qnN-Y5-5AP"/>
+                        <outlet property="post" destination="gKG-Q0-dRh" id="iSp-9x-4Ij"/>
                         <outlet property="postDescription" destination="6vx-yE-NEG" id="XmA-6p-ofv"/>
                         <outlet property="postTitle" destination="1XK-sV-Abz" id="0Ff-cB-3xW"/>
                         <outlet property="scroll" destination="E5u-sy-6GZ" id="gU0-ed-gZK"/>

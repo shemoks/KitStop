@@ -37,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cOj-B2-8PN" id="o0v-ZZ-KOH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-nB-06g">
@@ -48,7 +48,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNw-uv-Gh0">
-                                                    <rect key="frame" x="56" y="11" width="288" height="21"/>
+                                                    <rect key="frame" x="56" y="11.5" width="288" height="20"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -90,7 +90,13 @@
                             <constraint firstItem="taK-Ta-p1C" firstAttribute="top" secondItem="kMw-GN-Fbz" secondAttribute="bottom" id="wNv-sa-7XB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ezi-Xe-kYJ"/>
+                    <navigationItem key="navigationItem" id="ezi-Xe-kYJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VGa-6m-Dke">
+                            <connections>
+                                <action selector="cancelTap:" destination="1AC-dX-EiX" id="Gde-cU-b26"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="MDu-NB-M9D" id="87i-55-UgO"/>
                         <segue destination="NZ0-cj-xYs" kind="show" identifier="transitionToAddKitModule" id="HfA-C5-53y"/>

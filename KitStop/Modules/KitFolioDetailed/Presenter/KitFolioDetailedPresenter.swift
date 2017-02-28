@@ -43,12 +43,13 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
     }
     
     func handleKitData() {
-        interactor.fetchKitFrom(id: self.id)
+
     }
     
     func addImageWithOrientation(imageView: UIImageView, imageUrl: String?, imageHeight: CGFloat, imageViewHeight: NSLayoutConstraint, bottomMask: UIImageView, topMask: UIImageView) {
         if imageUrl != nil && imageUrl != "" {
             let url = URL.init(string: imageUrl!)
+            imageViewHeight.constant = imageHeight
             imageView.sd_setImage(with: url!, placeholderImage: UIImage(named: "placeholder1080x1080"), options: [], completed: {
                 completed in
                 bottomMask.image = UIImage(named: "bottom_mask")
@@ -256,6 +257,7 @@ extension KitFolioDetailedPresenter: KitFolioDetailedModuleInput {
     func handleKitId(id: String, ownerId: String) {
         self.id = id
         self.ownerId = ownerId
+        interactor.fetchKitFrom(id: self.id)
     }
 }
 

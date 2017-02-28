@@ -63,7 +63,7 @@ final class CreatePostViewController: UIViewController, FlowController, UINaviga
     func createBackButton() {
 
         if navigationController?.viewControllers.count == 1 {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self , action: #selector(back))
         }
     }
 

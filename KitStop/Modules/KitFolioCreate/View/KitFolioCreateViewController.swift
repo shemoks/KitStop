@@ -16,6 +16,8 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
 
 
     @IBOutlet weak var postTitle: MyTextView!
+    @IBOutlet weak var post: UITextView!
+    @IBOutlet weak var information: UITextView!
     @IBOutlet weak var postDescription: MyTextView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
@@ -37,7 +39,7 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
     }
 
     func setupNavigationBar() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_orange_button"), style: .plain, target: self, action: #selector(back))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(back))
     }
 
     func back() {
@@ -48,9 +50,16 @@ final class KitFolioCreateViewController: UIViewController, FlowController, Sele
         postTitle.delegate = self
         postDescription.delegate = self
         postTitle.tag = 100
+        post.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 2, right: 10)
+        postTitle.textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 4, right: 10)
+        postTitle.updatePlacePlaceholder()
+        information.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 2, right: 10)
+        postDescription.textContainerInset = UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 10)
+        postDescription.updatePlacePlaceholder()
+        containerHeight.constant = view.frame.width
         addTextViewPlaceholder()
     }
-    
+
     func addTextViewPlaceholder() {
         postTitle.placeholderLabel.textColor = UIColor().hexStringToUIColor(hex: Color.placeholderText)
         postTitle.placeholderLabel.alpha = 0.5

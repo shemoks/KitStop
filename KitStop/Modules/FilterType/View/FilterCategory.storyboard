@@ -37,7 +37,7 @@
                             <constraint firstItem="fRo-zk-INX" firstAttribute="top" secondItem="YCC-KW-IzF" secondAttribute="bottom" id="uTb-oh-Poo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Category" id="8xs-Pm-EE5"/>
+                    <navigationItem key="navigationItem" title="Select Category" id="8xs-Pm-EE5"/>
                     <connections>
                         <outlet property="tableView" destination="YCC-KW-IzF" id="IhG-gg-PtL"/>
                     </connections>
