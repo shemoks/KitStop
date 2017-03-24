@@ -101,8 +101,9 @@ extension KitFolioDetailedPresenter: KitFolioDetailedViewOutput {
                 result in
                 bottomMask.image = UIImage()
                 topMask.image = UIImage()
-                image.image = UIImage.init(named: "camera")
+                image.image = UIImage.init(named: "placeholder1080x1080")
                 self.imageDeleteStatus = true
+                self.imageChange = false
             })
             alertController.addAction(deletePhoto)
         } else {
